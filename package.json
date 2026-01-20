@@ -1,0 +1,24 @@
+{
+  "name": "oinio-soul-system",
+  "version": "1.0.0",
+  "description": "A private encrypted oracle for soul evolution",
+  "main": "oinio-system.js",
+  "bin": "oinio-system.js",
+  "scripts": {
+    "start": "node oinio-system.js",
+    "build": "npx pkg oinio-system.js --targets node18-linux-x64,node18-macos-x64,node18-win-x64 --output dist/oinio-system"
+  },
+  "devDependencies": {
+    "pkg": "^5.8.1"
+  },
+  "pkg": {
+    "assets": [],
+    "scripts": [],
+    "targets": [
+      "node18-linux-x64",
+      "node18-macos-x64",
+      "node18-win-x64"
+    ],
+    "outputPath": "dist"
+  }
+}

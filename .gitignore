@@ -1,0 +1,22 @@
+# User data files - should not be in version control
+users.enc
+souls_*.enc
+lineage.csv
+
+# Node modules (if any)
+node_modules/
+
+# Build artifacts
+dist/*.node
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
