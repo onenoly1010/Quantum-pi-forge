@@ -15,7 +15,7 @@ asyncpg==0.29.0
 pyjwt==2.8.0
 python-jose[cryptography]==3.3.0
 passlib[bcrypt]==1.7.4
-cryptography==44.0.1
+cryptography==46.0.5
 
 # Data validation
 pydantic==2.5.0
