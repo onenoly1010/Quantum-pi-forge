@@ -1,0 +1,64 @@
+{
+  "pi-network-testnet": {
+    "rpc": "https://api.testnet.minepi.com/rpc",
+    "chain_id": 2025,
+    "native_symbol": "PI",
+    "explorer": "https://testnet.minepi.com",
+    "contracts": {
+      "oinio_token": "${OINIO_TOKEN_ADDRESS_TESTNET}",
+      "model_registry": "${MODEL_REGISTRY_ADDRESS_TESTNET}",
+      "catalyst_pool": "${CATALYST_POOL_ADDRESS_TESTNET}",
+      "model_royalty_nft": "${MODEL_ROYALTY_NFT_ADDRESS_TESTNET}"
+    }
+  },
+  "pi-network-mainnet": {
+    "rpc": "https://rpc.mainnet.pi.network",
+    "chain_id": 314159,
+    "native_symbol": "PI",
+    "explorer": "https://pi-blockchain.net",
+    "contracts": {
+      "oinio_token": "${OINIO_TOKEN_ADDRESS}",
+      "model_registry": "${MODEL_REGISTRY_ADDRESS}",
+      "catalyst_pool": "${CATALYST_POOL_ADDRESS}",
+      "model_royalty_nft": "${MODEL_ROYALTY_NFT_ADDRESS}"
+    }
+  },
+  "zero-g-testnet": {
+    "rpc": "https://evmrpc-testnet.0g.ai",
+    "chain_id": 16600,
+    "native_symbol": "0G",
+    "explorer": "https://chainscan-testnet.0g.ai",
+    "contracts": {
+      "w0g": "${ZERO_G_W0G_TESTNET}",
+      "factory": "${ZERO_G_FACTORY_TESTNET}",
+      "router": "${ZERO_G_ROUTER_TESTNET}",
+      "universal_router": "${ZERO_G_UNIVERSAL_ROUTER_TESTNET}"
+    }
+  },
+  "zero-g-mainnet": {
+    "rpc": "https://evmrpc.0g.ai",
+    "chain_id": 16661,
+    "native_symbol": "0G",
+    "explorer": "https://chainscan.0g.ai",
+    "contracts": {
+      "w0g": "${ZERO_G_W0G}",
+      "factory": "${ZERO_G_FACTORY}",
+      "router": "${ZERO_G_ROUTER}",
+      "universal_router": "${ZERO_G_UNIVERSAL_ROUTER}"
+    }
+  },
+  "ethereum-sepolia": {
+    "rpc": "https://rpc.sepolia.org",
+    "chain_id": 11155111,
+    "native_symbol": "ETH",
+    "explorer": "https://sepolia.etherscan.io",
+    "contracts": {}
+  },
+  "ethereum-mainnet": {
+    "rpc": "https://eth.llamarpc.com",
+    "chain_id": 1,
+    "native_symbol": "ETH",
+    "explorer": "https://etherscan.io",
+    "contracts": {}
+  }
+}

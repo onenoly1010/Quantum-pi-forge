@@ -1,0 +1,32 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+solc_version = "0.8.19"
+evm_version = "cancun"
+optimizer = true
+optimizer_runs = 999999
+via_ir = false
+
+# Remappings for Uniswap V2 contracts
+remappings = [
+    "@uniswap/v2-core/=lib/v2-core/",
+    "@uniswap/v2-periphery/=lib/v2-periphery/",
+    "@openzeppelin/=lib/openzeppelin-contracts/",
+    "forge-std/=lib/forge-std/src/"
+]
+
+[rpc_endpoints]
+zero_g = "https://evmrpc.0g.ai"
+
+[etherscan]
+zero_g = { key = "${ETHERSCAN_API_KEY}", url = "https://chainscan.0g.ai/api" }
+
+# Build settings
+[build]
+cache = true
+force = false
+
+# Test settings
+[test]
+verbosity = 3

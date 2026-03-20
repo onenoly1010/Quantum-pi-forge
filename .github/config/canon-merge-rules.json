@@ -1,0 +1,138 @@
+{
+  "version": "1.0",
+  "description": "Canon Auto-Merge Gate Configuration",
+  "artifact_types": {
+    "foundational": {
+      "description": "Core Canon documents establishing frameworks",
+      "required_approvals": 2,
+      "required_roles": ["steward"],
+      "conflict_sensitivity": "high",
+      "auto_merge_enabled": true,
+      "validation_required": true
+    },
+    "channel": {
+      "description": "Communication and integration channels",
+      "required_approvals": 1,
+      "required_roles": ["steward", "curator"],
+      "conflict_sensitivity": "medium",
+      "auto_merge_enabled": true,
+      "validation_required": true
+    },
+    "closure": {
+      "description": "Issue closure documentation",
+      "required_approvals": 1,
+      "required_roles": ["steward", "curator", "contributor"],
+      "conflict_sensitivity": "low",
+      "auto_merge_enabled": true,
+      "validation_required": true
+    },
+    "governance": {
+      "description": "Governance and policy artifacts",
+      "required_approvals": 2,
+      "required_roles": ["steward"],
+      "conflict_sensitivity": "high",
+      "auto_merge_enabled": false,
+      "validation_required": true
+    }
+  },
+  "roles": {
+    "steward": {
+      "description": "Canon steward with full permissions",
+      "github_teams": ["canon-stewards"],
+      "can_override_gates": true,
+      "can_approve_all": true
+    },
+    "curator": {
+      "description": "Canon curator with curation permissions",
+      "github_teams": ["canon-curators"],
+      "can_override_gates": false,
+      "can_approve_types": ["channel", "closure"]
+    },
+    "contributor": {
+      "description": "Contributor with limited permissions",
+      "github_teams": ["contributors"],
+      "can_override_gates": false,
+      "can_approve_types": ["closure"]
+    },
+    "agent": {
+      "description": "Automated agent",
+      "github_users": ["github-actions[bot]"],
+      "can_override_gates": false,
+      "can_approve_types": []
+    }
+  },
+  "validation_gates": {
+    "gate1_classification": {
+      "name": "PR Classification",
+      "enabled": true,
+      "timeout_seconds": 60,
+      "required": true
+    },
+    "gate2_sentinel": {
+      "name": "ClosureSentinel Validation",
+      "enabled": true,
+      "timeout_seconds": 300,
+      "required": true,
+      "check_name": "ClosureSentinel"
+    },
+    "gate3_approval": {
+      "name": "Role-Based Approval",
+      "enabled": true,
+      "timeout_seconds": 120,
+      "required": true
+    },
+    "gate4_conflict": {
+      "name": "Conflict Detection",
+      "enabled": true,
+      "timeout_seconds": 180,
+      "required": true,
+      "semantic_threshold": 0.85,
+      "structural_checks": true
+    },
+    "gate5_audit": {
+      "name": "Audit Trail",
+      "enabled": true,
+      "timeout_seconds": 60,
+      "required": true,
+      "audit_endpoint": "/api/audit/merge-decision"
+    },
+    "gate6_merge": {
+      "name": "Auto-Merge Execution",
+      "enabled": true,
+      "timeout_seconds": 60,
+      "required": true
+    }
+  },
+  "merge_strategy": {
+    "method": "squash",
+    "delete_branch_after_merge": true,
+    "commit_message_template": "Canon: {title} (#{pr_number})",
+    "labels_to_add": ["auto-merged", "audit-logged"],
+    "require_mergeable": true
+  },
+  "conflict_detection": {
+    "semantic_similarity_threshold": 0.85,
+    "check_parent_references": true,
+    "check_trace_ids": true,
+    "check_naming_conflicts": true,
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2"
+  },
+  "rollback_policy": {
+    "auto_rollback_on_integrity_failure": true,
+    "notify_stewards": true,
+    "create_incident_issue": true,
+    "preserve_failed_merge_branch": true
+  },
+  "notifications": {
+    "slack_webhook_secret": "SLACK_WEBHOOK_URL",
+    "notify_on_auto_merge": true,
+    "notify_on_gate_failure": true,
+    "notify_on_rollback": true
+  },
+  "integrations": {
+    "canon_api_url_secret": "CANON_API_URL",
+    "canon_api_key_secret": "CANON_API_KEY",
+    "redis_url_secret": "REDIS_URL",
+    "use_checks_api": true
+  }
+}

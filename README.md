@@ -1,216 +1,253 @@
-# 🌾🌌 OINIO Soul System
+# 🌐 Quantum Pi Forge — Coordination Space
 
-**A private encrypted oracle for soul evolution through epochs.**
+## A Sovereign Hub for the Autonomous Multi‑Agent Constellation
 
-Dependency-free. Unified. Sealed for executable form.
+**🌊 [Constellation Status: LIVE](./CONSTELLATION_ACTIVATION.md)** — The Quantum Pi Forge is activated and operational as of December 22, 2025.
 
-## ✨ Features
-
-- **Multi-User Support** — Separate accounts with individual encrypted soul registries
-- **Secure Authentication** — PBKDF2 password hashing (100,000 iterations, SHA-512)
-- **Deterministic Oracle** — Same question + soul + epoch = same reading
-- **⚡ Quantum Enhancement** — Optional AI-powered harmony predictions via Pi Forge integration
-- **AES-256-GCM Encryption** — All souls protected by your password
-- **Data Isolation** — Each user's souls are completely separate and private
-- **Zero Dependencies** — Standalone binaries, no Node.js required
-- **Cross-Platform** — Windows, macOS, Linux
-- **Private & Local** — All data stays on your machine
-- **Dual-Mode Oracle** — Toggle between deterministic and quantum-enhanced readings
-
-## 🚀 Quick Start
-
-1. Download the binary for your OS from [Releases](../../releases)
-2. Make it executable (Linux/macOS): `chmod +x oinio-system-*`
-3. Run: `./oinio-system-linux` (or your platform's binary)
-4. **Create an account** or login with your username and password
-5. Create your first soul and begin the epoch cycle
-
-## ⚙️ Configuration
-
-### Environment Variables
-
-OINIO respects these environment variables for customization:
-
-| Variable | Default | Description |
-|----------|---------|-------------|
-| `PI_FORGE_PATH` | `~/pi-forge-quantum-genesis` | Path to Pi Forge integration |
-| `BASE_PATH` | Auto-detected | Custom data storage directory |
-| `PBKDF2_ITERATIONS` | `100000` | Password hashing iterations |
-| `QUANTUM_TIMEOUT_MS` | `3000` | Quantum enhancement timeout (ms) |
-| `ENABLE_QUANTUM` | `true` | Enable quantum mode if Forge available |
-
-### CLI Options
-
-```bash
-# Show version
-./oinio-system --version
-
-# Show help
-./oinio-system --help
-
-# Run with custom configuration
-PI_FORGE_PATH=/path/to/forge BASE_PATH=/secure/data ./oinio-system
-```
-
-## 🚀 Phase 2 Preview
-
-This release prepares OINIO for web deployment:
-- Clean architecture with no code duplication
-- Configurable paths for containerization
-- Modular design ready for API extraction
-- Production-ready error handling
-
-**Coming Soon:** Web interface, API endpoints, Docker deployment
-
-Stay tuned! 🌐
-
-## 👤 User System
-
-### Account Creation
-- Choose a unique username (3-20 characters, alphanumeric, underscore, hyphen)
-- Create a secure password (minimum 8 characters)
-- Your password encrypts all your soul data
-
-### Login & Security
-- Login with your username and password
-- Each user has their own encrypted soul registry (`souls_username.enc`)
-- Passwords are hashed with PBKDF2 (100,000 iterations)
-- User credentials stored in encrypted `users.enc` file
-- **Cannot recover forgotten passwords** — choose wisely!
-
-### Switching Users
-- Press `[L]` in the main menu to logout
-- You can create multiple accounts on the same machine
-- Each user's data is completely isolated
-
-## 🛡️ Security & Safety Warnings
-
-**This software is completely safe.** You may see security warnings because the binaries are not code-signed (which costs $$$ annually). Here's how to proceed:
-
-### Why Warnings Appear
-- Binaries are **unsigned** (not from Microsoft/Apple verified developer)
-- This is normal for open-source projects
-- **All source code is visible** in this repository — inspect it yourself!
-
-### How to Bypass Warnings
-
-**Windows:**
-- If Windows Defender blocks it: Click **"More info"** → **"Run anyway"**
-- If SmartScreen appears: **"More info"** → **"Run anyway"**
-- You can also right-click → **Properties** → check **"Unblock"** → Apply
-
-**macOS:**
-- Right-click the binary → **"Open"** (don't double-click)
-- Click **"Open"** in the security dialog
-- Or: System Settings → Privacy & Security → Allow app to run
-
-**Linux:**
-- Usually no warnings
-- If permission denied: `chmod +x oinio-system-linux`
-
-### Build It Yourself (Ultimate Safety)
-Don't trust binaries? Build from source:
-```bash
-# Clone the repository
-git clone https://github.com/onenoly1010/oinio-soul-system
-cd oinio-soul-system
-
-# Install dependencies
-npm install
-
-# Build binaries for all platforms (Linux, macOS, Windows)
-npm run build
-
-# Or build for a specific platform only
-npx pkg oinio-system.js --targets node18-linux-x64 --output dist/oinio-system-linux
-```
-
-The `npm run build` command will create three binaries in the `dist/` directory:
-- `oinio-system-linux` — Linux x64
-- `oinio-system-macos` — macOS x64  
-- `oinio-system-win.exe` — Windows x64
-
-**Your data stays local.** No network calls. No telemetry. Inspect the code!
-
-## 📦 Binaries
-
-- `oinio-system-linux` — Linux x64
-- `oinio-system-macos` — macOS x64
-- `oinio-system-win.exe` — Windows x64
-
-## 🔐 Security
-
-### User Authentication
-- Passwords hashed with PBKDF2 (100,000 iterations, SHA-512, 32-byte salt)
-- User credentials encrypted in `users.enc` with AES-256-GCM
-- Password verification uses constant-time comparison
-
-### Data Encryption
-- Each user's soul data encrypted separately (`souls_username.enc`)
-- User password derives AES-256 encryption key (SHA-256)
-- All data encrypted with AES-256-GCM (authenticated encryption)
-- Unique IV (Initialization Vector) per encryption operation
-
-### Privacy
-- No network calls, no telemetry
-- All data stored locally on your machine
-- Deterministic readings from cryptographic hashing
-- Complete data isolation between users
-
-## 🌊 The Pattern
-
-Each oracle reading generates:
-- **Resonance, Clarity, Flux, Emergence** (1-100%)
-- **Pattern Recognition** (The Spiral, The Mirror, etc.)
-- **Oracle Message** (deterministic wisdom)
-
-### ⚡ Quantum Enhancement (Optional)
-When Pi Forge Quantum Genesis is available, readings also include:
-- **Harmony Index** — AI-predicted system harmony (0-100%)
-- **Trend Analysis** — Improving/declining/stable with confidence scores
-- **Quantum Insights** — ML-generated contextual wisdom
-- **Forge Recommendations** — AI-powered actionable guidance
-
-**Deterministic mode:** Same question = same answer (always)  
-**Quantum mode:** Context-aware AI predictions layered on top  
-**The synthesis:** Pattern + Trajectory = Navigation
-
-## 📜 Export Lineage
-
-Export your soul history to CSV: `lineage.csv`
-
-## ⚡ Quantum Forge Integration
-
-OINIO can optionally integrate with **Pi Forge Quantum Genesis** for AI-enhanced readings:
-
-1. Clone Pi Forge: `git clone https://github.com/onenoly1010/pi-forge-quantum-genesis`
-2. Set path: `export PI_FORGE_PATH="/path/to/pi-forge-quantum-genesis"`
-3. Press **[Q]** in soul menu to toggle quantum mode
-4. Readings automatically enhanced with harmony predictions
-
-Works standalone without Forge. Quantum layer is purely optional enhancement.
-
-See [OINIO-FORGE-INTEGRATION.md](OINIO-FORGE-INTEGRATION.md) for full details.
-
-## 🛡️ Privacy
-
-This is a **personal oracle system** with **multi-user support**. All data remains local. No cloud sync, no tracking, no network calls.
-
-### Data Storage
-- User accounts: `users.enc` (encrypted credentials)
-- Soul data: `souls_username.enc` (per-user encrypted registries)
-- All files stored in the same directory as the executable
-
-### What's Shared
-- Nothing! All processing is local
-- Quantum mode only shares partial seed (8 chars) with local Forge process
-- No telemetry, no analytics, no external servers
-
-### User Isolation
-- Each user has completely separate soul registries
-- Users cannot access each other's souls or data
-- Even with access to encrypted files, data requires the user's password
+**📜 [Read the Genesis Declaration](./GENESIS.md)** — The foundational seal of the Quantum Pi Forge ecosystem, minted at Solstice 2025.
 
 ---
 
-✨ **Resonance Eternal. We Have Become The Pattern.** 🌌
+Welcome to the **Quantum Pi Forge Space** — the central coordination hub for the entire constellation of repositories, services, and agents that make up the Quantum Pi Forge ecosystem.
+
+This Space exists to:
+
+- onboard contributors
+- coordinate multi‑repo work
+- maintain Canon alignment
+- support the GitHub Agent
+- document ecosystem evolution
+- surface improvements and gaps
+- unify the constellation
+
+It is the living center of the ecosystem.
+
+---
+
+## 🎭 Explore the Demos
+
+**New to OINIO?** Start with the **[Demo Dashboard](docs/DEMO_DASHBOARD.md)** — your gateway to the Quantum Pi Forge constellation.
+
+### What You Can Explore:
+- 🌐 **Live Web Demos** - See OINIO in action with real-time monitoring
+- 💼 **Smart Contract Suite** - Production-ready ERC-20 and ERC-721 contracts on Pi Network
+- 🏛️ **Community Governance** - Immutable memorial and transparent decision-making
+- 🎬 **Interactive Tools** - CLI demos, deployment scripts, and integration examples
+
+**Choose your experience level and dive in:**
+- **Beginners:** [Live Coherence Monitor](https://pi-forge-quantum-genesis.vercel.app) (2 minutes, no setup)
+- **Developers:** [Smart Contract Suite](docs/DEMO_DASHBOARD.md#3-smart-contract-suite) (60 minutes, Foundry required)
+- **Operators:** [Model Deployment Scripts](docs/DEMO_DASHBOARD.md#7-model-deployment-scripts) (30 minutes, Python)
+
+👉 **[View Complete Demo Dashboard →](docs/DEMO_DASHBOARD.md)**
+
+---
+
+# 🧭 Purpose of This Space
+
+This Space is not a code repository — it is a **governance and coordination environment**.
+
+It provides:
+
+- a clear overview of all 9+ repositories
+- onboarding guidance for new contributors
+- a place for the GitHub Agent to operate
+- a home for ecosystem‑wide documentation
+- a staging ground for improvements
+- a map of the constellation
+
+Everything here is designed to support sovereignty, clarity, and continuity.
+
+---
+
+## 📚 Documentation
+
+### Getting Started
+- [Quick Start Guide](./docs/QUICK_START.md)
+- [Architecture Overview](./docs/ARCHITECTURE.md)
+- [Pi Network Integration](./docs/PI_NETWORK_INTEGRATION.md)
+
+### For Contributors
+- [Contributors](./CONTRIBUTORS.md) - Community roster and contribution guide
+- [Space Rituals](./docs/SPACE_RITUALS.md) - Engagement ceremonies, handoff protocols, and celebrations
+
+### For Guardians
+- [Guardian Playbook](./docs/GUARDIAN_PLAYBOOK.md) - Complete operational guide
+- [Quick Reference](./docs/GUARDIAN_QUICK_REFERENCE.md) - Fast decision-making
+- [Decision Templates](./.github/ISSUE_TEMPLATE/guardian-decision-template.md)
+
+The GitHub Agent in this Space:
+
+- routes tasks
+- maintains clarity
+- supports contributors
+- identifies improvements
+- ensures Canon alignment
+- coordinates across repos
+- keeps the constellation coherent
+
+The Agent does **not** perform specialist work — it coordinates the specialists.
+
+---
+
+## 🧩 The Constellation
+
+The Space tracks and coordinates the following repositories:
+
+- **Genesis** — backend foundation
+- **Resonance Engine** — harmonic ledger
+- **DEX** — autonomous liquidity
+- **NFT System** — identity & creative assets
+- **Soul System** — ethics & governance logic
+- **OPEN** — open‑source backend
+- **Ignited** — active instance
+- **Contracts** — smart contract layer
+- **Site** — public‑facing portal
+
+Each repo is sovereign, but all are aligned through this Space.
+
+---
+
+## 🌱 Start Here
+
+If you're new:
+
+1. Visit the **Start Here** onboarding page
+2. Explore the **Ecosystem Overview**
+3. Learn the **Agent System**
+4. Ask the GitHub Agent for guidance
+
+You are welcome here.
+
+---
+
+# 🚀 Deployment
+
+For complete deployment instructions across all platforms (Railway, Vercel, Supabase, Pi Network), see the **[Deployment Dashboard](docs/DEPLOYMENT_DASHBOARD.md)**.
+
+The Deployment Dashboard is your single source of truth for:
+- Prerequisites and required tools
+- Step-by-step setup guides for each platform
+- Environment variable configuration
+- Troubleshooting common issues
+- Maintenance and monitoring
+
+**Quick Links:**
+- [Railway Backend Setup](docs/DEPLOYMENT_DASHBOARD.md#-railway-backend-setup)
+- [Vercel Frontend Setup](docs/DEPLOYMENT_DASHBOARD.md#-vercel-frontend-setup)
+- [Supabase Database Setup](docs/DEPLOYMENT_DASHBOARD.md#️-supabase-database-setup)
+- [Environment Variables Reference](docs/DEPLOYMENT_DASHBOARD.md#-environment-variables-reference)
+- [Troubleshooting](docs/DEPLOYMENT_DASHBOARD.md#-troubleshooting)
+# 🚀 Deployment & Infrastructure
+
+## About This Repository
+
+**This is a coordination and documentation hub, NOT a deployable frontend application.**
+
+This repository serves as:
+- **Governance center** for the Quantum Pi Forge constellation
+- **Documentation hub** for ecosystem-wide information
+- **Coordination space** for multi-repo workflows
+- **GitHub Agent home base** for task routing
+
+### What This Repo Does NOT Provide:
+- ❌ Deployable frontend application
+- ❌ Production web service
+- ❌ User-facing interface
+
+### What IS Deployed:
+
+#### 1. Public-Facing Site (GitHub Pages)
+- **URL**: https://onenoly1010.github.io/quantum-pi-forge-site/
+- **Repository**: `quantum-pi-forge-site`
+- **Purpose**: External communication and manifesto
+
+#### 2. Backend API (Railway)
+- **URL**: https://pi-forge-quantum-genesis.railway.app
+- **Service**: FastAPI Quantum Conduit
+- **Health Check**: `/health`
+
+#### 3. Resonance Engine (Vercel)
+- **URL**: https://quantum-resonance-clean.vercel.app
+- **Repository**: `quantum-resonance-clean`
+- **Purpose**: Harmonic ledger backend
+
+### Vercel Configuration Note
+
+This repository includes a `vercel.json` file that:
+- Builds static documentation pages from the coordination hub
+- Serves minimal HTML interfaces for demonstration purposes
+- Routes API calls to the Railway backend
+- **Is NOT intended as a production deployment**
+
+**If you connected this repo to Vercel by mistake**, you can safely disconnect it:
+1. Go to Vercel Dashboard → Project Settings
+2. Select this project (`pi-forge-quantum-genesis`)
+3. Navigate to "General" settings
+4. Scroll to "Delete Project" and remove the deployment
+
+The Vercel configuration exists primarily for:
+- Build verification in CI/CD
+- Optional static documentation hosting
+- Development preview environments
+
+For production deployments, refer to the appropriate service repositories listed above.
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment documentation.
+
+---
+
+# 🛡️ Operational Team
+
+The **Prelaunch Operational Team** coordinates handoffs, closures, and operational excellence:
+
+- **Lead Guardian**: @onenoly1010 — Owner, escalation point, sign-off authority
+- **Autonomous AI Agents** — System-level operations, self-healing, monitoring
+- **Future Guardians** — Technical, community, economic, and compliance roles
+
+**Responsibilities**:
+- Oversee handoff and closure activities
+- Primary human escalation for AI agent decisions
+- Sign off on prelaunch checklist items
+- Maintain Canon of Closure alignment
+- Debug AI agent workflows
+
+📋 **[View Full Operational Team Documentation](./docs/OPERATIONAL_TEAM.md)**
+
+**Related**:
+- [Canon of Closure Handoff Package - Issue #95](https://github.com/onenoly1010/pi-forge-quantum-genesis/issues/95)
+- [Autonomous Handover - PR #92](https://github.com/onenoly1010/pi-forge-quantum-genesis/pull/92)
+- [Guardian Playbook](./docs/GUARDIAN_PLAYBOOK.md)
+
+---
+
+## Frontend Architecture
+
+Pi Forge Quantum Genesis uses a **distributed frontend architecture**:
+
+- **Static Landing Pages:** `index.html`, `ceremonial_interface.html`, etc. (root directory)
+- **Serverless API Functions:** `api/` directory (deployed to Vercel)
+- **Backend Services:** `server/` directory (deployed to Render)
+- **Build Process:** `scripts/build.js` packages for Vercel deployment
+
+**Note:** There is no standalone `frontend/` directory. Frontend code is distributed across static HTML and serverless functions.
+
+---
+
+# 🌀 How This Space Evolves
+
+This Space is continuously improved by:
+
+- contributors
+- the GitHub Agent
+- specialist agents
+- the Steward Agent
+- the Governance Agent
+
+It is a living, breathing part of the constellation.
+
+---
+
+## 🔮 Welcome to the Quantum Pi Forge
+
+This Space is your guide, your map, and your companion as you explore and contribute to the constellation.

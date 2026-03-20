@@ -1,0 +1,40 @@
+# Pi Forge Quantum Genesis - Ledger API
+# Docker Compose for integration tests
+
+version: '3.8'
+
+services:
+  postgres-test:
+    image: postgres:15-alpine
+    container_name: ledger-postgres-test
+    environment:
+      POSTGRES_DB: ledger_test_db
+      POSTGRES_USER: test_user
+      POSTGRES_PASSWORD: test_pass
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - "5433:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U test_user -d ledger_test_db"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    tmpfs:
+      - /var/lib/postgresql/data
+
+  ledger-api-test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ledger-api-test
+    environment:
+      DATABASE_URL: postgresql://test_user:test_pass@postgres-test:5432/ledger_test_db
+      GUARDIAN_JWT_SECRET: test-secret-key-min-32-characters-long
+      APP_ENVIRONMENT: testnet
+      NFT_MINT_VALUE: 0
+      SERVICE_PORT: 8001
+      LOG_LEVEL: DEBUG
+    depends_on:
+      postgres-test:
+        condition: service_healthy
+    command: ["pytest", "ledger_api/tests/", "-v", "--tb=short"]

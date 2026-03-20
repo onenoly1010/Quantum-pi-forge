@@ -1,0 +1,134 @@
+name: Verify All Deployments
+
+on:
+  workflow_dispatch:
+    inputs:
+      network:
+        description: 'Network to verify'
+        required: true
+        type: choice
+        options:
+          - all
+          - pi-network-mainnet
+          - pi-network-testnet
+          - zero-g-mainnet
+          - zero-g-testnet
+        default: 'all'
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write  # For PR comments
+      actions: read         # For artifacts
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: nightly
+      
+      - name: Install bc (for floating point math)
+        run: sudo apt-get update && sudo apt-get install -y bc
+      
+      - name: Verify Foundry installation
+        run: |
+          cast --version
+          forge --version
+      
+      - name: Make scripts executable
+        run: |
+          chmod +x scripts/verification/verify-all.sh
+          chmod +x scripts/verification/lib/*.sh
+          chmod +x scripts/verification/pi-network/*.sh
+          chmod +x scripts/verification/zero-g/*.sh
+          chmod +x scripts/verification/universal/*.sh
+      
+      - name: Run Verification
+        env:
+          # Pi Network Mainnet
+          CATALYST_POOL_ADDRESS: ${{ secrets.CATALYST_POOL_ADDRESS }}
+          MODEL_ROYALTY_NFT_ADDRESS: ${{ secrets.MODEL_ROYALTY_NFT_ADDRESS }}
+          
+          # Pi Network Testnet
+          CATALYST_POOL_ADDRESS_TESTNET: ${{ secrets.CATALYST_POOL_ADDRESS_TESTNET }}
+          MODEL_ROYALTY_NFT_ADDRESS_TESTNET: ${{ secrets.MODEL_ROYALTY_NFT_ADDRESS_TESTNET }}
+          
+          # 0G Mainnet
+          ZERO_G_W0G: ${{ secrets.ZERO_G_W0G }}
+          ZERO_G_FACTORY: ${{ secrets.ZERO_G_FACTORY }}
+          ZERO_G_ROUTER: ${{ secrets.ZERO_G_ROUTER }}
+          ZERO_G_UNIVERSAL_ROUTER: ${{ secrets.ZERO_G_UNIVERSAL_ROUTER }}
+          
+          # 0G Testnet
+          ZERO_G_W0G_TESTNET: ${{ secrets.ZERO_G_W0G_TESTNET }}
+          ZERO_G_FACTORY_TESTNET: ${{ secrets.ZERO_G_FACTORY_TESTNET }}
+          ZERO_G_ROUTER_TESTNET: ${{ secrets.ZERO_G_ROUTER_TESTNET }}
+          ZERO_G_UNIVERSAL_ROUTER_TESTNET: ${{ secrets.ZERO_G_UNIVERSAL_ROUTER_TESTNET }}
+        run: |
+          ./scripts/verification/verify-all.sh ${{ inputs.network }}
+      
+      - name: Upload Verification Reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: verification-reports-${{ inputs.network }}-${{ github.run_number }}
+          path: reports/
+          retention-days: 90
+          if-no-files-found: warn
+      
+      - name: Comment on PR (if applicable)
+        if: github.event_name == 'pull_request' && always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+            
+            // Find the latest summary report
+            const reportsDir = 'reports';
+            
+            // Check if reports directory exists and has files
+            if (!fs.existsSync(reportsDir)) {
+              console.log('Reports directory not found');
+              return;
+            }
+            
+            const files = fs.readdirSync(reportsDir)
+              .filter(f => f.startsWith('verification-summary-'))
+              .sort()
+              .reverse();
+            
+            if (files.length > 0) {
+              const summaryFile = path.join(reportsDir, files[0]);
+              const summary = JSON.parse(fs.readFileSync(summaryFile, 'utf8'));
+              
+              const status = summary.summary.failed === 0 ? '✅ PASSED' : '❌ FAILED';
+              const emoji = summary.summary.failed === 0 ? '🎉' : '⚠️';
+              
+              const comment = `## ${emoji} Deployment Verification Report
+              
+**Status:** ${status}
+**Network:** ${{ inputs.network }}
+
+### Summary
+- **Total Verifications:** ${summary.summary.total}
+- **Successful:** ${summary.summary.successful} ✓
+- **Failed:** ${summary.summary.failed} ✗
+
+**Timestamp:** ${summary.timestamp}
+
+[View detailed reports in artifacts](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+              `;
+              
+              github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: comment
+              });
+            }

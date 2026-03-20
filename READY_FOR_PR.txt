@@ -1,0 +1,19 @@
+✅ LEDGER API V1 - READY FOR PR CREATION
+
+Branch: infra/ledger-api-v1
+Base: main
+Status: All files committed and ready to push
+
+FILES ADDED (4 new files):
+1. ledger-api/PR_BODY.md (383 lines)
+2. ledger-api/migrations/versions/0001_initial_ledger_schema.py (56 lines)
+3. ledger-api/migrations/README.md (146 lines)
+4. ledger-api/scripts/smoke_test.sh (133 lines, executable)
+
+TOTAL FILES: 47 files in ledger-api/ directory
+
+TO CREATE DRAFT PR:
+git push -u origin infra/ledger-api-v1
+gh pr create --base main --head infra/ledger-api-v1 --title "🚀 [LEDGER-001] Add Ledger API v1 (ledger-api service) — migrations, models, allocation engine, tests, CI, docs" --body-file ledger-api/PR_BODY.md --draft
+
+See LEDGER_API_V1_BRANCH_READY.md for complete details.

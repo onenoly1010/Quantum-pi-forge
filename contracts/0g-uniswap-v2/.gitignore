@@ -1,0 +1,39 @@
+# Environment files
+.env
+.env.launch
+
+# Foundry artifacts
+cache/
+out/
+broadcast/
+
+# Dependencies
+lib/
+
+# Node modules (if using hardhat alongside)
+node_modules/
+
+# Deployment artifacts that shouldn't be committed
+artifacts/*.json
+artifacts/*.txt
+
+# Keep artifacts directory but ignore contents except .gitkeep
+!artifacts/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+tmp/
+temp/

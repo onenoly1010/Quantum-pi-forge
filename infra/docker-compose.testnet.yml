@@ -1,0 +1,289 @@
+# Docker Compose - TESTNET ONLY
+# Pi Forge Quantum Genesis - Full Stack Testnet Environment
+#
+# ⚠️  TESTNET SAFETY CONFIGURATION ⚠️
+# This compose file is configured for testnet deployments only
+# All Pi Network interactions use sandbox mode with zero-value transactions
+#
+# Usage:
+#   docker-compose -f infra/docker-compose.testnet.yml up
+#
+# Prerequisites:
+#   1. Copy .env.example to .env and configure testnet values
+#   2. Ensure APP_ENVIRONMENT=testnet in .env
+#   3. Set all required secrets (see infra/SECRETS.md)
+#
+# Safety Features:
+#   - APP_ENVIRONMENT hardcoded to 'testnet'
+#   - NFT_MINT_VALUE defaults to 0
+#   - PI_NETWORK_MODE set to 'sandbox'
+#   - All services log Pi interactions for audit
+
+version: '3.8'
+
+services:
+  # FastAPI Production Server (Port 8000)
+  fastapi-server:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+      target: production
+    container_name: pi-forge-fastapi-testnet
+    ports:
+      - "8000:8000"
+    environment:
+      # TESTNET SAFETY CONFIGURATION
+      - APP_ENVIRONMENT=testnet
+      - NFT_MINT_VALUE=0
+      - PI_NETWORK_MODE=sandbox
+      - PI_SANDBOX_MODE=true
+      
+      # Service configuration
+      - PORT=8000
+      - PYTHONUNBUFFERED=1
+      
+      # Supabase (from .env)
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_KEY=${SUPABASE_KEY}
+      - JWT_SECRET=${JWT_SECRET}
+      
+      # Pi Network Testnet
+      - PI_NETWORK_APP_ID=${PI_NETWORK_APP_ID:-testnet-app-id}
+      - PI_NETWORK_API_KEY=${PI_NETWORK_API_KEY:-testnet-api-key}
+      - PI_NETWORK_API_ENDPOINT=https://api.minepi.com/sandbox
+      
+      # Database
+      - POSTGRES_HOST=guardian-db
+      - POSTGRES_DB=quantum_lattice_testnet
+      - POSTGRES_USER=${POSTGRES_USER:-testnet_user}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-testnet_password}
+      
+      # Tracing
+      - OTLP_ENDPOINT=http://otel-collector:4318
+      - QUANTUM_TRACING_ENABLED=true
+      
+      # Logging
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+      - LOG_FORMAT=json
+    volumes:
+      - ../server:/app/server:ro
+      - ../frontend:/app/frontend:ro
+    depends_on:
+      guardian-db:
+        condition: service_healthy
+    networks:
+      - quantum-lattice-testnet
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+
+  # Flask Dashboard (Port 5000)
+  flask-dashboard:
+    build:
+      context: ..
+      dockerfile: Dockerfile.flask
+    container_name: pi-forge-flask-testnet
+    ports:
+      - "5000:5000"
+    environment:
+      # TESTNET SAFETY CONFIGURATION
+      - APP_ENVIRONMENT=testnet
+      - NFT_MINT_VALUE=0
+      - PI_NETWORK_MODE=sandbox
+      
+      # Service configuration
+      - FLASK_APP=server.app
+      - FLASK_ENV=production
+      - PORT=5000
+      
+      # Supabase
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_KEY=${SUPABASE_KEY}
+      
+      # Logging
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    volumes:
+      - ../server:/app/server:ro
+      - ../frontend:/app/frontend:ro
+    depends_on:
+      - fastapi-server
+    networks:
+      - quantum-lattice-testnet
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+
+  # Gradio Ethics Interface (Port 7860)
+  gradio-interface:
+    build:
+      context: ..
+      dockerfile: Dockerfile.gradio
+    container_name: pi-forge-gradio-testnet
+    ports:
+      - "7860:7860"
+    environment:
+      # TESTNET SAFETY CONFIGURATION
+      - APP_ENVIRONMENT=testnet
+      - NFT_MINT_VALUE=0
+      
+      # Service configuration
+      - PORT=7860
+      - GRADIO_SERVER_NAME=0.0.0.0
+      
+      # Logging
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    volumes:
+      - ../server:/app/server:ro
+    networks:
+      - quantum-lattice-testnet
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:7860"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+    restart: unless-stopped
+
+  # Guardian API (Optional - for advanced guardian coordination)
+  guardian-api:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+      target: production
+    container_name: pi-forge-guardian-api-testnet
+    ports:
+      - "8001:8001"
+    environment:
+      # TESTNET SAFETY CONFIGURATION
+      - APP_ENVIRONMENT=testnet
+      - NFT_MINT_VALUE=0
+      - GUARDIAN_MODE=testnet
+      
+      # Service configuration
+      - PORT=8001
+      - PYTHONUNBUFFERED=1
+      
+      # Database
+      - POSTGRES_HOST=guardian-db
+      - POSTGRES_DB=quantum_lattice_testnet
+      - POSTGRES_USER=${POSTGRES_USER:-testnet_user}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-testnet_password}
+      
+      # Logging
+      - LOG_LEVEL=${LOG_LEVEL:-DEBUG}
+    depends_on:
+      guardian-db:
+        condition: service_healthy
+    networks:
+      - quantum-lattice-testnet
+    restart: unless-stopped
+    profiles:
+      - guardian
+
+  # Guardian Bot (Optional - for automated guardian operations)
+  guardian-bot:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+      target: production
+    container_name: pi-forge-guardian-bot-testnet
+    environment:
+      # TESTNET SAFETY CONFIGURATION
+      - APP_ENVIRONMENT=testnet
+      - NFT_MINT_VALUE=0
+      - GUARDIAN_ROLE=observer
+      
+      # Bot configuration
+      - GUARDIAN_CHECK_INTERVAL=60
+      - GUARDIAN_KILL_SWITCH=${GUARDIAN_KILL_SWITCH:-off}
+      
+      # Database
+      - POSTGRES_HOST=guardian-db
+      - POSTGRES_DB=quantum_lattice_testnet
+      - POSTGRES_USER=${POSTGRES_USER:-testnet_user}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-testnet_password}
+      
+      # Logging
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    depends_on:
+      guardian-db:
+        condition: service_healthy
+      guardian-api:
+        condition: service_started
+    networks:
+      - quantum-lattice-testnet
+    restart: unless-stopped
+    profiles:
+      - guardian
+
+  # PostgreSQL Database (Testnet)
+  guardian-db:
+    image: postgres:15-alpine
+    container_name: pi-forge-db-testnet
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=quantum_lattice_testnet
+      - POSTGRES_USER=${POSTGRES_USER:-testnet_user}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-testnet_password}
+    volumes:
+      - guardian-db-data:/var/lib/postgresql/data
+      - ../scripts/init-db.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    networks:
+      - quantum-lattice-testnet
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U testnet_user -d quantum_lattice_testnet"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped
+
+  # OpenTelemetry Collector (Optional - for tracing)
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:latest
+    container_name: pi-forge-otel-testnet
+    ports:
+      - "4318:4318"  # OTLP HTTP receiver
+      - "8888:8888"  # Prometheus metrics
+    command: ["--config=/etc/otel-collector-config.yaml"]
+    volumes:
+      - ../config/otel-collector-config.yaml:/etc/otel-collector-config.yaml:ro
+    networks:
+      - quantum-lattice-testnet
+    restart: unless-stopped
+    profiles:
+      - observability
+
+networks:
+  quantum-lattice-testnet:
+    driver: bridge
+    name: quantum-lattice-testnet
+
+volumes:
+  guardian-db-data:
+    name: pi-forge-guardian-db-testnet
+
+# ============================================================================
+# SAFETY VALIDATION CHECKLIST
+# ============================================================================
+# Before starting this stack, verify:
+# ✅ APP_ENVIRONMENT=testnet in all service definitions
+# ✅ NFT_MINT_VALUE=0 or unset
+# ✅ PI_NETWORK_MODE=sandbox
+# ✅ PI_SANDBOX_MODE=true
+# ✅ All secrets loaded from .env (never committed)
+# ✅ FORCE_DEPLOY_TO_MAINNET does not exist
+# ✅ GUARDIAN_KILL_SWITCH is not 'on' (unless intentionally testing kill switch)
+#
+# For mainnet deployments, a separate configuration file with guardian
+# approvals is required.
+# ============================================================================

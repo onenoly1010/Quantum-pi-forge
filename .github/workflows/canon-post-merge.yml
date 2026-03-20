@@ -1,0 +1,309 @@
+name: Canon Post-Merge
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'canon/**'
+  workflow_dispatch:
+    inputs:
+      merged_pr:
+        description: 'PR number that was merged'
+        required: false
+        type: string
+      artifact_type:
+        description: 'Type of artifact that was merged'
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  regenerate-index:
+    name: Regenerate Canon Index
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r .github/scripts/requirements.txt
+
+      - name: Generate Canon index
+        id: generate
+        run: |
+          echo "::group::Generating Canon Index"
+          python .github/scripts/update-canon-index.py \
+            --canon-dir canon \
+            --output-index canon/INDEX.md \
+            --output-json canon/artifacts.json
+          echo "::endgroup::"
+          
+          # Check if files changed
+          if git diff --quiet canon/INDEX.md canon/artifacts.json; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "No changes to index files"
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "Index files updated"
+          fi
+
+      - name: Commit index updates
+        if: steps.generate.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          git add canon/INDEX.md canon/artifacts.json
+          git commit -m "chore: regenerate Canon index [skip ci]"
+          git push
+
+      - name: Comment on merged PR
+        if: github.event.inputs.merged_pr != ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr_number = parseInt('${{ github.event.inputs.merged_pr }}');
+            
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr_number,
+              body: `📚 **Post-Merge Update**
+              
+              Canon index has been regenerated:
+              - ✅ INDEX.md updated
+              - ✅ artifacts.json updated
+              
+              Next: Verifying Canon integrity...`
+            });
+
+  verify-integrity:
+    name: Verify Canon Integrity
+    runs-on: ubuntu-latest
+    needs: regenerate-index
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r .github/scripts/requirements.txt
+
+      - name: Run integrity verification
+        id: verify
+        run: |
+          echo "::group::Verifying Canon Integrity"
+          
+          if python .github/scripts/verify-canon-integrity.py \
+            --canon-dir canon \
+            --output /tmp/integrity-results.json; then
+            echo "passed=true" >> $GITHUB_OUTPUT
+            echo "✅ Canon integrity verified"
+          else
+            echo "passed=false" >> $GITHUB_OUTPUT
+            echo "❌ Canon integrity check failed"
+          fi
+          
+          echo "::endgroup::"
+
+      - name: Upload integrity results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: integrity-results
+          path: /tmp/integrity-results.json
+          if-no-files-found: ignore
+
+      - name: Handle integrity failure
+        if: steps.verify.outputs.passed == 'false'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = '/tmp/integrity-results.json';
+            
+            let details = '';
+            if (fs.existsSync(path)) {
+              const results = JSON.parse(fs.readFileSync(path, 'utf8'));
+              const errors = results.issues.filter(i => i.severity === 'error');
+              
+              details = '\n\n**Issues Found:**\n';
+              for (const error of errors) {
+                details += `- ${error.type}: ${error.message}\n`;
+              }
+            }
+            
+            // Create incident issue
+            const { data: issue } = await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: '🚨 Canon Integrity Failure After Merge',
+              body: `# Canon Integrity Failure
+              
+              The Canon integrity check failed after a merge to main.
+              
+              **Commit**: ${context.sha}
+              **Workflow**: ${context.workflow}
+              **Run**: ${context.runId}
+              ${details}
+              
+              ## Recommended Actions
+              
+              1. Review the integrity results artifact
+              2. Identify the problematic artifact(s)
+              3. Determine if rollback is needed
+              4. Contact Canon Stewards if manual intervention required
+              
+              ## Rollback Command
+              
+              If rollback is needed:
+              \`\`\`bash
+              git revert ${context.sha}
+              \`\`\``,
+              labels: ['canon', 'integrity-failure', 'urgent']
+            });
+            
+            core.setFailed('Canon integrity check failed - incident issue created: #' + issue.number);
+
+      - name: Comment success on merged PR
+        if: steps.verify.outputs.passed == 'true' && github.event.inputs.merged_pr != ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr_number = parseInt('${{ github.event.inputs.merged_pr }}');
+            
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr_number,
+              body: `✅ **Post-Merge Verification Complete**
+              
+              - ✅ Canon index regenerated
+              - ✅ Integrity verified
+              - ✅ No broken references
+              - ✅ No circular dependencies
+              
+              Canon is in a healthy state.`
+            });
+
+  update-parent-issue:
+    name: Update Parent Issue
+    runs-on: ubuntu-latest
+    needs: verify-integrity
+    if: needs.verify-integrity.outputs.passed == 'true' && github.event.inputs.merged_pr != ''
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Get merged PR details
+        id: pr
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr_number = parseInt('${{ github.event.inputs.merged_pr }}');
+            
+            const { data: pr } = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pr_number
+            });
+            
+            // Extract issue number from PR body or branch name
+            const issueMatch = pr.body?.match(/#(\d+)/) || pr.head.ref.match(/(\d+)/);
+            
+            if (issueMatch) {
+              core.setOutput('issue_number', issueMatch[1]);
+              return issueMatch[1];
+            }
+            
+            return null;
+
+      - name: Add backlink to parent issue
+        if: steps.pr.outputs.issue_number != ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue_number = parseInt('${{ steps.pr.outputs.issue_number }}');
+            const pr_number = parseInt('${{ github.event.inputs.merged_pr }}');
+            
+            try {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue_number,
+                body: `🔗 **Canon Artifact Created**
+                
+                A Canon artifact has been created from this issue and merged successfully.
+                
+                - PR: #${pr_number}
+                - Type: ${{ github.event.inputs.artifact_type }}
+                - Status: Merged and verified
+                
+                This issue can now be closed with confidence that it's been captured in the Canon.`
+              });
+              
+              // Add label
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue_number,
+                labels: ['canonized']
+              });
+            } catch (error) {
+              core.warning(`Failed to update parent issue: ${error.message}`);
+            }
+
+  notify-completion:
+    name: Notify Completion
+    runs-on: ubuntu-latest
+    needs: [regenerate-index, verify-integrity, update-parent-issue]
+    if: always()
+    steps:
+      - name: Send notification
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const regenerateResult = '${{ needs.regenerate-index.result }}';
+            const verifyResult = '${{ needs.verify-integrity.result }}';
+            const updateResult = '${{ needs.update-parent-issue.result }}';
+            
+            let status = '✅ All post-merge tasks completed successfully';
+            
+            if (verifyResult === 'failure') {
+              status = '❌ Canon integrity verification failed';
+            } else if (regenerateResult === 'failure') {
+              status = '❌ Index regeneration failed';
+            }
+            
+            core.info(status);
+            
+            // Could integrate with Slack webhook here if configured
+            const slackWebhookUrl = process.env.SLACK_WEBHOOK_URL;
+            if (slackWebhookUrl) {
+              // Send Slack notification
+              core.info('Slack notification would be sent here');
+            }
