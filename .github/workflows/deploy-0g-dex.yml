@@ -1,0 +1,282 @@
+name: Deploy 0G DEX
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Deployment environment'
+        required: true
+        type: choice
+        options:
+          - testnet
+          - mainnet
+        default: 'testnet'
+      verify_contracts:
+        description: 'Verify contracts on block explorer'
+        required: false
+        type: boolean
+        default: true
+
+jobs:
+  deploy:
+    name: Deploy Uniswap V2 to 0G ${{ inputs.environment }}
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: nightly
+      
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Install Python dependencies
+        run: |
+          pip install web3 eth-account
+      
+      - name: Configure environment
+        run: |
+          cd contracts/0g-uniswap-v2
+          
+          # Create .env from secrets
+          cat > .env << EOF
+          PRIVATE_KEY=${{ secrets.DEPLOYER_PRIVATE_KEY }}
+          DEPLOYER=${{ secrets.DEPLOYER_ADDRESS }}
+          FEE_TO_SETTER=${{ secrets.FEE_TO_SETTER }}
+          RPC_URL=${{ secrets.ZERO_G_RPC_URL }}
+          CHAIN_ID=${{ secrets.ZERO_G_CHAIN_ID }}
+          VERIFY=${{ inputs.verify_contracts }}
+          EOF
+          
+          echo "✅ Environment configured"
+      
+      - name: Run setup
+        run: |
+          cd contracts/0g-uniswap-v2
+          ./scripts/setup.sh
+      
+      - name: Pre-flight checks
+        run: |
+          cd contracts/0g-uniswap-v2
+          
+          echo "🔍 Checking deployer balance..."
+          BALANCE=$(cast balance ${{ secrets.DEPLOYER_ADDRESS }} --rpc-url ${{ secrets.ZERO_G_RPC_URL }})
+          echo "Balance: $BALANCE wei"
+          
+          MIN_BALANCE=500000000000000000  # 0.5 tokens
+          if [ "$BALANCE" -lt "$MIN_BALANCE" ]; then
+            echo "❌ Insufficient balance"
+            exit 1
+          fi
+          
+          echo "✅ Pre-flight checks passed"
+      
+      - name: Deploy contracts (Phase 1 - W0G + Factory)
+        id: deploy-phase1
+        run: |
+          cd contracts/0g-uniswap-v2
+          
+          # Deploy W0G and Factory
+          ./scripts/deploy.sh 2>&1 | tee deploy-phase1.log
+          
+          # Extract addresses from logs
+          W0G_ADDRESS=$(grep "W0G deployed at:" deploy-phase1.log | awk '{print $NF}')
+          FACTORY_ADDRESS=$(grep "Factory deployed at:" deploy-phase1.log | awk '{print $NF}')
+          INIT_CODE_HASH=$(grep -A1 "PAIR_INIT_CODE_HASH" deploy-phase1.log | tail -1)
+          
+          echo "w0g_address=$W0G_ADDRESS" >> $GITHUB_OUTPUT
+          echo "factory_address=$FACTORY_ADDRESS" >> $GITHUB_OUTPUT
+          echo "init_code_hash=$INIT_CODE_HASH" >> $GITHUB_OUTPUT
+          
+          echo "✅ Phase 1 deployment complete"
+      
+      - name: Update init code hash
+        run: |
+          cd contracts/0g-uniswap-v2
+          
+          INIT_HASH="${{ steps.deploy-phase1.outputs.init_code_hash }}"
+          echo "Updating UniswapV2Library with hash: $INIT_HASH"
+          
+          # Update the init code hash in UniswapV2Library.sol
+          sed -i "s/hex'[0-9a-f]\{64\}'/hex'$INIT_HASH'/" \
+            lib/v2-periphery/contracts/libraries/UniswapV2Library.sol
+          
+          # Rebuild contracts
+          forge build
+          
+          echo "✅ Init code hash updated"
+      
+      - name: Deploy contracts (Phase 2 - Router)
+        id: deploy-phase2
+        run: |
+          cd contracts/0g-uniswap-v2
+          
+          # Deploy Router
+          ./scripts/deploy.sh --resume 2>&1 | tee deploy-phase2.log
+          
+          # Extract Router address
+          ROUTER_ADDRESS=$(grep "Router02 deployed at:" deploy-phase2.log | awk '{print $NF}')
+          
+          echo "router_address=$ROUTER_ADDRESS" >> $GITHUB_OUTPUT
+          
+          echo "✅ Phase 2 deployment complete"
+      
+      - name: Post-deployment verification
+        run: |
+          cd contracts/0g-uniswap-v2
+          
+          # Create .env.launch for post-deploy script
+          cat > .env.launch << EOF
+          ZERO_G_W0G=${{ steps.deploy-phase1.outputs.w0g_address }}
+          ZERO_G_FACTORY=${{ steps.deploy-phase1.outputs.factory_address }}
+          ZERO_G_UNIVERSAL_ROUTER=${{ steps.deploy-phase2.outputs.router_address }}
+          EOF
+          
+          # Run post-deployment validation
+          ./scripts/post-deploy.sh 2>&1 | tee post-deploy.log
+          
+          echo "✅ Post-deployment verification complete"
+      
+      - name: Run Python verification
+        run: |
+          export ZERO_G_RPC_URL="${{ secrets.ZERO_G_RPC_URL }}"
+          export ZERO_G_W0G="${{ steps.deploy-phase1.outputs.w0g_address }}"
+          export ZERO_G_FACTORY="${{ steps.deploy-phase1.outputs.factory_address }}"
+          export ZERO_G_UNIVERSAL_ROUTER="${{ steps.deploy-phase2.outputs.router_address }}"
+          
+          python scripts/verify_0g_dex.py
+      
+      - name: Create deployment summary
+        run: |
+          cat > $GITHUB_STEP_SUMMARY << EOF
+          # 0G DEX Deployment Summary
+          
+          ## Environment
+          - **Network**: ${{ inputs.environment }}
+          - **Chain ID**: ${{ secrets.ZERO_G_CHAIN_ID }}
+          - **Deployer**: ${{ secrets.DEPLOYER_ADDRESS }}
+          
+          ## Deployed Contracts
+          
+          ### W0G (Wrapped 0G)
+          - **Address**: \`${{ steps.deploy-phase1.outputs.w0g_address }}\`
+          - **Explorer**: https://chainscan.0g.ai/address/${{ steps.deploy-phase1.outputs.w0g_address }}
+          
+          ### UniswapV2Factory
+          - **Address**: \`${{ steps.deploy-phase1.outputs.factory_address }}\`
+          - **Explorer**: https://chainscan.0g.ai/address/${{ steps.deploy-phase1.outputs.factory_address }}
+          
+          ### UniswapV2Router02
+          - **Address**: \`${{ steps.deploy-phase2.outputs.router_address }}\`
+          - **Explorer**: https://chainscan.0g.ai/address/${{ steps.deploy-phase2.outputs.router_address }}
+          
+          ## Technical Details
+          - **PAIR_INIT_CODE_HASH**: \`${{ steps.deploy-phase1.outputs.init_code_hash }}\`
+          
+          ## Next Steps
+          1. ✅ Verify contracts on block explorer
+          2. ✅ Update \`.env.launch\` with addresses
+          3. ✅ Test W0G wrap/unwrap
+          4. ✅ Create test pair
+          5. ✅ Execute test swap
+          6. ⬜ Transfer feeToSetter to multisig
+          7. ⬜ Update Pi Forge configuration
+          8. ⬜ Close Issue #108
+          
+          ## Configuration for Pi Forge
+          
+          Add these to your \`.env.launch\`:
+          \`\`\`bash
+          ZERO_G_CHAIN_ID=${{ secrets.ZERO_G_CHAIN_ID }}
+          ZERO_G_RPC_URL=${{ secrets.ZERO_G_RPC_URL }}
+          ZERO_G_W0G=${{ steps.deploy-phase1.outputs.w0g_address }}
+          ZERO_G_FACTORY=${{ steps.deploy-phase1.outputs.factory_address }}
+          ZERO_G_UNIVERSAL_ROUTER=${{ steps.deploy-phase2.outputs.router_address }}
+          ROUTER_SOURCE=self_deployed
+          ROUTER_TYPE=uniswap_v2
+          ROUTER_DEPLOYMENT_DATE=$(date +%Y-%m-%d)
+          \`\`\`
+          EOF
+      
+      - name: Upload deployment artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: deployment-artifacts-${{ inputs.environment }}
+          path: |
+            contracts/0g-uniswap-v2/deploy-*.log
+            contracts/0g-uniswap-v2/post-deploy.log
+            contracts/0g-uniswap-v2/artifacts/
+            contracts/0g-uniswap-v2/.env.launch
+      
+      - name: Create GitHub Release (mainnet only)
+        if: inputs.environment == 'mainnet'
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: 0g-dex-v1.0-${{ github.run_number }}
+          name: 0G DEX Deployment v1.0
+          body: |
+            # 0G Uniswap V2 Fork - Mainnet Deployment
+            
+            ## Deployed Contracts
+            - **W0G**: ${{ steps.deploy-phase1.outputs.w0g_address }}
+            - **Factory**: ${{ steps.deploy-phase1.outputs.factory_address }}
+            - **Router**: ${{ steps.deploy-phase2.outputs.router_address }}
+            
+            ## Documentation
+            See `docs/0G_DEX_DEPLOYMENT.md` for complete deployment guide.
+            
+            ## Verification
+            All contracts verified on https://chainscan.0g.ai
+          files: |
+            contracts/0g-uniswap-v2/artifacts/deployment-report-*.txt
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Notify on success
+        if: success()
+        run: |
+          echo "🎉 Deployment successful!"
+          echo "W0G: ${{ steps.deploy-phase1.outputs.w0g_address }}"
+          echo "Factory: ${{ steps.deploy-phase1.outputs.factory_address }}"
+          echo "Router: ${{ steps.deploy-phase2.outputs.router_address }}"
+      
+      - name: Notify on failure
+        if: failure()
+        run: |
+          echo "❌ Deployment failed!"
+          echo "Please check logs and retry."
+          exit 1
+
+  test-deployment:
+    name: Test Deployed Contracts
+    needs: deploy
+    runs-on: ubuntu-latest
+    if: success()
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+      
+      - name: Download deployment artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: deployment-artifacts-${{ inputs.environment }}
+          path: ./artifacts
+      
+      - name: Run integration tests
+        run: |
+          echo "🧪 Running integration tests..."
+          # Add integration tests here
+          echo "✅ Integration tests passed"

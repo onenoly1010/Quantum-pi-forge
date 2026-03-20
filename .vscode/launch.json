@@ -1,0 +1,167 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Edge",
+            "request": "launch",
+            "type": "msedge",
+            "url": "http://localhost:8080",
+            "webRoot": "${workspaceFolder}"
+        },
+        
+        {
+            "name": "Python Debugger: FastAPI",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "uvicorn",
+            "args": [
+                "main:app",
+                "--reload"
+            ],
+            "jinja": true
+        },
+        {
+            "name": "Python Debugger: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Python Debugger: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Python Debugger: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "🧠 FastAPI Quantum Conduit (8000)",
+            "type": "python",
+            "request": "launch",
+            "module": "uvicorn",
+            "args": [
+                "server.main:app",
+                "--host",
+                "0.0.0.0",
+                "--port",
+                "8000",
+                "--reload"
+            ],
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "presentation": {
+                "group": "quantum-trinity",
+                "order": 1
+            }
+        },
+        {
+            "name": "🎨 Flask Glyph Weaver (5000)",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/server/app.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}",
+                "FLASK_ENV": "development",
+                "FLASK_DEBUG": "1"
+            },
+            "presentation": {
+                "group": "quantum-trinity",
+                "order": 2
+            }
+        },
+        {
+            "name": "⚖️ Gradio Truth Mirror (7860)",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/server/canticle_interface.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "presentation": {
+                "group": "quantum-trinity",
+                "order": 3
+            }
+        },
+        {
+            "name": "🤖 AI Enhancement Demo",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/quantum_ai_enhancer.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "presentation": {
+                "group": "quantum-ai",
+                "order": 1
+            }
+        },
+        {
+            "name": "🎭 Quantum Live Demo",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/quantum_demo.py",
+            "args": [
+                "--interactive"
+            ],
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "presentation": {
+                "group": "quantum-demo",
+                "order": 1
+            }
+        },
+        {
+            "name": "🛡️ Trinity Bridge Service",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/trinity_bridge.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "presentation": {
+                "group": "quantum-bridge",
+                "order": 1
+            }
+        }
+    ],
+    "compounds": [
+        {
+            "name": "🌌 Launch Quantum Trinity",
+            "configurations": [
+                "🧠 FastAPI Quantum Conduit (8000)",
+                "🎨 Flask Glyph Weaver (5000)",
+                "⚖️ Gradio Truth Mirror (7860)"
+            ],
+            "presentation": {
+                "group": "quantum-trinity"
+            }
+        },
+        {
+            "name": "🚀 Full Quantum Lattice",
+            "configurations": [
+                "🧠 FastAPI Quantum Conduit (8000)",
+                "🎨 Flask Glyph Weaver (5000)",
+                "⚖️ Gradio Truth Mirror (7860)",
+                "🛡️ Trinity Bridge Service"
+            ],
+            "presentation": {
+                "group": "quantum-lattice"
+            }
+        }
+    ]
+}

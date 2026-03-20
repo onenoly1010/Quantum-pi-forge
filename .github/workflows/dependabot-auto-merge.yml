@@ -1,0 +1,62 @@
+name: Dependabot Auto-Merge Gate
+
+on:
+  pull_request_target:
+    types: [opened, labeled, reopened, synchronize, edited]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  dependabot-auto-merge:
+    name: Dependabot Auto-Merge Gate
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Validate REPO_MERGE_TOKEN secret
+        env:
+          REPO_MERGE_TOKEN: ${{ secrets.REPO_MERGE_TOKEN }}
+        run: |
+          if [ -z "${REPO_MERGE_TOKEN}" ]; then
+            echo "::warning::REPO_MERGE_TOKEN secret is not configured. The workflow will fall back to GITHUB_TOKEN which may have insufficient permissions to merge PRs."
+            echo "::warning::To enable auto-merge, create a Personal Access Token with 'repo' and 'read:org' scopes and add it as a repository secret named 'REPO_MERGE_TOKEN'."
+            echo "::warning::See docs/dependabot-auto-merge.md for setup instructions."
+          else
+            echo "✅ REPO_MERGE_TOKEN is configured"
+          fi
+
+      - name: Checkout (for local script logging only)
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: python -m pip install --upgrade pip && pip install -r .github/scripts/requirements.txt
+
+      - name: Run Dependabot auto-merge gate
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          REPO_MERGE_TOKEN: ${{ secrets.REPO_MERGE_TOKEN }}
+          REQUIRED_LABEL: "dependencies"
+          REQUIRED_CHECKS: "Test Dependencies,Security Scan"
+          FRESHNESS_HOURS: "12"
+          REQUIRED_CODEOWNER_APPROVALS: "1"
+          MERGE_METHOD: "squash"
+          CACHE_TTL_SECONDS: "86400"
+        run: |
+          python .github/scripts/dependabot_auto_merge.py \
+            --repo "${GITHUB_REPOSITORY}" \
+            --pr "${PR_NUMBER}" \
+            --required-label "${REQUIRED_LABEL}" \
+            --required-checks "${REQUIRED_CHECKS}" \
+            --freshness-hours "${FRESHNESS_HOURS}" \
+            --required-approvals "${REQUIRED_CODEOWNER_APPROVALS}" \
+            --merge-method "${MERGE_METHOD}" \
+            --cache-ttl "${CACHE_TTL_SECONDS}"

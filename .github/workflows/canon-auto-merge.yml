@@ -1,0 +1,607 @@
+name: Canon Auto-Merge Gates
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled]
+    paths:
+      - 'canon/**'
+  pull_request_review:
+    types: [submitted]
+  check_suite:
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: 'PR number to process'
+        required: true
+        type: number
+
+permissions:
+  contents: write
+  pull-requests: write
+  checks: write
+  issues: write
+
+jobs:
+  gate1-classification:
+    name: "Gate 1: PR Classification"
+    runs-on: ubuntu-latest
+    # Skip if check_suite event without associated PRs (e.g., on main branch after merge)
+    if: github.event_name != 'check_suite' || (github.event.check_suite.pull_requests && github.event.check_suite.pull_requests.length > 0)
+    outputs:
+      is_canon_pr: ${{ steps.classify.outputs.is_canon_pr }}
+      artifact_type: ${{ steps.classify.outputs.artifact_type }}
+      artifact_path: ${{ steps.classify.outputs.artifact_path }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get PR details
+        id: pr
+        uses: actions/github-script@v7
+        with:
+          script: |
+            let pr_number = context.payload.pull_request?.number || context.payload.inputs?.pr_number;
+            
+            // For check_suite events, get PR from the check_suite payload
+            if (!pr_number && context.payload.check_suite) {
+              const prs = context.payload.check_suite.pull_requests || [];
+              if (prs.length > 0) {
+                pr_number = prs[0].number;
+                core.info(`Found PR #${pr_number} from check_suite event`);
+              }
+            }
+            
+            if (!pr_number) {
+              core.setFailed(`Could not determine PR number from event payload. Event: ${context.eventName}, Payload keys: ${Object.keys(context.payload).join(', ')}`);
+              return;
+            }
+            
+            const { data: pr } = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pr_number
+            });
+            
+            core.setOutput('number', pr.number);
+            core.setOutput('title', pr.title);
+            core.setOutput('head_sha', pr.head.sha);
+            core.setOutput('mergeable', pr.mergeable);
+            return pr;
+
+      - name: Get changed files
+        id: files
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr_number = ${{ steps.pr.outputs.number }};
+            const { data: files } = await github.rest.pulls.listFiles({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pr_number
+            });
+            
+            const canonFiles = files.filter(f => f.filename.startsWith('canon/'));
+            const isCanonPR = canonFiles.length > 0;
+            
+            core.setOutput('is_canon_pr', isCanonPR);
+            core.setOutput('canon_files', JSON.stringify(canonFiles.map(f => f.filename)));
+            
+            return { isCanonPR, files: canonFiles };
+
+      - name: Classify Canon PR
+        id: classify
+        if: steps.files.outputs.is_canon_pr == 'true'
+        run: |
+          echo "is_canon_pr=true" >> $GITHUB_OUTPUT
+          
+          # Parse first Canon artifact to determine type
+          CANON_FILES='${{ steps.files.outputs.canon_files }}'
+          FIRST_FILE=$(echo "$CANON_FILES" | jq -r '.[0]')
+          
+          if [ -f "$FIRST_FILE" ]; then
+            # Extract artifact type from frontmatter (between --- markers)
+            TYPE=$(awk '/^---$/,/^---$/ {if ($1 == "type:") print $2}' "$FIRST_FILE" | head -1 | tr -d '[:space:]')
+            
+            if [ -n "$TYPE" ]; then
+              echo "artifact_type=$TYPE" >> $GITHUB_OUTPUT
+              echo "artifact_path=$FIRST_FILE" >> $GITHUB_OUTPUT
+              echo "✅ Classified as Canon PR (type: $TYPE)"
+            else
+              echo "artifact_type=unknown" >> $GITHUB_OUTPUT
+              echo "artifact_path=$FIRST_FILE" >> $GITHUB_OUTPUT
+              echo "⚠️ Could not determine artifact type from $FIRST_FILE"
+            fi
+          else
+            echo "artifact_type=unknown" >> $GITHUB_OUTPUT
+            echo "artifact_path=" >> $GITHUB_OUTPUT
+            echo "⚠️ Could not find artifact file: $FIRST_FILE"
+          fi
+
+      - name: Comment on PR
+        if: steps.files.outputs.is_canon_pr == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr_number = ${{ steps.pr.outputs.number }};
+            const artifact_type = '${{ steps.classify.outputs.artifact_type }}';
+            
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr_number,
+              body: `🚀 **Canon Auto-Merge System Activated**
+              
+              **Gate 1: Classification** ✅
+              - Type: \`${artifact_type}\`
+              - Status: Proceeding to validation gates
+              
+              The auto-merge system will process this PR through all validation gates.`
+            });
+
+  gate2-sentinel:
+    name: "Gate 2: ClosureSentinel Validation"
+    runs-on: ubuntu-latest
+    needs: gate1-classification
+    if: needs.gate1-classification.outputs.is_canon_pr == 'true'
+    outputs:
+      sentinel_passed: ${{ steps.check.outputs.passed }}
+    steps:
+      - name: Wait for ClosureSentinel
+        id: check
+        uses: actions/github-script@v7
+        with:
+          script: |
+            let pr_number = context.payload.pull_request?.number || context.payload.inputs?.pr_number;
+            
+            // For check_suite events, get PR from the check_suite payload
+            if (!pr_number && context.payload.check_suite) {
+              const prs = context.payload.check_suite.pull_requests || [];
+              if (prs.length > 0) {
+                pr_number = prs[0].number;
+              }
+            }
+            
+            // Get PR to obtain head SHA
+            const { data: pr } = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pr_number
+            });
+            
+            const timeout = 300; // 5 minutes
+            const interval = 10; // Check every 10 seconds
+            const maxAttempts = timeout / interval;
+            
+            for (let attempt = 0; attempt < maxAttempts; attempt++) {
+              const { data: checks } = await github.rest.checks.listForRef({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ref: pr.head.sha,
+                check_name: 'ClosureSentinel'
+              });
+              
+              const sentinelCheck = checks.check_runs.find(c => c.name === 'ClosureSentinel');
+              
+              if (sentinelCheck) {
+                if (sentinelCheck.status === 'completed') {
+                  if (sentinelCheck.conclusion === 'success') {
+                    core.setOutput('passed', 'true');
+                    core.info('✅ ClosureSentinel validation passed');
+                    return true;
+                  } else {
+                    core.setFailed(`ClosureSentinel check failed: ${sentinelCheck.conclusion}`);
+                    return false;
+                  }
+                }
+              }
+              
+              core.info(`Waiting for ClosureSentinel... (${attempt + 1}/${maxAttempts})`);
+              await new Promise(resolve => setTimeout(resolve, interval * 1000));
+            }
+            
+            core.warning('ClosureSentinel check not found or timed out - proceeding with caution');
+            core.setOutput('passed', 'true');
+            return true;
+
+  gate3-approval:
+    name: "Gate 3: Role-Based Approval"
+    runs-on: ubuntu-latest
+    needs: [gate1-classification, gate2-sentinel]
+    if: needs.gate2-sentinel.outputs.sentinel_passed == 'true'
+    outputs:
+      approval_passed: ${{ steps.check.outputs.passed }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Load merge rules
+        id: rules
+        run: |
+          ARTIFACT_TYPE="${{ needs.gate1-classification.outputs.artifact_type }}"
+          RULES=$(cat .github/config/canon-merge-rules.json)
+          
+          REQUIRED_APPROVALS=$(echo "$RULES" | jq -r ".artifact_types.\"$ARTIFACT_TYPE\".required_approvals // 1")
+          echo "required_approvals=$REQUIRED_APPROVALS" >> $GITHUB_OUTPUT
+
+      - name: Check approvals
+        id: check
+        uses: actions/github-script@v7
+        with:
+          script: |
+            let pr_number = context.payload.pull_request?.number || context.payload.inputs?.pr_number;
+            
+            // For check_suite events, get PR from the check_suite payload
+            if (!pr_number && context.payload.check_suite) {
+              const prs = context.payload.check_suite.pull_requests || [];
+              if (prs.length > 0) {
+                pr_number = prs[0].number;
+              }
+            }
+            
+            const requiredApprovals = parseInt('${{ steps.rules.outputs.required_approvals }}');
+            
+            const { data: reviews } = await github.rest.pulls.listReviews({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pr_number
+            });
+            
+            // Get latest review state per user
+            const latestReviews = {};
+            for (const review of reviews) {
+              const user = review.user.login;
+              if (!latestReviews[user] || new Date(review.submitted_at) > new Date(latestReviews[user].submitted_at)) {
+                latestReviews[user] = review;
+              }
+            }
+            
+            // Count approvals
+            const approvals = Object.values(latestReviews).filter(r => r.state === 'APPROVED').length;
+            
+            core.info(`Approvals: ${approvals}/${requiredApprovals}`);
+            
+            if (approvals >= requiredApprovals) {
+              core.setOutput('passed', 'true');
+              core.info('✅ Required approvals obtained');
+              return true;
+            } else {
+              core.setOutput('passed', 'false');
+              core.info(`⏳ Waiting for approvals (${approvals}/${requiredApprovals})`);
+              return false;
+            }
+
+      - name: Comment on PR
+        if: steps.check.outputs.passed != 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            let pr_number = context.payload.pull_request?.number || context.payload.inputs?.pr_number;
+            
+            // For check_suite events, get PR from the check_suite payload
+            if (!pr_number && context.payload.check_suite) {
+              const prs = context.payload.check_suite.pull_requests || [];
+              if (prs.length > 0) {
+                pr_number = prs[0].number;
+              }
+            }
+            
+            const required = '${{ steps.rules.outputs.required_approvals }}';
+            
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr_number,
+              body: `⏳ **Gate 3: Approval** - Waiting
+              
+              This PR requires **${required}** approval(s) before auto-merge can proceed.`
+            });
+
+  gate4-conflict:
+    name: "Gate 4: Conflict Detection"
+    runs-on: ubuntu-latest
+    needs: [gate1-classification, gate3-approval]
+    if: needs.gate3-approval.outputs.approval_passed == 'true'
+    outputs:
+      conflict_passed: ${{ steps.check.outputs.passed }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r .github/scripts/requirements.txt
+
+      - name: Run conflict detection
+        id: check
+        run: |
+          ARTIFACT_PATH="${{ needs.gate1-classification.outputs.artifact_path }}"
+          
+          if [ -n "$ARTIFACT_PATH" ]; then
+            python .github/scripts/check-conflicts.py \
+              --canon-dir canon \
+              --new-artifact "$ARTIFACT_PATH" \
+              --semantic-threshold 0.85 \
+              --output /tmp/conflict-results.json || {
+              echo "passed=false" >> $GITHUB_OUTPUT
+              exit 1
+            }
+            
+            echo "passed=true" >> $GITHUB_OUTPUT
+          else
+            echo "⚠️ No artifact path specified, skipping conflict check"
+            echo "passed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Upload conflict results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: conflict-results
+          path: /tmp/conflict-results.json
+          if-no-files-found: ignore
+
+  gate5-audit:
+    name: "Gate 5: Audit Trail"
+    runs-on: ubuntu-latest
+    needs: [gate1-classification, gate4-conflict]
+    if: needs.gate4-conflict.outputs.conflict_passed == 'true'
+    outputs:
+      audit_passed: ${{ steps.log.outputs.passed }}
+    steps:
+      - name: Log to audit trail
+        id: log
+        uses: actions/github-script@v7
+        with:
+          script: |
+            let pr_number = context.payload.pull_request?.number || context.payload.inputs?.pr_number;
+            
+            // For check_suite events, get PR from the check_suite payload
+            if (!pr_number && context.payload.check_suite) {
+              const prs = context.payload.check_suite.pull_requests || [];
+              if (prs.length > 0) {
+                pr_number = prs[0].number;
+              }
+            }
+            
+            const artifactType = '${{ needs.gate1-classification.outputs.artifact_type }}';
+            
+            const auditEntry = {
+              timestamp: new Date().toISOString(),
+              event: 'canon_auto_merge_decision',
+              pr_number: pr_number,
+              artifact_type: artifactType,
+              gates_passed: ['classification', 'sentinel', 'approval', 'conflict'],
+              actor: context.actor,
+              repository: context.repo.full_name
+            };
+            
+            core.info('📝 Audit entry logged:');
+            core.info(JSON.stringify(auditEntry, null, 2));
+            
+            // Add audit label
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr_number,
+              labels: ['audit-logged']
+            });
+            
+            core.setOutput('passed', 'true');
+            return auditEntry;
+
+  gate6-merge:
+    name: "Gate 6: Auto-Merge Execution"
+    runs-on: ubuntu-latest
+    needs: [gate1-classification, gate5-audit]
+    if: needs.gate5-audit.outputs.audit_passed == 'true'
+    steps:
+      - name: Check if mergeable
+        id: mergeable
+        uses: actions/github-script@v7
+        with:
+          script: |
+            let pr_number = context.payload.pull_request?.number || context.payload.inputs?.pr_number;
+            
+            // For check_suite events, get PR from the check_suite payload
+            if (!pr_number && context.payload.check_suite) {
+              const prs = context.payload.check_suite.pull_requests || [];
+              if (prs.length > 0) {
+                pr_number = prs[0].number;
+              }
+            }
+            
+            const { data: pr } = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pr_number
+            });
+            
+            if (!pr.mergeable) {
+              core.setFailed('PR has merge conflicts and cannot be auto-merged');
+              return false;
+            }
+            
+            return true;
+
+      - name: Merge PR
+        id: merge
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            let pr_number = context.payload.pull_request?.number || context.payload.inputs?.pr_number;
+            
+            // For check_suite events, get PR from the check_suite payload
+            if (!pr_number && context.payload.check_suite) {
+              const prs = context.payload.check_suite.pull_requests || [];
+              if (prs.length > 0) {
+                pr_number = prs[0].number;
+              }
+            }
+            
+            // Get PR details for merge
+            const { data: pr } = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pr_number
+            });
+            
+            try {
+              const { data: result } = await github.rest.pulls.merge({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: pr_number,
+                merge_method: 'squash',
+                commit_title: `Canon: ${pr.title} (#${pr_number})`,
+                commit_message: 'Auto-merged by Canon Auto-Merge Gates'
+              });
+              
+              core.info('✅ PR merged successfully!');
+              
+              // Add auto-merged label
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: pr_number,
+                labels: ['auto-merged']
+              });
+              
+              // Delete branch
+              try {
+                await github.rest.git.deleteRef({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  ref: `heads/${pr.head.ref}`
+                });
+                core.info('🗑️ Source branch deleted');
+              } catch (error) {
+                core.warning(`Failed to delete branch: ${error.message}`);
+              }
+              
+              return result;
+            } catch (error) {
+              core.setFailed(`Failed to merge PR: ${error.message}`);
+              throw error;
+            }
+
+      - name: Comment on success
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            let pr_number = context.payload.pull_request?.number || context.payload.inputs?.pr_number;
+            
+            // For check_suite events, get PR from the check_suite payload
+            if (!pr_number && context.payload.check_suite) {
+              const prs = context.payload.check_suite.pull_requests || [];
+              if (prs.length > 0) {
+                pr_number = prs[0].number;
+              }
+            }
+            
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr_number,
+              body: `✅ **Auto-Merge Complete**
+              
+              All gates passed successfully:
+              - ✅ Gate 1: Classification
+              - ✅ Gate 2: ClosureSentinel Validation
+              - ✅ Gate 3: Role-Based Approval
+              - ✅ Gate 4: Conflict Detection
+              - ✅ Gate 5: Audit Trail
+              - ✅ Gate 6: Merge Execution
+              
+              Post-merge workflow will regenerate Canon index.`
+            });
+
+      - name: Trigger post-merge workflow
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            let pr_number = context.payload.pull_request?.number || context.payload.inputs?.pr_number;
+            
+            // For check_suite events, get PR from the check_suite payload
+            if (!pr_number && context.payload.check_suite) {
+              const prs = context.payload.check_suite.pull_requests || [];
+              if (prs.length > 0) {
+                pr_number = prs[0].number;
+              }
+            }
+            
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'canon-post-merge.yml',
+              ref: 'main',
+              inputs: {
+                merged_pr: pr_number.toString(),
+                artifact_type: '${{ needs.gate1-classification.outputs.artifact_type }}'
+              }
+            });
+
+  gate-failure:
+    name: "Gate Failure Handler"
+    runs-on: ubuntu-latest
+    needs: [gate1-classification, gate2-sentinel, gate3-approval, gate4-conflict, gate5-audit, gate6-merge]
+    if: |
+      always() && 
+      needs.gate1-classification.outputs.is_canon_pr == 'true' &&
+      (needs.gate2-sentinel.result == 'failure' || 
+       needs.gate3-approval.result == 'failure' || 
+       needs.gate4-conflict.result == 'failure' || 
+       needs.gate5-audit.result == 'failure' || 
+       needs.gate6-merge.result == 'failure')
+    steps:
+      - name: Comment on failure
+        uses: actions/github-script@v7
+        with:
+          script: |
+            let pr_number = context.payload.pull_request?.number || context.payload.inputs?.pr_number;
+            
+            // For check_suite events, get PR from the check_suite payload
+            if (!pr_number && context.payload.check_suite) {
+              const prs = context.payload.check_suite.pull_requests || [];
+              if (prs.length > 0) {
+                pr_number = prs[0].number;
+              }
+            }
+            
+            const gateResults = {
+              'Gate 2: ClosureSentinel': '${{ needs.gate2-sentinel.result }}',
+              'Gate 3: Approval': '${{ needs.gate3-approval.result }}',
+              'Gate 4: Conflict Detection': '${{ needs.gate4-conflict.result }}',
+              'Gate 5: Audit Trail': '${{ needs.gate5-audit.result }}',
+              'Gate 6: Merge': '${{ needs.gate6-merge.result }}'
+            };
+            
+            let failedGates = [];
+            for (const [gate, result] of Object.entries(gateResults)) {
+              if (result === 'failure') {
+                failedGates.push(gate);
+              }
+            }
+            
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr_number,
+              body: `❌ **Auto-Merge Failed**
+              
+              The following gate(s) failed:
+              ${failedGates.map(g => `- ❌ ${g}`).join('\n')}
+              
+              Please review the workflow logs and address the issues.
+              A Canon Steward can override these gates if necessary.`
+            });

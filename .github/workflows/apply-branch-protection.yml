@@ -1,0 +1,191 @@
+# Apply Branch Protection Rules Workflow
+# This workflow can be manually triggered to apply or update branch protection rules
+# 
+# Usage:
+#   - Go to Actions tab in GitHub
+#   - Select "Apply Branch Protection Rules" workflow
+#   - Click "Run workflow"
+#   - Confirm the settings to apply
+
+name: Apply Branch Protection Rules
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (show what would be applied without making changes)'
+        required: true
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+      branch:
+        description: 'Branch to protect'
+        required: true
+        default: 'main'
+        type: string
+
+permissions:
+  contents: read
+  # Note: This workflow requires a PAT with repo scope to be set as ADMIN_TOKEN secret
+  # or use the default GITHUB_TOKEN if it has sufficient permissions
+
+jobs:
+  apply-protection:
+    name: Apply Branch Protection Rules
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Validate inputs
+        run: |
+          echo "Dry Run: ${{ github.event.inputs.dry_run }}"
+          echo "Target Branch: ${{ github.event.inputs.branch }}"
+          
+      - name: Prepare branch protection payload
+        id: prepare
+        run: |
+          # Read the configuration file and prepare payload
+          cat > /tmp/protection.json << 'EOF'
+          {
+            "required_status_checks": {
+              "strict": true,
+              "contexts": [
+                "Lint and Test",
+                "Build and Package",
+                "API Health Check",
+                "healthcheck"
+              ]
+            },
+            "enforce_admins": true,
+            "required_pull_request_reviews": {
+              "dismissal_restrictions": {},
+              "dismiss_stale_reviews": true,
+              "require_code_owner_reviews": true,
+              "required_approving_review_count": 1,
+              "require_last_push_approval": false,
+              "bypass_pull_request_allowances": {}
+            },
+            "restrictions": null,
+            "required_linear_history": true,
+            "allow_force_pushes": false,
+            "allow_deletions": false,
+            "block_creations": false,
+            "required_conversation_resolution": true,
+            "lock_branch": false,
+            "allow_fork_syncing": true
+          }
+          EOF
+          
+          echo "Payload prepared at /tmp/protection.json"
+          cat /tmp/protection.json
+      
+      - name: Show current protection rules
+        run: |
+          echo "📋 Current branch protection rules for ${{ github.event.inputs.branch }}:"
+          echo ""
+          
+          gh api \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "/repos/${{ github.repository }}/branches/${{ github.event.inputs.branch }}/protection" \
+            || echo "No protection rules currently configured"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Apply branch protection rules (Dry Run)
+        if: github.event.inputs.dry_run == 'true'
+        run: |
+          echo "🔍 DRY RUN MODE - No changes will be applied"
+          echo ""
+          echo "The following protection rules would be applied to branch '${{ github.event.inputs.branch }}':"
+          echo ""
+          cat /tmp/protection.json | jq .
+          echo ""
+          echo "To apply these rules, re-run this workflow with dry_run=false"
+      
+      - name: Check token availability
+        if: github.event.inputs.dry_run == 'false'
+        run: |
+          if [ -z "${{ secrets.ADMIN_TOKEN }}" ]; then
+            echo "⚠️  WARNING: ADMIN_TOKEN secret not configured"
+            echo "Attempting to use GITHUB_TOKEN, which may have insufficient permissions"
+            echo "If this fails, please configure an ADMIN_TOKEN secret with repo scope"
+          else
+            echo "✅ Using ADMIN_TOKEN for branch protection configuration"
+          fi
+      
+      - name: Apply branch protection rules (Live)
+        if: github.event.inputs.dry_run == 'false'
+        run: |
+          echo "🚀 Applying branch protection rules to branch '${{ github.event.inputs.branch }}'..."
+          echo ""
+          
+          gh api \
+            --method PUT \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "/repos/${{ github.repository }}/branches/${{ github.event.inputs.branch }}/protection" \
+            --input /tmp/protection.json
+          
+          echo ""
+          echo "✅ Branch protection rules applied successfully!"
+        env:
+          # Use ADMIN_TOKEN if available, otherwise use GITHUB_TOKEN
+          GH_TOKEN: ${{ secrets.ADMIN_TOKEN || secrets.GITHUB_TOKEN }}
+      
+      - name: Verify protection rules
+        if: github.event.inputs.dry_run == 'false'
+        run: |
+          echo "🔍 Verifying applied protection rules..."
+          echo ""
+          
+          gh api \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "/repos/${{ github.repository }}/branches/${{ github.event.inputs.branch }}/protection" \
+            | jq .
+          
+          echo ""
+          echo "✅ Verification complete"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Generate summary
+        run: |
+          echo "## Branch Protection Configuration Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Branch**: \`${{ github.event.inputs.branch }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "**Dry Run**: ${{ github.event.inputs.dry_run }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            echo "### 🔍 Dry Run Mode" >> $GITHUB_STEP_SUMMARY
+            echo "No changes were applied. Re-run with dry_run=false to apply." >> $GITHUB_STEP_SUMMARY
+          else
+            echo "### ✅ Protection Rules Applied" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "- ✅ Require pull request reviews (min 1 approval)" >> $GITHUB_STEP_SUMMARY
+            echo "- ✅ Dismiss stale reviews on new commits" >> $GITHUB_STEP_SUMMARY
+            echo "- ✅ Require code owner reviews" >> $GITHUB_STEP_SUMMARY
+            echo "- ✅ Require status checks to pass" >> $GITHUB_STEP_SUMMARY
+            echo "- ✅ Require branches to be up to date" >> $GITHUB_STEP_SUMMARY
+            echo "- ✅ Require conversation resolution" >> $GITHUB_STEP_SUMMARY
+            echo "- ✅ Require linear history" >> $GITHUB_STEP_SUMMARY
+            echo "- ✅ Include administrators" >> $GITHUB_STEP_SUMMARY
+            echo "- ✅ Restrict force pushes" >> $GITHUB_STEP_SUMMARY
+            echo "- ✅ Restrict deletions" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "**Required Status Checks**:" >> $GITHUB_STEP_SUMMARY
+            echo "- Lint and Test" >> $GITHUB_STEP_SUMMARY
+            echo "- Build and Package" >> $GITHUB_STEP_SUMMARY
+            echo "- API Health Check" >> $GITHUB_STEP_SUMMARY
+            echo "- healthcheck" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "---" >> $GITHUB_STEP_SUMMARY
+          echo "View protection rules: [Branch Protection Settings](https://github.com/${{ github.repository }}/settings/branch_protection_rules)" >> $GITHUB_STEP_SUMMARY

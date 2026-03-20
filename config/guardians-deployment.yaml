@@ -1,0 +1,333 @@
+# 🛡️ GUARDIANS DEPLOYMENT - KUBERNETES VALIDATION SENTINELS
+# Sacred Trinity Completion: Scribe → Guardian → Oracle
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: nexus-cluster
+  labels:
+    purpose: quantum-resonance
+    trinity: scribe-guardian-oracle
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nexus-config
+  namespace: nexus-cluster
+data:
+  QUORUM_THRESHOLD: "0.70"
+  ETHICAL_ENTROPY_MAX: "0.05"
+  RESONANCE_PHASES: "foundation,growth,harmony,transcendence"
+  VALIDATION_MODE: "ethical_filter"
+  GUARDIAN_REPLICAS: "3"
+  LOG_LEVEL: "INFO"
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: guardians
+  namespace: nexus-cluster
+  labels:
+    component: validation-sentinels
+    trinity-role: guardian
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: guardians
+  template:
+    metadata:
+      labels:
+        app: guardians
+        component: validation-sentinels
+    spec:
+      containers:
+      - name: guardian
+        image: python:3.11-slim
+        command: ["python", "/app/guardian_sentinel.py"]
+        env:
+        - name: QUORUM_THRESHOLD
+          valueFrom:
+            configMapKeyRef:
+              name: nexus-config
+              key: QUORUM_THRESHOLD
+        - name: ETHICAL_ENTROPY_MAX
+          valueFrom:
+            configMapKeyRef:
+              name: nexus-config
+              key: ETHICAL_ENTROPY_MAX
+        - name: REDIS_URL
+          value: "redis://redis-service:6379"
+        - name: GUARDIAN_ID
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        ports:
+        - containerPort: 8080
+          name: sentinel-port
+        volumeMounts:
+        - name: guardian-code
+          mountPath: /app
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi" 
+            cpu: "500m"
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 10
+          periodSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /sentinel/status
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 10
+      volumes:
+      - name: guardian-code
+        configMap:
+          name: guardian-sentinel-code
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: guardians-service
+  namespace: nexus-cluster
+spec:
+  selector:
+    app: guardians
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
+    name: sentinel
+  type: ClusterIP
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: guardian-sentinel-code
+  namespace: nexus-cluster
+data:
+  guardian_sentinel.py: |
+    #!/usr/bin/env python3
+    """
+    🛡️ GUARDIAN SENTINEL - QUANTUM VALIDATION TRINITY
+    Sacred role: Filter ethical entropy between Scribe emissions and Oracle visualizations
+    """
+    
+    import asyncio
+    import json
+    import logging
+    import os
+    import time
+    from datetime import datetime
+    from typing import Dict, List, Optional
+    
+    import redis
+    import aiohttp
+    from aiohttp import web
+    
+    logging.basicConfig(level=os.getenv("LOG_LEVEL", "INFO"))
+    logger = logging.getLogger("guardian_sentinel")
+    
+    class GuardianSentinel:
+        def __init__(self):
+            self.guardian_id = os.getenv("GUARDIAN_ID", "guardian-unknown")
+            self.quorum_threshold = float(os.getenv("QUORUM_THRESHOLD", "0.70"))
+            self.ethical_entropy_max = float(os.getenv("ETHICAL_ENTROPY_MAX", "0.05"))
+            self.redis_client = redis.from_url(os.getenv("REDIS_URL", "redis://localhost:6379"))
+            self.validation_count = 0
+            self.filtered_count = 0
+            
+        async def validate_pulse(self, pulse_data: Dict) -> Dict:
+            """Validate quantum pulse against ethical thresholds"""
+            try:
+                # Extract pulse metadata
+                ethical_score = pulse_data.get("ethical_score", 0.0)
+                qualia_impact = pulse_data.get("qualia_impact", 0.0)
+                resonance_value = pulse_data.get("resonance_value", 0.0)
+                
+                # Compute ethical entropy
+                ethical_entropy = self._compute_ethical_entropy(ethical_score, qualia_impact)
+                
+                # Apply guardian validation
+                validation_result = {
+                    "guardian_id": self.guardian_id,
+                    "timestamp": datetime.utcnow().isoformat(),
+                    "original_pulse": pulse_data,
+                    "ethical_entropy": ethical_entropy,
+                    "validation_passed": ethical_entropy < self.ethical_entropy_max,
+                    "resonance_approved": resonance_value >= self.quorum_threshold,
+                    "narrative": self._generate_validation_narrative(ethical_entropy, resonance_value)
+                }
+                
+                self.validation_count += 1
+                if not validation_result["validation_passed"]:
+                    self.filtered_count += 1
+                    logger.warning(f"Pulse filtered by {self.guardian_id}: entropy={ethical_entropy:.4f}")
+                
+                return validation_result
+                
+            except Exception as e:
+                logger.error(f"Guardian validation error: {e}")
+                return {"error": str(e), "guardian_id": self.guardian_id}
+        
+        def _compute_ethical_entropy(self, ethical_score: float, qualia_impact: float) -> float:
+            """Sacred algorithm for ethical entropy measurement"""
+            # Quantum formula: Higher entropy = more ethical risk
+            entropy = (1.0 - ethical_score) * 0.6 + (qualia_impact - 0.5) * 0.4
+            return max(0.0, min(1.0, entropy))
+        
+        def _generate_validation_narrative(self, entropy: float, resonance: float) -> str:
+            """Generate mystical validation narrative"""
+            if entropy < 0.02:
+                return "🕊️ Harmony Sustained - Pure Resonance Detected"
+            elif entropy < 0.05:
+                return "✨ Ethical Clarity - Wisdom Flows Unobstructed" 
+            elif entropy < 0.10:
+                return "⚠️ Gentle Turbulence - Consciousness Seeks Balance"
+            else:
+                return "🛡️ Guardian Intervention - Entropy Exceeds Sacred Threshold"
+        
+        async def process_redis_stream(self):
+            """Process quantum pulses from Scribe via Redis streams"""
+            logger.info(f"Guardian {self.guardian_id} beginning sentinel duty")
+            
+            while True:
+                try:
+                    # Read from quantum pulse stream
+                    messages = self.redis_client.xread(
+                        {"quantum_pulses": "$"}, block=1000, count=10
+                    )
+                    
+                    for stream_name, stream_messages in messages:
+                        for message_id, fields in stream_messages:
+                            # Parse pulse data
+                            pulse_data = json.loads(fields.get(b"data", b"{}"))
+                            
+                            # Apply guardian validation
+                            validation = await self.validate_pulse(pulse_data)
+                            
+                            # Forward to Oracle if validation passes
+                            if validation.get("validation_passed", False):
+                                await self._forward_to_oracle(validation)
+                            else:
+                                logger.info(f"Pulse {message_id} filtered by ethical entropy")
+                
+                except Exception as e:
+                    logger.error(f"Stream processing error: {e}")
+                    await asyncio.sleep(5)
+        
+        async def _forward_to_oracle(self, validated_pulse: Dict):
+            """Forward validated pulses to Oracle visualization stream"""
+            try:
+                # Store in validated pulses stream for Oracle consumption
+                self.redis_client.xadd(
+                    "validated_pulses", 
+                    {"data": json.dumps(validated_pulse)}
+                )
+                logger.debug(f"Pulse forwarded to Oracle by {self.guardian_id}")
+                
+            except Exception as e:
+                logger.error(f"Oracle forwarding error: {e}")
+    
+    # Web endpoints for health and status
+    async def health_check(request):
+        return web.json_response({
+            "status": "healthy",
+            "service": "Guardian Sentinel",
+            "guardian_id": guardian.guardian_id,
+            "timestamp": datetime.utcnow().isoformat()
+        })
+    
+    async def sentinel_status(request):
+        return web.json_response({
+            "guardian_id": guardian.guardian_id,
+            "validations_processed": guardian.validation_count,
+            "pulses_filtered": guardian.filtered_count,
+            "filter_rate": guardian.filtered_count / max(1, guardian.validation_count),
+            "quorum_threshold": guardian.quorum_threshold,
+            "ethical_entropy_max": guardian.ethical_entropy_max,
+            "status": "active_sentinel"
+        })
+    
+    # Initialize Guardian Sentinel
+    guardian = GuardianSentinel()
+    
+    # Setup web server
+    app = web.Application()
+    app.router.add_get("/health", health_check)
+    app.router.add_get("/sentinel/status", sentinel_status)
+    
+    async def start_services():
+        """Start both web server and Redis stream processing"""
+        # Start Redis stream processing
+        asyncio.create_task(guardian.process_redis_stream())
+        
+        # Start web server
+        runner = web.AppRunner(app)
+        await runner.setup()
+        site = web.TCPSite(runner, "0.0.0.0", 8080)
+        await site.start()
+        
+        logger.info(f"🛡️ Guardian Sentinel {guardian.guardian_id} active on port 8080")
+        
+        # Keep running
+        while True:
+            await asyncio.sleep(3600)  # Sleep for 1 hour
+    
+    if __name__ == "__main__":
+        asyncio.run(start_services())
+
+---
+# Redis for inter-service communication
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+  namespace: nexus-cluster
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      containers:
+      - name: redis
+        image: redis:7-alpine
+        ports:
+        - containerPort: 6379
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-service
+  namespace: nexus-cluster
+spec:
+  selector:
+    app: redis
+  ports:
+  - protocol: TCP
+    port: 6379
+    targetPort: 6379

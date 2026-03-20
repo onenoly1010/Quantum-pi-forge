@@ -1,0 +1,304 @@
+# Scheduled Monitoring Workflow
+# Runs daily to perform health checks and report status
+# Creates/updates GitHub Issue on failures
+
+name: Scheduled Monitoring
+
+on:
+  schedule:
+    # Run daily at 6:00 AM UTC
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+    inputs:
+      target_url:
+        description: 'Target URL to check (optional, defaults to local build test)'
+        required: false
+        type: string
+
+permissions:
+  contents: read
+  issues: write
+
+env:
+  MONITORING_ISSUE_TITLE: "🔍 Automated Health Check Report"
+
+jobs:
+  health-checks:
+    name: Run Health Checks
+    runs-on: ubuntu-latest
+    outputs:
+      status: ${{ steps.health.outputs.status }}
+      report: ${{ steps.health.outputs.report }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip setuptools wheel
+          pip install -r server/requirements.txt
+
+      - name: Run local health checks
+        id: health
+        run: |
+          echo "Running health checks..."
+          
+          STATUS="healthy"
+          REPORT=""
+          TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          
+          # Test 1: FastAPI module import
+          echo "=== Test 1: FastAPI Module Import ==="
+          if python -c "import sys; sys.path.insert(0, 'server'); from main import app; print('OK')" 2>/dev/null; then
+            REPORT="${REPORT}- ✅ FastAPI module: OK\n"
+          else
+            REPORT="${REPORT}- ❌ FastAPI module: FAILED\n"
+            STATUS="degraded"
+          fi
+          
+          # Test 2: Flask module import
+          echo "=== Test 2: Flask Module Import ==="
+          if python -c "import sys; sys.path.insert(0, 'server'); from app import app; print('OK')" 2>/dev/null; then
+            REPORT="${REPORT}- ✅ Flask module: OK\n"
+          else
+            REPORT="${REPORT}- ❌ Flask module: FAILED\n"
+            STATUS="degraded"
+          fi
+          
+          # Test 3: Check critical files exist
+          echo "=== Test 3: Critical Files ==="
+          CRITICAL_FILES="server/main.py server/app.py index.html server/requirements.txt"
+          for file in $CRITICAL_FILES; do
+            if [ -f "$file" ]; then
+              REPORT="${REPORT}- ✅ File exists: $file\n"
+            else
+              REPORT="${REPORT}- ❌ Missing file: $file\n"
+              STATUS="degraded"
+            fi
+          done
+          
+          # Test 4: Check artifact sizes
+          echo "=== Test 4: Artifact Sizes ==="
+          MAX_SIZE=$((1024 * 1024))
+          OVERSIZED=""
+          
+          while IFS= read -r file; do
+            if [ -f "$file" ]; then
+              size=$(stat -c %s "$file")
+              if [ "$size" -gt "$MAX_SIZE" ]; then
+                size_mb=$(echo "scale=2; $size / 1024 / 1024" | bc)
+                OVERSIZED="${OVERSIZED}  - $file ($size_mb MB)\n"
+              fi
+            fi
+          done < <(find . -name "*.py" -o -name "*.html" -o -name "*.js" -o -name "*.json" 2>/dev/null | grep -v ".venv" | grep -v "node_modules")
+          
+          if [ -n "$OVERSIZED" ]; then
+            REPORT="${REPORT}- ⚠️ Oversized files (>1MB):\n${OVERSIZED}"
+            STATUS="warning"
+          else
+            REPORT="${REPORT}- ✅ All source files under 1 MB\n"
+          fi
+          
+          # Test 5: Check for large binary files
+          echo "=== Test 5: Binary Files ==="
+          LARGE_BINARIES=$(find . -name "*.exe" -o -name "*.dll" 2>/dev/null | head -5)
+          if [ -n "$LARGE_BINARIES" ]; then
+            REPORT="${REPORT}- ⚠️ Large binary files found (excluded from Pi Studio package):\n"
+            for bin in $LARGE_BINARIES; do
+              size=$(stat -c %s "$bin" 2>/dev/null || echo "0")
+              size_mb=$(echo "scale=2; $size / 1024 / 1024" | bc)
+              REPORT="${REPORT}  - $bin ($size_mb MB)\n"
+            done
+          fi
+          
+          # Generate summary
+          echo "status=$STATUS" >> $GITHUB_OUTPUT
+          
+          # Write full report to file
+          cat > health_report.md << EOF
+          ## Health Check Report
+          
+          **Timestamp:** $TIMESTAMP
+          **Overall Status:** $STATUS
+          
+          ### Check Results
+          
+          $(echo -e "$REPORT")
+          
+          ### Repository Info
+          
+          - **Branch:** ${{ github.ref_name }}
+          - **Commit:** ${{ github.sha }}
+          - **Run ID:** ${{ github.run_id }}
+          EOF
+          
+          # Output report for next step
+          echo "report<<EOF" >> $GITHUB_OUTPUT
+          cat health_report.md >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Upload health report
+        uses: actions/upload-artifact@v4
+        with:
+          name: health-report
+          path: health_report.md
+          retention-days: 30
+
+  update-monitoring-issue:
+    name: Update Monitoring Issue
+    runs-on: ubuntu-latest
+    needs: health-checks
+    if: always()
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Find existing monitoring issue
+        id: find-issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'monitoring,automated'
+            });
+            
+            const existingIssue = issues.data.find(issue => 
+              issue.title.includes('Automated Health Check Report')
+            );
+            
+            if (existingIssue) {
+              core.setOutput('issue_number', existingIssue.number);
+              return existingIssue.number;
+            }
+            return '';
+
+      - name: Create or update monitoring issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const status = '${{ needs.health-checks.outputs.status }}';
+            const report = `${{ needs.health-checks.outputs.report }}`;
+            const timestamp = new Date().toISOString();
+            const runUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            
+            const statusEmoji = {
+              'healthy': '🟢',
+              'degraded': '🔴',
+              'warning': '🟡'
+            };
+            
+            const body = `
+            # ${statusEmoji[status] || '⚪'} Health Check Status: ${status.toUpperCase()}
+            
+            **Last Updated:** ${timestamp}
+            **Workflow Run:** [View Details](${runUrl})
+            
+            ${report}
+            
+            ---
+            
+            ## Configuration
+            
+            This issue is automatically updated by the scheduled monitoring workflow.
+            
+            ### Webhook Integration (Optional)
+            
+            To receive notifications, configure these repository secrets:
+            - \`SLACK_WEBHOOK_URL\`: Slack incoming webhook URL
+            - \`DISCORD_WEBHOOK_URL\`: Discord webhook URL
+            
+            See [docs/automation.md](https://github.com/${context.repo.owner}/${context.repo.repo}/blob/main/docs/automation.md) for setup instructions.
+            `;
+            
+            const issueNumber = '${{ steps.find-issue.outputs.issue_number }}';
+            
+            if (issueNumber) {
+              // Update existing issue
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: parseInt(issueNumber),
+                body: body
+              });
+              
+              // Add comment with latest status
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: parseInt(issueNumber),
+                body: `### Status Update: ${statusEmoji[status] || '⚪'} ${status.toUpperCase()}\n\nTimestamp: ${timestamp}\n[View Workflow Run](${runUrl})`
+              });
+              
+              console.log(`Updated issue #${issueNumber}`);
+            } else {
+              // Create new issue
+              const newIssue = await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: '🔍 Automated Health Check Report',
+                body: body,
+                labels: ['monitoring', 'automated']
+              });
+              
+              console.log(`Created issue #${newIssue.data.number}`);
+            }
+
+  notify-webhook:
+    name: Send Webhook Notifications
+    runs-on: ubuntu-latest
+    needs: health-checks
+    if: always() && (needs.health-checks.outputs.status == 'degraded' || needs.health-checks.outputs.status == 'warning')
+    steps:
+      - name: Notify Slack (if configured)
+        if: ${{ env.SLACK_WEBHOOK_URL != '' }}
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          STATUS="${{ needs.health-checks.outputs.status }}"
+          RUN_URL="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          
+          curl -X POST "$SLACK_WEBHOOK_URL" \
+            -H 'Content-Type: application/json' \
+            -d "{
+              \"text\": \"⚠️ Pi Forge Health Check Alert\",
+              \"blocks\": [
+                {
+                  \"type\": \"section\",
+                  \"text\": {
+                    \"type\": \"mrkdwn\",
+                    \"text\": \"*Status:* ${STATUS}\\n*Repository:* ${{ github.repository }}\\n<${RUN_URL}|View Details>\"
+                  }
+                }
+              ]
+            }" || echo "Slack notification failed (webhook may not be configured)"
+
+      - name: Notify Discord (if configured)
+        if: ${{ env.DISCORD_WEBHOOK_URL != '' }}
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: |
+          STATUS="${{ needs.health-checks.outputs.status }}"
+          RUN_URL="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          
+          curl -X POST "$DISCORD_WEBHOOK_URL" \
+            -H 'Content-Type: application/json' \
+            -d "{
+              \"content\": \"⚠️ **Pi Forge Health Check Alert**\",
+              \"embeds\": [{
+                \"title\": \"Health Check Status: ${STATUS}\",
+                \"url\": \"${RUN_URL}\",
+                \"color\": 16776960,
+                \"fields\": [
+                  {\"name\": \"Repository\", \"value\": \"${{ github.repository }}\", \"inline\": true},
+                  {\"name\": \"Status\", \"value\": \"${STATUS}\", \"inline\": true}
+                ]
+              }]
+            }" || echo "Discord notification failed (webhook may not be configured)"

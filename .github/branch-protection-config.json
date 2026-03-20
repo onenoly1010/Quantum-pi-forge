@@ -1,0 +1,101 @@
+{
+  "version": "1.0",
+  "description": "Branch Protection Rules Configuration for main branch",
+  "branch": "main",
+  "protection_rules": {
+    "required_pull_request_reviews": {
+      "enabled": true,
+      "required_approving_review_count": 1,
+      "dismiss_stale_reviews": true,
+      "require_code_owner_reviews": true,
+      "require_last_push_approval": false,
+      "bypass_pull_request_allowances": {
+        "users": [],
+        "teams": [],
+        "apps": []
+      }
+    },
+    "required_status_checks": {
+      "enabled": true,
+      "strict": true,
+      "contexts": [
+        "Lint and Test",
+        "Build and Package",
+        "API Health Check",
+        "healthcheck"
+      ]
+    },
+    "enforce_admins": {
+      "enabled": true,
+      "description": "Include administrators in these restrictions"
+    },
+    "required_linear_history": {
+      "enabled": true,
+      "description": "Prevent merge commits, require linear history"
+    },
+    "allow_force_pushes": {
+      "enabled": false,
+      "description": "Restrict force pushes to main branch"
+    },
+    "allow_deletions": {
+      "enabled": false,
+      "description": "Prevent branch deletion"
+    },
+    "required_conversation_resolution": {
+      "enabled": true,
+      "description": "Require all conversations to be resolved before merging"
+    },
+    "lock_branch": {
+      "enabled": false,
+      "description": "Lock branch to read-only (not enabled by default)"
+    },
+    "allow_fork_syncing": {
+      "enabled": true,
+      "description": "Allow users to sync their forks"
+    },
+    "restrictions": {
+      "enabled": true,
+      "description": "Restrict who can push to matching branches",
+      "users": [],
+      "teams": [],
+      "apps": []
+    }
+  },
+  "additional_recommendations": {
+    "require_signed_commits": {
+      "recommended": true,
+      "description": "Consider requiring signed commits for enhanced security",
+      "implementation": "This must be enabled separately in repository settings"
+    },
+    "codeowners_file": {
+      "recommended": true,
+      "description": "Create .github/CODEOWNERS file for automatic reviewer assignment",
+      "path": ".github/CODEOWNERS"
+    }
+  },
+  "github_api_endpoint": {
+    "url": "https://api.github.com/repos/{OWNER}/{REPO}/branches/main/protection",
+    "method": "PUT",
+    "authentication": "GitHub Token with repo scope required",
+    "note": "Replace {OWNER}/{REPO} with your repository path (e.g., onenoly1010/pi-forge-quantum-genesis)"
+  },
+  "manual_configuration_steps": [
+    "1. Navigate to: https://github.com/{OWNER}/{REPO}/settings/branches (replace with your repository)",
+    "2. Click 'Add branch protection rule' or edit existing rule for 'main'",
+    "3. Branch name pattern: main",
+    "4. Enable: Require a pull request before merging",
+    "   - Required approvals: 1",
+    "   - Dismiss stale pull request approvals when new commits are pushed",
+    "   - Require review from Code Owners",
+    "5. Enable: Require status checks to pass before merging",
+    "   - Require branches to be up to date before merging",
+    "   - Add status checks: 'Lint and Test', 'Build and Package', 'API Health Check', 'healthcheck'",
+    "6. Enable: Require conversation resolution before merging",
+    "7. Enable: Require linear history",
+    "8. Enable: Include administrators",
+    "9. Disable: Allow force pushes",
+    "10. Disable: Allow deletions",
+    "11. (Optional) Enable: Require signed commits",
+    "12. Click 'Create' or 'Save changes'"
+  ]
+}

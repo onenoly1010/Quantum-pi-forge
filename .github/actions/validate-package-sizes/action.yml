@@ -1,0 +1,112 @@
+name: 'Validate Package Sizes'
+description: 'Validates that all files in a directory or ZIP archive are under a specified size limit'
+author: 'Pi Forge Team'
+
+inputs:
+  path:
+    description: 'Path to directory or ZIP file to validate'
+    required: true
+  max-size-mb:
+    description: 'Maximum file size in MB (default: 1)'
+    required: false
+    default: '1'
+  fail-on-error:
+    description: 'Whether to fail the action if oversized files are found'
+    required: false
+    default: 'true'
+
+outputs:
+  status:
+    description: 'Validation status (pass/fail)'
+    value: ${{ steps.validate.outputs.status }}
+  oversized-files:
+    description: 'List of oversized files (if any)'
+    value: ${{ steps.validate.outputs.oversized_files }}
+  report:
+    description: 'Full validation report'
+    value: ${{ steps.validate.outputs.report }}
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Validate file sizes
+      id: validate
+      shell: bash
+      run: |
+        PATH_TO_CHECK="${{ inputs.path }}"
+        MAX_SIZE_MB="${{ inputs.max-size-mb }}"
+        MAX_SIZE_BYTES=$((MAX_SIZE_MB * 1024 * 1024))
+        
+        echo "🔍 Validating files in: $PATH_TO_CHECK"
+        echo "📏 Maximum size: ${MAX_SIZE_MB} MB"
+        echo ""
+        
+        TEMP_DIR=""
+        OVERSIZED_FILES=""
+        TOTAL_FILES=0
+        OVERSIZED_COUNT=0
+        
+        # Check if path is a ZIP file
+        if [[ "$PATH_TO_CHECK" == *.zip ]]; then
+          TEMP_DIR=$(mktemp -d)
+          echo "📦 Extracting ZIP to temp directory..."
+          unzip -q "$PATH_TO_CHECK" -d "$TEMP_DIR"
+          SCAN_PATH="$TEMP_DIR"
+        else
+          SCAN_PATH="$PATH_TO_CHECK"
+        fi
+        
+        # Scan all files
+        while IFS= read -r file; do
+          if [ -f "$file" ]; then
+            TOTAL_FILES=$((TOTAL_FILES + 1))
+            size=$(stat -c %s "$file")
+            
+            if [ "$size" -gt "$MAX_SIZE_BYTES" ]; then
+              size_mb=$(echo "scale=2; $size / 1024 / 1024" | bc)
+              rel_path="${file#$SCAN_PATH/}"
+              OVERSIZED_FILES="${OVERSIZED_FILES}${rel_path} (${size_mb} MB)\n"
+              OVERSIZED_COUNT=$((OVERSIZED_COUNT + 1))
+              echo "❌ OVERSIZED: $rel_path ($size_mb MB)"
+            fi
+          fi
+        done < <(find "$SCAN_PATH" -type f)
+        
+        # Cleanup temp directory if created
+        if [ -n "$TEMP_DIR" ]; then
+          rm -rf "$TEMP_DIR"
+        fi
+        
+        # Generate outputs
+        if [ "$OVERSIZED_COUNT" -gt 0 ]; then
+          echo "status=fail" >> $GITHUB_OUTPUT
+          echo "oversized_files<<EOF" >> $GITHUB_OUTPUT
+          echo -e "$OVERSIZED_FILES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          
+          REPORT="❌ Validation FAILED\n\nTotal files: $TOTAL_FILES\nOversized files: $OVERSIZED_COUNT\n\nOversized files:\n$OVERSIZED_FILES"
+        else
+          echo "status=pass" >> $GITHUB_OUTPUT
+          echo "oversized_files=" >> $GITHUB_OUTPUT
+          REPORT="✅ Validation PASSED\n\nTotal files: $TOTAL_FILES\nAll files under ${MAX_SIZE_MB} MB"
+        fi
+        
+        echo "report<<EOF" >> $GITHUB_OUTPUT
+        echo -e "$REPORT" >> $GITHUB_OUTPUT
+        echo "EOF" >> $GITHUB_OUTPUT
+        
+        echo ""
+        echo "📊 Summary:"
+        echo "   Total files scanned: $TOTAL_FILES"
+        echo "   Oversized files: $OVERSIZED_COUNT"
+        echo ""
+        
+        # Fail if requested and oversized files found
+        if [ "$OVERSIZED_COUNT" -gt 0 ] && [ "${{ inputs.fail-on-error }}" == "true" ]; then
+          echo "::error::Found $OVERSIZED_COUNT file(s) exceeding ${MAX_SIZE_MB} MB limit"
+          exit 1
+        fi
+
+branding:
+  icon: 'package'
+  color: 'purple'
