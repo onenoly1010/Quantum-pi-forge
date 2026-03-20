@@ -1,0 +1,32 @@
+# Frontend files - separate deployment
+frontend/
+frontend-next/
+*.html
+*.css
+*.js
+*.jsx
+*.ts
+*.tsx
+package.json
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+node_modules/
+
+# Development files
+.git/
+.github/
+.vscode/
+*.md
+docs/
+examples/
+tests/
+__pycache__/
+*.pyc
+.pytest_cache/
+.env.example
+.gitignore
+
+# CI/CD (keep only Railway relevant)
+.gitlab-ci.yml
+azure-pipelines.yml

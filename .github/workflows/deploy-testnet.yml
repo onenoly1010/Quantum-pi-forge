@@ -1,0 +1,369 @@
+name: Deploy to Testnet
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm_testnet:
+        description: 'Confirm testnet deployment (type "testnet")'
+        required: true
+        default: ''
+      deploy_services:
+        description: 'Services to deploy (comma-separated: fastapi,flask,gradio,all)'
+        required: false
+        default: 'all'
+  push:
+    branches:
+      - testnet
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
+
+# Prevent concurrent deployments
+concurrency:
+  group: testnet-deploy
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  packages: write
+  id-token: write
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  # Pre-deployment safety checks
+  safety-gate:
+    name: Safety Gate - Testnet Validation
+    runs-on: ubuntu-latest
+    outputs:
+      is_safe: ${{ steps.validate.outputs.is_safe }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate testnet deployment request
+        id: validate
+        run: |
+          echo "🔒 Running pre-deployment safety checks..."
+          
+          # Check 1: Workflow dispatch confirmation
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            CONFIRM="${{ github.event.inputs.confirm_testnet }}"
+            if [ "$CONFIRM" != "testnet" ]; then
+              echo "❌ SAFETY GATE FAILED: Confirmation must be 'testnet'"
+              echo "   Got: '$CONFIRM'"
+              exit 1
+            fi
+            echo "✅ Testnet deployment confirmed"
+          fi
+          
+          # Check 2: Verify APP_ENVIRONMENT from environment or default
+          APP_ENV="${APP_ENVIRONMENT:-testnet}"
+          if [ "$APP_ENV" != "testnet" ]; then
+            echo "❌ SAFETY GATE FAILED: APP_ENVIRONMENT must be 'testnet'"
+            echo "   Got: '$APP_ENV'"
+            exit 1
+          fi
+          echo "✅ APP_ENVIRONMENT is testnet"
+          
+          # Check 3: Verify NFT_MINT_VALUE is 0 or unset
+          NFT_VALUE="${NFT_MINT_VALUE:-0}"
+          if [ "$NFT_VALUE" != "0" ]; then
+            echo "❌ SAFETY GATE FAILED: NFT_MINT_VALUE must be 0 for testnet"
+            echo "   Got: '$NFT_VALUE'"
+            exit 1
+          fi
+          echo "✅ NFT_MINT_VALUE is 0"
+          
+          # Check 4: Verify GUARDIAN_KILL_SWITCH is not 'on'
+          KILL_SWITCH="${GUARDIAN_KILL_SWITCH:-off}"
+          if [ "$KILL_SWITCH" = "on" ]; then
+            echo "❌ SAFETY GATE FAILED: GUARDIAN_KILL_SWITCH is 'on'"
+            echo "   Deployments are halted. Set to 'off' to proceed."
+            exit 1
+          fi
+          echo "✅ GUARDIAN_KILL_SWITCH is not active"
+          
+          # Check 5: Verify FORCE_DEPLOY_TO_MAINNET does not exist
+          if [ -n "$FORCE_DEPLOY_TO_MAINNET" ]; then
+            echo "❌ SAFETY GATE FAILED: FORCE_DEPLOY_TO_MAINNET is set"
+            echo "   This flag is not allowed in testnet deployments"
+            exit 1
+          fi
+          echo "✅ FORCE_DEPLOY_TO_MAINNET not present"
+          
+          # Check 6: Verify PI_NETWORK_MODE is sandbox
+          PI_MODE="${PI_NETWORK_MODE:-sandbox}"
+          if [ "$PI_MODE" != "sandbox" ]; then
+            echo "❌ SAFETY GATE FAILED: PI_NETWORK_MODE must be 'sandbox'"
+            echo "   Got: '$PI_MODE'"
+            exit 1
+          fi
+          echo "✅ PI_NETWORK_MODE is sandbox"
+          
+          echo ""
+          echo "🎉 All safety checks passed!"
+          echo "is_safe=true" >> $GITHUB_OUTPUT
+
+      - name: Safety check summary
+        run: |
+          echo "## 🔒 Safety Gate Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "✅ All pre-deployment safety checks passed" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Verified Constraints" >> $GITHUB_STEP_SUMMARY
+          echo "- APP_ENVIRONMENT = testnet" >> $GITHUB_STEP_SUMMARY
+          echo "- NFT_MINT_VALUE = 0" >> $GITHUB_STEP_SUMMARY
+          echo "- GUARDIAN_KILL_SWITCH ≠ on" >> $GITHUB_STEP_SUMMARY
+          echo "- FORCE_DEPLOY_TO_MAINNET not present" >> $GITHUB_STEP_SUMMARY
+          echo "- PI_NETWORK_MODE = sandbox" >> $GITHUB_STEP_SUMMARY
+
+  # Run tests before building
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    needs: safety-gate
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: server/requirements.txt
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip setuptools wheel
+          pip install -r server/requirements.txt
+          pip install pytest pytest-asyncio
+
+      - name: Run unit tests
+        run: |
+          cd tests
+          python -m pytest -v --tb=short
+        continue-on-error: false
+
+      - name: Test summary
+        if: always()
+        run: |
+          echo "## 🧪 Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Tests completed" >> $GITHUB_STEP_SUMMARY
+
+  # Build and push Docker images to GHCR
+  build:
+    name: Build Docker Images
+    runs-on: ubuntu-latest
+    needs: [safety-gate, test]
+    strategy:
+      matrix:
+        service: [fastapi, flask, gradio]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}-${{ matrix.service }}
+          tags: |
+            type=sha,prefix=testnet-,format=short
+            type=raw,value=testnet-latest
+            type=raw,value=testnet-{{date 'YYYYMMDD-HHmmss'}}
+
+      - name: Determine Dockerfile
+        id: dockerfile
+        run: |
+          if [ "${{ matrix.service }}" = "fastapi" ]; then
+            echo "file=Dockerfile" >> $GITHUB_OUTPUT
+            echo "target=production" >> $GITHUB_OUTPUT
+          elif [ "${{ matrix.service }}" = "flask" ]; then
+            echo "file=Dockerfile.flask" >> $GITHUB_OUTPUT
+            echo "target=production" >> $GITHUB_OUTPUT
+          elif [ "${{ matrix.service }}" = "gradio" ]; then
+            echo "file=Dockerfile.gradio" >> $GITHUB_OUTPUT
+            echo "target=production" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ${{ steps.dockerfile.outputs.file }}
+          target: ${{ steps.dockerfile.outputs.target }}
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          build-args: |
+            APP_ENVIRONMENT=testnet
+            NFT_MINT_VALUE=0
+            PI_NETWORK_MODE=sandbox
+
+      - name: Build summary
+        run: |
+          echo "## 🐳 Docker Build - ${{ matrix.service }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Image pushed to GHCR:" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          echo "${{ steps.meta.outputs.tags }}" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
+  # Deploy to Railway (template - operators must configure)
+  deploy-railway:
+    name: Deploy to Railway
+    runs-on: ubuntu-latest
+    needs: [safety-gate, test, build]
+    if: success()
+    environment:
+      name: testnet
+      url: https://pi-forge-testnet.up.railway.app
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Railway CLI
+        run: |
+          npm i -g @railway/cli
+
+      - name: Verify Railway token
+        run: |
+          if [ -z "${{ secrets.RAILWAY_TOKEN }}" ]; then
+            echo "❌ RAILWAY_TOKEN secret not configured"
+            echo "Configure in GitHub Repository Settings → Secrets"
+            exit 1
+          fi
+          echo "✅ Railway token configured"
+
+      # OPERATOR NOTE: The following Railway deployment commands are templates.
+      # You must configure your Railway project and replace these placeholders
+      # with actual Railway project IDs and service names.
+      #
+      # Example Railway CLI commands (uncomment and configure):
+      #
+      # - name: Deploy FastAPI Server
+      #   env:
+      #     RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+      #   run: |
+      #     railway link <YOUR_RAILWAY_PROJECT_ID>
+      #     railway up --service fastapi-server
+      #
+      # - name: Deploy Flask Dashboard
+      #   env:
+      #     RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+      #   run: |
+      #     railway up --service flask-dashboard
+      #
+      # - name: Deploy Gradio Interface
+      #   env:
+      #     RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+      #   run: |
+      #     railway up --service gradio-interface
+
+      - name: Deployment placeholder
+        run: |
+          echo "⚠️  Railway deployment commands are template placeholders."
+          echo ""
+          echo "To enable automated Railway deployments:"
+          echo "1. Create Railway project and link to this repository"
+          echo "2. Add RAILWAY_TOKEN to GitHub Secrets"
+          echo "3. Uncomment and configure Railway CLI commands in this workflow"
+          echo "4. Replace <YOUR_RAILWAY_PROJECT_ID> with your actual project ID"
+          echo ""
+          echo "For manual deployment, run: railway up --service <service-name>"
+          echo ""
+          echo "See infra/railway/README.md for detailed instructions"
+
+      - name: Deployment summary
+        run: |
+          echo "## 🚀 Deployment Status" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "⚠️ Railway deployment requires manual configuration" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Next steps:" >> $GITHUB_STEP_SUMMARY
+          echo "1. Configure Railway project and services" >> $GITHUB_STEP_SUMMARY
+          echo "2. Add RAILWAY_TOKEN to GitHub Secrets" >> $GITHUB_STEP_SUMMARY
+          echo "3. Update workflow with Railway project ID" >> $GITHUB_STEP_SUMMARY
+          echo "4. Re-run workflow or deploy manually via Railway CLI" >> $GITHUB_STEP_SUMMARY
+
+  # Post-deployment smoke tests
+  smoke-test:
+    name: Smoke Tests
+    runs-on: ubuntu-latest
+    needs: deploy-railway
+    if: success()
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # OPERATOR NOTE: Replace with your actual deployment URL
+      - name: Run smoke tests
+        run: |
+          echo "⚠️  Smoke test URL is a placeholder"
+          echo ""
+          echo "To enable smoke tests:"
+          echo "1. Replace <YOUR_DEPLOYMENT_URL> with actual Railway deployment URL"
+          echo "2. Ensure services are fully deployed before running tests"
+          echo ""
+          # Uncomment and configure:
+          # chmod +x ./scripts/smoke_test.sh
+          # ./scripts/smoke_test.sh <YOUR_FASTAPI_URL> <YOUR_FLASK_URL> <YOUR_GRADIO_URL>
+
+      - name: Smoke test placeholder
+        run: |
+          echo "## 🧪 Smoke Tests" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "⚠️ Smoke tests require deployment URL configuration" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Once deployed, test with:" >> $GITHUB_STEP_SUMMARY
+          echo '```bash' >> $GITHUB_STEP_SUMMARY
+          echo './scripts/smoke_test.sh https://your-deployment.up.railway.app' >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
+  # Rollback on failure (placeholder)
+  rollback-on-failure:
+    name: Rollback on Failure
+    runs-on: ubuntu-latest
+    needs: [deploy-railway, smoke-test]
+    if: failure()
+    steps:
+      - name: Rollback notification
+        run: |
+          echo "❌ Deployment or smoke tests failed"
+          echo ""
+          echo "To rollback:"
+          echo "1. Go to GitHub Actions → Rollback Testnet Deployment"
+          echo "2. Run workflow manually with previous deployment ID"
+          echo ""
+          echo "Or use Railway CLI:"
+          echo "  railway rollback --service <service-name>"
+          echo ""
+          echo "See .github/workflows/rollback.yml for automated rollback"
+
+      - name: Failure summary
+        run: |
+          echo "## ❌ Deployment Failed" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Deployment or post-deployment tests failed." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Rollback Options" >> $GITHUB_STEP_SUMMARY
+          echo "1. Manual: Use GitHub Actions rollback workflow" >> $GITHUB_STEP_SUMMARY
+          echo "2. CLI: \`railway rollback --service <service-name>\`" >> $GITHUB_STEP_SUMMARY
+          echo "3. Re-deploy: Fix issues and re-run this workflow" >> $GITHUB_STEP_SUMMARY

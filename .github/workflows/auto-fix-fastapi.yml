@@ -1,0 +1,63 @@
+name: Auto Fix - upgrade fastapi
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  upgrade-fastapi:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set variables
+        run: |
+          BRANCH="fix/upgrade-fastapi-$(date +%s)"
+          echo "BRANCH=$BRANCH" > $GITHUB_ENV
+          echo "COMMIT_MSG=chore(server): bump fastapi to >=0.109.0 to resolve Gradio dependency conflict" > $GITHUB_ENV
+
+      - name: Create branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+
+      - name: Update server/requirements.txt
+        run: |
+          FILE=server/requirements.txt
+          if [ ! -f "$FILE" ]; then
+            echo "File $FILE not found" >&2
+            exit 1
+          fi
+          cp "$FILE" "${FILE}.bak"
+          perl -0777 -pe "s/^fastapi==[^\r\n]+/fastapi>=0.109.0,<0.110.0/mg" -i "$FILE"
+          echo "=== Diff ==="
+          git --no-pager diff -- "$FILE" || true
+
+      - name: Commit changes
+        run: |
+          git add server/requirements.txt
+          git commit -m "$COMMIT_MSG" || echo "No changes to commit"
+
+      - name: Push branch
+        run: |
+          git push --set-upstream origin "$BRANCH"
+
+      - name: Create PR
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: ${{ env.COMMIT_MSG }}
+          title: ${{ env.COMMIT_MSG }}
+          body: |
+            Bumps FastAPI to >=0.109.0,<0.110.0 to resolve pip dependency conflict with gradio==5.31.0.
+            See failing CI job: https://github.com/onenoly1010/pi-forge-quantum-genesis/actions/runs/19921783065/job/57123443495 (ref: 30cd602663b76ed33c42b5270e771e6307b4c1af)
+          base: main
+          head: ${{ env.BRANCH }}

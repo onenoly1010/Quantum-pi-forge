@@ -1,0 +1,17 @@
+{
+    "recommendations": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-toolsai.jupyter",
+        "github.copilot",
+        "github.copilot-chat",
+        "ms-vscode.powershell",
+        "ms-vscode.live-server",
+        "ritwickdey.liveserver",
+        "ms-python.debugpy",
+        "ms-python.flake8",
+        "ms-python.isort",
+        "ms-vscode-remote.remote-containers",
+        "ms-azuretools.vscode-docker"
+    ]
+}

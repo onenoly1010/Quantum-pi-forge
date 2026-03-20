@@ -1,0 +1,177 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "🚀 Launch Quantum Lattice",
+            "type": "shell",
+            "command": "pwsh",
+            "args": ["-File", "run.ps1"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "panel": "shared",
+                "group": "quantum-operations"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "🎭 Interactive Quantum Demo",
+            "type": "shell",
+            "command": "pwsh",
+            "args": ["-File", "demo.ps1", "-Interactive"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "panel": "shared",
+                "group": "quantum-demo"
+            }
+        },
+        {
+            "label": "🛡️ Deploy Guardian Trinity",
+            "type": "shell",
+            "command": "pwsh",
+            "args": ["-File", "guardians.ps1", "-Deploy"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "panel": "shared",
+                "group": "quantum-deploy"
+            }
+        },
+        {
+            "label": "🤖 AI Enhancement Protocol",
+            "type": "shell",
+            "command": "pwsh",
+            "args": ["-File", "ai_enhance.ps1", "-FullIntegration"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "panel": "shared",
+                "group": "quantum-ai"
+            }
+        },
+        {
+            "label": "🚂 Railway Deployment",
+            "type": "shell",
+            "command": "pwsh",
+            "args": ["-File", "deploy.ps1"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "panel": "shared",
+                "group": "quantum-deploy"
+            }
+        },
+        {
+            "label": "🩺 Health Check Monitoring",
+            "type": "shell",
+            "command": "pwsh",
+            "args": ["-File", "monitor.ps1", "-BaseUrl", "http://localhost:8000", "-Verbose"],
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "panel": "shared",
+                "group": "quantum-monitor"
+            }
+        },
+        {
+            "label": "🧪 Run Quantum Tests",
+            "type": "shell",
+            "command": "python",
+            "args": ["-m", "pytest", "tests/", "-v"],
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "panel": "shared",
+                "group": "quantum-test"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "📊 Open Live Dashboard",
+            "type": "shell",
+            "command": "start",
+            "args": ["http://localhost:5000"],
+            "windows": {
+                "command": "start",
+                "args": ["http://localhost:5000"]
+            },
+            "linux": {
+                "command": "xdg-open",
+                "args": ["http://localhost:5000"]
+            },
+            "osx": {
+                "command": "open",
+                "args": ["http://localhost:5000"]
+            },
+            "group": "build",
+            "presentation": {
+                "echo": false,
+                "reveal": "silent",
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "🌐 Open Ceremonial Interface",
+            "type": "shell",
+            "command": "start",
+            "args": ["frontend/ceremonial_interface.html"],
+            "windows": {
+                "command": "start",
+                "args": ["frontend/ceremonial_interface.html"]
+            },
+            "linux": {
+                "command": "xdg-open",
+                "args": ["frontend/ceremonial_interface.html"]
+            },
+            "osx": {
+                "command": "open",
+                "args": ["frontend/ceremonial_interface.html"]
+            },
+            "group": "build"
+        },
+        {
+            "label": "🔄 Restart All Services",
+            "type": "shell",
+            "command": "pwsh",
+            "args": [
+                "-Command",
+                "Get-Process python -ErrorAction SilentlyContinue | Stop-Process; Start-Sleep 2; .\\run.ps1"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "panel": "shared",
+                "group": "quantum-operations"
+            }
+        },
+        {
+            "label": "🧹 Clean Python Cache",
+            "type": "shell",
+            "command": "pwsh",
+            "args": [
+                "-Command",
+                "Get-ChildItem -Recurse -Force __pycache__ | Remove-Item -Force -Recurse; Get-ChildItem -Recurse -Force *.pyc | Remove-Item -Force"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "panel": "shared"
+            }
+        }
+    ]
+}

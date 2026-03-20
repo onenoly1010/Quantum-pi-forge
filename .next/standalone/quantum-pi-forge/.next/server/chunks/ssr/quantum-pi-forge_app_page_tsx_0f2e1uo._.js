@@ -1,0 +1,3 @@
+module.exports=[57873,a=>{"use strict";var b=a.i(77022);a.s(["default",0,function(){return(0,b.jsxs)("main",{className:"min-h-screen p-24",children:[(0,b.jsx)("h1",{className:"text-4xl font-bold text-center",children:"Quantum Pi Forge"}),(0,b.jsx)("p",{className:"text-center mt-4 text-gray-600",children:"Sovereign AI Governance and DeFi Protocol"})]})}])},62314,a=>{a.n(a.i(57873))}];
+
+//# sourceMappingURL=quantum-pi-forge_app_page_tsx_0f2e1uo._.js.map

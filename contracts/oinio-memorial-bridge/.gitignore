@@ -1,0 +1,20 @@
+# Rust/Cargo
+target/
+Cargo.lock
+
+# Build artifacts
+*.wasm
+*_optimized.wasm
+
+# Contract deployment artifacts
+contract_address.txt
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,39 @@
+name: Mandala Fire System
+
+on:
+  workflow_dispatch:
+    inputs:
+      resonance_level:
+        description: 'Resonance activation level'
+        required: false
+        default: 'standard'
+        type: choice
+        options:
+          - standard
+          - enhanced
+          - transcendent
+
+permissions:
+  contents: read
+
+jobs:
+  mandala-activation:
+    name: 🔥 Mandala Fire Activation
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Activate Mandala Pulse
+        env:
+          RESONANCE_LEVEL: ${{ github.event.inputs.resonance_level }}
+        run: |
+          echo "🔥 Initiating Mandala Fire System..."
+          node .scripts/mandala-pulse.js "${{ github.event.inputs.resonance_level }}"
+          echo "🔥 Mandala Fire System: Activation complete"

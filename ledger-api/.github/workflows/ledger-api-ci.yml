@@ -1,0 +1,194 @@
+name: Ledger API CI
+
+on:
+  push:
+    branches:
+      - infra/ledger-api-v1
+      - main
+    paths:
+      - 'ledger-api/**'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'ledger-api/**'
+
+jobs:
+  lint:
+    name: Lint and Format Check
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          cd ledger-api
+          pip install flake8 black isort
+      
+      - name: Run flake8
+        run: |
+          cd ledger-api
+          flake8 ledger_api --count --select=E9,F63,F7,F82 --show-source --statistics
+          flake8 ledger_api --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+      
+      - name: Check formatting with black
+        run: |
+          cd ledger-api
+          black --check ledger_api
+      
+      - name: Check imports with isort
+        run: |
+          cd ledger-api
+          isort --check-only ledger_api
+
+  test-sqlite:
+    name: Unit Tests (SQLite)
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          cd ledger-api
+          pip install -r requirements.txt
+      
+      - name: Run tests with pytest
+        env:
+          DATABASE_URL: sqlite:///:memory:
+          GUARDIAN_JWT_SECRET: test-secret-key-min-32-characters-long
+          NFT_MINT_VALUE: 0
+          APP_ENVIRONMENT: testnet
+        run: |
+          cd ledger-api
+          pytest ledger_api/tests/ -v --tb=short --cov=ledger_api --cov-report=term-missing
+      
+      - name: Upload coverage reports
+        uses: codecov/codecov-action@v3
+        with:
+          files: ./ledger-api/coverage.xml
+          flags: unittests
+          name: ledger-api-coverage
+
+  test-postgres:
+    name: Integration Tests (PostgreSQL)
+    runs-on: ubuntu-latest
+    
+    services:
+      postgres:
+        image: postgres:15-alpine
+        env:
+          POSTGRES_DB: ledger_test_db
+          POSTGRES_USER: test_user
+          POSTGRES_PASSWORD: test_pass
+          POSTGRES_HOST_AUTH_METHOD: trust
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          cd ledger-api
+          pip install -r requirements.txt
+      
+      - name: Run migrations
+        env:
+          DATABASE_URL: postgresql://test_user:test_pass@localhost:5432/ledger_test_db
+        run: |
+          cd ledger-api
+          python -c "from ledger_api.db import init_db; init_db()"
+      
+      - name: Run integration tests
+        env:
+          DATABASE_URL: postgresql://test_user:test_pass@localhost:5432/ledger_test_db
+          GUARDIAN_JWT_SECRET: test-secret-key-min-32-characters-long
+          NFT_MINT_VALUE: 0
+          APP_ENVIRONMENT: testnet
+        run: |
+          cd ledger-api
+          pytest ledger_api/tests/ -v --tb=short
+
+  docker-build:
+    name: Docker Build Test
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      
+      - name: Build Docker image
+        run: |
+          cd ledger-api
+          docker build -t ledger-api:test .
+      
+      - name: Test Docker image
+        run: |
+          docker run --rm -e DATABASE_URL=sqlite:///:memory: \
+            -e GUARDIAN_JWT_SECRET=test-secret-key-min-32-characters-long \
+            -e NFT_MINT_VALUE=0 \
+            -e APP_ENVIRONMENT=testnet \
+            ledger-api:test python -c "from ledger_api.main import app; print('✅ App import successful')"
+
+  security:
+    name: Security Checks
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          cd ledger-api
+          pip install -r requirements.txt
+          pip install bandit safety
+      
+      - name: Run bandit security scanner
+        run: |
+          cd ledger-api
+          bandit -r ledger_api -ll
+      
+      - name: Check for known vulnerabilities
+        run: |
+          cd ledger-api
+          safety check --json || true
+      
+      - name: Verify NFT_MINT_VALUE enforcement
+        run: |
+          cd ledger-api
+          grep -r "NFT_MINT_VALUE" ledger_api/utils/pi_auth.py || exit 1
+          echo "✅ NFT_MINT_VALUE safety checks found"

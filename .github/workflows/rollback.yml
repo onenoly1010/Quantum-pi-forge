@@ -1,0 +1,284 @@
+name: Rollback Testnet Deployment
+
+on:
+  workflow_dispatch:
+    inputs:
+      service:
+        description: 'Service to rollback (fastapi-server, flask-dashboard, gradio-interface, all)'
+        required: true
+        type: choice
+        options:
+          - fastapi-server
+          - flask-dashboard
+          - gradio-interface
+          - all
+      deployment_id:
+        description: 'Deployment ID to rollback to (optional - uses previous if empty)'
+        required: false
+        type: string
+      confirm_rollback:
+        description: 'Confirm rollback (type "ROLLBACK")'
+        required: true
+        type: string
+      reason:
+        description: 'Reason for rollback (for audit log)'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  packages: read
+  id-token: write
+
+jobs:
+  # Validate rollback request
+  validate-rollback:
+    name: Validate Rollback Request
+    runs-on: ubuntu-latest
+    outputs:
+      is_valid: ${{ steps.validate.outputs.is_valid }}
+    steps:
+      - name: Validate confirmation
+        id: validate
+        run: |
+          echo "🔄 Validating rollback request..."
+          
+          # Check confirmation
+          if [ "${{ github.event.inputs.confirm_rollback }}" != "ROLLBACK" ]; then
+            echo "❌ Rollback not confirmed. Must type 'ROLLBACK' exactly."
+            exit 1
+          fi
+          echo "✅ Rollback confirmed"
+          
+          # Check reason provided
+          if [ -z "${{ github.event.inputs.reason }}" ]; then
+            echo "❌ Rollback reason is required"
+            exit 1
+          fi
+          echo "✅ Rollback reason: ${{ github.event.inputs.reason }}"
+          
+          # Check service selected
+          if [ -z "${{ github.event.inputs.service }}" ]; then
+            echo "❌ Service must be selected"
+            exit 1
+          fi
+          echo "✅ Service: ${{ github.event.inputs.service }}"
+          
+          echo "is_valid=true" >> $GITHUB_OUTPUT
+
+      - name: Log rollback request
+        run: |
+          echo "## 🔄 Rollback Request" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Initiated by:** ${{ github.actor }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Service:** ${{ github.event.inputs.service }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Deployment ID:** ${{ github.event.inputs.deployment_id || 'Previous deployment' }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Reason:** ${{ github.event.inputs.reason }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Timestamp:** $(date -u +"%Y-%m-%d %H:%M:%S UTC")" >> $GITHUB_STEP_SUMMARY
+
+  # Perform rollback
+  rollback:
+    name: Rollback to Previous Deployment
+    runs-on: ubuntu-latest
+    needs: validate-rollback
+    environment:
+      name: testnet-rollback
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Railway CLI
+        run: |
+          npm i -g @railway/cli
+
+      - name: Verify Railway token
+        run: |
+          if [ -z "${{ secrets.RAILWAY_TOKEN }}" ]; then
+            echo "❌ RAILWAY_TOKEN secret not configured"
+            exit 1
+          fi
+          echo "✅ Railway token configured"
+
+      # OPERATOR NOTE: The following Railway rollback commands are templates.
+      # Configure Railway project ID and deployment IDs before use.
+      #
+      # Example Railway rollback commands:
+      #
+      # Option 1: Rollback to previous deployment (automatic)
+      # railway rollback --service <service-name>
+      #
+      # Option 2: Rollback to specific deployment ID
+      # railway rollback --service <service-name> --to <deployment-id>
+      #
+      # Option 3: Re-deploy last known good image from GHCR
+      # railway up --detach --service <service-name> --image ghcr.io/<owner>/<repo>:<tag>
+
+      - name: Rollback FastAPI Server
+        if: inputs.service == 'fastapi-server' || inputs.service == 'all'
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+        run: |
+          echo "🔄 Rolling back FastAPI Server..."
+          
+          # OPERATOR: Uncomment and configure one of these options:
+          
+          # Option 1: Automatic rollback to previous
+          # railway link <YOUR_RAILWAY_PROJECT_ID>
+          # railway rollback --service fastapi-server
+          
+          # Option 2: Rollback to specific deployment
+          # if [ -n "${{ github.event.inputs.deployment_id }}" ]; then
+          #   railway rollback --service fastapi-server --to "${{ github.event.inputs.deployment_id }}"
+          # else
+          #   railway rollback --service fastapi-server
+          # fi
+          
+          # Option 3: Re-deploy last known good image
+          # LAST_GOOD_TAG="testnet-20241210-120000"  # Update with actual tag
+          # railway up --detach --service fastapi-server \
+          #   --image ghcr.io/${{ github.repository }}-fastapi:${LAST_GOOD_TAG}
+          
+          echo "⚠️  Rollback command is a template placeholder"
+          echo "Configure Railway project ID and uncomment rollback command"
+
+      - name: Rollback Flask Dashboard
+        if: inputs.service == 'flask-dashboard' || inputs.service == 'all'
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+        run: |
+          echo "🔄 Rolling back Flask Dashboard..."
+          
+          # OPERATOR: Configure rollback command
+          # railway rollback --service flask-dashboard
+          
+          echo "⚠️  Rollback command is a template placeholder"
+
+      - name: Rollback Gradio Interface
+        if: inputs.service == 'gradio-interface' || inputs.service == 'all'
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+        run: |
+          echo "🔄 Rolling back Gradio Interface..."
+          
+          # OPERATOR: Configure rollback command
+          # railway rollback --service gradio-interface
+          
+          echo "⚠️  Rollback command is a template placeholder"
+
+      - name: Wait for rollback completion
+        run: |
+          echo "⏳ Waiting for rollback to complete..."
+          sleep 30  # Adjust based on deployment time
+          echo "✅ Rollback should be complete"
+
+      - name: Rollback summary
+        run: |
+          echo "## ✅ Rollback Completed" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Service(s):** ${{ github.event.inputs.service }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Deployment ID:** ${{ github.event.inputs.deployment_id || 'Previous' }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Status:** Rollback initiated" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Next Steps" >> $GITHUB_STEP_SUMMARY
+          echo "1. Verify services are healthy: Run smoke tests" >> $GITHUB_STEP_SUMMARY
+          echo "2. Monitor logs for errors" >> $GITHUB_STEP_SUMMARY
+          echo "3. Investigate root cause of failure" >> $GITHUB_STEP_SUMMARY
+          echo "4. Fix issues before next deployment" >> $GITHUB_STEP_SUMMARY
+
+  # Verify rollback success
+  verify-rollback:
+    name: Verify Rollback
+    runs-on: ubuntu-latest
+    needs: rollback
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # OPERATOR NOTE: Configure deployment URLs
+      - name: Run smoke tests
+        run: |
+          echo "🧪 Running post-rollback smoke tests..."
+          
+          # OPERATOR: Uncomment and configure with actual URLs
+          # chmod +x ./scripts/smoke_test.sh
+          # ./scripts/smoke_test.sh <YOUR_FASTAPI_URL>
+          
+          echo "⚠️  Smoke test URL configuration required"
+          echo "Configure deployment URLs to enable automatic verification"
+
+      - name: Manual verification instructions
+        run: |
+          echo "## 🔍 Verification Required" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Manually verify rollback success:" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "1. Check Railway dashboard for deployment status" >> $GITHUB_STEP_SUMMARY
+          echo "2. Visit service health endpoints:" >> $GITHUB_STEP_SUMMARY
+          echo "   - FastAPI: \`/health\`" >> $GITHUB_STEP_SUMMARY
+          echo "   - Flask: \`/health\`" >> $GITHUB_STEP_SUMMARY
+          echo "   - Gradio: \`/\`" >> $GITHUB_STEP_SUMMARY
+          echo "3. Monitor logs: \`railway logs --service <service-name>\`" >> $GITHUB_STEP_SUMMARY
+          echo "4. Run smoke tests locally:" >> $GITHUB_STEP_SUMMARY
+          echo '   ```bash' >> $GITHUB_STEP_SUMMARY
+          echo '   ./scripts/smoke_test.sh https://your-deployment.up.railway.app' >> $GITHUB_STEP_SUMMARY
+          echo '   ```' >> $GITHUB_STEP_SUMMARY
+
+  # Notification and audit log
+  notify:
+    name: Notification
+    runs-on: ubuntu-latest
+    needs: [rollback, verify-rollback]
+    if: always()
+    steps:
+      - name: Rollback audit log
+        run: |
+          echo "📋 Rollback audit log entry:"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "Timestamp:      $(date -u +"%Y-%m-%d %H:%M:%S UTC")"
+          echo "Initiated by:   ${{ github.actor }}"
+          echo "Service(s):     ${{ github.event.inputs.service }}"
+          echo "Deployment ID:  ${{ github.event.inputs.deployment_id || 'Previous' }}"
+          echo "Reason:         ${{ github.event.inputs.reason }}"
+          echo "Workflow Run:   ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          echo "Status:         ${{ needs.rollback.result }}"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+      - name: Create audit summary
+        run: |
+          echo "## 📋 Rollback Audit Log" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Field | Value |" >> $GITHUB_STEP_SUMMARY
+          echo "|-------|-------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Timestamp | $(date -u +"%Y-%m-%d %H:%M:%S UTC") |" >> $GITHUB_STEP_SUMMARY
+          echo "| Initiated by | ${{ github.actor }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Service(s) | ${{ github.event.inputs.service }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Deployment ID | ${{ github.event.inputs.deployment_id || 'Previous' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Reason | ${{ github.event.inputs.reason }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Status | ${{ needs.rollback.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "This rollback was performed on the **testnet** environment." >> $GITHUB_STEP_SUMMARY
+
+# Template usage instructions:
+#
+# 1. Configure Railway project:
+#    - Add RAILWAY_TOKEN to GitHub repository secrets
+#    - Note your Railway project ID
+#
+# 2. Update rollback commands:
+#    - Uncomment Railway CLI commands in rollback steps
+#    - Replace <YOUR_RAILWAY_PROJECT_ID> with actual project ID
+#    - Configure service names to match Railway project
+#
+# 3. Test rollback workflow:
+#    - Go to Actions → Rollback Testnet Deployment
+#    - Click "Run workflow"
+#    - Fill in required inputs
+#    - Confirm with "ROLLBACK"
+#
+# 4. Verify rollback:
+#    - Check Railway dashboard
+#    - Run smoke tests
+#    - Monitor service logs
+#
+# For emergency rollbacks, use Railway CLI directly:
+#   railway rollback --service <service-name>

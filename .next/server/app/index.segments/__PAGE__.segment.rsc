@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[29798,["/_next/static/chunks/06ck2s1eo63df.js"],"OutletBoundary"]
+3:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","main",null,{"className":"min-h-screen p-24","children":[["$","h1",null,{"className":"text-4xl font-bold text-center","children":"Quantum Pi Forge"}],["$","p",null,{"className":"text-center mt-4 text-gray-600","children":"Sovereign AI Governance and DeFi Protocol"}]]}],null,["$","$L2",null,{"children":["$","$3",null,{"name":"Next.MetadataOutlet","children":"$@4"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"-nJOxvVJtEFlmbE9gUNTi"}
+4:null

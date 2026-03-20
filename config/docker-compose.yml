@@ -1,0 +1,139 @@
+version: '3.8'
+
+services:
+  # FastAPI Quantum Conduit - Primary API Service
+  fastapi:
+    build:
+      context: .
+      target: development
+    container_name: quantum-fastapi
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./server:/app/server:ro
+      - ./frontend:/app/frontend:ro
+      - /app/server/__pycache__
+    environment:
+      - PYTHONPATH=/app
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_KEY=${SUPABASE_KEY}
+      - AZURE_TRACING_GEN_AI_CONTENT_RECORDING_ENABLED=true
+      - AZURE_SDK_TRACING_IMPLEMENTATION=opentelemetry
+      - QUANTUM_TRACING_ENABLED=true
+    networks:
+      - quantum-network
+    depends_on:
+      - otlp-collector
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    restart: unless-stopped
+
+  # Flask Glyph Weaver - Visualization Service
+  flask:
+    build:
+      context: .
+      dockerfile: Dockerfile.flask
+    container_name: quantum-flask
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./server:/app/server:ro
+      - ./frontend:/app/frontend:ro
+      - /app/server/__pycache__
+    environment:
+      - PYTHONPATH=/app
+      - FLASK_ENV=development
+      - QUANTUM_TRACING_ENABLED=true
+    networks:
+      - quantum-network
+    depends_on:
+      - otlp-collector
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    restart: unless-stopped
+
+  # Gradio Truth Mirror - Ethical Audit Service
+  gradio:
+    build:
+      context: .
+      dockerfile: Dockerfile.gradio
+    container_name: quantum-gradio
+    ports:
+      - "7860:7860"
+    volumes:
+      - ./server:/app/server:ro
+      - ./frontend:/app/frontend:ro
+      - /app/server/__pycache__
+    environment:
+      - PYTHONPATH=/app
+      - GRADIO_SERVER_NAME=0.0.0.0
+      - GRADIO_SERVER_PORT=7860
+      - QUANTUM_TRACING_ENABLED=true
+    networks:
+      - quantum-network
+    depends_on:
+      - otlp-collector
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:7860/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    restart: unless-stopped
+
+  # OpenTelemetry Collector for Tracing
+  otlp-collector:
+    image: otel/opentelemetry-collector:latest
+    container_name: quantum-otlp
+    ports:
+      - "4317:4317"   # gRPC
+      - "4318:4318"   # HTTP
+      - "55679:55679" # Prometheus metrics
+    volumes:
+      - ./otel-collector-config.yaml:/etc/otelcol/config.yaml:ro
+    networks:
+      - quantum-network
+    command: ["--config", "/etc/otelcol/config.yaml"]
+    restart: unless-stopped
+
+  # Redis for caching (optional)
+  redis:
+    image: redis:7-alpine
+    container_name: quantum-redis
+    ports:
+      - "6379:6379"
+    networks:
+      - quantum-network
+    restart: unless-stopped
+
+  # PostgreSQL for local development (optional alternative to Supabase)
+  postgres:
+    image: postgres:15-alpine
+    container_name: quantum-postgres
+    environment:
+      POSTGRES_DB: quantum_resonance
+      POSTGRES_USER: quantum
+      POSTGRES_PASSWORD: resonance2024
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - quantum-network
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+
+networks:
+  quantum-network:
+    driver: bridge

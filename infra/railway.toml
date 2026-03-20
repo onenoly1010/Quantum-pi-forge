@@ -1,0 +1,116 @@
+# Railway Deployment Manifest - TESTNET ONLY
+# Pi Forge Quantum Genesis - Testnet Environment
+# 
+# ⚠️  SAFETY NOTICE ⚠️
+# This configuration is for TESTNET DEPLOYMENTS ONLY
+# All Pi Network interactions are testnet-only with zero-value transactions
+# Do NOT use this configuration for mainnet deployments
+#
+# Prerequisites:
+# 1. Railway project must be created and linked to this repository
+# 2. All secrets must be set in Railway dashboard (see infra/SECRETS.md)
+# 3. APP_ENVIRONMENT must be set to 'testnet' in Railway project settings
+# 4. FORCE_DEPLOY_TO_MAINNET must NOT exist in environment variables
+#
+# Usage:
+# Replace <YOUR_RAILWAY_PROJECT_ID> with your actual Railway project ID
+# Deploy using: railway up --service <service-name>
+
+[build]
+builder = "DOCKERFILE"
+
+[deploy]
+startCommand = "python -m uvicorn server.main:app --host 0.0.0.0 --port $PORT"
+healthcheckPath = "/health"
+healthcheckTimeout = 100
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 3
+
+# Testnet environment variables (set in Railway dashboard)
+# These are templates - actual values must be configured in Railway
+[[deploy.environmentVariables]]
+name = "APP_ENVIRONMENT"
+value = "testnet"  # REQUIRED: Must be 'testnet'
+
+[[deploy.environmentVariables]]
+name = "NFT_MINT_VALUE"
+value = "0"  # REQUIRED: Must be 0 for testnet
+
+[[deploy.environmentVariables]]
+name = "PI_NETWORK_MODE"
+value = "sandbox"  # REQUIRED: Testnet sandbox mode
+
+[[deploy.environmentVariables]]
+name = "LOG_LEVEL"
+value = "INFO"
+
+# Service definitions
+# Replace <YOUR_RAILWAY_PROJECT_ID> with your actual project ID
+
+# FastAPI Production Server (Port 8000)
+[[services]]
+name = "fastapi-server"
+source = "Dockerfile"
+# Railway will auto-assign PORT
+restartPolicyType = "on_failure"
+
+# Flask Dashboard (Port 5000)
+[[services]]
+name = "flask-dashboard"
+source = "Dockerfile.flask"
+# Railway will auto-assign PORT
+restartPolicyType = "on_failure"
+
+# Gradio Ethics Interface (Port 7860)
+[[services]]
+name = "gradio-interface"
+source = "Dockerfile.gradio"
+# Railway will auto-assign PORT
+restartPolicyType = "on_failure"
+
+# Guardian Coordinator (Optional - for advanced deployments)
+# [[services]]
+# name = "guardian-coordinator"
+# source = "Dockerfile"
+# restartPolicyType = "on_failure"
+
+# PostgreSQL Database (Optional - managed by Supabase in most cases)
+# [[services]]
+# name = "guardian-db"
+# image = "postgres:15-alpine"
+# restartPolicyType = "always"
+
+# Deployment regions (choose closest to your users)
+# Options: us-west1, us-east4, eu-west1, ap-south1
+[deploy.regions]
+preferred = ["us-west1"]
+
+# Resource limits for testnet (adjust as needed)
+[deploy.resources]
+# railway.app provides defaults, adjust if needed
+# cpuLimit = "1"
+# memoryLimit = "1Gi"
+
+# Health check configuration
+[deploy.healthcheck]
+path = "/health"
+intervalSeconds = 30
+timeoutSeconds = 10
+
+# Networking configuration
+[deploy.networking]
+# Railway auto-generates domains
+# Custom domains can be added in Railway dashboard
+
+# ============================================================================
+# SAFETY CHECKS - DO NOT MODIFY
+# ============================================================================
+# These checks are enforced by the GitHub Actions workflow:
+# 1. APP_ENVIRONMENT must equal 'testnet'
+# 2. NFT_MINT_VALUE must equal '0' or be unset
+# 3. GUARDIAN_KILL_SWITCH must not equal 'on'
+# 4. FORCE_DEPLOY_TO_MAINNET must not exist
+# 5. PI_NETWORK_MODE must equal 'sandbox'
+#
+# Mainnet deployments require separate PR with documented guardian approvals
+# ============================================================================

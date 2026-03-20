@@ -1,0 +1,287 @@
+/**
+ * Pi Forge Frontend Styles
+ * 
+ * Common styles for Pi Forge Quantum Genesis frontend components.
+ */
+
+/* Root Variables */
+:root {
+  --pi-forge-primary: #8000ff;
+  --pi-forge-secondary: #00ff9d;
+  --pi-forge-accent: #00ffff;
+  --pi-forge-bg-dark: #000033;
+  --pi-forge-bg-medium: #1a0033;
+  --pi-forge-bg-card: rgba(30, 0, 80, 0.7);
+  --pi-forge-text-light: #e6e6ff;
+  --pi-forge-text-medium: #b3b3cc;
+  --pi-forge-border: #8000ff44;
+  --pi-forge-shadow: 0 0 60px #8000ff33;
+  --pi-forge-success: #00ff9d;
+  --pi-forge-error: #ff0055;
+  --pi-forge-warning: #ffaa00;
+}
+
+/* Pi Forge Button Styles */
+.piforge-btn {
+  background: var(--pi-forge-secondary);
+  color: #000;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.piforge-btn:hover {
+  transform: scale(1.05);
+  background: #00ffcc;
+  box-shadow: 0 0 20px var(--pi-forge-secondary);
+}
+
+.piforge-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.piforge-btn-primary {
+  background: var(--pi-forge-primary);
+  color: var(--pi-forge-text-light);
+}
+
+.piforge-btn-primary:hover {
+  background: #9933ff;
+  box-shadow: 0 0 20px var(--pi-forge-primary);
+}
+
+.piforge-btn-outline {
+  background: transparent;
+  border: 2px solid var(--pi-forge-primary);
+  color: var(--pi-forge-primary);
+}
+
+.piforge-btn-outline:hover {
+  background: var(--pi-forge-primary);
+  color: var(--pi-forge-text-light);
+}
+
+/* Pi Forge Card */
+.piforge-card {
+  background: var(--pi-forge-bg-card);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 40px;
+  border: 1px solid var(--pi-forge-border);
+  box-shadow: var(--pi-forge-shadow);
+  color: var(--pi-forge-text-light);
+}
+
+.piforge-card-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2rem;
+  margin: 0 0 20px;
+  background: linear-gradient(90deg, #ff00ff, #00ffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: var(--pi-forge-primary); /* Fallback for accessibility/high contrast mode */
+}
+
+/* Payment Status Badge */
+.piforge-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.piforge-badge-pending {
+  background: var(--pi-forge-warning);
+  color: #000;
+}
+
+.piforge-badge-completed {
+  background: var(--pi-forge-success);
+  color: #000;
+}
+
+.piforge-badge-cancelled {
+  background: var(--pi-forge-error);
+  color: #fff;
+}
+
+/* Loading Spinner */
+.piforge-spinner {
+  border: 4px solid var(--pi-forge-border);
+  border-top: 4px solid var(--pi-forge-primary);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: piforge-spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes piforge-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Resonance Visualization Container */
+.piforge-resonance {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  overflow: hidden;
+  border: 1px solid var(--pi-forge-primary);
+}
+
+.piforge-resonance-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* Payment Form */
+.piforge-form-group {
+  margin-bottom: 20px;
+}
+
+.piforge-label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--pi-forge-text-medium);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.piforge-input {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--pi-forge-border);
+  border-radius: 8px;
+  color: var(--pi-forge-text-light);
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.piforge-input:focus {
+  outline: none;
+  border-color: var(--pi-forge-primary);
+  box-shadow: 0 0 10px var(--pi-forge-primary);
+}
+
+.piforge-input::placeholder {
+  color: var(--pi-forge-text-medium);
+  opacity: 0.6;
+}
+
+/* Alert Messages */
+.piforge-alert {
+  padding: 16px 20px;
+  border-radius: 12px;
+  margin: 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.piforge-alert-success {
+  background: rgba(0, 255, 157, 0.15);
+  border: 1px solid var(--pi-forge-success);
+  color: var(--pi-forge-success);
+}
+
+.piforge-alert-error {
+  background: rgba(255, 0, 85, 0.15);
+  border: 1px solid var(--pi-forge-error);
+  color: var(--pi-forge-error);
+}
+
+.piforge-alert-warning {
+  background: rgba(255, 170, 0, 0.15);
+  border: 1px solid var(--pi-forge-warning);
+  color: var(--pi-forge-warning);
+}
+
+/* Payment History */
+.piforge-payment-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.piforge-payment-item {
+  background: rgba(0, 0, 50, 0.5);
+  padding: 20px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  border-left: 4px solid var(--pi-forge-primary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.piforge-payment-details {
+  flex: 1;
+}
+
+.piforge-payment-amount {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--pi-forge-secondary);
+  font-family: 'Orbitron', sans-serif;
+}
+
+.piforge-payment-memo {
+  color: var(--pi-forge-text-medium);
+  margin: 4px 0;
+}
+
+.piforge-payment-date {
+  font-size: 0.75rem;
+  color: var(--pi-forge-text-medium);
+  opacity: 0.7;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .piforge-card {
+    padding: 20px;
+  }
+
+  .piforge-card-title {
+    font-size: 1.5rem;
+  }
+
+  .piforge-btn {
+    padding: 12px 24px;
+    font-size: 0.875rem;
+  }
+
+  .piforge-payment-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .piforge-card-title {
+    font-size: 1.25rem;
+  }
+
+  .piforge-resonance {
+    height: 200px;
+  }
+}

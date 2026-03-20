@@ -1,0 +1,65 @@
+# Vercel Ignore File
+# This overrides .gitignore for Vercel deployments
+# Note: public/ is NOT ignored here since it's our build output
+
+# Python cache and environment
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Byte-compiled / optimized files
+*.pyc
+*.pyo
+
+# Development files
+.env.local
+.env.development
+.env.test
+
+# Test files
+tests/
+*.test.js
+*.spec.js
+
+# Documentation (not needed for deployment)
+docs/
+
+# Docker files
+Dockerfile*
+docker-compose*.yml
+.dockerignore
+
+# Git
+.git/
+.github/
+
+# IDE
+.vscode/
+.vs/
+.idea/
+
+# Contract development files
+contracts/cache/
+contracts/out/
+contracts/broadcast/
+contracts/lib/
+
+# Large/unnecessary files
+*.exe
+*.dll
+*.msi
+python-*.exe
+*.log
+
+# Other build artifacts (but NOT public/)
+node_modules/
+build/
+artifacts/
+dist/
+
+# OS files
+.DS_Store
+Thumbs.db

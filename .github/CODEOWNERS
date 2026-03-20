@@ -1,0 +1,61 @@
+# CODEOWNERS - Automatic code review assignment
+# This file defines individuals or teams responsible for code in the repository.
+# When a pull request is opened, the listed owners are automatically requested for review.
+# 
+# Format: path/to/files @username @org/team-name
+# More specific patterns override less specific ones
+# Last matching pattern takes precedence
+
+# Default owners for all files (repository maintainers)
+* @onenoly1010
+
+# GitHub Actions workflows and CI/CD configuration
+/.github/workflows/ @onenoly1010
+/.github/config/ @onenoly1010
+/.github/scripts/ @onenoly1010
+
+# Deployment and infrastructure configuration
+/infra/ @onenoly1010
+railway.toml @onenoly1010
+vercel.json @onenoly1010
+Dockerfile* @onenoly1010
+docker-compose*.yml @onenoly1010
+
+# Backend server code
+/server/ @onenoly1010
+/ledger-api/ @onenoly1010
+
+# Frontend code
+/frontend/ @onenoly1010
+/api/ @onenoly1010
+*.html @onenoly1010
+*.js @onenoly1010
+
+# Documentation
+/docs/ @onenoly1010
+*.md @onenoly1010
+
+# Security and authentication
+/server/pi_network/ @onenoly1010
+*auth*.py @onenoly1010
+*payment*.py @onenoly1010
+
+# Test files
+/tests/ @onenoly1010
+
+# Dependencies and package management
+requirements.txt @onenoly1010
+package.json @onenoly1010
+package-lock.json @onenoly1010
+
+# Canon configuration (requires special review)
+/canon/ @onenoly1010
+canon-*.json @onenoly1010
+
+# Rollback and emergency procedures
+/rollback/ @onenoly1010
+
+# Configuration files
+.env.example @onenoly1010
+*.toml @onenoly1010
+*.json @onenoly1010
