@@ -1,0 +1,52 @@
+# Pi Forge Quantum Genesis - Ledger API
+# Docker Compose for local development
+
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: ledger-postgres
+    environment:
+      POSTGRES_DB: ledger_db
+      POSTGRES_USER: ledger_user
+      POSTGRES_PASSWORD: ledger_pass
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./sql/schema:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ledger_user -d ledger_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  ledger-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ledger-api
+    environment:
+      DATABASE_URL: postgresql://ledger_user:ledger_pass@postgres:5432/ledger_db
+      GUARDIAN_JWT_SECRET: dev-secret-key-min-32-characters-long-change-in-production
+      JWT_ALGORITHM: HS256
+      JWT_ACCESS_TOKEN_EXPIRE_MINUTES: 30
+      APP_ENVIRONMENT: development
+      NFT_MINT_VALUE: 0
+      SERVICE_PORT: 8001
+      LOG_LEVEL: INFO
+      DEBUG: true
+      RELOAD: true
+    ports:
+      - "8001:8001"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./ledger_api:/app/ledger_api
+    command: ["python", "-m", "uvicorn", "ledger_api.main:app", "--host", "0.0.0.0", "--port", "8001", "--reload"]
+
+volumes:
+  postgres_data:

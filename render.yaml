@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: pi-forge-quantum-genesis-open
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    region: oregon
+    envVars:
+      - key: PORT
+        value: 8080
+      - key: NODE_ENV
+        value: production
+    healthCheckPath: /health

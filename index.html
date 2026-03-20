@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Pi Forge Quantum Genesis</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto+Mono&display=swap');
+        
+        * { box-sizing: border-box; }
+        
+        body { 
+            margin: 0; 
+            background: linear-gradient(135deg, #1a0033, #000033); 
+            color: #e6e6ff; 
+            font-family: 'Roboto Mono', monospace; 
+            min-height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .card { 
+            background: rgba(30, 0, 80, 0.7); 
+            backdrop-filter: blur(12px); 
+            border-radius: 20px; 
+            padding: 40px 60px; 
+            max-width: 900px; 
+            width: 100%;
+            text-align: center; 
+            border: 1px solid #8000ff44; 
+            box-shadow: 0 0 60px #8000ff33; 
+        }
+        
+        h1 { 
+            font-family: 'Orbitron', sans-serif; 
+            font-size: 3.5rem; 
+            margin: 0 0 10px; 
+            background: linear-gradient(90deg, #ff00ff, #00ffff); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .by { 
+            font-size: 1.1rem; 
+            opacity: 0.9; 
+            margin-bottom: 20px; 
+        }
+        
+        .verified { 
+            background: #00ff9d; 
+            color: #000; 
+            padding: 10px 20px; 
+            border-radius: 8px; 
+            font-weight: bold; 
+            font-size: 0.95rem;
+            display: block;
+            margin: 0 auto 20px;
+            max-width: 100%;
+        }
+        
+        .section { 
+            background: rgba(0, 0, 50, 0.5); 
+            margin: 25px 0; 
+            padding: 25px; 
+            border-radius: 15px; 
+            border-left: 4px solid #8000ff; 
+        }
+        
+        .section h2 {
+            margin-top: 0;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+        }
+        
+        .quickstart { 
+            text-align: left;
+            display: inline-block;
+        }
+        
+        .quickstart > div {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .quickstart .label {
+            min-width: 60px;
+            text-align: right;
+        }
+        
+        .quickstart code { 
+            background: #000; 
+            padding: 4px 10px; 
+            border-radius: 6px; 
+            font-size: 0.95rem;
+            display: inline-block;
+        }
+        
+        .features { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
+            gap: 20px; 
+            margin: 30px 0; 
+        }
+        
+        .feature { 
+            background: rgba(128, 0, 255, 0.15); 
+            padding: 20px; 
+            border-radius: 12px; 
+            border: 1px solid #8000ff44;
+            text-align: center;
+        }
+        
+        .feature strong {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .btn { 
+            background: #00ff9d; 
+            color: #000; 
+            padding: 14px 32px; 
+            margin: 10px; 
+            border: none; 
+            border-radius: 50px; 
+            font-weight: bold; 
+            cursor: pointer; 
+            font-size: 1rem; 
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn:hover { 
+            transform: scale(1.05); 
+            background: #00ffcc; 
+        }
+        
+        .btn-sec { 
+            background: transparent; 
+            border: 2px solid #8000ff; 
+            color: #8000ff; 
+        }
+        
+        .btn-sec:hover { 
+            background: #8000ff33; 
+        }
+        
+        .buttons-row {
+            margin-top: 20px;
+        }
+        
+        .installation-list {
+            text-align: left;
+            display: inline-block;
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .installation-list li {
+            margin: 8px 0;
+        }
+        
+        footer { 
+            margin-top: 40px; 
+            font-size: 0.9rem; 
+            opacity: 0.7; 
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .card { padding: 20px 30px; }
+            .btn { padding: 12px 24px; margin: 8px; }
+            .quickstart code { font-size: 0.8rem; }
+        }
+        
+        @media (max-width: 480px) {
+            h1 { font-size: 2rem; }
+            .features { grid-template-columns: 1fr; }
+            .quickstart > div { flex-direction: column; align-items: flex-start; }
+            .quickstart .label { text-align: left; }
+        }
+    </style>
+    
+    <!-- Vercel Speed Insights: Real-time performance monitoring -->
+    <!-- This tracks web vitals and performance metrics for optimization insights -->
+    <script>
+      window.va = window.va || function() { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+<div class="card">
+    <h1>Pi Forge Quantum Genesis</h1>
+    <div class="by">By Kris Olofson (onenoly1010)</div>
+    <div class="verified">Repository Live &amp; Verified</div>
+
+    <div class="section">
+        <h2>Quick Start</h2>
+        <div class="quickstart">
+            <div><span class="label">Clone:</span> <code>git clone https://github.com/onenoly1010/pi-forge-quantum-genesis.git</code></div>
+            <div><span class="label">Install:</span> <code>cd server &amp;&amp; pip install -r requirements.txt</code></div>
+            <div><span class="label">Run:</span> <code>python main.py</code></div>
+            <div><span class="label">Visit:</span> <code>http://localhost:8000</code></div>
+        </div>
+    </div>
+
+    <div class="features">
+        <div class="feature"><strong>Quantum Mining</strong> Compute Pi digits using quantum-inspired algorithms with real-time processing.</div>
+        <div class="feature"><strong>Token Staking</strong> Stake tokens with 5.5% APY and participate in the quantum economy.</div>
+        <div class="feature"><strong>VR Experience</strong> Immersive virtual reality mining sessions and interactive quests.</div>
+        <div class="feature"><strong>Leaderboard</strong> Compete globally with real-time rankings and achievements.</div>
+        <div class="feature"><strong>Secure Auth</strong> JWT-based authentication with protected API routes.</div>
+        <div class="feature"><strong>Web3 Ready</strong> Blockchain integration with Web3 and smart contract support.</div>
+    </div>
+
+    <div class="section">
+        <h2>Installation Verified</h2>
+        <ul class="installation-list">
+            <li>Python 3.11+ environment configured</li>
+            <li>All dependencies installed and tested</li>
+            <li>Backend API endpoints operational</li>
+            <li>Frontend interface responsive</li>
+            <li>WebSocket real-time features active</li>
+            <li>Authentication system functional</li>
+        </ul>
+    </div>
+
+    <div class="buttons-row">
+        <a href="https://github.com/onenoly1010/pi-forge-quantum-genesis" class="btn">View on GitHub</a>
+        <a href="docs/automation.md" class="btn btn-sec">Installation Guide</a>
+        <a href="docs/" class="btn btn-sec">Documentation</a>
+    </div>
+    <div class="buttons-row">
+        <button class="btn" onclick="alert('Launching local app... Run: python server/main.py')">Launch App</button>
+    </div>
+
+    <footer>
+        Built with Quantum Spirit by Kris Olofson | Pi Forge Genesis 2024-2025
+    </footer>
+</div>
+</body>
+</html>

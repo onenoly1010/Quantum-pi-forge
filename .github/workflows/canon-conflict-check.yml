@@ -1,0 +1,350 @@
+name: Canon Conflict Check
+
+on:
+  pull_request:
+    paths:
+      - 'canon/**'
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: 'PR number to check'
+        required: true
+        type: number
+
+permissions:
+  contents: read
+  pull-requests: write
+  checks: write
+
+jobs:
+  detect-conflicts:
+    name: Detect Canon Conflicts
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r .github/scripts/requirements.txt
+
+      - name: Get changed Canon files
+        id: files
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr_number = context.payload.pull_request?.number || parseInt(context.payload.inputs?.pr_number);
+            
+            const { data: files } = await github.rest.pulls.listFiles({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pr_number
+            });
+            
+            const canonFiles = files
+              .filter(f => f.filename.startsWith('canon/') && f.filename.endsWith('.md'))
+              .filter(f => !f.filename.endsWith('INDEX.md') && !f.filename.endsWith('README.md'))
+              .map(f => f.filename);
+            
+            core.setOutput('artifact_paths', JSON.stringify(canonFiles));
+            return canonFiles;
+
+      - name: Run conflict detection
+        id: detect
+        run: |
+          ARTIFACT_PATHS='${{ steps.files.outputs.artifact_paths }}'
+          
+          echo "Checking artifacts for conflicts: $ARTIFACT_PATHS"
+          
+          ALL_PASSED=true
+          TOTAL_CONFLICTS=0
+          RESULTS_FILE="/tmp/all-conflict-results.json"
+          echo '{"artifacts": []}' > "$RESULTS_FILE"
+          
+          for ARTIFACT in $(echo "$ARTIFACT_PATHS" | jq -r '.[]'); do
+            echo "::group::Checking conflicts for $ARTIFACT"
+            
+            if [ ! -f "$ARTIFACT" ]; then
+              echo "::warning::Artifact not found: $ARTIFACT"
+              continue
+            fi
+            
+            RESULT_FILE="/tmp/conflict-result-$(basename "$ARTIFACT" .md).json"
+            
+            if python .github/scripts/check-conflicts.py \
+              --canon-dir canon \
+              --new-artifact "$ARTIFACT" \
+              --semantic-threshold 0.85 \
+              --output "$RESULT_FILE"; then
+              echo "✅ No blocking conflicts found for $ARTIFACT"
+            else
+              echo "❌ Conflicts detected for $ARTIFACT"
+              ALL_PASSED=false
+            fi
+            
+            # Count conflicts
+            if [ -f "$RESULT_FILE" ]; then
+              CONFLICTS=$(jq -r '.total_conflicts // 0' "$RESULT_FILE")
+              TOTAL_CONFLICTS=$((TOTAL_CONFLICTS + CONFLICTS))
+              
+              # Append to results
+              jq ".artifacts += [{\"path\": \"$ARTIFACT\", \"result\": $(cat "$RESULT_FILE")}]" "$RESULTS_FILE" > "${RESULTS_FILE}.tmp"
+              mv "${RESULTS_FILE}.tmp" "$RESULTS_FILE"
+            fi
+            
+            echo "::endgroup::"
+          done
+          
+          echo "all_passed=$ALL_PASSED" >> $GITHUB_OUTPUT
+          echo "total_conflicts=$TOTAL_CONFLICTS" >> $GITHUB_OUTPUT
+
+      - name: Upload conflict results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: conflict-results
+          path: /tmp/*-conflict-results.json
+          if-no-files-found: ignore
+
+      - name: Create check run
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = '/tmp/all-conflict-results.json';
+            
+            let summary = '## Canon Conflict Detection\n\n';
+            let conclusion = '${{ steps.detect.outputs.all_passed }}' === 'true' ? 'success' : 'failure';
+            
+            summary += `**Total Conflicts Found**: ${{ steps.detect.outputs.total_conflicts }}\n\n`;
+            
+            if (fs.existsSync(path)) {
+              const results = JSON.parse(fs.readFileSync(path, 'utf8'));
+              
+              for (const artifact of results.artifacts) {
+                const result = artifact.result;
+                const icon = result.success ? '✅' : '❌';
+                
+                summary += `### ${icon} ${artifact.path}\n\n`;
+                
+                if (result.errors > 0) {
+                  summary += `**Errors**: ${result.errors}\n`;
+                  const errors = result.conflicts.filter(c => c.severity === 'error');
+                  for (const error of errors.slice(0, 5)) {
+                    summary += `- ❌ ${error.type}: ${error.message}\n`;
+                  }
+                  if (errors.length > 5) {
+                    summary += `- ... and ${errors.length - 5} more\n`;
+                  }
+                  summary += '\n';
+                }
+                
+                if (result.warnings > 0) {
+                  summary += `**Warnings**: ${result.warnings}\n`;
+                  const warnings = result.conflicts.filter(c => c.severity === 'warning');
+                  for (const warning of warnings.slice(0, 3)) {
+                    summary += `- ⚠️  ${warning.type}: ${warning.message}\n`;
+                  }
+                  if (warnings.length > 3) {
+                    summary += `- ... and ${warnings.length - 3} more\n`;
+                  }
+                  summary += '\n';
+                }
+                
+                if (result.success) {
+                  summary += '✅ No blocking conflicts\n\n';
+                }
+              }
+            }
+            
+            const pr_number = context.payload.pull_request?.number || parseInt(context.payload.inputs?.pr_number);
+            
+            await github.rest.checks.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              name: 'Canon Conflict Detection',
+              head_sha: context.payload.pull_request?.head.sha || context.sha,
+              status: 'completed',
+              conclusion: conclusion,
+              output: {
+                title: 'Canon Conflict Detection',
+                summary: summary
+              }
+            });
+
+      - name: Comment on PR
+        if: always() && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = '/tmp/all-conflict-results.json';
+            
+            if (!fs.existsSync(path)) {
+              return;
+            }
+            
+            const allPassed = '${{ steps.detect.outputs.all_passed }}' === 'true';
+            const totalConflicts = parseInt('${{ steps.detect.outputs.total_conflicts }}');
+            
+            let comment = allPassed 
+              ? '✅ **Canon Conflict Check Passed**\n\n'
+              : '❌ **Canon Conflicts Detected**\n\n';
+            
+            comment += `**Total Conflicts**: ${totalConflicts}\n\n`;
+            
+            const results = JSON.parse(fs.readFileSync(path, 'utf8'));
+            
+            for (const artifact of results.artifacts) {
+              const result = artifact.result;
+              const icon = result.success ? '✅' : '❌';
+              
+              comment += `${icon} \`${artifact.path}\`\n`;
+              
+              if (result.errors > 0) {
+                comment += `  - **${result.errors}** error(s)\n`;
+                
+                // Show critical errors
+                const criticalErrors = result.conflicts
+                  .filter(c => c.severity === 'error')
+                  .slice(0, 3);
+                
+                for (const error of criticalErrors) {
+                  comment += `    - ${error.type}: ${error.message}\n`;
+                }
+                
+                if (result.errors > 3) {
+                  comment += `    - ... and ${result.errors - 3} more (see workflow logs)\n`;
+                }
+              }
+              
+              if (result.warnings > 0) {
+                comment += `  - **${result.warnings}** warning(s)\n`;
+              }
+            }
+            
+            if (!allPassed) {
+              comment += '\n---\n\n';
+              comment += '**Action Required**: Please resolve the conflicts above before this PR can be auto-merged.\n\n';
+              comment += '**Conflict Types**:\n';
+              comment += '- `duplicate_id`: Two artifacts have the same ID\n';
+              comment += '- `missing_parent`: Referenced parent artifact does not exist\n';
+              comment += '- `semantic_conflict`: Content is very similar to existing artifact\n';
+              comment += '- `circular_dependency`: Parent chain forms a loop\n';
+            }
+            
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.pull_request.number,
+              body: comment
+            });
+
+      - name: Fail if conflicts found
+        if: steps.detect.outputs.all_passed != 'true'
+        run: |
+          echo "❌ Conflicts detected in Canon artifacts"
+          exit 1
+
+  semantic-analysis:
+    name: Semantic Similarity Analysis
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r .github/scripts/requirements.txt
+
+      - name: Run semantic analysis
+        run: |
+          echo "::group::Semantic Analysis"
+          echo "Semantic similarity analysis using word overlap"
+          echo "For production use, consider integrating with:"
+          echo "  - sentence-transformers for embeddings"
+          echo "  - OpenAI API for semantic comparison"
+          echo "  - Local LLM for offline analysis"
+          echo "::endgroup::"
+
+  structural-validation:
+    name: Structural Validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r .github/scripts/requirements.txt
+
+      - name: Validate structure
+        run: |
+          echo "::group::Structural Validation"
+          
+          # Check for proper YAML frontmatter
+          for file in canon/*.md; do
+            if [ "$file" != "canon/INDEX.md" ] && [ "$file" != "canon/README.md" ]; then
+              if ! head -1 "$file" | grep -q "^---$"; then
+                echo "::error::Missing YAML frontmatter in $file"
+              fi
+            fi
+          done
+          
+          echo "::endgroup::"
+
+  continuity-check:
+    name: Continuity Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r .github/scripts/requirements.txt
+
+      - name: Check continuity
+        run: |
+          echo "::group::Continuity Check"
+          
+          python .github/scripts/verify-canon-integrity.py \
+            --canon-dir canon \
+            --output /tmp/continuity-results.json
+          
+          echo "::endgroup::"
+
+      - name: Upload continuity results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: continuity-results
+          path: /tmp/continuity-results.json
+          if-no-files-found: ignore

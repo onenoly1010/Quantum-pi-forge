@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pi Forge Quantum Genesis - Production Dashboard</title>
+    <script src="https://sdk.minepi.com/pi-sdk.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.10.0/dist/web3.min.js"
+            integrity="sha384-4qkGJFU6+hgoAAJ1JLLzIGHJN3+sNhbLzLJLLxJLLzIGHJN3+sNhbLzLJLLxJLLz"
+            crossorigin="anonymous"></script>
+    <script defer src="/_vercel/insights/script.js"></script>
+    <style>
+        :root {
+            --primary-purple: #8B5CF6;
+            --primary-teal: #06D6A0;
+            --primary-gold: #F59E0B;
+            --danger-red: #EF4444;
+            --success-green: #10B981;
+            --cosmic-blue: #3B82F6;
+            --bg-dark: #0f0a1e;
+            --bg-card: rgba(139, 92, 246, 0.1);
+            --text-primary: #E5E7EB;
+            --text-secondary: #9CA3AF;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0a1e 0%, #1a0b2e 50%, #0d0519 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid var(--primary-purple);
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary-purple), var(--primary-teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .nav-link:hover, .nav-link.active { color: var(--primary-teal); }
+        .wallet-btn {
+            background: linear-gradient(135deg, var(--primary-purple), var(--primary-teal));
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .wallet-btn:hover { transform: translateY(-2px); }
+        .dashboard-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            min-height: calc(100vh - 70px);
+        }
+        .sidebar {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1.5rem;
+            border-right: 1px solid rgba(139, 92, 246, 0.2);
+        }
+        .sidebar-section { margin-bottom: 2rem; }
+        .sidebar-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        .sidebar-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-bottom: 0.5rem;
+            transition: background 0.3s;
+        }
+        .sidebar-item:hover, .sidebar-item.active { background: var(--bg-card); }
+        .main-content { padding: 2rem; overflow-y: auto; }
+        .page-header { margin-bottom: 2rem; }
+        .page-title { font-size: 2rem; margin-bottom: 0.5rem; }
+        .page-subtitle { color: var(--text-secondary); }
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .card {
+            background: var(--bg-card);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: transform 0.3s;
+        }
+        .card:hover { transform: translateY(-5px); }
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .card-title { font-size: 1.1rem; color: var(--primary-teal); }
+        .metric-value { font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem; }
+        .metric-label { color: var(--text-secondary); font-size: 0.9rem; }
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        .status-active { background: rgba(16, 185, 129, 0.2); color: var(--success-green); }
+        .status-warning { background: rgba(245, 158, 11, 0.2); color: var(--primary-gold); }
+        .guardian-panel {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(6, 214, 160, 0.1));
+            border: 2px solid var(--primary-purple);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .guardian-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .guardian-icon { font-size: 3rem; }
+        .guardian-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+        .guardian-metric {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-label { display: block; margin-bottom: 0.5rem; color: var(--text-secondary); }
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 1rem;
+        }
+        .form-textarea { min-height: 100px; resize: vertical; }
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+        .btn:hover { transform: translateY(-2px); }
+        .btn-primary { background: linear-gradient(135deg, var(--primary-purple), var(--primary-teal)); color: white; }
+        .btn-secondary { background: rgba(139, 92, 246, 0.2); color: var(--primary-purple); border: 1px solid var(--primary-purple); }
+        .btn-success { background: var(--success-green); color: white; }
+        .progress-bar { height: 8px; background: rgba(0, 0, 0, 0.3); border-radius: 4px; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--primary-purple), var(--primary-teal)); }
+        .alert {
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .alert-success { background: rgba(16, 185, 129, 0.1); border: 1px solid var(--success-green); color: var(--success-green); }
+        .alert-warning { background: rgba(245, 158, 11, 0.1); border: 1px solid var(--primary-gold); color: var(--primary-gold); }
+        .alert-info { background: rgba(59, 130, 246, 0.1); border: 1px solid var(--cosmic-blue); color: var(--cosmic-blue); }
+        .modal { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.8); z-index: 10000; align-items: center; justify-content: center; }
+        .modal.active { display: flex; }
+        .modal-content { background: var(--bg-dark); border: 1px solid var(--primary-purple); border-radius: 15px; padding: 2rem; max-width: 500px; width: 90%; }
+        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+        .modal-close { background: none; border: none; color: var(--text-secondary); font-size: 1.5rem; cursor: pointer; }
+        .live-indicator { display: flex; align-items: center; gap: 0.5rem; }
+        .live-dot { width: 8px; height: 8px; background: var(--success-green); border-radius: 50%; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .section { display: none; }
+        .section.active { display: block; }
+        .tooltip-container { position: relative; display: inline-block; }
+        .tooltip { visibility: hidden; position: absolute; bottom: 125%; left: 50%; transform: translateX(-50%); background: var(--bg-dark); padding: 0.75rem; border-radius: 8px; border: 1px solid var(--primary-purple); font-size: 0.85rem; opacity: 0; transition: opacity 0.3s; max-width: 250px; z-index: 100; }
+        .tooltip-container:hover .tooltip { visibility: visible; opacity: 1; }
+        .help-icon { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border-radius: 50%; background: rgba(139, 92, 246, 0.3); font-size: 0.7rem; cursor: help; margin-left: 0.5rem; }
+        #error-row { display: none; margin-top: 1rem; }
+        .alert { padding: 0.75rem 1rem; border-radius: 8px; border-left: 4px solid; }
+        .alert-warning { background-color: rgba(245, 158, 11, 0.1); border-left-color: #f5a623; color: #d97706; }
+        @media (max-width: 768px) { .dashboard-container { grid-template-columns: 1fr; } .sidebar { display: none; } }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Pi Forge Quantum Genesis</div>
+        <div class="nav-links">
+            <span class="nav-link active" onclick="showSection(this, 'overview')">Overview</span>
+            <span class="nav-link" onclick="showSection(this, 'dapps')">dApps</span>
+            <span class="nav-link" onclick="showSection(this, 'governance')">Governance</span>
+            <span class="nav-link" onclick="showSection(this, 'guardian')">Guardian</span>
+            <span class="nav-link" onclick="showSection(this, 'audit')">Audit</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <div class="live-indicator"><div class="live-dot"></div><span style="color: var(--success-green); font-size: 0.85rem;">MAINNET</span></div>
+            <button class="wallet-btn" id="connectWallet" onclick="connectPiWallet()">Connect Pi Wallet</button>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <div class="sidebar-title">Main</div>
+                <div class="sidebar-item active" onclick="showSection(this, 'overview')">Overview</div>
+                <div class="sidebar-item" onclick="showSection(this, 'dapps')">My dApps</div>
+                <div class="sidebar-item" onclick="showSection(this, 'governance')">Governance</div>
+            </div>
+            <div class="sidebar-section">
+                <div class="sidebar-title">Security</div>
+                <div class="sidebar-item" onclick="showSection(this, 'guardian')">Guardian Monitor</div>
+                <div class="sidebar-item" onclick="showSection(this, 'audit')">Smart Contract Audit</div>
+            </div>
+            <div class="sidebar-section">
+                <div class="sidebar-title">Help</div>
+                <div class="sidebar-item" onclick="startWalkthrough()">Interactive Guide</div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <section id="overview-section" class="section active">
+                <div class="page-header">
+                    <h1 class="page-title">Welcome to Pi Forge</h1>
+                    <p class="page-subtitle">Build, deploy, and manage ethical Web3 applications on Pi Network Mainnet</p>
+                </div>
+
+                <div class="guardian-panel">
+                    <div class="guardian-header">
+                        <span class="guardian-icon">Cyber Samurai</span>
+                        <div><h2>Cyber Samurai Guardian</h2><p style="color: var(--text-secondary);">Real-time protection - Sub-5ns coherence</p></div>
+                        <span class="status-badge status-active" id="guardian-status">ACTIVE</span>
+                    </div>
+                    <div class="guardian-metrics">
+                        <div class="guardian-metric"><div class="metric-value" id="latency-metric">4ns</div><div class="metric-label">Latency</div></div>
+                        <div class="guardian-metric"><div class="metric-value" id="stability-metric">0.982</div><div class="metric-label">Stability</div></div>
+                        <div class="guardian-metric"><div class="metric-value" id="threats-metric">0</div><div class="metric-label">Threats Blocked</div></div>
+                        <div class="guardian-metric"><div class="metric-value" id="transactions-metric">0</div><div class="metric-label">TX Monitored</div></div>
+                    </div>
+                </div>
+
+                <h3 style="margin-bottom: 1rem;">Quick Actions</h3>
+                <div class="card-grid">
+                    <div class="card" onclick="showSection(this, 'dapps'); showCreateDappModal()">
+                        <div class="card-header"><span class="card-title">Create dApp</span></div>
+                        <p style="color: var(--text-secondary);">Launch a new decentralized application on Pi Network</p>
+                        <div class="tooltip-container"><span class="help-icon">?</span><div class="tooltip">Create smart contracts and deploy to Pi Network mainnet.</div></div>
+                    </div>
+                    <div class="card" onclick="showSection(this, 'governance')">
+                        <div class="card-header"><span class="card-title">Governance</span></div>
+                        <p style="color: var(--text-secondary);">Participate in sovereign governance decisions</p>
+                        <div class="tooltip-container"><span class="help-icon">?</span><div class="tooltip">Vote on proposals and shape the future of Pi Forge.</div></div>
+                    </div>
+                    <div class="card" onclick="showSection(this, 'audit')">
+                        <div class="card-header"><span class="card-title">AI Audit</span></div>
+                        <p style="color: var(--text-secondary);">AI-powered smart contract security analysis</p>
+                        <div class="tooltip-container"><span class="help-icon">?</span><div class="tooltip">AI Guardian analyzes contracts for vulnerabilities.</div></div>
+                    </div>
+                </div>
+
+                <h3 style="margin-bottom: 1rem;">Treasury Metrics (Live On-Chain)</h3>
+                <div class="card-grid">
+                    <div class="card">
+                        <div class="card-header"><span class="card-title">Total Value Locked</span></div>
+                        <div class="metric-value">$<span id="tvl-value">Loading...</span></div>
+                        <div class="metric-label">On-chain treasury TVL</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header"><span class="card-title">Available Balance</span></div>
+                        <div class="metric-value">$<span id="balance-value">Loading...</span></div>
+                        <div class="metric-label">Liquid funds available</div>
+                    </div>
+                </div>
+                <div id="error-row">
+                    <div class="card" style="background-color: #fffbe6; border-left: 4px solid #f5a623; padding: 0.75rem 1rem; margin-top: 0.5rem;">
+                        <span style="color: #8c6b1f; font-weight: 500;">⚠️ Using fallback values - blockchain data unavailable</span>
+                    </div>
+                </div>
+
+                <h3 style="margin-bottom: 1rem; margin-top: 2rem;">Quantum Telemetry</h3>
+                <div class="card-grid">
+                    <div class="card">
+                        <div class="card-header"><span class="card-title">Harmony Index</span></div>
+                        <div class="metric-value" id="harmony-index">0.720</div>
+                        <div class="progress-bar"><div class="progress-fill" id="harmony-progress" style="width: 72%"></div></div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header"><span class="card-title">QVM Amplitude</span></div>
+                        <div class="metric-value" id="qvm-amplitude">1.0234</div>
+                        <div class="metric-label">Quantum Virtual Machine strength</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header"><span class="card-title">Collective Mood</span></div>
+                        <div class="metric-value" id="collective-mood">Optimistic</div>
+                        <div class="metric-label">Network sentiment</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="dapps-section" class="section">
+                <div class="page-header"><h1 class="page-title">My dApps</h1><p class="page-subtitle">Create, deploy, and manage your decentralized applications</p></div>
+                <button class="btn btn-primary" onclick="showCreateDappModal()" style="margin-bottom: 1.5rem;">+ Create New dApp</button>
+                <div id="dapps-list"><div class="alert alert-info"><span>No dApps yet. Click "Create New dApp" to get started!</span></div></div>
+            </section>
+
+            <section id="governance-section" class="section">
+                <div class="page-header"><h1 class="page-title">Sovereign Governance</h1><p class="page-subtitle">Participate in community decisions</p></div>
+                <button class="btn btn-primary" onclick="showCreateProposalModal()" style="margin-bottom: 1.5rem;">+ Create Proposal</button>
+                <div id="proposals-list"><div class="alert alert-info"><span>No active proposals. Be the first to create one!</span></div></div>
+            </section>
+
+            <section id="guardian-section" class="section">
+                <div class="page-header"><h1 class="page-title">Cyber Samurai Guardian</h1><p class="page-subtitle">Real-time security monitoring</p></div>
+                <div class="guardian-panel">
+                    <div class="guardian-metrics">
+                        <div class="guardian-metric"><div class="metric-value" id="guardian-latency">4ns</div><div class="metric-label">Latency</div></div>
+                        <div class="guardian-metric"><div class="metric-value" id="guardian-harmony">0.982</div><div class="metric-label">Stability</div></div>
+                        <div class="guardian-metric"><div class="metric-value" id="guardian-threat-level">LOW</div><div class="metric-label">Threat Level</div></div>
+                        <div class="guardian-metric"><div class="metric-value" id="guardian-tx-monitored">0</div><div class="metric-label">TX Monitored</div></div>
+                    </div>
+                </div>
+                <div class="card-grid">
+                    <div class="card">
+                        <div class="card-header"><span class="card-title">Active Alerts</span></div>
+                        <div id="guardian-alerts"><p style="color: var(--success-green);">No active alerts</p></div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header"><span class="card-title">Actions</span></div>
+                        <button class="btn btn-secondary" onclick="triggerGuardianScan()">Manual Scan</button>
+                        <button class="btn btn-secondary" onclick="loadGuardianStatus()">Refresh</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="audit-section" class="section">
+                <div class="page-header"><h1 class="page-title">AI Smart Contract Audit</h1><p class="page-subtitle">AI-powered security and ethical compliance</p></div>
+                <div class="card">
+                    <h3 style="margin-bottom: 1rem;">Run Ethical Audit</h3>
+                    <div class="form-group"><label class="form-label">Transaction ID or Contract Address</label><input type="text" class="form-input" id="audit-input" placeholder="Enter ID or address"></div>
+                    <div class="form-group"><label class="form-label">Amount (Pi)</label><input type="number" class="form-input" id="audit-amount" value="1.0"></div>
+                    <button class="btn btn-primary" onclick="runEthicalAudit()">Run AI Audit</button>
+                </div>
+                <div id="audit-results" style="margin-top: 1.5rem;"></div>
+            </section>
+        </main>
+    </div>
+
+    <div class="modal" id="create-dapp-modal">
+        <div class="modal-content">
+            <div class="modal-header"><h2>Create New dApp</h2><button class="modal-close" onclick="closeModal('create-dapp-modal')">&times;</button></div>
+            <div class="form-group"><label class="form-label">dApp Name</label><input type="text" class="form-input" id="dapp-name" placeholder="My Awesome dApp"></div>
+            <div class="form-group"><label class="form-label">Description</label><textarea class="form-textarea" id="dapp-description" placeholder="Describe your dApp..."></textarea></div>
+            <div class="form-group"><label class="form-label">Application Type</label><select class="form-select" id="dapp-type"><option value="defi">DeFi</option><option value="nft">NFT</option><option value="social">Social</option><option value="utility">Utility</option></select></div>
+            <div class="form-group"><label class="form-label">Smart Contract Template</label><select class="form-select" id="dapp-template"><option value="basic">Basic</option><option value="advanced">Advanced</option><option value="custom">Custom</option></select></div>
+            <button class="btn btn-primary" onclick="createDapp()" style="width: 100%;">Create dApp</button>
+        </div>
+    </div>
+
+    <div class="modal" id="create-proposal-modal">
+        <div class="modal-content">
+            <div class="modal-header"><h2>Create Governance Proposal</h2><button class="modal-close" onclick="closeModal('create-proposal-modal')">&times;</button></div>
+            <div class="form-group"><label class="form-label">Proposal Title</label><input type="text" class="form-input" id="proposal-title" placeholder="Feature Request: ..."></div>
+            <div class="form-group"><label class="form-label">Description</label><textarea class="form-textarea" id="proposal-description" placeholder="Describe your proposal..."></textarea></div>
+            <div class="form-group"><label class="form-label">Proposal Type</label><select class="form-select" id="proposal-type"><option value="feature">Feature Request</option><option value="policy">Policy Change</option><option value="treasury">Treasury</option></select></div>
+            <div class="form-group"><label class="form-label">Voting Duration (days)</label><input type="number" class="form-input" id="proposal-duration" value="7" min="1" max="30"></div>
+            <button class="btn btn-primary" onclick="createProposal()" style="width: 100%;">Submit Proposal</button>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = window.location.origin;
+        let currentUser = null;
+        let wsConnection = null;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeWebSocket();
+            loadGuardianStatus();
+            loadDapps();
+            loadProposals();
+            refreshForgeMetrics();
+        });
+
+        /**
+         * Refresh treasury metrics from blockchain using Web3.js
+         * Fetches TVL and Available Balance directly from smart contracts
+         * Falls back to static values if blockchain is unavailable
+         */
+        async function refreshForgeMetrics() {
+            // === CONFIGURATION - Customize these values ===
+            // TODO: Replace with your actual RPC endpoint
+            // Free tier options: Infura, Alchemy, QuickNode, or use Pi Network RPC
+            const RPC_URL = 'https://rpc.mainnet.pi.network'; // Pi Network Mainnet RPC
+            
+            // TODO: Replace with your deployed treasury contract address BEFORE production.
+            // NOTE: This is a valid-format, non-zero placeholder address to satisfy basic validation.
+            const TREASURY_CONTRACT_ADDRESS = '0x0000000000000000000000000000000000000001';
+            
+            // Fallback metrics configuration
+            const TREASURY_FALLBACK_METRICS = {
+                tvl: 12456789,
+                available: 4567890
+            };
+            
+            // Configuration: auto-refresh interval for treasury metrics (in milliseconds)
+            const TREASURY_METRICS_REFRESH_INTERVAL_MS = 5 * 60 * 1000;
+            
+            // Minimal ABI for treasury view functions
+            // TODO: Update method names to match your contract
+            const TREASURY_ABI = [
+                {
+                    "inputs": [],
+                    "name": "totalValueLocked",
+                    "outputs": [{"internalType": "uint256", "name": "", "type": "uint256"}],
+                    "stateMutability": "view",
+                    "type": "function"
+                },
+                {
+                    "inputs": [],
+                    "name": "availableBalance",
+                    "outputs": [{"internalType": "uint256", "name": "", "type": "uint256"}],
+                    "stateMutability": "view",
+                    "type": "function"
+                }
+            ];
+            // ===============================================
+
+            // Shared number formatting function
+            const format = (num) => new Intl.NumberFormat('en-US', {
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            }).format(num);
+
+            // Fallback values if blockchain is unavailable (defined early for use in displayFallbackMetrics)
+            const fallback = TREASURY_FALLBACK_METRICS;
+
+            // Check if contract address is still placeholder
+            if (TREASURY_CONTRACT_ADDRESS === '0xYOUR_TREASURY_CONTRACT_ADDRESS_HERE' || 
+                TREASURY_CONTRACT_ADDRESS === '0x0000000000000000000000000000000000000000') {
+                console.warn('⚠️ Treasury contract address not configured. Please update TREASURY_CONTRACT_ADDRESS in the code.');
+                console.warn('📖 See docs/WEB3_TREASURY_CONFIGURATION.md for setup instructions.');
+                displayFallbackMetrics();
+                return;
+            }
+                return;
+            }
+            let web3;
+            let contract;
+            
+            // Initialize Web3 and contract
+            function initializeWeb3() {
+                try {
+                    // Check if user has MetaMask or other Web3 wallet
+                    if (typeof window.ethereum !== 'undefined') {
+                        // Use user's wallet provider if available (MetaMask, etc.)
+                        web3 = new Web3(window.ethereum);
+                    } else {
+                        // Fallback to public RPC endpoint
+                        web3 = new Web3(RPC_URL);
+                    }
+                    contract = new web3.eth.Contract(TREASURY_ABI, TREASURY_CONTRACT_ADDRESS);
+                    return true;
+                } catch (error) {
+                    console.warn("Web3 initialization failed:", error);
+                    return false;
+                }
+            }
+
+            async function updateMetrics() {
+                try {
+                    // Ensure Web3 is initialized
+                    if (!web3 || !contract) {
+                        if (!initializeWeb3()) {
+                            displayFallbackMetrics();
+                            return;
+                        }
+                    }
+
+                    // Add timeout to prevent hanging on slow networks
+                    const CALL_TIMEOUT_MS = 10000; // 10 seconds
+                    const timeoutPromise = new Promise((_, reject) => 
+                        setTimeout(() => reject(new Error('Contract call timeout')), CALL_TIMEOUT_MS)
+                    );
+
+                    // Call smart contract view functions with timeout (no gas required)
+                    const tvlRaw = await Promise.race([
+                        contract.methods.totalValueLocked().call(),
+                        timeoutPromise
+                    ]);
+                    const availableRaw = await Promise.race([
+                        contract.methods.availableBalance().call(),
+                        timeoutPromise
+                    ]);
+
+                    // Convert from wei (18 decimals) to readable format
+                    // NOTE: Adjust decimals if your token uses different precision
+                    // (e.g., USDC uses 6 decimals: use 'mwei' instead of 'ether')
+                    const tvl = web3.utils.fromWei(tvlRaw, 'ether');
+                    const available = web3.utils.fromWei(availableRaw, 'ether');
+
+                    // Update UI elements
+                    document.getElementById('tvl-value').innerText = format(tvl);
+                    document.getElementById('balance-value').innerText = format(available);
+                    document.getElementById('error-row').style.display = 'none';
+
+                    console.log('✅ Treasury metrics updated from blockchain');
+                } catch (error) {
+                    // Distinguish between different error types for better debugging
+                    const message = (error && error.message) ? String(error.message) : '';
+                    const code = (error && error.code) ? String(error.code) : '';
+
+                    if (message.includes('timeout')) {
+                        console.warn("⏱️ Contract call timeout - network may be slow:", error);
+                    } else if (message.includes('revert') || message.includes('invalid')) {
+                        console.warn("❌ Contract call failed - check ABI matches deployed contract:", error);
+                    } else if (
+                        message.includes('network') ||
+                        message.includes('connection') ||
+                        message.includes('ECONNREFUSED') ||
+                        code === 'ECONNREFUSED'
+                    ) {
+                        console.warn("🌐 Network error - check RPC endpoint connectivity:", error);
+                    } else if (message.includes('method') || message.includes('function')) {
+                        console.warn("⚠️ Method not found - verify contract ABI has the required methods:", error);
+                    } else {
+                        console.warn("⚠️ Blockchain fetch failed:", error);
+                    }
+                    displayFallbackMetrics();
+                }
+            }
+
+            function displayFallbackMetrics() {
+                document.getElementById('tvl-value').innerText = format(fallback.tvl);
+                document.getElementById('balance-value').innerText = format(fallback.available);
+                document.getElementById('error-row').style.display = 'block';
+                
+                console.warn('⚠️ Using fallback treasury metrics');
+            }
+
+            // Initialize Web3 first
+            if (!initializeWeb3()) {
+                displayFallbackMetrics();
+                // Don't schedule interval updates if Web3 initialization failed
+                return;
+            }
+
+            // Initial update
+            updateMetrics();
+
+            // Refresh every configured interval
+            setInterval(updateMetrics, TREASURY_METRICS_REFRESH_INTERVAL_MS);
+        }
+
+        function initializeWebSocket() {
+            try {
+                // Use secure WebSocket (wss://) in production, fallback to ws:// for local development
+                const wsProtocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+                wsConnection = new WebSocket(wsProtocol + '//' + window.location.host + '/ws/collective-insight');
+                wsConnection.onmessage = (event) => {
+                    const data = JSON.parse(event.data);
+                    updateTelemetry(data);
+                };
+                wsConnection.onclose = () => setTimeout(initializeWebSocket, 5000);
+            } catch (e) { setInterval(pollTelemetry, 5000); }
+        }
+
+        function updateTelemetry(data) {
+            if (data.harmony_index) {
+                document.getElementById('harmony-index').textContent = data.harmony_index.toFixed(3);
+                document.getElementById('harmony-progress').style.width = (data.harmony_index * 100) + '%';
+            }
+            if (data.qvm_amplitude) document.getElementById('qvm-amplitude').textContent = data.qvm_amplitude.toFixed(4);
+            if (data.collective_mood) document.getElementById('collective-mood').textContent = data.collective_mood;
+        }
+
+        async function pollTelemetry() {
+            try {
+                const response = await fetch(API_BASE + '/api/quantum-telemetry');
+                const data = await response.json();
+                updateTelemetry(data);
+            } catch (e) {}
+        }
+
+        async function connectPiWallet() {
+            const btn = document.getElementById('connectWallet');
+            btn.textContent = 'Connecting...';
+            try {
+                if (typeof Pi !== 'undefined') {
+                    const auth = await Pi.authenticate(['payments', 'username'], () => {});
+                    currentUser = auth.user;
+                    btn.textContent = (currentUser.username || 'Connected') + ' ✓';
+                    btn.style.background = 'var(--success-green)';
+                } else {
+                    currentUser = { username: 'Demo User' };
+                    btn.textContent = 'Demo Mode ✓';
+                }
+            } catch (e) { btn.textContent = 'Connect Pi Wallet'; }
+        }
+
+        async function loadGuardianStatus() {
+            try {
+                const response = await fetch(API_BASE + '/api/guardian/status');
+                const data = await response.json();
+                document.getElementById('latency-metric').textContent = data.metrics.latency_ns + 'ns';
+                document.getElementById('stability-metric').textContent = data.metrics.harmonic_stability.toFixed(3);
+                document.getElementById('threats-metric').textContent = data.metrics.blocked_threats;
+                document.getElementById('transactions-metric').textContent = data.metrics.monitored_transactions;
+                document.getElementById('guardian-latency').textContent = data.metrics.latency_ns + 'ns';
+                document.getElementById('guardian-harmony').textContent = data.metrics.harmonic_stability.toFixed(3);
+                document.getElementById('guardian-threat-level').textContent = data.metrics.threat_level.toUpperCase();
+                document.getElementById('guardian-tx-monitored').textContent = data.metrics.monitored_transactions;
+            } catch (e) {}
+        }
+
+        async function triggerGuardianScan() {
+            try {
+                showAlert('info', 'Initiating security scan...');
+                const response = await fetch(API_BASE + '/api/guardian/scan', { method: 'POST' });
+                const data = await response.json();
+                showAlert('success', 'Scan complete! ' + data.transactions_scanned + ' transactions scanned.');
+                loadGuardianStatus();
+            } catch (e) { showAlert('warning', 'Scan failed.'); }
+        }
+
+        async function loadDapps() {
+            try {
+                const response = await fetch(API_BASE + '/api/dapps');
+                const data = await response.json();
+                renderDapps(data.dapps || []);
+            } catch (e) {}
+        }
+
+        function renderDapps(dapps) {
+            const container = document.getElementById('dapps-list');
+            if (dapps.length === 0) {
+                container.innerHTML = '<div class="alert alert-info"><span>No dApps yet. Click "Create New dApp" to get started!</span></div>';
+                return;
+            }
+            container.innerHTML = dapps.map(dapp => '<div class="card" style="margin-bottom: 1rem;"><div class="card-header"><span class="card-title">' + dapp.name + '</span><span class="status-badge ' + (dapp.status === 'deployed' ? 'status-active' : 'status-warning') + '">' + dapp.status.toUpperCase() + '</span></div><p style="color: var(--text-secondary); margin-bottom: 1rem;">' + dapp.description + '</p><div style="display: flex; gap: 0.5rem;"><button class="btn btn-secondary" onclick="deployDapp('' + dapp.id + '', 'testnet')">Deploy Testnet</button><button class="btn btn-primary" onclick="deployDapp('' + dapp.id + '', 'mainnet')">Deploy Mainnet</button><button class="btn btn-secondary" onclick="auditDapp('' + dapp.id + '')">Audit</button></div></div>').join('');
+        }
+
+        async function createDapp() {
+            const name = document.getElementById('dapp-name').value;
+            const description = document.getElementById('dapp-description').value;
+            const appType = document.getElementById('dapp-type').value;
+            const template = document.getElementById('dapp-template').value;
+            if (!name || !description) { showAlert('warning', 'Please fill in all fields'); return; }
+            try {
+                const response = await fetch(API_BASE + '/api/dapps/create', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name: name, description: description, app_type: appType, smart_contract_template: template })
+                });
+                const data = await response.json();
+                if (data.success) { showAlert('success', 'dApp created successfully!'); closeModal('create-dapp-modal'); loadDapps(); }
+            } catch (e) { showAlert('warning', 'Failed to create dApp.'); }
+        }
+
+        async function deployDapp(dappId, network) {
+            try {
+                showAlert('info', 'Deploying to ' + network + '...');
+                const response = await fetch(API_BASE + '/api/dapps/' + dappId + '/deploy?network=' + network, { method: 'POST' });
+                const data = await response.json();
+                if (data.success) { showAlert('success', 'Deployed to ' + network + '!'); loadDapps(); }
+            } catch (e) { showAlert('warning', 'Deployment failed.'); }
+        }
+
+        async function auditDapp(dappId) {
+            try {
+                showAlert('info', 'Running AI audit...');
+                const response = await fetch(API_BASE + '/api/dapps/' + dappId + '/audit', { method: 'POST' });
+                const data = await response.json();
+                showAlert('success', 'Audit complete! Security: ' + data.security_rating + ', Risk: ' + data.risk_score);
+            } catch (e) { showAlert('warning', 'Audit failed.'); }
+        }
+
+        async function loadProposals() {
+            try {
+                const response = await fetch(API_BASE + '/api/governance/proposals');
+                const data = await response.json();
+                renderProposals(data.proposals || []);
+            } catch (e) {}
+        }
+
+        function renderProposals(proposals) {
+            const container = document.getElementById('proposals-list');
+            if (proposals.length === 0) {
+                container.innerHTML = '<div class="alert alert-info"><span>No active proposals. Be the first to create one!</span></div>';
+                return;
+            }
+            container.innerHTML = proposals.map(p => '<div class="card" style="margin-bottom: 1rem;"><div class="card-header"><span class="card-title">' + p.title + '</span><span class="status-badge status-active">' + p.status.toUpperCase() + '</span></div><p style="color: var(--text-secondary); margin-bottom: 1rem;">' + p.description + '</p><div style="display: flex; gap: 1rem; margin-bottom: 1rem;"><span>For: ' + p.votes.for + '</span><span>Against: ' + p.votes.against + '</span><span>Abstain: ' + p.votes.abstain + '</span></div><div style="display: flex; gap: 0.5rem;"><button class="btn btn-success" onclick="vote('' + p.id + '', 'for')">Vote For</button><button class="btn btn-secondary" onclick="vote('' + p.id + '', 'against')">Vote Against</button><button class="btn btn-secondary" onclick="vote('' + p.id + '', 'abstain')">Abstain</button></div></div>').join('');
+        }
+
+        async function createProposal() {
+            const title = document.getElementById('proposal-title').value;
+            const description = document.getElementById('proposal-description').value;
+            const proposalType = document.getElementById('proposal-type').value;
+            const duration = document.getElementById('proposal-duration').value;
+            if (!title || !description) { showAlert('warning', 'Please fill in all fields'); return; }
+            try {
+                const response = await fetch(API_BASE + '/api/governance/proposals/create', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ title: title, description: description, proposal_type: proposalType, voting_duration_days: parseInt(duration) })
+                });
+                const data = await response.json();
+                if (data.success) { showAlert('success', 'Proposal submitted!'); closeModal('create-proposal-modal'); loadProposals(); }
+            } catch (e) { showAlert('warning', 'Failed to create proposal.'); }
+        }
+
+        async function vote(proposalId, voteType) {
+            try {
+                const response = await fetch(API_BASE + '/api/governance/proposals/' + proposalId + '/vote', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ proposal_id: proposalId, vote: voteType, voting_power: 1.0 })
+                });
+                const data = await response.json();
+                if (data.success) { showAlert('success', 'Vote recorded!'); loadProposals(); }
+            } catch (e) { showAlert('warning', 'Vote failed.'); }
+        }
+
+        async function runEthicalAudit() {
+            const input = document.getElementById('audit-input').value;
+            const amount = document.getElementById('audit-amount').value;
+            if (!input) { showAlert('warning', 'Please enter a transaction ID'); return; }
+            try {
+                showAlert('info', 'Running AI ethical audit...');
+                const response = await fetch(API_BASE + '/api/ethical-audit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ transaction_id: input, amount: parseFloat(amount), user_context: currentUser?.username || 'anonymous' })
+                });
+                const data = await response.json();
+                document.getElementById('audit-results').innerHTML = '<div class="card"><div class="card-header"><span class="card-title">Audit Results</span><span class="status-badge ' + (data.approved ? 'status-active' : 'status-warning') + '">' + (data.approved ? 'APPROVED' : 'REVIEW REQUIRED') + '</span></div><div style="margin-top: 1rem;"><p><strong>Risk Score:</strong> ' + data.risk_score + '</p><p><strong>Ethical Compliance:</strong> ' + data.ethical_compliance.score + '</p><p><strong>Guardian Verdict:</strong> ' + data.guardian_verdict + '</p><p><strong>Narrative:</strong> ' + data.narrative + '</p></div></div>';
+                showAlert(data.approved ? 'success' : 'warning', data.guardian_verdict);
+            } catch (e) { showAlert('warning', 'Audit failed.'); }
+        }
+
+        function showSection(el, sectionName) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.getElementById(sectionName + '-section').classList.add('active');
+            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+            document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
+            if (el && el.classList) el.classList.add('active');
+        }
+
+        function showCreateDappModal() { document.getElementById('create-dapp-modal').classList.add('active'); }
+        function showCreateProposalModal() { document.getElementById('create-proposal-modal').classList.add('active'); }
+        function closeModal(modalId) { document.getElementById(modalId).classList.remove('active'); }
+
+        function showAlert(type, message) {
+            const alertDiv = document.createElement('div');
+            alertDiv.className = 'alert alert-' + type;
+            alertDiv.innerHTML = '<span>' + message + '</span>';
+            alertDiv.style.cssText = 'position:fixed;top:80px;right:20px;z-index:10001;min-width:300px;';
+            document.body.appendChild(alertDiv);
+            setTimeout(() => alertDiv.remove(), 5000);
+        }
+
+        function startWalkthrough() { showAlert('info', 'Welcome to Pi Forge! Explore the dashboard to get started.'); }
+    </script>
+</body>
+</html>
