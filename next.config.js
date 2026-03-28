@@ -1,15 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',
-  transpilePackages: ['@vercel/node'],
-  // Ignore TypeScript errors during build temporarily
-  typescript: {
-    ignoreBuildErrors: true,
+  output: 'export', // Required for GitHub Pages
+  basePath: '/quantum-pi-forge-fixed',
+  assetPrefix: '/quantum-pi-forge-fixed/',
+  images: {
+    unoptimized: true, // Needed for static exports
   },
-  // Ignore ESLint errors during build
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
