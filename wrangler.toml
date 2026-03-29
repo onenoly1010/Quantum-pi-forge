@@ -2,5 +2,6 @@ name = "quantum-pi-forge-fixed"
 pages_build_output_dir = ".next"
 compatibility_date = "2026-03-20"
 
-[env.production]
-vars = { NODE_VERSION = "22", NPM_VERSION = "10" }
+[vars]
+NODE_VERSION = "22"
+NPM_VERSION = "10"
