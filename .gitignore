@@ -175,6 +175,10 @@ reports/*.html
 
 # Vercel build output
 .vercel/
+
+# Next.js build output
+.next/
+
 # Secrets
 .env
 .env.*
