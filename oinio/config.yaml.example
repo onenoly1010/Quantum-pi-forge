@@ -1,0 +1,30 @@
+identity: onenoly1010
+
+core:
+  url: http://localhost:8000
+
+models:
+  default: llama3.1:8b
+
+nodes:
+  - name: local
+    ollama_url: http://localhost:11434
+
+  - name: gpu_server
+    ollama_url: http://192.168.1.50:11434
+
+supabase:
+  url: null
+  key: null
+
+pi_network:
+  mode: mainnet
+  app_id: null
+  api_key: null
+  api_endpoint: https://api.minepi.com
+  sandbox_mode: false
+  webhook_secret: null
+  wallet_private_key: null
+
+secrets:
+  ollama_api_key: null

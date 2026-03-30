@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:cf": "DEPLOY_TARGET=cloudflare-pages next build",
+    "deploy:cf": "wrangler pages deploy out --project-name quantumpiforge",
     "start": "next start",
     "lint": "next lint"
   },
