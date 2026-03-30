@@ -27,6 +27,93 @@ from control_plane_config import get_ollama_url, get_value
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+OLLAMA_URL = get_ollama_url()
+
+
+def get_peer_nodes() -> List[str]:
+    peers = os.getenv("PEER_NODES", "")
+    return [p.strip() for p in peers.split(",") if p.strip()]
+
+
+peer_health: Dict[str, Dict[str, Any]] = {}
+peer_health_task: Optional[asyncio.Task] = None
+routing_override: Dict[str, Optional[str]] = {"mode": None}
+
+
+async def check_peer(peer_url: str) -> Dict[str, Any]:
+    start = time.time()
+    try:
+        async with httpx.AsyncClient(timeout=2.0) as client:
+            res = await client.get(f"{peer_url.rstrip('/')}/health")
+            latency = round((time.time() - start) * 1000, 2)
+            if res.status_code == 200:
+                return {
+                    "status": "healthy",
+                    "latency_ms": latency,
+                    "last_checked": time.time(),
+                }
+    except Exception:
+        pass
+    return {
+        "status": "unreachable",
+        "latency_ms": None,
+        "last_checked": time.time(),
+    }
+
+
+async def peer_health_loop() -> None:
+    while True:
+        peers = get_peer_nodes()
+        current_peers = set(peers)
+        tasks = [check_peer(peer) for peer in peers]
+        results = await asyncio.gather(*tasks, return_exceptions=True)
+
+        for peer, result in zip(peers, results):
+            if isinstance(result, Exception):
+                peer_health[peer] = {
+                    "status": "error",
+                    "latency_ms": None,
+                    "last_checked": time.time(),
+                }
+            else:
+                peer_health[peer] = result
+
+        # Drop stale entries if peer list shrinks/changes
+        for tracked_peer in list(peer_health.keys()):
+            if tracked_peer not in current_peers:
+                del peer_health[tracked_peer]
+
+        await asyncio.sleep(5)
+
+
+def get_first_healthy_peer() -> Optional[str]:
+    for peer, info in peer_health.items():
+        if isinstance(info, dict) and info.get("status") == "healthy":
+            return peer
+    return None
+
+
+def get_routing_mode() -> str:
+    return routing_override["mode"] or os.getenv("ROUTING_MODE", "local")
+
+
+def select_target() -> tuple[str, Optional[str]]:
+    mode = get_routing_mode()
+
+    if mode == "local":
+        return ("local", OLLAMA_URL)
+
+    if mode == "peer":
+        healthy_peer = get_first_healthy_peer()
+        if healthy_peer:
+            return ("peer", healthy_peer)
+        return ("none", None)
+
+    if mode == "fallback":
+        return ("fallback", OLLAMA_URL)
+
+    return ("local", OLLAMA_URL)
+
 # Import supabase with error handling (using importlib to avoid top-level import)
 import importlib
 
@@ -322,6 +409,10 @@ class ChatMessage(BaseModel):
 class ChatRequest(BaseModel):
     messages: List[ChatMessage] = Field(..., min_length=1, description="Chat messages")
     model: Optional[str] = Field(default=None, description="Optional Ollama model override")
+
+
+class RoutingControl(BaseModel):
+    mode: str = Field(..., description="local | peer | fallback | reset")
 
 # --- CYBER SAMURAI GUARDIAN STATE ---
 # --- PI NETWORK API INTEGRATION HELPERS ---
@@ -751,6 +842,32 @@ async def health_endpoint():
     }
 
 
+@app.get("/status")
+async def status_endpoint():
+    return {
+        "status": "ok",
+        "node": os.getenv("NODE_NAME", "unknown"),
+        "role": os.getenv("NODE_ROLE", "unknown"),
+        "routing_mode": get_routing_mode(),
+        "routing_override": routing_override["mode"],
+        "peers": get_peer_nodes(),
+        "peer_health": peer_health,
+    }
+
+
+@app.post("/control/routing")
+async def set_routing(control: RoutingControl):
+    if control.mode == "reset":
+        routing_override["mode"] = None
+        return {"status": "reset", "mode": get_routing_mode()}
+
+    if control.mode not in ["local", "peer", "fallback"]:
+        raise HTTPException(status_code=400, detail="Invalid mode")
+
+    routing_override["mode"] = control.mode
+    return {"status": "ok", "mode": control.mode}
+
+
 @app.post("/chat")
 async def chat(request: ChatRequest):
     async def generate():
@@ -762,16 +879,53 @@ async def chat(request: ChatRequest):
             "stream": True,
         }
 
-        ollama_url = get_ollama_url()
-        endpoint = f"{ollama_url.rstrip('/')}/api/chat"
+        async def stream_from(endpoint: str):
+            async with httpx.AsyncClient(timeout=60.0) as client:
+                async with client.stream("POST", endpoint, json=payload) as response:
+                    response.raise_for_status()
 
-        async with httpx.AsyncClient(timeout=60.0) as client:
-            async with client.stream("POST", endpoint, json=payload) as response:
-                response.raise_for_status()
+                    async for line in response.aiter_lines():
+                        if line:
+                            yield (line + "\n").encode("utf-8")
 
-                async for line in response.aiter_lines():
-                    if line:
-                        yield (line + "\n").encode("utf-8")
+        route_type, target = select_target()
+        logger.info(f"[ROUTING] mode={get_routing_mode()} selected={route_type}")
+
+        if route_type == "none":
+            logger.warning("[ROUTING] mode=peer no healthy peers available")
+            raise HTTPException(status_code=503, detail="No healthy peers")
+
+        if route_type == "local":
+            endpoint = f"{OLLAMA_URL.rstrip('/')}/api/chat"
+            logger.info(f"[ROUTING] mode=local target={endpoint}")
+            async for chunk in stream_from(endpoint):
+                yield chunk
+            return
+
+        if route_type == "peer" and target:
+            endpoint = f"{target.rstrip('/')}/chat"
+            logger.info(f"[ROUTING] mode=peer target={endpoint}")
+            async for chunk in stream_from(endpoint):
+                yield chunk
+            return
+
+        # fallback mode: try local first, then first healthy peer
+        local_endpoint = f"{OLLAMA_URL.rstrip('/')}/api/chat"
+        logger.info("[ROUTING] mode=fallback -> trying local")
+        try:
+            async for chunk in stream_from(local_endpoint):
+                yield chunk
+            return
+        except Exception as local_error:
+            logger.warning(f"[ROUTING] local failed -> evaluating peer fallback: {local_error}")
+            fallback_peer = get_first_healthy_peer()
+            if not fallback_peer:
+                logger.warning("[ROUTING] no healthy peers available for fallback")
+                raise HTTPException(status_code=503, detail="No healthy peers for fallback")
+            peer_endpoint = f"{fallback_peer.rstrip('/')}/chat"
+            logger.info(f"[ROUTING] local failed -> switching to peer {fallback_peer}")
+            async for chunk in stream_from(peer_endpoint):
+                yield chunk
 
     return StreamingResponse(generate(), media_type="application/json")
 
@@ -1794,8 +1948,16 @@ async def websocket_guardian_alerts(websocket: WebSocket):
 # --- STARTUP EVENT ---
 @app.on_event("startup")
 async def startup_event():
+    global peer_health_task
     logging.basicConfig(level=logging.INFO)
     logger.info("🚀 QVM 3.3.0 - Pi Forge Quantum Genesis - INITIALIZING...")
+    logger.info(f"[OINIO] Node: {os.getenv('NODE_NAME')} | Role: {os.getenv('NODE_ROLE')}")
+    logger.info(f"[OINIO] Ollama: {OLLAMA_URL}")
+    logger.info(f"[OINIO] Core URL: {os.getenv('CORE_URL', 'http://localhost:8000')}")
+    logger.info(f"[OINIO] Routing Mode: {os.getenv('ROUTING_MODE', 'local')}")
+    peers = get_peer_nodes()
+    logger.info(f"[OINIO] Peers: {peers if peers else 'none'}")
+    peer_health_task = asyncio.create_task(peer_health_loop())
     
     # Validate Pi Network configuration
     try:
@@ -1824,7 +1986,12 @@ async def startup_event():
 @app.on_event("shutdown")
 async def shutdown_event():
     """Cleanup on application shutdown"""
+    global peer_health_task
     logger.info("🛑 Shutting down Pi Forge Quantum Genesis...")
+
+    if peer_health_task:
+        peer_health_task.cancel()
+        peer_health_task = None
     
     # Stop Pi Network background tasks
     try:
