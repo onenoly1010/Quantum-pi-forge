@@ -18,9 +18,10 @@ import httpx
 from fastapi import (Depends, FastAPI, HTTPException, Request, WebSocket,
                      WebSocketDisconnect, status)
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
 from fastapi.security import OAuth2PasswordBearer
 from pydantic import BaseModel, EmailStr, Field
+from control_plane_config import get_ollama_url, get_value
 
 # Configure logging first
 logging.basicConfig(level=logging.INFO)
@@ -136,8 +137,8 @@ except ImportError as e:
 supabase = None
 if supabase_available:
     try:
-        supabase_url = os.environ.get("SUPABASE_URL")
-        supabase_key = os.environ.get("SUPABASE_KEY")
+        supabase_url = get_value("SUPABASE_URL", "supabase.url", "")
+        supabase_key = get_value("SUPABASE_KEY", "supabase.key", "")
         if supabase_url and supabase_key:
             supabase = create_client(supabase_url, supabase_key)
             logging.info("✅ Supabase client initialized")
@@ -194,8 +195,8 @@ connected_users: Dict[str, WebSocket] = {}
 # --- SUPABASE CLIENT INITIALIZATION ---
 supabase: Optional[Client] = None
 try:
-    supabase_url = os.environ.get("SUPABASE_URL")
-    supabase_key = os.environ.get("SUPABASE_KEY")
+    supabase_url = get_value("SUPABASE_URL", "supabase.url", "")
+    supabase_key = get_value("SUPABASE_KEY", "supabase.key", "")
     if supabase_url and supabase_key:
         supabase = create_client(supabase_url, supabase_key)
         logger.info("✅ Supabase client initialized successfully")
@@ -207,13 +208,13 @@ except Exception as e:
 
 # --- PI NETWORK MAINNET CONFIGURATION ---
 PI_NETWORK_CONFIG = {
-    "network": os.environ.get("PI_NETWORK_MODE", "mainnet"),  # mainnet or testnet
-    "api_key": os.environ.get("PI_NETWORK_API_KEY", ""),
-    "app_id": os.environ.get("PI_NETWORK_APP_ID", ""),
-    "api_endpoint": os.environ.get("PI_NETWORK_API_ENDPOINT", "https://api.minepi.com"),
-    "sandbox_mode": os.environ.get("PI_SANDBOX_MODE", "false").lower() == "true",
-    "wallet_private_key": os.environ.get("PI_NETWORK_WALLET_PRIVATE_KEY", ""),
-    "webhook_secret": os.environ.get("PI_NETWORK_WEBHOOK_SECRET", "")
+    "network": get_value("PI_NETWORK_MODE", "pi_network.mode", "mainnet"),  # mainnet or testnet
+    "api_key": get_value("PI_NETWORK_API_KEY", "pi_network.api_key", ""),
+    "app_id": get_value("PI_NETWORK_APP_ID", "pi_network.app_id", ""),
+    "api_endpoint": get_value("PI_NETWORK_API_ENDPOINT", "pi_network.api_endpoint", "https://api.minepi.com"),
+    "sandbox_mode": get_value("PI_SANDBOX_MODE", "pi_network.sandbox_mode", False, cast="bool"),
+    "wallet_private_key": get_value("PI_NETWORK_WALLET_PRIVATE_KEY", "pi_network.wallet_private_key", ""),
+    "webhook_secret": get_value("PI_NETWORK_WEBHOOK_SECRET", "pi_network.webhook_secret", ""),
 }
 
 # Validate critical Pi Network configuration on startup
@@ -311,6 +312,16 @@ class MemorialGenerationRequest(BaseModel):
         default_factory=lambda: ["narrative", "poem", "reflection"],
         description="Types of content to generate"
     )
+
+
+class ChatMessage(BaseModel):
+    role: str = Field(..., description="Message role (system/user/assistant)")
+    content: str = Field(..., description="Message content")
+
+
+class ChatRequest(BaseModel):
+    messages: List[ChatMessage] = Field(..., min_length=1, description="Chat messages")
+    model: Optional[str] = Field(default=None, description="Optional Ollama model override")
 
 # --- CYBER SAMURAI GUARDIAN STATE ---
 # --- PI NETWORK API INTEGRATION HELPERS ---
@@ -738,6 +749,31 @@ async def health_endpoint():
         "supabase_connected": supabase is not None,
         "timestamp": time.time()
     }
+
+
+@app.post("/chat")
+async def chat(request: ChatRequest):
+    async def generate():
+        model = request.model or get_value("DEFAULT_MODEL", "models.default", "llama3.2:latest")
+
+        payload = {
+            "model": model,
+            "messages": [msg.model_dump() for msg in request.messages],
+            "stream": True,
+        }
+
+        ollama_url = get_ollama_url()
+        endpoint = f"{ollama_url.rstrip('/')}/api/chat"
+
+        async with httpx.AsyncClient(timeout=60.0) as client:
+            async with client.stream("POST", endpoint, json=payload) as response:
+                response.raise_for_status()
+
+                async for line in response.aiter_lines():
+                    if line:
+                        yield (line + "\n").encode("utf-8")
+
+    return StreamingResponse(generate(), media_type="application/json")
 
 @app.post("/token")
 async def login(request: Request):
