@@ -1,7 +1,5 @@
 name = "quantumpiforge"
-pages_build_output_dir = "out"
 compatibility_date = "2026-03-20"
 
-[vars]
-NODE_VERSION = "22"
-NPM_VERSION = "10"
+[assets]
+directory = "./out"
