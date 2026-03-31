@@ -1,5 +1,41 @@
 name = "quantumpiforge"
+pages_build_output_dir = "out"
 compatibility_date = "2026-03-20"
 
-[assets]
-directory = "./out"
+# Main domain configuration for quantumpiforge.com
+[env.production]
+name = "quantumpiforge-production"
+routes = [
+  { pattern = "quantumpiforge.com", zone_name = "quantumpiforge.com" },
+  { pattern = "*.quantumpiforge.com", zone_name = "quantumpiforge.com" }
+]
+
+# Preview/staging environment
+[env.staging]
+name = "quantumpiforge-staging"
+routes = [
+  { pattern = "staging.quantumpiforge.com", zone_name = "quantumpiforge.com" }
+]
+
+# Environment variables for production
+[env.production.vars]
+CORE_URL = "https://api.quantumpiforge.com"
+NODE_NAME = "oinio-mainnet-1"
+
+# Environment variables for staging
+[env.staging.vars]
+CORE_URL = "https://staging-api.quantumpiforge.com"
+NODE_NAME = "oinio-staging-1"
+
+# Build configuration
+[build]
+command = "npm run build:cf"
+cwd = "./"
+
+[build.upload]
+rules = [
+  { type = "CompiledContentType", globs = ["**/*.wasm"], fallthrough = true },
+  { type = "CompiledContentType", globs = ["**/*.woff"], fallthrough = true },
+  { type = "CompiledContentType", globs = ["**/*.woff2"], fallthrough = true },
+  { type = "Text", globs = ["**/*.css"], fallthrough = true }
+]
