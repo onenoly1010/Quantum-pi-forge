@@ -1,0 +1,11 @@
+name = "soul-core"
+main = "src/index.js"
+compatibility_date = "2026-03-31"
+compatibility_flags = ["nodejs_compat"]
+
+# KV binding - replace YOUR_KV_NAMESPACE_ID_HERE with actual ID
+kv_namespaces = [
+  { binding = "MEMORY", id = "YOUR_KV_NAMESPACE_ID_HERE" }
+]
+
+# Secrets (do NOT commit - set with: npx wrangler secret put OPENAI_API_KEY)
