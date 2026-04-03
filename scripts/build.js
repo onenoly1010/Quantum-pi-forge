@@ -83,6 +83,9 @@ function build() {
     version: 3,
     routes: [
       { handle: "filesystem" },
+      { src: "/dashboard", dest: "/frontend/production_dashboard.html" },
+      { src: "/dashboard/", dest: "/frontend/production_dashboard.html" },
+      { src: "/resonance-dashboard", dest: "/frontend/production_dashboard.html" },
       { src: "/api/(.*)", dest: "https://pi-forge-quantum-genesis-1.onrender.com/api/$1" },
       { src: "/health", dest: "https://pi-forge-quantum-genesis-1.onrender.com/health" },
       { src: "/(.*)", dest: "/index.html" }
