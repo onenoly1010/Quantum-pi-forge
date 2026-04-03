@@ -5,7 +5,9 @@
   "packageManager": "npm@10.9.2",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run build:static",
+    "build:static": "node scripts/build.js",
+    "build:next": "next build",
     "build:cf": "DEPLOY_TARGET=cloudflare-pages next build",
     "deploy:cf": "wrangler pages deploy out --project-name quantumpiforge",
     "start": "next start",
