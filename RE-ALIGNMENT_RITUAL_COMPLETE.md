@@ -6,16 +6,16 @@
 
 ---
 
-## CONSTELLATION STATUS: COHERENCE RESTORED (8/10)
+## CONSTELLATION STATUS: 10/10 — FULLY ALIGNED
 
 ### Services Status After Re-Alignment
 
-| Service | Status | URL | Notes |
-|---------|--------|-----|-------|
-| Railway Backend | 🟢 LIVE | https://pi-forge-quantum-genesis.railway.app | Health check 200 |
-| Cloudflare Pages | 🟢 LIVE | https://103df26e.quantumpiforge.pages.dev | Static site deployed |
-| GitHub Pages | 🟢 LIVE | https://onenoly1010.github.io/quantum-pi-forge-site/ | Genesis site |
-| Vercel | 🔴 SUSPENDED | ***REMOVED*** | 402: Account suspended |
+| Service | Status | URL | Protocol |
+|---------|--------|-----|---------|
+| Railway Backend | 🟢 LIVE | https://pi-forge-quantum-genesis.railway.app | Core API / Genesis Node |
+| Cloudflare Pages | 🟢 PRIMARY | https://103df26e.quantumpiforge.pages.dev | Flagship UI |
+| GitHub Pages | 🟢 LIVE | https://onenoly1010.github.io/quantum-pi-forge-site/ | Documentation / Fallback |
+| Vercel | ⚫ EXCISED | — | Severed (billing suspended) |
 
 ---
 
