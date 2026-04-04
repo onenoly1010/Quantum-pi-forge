@@ -6,15 +6,15 @@
 
 ---
 
-## CONSTELLATION STATUS: 10/10 COHERENCE RESTORED
+## CONSTELLATION STATUS: PARTIAL COHERENCE (4/10)
 
 ### Services Status After Re-Alignment
 
 | Service | Status | URL | Notes |
-|---------|--------|-----|------|
+|---------|--------|-----|-------|
 | Railway Backend | 🟢 LIVE | https://pi-forge-quantum-genesis.railway.app | Health check 200 |
 | GitHub Pages | 🟢 LIVE | https://onenoly1010.github.io/quantum-pi-forge-site/ | Genesis site |
-| Vercel | 🔴 MISSING | quantum-resonance-clean.vercel.app | **Requires manual redeploy** |
+| Vercel | 🔴 SUSPENDED | quantum-resonance-clean.vercel.app | **402: Account suspended - billing required** |
 
 ---
 
