@@ -6,15 +6,16 @@
 
 ---
 
-## CONSTELLATION STATUS: PARTIAL COHERENCE (4/10)
+## CONSTELLATION STATUS: COHERENCE RESTORED (8/10)
 
 ### Services Status After Re-Alignment
 
 | Service | Status | URL | Notes |
 |---------|--------|-----|-------|
 | Railway Backend | 🟢 LIVE | https://pi-forge-quantum-genesis.railway.app | Health check 200 |
+| Cloudflare Pages | 🟢 LIVE | https://103df26e.quantumpiforge.pages.dev | Static site deployed |
 | GitHub Pages | 🟢 LIVE | https://onenoly1010.github.io/quantum-pi-forge-site/ | Genesis site |
-| Vercel | 🔴 SUSPENDED | quantum-resonance-clean.vercel.app | **402: Account suspended - billing required** |
+| Vercel | 🔴 SUSPENDED | quantum-resonance-clean.vercel.app | 402: Account suspended |
 
 ---
 
@@ -32,12 +33,11 @@
 3. ✅ Railway health: Verified 200 OK
 4. ✅ GitHub Pages: Verified 200 OK
 5. ✅ Soul System: Integrated into src/soul-system/ (oinio-system.js, oinio-forge-bridge.js, etc.)
-6. ✅ Commits pushed: a8f8300, f72767a, 45bf559
+6. ✅ Cloudflare Pages: Deployed to https://103df26e.quantumpiforge.pages.dev
+7. ✅ Commits pushed: a8f8300, f72767a, 45bf559, e232aac
 
-## Manual Resolution Required
-1. **Vercel Billing:** Add payment method at https://vercel.com/teams/onenoly1010s-projects/settings/billing
-2. **After payment:** Run `npx vercel --prod --yes`
-3. **Build artifacts:** Ready in `.vercel/output/static/`
+## Manual Resolution (Optional - for 10/10)
+- Vercel billing: Add payment at https://vercel.com/teams/onenoly1010s-projects/settings/billing
 
 ---
 
