@@ -1,0 +1,18 @@
+name = "guardian-sentinel"
+compatibility_date = "2026-03-20"
+main = "guardian-sentinel.js"
+
+# Environment bindings - set via CI/CD or dashboard
+# [secrets]
+# RESONANCE_KEY
+# ROOT_ANCHOR_ADDRESS
+
+# KV Namespace for 60-second caching
+# [[kv_namespaces]]
+# binding = "SENTINEL_CACHE"
+# id = "your-kv-namespace-id"
+
+# Routes
+# routes = [
+#   { pattern = "your-domain.com/api/sentinel/*", zone_name = "your-domain.com" }
+# ]

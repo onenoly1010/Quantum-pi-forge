@@ -1,0 +1,45 @@
+# Cloudflare Pages Deployment Workflow
+# For quantum-pi-forge-ignited repository
+# Replaces deprecated Vercel CLI workflow
+
+name: Deploy to Cloudflare Pages
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build for Cloudflare Pages
+        run: npm run build:cf
+        env:
+          DEPLOY_TARGET: cloudflare-pages
+          NODE_ENV: production
+          OG_ARISTOTLE_RPC: ${{ secrets.OG_ARISTOTLE_RPC }}
+          ROOT_ANCHOR_ADDRESS: ${{ secrets.ROOT_ANCHOR_ADDRESS }}
+          OINIO_SOUL_SEED: ${{ secrets.OINIO_SOUL_SEED }}
+
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: quantumpiforge
+          directory: out
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
