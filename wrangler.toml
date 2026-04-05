@@ -1,3 +1,15 @@
-name = "quantumpiforge"
-compatibility_date = "2026-03-20"
+name = "quantum-pi-forge"
 pages_build_output_dir = "./out"
+compatibility_date = "2026-04-04"
+
+[vars]
+POLYGON_CHAIN_ID = "137"
+ETH_MAINNET_ID = "1"
+OG_ARISTOTLE_ID = "16600"
+ENVIRONMENT = "production"
+
+# KV Namespace for Soul Shards (metadata for identities/agents)
+# Create with: npx wrangler kv:namespace create SOUL_METADATA
+# [[kv_namespaces]]
+# binding = "SOUL_METADATA"
+# id = "<YOUR_KV_NAMESPACE_ID>"

@@ -1,0 +1,127 @@
+# Cloudflare Pages Deployment Workflow
+# Replaces deprecated Vercel CLI references
+
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches:
+      - main
+      - quantum-pi-forge-fixed
+  pull_request:
+    branches:
+      - main
+
+env:
+  # Node.js version
+  NODE_VERSION: '20'
+  
+  # Cloudflare account details (set in GitHub secrets)
+  CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+  CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+  CLOUDFLARE_PAGES_PROJECT: ${{ secrets.CLOUDFLARE_PAGES_PROJECT }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Lint
+        run: bun run lint
+
+      - name: Build
+        run: bun run build
+        env:
+          # Environment variables for build
+          NODE_ENV: production
+          NEXT_PUBLIC_API_URL: ${{ vars.NEXT_PUBLIC_API_URL }}
+          NEXT_PUBLIC_SUPABASE_URL: ${{ vars.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ vars.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+
+      - name: Deploy to Cloudflare Pages
+        if: github.ref == 'refs/heads/main'
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: ${{ secrets.CLOUDFLARE_PAGES_PROJECT }}
+          directory: .next
+          # Optional: Set production branch
+          branch: main
+
+      - name: Deploy preview to Cloudflare Pages
+        if: github.event_name == 'pull_request'
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: ${{ secrets.CLOUDFLARE_PAGES_PROJECT }}
+          directory: .next
+          branch: preview-${{ github.event.pull_request.number }}
+
+  # Optional: Add audit job using local agent
+  audit:
+    runs-on: ubuntu-latest
+    needs: deploy
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Verify environment variables
+        run: |
+          echo "Verifying environment configuration..."
+          
+          # Check for required secrets
+          if [ -z "${{ secrets.CLOUDFLARE_ACCOUNT_ID }}" ]; then
+            echo "ERROR: CLOUDFLARE_ACCOUNT_ID not set"
+            exit 1
+          fi
+          
+          if [ -z "${{ secrets.CLOUDFLARE_API_TOKEN }}" ]; then
+            echo "ERROR: CLOUDFLARE_API_TOKEN not set"
+            exit 1
+          fi
+          
+          echo "Environment verification complete."
+
+      - name: Check for outdated Vercel references
+        run: |
+          echo "Checking for remaining Vercel artifacts..."
+          
+          # Search for common Vercel patterns
+          VERCEL_PATTERNS=(
+            "vercel\.com"
+            "vercel\.app"
+            "vercel-cli"
+            "@vercel/..."
+          )
+          
+          for pattern in "${VERCEL_PATTERNS[@]}"; do
+            if grep -r "$pattern" --include="*.json" --include="*.ts" --include="*.js" . 2>/dev/null; then
+              echo "WARNING: Found potential Vercel reference: $pattern"
+            fi
+          done
+          
+          echo "Audit complete."
