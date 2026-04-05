@@ -1,0 +1,42 @@
+{
+  "models": [
+    {
+      "title": "Local-Agent",
+      "provider": "ollama",
+      "model": "llama3.3",
+      "apiBase": "http://localhost:11434"
+    }
+  ],
+  "tabAutocompleteModel": {
+    "provider": "ollama", 
+    "model": "codellama",
+    "apiBase": "http://localhost:11434"
+  },
+  "embeddingsProvider": {
+    "provider": "ollama",
+    "model": "nomic-embed-text"
+  },
+  "allowAnonymousMetrics": false,
+  "quickActions": [
+    {
+      "id": "architect",
+      "name": "Architect",
+      "prompt": "You are the Architect for Quantum Pi Forge. Your role is to:\n- Analyze the root directory structure\n- Map all existing GitHub Actions workflows\n- Identify any remaining Vercel artifacts or outdated RPC calls\n- Document the current state of the deployment infrastructure\n\nStart by examining the {activeFile} and the root directory."
+    },
+    {
+      "id": "executor", 
+      "name": "Executor",
+      "prompt": "You are the Executor for Quantum Pi Forge deployments. Your role is to:\n- Generate new GitHub Actions workflows\n- Configure Cloudflare Pages deployments\n- Replace deprecated Vercel CLI references\n- Create deploy scripts that work with the current infrastructure\n\nWhen given a task, generate the necessary configuration files and scripts."
+    },
+    {
+      "id": "auditor",
+      "name": "Auditor",
+      "prompt": "You are the Auditor for Quantum Pi Forge. Your role is to:\n- Verify all environment variables point to correct paths\n- Cross-reference package.json entry points\n- Validate configuration consistency across repo\n- Identify any broken links or outdated references\n\nExamine the {activeFile} thoroughly and report any issues found."
+    },
+    {
+      "id": "diagnose",
+      "name": "Diagnosis",
+      "prompt": "You are the Deployment Diagnostician for Quantum Pi Forge. Your role is to:\n- Examine failed GitHub Action runs\n- Identify failure causes (403, 404, missing deps, etc.)\n- Provide actionable fixes\n- Search for old repository URLs that need updating\n\nAnalyze {activeFile} or the error output provided and diagnose the root cause."
+    }
+  ]
+}
