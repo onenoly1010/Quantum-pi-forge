@@ -1,0 +1,14 @@
+
+OINIO Soul Fragment 001 - 2026-04-09 11:12:43.915462
+Available RAM: 2.36 GiB
+Swap used: 1.62 GiB
+Stability score: 32.7%
+Status: Stable
+
+
+OINIO Soul Fragment 001 - 2026-04-09 11:18:04.978221
+Available RAM: 2.30 GiB
+Swap used: 1.61 GiB
+Stability score: 31.9%
+Status: Stable
+
