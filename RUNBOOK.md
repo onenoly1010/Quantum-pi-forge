@@ -39,7 +39,7 @@ curl http://localhost:8000/api/metrics
 | Service | Local Development | Production | Status |
 |---------|-------------------|------------|--------|
 | **Core API** | `http://localhost:8000` | `https://pi-forge-quantum-genesis.railway.app` | ✅ Live |
-| **Resonance** | `http://localhost:8001` | `https://quantum-resonance-clean.vercel.app` | ⚠️ Exposed |
+| **Resonance** | `http://localhost:8001` | `https://your-project.workers.dev` | ⚠️ Exposed |
 | **Site** | `http://localhost:3000` | `https://onenoly1010.github.io/quantum-pi-forge-site/` | ✅ Live |
 
 > **Full deployment status:** See [docs/DEPLOYMENT_STATUS.md](./docs/DEPLOYMENT_STATUS.md)

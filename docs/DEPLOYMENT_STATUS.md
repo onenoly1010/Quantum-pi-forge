@@ -11,7 +11,7 @@
 | Service | URL | Status | Health Check | Last Verified |
 |---------|-----|--------|--------------|---------------|
 | **Pi Forge Genesis API** | https://pi-forge-quantum-genesis.railway.app | ✅ LIVE | `/health` → 200 OK | Dec 21, 2025 |
-| **Quantum Resonance Engine** | https://quantum-resonance-clean.vercel.app | ⚠️ EXPOSED | No `/health` endpoint | Dec 21, 2025 |
+| **Quantum Resonance Engine** | https://your-project.workers.dev | ⚠️ EXPOSED | No `/health` endpoint | Dec 21, 2025 |
 | **Quantum Pi Forge Site** | https://onenoly1010.github.io/quantum-pi-forge-site/ | ✅ LIVE | Static site loads | Dec 21, 2025 |
 | **DEX Dashboard** | https://quantum-pi-forge-fixed.vercel.app/dashboard | ❌ ARCHIVED | 404 NOT_FOUND | Dec 21, 2025 |
 
@@ -42,7 +42,7 @@ curl -I https://pi-forge-quantum-genesis.railway.app/health
 
 ### Quantum Resonance Engine (Vercel)
 
-**Base URL:** `https://quantum-resonance-clean.vercel.app`  
+**Base URL:** `https://your-project.workers.dev`  
 **Platform:** Vercel  
 **Status:** ⚠️ Directory listing exposed (see Security Agent Issue #157)
 

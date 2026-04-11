@@ -168,7 +168,7 @@ This repository serves as:
 - **Health Check**: `/health`
 
 #### 3. Resonance Engine (Vercel)
-- **URL**: https://quantum-resonance-clean.vercel.app
+- **URL**: https://your-project.workers.dev
 - **Repository**: `quantum-resonance-clean`
 - **Purpose**: Harmonic ledger backend
 

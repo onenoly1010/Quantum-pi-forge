@@ -141,7 +141,7 @@ This package enables the Quantum Pi Forge ecosystem to launch bridge functionali
 **Active Deployments**:
 - Railway: https://pi-forge-quantum-genesis.railway.app
 - GitHub Pages: https://onenoly1010.github.io/quantum-pi-forge-site/
-- Vercel (Resonance): https://quantum-resonance-clean.vercel.app
+- Vercel (Resonance): https://your-project.workers.dev
 
 ---
 

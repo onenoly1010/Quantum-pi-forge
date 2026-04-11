@@ -15,7 +15,7 @@ The Quantum Pi Forge is a **sovereign, multi-repository ecosystem** coordinated 
 | Repository | Purpose | Status | Primary URL |
 |------------|---------|--------|-------------|
 | **pi-forge-quantum-genesis** | Coordination hub, documentation center | ✅ Active | [Repository](https://github.com/onenoly1010/pi-forge-quantum-genesis) |
-| **quantum-resonance-clean** | Quantum resonance engine, ledger API | ✅ Active | https://quantum-resonance-clean.vercel.app |
+| **quantum-resonance-clean** | Quantum resonance engine, ledger API | ✅ Active | https://your-project.workers.dev |
 | **quantum-pi-forge-site** | Public-facing landing page, manifesto | ✅ Active | https://onenoly1010.github.io/quantum-pi-forge-site/ |
 | **quantum-pi-forge-fixed** | DEX interface (archived) | ⚠️ Archived | Previously at Vercel |
 | **pi-mr-nft-agent** | AI-powered NFT minting system | 🔄 Development | [Repository](https://github.com/onenoly1010/pi-mr-nft-agent) |
@@ -41,7 +41,7 @@ See [DEPLOYMENT_STATUS.md](./DEPLOYMENT_STATUS.md) for the current status of all
 
 **Core Services:**
 - **Railway:** `https://pi-forge-quantum-genesis.railway.app` — Primary API (FastAPI)
-- **Vercel:** `https://quantum-resonance-clean.vercel.app` — Resonance Engine
+- **Vercel:** `https://your-project.workers.dev` — Resonance Engine
 - **GitHub Pages:** `https://onenoly1010.github.io/quantum-pi-forge-site/` — Public Site
 
 ### 📚 Key Documentation

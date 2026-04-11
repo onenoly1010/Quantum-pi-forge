@@ -5,7 +5,7 @@
 
 | Service | Status | URL | Last Deploy |
 |---------|--------|-----|-------------|
-| Vercel Frontend | 🟢 Live | https://quantum-resonance-clean.vercel.app | 2026-01-13 |
+| Vercel Frontend | 🟢 Live | https://your-project.workers.dev | 2026-01-13 |
 | Railway Backend | 🟢 Live | https://pi-forge-quantum-genesis.railway.app | 2026-01-13 |
 | Supabase DB | 🟢 Connected | supabase.co | 2026-01-13 |
 | GitHub Pages | 🟢 Live | https://onenoly1010.github.io/quantum-pi-forge-site/ | 2026-01-13 |

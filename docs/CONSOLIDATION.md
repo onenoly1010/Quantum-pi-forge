@@ -29,7 +29,7 @@ The following repositories have been strategically consolidated into `pi-forge-q
 - **Status**: ✅ Active (last push: 2026-01-09)
 - **Integration**: Code merged into `/frontend`, assets consolidated
 - **Rationale**: Vercel-deployed frontend, primary UI/UX codebase
-- **URL**: https://quantum-resonance-clean.vercel.app
+- **URL**: https://your-project.workers.dev
 
 ### 2. `quantum-pi-forge-fixed`
 - **Type**: Server/Improvements
