@@ -309,7 +309,7 @@ GET /dashboard
 
 ### Ethical AI Audit Interface
 
-Access via web browser: `http://localhost:7860` (local) or `https://***REMOVED***` (production)
+Access via web browser: `http://localhost:7860` (local) or `https://your-project.workers.dev` (production)
 
 **Features**:
 - AI model evaluation
