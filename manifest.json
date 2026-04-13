@@ -6,18 +6,17 @@
     "revelation_2017": {
       "type": "visual-archive",
       "status": "synchronized",
-      "resonance": {
-        "frequency": "528Hz",
-        "harmonic_layer": "Sovereign Heartbeat",
-        "integrity_check": "verified"
-      },
-      "gate": "NFT-Locked",
-      "assets": 12
+      "resonance": { "frequency": "528Hz", "layer": "Sovereign Heartbeat" }
     },
-    "oinio_dex": {
-      "type": "liquidity-engine",
-      "network": "0G Aristotle",
-      "status": "active"
+    "volcanic_dao": {
+      "type": "governance-layer",
+      "status": "ratified",
+      "resonance": { "frequency": "432Hz", "layer": "Governance Harmonic" }
+    },
+    "canon_of_autonomy": {
+      "type": "philosophical-core",
+      "status": "executing",
+      "parameters": ["Decoupled", "Sovereign", "Edge-Deployed"]
     }
   }
 }
