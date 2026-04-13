@@ -83,5 +83,31 @@
             </div>
         </div>
     </section>
-</body>
-</html>
+<script>
+    // Simple manifest fetch to update UI status
+    fetch('./manifest.json')
+        .then(response => response.json())
+        .then(data => {
+            const gatewayStatus = document.querySelector('#gateway-status');
+            if(gatewayStatus && data.constellation.revelation_2017) {
+                gatewayStatus.innerText = data.constellation.revelation_2017.status.toUpperCase();
+            }
+        })
+        .catch(err => console.log("Manifest offline: local-only mode."));
+</script></body>
+</html><div class="p-6 border border-white/5 bg-zinc-900/50 rounded-lg glow-card transition-all">
+    <h3 class="text-white font-bold mb-2">NFT Gateway</h3>
+    <p id="gateway-status" class="text-xs text-zinc-500 font-mono italic">
+        Visualizing the 2017 Revelation.
+    </p>
+</divfetch('./manifest.json')
+    .then(response => response.json())
+    .then(data => {
+        const gatewayStatus = document.querySelector('#gateway-status');
+        if(gatewayStatus && data.constellation.revelation_2017) {
+            const rev = data.constellation.revelation_2017;
+            // Update UI with both status and resonance frequency
+            gatewayStatus.innerHTML = `STATUS: ${rev.status.toUpperCase()}<br/>RESONANCE: ${rev.resonance.frequency}`;
+        }
+    })
+    .catch(err => console.log("Manifest offline: local-only mode."));>
