@@ -1,0 +1,6 @@
+# Create the directory if it doesn't exist
+mkdir -p ~/projects/quantum-pi-forge-landing
+cd ~/projects/quantum-pi-forge-landing
+
+# Create the required files
+touch index.html _headers
