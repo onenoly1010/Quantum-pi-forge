@@ -15,8 +15,12 @@
     },
     "canon_of_autonomy": {
       "type": "philosophical-core",
-      "status": "executing",
-      "parameters": ["Decoupled", "Sovereign", "Edge-Deployed"]
+      "status": "finalized",
+      "resonance": { "frequency": "396Hz", "layer": "Foundation Release" },
+      "parameters": ["Decoupled", "Sovereign", "Edge-Deployed", "Git-Independent", "Local-First"],
+      "activation_timestamp": "2026-04-12T21:05:35-06:00",
+      "branch_agnostic": true,
+      "local_sovereign": true
     }
   }
 }
