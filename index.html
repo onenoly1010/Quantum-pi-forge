@@ -10,6 +10,78 @@
         body { background-color: #050505; color: #d4d4d8; font-family: 'Inter', sans-serif; }
         .font-mono { font-family: 'Fira Code', monospace; }
         .glow-card:hover { border-color: rgba(59, 130, 246, 0.5); box-shadow: 0 0 20px rgba(59, 130, 246, 0.1); transform: translateY(-2px); }
+
+        /* 🌋 Volcanic Epoch v0.0.4 Proposal Forge Styles */
+        .resonance-stats { 
+          background: rgba(255, 69, 0, 0.1); 
+          padding: 12px; 
+          border-radius: 6px; 
+          margin-bottom: 16px; 
+          font-size: 0.95rem;
+        }
+        .highlight { color: #ff4500; font-weight: bold; }
+        .forge-input, .forge-select, .forge-textarea {
+          width: 100%;
+          margin-bottom: 12px;
+          padding: 12px;
+          background: #1a1a1f;
+          border: 1px solid #ff4500;
+          color: #ddd;
+          border-radius: 4px;
+          box-sizing: border-box;
+        }
+        .btn-volcanic {
+          background: linear-gradient(90deg, #ff4500, #ff8c00);
+          color: white;
+          font-weight: bold;
+          padding: 12px 24px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: all 0.2s;
+        }
+        .btn-volcanic:hover {
+          transform: translateY(-1px);
+          box-shadow: 0 4px 12px rgba(255, 69, 0, 0.3);
+        }
+        .btn-cancel {
+          background: transparent;
+          color: #888;
+          border: 1px solid #333;
+          padding: 12px 24px;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+        .forge-modal {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background: #0a0a0f;
+          border: 2px solid #ff4500;
+          border-radius: 8px;
+          padding: 24px;
+          max-width: 520px;
+          width: 90%;
+          box-shadow: 0 0 60px rgba(255, 69, 0, 0.2);
+        }
+        .volcanic-glow {
+          animation: forgePulse 2s infinite alternate;
+        }
+        @keyframes forgePulse {
+          0% { box-shadow: 0 0 30px rgba(255, 69, 0, 0.15); }
+          100% { box-shadow: 0 0 60px rgba(255, 69, 0, 0.35); }
+        }
+        .modal-actions {
+          display: flex;
+          gap: 12px;
+          margin-top: 20px;
+          justify-content: flex-end;
+        }
+        .forge-textarea {
+          min-height: 120px;
+          resize: vertical;
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-blue-500/30">
@@ -50,10 +122,10 @@
                     <h3 class="text-white font-bold mb-2">NFT Gateway</h3>
                     <p class="text-xs text-zinc-500">Visualizing the 2017 Revelation.</p>
                 </div>
-                <div class="p-6 border border-white/5 bg-zinc-900/50 rounded-lg glow-card transition-all">
+                <a href="dao.html" class="p-6 border border-white/5 bg-zinc-900/50 rounded-lg glow-card transition-all block">
                     <h3 class="text-white font-bold mb-2">Volcanic DAO</h3>
                     <p class="text-xs text-zinc-500">Sovereign governance ratified.</p>
-                </div>
+                </a>
                 <div class="p-6 border border-white/5 bg-zinc-900/50 rounded-lg glow-card transition-all">
                     <h3 class="text-white font-bold mb-2">Canon of Autonomy</h3>
                     <p class="text-xs text-zinc-500">Philosophical core execution.</p>
@@ -84,7 +156,219 @@
         </div>
     </section>
 <script>
-    // Simple manifest fetch to update UI status
+    /* 🌋 Volcanic Epoch v0.0.4 – Hardened Proposal Forge (Generative Engine) */
+
+    let currentBalance = 1000;
+    let currentHoldBlocks = 432;
+
+    function calculateDynamicVotingPower(balance, blocks) {
+        return balance * (1 + Math.sqrt(blocks) / 1000);
+    }
+
+    function triggerHarmonicPulse(frequency, intensity) {
+        document.body.style.transition = `background ${1000/frequency}s`;
+        setTimeout(() => document.body.style.background = '#0a0500', 50);
+        setTimeout(() => document.body.style.background = '#050505', 1000/frequency * intensity);
+    }
+
+    function showCooldownToast(message) {
+        const toast = document.createElement('div');
+        toast.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1a1a1f;border:1px solid #ff4500;padding:12px 24px;border-radius:6px;z-index:100;';
+        toast.innerHTML = message;
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 3000);
+    }
+
+    function showEruptionToast(message) {
+        const toast = document.createElement('div');
+        toast.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1a1a1f;border:2px solid #ff8c00;padding:16px 32px;border-radius:8px;z-index:100;font-weight:bold;';
+        toast.innerHTML = message;
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 5000);
+    }
+
+    async function signProposalCreationMessage(title, description, frequency) {
+        return `sig_${Date.now()}_${Math.random().toString(36).substring(7)}`;
+    }
+
+    async function broadcastNewProposalToAristotle(title, description, frequency, signature) {
+        console.log("Broadcasting proposal to Aristotle:", {title, description, frequency, signature});
+        return Math.floor(Math.random() * 1000);
+    }
+
+    function refreshProposalHall() {
+        console.log("Refreshing proposal hall");
+    }
+
+    async function openProposalForge() {
+        const userVP = calculateDynamicVotingPower(currentBalance, currentHoldBlocks);
+        const holdBlocks = currentHoldBlocks || 0;
+        const resonanceMultiplier = (1.0 + (Math.sqrt(holdBlocks) / 432)).toFixed(3);
+
+        if (userVP < 100) {
+            showCooldownToast(`Resonance Insufficient. Steward’s Filter: 100 VP minimum.<br>Your VP: ${userVP.toFixed(2)}`);
+            return;
+        }
+
+        const modal = document.createElement('div');
+        modal.id = 'proposal-forge-modal';
+        modal.className = 'forge-modal volcanic-glow';
+        modal.style.zIndex = '60';
+        modal.innerHTML = `
+            <h2 style="color:white;margin-top:0;">🌋 FORGE SOVEREIGN INITIATIVE</h2>
+            
+            <div class="resonance-stats">
+                Your Resonance Multiplier: <span class="highlight">${resonanceMultiplier}x</span><br>
+                Projected Initial Weight: <span class="highlight">${userVP.toFixed(2)} VP</span>
+            </div>
+
+            <input type="text" id="vdp-title" class="forge-input" 
+                   placeholder="VDP-0002: Brief sovereign title" maxlength="100" />
+
+            <select id="vdp-frequency" class="forge-select">
+                <option value="396">396Hz — Foundation & Stability</option>
+                <option value="432" selected>432Hz — Coordination & Harmony</option>
+                <option value="528">528Hz — Manifestation & Will</option>
+            </select>
+
+            <textarea id="vdp-description" class="forge-textarea" 
+                      placeholder="Define the intent within the Canon of Autonomy..."></textarea>
+
+            <div class="modal-actions">
+                <button onclick="submitNewVDP()" class="btn-volcanic">IGNITE PROPOSAL ON ARISTOTLE</button>
+                <button onclick="closeForgeModal()" class="btn-cancel">ABORT FORGE</button>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+        triggerHarmonicPulse(432, 1);
+    }
+
+    async function submitNewVDP() {
+        const title = document.getElementById('vdp-title').value.trim();
+        const description = document.getElementById('vdp-description').value.trim();
+        const frequency = document.getElementById('vdp-frequency').value;
+
+        if (!title || title.length < 10) {
+            showCooldownToast("Title must be at least 10 characters.");
+            return;
+        }
+        if (!description || description.length < 50) {
+            showCooldownToast("Description must be at least 50 characters to carry sovereign intent.");
+            return;
+        }
+
+        triggerHarmonicPulse(432, 2);
+
+        try {
+            const signature = await signProposalCreationMessage(title, description, frequency);
+            const newProposalId = await broadcastNewProposalToAristotle(title, description, frequency, signature);
+
+            showEruptionToast(`🌋 VDP-${newProposalId} ignited and broadcast.<br>Frequency: ${frequency}Hz — The Forge grows.`);
+
+            closeForgeModal();
+            refreshProposalHall();
+        } catch (error) {
+            console.error("Forge failed:", error);
+            showCooldownToast("Aristotle rejected the forging signature. Check connection or nonce.");
+        }
+    }
+
+    function closeForgeModal() {
+        const modal = document.getElementById('proposal-forge-modal');
+        if (modal) modal.remove();
+    }
+
+    /* 🌋 Signal Ledger v0.0.5 - 0G Aristotle Data Bridge */
+    const CONTRACT_ADDRESS = "0xAristotle11111111111111111111111111111";
+    let signalLedgerCache = [];
+    let provider;
+    let iface;
+
+    const signalLedgerAbi = [
+        "event VoteCast(address indexed voter, uint256 proposalId, uint256 weight, uint256 freq)",
+        "event ProposalForged(uint256 indexed proposalId, address indexed steward, uint256 frequency)"
+    ];
+
+    async function initializeAristotleBridge() {
+        if (typeof ethers === 'undefined') return;
+        
+        provider = new ethers.providers.Web3Provider(window.ethereum);
+        iface = new ethers.utils.Interface(signalLedgerAbi);
+        
+        syncLedgerWithAristotle();
+    }
+
+    async function syncLedgerWithAristotle() {
+        const currentBlock = await provider.getBlockNumber();
+        
+        const filter = {
+            address: CONTRACT_ADDRESS,
+            topics: [ethers.utils.id("VoteCast(address,uint256,uint256,uint256)")] 
+        };
+
+        // Backfill historical pulses
+        const logs = await provider.getLogs({
+            ...filter,
+            fromBlock: currentBlock - 500,
+            toBlock: "latest"
+        });
+
+        logs.reverse().forEach(log => {
+            const parsed = iface.parseLog(log);
+            const signal = {
+                address: parsed.args.voter,
+                vp: parseFloat(ethers.utils.formatUnits(parsed.args.weight, 18)),
+                frequency: parsed.args.freq.toString(),
+                timestamp: Date.now(),
+                proposalId: `VDP-${parsed.args.proposalId}`
+            };
+            signalLedgerCache.push(signal);
+        });
+
+        renderSignalLedger();
+
+        // Live heartbeat listener
+        provider.on(filter, (log) => {
+            const parsed = iface.parseLog(log);
+            addNewSignalToLedger({
+                address: parsed.args.voter,
+                vp: parseFloat(ethers.utils.formatUnits(parsed.args.weight, 18)),
+                frequency: parsed.args.freq.toString(),
+                timestamp: Date.now(),
+                proposalId: `VDP-${parsed.args.proposalId}`
+            });
+        });
+    }
+
+    function addNewSignalToLedger(signal) {
+        signalLedgerCache.unshift(signal);
+        triggerHarmonicPulse(signal.frequency, 1);
+        renderSignalLedger();
+    }
+
+    function renderSignalLedger() {
+        const ledger = document.getElementById('signal-ledger');
+        if (!ledger) return;
+        
+        ledger.innerHTML = '';
+        
+        signalLedgerCache.slice(0, 24).forEach((signal, index) => {
+            const pulse = document.createElement('div');
+            pulse.className = 'signal-pulse';
+            pulse.style.animationDelay = `${index * 80}ms`;
+            pulse.innerHTML = `
+                <div class="pulse-dot freq-${signal.frequency}"></div>
+                <div class="pulse-meta">
+                    <span class="pulse-vp">${signal.vp.toFixed(1)} VP</span>
+                    <span class="pulse-proposal">${signal.proposalId}</span>
+                </div>
+            `;
+            ledger.appendChild(pulse);
+        });
+    }
+
+    // Manifest status fetch
     fetch('./manifest.json')
         .then(response => response.json())
         .then(data => {
@@ -94,7 +378,16 @@
             }
         })
         .catch(err => console.log("Manifest offline: local-only mode."));
-</script></body>
+</script>
+
+<!-- Forge Activation Button -->
+<div style="position:fixed;bottom:30px;right:30px;z-index:50;">
+    <button onclick="openProposalForge()" class="btn-volcanic" style="border-radius:50px;padding:16px 28px;font-size:15px;">
+        🌋 OPEN FORGE
+    </button>
+</div>
+
+</body>
 </html><div class="p-6 border border-white/5 bg-zinc-900/50 rounded-lg glow-card transition-all">
     <h3 class="text-white font-bold mb-2">NFT Gateway</h3>
     <p id="gateway-status" class="text-xs text-zinc-500 font-mono italic">
