@@ -45,6 +45,114 @@
 
   <script>
     const TARGET_CHAIN_ID = "0x4115"; // 0G Aristotle Mainnet
+    const OINIO_CONTRACT = "0x000000000000000000000000000000000000dEaD"; // Replace with actual contract
+    const OINIO_ABI = [
+      "function balanceOf(address owner) view returns (uint256)",
+      "function decimals() view returns (uint8)",
+      "function heartbeat() external"
+    ];
+
+    let currentProvider = null;
+    let currentAddress = null;
+
+    // ✅ Bulletproof Mirror Read Logic
+    async function syncMirror(provider, address, network) {
+        const statusEl = document.getElementById("status");
+        
+        // 1. Strict Chain ID Validation
+        const currentChainId = Number(network.chainId);
+        const targetChainId = parseInt(TARGET_CHAIN_ID, 16);
+
+        if (currentChainId !== targetChainId) {
+            statusEl.innerHTML = `⚠️ Wrong Network (Detected ID: ${currentChainId})<br>
+                                  <button onclick="switchNetwork()">Switch to 0G Aristotle</button>`;
+            return null;
+        }
+
+        try {
+            const contract = new ethers.Contract(OINIO_CONTRACT, OINIO_ABI, provider);
+            
+            // 2. Parallelize Reads for Speed
+            const [balanceWei, balanceOINIO, decimals] = await Promise.all([
+                provider.getBalance(address),
+                contract.balanceOf(address).catch(() => 0),
+                contract.decimals?.().catch(() => 18) // Safe fallback to 18
+            ]);
+
+            // 3. Robust Number Formatting
+            const safe0G = Number(ethers.formatEther(balanceWei) || 0).toFixed(4);
+            const safeOINIO = Number(ethers.formatUnits(balanceOINIO, decimals) || 0).toFixed(2);
+            
+            return { safe0G, safeOINIO };
+        } catch (err) {
+            console.error("Mirror Sync Error:", err);
+            throw new Error("Chain read failed. Check RPC connection.");
+        }
+    }
+
+    // 💓 Identity Ping Heartbeat - Intent Simulation Layer
+    async function initiateHeartbeat() {
+      const statusEl = document.getElementById("status");
+      
+      if (!currentProvider || !currentAddress) {
+        statusEl.innerText = "⚠️ Connect wallet first";
+        return;
+      }
+
+      try {
+        statusEl.innerText = "⏳ Pre-flight simulation...";
+        const contract = new ethers.Contract(OINIO_CONTRACT, OINIO_ABI, currentProvider);
+        const signer = await currentProvider.getSigner();
+        
+        // 🔮 Intent Simulation (Pre-flight check)
+        try {
+          await contract.heartbeat.staticCall();
+          const gasEstimate = await contract.heartbeat.estimateGas();
+          const gasCost = ethers.formatEther(gasEstimate * 1000000000n); // Approx GWEI
+          
+          statusEl.innerHTML = `
+            ✅ Heartbeat Validated<br>
+            Estimated Gas: <b>${Number(gasCost).toFixed(6)} 0G</b><br><br>
+            <button onclick="sendHeartbeat()">✅ Transmit Heartbeat</button>
+            <button onclick="connectWallet()">❌ Cancel</button>
+          `;
+        } catch (simErr) {
+          statusEl.innerText = `❌ Heartbeat rejected: Cooldown active or invalid state`;
+          console.error("Simulation failed:", simErr);
+        }
+        
+      } catch (err) {
+        console.error(err);
+        statusEl.innerText = "⚠️ Simulation failed";
+      }
+    }
+
+    async function sendHeartbeat() {
+      const statusEl = document.getElementById("status");
+      
+      try {
+        statusEl.innerText = "⏳ Transmitting Heartbeat...";
+        const contract = new ethers.Contract(OINIO_CONTRACT, OINIO_ABI, currentProvider);
+        const signer = await currentProvider.getSigner();
+        const contractWithSigner = contract.connect(signer);
+        
+        const tx = await contractWithSigner.heartbeat();
+        statusEl.innerText = `⏳ Pending transaction: ${tx.hash.slice(0, 10)}...`;
+        
+        await tx.wait();
+        
+        statusEl.innerHTML = `
+          ✅ <b>Heartbeat Confirmed</b><br>
+          Soul Signal transmitted at block<br>
+          Transaction: <code>${tx.hash}</code><br><br>
+          <button onclick="initiateHeartbeat()">🔄 Send Another</button>
+        `;
+        
+      } catch (err) {
+        console.error(err);
+        statusEl.innerText = "⚠️ Heartbeat failed";
+      }
+    }
 
     async function connectWallet() {
       const statusEl = document.getElementById("status");
@@ -60,21 +168,20 @@
         const address = accounts[0];
         const network = await provider.getNetwork();
 
-        // 🔍 Environmental Check
-        if ("0x" + network.chainId.toString(16) !== TARGET_CHAIN_ID) {
-          statusEl.innerHTML = `⚠️ Wrong Network (${network.name})<br><button onclick="switchNetwork()">Switch to 0G Aristotle</button>`;
-          return;
-        }
+        currentProvider = provider;
+        currentAddress = address;
 
-        // 🪞 The Mirror (Read Balance)
-        const balanceWei = await provider.getBalance(address);
-        const balance0G = ethers.formatEther(balanceWei);
+        const balances = await syncMirror(provider, address, network);
+        if (!balances) return;
+
         const shortAddr = address.slice(0, 6) + "..." + address.slice(-4);
 
         statusEl.innerHTML = `
           ✅ <b>Status: Connected</b><br>
           Address: <code>${shortAddr}</code><br>
-          Balance: <b>${parseFloat(balance0G).toFixed(4)} 0G</b>
+          Balance: <b>${balances.safe0G} 0G</b><br>
+          OINIO: <b>${balances.safeOINIO}</b><br><br>
+          <button onclick="initiateHeartbeat()">💓 Initiate Heartbeat</button>
         `;
 
       } catch (err) {
@@ -86,7 +193,7 @@
     async function switchNetwork() {
       try {
         await window.ethereum.request({
-          method: "wallet_addEthereumChain", // Using 'add' to ensure they have the params
+          method: "wallet_addEthereumChain",
           params: [{
             chainId: TARGET_CHAIN_ID,
             chainName: "0G-Aristotle",

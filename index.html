@@ -291,13 +291,23 @@
     ];
 
     async function initializeAristotleBridge() {
-        if (typeof ethers === 'undefined') return;
-        
-        provider = new ethers.providers.Web3Provider(window.ethereum);
-        iface = new ethers.utils.Interface(signalLedgerAbi);
-        
-        syncLedgerWithAristotle();
-    }
+    // Load cached ledger first for cold start / dead zone scenarios
+    try {
+        const cached = localStorage.getItem('signalLedgerCache');
+        if (cached) {
+            signalLedgerCache = JSON.parse(cached);
+            signalLedgerCache.forEach(s => seenSignalHashes.add(getSignalHash(s)));
+            renderSignalLedger();
+        }
+    } catch(e) {}
+
+    if (typeof ethers === 'undefined') return;
+    
+    provider = new ethers.providers.Web3Provider(window.ethereum);
+    iface = new ethers.utils.Interface(signalLedgerAbi);
+    
+    syncLedgerWithAristotle();
+}
 
     async function syncLedgerWithAristotle() {
         const currentBlock = await provider.getBlockNumber();
@@ -341,11 +351,45 @@
         });
     }
 
-    function addNewSignalToLedger(signal) {
-        signalLedgerCache.unshift(signal);
+let seenSignalHashes = new Set();
+
+function getSignalHash(signal) {
+    return `${signal.address}-${signal.proposalId}-${signal.vp}-${signal.timestamp.toString().slice(0, -3)}`;
+}
+
+function addNewSignalToLedger(signal) {
+    const hash = getSignalHash(signal);
+    
+    // Idempotency check: prevent duplicate entries on reconnection
+    if (seenSignalHashes.has(hash)) {
+        console.log("Duplicate signal filtered:", hash);
+        return;
+    }
+    
+    seenSignalHashes.add(hash);
+    signalLedgerCache.unshift(signal);
+    
+    // Prune ledger to maintain 50 entry hard limit for mobile memory
+    if (signalLedgerCache.length > 50) {
+        signalLedgerCache = signalLedgerCache.slice(0, 50);
+        // Also prune hash set to prevent memory leak
+        if (seenSignalHashes.size > 150) {
+            seenSignalHashes.clear();
+            signalLedgerCache.forEach(s => seenSignalHashes.add(getSignalHash(s)));
+        }
+    }
+    
+    // Persist to localStorage for cold start / dead zone scenarios
+    try {
+        localStorage.setItem('signalLedgerCache', JSON.stringify(signalLedgerCache));
+    } catch(e) {}
+    
+    // 432ms harmonic stagger implementation
+    setTimeout(() => {
         triggerHarmonicPulse(signal.frequency, 1);
         renderSignalLedger();
-    }
+    }, 432);
+}
 
     function renderSignalLedger() {
         const ledger = document.getElementById('signal-ledger');

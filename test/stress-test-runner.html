@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Pi Forge | Network Stress Test Harness</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #050505;
+            color: #e0e0e0;
+            font-family: 'Fira Code', monospace;
+            min-height: 100vh;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid #333;
+            padding-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            color: #ffd700;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .controls {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        button {
+            background: transparent;
+            border: 1px solid #444;
+            color: #e0e0e0;
+            padding: 0.8rem 1.5rem;
+            font-family: inherit;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 3px;
+        }
+
+        button:hover {
+            border-color: #ffd700;
+            color: #ffd700;
+        }
+
+        button.primary {
+            background: #ffd700;
+            color: #050505;
+            border-color: #ffd700;
+        }
+
+        button.primary:hover {
+            background: #fff;
+        }
+
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .test-card {
+            background: #0a0a0a;
+            border: 1px solid #222;
+            border-radius: 4px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .test-card:hover {
+            border-color: #333;
+        }
+
+        .test-card.running {
+            border-color: #ffd700;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+        }
+
+        .test-card.passed {
+            border-color: #00ff88;
+            background: rgba(0, 255, 136, 0.05);
+        }
+
+        .test-card.failed {
+            border-color: #ff4444;
+            background: rgba(255, 68, 68, 0.05);
+        }
+
+        .test-name {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .test-status {
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .metrics {
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            margin: 0.3rem 0;
+        }
+
+        .console {
+            background: #0a0a0a;
+            border: 1px solid #222;
+            border-radius: 4px;
+            padding: 1.5rem;
+            height: 500px;
+            overflow-y: auto;
+            font-size: 0.85rem;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .console-line {
+            padding: 0.2rem 0;
+            border-bottom: 1px solid #111;
+        }
+
+        .console-line.info { color: #6699ff; }
+        .console-line.success { color: #00ff88; }
+        .console-line.warning { color: #ffaa00; }
+        .console-line.error { color: #ff4444; }
+
+        .summary {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #0a0a0a;
+            border: 1px solid #222;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        .summary.passed {
+            border-color: #00ff88;
+            color: #00ff88;
+        }
+
+        .summary.failed {
+            border-color: #ff4444;
+            color: #ff4444;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚡ NETWORK STRESS TEST HARNESS</h1>
+            <div class="subtitle">Quantum Pi Forge Transcontinental Route Resilience Validation</div>
+        </header>
+
+        <div class="controls">
+            <button id="runAll" class="primary">▶ RUN FULL SUITE</button>
+            <button id="runBlackout">Blackout Simulation</button>
+            <button id="runHandoff">Throttled Handoff</button>
+            <button id="runFlood">Harmonic Flood</button>
+            <button id="runEndurance">Endurance Run</button>
+            <button id="clearLog">Clear Log</button>
+        </div>
+
+        <div class="test-grid">
+            <div class="test-card" id="test-1">
+                <div class="test-name">🧪 BLACKOUT SIMULATION</div>
+                <div class="test-status">Waiting</div>
+                <div class="metrics">
+                    <div class="metric"><span>Buffered:</span><span id="m1-buffered">--</span></div>
+                    <div class="metric"><span>Duplicates:</span><span id="m1-duplicates">--</span></div>
+                </div>
+            </div>
+
+            <div class="test-card" id="test-2">
+                <div class="test-name">🌐 THROTTLED HANDOFF</div>
+                <div class="test-status">Waiting</div>
+                <div class="metrics">
+                    <div class="metric"><span>Generated:</span><span id="m2-generated">--</span></div>
+                    <div class="metric"><span>Handoffs:</span><span id="m2-handoffs">--</span></div>
+                </div>
+            </div>
+
+            <div class="test-card" id="test-3">
+                <div class="test-name">🌊 HARMONIC FLOOD</div>
+                <div class="test-status">Waiting</div>
+                <div class="metrics">
+                    <div class="metric"><span>Render Time:</span><span id="m3-time">--</span></div>
+                    <div class="metric"><span>Frame Drops:</span><span id="m3-frames">--</span></div>
+                </div>
+            </div>
+
+            <div class="test-card" id="test-4">
+                <div class="test-name">🏃 ENDURANCE RUN</div>
+                <div class="test-status">Waiting</div>
+                <div class="metrics">
+                    <div class="metric"><span>Iterations:</span><span id="m4-iterations">--</span></div>
+                    <div class="metric"><span>Buffer Size:</span><span id="m4-buffer">--</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="console" class="console"></div>
+
+        <div class="summary" id="summary" style="display: none;"></div>
+    </div>
+
+    <script src="network-stress-harness.js"></script>
+    <script>
+        // Console output capture
+        const originalConsole = {
+            log: console.log.bind(console),
+            error: console.error.bind(console),
+            warn: console.warn.bind(console)
+        };
+
+        const consoleEl = document.getElementById('console');
+        
+        function logToConsole(text, type = 'info') {
+            const line = document.createElement('div');
+            line.className = `console-line ${type}`;
+            line.textContent = text;
+            consoleEl.appendChild(line);
+            consoleEl.scrollTop = consoleEl.scrollHeight;
+        }
+
+        console.log = (...args) => {
+            originalConsole.log(...args);
+            logToConsole(args.join(' '), 'info');
+        };
+
+        console.error = (...args) => {
+            originalConsole.error(...args);
+            logToConsole(args.join(' '), 'error');
+        };
+
+        console.warn = (...args) => {
+            originalConsole.warn(...args);
+            logToConsole(args.join(' '), 'warning');
+        };
+
+        // Test harness interface
+        const harness = new NetworkStressHarness();
+
+        document.getElementById('runAll').addEventListener('click', async () => {
+            await harness.runFullSuite();
+        });
+
+        document.getElementById('runBlackout').addEventListener('click', async () => {
+            await harness.runBlackoutSimulation();
+        });
+
+        document.getElementById('runHandoff').addEventListener('click', async () => {
+            await harness.runThrottledHandoff();
+        });
+
+        document.getElementById('runFlood').addEventListener('click', async () => {
+            await harness.runHarmonicFlood();
+        });
+
+        document.getElementById('runEndurance').addEventListener('click', async () => {
+            await harness.runEnduranceRun();
+        });
+
+        document.getElementById('clearLog').addEventListener('click', () => {
+            consoleEl.innerHTML = '';
+        });
+
+        console.log('✅ Stress Test Harness ready');
+        console.log('Select a test above or run the full suite');
+    </script>
+</body>
+</html>
