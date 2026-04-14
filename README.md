@@ -35,7 +35,7 @@ It is the living center of the ecosystem.
 - 🎬 **Interactive Tools** - CLI demos, deployment scripts, and integration examples
 
 **Choose your experience level and dive in:**
-- **Beginners:** [Live Coherence Monitor](https://pi-forge-quantum-genesis.vercel.app) (2 minutes, no setup)
+- **Beginners:** [Live Coherence Monitor](https://quantumpiforge.pages.dev) (2 minutes, no setup)
 - **Developers:** [Smart Contract Suite](docs/DEMO_DASHBOARD.md#3-smart-contract-suite) (60 minutes, Foundry required)
 - **Operators:** [Model Deployment Scripts](docs/DEMO_DASHBOARD.md#7-model-deployment-scripts) (30 minutes, Python)
 
@@ -123,7 +123,7 @@ You are welcome here.
 
 # 🚀 Deployment
 
-For complete deployment instructions across all platforms (Railway, Vercel, Supabase, Pi Network), see the **[Deployment Dashboard](docs/DEPLOYMENT_DASHBOARD.md)**.
+For complete deployment instructions across the active stack (Cloudflare Pages, Supabase, Pi Network, and canonical API services), see the **[Deployment Dashboard](docs/DEPLOYMENT_DASHBOARD.md)**.
 
 The Deployment Dashboard is your single source of truth for:
 - Prerequisites and required tools
@@ -133,8 +133,7 @@ The Deployment Dashboard is your single source of truth for:
 - Maintenance and monitoring
 
 **Quick Links:**
-- [Railway Backend Setup](docs/DEPLOYMENT_DASHBOARD.md#-railway-backend-setup)
-- [Vercel Frontend Setup](docs/DEPLOYMENT_DASHBOARD.md#-vercel-frontend-setup)
+- [Cloudflare Pages Setup](docs/DEPLOYMENT_DASHBOARD.md)
 - [Supabase Database Setup](docs/DEPLOYMENT_DASHBOARD.md#️-supabase-database-setup)
 - [Environment Variables Reference](docs/DEPLOYMENT_DASHBOARD.md#-environment-variables-reference)
 - [Troubleshooting](docs/DEPLOYMENT_DASHBOARD.md#-troubleshooting)
@@ -162,36 +161,25 @@ This repository serves as:
 - **Repository**: `quantum-pi-forge-site`
 - **Purpose**: External communication and manifesto
 
-#### 2. Backend API (Railway)
+#### 2. Cloudflare Pages Site
+- **URL**: https://quantumpiforge.pages.dev
+- **Purpose**: Static coordination interfaces and documentation previews
+- **Config**: `wrangler.toml` + Cloudflare Pages workflows
+
+#### 3. Canonical API Service
 - **URL**: https://pi-forge-quantum-genesis.railway.app
-- **Service**: FastAPI Quantum Conduit
-- **Health Check**: `/health`
+- **Purpose**: Upstream API used by static pages until the backend migration is complete
 
-#### 3. Resonance Engine (Vercel)
-- **URL**: https://your-project.workers.dev
-- **Repository**: `quantum-resonance-clean`
-- **Purpose**: Harmonic ledger backend
+### Cloudflare Pages Configuration Note
 
-### Vercel Configuration Note
+This repository now treats Cloudflare Pages as the only supported static hosting target.
 
-This repository includes a `vercel.json` file that:
-- Builds static documentation pages from the coordination hub
-- Serves minimal HTML interfaces for demonstration purposes
-- Routes API calls to the Railway backend
-- **Is NOT intended as a production deployment**
+The static build:
+- writes deployable assets into `out/`
+- generates Cloudflare-compatible `_redirects`
+- preserves `_headers` for edge delivery
 
-**If you connected this repo to Vercel by mistake**, you can safely disconnect it:
-1. Go to Vercel Dashboard → Project Settings
-2. Select this project (`pi-forge-quantum-genesis`)
-3. Navigate to "General" settings
-4. Scroll to "Delete Project" and remove the deployment
-
-The Vercel configuration exists primarily for:
-- Build verification in CI/CD
-- Optional static documentation hosting
-- Development preview environments
-
-For production deployments, refer to the appropriate service repositories listed above.
+Old Vercel-specific configuration has been removed from the root repo to avoid deployment drift.
 
 See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment documentation.
 
@@ -223,14 +211,14 @@ The **Prelaunch Operational Team** coordinates handoffs, closures, and operation
 
 ## Frontend Architecture
 
-Pi Forge Quantum Genesis uses a **distributed frontend architecture**:
+Pi Forge Quantum Genesis uses a **Cloudflare-first static frontend architecture**:
 
-- **Static Landing Pages:** `index.html`, `ceremonial_interface.html`, etc. (root directory)
-- **Serverless API Functions:** `api/` directory (deployed to Vercel)
-- **Backend Services:** `server/` directory (deployed to Render)
-- **Build Process:** `scripts/build.js` packages for Vercel deployment
+- **Static Landing Pages:** `index.html`, `ceremonial_interface.html`, and related root HTML files
+- **Cloudflare Pages Output:** `scripts/build.js` packages the deployable site into `out/`
+- **Edge Routing:** `out/_redirects` proxies API and health requests to the canonical backend service
+- **Backend Services:** upstream API remains separate from the static Pages deployment
 
-**Note:** There is no standalone `frontend/` directory. Frontend code is distributed across static HTML and serverless functions.
+**Note:** There is no Vercel deployment path in the root repo anymore.
 
 ---
 

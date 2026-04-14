@@ -140,8 +140,8 @@ Any modification to foundational documents requires explicit steward consensus
 
 ### Infrastructure
 - **Supabase** — Database and authentication
-- **Railway** — Deployment platform
-- **Vercel** — Frontend hosting
+- **Cloudflare Pages** — Static hosting and edge delivery
+- **Cloudflare** — Deployment control plane and DNS edge
 - **Docker** — Containerization
 
 ---
