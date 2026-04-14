@@ -5,8 +5,8 @@
 
 | Service | Status | URL | Last Deploy |
 |---------|--------|-----|-------------|
-| Vercel Frontend | 🟢 Live | https://your-project.workers.dev | 2026-01-13 |
-| Railway Backend | 🟢 Live | https://pi-forge-quantum-genesis.railway.app | 2026-01-13 |
+| Cloudflare Pages Frontend | 🟢 Live | https://quantumpiforge.pages.dev | 2026-01-13 |
+| Canonical API Backend | 🟢 Live | https://pi-forge-quantum-genesis.railway.app | 2026-01-13 |
 | Supabase DB | 🟢 Connected | supabase.co | 2026-01-13 |
 | GitHub Pages | 🟢 Live | https://onenoly1010.github.io/quantum-pi-forge-site/ | 2026-01-13 |
 
@@ -19,7 +19,7 @@
 | JWT_SECRET | ⏳ Pending | .env & Platforms |
 | PI_NETWORK_APP_ID | ⏳ Pending | .env & Platforms |
 | PI_NETWORK_API_KEY | ⏳ Pending | .env & Platforms |
-| PI_APP_SECRET | ⏳ Pending | Vercel Variables |
+| PI_APP_SECRET | ⏳ Pending | Cloudflare Pages / upstream API vars |
 | RAILWAY_TOKEN | ❌ Missing | GitHub Secrets |
 | GHCR_TOKEN | ❌ Missing | GitHub Secrets |
 
@@ -52,7 +52,7 @@ Marked for archival:
    - Merge pi-mr-nft-agent → /server/agents
 
 2. Archive 6 deprecated repos (manual GitHub UI)
-3. Configure missing secrets (RAILWAY_TOKEN, GHCR_TOKEN)
+3. Configure missing secrets (Cloudflare + upstream API tokens)
 4. Verify all deployment endpoints
 
 ## ⚠️ KNOWN ISSUES

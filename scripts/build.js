@@ -1,20 +1,19 @@
 #!/usr/bin/env node
 
 /**
- * Build script for Vercel deployment
- * Uses Vercel Build Output API v3 format (.vercel/output/static)
- * This bypasses .gitignore issues with the public/ directory
+ * Build script for Cloudflare Pages deployment.
+ * Produces a static `out/` directory plus Pages-compatible redirects/headers.
  */
 
 const fs = require('fs');
 const path = require('path');
 
 const rootDir = path.join(__dirname, '..');
-const vercelOutputDir = path.join(rootDir, '.vercel', 'output');
-const publicDir = path.join(vercelOutputDir, 'static');
+const outputDir = path.join(rootDir, 'out');
 
-// Files to copy from root to public directory
+// Files to copy from root to the Cloudflare Pages output directory
 const staticFiles = [
+  '_headers',
   'index.html',
   'ceremonial_interface.html',
   'resonance_dashboard.html',
@@ -22,7 +21,7 @@ const staticFiles = [
   'pi-forge-integration.js'
 ];
 
-// Directories to copy from root to public directory
+// Directories to copy from root to the Cloudflare Pages output directory
 const staticDirs = [
   'frontend'
 ];
@@ -54,7 +53,7 @@ function copyDir(src, dest) {
  */
 function copyFile(src, dest) {
   const srcPath = path.join(rootDir, src);
-  const destPath = path.join(publicDir, path.basename(src));
+  const destPath = path.join(dest, path.basename(src));
 
   if (fs.existsSync(srcPath)) {
     fs.copyFileSync(srcPath, destPath);
@@ -68,36 +67,29 @@ function copyFile(src, dest) {
  * Main build function
  */
 function build() {
-  console.log('Building static assets for Vercel deployment...\n');
+  console.log('Building static assets for Cloudflare Pages...\n');
 
   // Clean and create output directory structure
-  if (fs.existsSync(vercelOutputDir)) {
-    fs.rmSync(vercelOutputDir, { recursive: true });
+  if (fs.existsSync(outputDir)) {
+    fs.rmSync(outputDir, { recursive: true });
   }
-  fs.mkdirSync(publicDir, { recursive: true });
-  console.log('✓ Created .vercel/output/static directory\n');
+  fs.mkdirSync(outputDir, { recursive: true });
+  console.log('✓ Created out/ directory\n');
 
-  // Create Vercel Build Output API config
-  const configPath = path.join(vercelOutputDir, 'config.json');
-  const config = {
-    version: 3,
-    routes: [
-      { handle: "filesystem" },
-      { src: "/dashboard", dest: "/frontend/production_dashboard.html" },
-      { src: "/dashboard/", dest: "/frontend/production_dashboard.html" },
-      { src: "/resonance-dashboard", dest: "/frontend/production_dashboard.html" },
-      { src: "/api/(.*)", dest: "https://pi-forge-quantum-genesis-1.onrender.com/api/$1" },
-      { src: "/health", dest: "https://pi-forge-quantum-genesis-1.onrender.com/health" },
-      { src: "/(.*)", dest: "/index.html" }
-    ]
-  };
-  fs.writeFileSync(configPath, JSON.stringify(config, null, 2));
-  console.log('✓ Created config.json\n');
+  const redirects = [
+    '/dashboard /frontend/production_dashboard.html 200',
+    '/dashboard/ /frontend/production_dashboard.html 200',
+    '/resonance-dashboard /frontend/production_dashboard.html 200',
+    '/api/* https://pi-forge-quantum-genesis.railway.app/api/:splat 200',
+    '/health https://pi-forge-quantum-genesis.railway.app/health 200'
+  ].join('\n') + '\n';
+  fs.writeFileSync(path.join(outputDir, '_redirects'), redirects);
+  console.log('✓ Created out/_redirects\n');
 
   // Copy static files
   console.log('Copying static files:');
   for (const file of staticFiles) {
-    copyFile(file, publicDir);
+    copyFile(file, outputDir);
   }
   console.log('');
 
@@ -105,7 +97,7 @@ function build() {
   console.log('Copying static directories:');
   for (const dir of staticDirs) {
     const srcPath = path.join(rootDir, dir);
-    const destPath = path.join(publicDir, dir);
+    const destPath = path.join(outputDir, dir);
     
     if (fs.existsSync(srcPath)) {
       const stats = fs.statSync(srcPath);
@@ -121,7 +113,7 @@ function build() {
   }
 
   console.log('\n✅ Build completed successfully!');
-  console.log(`📁 Output directory: ${publicDir}\n`);
+  console.log(`📁 Output directory: ${outputDir}\n`);
 }
 
 // Run the build
