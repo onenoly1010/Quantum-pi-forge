@@ -1,0 +1,12 @@
+.venv/
+venv/
+node_modules/
+.git/
+*.log
+__pycache__/
+*.pyc
+server/
+.build/
+dist/
+*.swp
+*.tmp
