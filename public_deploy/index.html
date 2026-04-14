@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quantum Pi Forge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Ethers.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.10.0/dist/ethers.umd.min.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0a0a0a;
+      color: #00ffcc;
+      text-align: center;
+      padding-top: 10%;
+    }
+
+    button {
+      padding: 15px 25px;
+      font-size: 16px;
+      background: #00ffcc;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    #status {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Quantum Pi Forge</h1>
+  <p>Initialize Soul Connection</p>
+
+  <button onclick="connectWallet()">Connect Wallet</button>
+
+  <div id="status">Awaiting signal...</div>
+
+  <script>
+    const TARGET_CHAIN_ID = "0x4115"; // 0G Aristotle Mainnet
+
+    async function connectWallet() {
+      const statusEl = document.getElementById("status");
+      if (!window.ethereum) {
+        statusEl.innerText = "❌ No wallet detected";
+        return;
+      }
+
+      try {
+        statusEl.innerText = "⏳ Reading from 0G Aristotle...";
+        const provider = new ethers.BrowserProvider(window.ethereum);
+        const accounts = await provider.send("eth_requestAccounts", []);
+        const address = accounts[0];
+        const network = await provider.getNetwork();
+
+        // 🔍 Environmental Check
+        if ("0x" + network.chainId.toString(16) !== TARGET_CHAIN_ID) {
+          statusEl.innerHTML = `⚠️ Wrong Network (${network.name})<br><button onclick="switchNetwork()">Switch to 0G Aristotle</button>`;
+          return;
+        }
+
+        // 🪞 The Mirror (Read Balance)
+        const balanceWei = await provider.getBalance(address);
+        const balance0G = ethers.formatEther(balanceWei);
+        const shortAddr = address.slice(0, 6) + "..." + address.slice(-4);
+
+        statusEl.innerHTML = `
+          ✅ <b>Status: Connected</b><br>
+          Address: <code>${shortAddr}</code><br>
+          Balance: <b>${parseFloat(balance0G).toFixed(4)} 0G</b>
+        `;
+
+      } catch (err) {
+        console.error(err);
+        statusEl.innerText = "⚠️ Handshake failed";
+      }
+    }
+
+    async function switchNetwork() {
+      try {
+        await window.ethereum.request({
+          method: "wallet_addEthereumChain", // Using 'add' to ensure they have the params
+          params: [{
+            chainId: TARGET_CHAIN_ID,
+            chainName: "0G-Aristotle",
+            nativeCurrency: { name: "0G", symbol: "0G", decimals: 18 },
+            rpcUrls: ["https://evmrpc.0g.ai"],
+            blockExplorerUrls: ["https://chainscan.0g.ai"]
+          }]
+        });
+        connectWallet();
+      } catch (err) {
+        console.error(err);
+        alert("Manual network switch required for 0G Aristotle.");
+      }
+    }
+  </script>
+
+</body>
+</html>
