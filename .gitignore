@@ -155,8 +155,8 @@ deployment_log.json
 # Guardian approval system data
 .guardian_approvals/
 
-# Vercel build output
-.vercel/
+# Cloudflare Pages build output
+out/
 
 # Solidity / Foundry
 contracts/cache/
@@ -172,9 +172,6 @@ contracts/lib/
 reports/*.json
 reports/*.html
 .env.verification
-
-# Vercel build output
-.vercel/
 
 # Next.js build output
 .next/

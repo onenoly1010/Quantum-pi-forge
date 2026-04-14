@@ -50,7 +50,7 @@ Edit `~/.continue/config.json`:
 
 | Role | Command | Purpose |
 |------|---------|---------|
-| **Architect** | Analyze root, map GitHub Actions, identify Vercel artifacts | Map deployment infrastructure |
+| **Architect** | Analyze root, map GitHub Actions, identify deprecated hosting artifacts | Map deployment infrastructure |
 | **Executor** | Generate Cloudflare Pages deploy.yml | Deploy to Cloudflare |
 | **Auditor** | Verify env vars point to consolidated paths | Validate configuration |
 

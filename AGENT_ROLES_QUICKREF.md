@@ -10,7 +10,7 @@ Quick commands to paste into Continue when working with your local AI agent.
 ## Architect Role
 ```
 You are the Architect for Quantum Pi Forge. Analyze quantum-pi-forge-fixed root. 
-Map all existing GitHub Actions. Identify any remaining Vercel artifacts 
+Map all existing GitHub Actions. Identify any remaining deprecated hosting artifacts 
 or outdated RPC calls. Document your findings.
 ```
 
@@ -37,7 +37,7 @@ points. Report any inconsistencies.
 ## Diagnosis Role
 ```
 You are the Deployment Diagnostician. Examine the last failed GitHub Action run.
-Identify if the failure is a 403 Forbidden (Vercel check) or a 404 (Missing dependency).
+Identify if the failure is a Cloudflare deployment issue, a permissions problem, or a 404 (missing dependency).
 Search for any old repository URLs that need updating to the new canonical paths.
 ```
 

@@ -36,9 +36,8 @@ export SUPABASE_KEY=your-anon-key
 
 ### 5. Deploy
 ```bash
-railway up
-# or
-vercel deploy
+npm run build
+wrangler pages deploy out --project-name quantumpiforge
 ```
 
 ---
@@ -111,7 +110,7 @@ JWT_SECRET=required
 
 **"PI_NETWORK_API_KEY not set"**
 ```bash
-railway variables set PI_NETWORK_API_KEY=your-key
+Set the key in your local `.env.local` and in the active deployment platform secrets.
 ```
 
 **"Invalid webhook signature"**
@@ -137,7 +136,8 @@ export PI_NETWORK_APP_ID=mainnet-app-id
 export PI_NETWORK_API_KEY=mainnet-api-key
 
 # Deploy
-railway up
+npm run build
+wrangler pages deploy out --project-name quantumpiforge
 ```
 
 Verify:
