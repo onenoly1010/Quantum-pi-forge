@@ -432,44 +432,4 @@ function addNewSignalToLedger(signal) {
 </div>
 
 </body>
-</html><div class="p-6 border border-white/5 bg-zinc-900/50 rounded-lg glow-card transition-all">
-    <h3 class="text-white font-bold mb-2">NFT Gateway</h3>
-    <p id="gateway-status" class="text-xs text-zinc-500 font-mono italic">
-        Visualizing the 2017 Revelation.
-    </p>
-</divfetch('./manifest.json')
-    .then(response => response.json())
-    .then(data => {
-        const gatewayStatus = document.querySelector('#gateway-status');
-        if(gatewayStatus && data.constellation.revelation_2017) {
-            const rev = data.constellation.revelation_2017;
-            // Update UI with both status and resonance frequency
-            gatewayStatus.innerHTML = `STATUS: ${rev.status.toUpperCase()}<br/>RESONANCE: ${rev.resonance.frequency}`;
-        }
-    })
-    .catch(err => console.log("Manifest offline: local-only mode."));><div class="p-6 border border-white/5 bg-zinc-900/50 rounded-lg glow-card transition-all text-left">
-    <h3 class="text-white font-bold mb-2">Volcanic DAO</h3>
-    <p id="dao-status" class="text-xs text-zinc-500 font-mono italic">Sovereign governance ratified.</p>
-</div>
-
-<div class="p-6 border border-white/5 bg-zinc-900/50 rounded-lg glow-card transition-all text-left">
-    <h3 class="text-white font-bold mb-2">Canon of Autonomy</h3>
-    <p id="canon-status" class="text-xs text-zinc-500 font-mono italic">Philosophical core execution.</p>
-</div>fetch('./manifest.json')
-    .then(res => res.json())
-    .then(data => {
-        const constellation = data.constellation;
-        
-        // Update NFT Gateway
-        const gate = document.querySelector('#gateway-status');
-        if(gate) gate.innerHTML = `STATUS: ${constellation.revelation_2017.status.toUpperCase()}<br/>RESONANCE: ${constellation.revelation_2017.resonance.frequency}`;
-
-        // Update Volcanic DAO
-        const dao = document.querySelector('#dao-status');
-        if(dao) dao.innerHTML = `STATUS: ${constellation.volcanic_dao.status.toUpperCase()}<br/>HARMONIC: ${constellation.volcanic_dao.resonance.frequency}`;
-
-        // Update Canon of Autonomy
-        const canon = document.querySelector('#canon-status');
-        if(canon) canon.innerHTML = `CORE: ${constellation.canon_of_autonomy.parameters.join(' • ')}`;
-    })
-    .catch(err => console.log("Manifest offline. Check local server."));
+</html>
