@@ -1,0 +1,26 @@
+{
+  "forge_id": "quantum-pi-forge",
+  "steward": "onenoly1010",
+  "last_heartbeat": "2026-04-12",
+  "constellation": {
+    "revelation_2017": {
+      "type": "visual-archive",
+      "status": "synchronized",
+      "resonance": { "frequency": "528Hz", "layer": "Sovereign Heartbeat" }
+    },
+    "volcanic_dao": {
+      "type": "governance-layer",
+      "status": "ratified",
+      "resonance": { "frequency": "432Hz", "layer": "Governance Harmonic" }
+    },
+    "canon_of_autonomy": {
+      "type": "philosophical-core",
+      "status": "finalized",
+      "resonance": { "frequency": "396Hz", "layer": "Foundation Release" },
+      "parameters": ["Decoupled", "Sovereign", "Edge-Deployed", "Git-Independent", "Local-First"],
+      "activation_timestamp": "2026-04-12T21:05:35-06:00",
+      "branch_agnostic": true,
+      "local_sovereign": true
+    }
+  }
+}
