@@ -3,13 +3,16 @@ var __name = (target, value) => __defProp(target, "name", { value, configurable:
 
 // api/healthz.ts
 async function onRequestGet(request) {
-  if (request.headers.get("accept")?.includes("text/html")) {
+  const accept = request.headers.get("accept") || "";
+  const isBrowser = accept.includes("text/html") || accept.includes("*/*") || accept === "";
+  if (isBrowser) {
     return new Response("Not a health endpoint", { status: 406 });
   }
   return new Response(JSON.stringify({
     status: "ok",
     service: "quantum-pi-forge",
-    layer: "edge",
+    layer: "liveness",
+    version: "1.0",
     ts: Date.now()
   }), {
     headers: {
@@ -35,18 +38,72 @@ __name(onRequestGet2, "onRequestGet");
 
 // api/readyz.ts
 async function onRequestGet3(request) {
-  if (request.headers.get("accept")?.includes("text/html")) {
+  const accept = request.headers.get("accept") || "";
+  const isBrowser = accept.includes("text/html") || accept.includes("*/*") || accept === "";
+  if (isBrowser) {
     return new Response("Not a readiness endpoint", { status: 406 });
   }
   const checks = {
     edge_runtime: true,
     kv_bound: true,
-    rpc: true,
+    rpc: false,
     indexer: true
   };
-  const ready = Object.values(checks).every(Boolean);
+  try {
+    const start = Date.now();
+    const reqId = Math.trunc(Math.random() * 1e6);
+    const RPC_URL = "https://evmrpc.0g.ai";
+    const blockNumberRes = await fetch(RPC_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        jsonrpc: "2.0",
+        method: "eth_blockNumber",
+        params: [],
+        id: reqId
+      }),
+      signal: AbortSignal.timeout(3e3)
+    });
+    if (!blockNumberRes.ok) throw new Error("rpc_failed");
+    const { result: blockHex } = await blockNumberRes.json();
+    const blockNumber = parseInt(blockHex, 16);
+    const blockRes = await fetch(RPC_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        jsonrpc: "2.0",
+        method: "eth_getBlockByNumber",
+        params: [blockHex, false],
+        id: reqId + 1
+      }),
+      signal: AbortSignal.timeout(3e3)
+    });
+    if (!blockRes.ok) throw new Error("rpc_partial_failure");
+    const { result: block } = await blockRes.json();
+    const blockTimestamp = parseInt(block.timestamp, 16) * 1e3;
+    const latency = Date.now() - start;
+    const now = Date.now();
+    const freshness = now - blockTimestamp;
+    let rpcState = "healthy";
+    if (latency > 500) rpcState = "degraded";
+    if (freshness > 3e4) rpcState = "rpc_lagging";
+    if (freshness > 12e4) rpcState = "rpc_stale";
+    checks.rpc = rpcState === "healthy";
+    checks.rpc_state = rpcState;
+    checks.block_number = blockNumber;
+    checks.block_age = freshness;
+    checks.rpc_latency = latency;
+  } catch {
+    checks.rpc = false;
+    checks.rpc_state = "unreachable";
+  }
+  const ready = Object.values(checks).every((v) => v === true);
   return new Response(JSON.stringify({
     ready,
+    status: ready ? "ok" : "degraded",
+    service: "quantum-pi-forge",
+    layer: "readiness",
+    version: "1.0",
     checks,
     ts: Date.now()
   }), {
@@ -718,7 +775,7 @@ var jsonError = /* @__PURE__ */ __name(async (request, env, _ctx, middlewareCtx)
 }, "jsonError");
 var middleware_miniflare3_json_error_default = jsonError;
 
-// ../.wrangler/tmp/bundle-37Lunt/middleware-insertion-facade.js
+// ../.wrangler/tmp/bundle-SnSPg0/middleware-insertion-facade.js
 var __INTERNAL_WRANGLER_MIDDLEWARE__ = [
   middleware_ensure_req_body_drained_default,
   middleware_miniflare3_json_error_default
@@ -750,7 +807,7 @@ function __facade_invoke__(request, env, ctx, dispatch, finalMiddleware) {
 }
 __name(__facade_invoke__, "__facade_invoke__");
 
-// ../.wrangler/tmp/bundle-37Lunt/middleware-loader.entry.ts
+// ../.wrangler/tmp/bundle-SnSPg0/middleware-loader.entry.ts
 var __Facade_ScheduledController__ = class ___Facade_ScheduledController__ {
   constructor(scheduledTime, cron, noRetry) {
     this.scheduledTime = scheduledTime;

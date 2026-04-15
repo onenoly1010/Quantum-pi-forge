@@ -2,14 +2,22 @@
 // Zero dependencies, no external calls, always returns 200 when edge runtime is functional
 export async function onRequestGet(request: Request) {
   // Guard against accidental HTML browser access
-  if (request.headers.get("accept")?.includes("text/html")) {
+  const accept = request.headers.get("accept") || "";
+  
+  const isBrowser =
+    accept.includes("text/html") ||
+    accept.includes("*/*") ||
+    accept === "";
+
+  if (isBrowser) {
     return new Response("Not a health endpoint", { status: 406 });
   }
 
   return new Response(JSON.stringify({
     status: "ok",
     service: "quantum-pi-forge",
-    layer: "edge",
+    layer: "liveness",
+    version: "1.0",
     ts: Date.now()
   }), {
     headers: {
