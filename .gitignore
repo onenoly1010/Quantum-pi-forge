@@ -180,3 +180,4 @@ reports/*.html
 .env
 .env.*
 .aider*
+.wrangler/
