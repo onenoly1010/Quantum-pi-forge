@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Pi Forge | Signal Lost</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        forge: {
+                            dark: '#050505',
+                            accent: '#7c3aed',
+                            glow: '#a78bfa'
+                        }
+                    },
+                    fontFamily: {
+                        mono: ['Fira Code', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-glow {
+                text-shadow: 0 0 8px rgba(124, 58, 237, 0.6);
+            }
+            .border-glow {
+                box-shadow: 0 0 12px rgba(124, 58, 237, 0.3);
+            }
+        }
+    </style>
+</head>
+<body class="bg-forge-dark min-h-screen flex items-center justify-center font-mono text-white">
+    <div class="max-w-xl mx-auto px-6 text-center">
+        <div class="mb-8">
+            <div class="text-forge-glow text-[10rem] leading-none text-glow font-bold">404</div>
+        </div>
+
+        <div class="border border-forge-accent/30 rounded-lg p-6 border-glow mb-8">
+            <div class="text-forge-glow text-lg mb-2">⟨OO⟩ SIGNAL INTERRUPTED</div>
+            <p class="text-gray-400 mb-4">
+                The coordinate you requested has drifted outside the forge boundary.
+                This node does not exist, or has been reclaimed by the void.
+            </p>
+            <div class="text-xs text-gray-500 font-mono">
+                ERROR_CODE: ENTROPY_DETECTED | FRAGMENT_ID: UNALIGNED
+            </div>
+        </div>
+
+        <a href="/" class="inline-block px-8 py-3 bg-forge-accent/10 border border-forge-accent/50 rounded text-forge-glow hover:bg-forge-accent/20 transition-all duration-300 border-glow">
+            ← Return to the Forge
+        </a>
+
+        <div class="mt-12 text-xs text-gray-600">
+            Quantum Pi Forge — Sovereign Digital Infrastructure
+        </div>
+    </div>
+</body>
+</html>
