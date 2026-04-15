@@ -1,6 +1,65 @@
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
 
+// api/healthz.ts
+async function onRequestGet(request) {
+  if (request.headers.get("accept")?.includes("text/html")) {
+    return new Response("Not a health endpoint", { status: 406 });
+  }
+  return new Response(JSON.stringify({
+    status: "ok",
+    service: "quantum-pi-forge",
+    layer: "edge",
+    ts: Date.now()
+  }), {
+    headers: {
+      "content-type": "application/json",
+      "cache-control": "no-store",
+      "x-healthz": "true"
+    }
+  });
+}
+__name(onRequestGet, "onRequestGet");
+
+// api/livez.ts
+async function onRequestGet2() {
+  return new Response(null, {
+    status: 204,
+    headers: {
+      "cache-control": "no-store",
+      "x-livez": "true"
+    }
+  });
+}
+__name(onRequestGet2, "onRequestGet");
+
+// api/readyz.ts
+async function onRequestGet3(request) {
+  if (request.headers.get("accept")?.includes("text/html")) {
+    return new Response("Not a readiness endpoint", { status: 406 });
+  }
+  const checks = {
+    edge_runtime: true,
+    kv_bound: true,
+    rpc: true,
+    indexer: true
+  };
+  const ready = Object.values(checks).every(Boolean);
+  return new Response(JSON.stringify({
+    ready,
+    checks,
+    ts: Date.now()
+  }), {
+    status: ready ? 200 : 503,
+    headers: {
+      "content-type": "application/json",
+      "cache-control": "no-store",
+      "x-readyz": "true"
+    }
+  });
+}
+__name(onRequestGet3, "onRequestGet");
+
 // api/resonance.ts
 var onRequest = /* @__PURE__ */ __name(async (context) => {
   const { env } = context;
@@ -109,8 +168,46 @@ async function onRequest2(context) {
 }
 __name(onRequest2, "onRequest");
 
+// _health.ts
+async function onRequestGet4() {
+  return new Response(JSON.stringify({
+    status: "ok",
+    timestamp: Date.now(),
+    service: "quantum-pi-forge",
+    layer: "edge"
+  }), {
+    headers: {
+      "content-type": "application/json",
+      "cache-control": "no-store, no-cache, must-revalidate",
+      "x-edge-health": "true"
+    }
+  });
+}
+__name(onRequestGet4, "onRequestGet");
+
 // ../.wrangler/tmp/pages-79xRan/functionsRoutes-0.8972694082757932.mjs
 var routes = [
+  {
+    routePath: "/api/healthz",
+    mountPath: "/api",
+    method: "GET",
+    middlewares: [],
+    modules: [onRequestGet]
+  },
+  {
+    routePath: "/api/livez",
+    mountPath: "/api",
+    method: "GET",
+    middlewares: [],
+    modules: [onRequestGet2]
+  },
+  {
+    routePath: "/api/readyz",
+    mountPath: "/api",
+    method: "GET",
+    middlewares: [],
+    modules: [onRequestGet3]
+  },
   {
     routePath: "/api/resonance",
     mountPath: "/api",
@@ -124,6 +221,13 @@ var routes = [
     method: "",
     middlewares: [],
     modules: [onRequest2]
+  },
+  {
+    routePath: "/_health",
+    mountPath: "/",
+    method: "GET",
+    middlewares: [],
+    modules: [onRequestGet4]
   }
 ];
 
@@ -614,7 +718,7 @@ var jsonError = /* @__PURE__ */ __name(async (request, env, _ctx, middlewareCtx)
 }, "jsonError");
 var middleware_miniflare3_json_error_default = jsonError;
 
-// ../.wrangler/tmp/bundle-l2dRc0/middleware-insertion-facade.js
+// ../.wrangler/tmp/bundle-37Lunt/middleware-insertion-facade.js
 var __INTERNAL_WRANGLER_MIDDLEWARE__ = [
   middleware_ensure_req_body_drained_default,
   middleware_miniflare3_json_error_default
@@ -646,7 +750,7 @@ function __facade_invoke__(request, env, ctx, dispatch, finalMiddleware) {
 }
 __name(__facade_invoke__, "__facade_invoke__");
 
-// ../.wrangler/tmp/bundle-l2dRc0/middleware-loader.entry.ts
+// ../.wrangler/tmp/bundle-37Lunt/middleware-loader.entry.ts
 var __Facade_ScheduledController__ = class ___Facade_ScheduledController__ {
   constructor(scheduledTime, cron, noRetry) {
     this.scheduledTime = scheduledTime;

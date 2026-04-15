@@ -4,6 +4,62 @@ var __name = (target, value) => __defProp(target, "name", { value, configurable:
 // .wrangler/tmp/pages-79xRan/functionsWorker-0.00649140618276467.mjs
 var __defProp2 = Object.defineProperty;
 var __name2 = /* @__PURE__ */ __name((target, value) => __defProp2(target, "name", { value, configurable: true }), "__name");
+async function onRequestGet(request) {
+  if (request.headers.get("accept")?.includes("text/html")) {
+    return new Response("Not a health endpoint", { status: 406 });
+  }
+  return new Response(JSON.stringify({
+    status: "ok",
+    service: "quantum-pi-forge",
+    layer: "edge",
+    ts: Date.now()
+  }), {
+    headers: {
+      "content-type": "application/json",
+      "cache-control": "no-store",
+      "x-healthz": "true"
+    }
+  });
+}
+__name(onRequestGet, "onRequestGet");
+__name2(onRequestGet, "onRequestGet");
+async function onRequestGet2() {
+  return new Response(null, {
+    status: 204,
+    headers: {
+      "cache-control": "no-store",
+      "x-livez": "true"
+    }
+  });
+}
+__name(onRequestGet2, "onRequestGet2");
+__name2(onRequestGet2, "onRequestGet");
+async function onRequestGet3(request) {
+  if (request.headers.get("accept")?.includes("text/html")) {
+    return new Response("Not a readiness endpoint", { status: 406 });
+  }
+  const checks = {
+    edge_runtime: true,
+    kv_bound: true,
+    rpc: true,
+    indexer: true
+  };
+  const ready = Object.values(checks).every(Boolean);
+  return new Response(JSON.stringify({
+    ready,
+    checks,
+    ts: Date.now()
+  }), {
+    status: ready ? 200 : 503,
+    headers: {
+      "content-type": "application/json",
+      "cache-control": "no-store",
+      "x-readyz": "true"
+    }
+  });
+}
+__name(onRequestGet3, "onRequestGet3");
+__name2(onRequestGet3, "onRequestGet");
 var onRequest = /* @__PURE__ */ __name2(async (context) => {
   const { env } = context;
   try {
@@ -109,7 +165,44 @@ async function onRequest2(context) {
 }
 __name(onRequest2, "onRequest2");
 __name2(onRequest2, "onRequest");
+async function onRequestGet4() {
+  return new Response(JSON.stringify({
+    status: "ok",
+    timestamp: Date.now(),
+    service: "quantum-pi-forge",
+    layer: "edge"
+  }), {
+    headers: {
+      "content-type": "application/json",
+      "cache-control": "no-store, no-cache, must-revalidate",
+      "x-edge-health": "true"
+    }
+  });
+}
+__name(onRequestGet4, "onRequestGet4");
+__name2(onRequestGet4, "onRequestGet");
 var routes = [
+  {
+    routePath: "/api/healthz",
+    mountPath: "/api",
+    method: "GET",
+    middlewares: [],
+    modules: [onRequestGet]
+  },
+  {
+    routePath: "/api/livez",
+    mountPath: "/api",
+    method: "GET",
+    middlewares: [],
+    modules: [onRequestGet2]
+  },
+  {
+    routePath: "/api/readyz",
+    mountPath: "/api",
+    method: "GET",
+    middlewares: [],
+    modules: [onRequestGet3]
+  },
   {
     routePath: "/api/resonance",
     mountPath: "/api",
@@ -123,6 +216,13 @@ var routes = [
     method: "",
     middlewares: [],
     modules: [onRequest2]
+  },
+  {
+    routePath: "/_health",
+    mountPath: "/",
+    method: "GET",
+    middlewares: [],
+    modules: [onRequestGet4]
   }
 ];
 function lexer(str) {
