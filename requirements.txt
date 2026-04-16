@@ -123,7 +123,7 @@ pydantic==2.11.10
 pydantic_core==2.33.2
 pydub==0.25.1
 pyelftools==0.30
-Pygments==2.17.2
+Pygments==2.20.0
 PyGObject==3.48.2
 pyiceberg==0.11.1
 PyICU==2.12
