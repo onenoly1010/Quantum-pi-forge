@@ -20,7 +20,7 @@ Brotli==1.1.0
 cachetools==6.2.6
 catfish==4.16.4
 ccsm==0.9.14.2
-certifi==2023.11.17
+certifi==2024.7.4
 chardet==5.2.0
 click==8.3.2
 colorama==0.4.6
