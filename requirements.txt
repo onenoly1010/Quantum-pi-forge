@@ -194,6 +194,6 @@ wheel==0.42.0
 xdg==5
 xkit==0.0.0
 yarl==1.23.0
-yt-dlp==2024.4.9
+yt-dlp==2026.2.21
 zipp==3.23.0
 zstandard==0.25.0
