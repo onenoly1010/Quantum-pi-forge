@@ -46,7 +46,7 @@ flask-cors==6.0.2
 frozenlist==1.8.0
 fsspec==2026.3.0
 googleapis-common-protos==1.74.0
-gradio==5.31.0
+gradio==6.7.0
 gradio_client==1.10.1
 groovy==0.1.2
 h11==0.16.0
