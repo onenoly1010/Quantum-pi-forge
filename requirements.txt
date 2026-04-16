@@ -60,7 +60,7 @@ httptools==0.7.1
 httpx==0.28.1
 huggingface_hub==1.9.0
 hyperframe==6.1.0
-idna==3.6
+idna==3.7
 ifaddr==0.2.0
 importlib_metadata==8.7.1
 iniconfig==2.3.0
