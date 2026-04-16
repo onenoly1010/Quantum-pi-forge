@@ -1,17 +1,20 @@
 {
   "models": [
     {
-      "title": "Local-Agent",
+      "title": "Forge Local Coder",
+      "model": "qwen2.5-coder:32b",
       "provider": "ollama",
-      "model": "llama3.3",
       "apiBase": "http://localhost:11434"
     }
   ],
   "tabAutocompleteModel": {
-    "provider": "ollama", 
-    "model": "codellama",
+    "title": "Forge Autocomplete",
+    "model": "qwen2.5-coder:32b",
+    "provider": "ollama",
     "apiBase": "http://localhost:11434"
   },
+  "slashCommands": ["edit", "comment", "test", "evolve"],
+  "contextProviders": ["file", "git", "terminal"],
   "embeddingsProvider": {
     "provider": "ollama",
     "model": "nomic-embed-text"

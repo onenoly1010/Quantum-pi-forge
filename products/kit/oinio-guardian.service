@@ -1,0 +1,20 @@
+[Unit]
+Description=OINIO Guardian Daemon
+After=network.target ollama.service
+
+[Service]
+Type=simple
+User=%i
+WorkingDirectory=/home/%i/forge/Quantum-pi-forge
+ExecStart=/home/%i/forge/Quantum-pi-forge/.venv/bin/python agents/guardian/run.py
+Restart=always
+RestartSec=10
+Environment=PATH=/home/%i/.local/bin:/usr/local/bin:/usr/bin:/bin
+Environment=OLLAMA_HOST=http://localhost:11434
+Environment=NO_TELEMETRY=1
+StandardOutput=journal+console
+StandardError=journal+console
+SyslogIdentifier=oinio-guardian
+
+[Install]
+WantedBy=default.target

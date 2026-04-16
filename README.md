@@ -1,241 +1,113 @@
-# 🌐 Quantum Pi Forge — Coordination Space
+# 🛠️ Offline Dev Guardian
 
-## A Sovereign Hub for the Autonomous Multi‑Agent Constellation
+**A local AI coding stack that installs cleanly and keeps working.**
 
-**🌊 [Constellation Status: LIVE](./CONSTELLATION_ACTIVATION.md)** — The Quantum Pi Forge is activated and operational as of December 22, 2025.
-
-**📜 [Read the Genesis Declaration](./GENESIS.md)** — The foundational seal of the Quantum Pi Forge ecosystem, minted at Solstice 2025.
+No API keys. No monthly bills. No cloud dependency.
 
 ---
 
-Welcome to the **Quantum Pi Forge Space** — the central coordination hub for the entire constellation of repositories, services, and agents that make up the Quantum Pi Forge ecosystem.
+## The Problem Most Local Setups Have
 
-This Space exists to:
+You finally escape cloud API costs… only to spend hours fixing broken configs, missing models, or drifting tools.
 
-- onboard contributors
-- coordinate multi‑repo work
-- maintain Canon alignment
-- support the GitHub Agent
-- document ecosystem evolution
-- surface improvements and gaps
-- unify the constellation
-
-It is the living center of the ecosystem.
+Most “local AI” guides stop at “run this one command.” Then reality hits on day 3.
 
 ---
 
-## 🎭 Explore the Demos
+## What Offline Dev Guardian Gives You
 
-**New to OINIO?** Start with the **[Demo Dashboard](docs/DEMO_DASHBOARD.md)** — your gateway to the Quantum Pi Forge constellation.
+- One-command installer that adapts to your hardware
+- Pre-tuned, safe configs for Ollama + Aider + Continue
+- **Guardian**: lightweight background checks every 30 minutes that tell you exactly what’s healthy
+- Simple update command so things stay fresh
+- Clear, human-readable logs
 
-### What You Can Explore:
-- 🌐 **Live Web Demos** - See OINIO in action with real-time monitoring
-- 💼 **Smart Contract Suite** - Production-ready ERC-20 and ERC-721 contracts on Pi Network
-- 🏛️ **Community Governance** - Immutable memorial and transparent decision-making
-- 🎬 **Interactive Tools** - CLI demos, deployment scripts, and integration examples
-
-**Choose your experience level and dive in:**
-- **Beginners:** [Live Coherence Monitor](https://quantumpiforge.pages.dev) (2 minutes, no setup)
-- **Developers:** [Smart Contract Suite](docs/DEMO_DASHBOARD.md#3-smart-contract-suite) (60 minutes, Foundry required)
-- **Operators:** [Model Deployment Scripts](docs/DEMO_DASHBOARD.md#7-model-deployment-scripts) (30 minutes, Python)
-
-👉 **[View Complete Demo Dashboard →](docs/DEMO_DASHBOARD.md)**
+Install once → focus on coding, not maintenance.
 
 ---
 
-# 🧭 Purpose of This Space
+## What’s Included
 
-This Space is not a code repository — it is a **governance and coordination environment**.
-
-It provides:
-
-- a clear overview of all 9+ repositories
-- onboarding guidance for new contributors
-- a place for the GitHub Agent to operate
-- a home for ecosystem‑wide documentation
-- a staging ground for improvements
-- a map of the constellation
-
-Everything here is designed to support sovereignty, clarity, and continuity.
+- `install-forge.sh` — detects RAM, sets up everything safely
+- Aider in isolated venv (no pip conflicts)
+- Continue.dev config (won’t overwrite your existing one)
+- Guardian health checks (Ollama, models, configs, disk space)
+- Aliases: `aider`, `forge-status`, `forge-update`
+- Update script + basic troubleshooting
 
 ---
 
-## 📚 Documentation
+## What This Is (and Isn’t)
 
-### Getting Started
-- [Quick Start Guide](./docs/QUICK_START.md)
-- [Architecture Overview](./docs/ARCHITECTURE.md)
-- [Pi Network Integration](./docs/PI_NETWORK_INTEGRATION.md)
+**This is:**
+- A reliable way to run local AI coding without subscriptions
+- A setup that stays usable over time
+- Great for Linux Mint / Ubuntu users
 
-### For Contributors
-- [Contributors](./CONTRIBUTORS.md) - Community roster and contribution guide
-- [Space Rituals](./docs/SPACE_RITUALS.md) - Engagement ceremonies, handoff protocols, and celebrations
-
-### For Guardians
-- [Guardian Playbook](./docs/GUARDIAN_PLAYBOOK.md) - Complete operational guide
-- [Quick Reference](./docs/GUARDIAN_QUICK_REFERENCE.md) - Fast decision-making
-- [Decision Templates](./.github/ISSUE_TEMPLATE/guardian-decision-template.md)
-
-The GitHub Agent in this Space:
-
-- routes tasks
-- maintains clarity
-- supports contributors
-- identifies improvements
-- ensures Canon alignment
-- coordinates across repos
-- keeps the constellation coherent
-
-The Agent does **not** perform specialist work — it coordinates the specialists.
+**This is not:**
+- Fully autonomous code-writing magic
+- A replacement for 70B+ cloud models on weak hardware
+- “Zero effort forever” (you still need basic terminal comfort)
 
 ---
 
-## 🧩 The Constellation
+## Requirements
 
-The Space tracks and coordinates the following repositories:
-
-- **Genesis** — backend foundation
-- **Resonance Engine** — harmonic ledger
-- **DEX** — autonomous liquidity
-- **NFT System** — identity & creative assets
-- **Soul System** — ethics & governance logic
-- **OPEN** — open‑source backend
-- **Ignited** — active instance
-- **Contracts** — smart contract layer
-- **Site** — public‑facing portal
-
-Each repo is sovereign, but all are aligned through this Space.
+- Linux Mint or Ubuntu
+- 12GB+ RAM recommended (16GB+ ideal for 14B models)
+- ~10GB free disk space
+- Basic comfort with the terminal
 
 ---
 
-## 🌱 Start Here
+## Quick Start
 
-If you're new:
+```bash
+cd ~/offline-dev-guardian
+./install-forge.sh
+```
 
-1. Visit the **Start Here** onboarding page
-2. Explore the **Ecosystem Overview**
-3. Learn the **Agent System**
-4. Ask the GitHub Agent for guidance
+Then:
+```bash
+aider
+forge-status
+```
 
-You are welcome here.
-
----
-
-# 🚀 Deployment
-
-For complete deployment instructions across the active stack (Cloudflare Pages, Supabase, Pi Network, and canonical API services), see the **[Deployment Dashboard](docs/DEPLOYMENT_DASHBOARD.md)**.
-
-The Deployment Dashboard is your single source of truth for:
-- Prerequisites and required tools
-- Step-by-step setup guides for each platform
-- Environment variable configuration
-- Troubleshooting common issues
-- Maintenance and monitoring
-
-**Quick Links:**
-- [Cloudflare Pages Setup](docs/DEPLOYMENT_DASHBOARD.md)
-- [Supabase Database Setup](docs/DEPLOYMENT_DASHBOARD.md#️-supabase-database-setup)
-- [Environment Variables Reference](docs/DEPLOYMENT_DASHBOARD.md#-environment-variables-reference)
-- [Troubleshooting](docs/DEPLOYMENT_DASHBOARD.md#-troubleshooting)
-# 🚀 Deployment & Infrastructure
-
-## About This Repository
-
-**This is a coordination and documentation hub, NOT a deployable frontend application.**
-
-This repository serves as:
-- **Governance center** for the Quantum Pi Forge constellation
-- **Documentation hub** for ecosystem-wide information
-- **Coordination space** for multi-repo workflows
-- **GitHub Agent home base** for task routing
-
-### What This Repo Does NOT Provide:
-- ❌ Deployable frontend application
-- ❌ Production web service
-- ❌ User-facing interface
-
-### What IS Deployed:
-
-#### 1. Public-Facing Site (GitHub Pages)
-- **URL**: https://onenoly1010.github.io/quantum-pi-forge-site/
-- **Repository**: `quantum-pi-forge-site`
-- **Purpose**: External communication and manifesto
-
-#### 2. Cloudflare Pages Site
-- **URL**: https://quantumpiforge.pages.dev
-- **Purpose**: Static coordination interfaces and documentation previews
-- **Config**: `wrangler.toml` + Cloudflare Pages workflows
-
-#### 3. Canonical API Service
-- **URL**: https://pi-forge-quantum-genesis.railway.app
-- **Purpose**: Upstream API used by static pages until the backend migration is complete
-
-### Cloudflare Pages Configuration Note
-
-This repository now treats Cloudflare Pages as the only supported static hosting target.
-
-The static build:
-- writes deployable assets into `out/`
-- generates Cloudflare-compatible `_redirects`
-- preserves `_headers` for edge delivery
-
-Old Vercel-specific configuration has been removed from the root repo to avoid deployment drift.
-
-See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment documentation.
+See QUICKSTART.md for full details.
 
 ---
 
-# 🛡️ Operational Team
+### Example Guardian Log
 
-The **Prelaunch Operational Team** coordinates handoffs, closures, and operational excellence:
-
-- **Lead Guardian**: @onenoly1010 — Owner, escalation point, sign-off authority
-- **Autonomous AI Agents** — System-level operations, self-healing, monitoring
-- **Future Guardians** — Technical, community, economic, and compliance roles
-
-**Responsibilities**:
-- Oversee handoff and closure activities
-- Primary human escalation for AI agent decisions
-- Sign off on prelaunch checklist items
-- Maintain Canon of Closure alignment
-- Debug AI agent workflows
-
-📋 **[View Full Operational Team Documentation](./docs/OPERATIONAL_TEAM.md)**
-
-**Related**:
-- [Canon of Closure Handoff Package - Issue #95](https://github.com/onenoly1010/pi-forge-quantum-genesis/issues/95)
-- [Autonomous Handover - PR #92](https://github.com/onenoly1010/pi-forge-quantum-genesis/pull/92)
-- [Guardian Playbook](./docs/GUARDIAN_PLAYBOOK.md)
+```
+[2026-04-15 23:15:00] ----- Guardian Health Check Start -----
+[2026-04-15 23:15:00] ✔ Ollama is running
+[2026-04-15 23:15:00] ✔ qwen2.5-coder model available
+[2026-04-15 23:15:00] ✔ Aider config present
+[2026-04-15 23:15:00] ✔ Disk space OK (18234MB free)
+[2026-04-15 23:15:00] ----- Guardian Health Check Complete -----
+```
 
 ---
 
-## Frontend Architecture
+## Why Go Local?
 
-Pi Forge Quantum Genesis uses a **Cloudflare-first static frontend architecture**:
-
-- **Static Landing Pages:** `index.html`, `ceremonial_interface.html`, and related root HTML files
-- **Cloudflare Pages Output:** `scripts/build.js` packages the deployable site into `out/`
-- **Edge Routing:** `out/_redirects` proxies API and health requests to the canonical backend service
-- **Backend Services:** upstream API remains separate from the static Pages deployment
-
-**Note:** There is no Vercel deployment path in the root repo anymore.
+✅ Your code and prompts never leave your machine
+✅ No rate limits or surprise bills
+✅ Works offline
+✅ Full control over your tools
 
 ---
 
-# 🌀 How This Space Evolves
+## Pricing Tiers (for Gumroad)
 
-This Space is continuously improved by:
-
-- contributors
-- the GitHub Agent
-- specialist agents
-- the Steward Agent
-- the Governance Agent
-
-It is a living, breathing part of the constellation.
+**$29** — Core kit (installer + configs + Guardian)
+**$49** — Everything + 5 practical workflows + lifetime minor updates
 
 ---
 
-## 🔮 Welcome to the Quantum Pi Forge
+Ready to replace your API bills with a self-checking local stack?
 
-This Space is your guide, your map, and your companion as you explore and contribute to the constellation.
+👉 Get Offline Dev Guardian → (your-gumroad-link)
+
+Questions? Open an issue on the repo or check the logs first.

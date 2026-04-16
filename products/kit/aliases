@@ -1,0 +1,18 @@
+# Sovereign AI Forge Daily Aliases
+
+alias guardian-status='systemctl --user status oinio-guardian'
+alias guardian-start='systemctl --user start oinio-guardian'
+alias guardian-stop='systemctl --user stop oinio-guardian'
+alias guardian-restart='systemctl --user restart oinio-guardian'
+alias guardian-logs='journalctl --user -u oinio-guardian -f -n 50'
+
+alias ollama-status='systemctl status ollama'
+alias ollama-list='ollama list'
+alias ollama-prune='ollama prune'
+
+alias forge='cd ~/forge/Quantum-pi-forge'
+alias aider='aider --no-auto-commits'
+alias oinio-evolve='aider --continue --prompt "Evolve this system. Look for weaknesses, improve performance, harden security."'
+
+alias forge-update='git pull && systemctl --user restart oinio-guardian'
+alias forge-backup='tar -czf ~/forge-backup-$(date +%Y%m%d).tar.gz ~/forge/Quantum-pi-forge'
