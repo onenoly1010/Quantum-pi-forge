@@ -1,0 +1,28 @@
+{
+  "models": [
+    {
+      "title": "OINIO Guardian",
+      "provider": "ollama",
+      "model": "qwen2.5-coder:14b",
+      "apiBase": "http://localhost:11434",
+      "contextLength": 131072,
+      "temperature": 0.0,
+      "maxTokens": 8192
+    },
+    {
+      "title": "OINIO Fast",
+      "provider": "ollama",
+      "model": "qwen2.5-coder:7b",
+      "apiBase": "http://localhost:11434",
+      "contextLength": 131072,
+      "temperature": 0.1
+    }
+  ],
+  "tabAutocompleteModel": "OINIO Fast",
+  "allowAnonymousTelemetry": false,
+  "disableIndexing": false,
+  "ui": {
+    "showScrollbar": true,
+    "codeBlockBackground": true
+  }
+}
