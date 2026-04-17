@@ -110,4 +110,18 @@ Ready to replace your API bills with a self-checking local stack?
 
 👉 Get Offline Dev Guardian → (your-gumroad-link)
 
+## Reproducing the EPI Environment (Hermetic v1.5)
+
+Every build now runs inside a pinned container that enforces the v1.4 contract.
+
+```bash
+# Build & run locally
+docker build -t epi-audit:v1.5 -f infra/repro/Dockerfile .
+docker run --rm -v "$(pwd)/output:/forge/output" epi-audit:v1.5
+```
+
+CI automatically verifies on every push/PR.
+
+---
+
 Questions? Open an issue on the repo or check the logs first.
