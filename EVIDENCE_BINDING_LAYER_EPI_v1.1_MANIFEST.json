@@ -1,0 +1,112 @@
+[
+  {
+    "component": "Circuit Breaker (Durable Object)",
+    "repository": "Quantum-pi-forge",
+    "commit": "f23f30d",
+    "file": "src/circuit-do/index.js",
+    "artifact_type": "Code",
+    "artifact_hash": null,
+    "provenance": "internal",
+    "verification_notes": "Contains `alarm()` state transition logic and circuit state machine."
+  },
+  {
+    "component": "Circuit Breaker – failure threshold (3 failures)",
+    "repository": "Quantum-pi-forge",
+    "commit": "f23f30d",
+    "file": "test/circuit-breaker.test.ts",
+    "artifact_type": "Code (test)",
+    "artifact_hash": null,
+    "provenance": "internal",
+    "verification_notes": "Simulates 3 consecutive failures, asserts OPEN state transition."
+  },
+  {
+    "component": "Header Chain Light Client",
+    "repository": "Quantum-pi-forge",
+    "commit": "f23f30d",
+    "file": "src/light-client/header-chain.ts",
+    "artifact_type": "Code",
+    "artifact_hash": null,
+    "provenance": "internal",
+    "verification_notes": "Sequential header sync, parent hash validation, signature verification."
+  },
+  {
+    "component": "SVL WASM Kernel (MPT verification)",
+    "repository": "Quantum-pi-forge",
+    "commit": "f23f30d",
+    "file": "src/svl-wasm/src/lib.rs",
+    "artifact_type": "Code (Rust)",
+    "artifact_hash": null,
+    "provenance": "internal",
+    "verification_notes": "`verify_state_root()` implementation and Merkle Patricia Trie proof logic."
+  },
+  {
+    "component": "Spec‑Parity Test Vectors",
+    "repository": "Quantum-pi-forge",
+    "commit": "f23f30d",
+    "file": "test/svl/fixtures/geth-trie",
+    "artifact_type": "Test fixtures",
+    "artifact_hash": null,
+    "provenance": "Adapted from upstream Ethereum test suite",
+    "verification_notes": ""
+  },
+  {
+    "component": "Guardian Operator Loop",
+    "repository": "guardian-repo",
+    "commit": "<guardian-repo-sha>",
+    "file": "guardian/guardian_v2.sh",
+    "artifact_type": "Code (bash)",
+    "artifact_hash": null,
+    "provenance": "external",
+    "verification_notes": "Contains health check pipeline and action dispatch logic."
+  },
+  {
+    "component": "Smart Inference Router (tiered fallback)",
+    "repository": "guardian-repo",
+    "commit": "<guardian-repo-sha>",
+    "file": "guardian/smart_infer.sh",
+    "artifact_type": "Code (bash)",
+    "artifact_hash": null,
+    "provenance": "external",
+    "verification_notes": "External → local 3B priority routing, cooldown logic, load guard."
+  },
+  {
+    "component": "Rate‑Limit Detection Rule Set",
+    "repository": "guardian-repo",
+    "commit": "<guardian-repo-sha>",
+    "file": "guardian/rules.json",
+    "artifact_type": "Config",
+    "artifact_hash": null,
+    "provenance": "external",
+    "verification_notes": "JSON pattern matching for 429, rate limit headers, TPM thresholds."
+  },
+  {
+    "component": "Offline Dev Guardian – Installer",
+    "repository": "guardian-repo",
+    "commit": "<guardian-repo-sha>",
+    "file": "install-forge.sh",
+    "artifact_type": "Code (bash)",
+    "artifact_hash": null,
+    "provenance": "external",
+    "verification_notes": "One-command installer for Linux Mint / Debian systems."
+  },
+  {
+    "component": "Truth Domain Separation Specification",
+    "repository": "Quantum-pi-forge",
+    "commit": "f23f30d",
+    "file": "docs/TRUTH_DOMAIN_SEPARATION.md",
+    "artifact_type": "Documentation",
+    "artifact_hash": null,
+    "provenance": "internal",
+    "verification_notes": "Formal definitions: Fact, Internal State, Design Intent boundaries."
+  },
+  {
+    "component": "EPI v1.0 Evidence Binding Specification",
+    "repository": "Quantum-pi-forge",
+    "commit": "f23f30d",
+    "file": "docs/EPI_v1.0.md",
+    "artifact_type": "Documentation",
+    "artifact_hash": null,
+    "provenance": "internal",
+    "verification_notes": "Describes cryptographic evidence binding structure and verification protocol."
+  }
+]

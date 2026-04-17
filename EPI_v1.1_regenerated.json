@@ -1,0 +1,79 @@
+[
+  {
+    "system_component": "**Circuit Breaker (Durable Object)**",
+    "reference_type": "Commit SHA (abbreviated)",
+    "exact_location": "`commit: f23f30d (file: src/circuit-do/index.js)`",
+    "evidence_type": "Code",
+    "verifiability_note": "Contains `alarm()` state transition logic and circuit state machine."
+  },
+  {
+    "system_component": "**Circuit Breaker – failure threshold (3 failures)**",
+    "reference_type": "Commit SHA (abbreviated)",
+    "exact_location": "`commit: f23f30d (file: test/circuit-breaker.test.ts)`",
+    "evidence_type": "Code (test)",
+    "verifiability_note": "Simulates 3 consecutive failures, asserts OPEN state transition."
+  },
+  {
+    "system_component": "**Header Chain Light Client**",
+    "reference_type": "Commit SHA (abbreviated)",
+    "exact_location": "`commit: f23f30d (file: src/light-client/header-chain.ts)`",
+    "evidence_type": "Code",
+    "verifiability_note": "Sequential header sync, parent hash validation, signature verification."
+  },
+  {
+    "system_component": "**SVL WASM Kernel (MPT verification)**",
+    "reference_type": "Commit SHA (abbreviated)",
+    "exact_location": "`commit: f23f30d (file: src/svl-wasm/src/lib.rs)`",
+    "evidence_type": "Code (Rust)",
+    "verifiability_note": "`verify_state_root()` implementation and Merkle Patricia Trie proof logic."
+  },
+  {
+    "system_component": "**Spec‑Parity Test Vectors**",
+    "reference_type": "Commit SHA (abbreviated)",
+    "exact_location": "`commit: f23f30d (directory: test/svl/fixtures/geth-trie)`",
+    "evidence_type": "Test fixtures",
+    "verifiability_note": "**Provenance:** Adapted from upstream Ethereum test suite."
+  },
+  {
+    "system_component": "**Guardian Operator Loop**",
+    "reference_type": "External Commit Reference",
+    "exact_location": "`commit: <guardian-repo-sha> (file: guardian/guardian_v2.sh)`",
+    "evidence_type": "Code (bash)",
+    "verifiability_note": "Contains health check pipeline and action dispatch logic."
+  },
+  {
+    "system_component": "**Smart Inference Router (tiered fallback)**",
+    "reference_type": "External Commit Reference",
+    "exact_location": "`commit: <guardian-repo-sha> (file: guardian/smart_infer.sh)`",
+    "evidence_type": "Code (bash)",
+    "verifiability_note": "External → local 3B priority routing, cooldown logic, load guard."
+  },
+  {
+    "system_component": "**Rate‑Limit Detection Rule Set**",
+    "reference_type": "External Commit Reference",
+    "exact_location": "`commit: <guardian-repo-sha> (file: guardian/rules.json)`",
+    "evidence_type": "Config",
+    "verifiability_note": "JSON pattern matching for 429, rate limit headers, TPM thresholds."
+  },
+  {
+    "system_component": "**Offline Dev Guardian – Installer**",
+    "reference_type": "External Commit Reference",
+    "exact_location": "`commit: <guardian-repo-sha> (file: install-forge.sh)`",
+    "evidence_type": "Code (bash)",
+    "verifiability_note": "One-command installer for Linux Mint / Debian systems."
+  },
+  {
+    "system_component": "**Truth Domain Separation Specification**",
+    "reference_type": "Commit SHA (abbreviated)",
+    "exact_location": "`commit: f23f30d (file: docs/TRUTH_DOMAIN_SEPARATION.md)`",
+    "evidence_type": "Documentation",
+    "verifiability_note": "Formal definitions: Fact, Internal State, Design Intent boundaries."
+  },
+  {
+    "system_component": "**EPI v1.0 Evidence Binding Specification**",
+    "reference_type": "Commit SHA (abbreviated)",
+    "exact_location": "`commit: f23f30d (file: docs/EPI_v1.0.md)`",
+    "evidence_type": "Documentation",
+    "verifiability_note": "Describes cryptographic evidence binding structure and verification protocol."
+  }
+]

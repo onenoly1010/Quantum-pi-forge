@@ -1,0 +1,17 @@
+FROM ubuntu:22.04
+
+RUN apt-get update && apt-get install -y \
+    git \
+    jq \
+    bash \
+    coreutils \
+    curl
+
+WORKDIR /epi
+
+COPY scripts/ ./scripts/
+COPY EVIDENCE_BINDING_LAYER_EPI_v1.0_NORMALIZED.md ./
+
+RUN chmod +x ./scripts/epi-reproduce.sh
+
+ENTRYPOINT ["bash", "./scripts/epi-reproduce.sh", "--strict"]

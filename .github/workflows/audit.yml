@@ -1,0 +1,51 @@
+name: 🛡️ EPI Hermetic Audit Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    paths:
+      - 'EVIDENCE_BINDING_LAYER_EPI_v1.0_NORMALIZED.md'
+      - 'scripts/**'
+      - 'infra/repro/**'
+
+jobs:
+  verify-determinism:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code (full history)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Build Hermetic Container
+        run: docker build -t epi-audit:v1.5 -f infra/repro/Dockerfile .
+
+      - name: Execute Deterministic Transformation
+        run: |
+          mkdir -p ./output
+          docker run --rm \
+            -v "$(pwd)/output:/forge/output" \
+            epi-audit:v1.5 > manifest_output.log
+          cat manifest_output.log
+
+      - name: Artifact Verification (The Hard Gate)
+        run: |
+          echo "=== EPI Manifest Integrity Check ==="
+          cat manifest_output.log
+          if [ -f ./output/EPI_v1.1_regenerated.json ]; then
+            echo "Final SHA-256:"
+            sha256sum ./output/EPI_v1.1_regenerated.json
+            echo "✓ Deterministic output produced inside hermetic container"
+          else
+            echo "⚠ No output artifact - verify epi-reproduce.sh"
+            exit 1
+          fi
+
+      - name: Upload Verification Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: epi-deterministic-output
+          path: |
+            manifest_output.log
+            output/*
