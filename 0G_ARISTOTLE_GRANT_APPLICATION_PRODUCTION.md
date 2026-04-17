@@ -40,6 +40,7 @@ At the conclusion of the grant period the protocol will become fully self-sustai
 | Permanent Storage Anchors | ✅ Active | 112 state proofs committed |
 
 ### Contract Addresses
+
 ```
 Yield Controller:  0x7f9...8d2a
 Contribution Ledger: 0x31c...f47b
