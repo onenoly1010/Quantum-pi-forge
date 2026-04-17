@@ -42,30 +42,31 @@ All pricing denominated in **OINIO** or **A0GI** tokens. Fiat conversion availab
 
 ## 🔒 SERVICE GUARANTEES
 
-1.  **Zero Knowledge Operation:** We never see, store, or process your actual data. Only cryptographic hashes are validated on the 0G network.
-2.  **Immutable Attestation:** All validation results are permanently recorded on-chain and cannot be modified or deleted.
-3.  **100% Uptime Commitment:** Service operated from geographically distributed independent nodes.
-4.  **No Third Parties:** Validation performed exclusively on Quantum Pi Forge infrastructure. No subcontractors.
-5.  **Results First Billing:** You only pay after successful validation is confirmed on-chain.
+1. **Zero Knowledge Operation:** We never see, store, or process your actual data. Only cryptographic hashes are validated on the 0G network.
+2. **Immutable Attestation:** All validation results are permanently recorded on-chain and cannot be modified or deleted.
+3. **100% Uptime Commitment:** Service operated from geographically distributed independent nodes.
+4. **No Third Parties:** Validation performed exclusively on Quantum Pi Forge infrastructure. No subcontractors.
+5. **Results First Billing:** You only pay after successful validation is confirmed on-chain.
 
 ---
 
 ## ⚡ TECHNICAL PROCESS
 
 ### Client Responsibilities:
-1.  Generate cryptographic hash of your dataset/ledger using standard SHA3-256
-2.  Submit hash + block height reference through the Forge portal
-3.  Provide any necessary public merkle proofs
-4.  Sign transaction for service payment
+1. Generate cryptographic hash of your dataset/ledger using standard SHA3-256
+2. Submit hash + block height reference through the Forge portal
+3. Provide any necessary public merkle proofs
+4. Sign transaction for service payment
 
 ### Forge Responsibilities:
-1.  Validate hash against 0G Data Availability layer
-2.  Perform cross-node consensus verification
-3.  Generate formal validation certificate
-4.  Submit permanent on-chain attestation
-5.  Deliver verification report
+1. Validate hash against 0G Data Availability layer
+2. Perform cross-node consensus verification
+3. Generate formal validation certificate
+4. Submit permanent on-chain attestation
+5. Deliver verification report
 
 ### Typical Execution Timeline:
+
 | STEP | ACTION | DURATION |
 |---|---|---|
 | 1 | Client submits hash | T+0 |
@@ -99,7 +100,8 @@ All pricing denominated in **OINIO** or **A0GI** tokens. Fiat conversion availab
 
 To engage services:
 
-1.  Reply to this document with:
+1. Reply to this document with:
+
     ```
     I accept the terms of the Sovereign Data Validation Service Agreement
     Name: [YOUR NAME]
@@ -108,12 +110,13 @@ To engage services:
     Selected Tier: [TIER]
     ```
 
-2.  Send initial deposit transaction to Forge address:
+2. Send initial deposit transaction to Forge address:
+
     ```
     0x7F9c2e8A3d4B5f6E7c8D9a0B1c2D3e4F5a6B7c8D
     ```
 
-3.  You will receive validation credentials and access instructions within 1 business hour.
+3. You will receive validation credentials and access instructions within 1 business hour.
 
 ---
 
@@ -130,6 +133,7 @@ To engage services:
 
 ---
 ### APPENDIX A: VALIDATION REPORT EXAMPLE
+
 ```
 ████████████████████████████████████████
 █ QUANTUM PI FORGE VALIDATION CERTIFICATE

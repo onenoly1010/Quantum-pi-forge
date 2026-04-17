@@ -33,20 +33,20 @@
 
 ## Audit Compliance Notes
 
-1.  All references use the audit-accepted `commit: <sha> (file: path)` canonical format
-2.  No `blob/` branch-ambiguous URL formats remain
-3.  Every evidence entry includes functional description for verifiability
-4.  Third-party test vectors include explicit provenance attribution
+1. All references use the audit-accepted `commit: <sha> (file: path)` canonical format
+2. No `blob/` branch-ambiguous URL formats remain
+3. Every evidence entry includes functional description for verifiability
+4. Third-party test vectors include explicit provenance attribution
 
 ---
 
 ## Next Phase: EPI v1.1 Full Determinism
 
 To complete the audit-grade layer:
-1.  Resolve `f23f30d` to full 40-character commit SHA
-2.  Populate guardian repository full commit SHAs
-3.  Generate machine-readable JSON evidence manifest
-4.  Add cryptographic content hashes for each referenced file
+1. Resolve `f23f30d` to full 40-character commit SHA
+2. Populate guardian repository full commit SHAs
+3. Generate machine-readable JSON evidence manifest
+4. Add cryptographic content hashes for each referenced file
 
 ---
 
