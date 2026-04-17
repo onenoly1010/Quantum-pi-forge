@@ -1,0 +1,60 @@
+name: 🔐 EPI Escrow Deployment
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Target environment (testnet/mainnet)'
+        required: true
+        default: 'testnet'
+        type: choice
+        options:
+          - testnet
+          - mainnet
+  push:
+    tags:
+      - 'v*.*.*'   # optional: deploy on version tags
+
+env:
+  RPC_URL: ${{ secrets.RPC_URL }}
+  PRIVATE_KEY: ${{ secrets.DEPLOYER_PRIVATE_KEY }}
+
+jobs:
+  deploy-deterministic:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Hermetic EPI Container
+        run: docker build -t epi-audit:v1.5 -f infra/repro/Dockerfile .
+
+      - name: Create .env file from secrets
+        run: |
+          echo "RPC_URL=${{ env.RPC_URL }}" > .env
+          echo "PRIVATE_KEY=${{ env.PRIVATE_KEY }}" >> .env
+
+      - name: Run Deployment inside Hermetic Container
+        run: |
+          docker run --rm \
+            -v "$(pwd):/forge" \
+            -w /forge \
+            --env-file .env \
+            epi-audit:v1.5 \
+            bash -c "chmod +x scripts/deploy-escrow.sh && ./scripts/deploy-escrow.sh"
+
+      - name: Upload Deployment Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: deployment-output
+          path: |
+            EPI_v1.1_regenerated.json
+          if-no-files-found: error
+
+      - name: Clean up .env
+        run: rm -f .env

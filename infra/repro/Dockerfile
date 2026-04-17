@@ -10,7 +10,7 @@ ENV SOURCE_DATE_EPOCH=1713360000 \
     DEBIAN_FRONTEND=noninteractive \
     PYTHONUNBUFFERED=1
 
-# Install only required pinned packages
+# Install only required pinned packages (add exact versions from v1.3 if more needed)
 RUN apt-get update && apt-get install -y --no-install-recommends \
     git=1:2.39.2-1.1 \
     jq=1.6-2.1 \
@@ -28,7 +28,7 @@ RUN useradd -m -s /bin/bash auditor && \
 WORKDIR /forge
 USER auditor
 
-# Copy pipeline assets
+# Copy pipeline assets (keep .dockerignore clean to avoid sending unnecessary files)
 COPY --chown=auditor:auditor ./scripts/epi-reproduce.sh ./scripts/
 COPY --chown=auditor:auditor ./EVIDENCE_BINDING_LAYER_EPI_v1.0_NORMALIZED.md ./
 
