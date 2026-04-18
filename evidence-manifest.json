@@ -1,0 +1,145 @@
+{
+  "manifest_version": "1.0",
+  "schema": "https://quantumpiforge.com/ns/epi-v1.0",
+  "generated": "2026-04-18T01:35:13-06:00",
+  "generator": "Quantum Pi Forge EPI Tool (bash script)",
+  "repository_context": {
+    "primary_repo": "soul-feed",
+    "primary_commit_abbrev": "ff25a24",
+    "primary_full_sha": "ff25a247058b11a0f2a583306ec0396761e3d7d6",
+    "guardian_repo": "",
+    "guardian_commit_placeholder": "<guardian-repo-sha>"
+  },
+  "evidence_entries": [
+    {
+      "component": "Circuit Breaker (Durable Object)",
+      "reference_type": "commit-sha",
+      "commit_abbrev": "ff25a24",
+      "full_sha": "ff25a247058b11a0f2a583306ec0396761e3d7d6",
+      "file_path": "src/circuit-do/index.js",
+      "evidence_type": "Code",
+      "description": "Contains alarm() state transition logic and circuit state machine.",
+      "content_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": null
+    },
+    {
+      "component": "Circuit Breaker – failure threshold (3 failures)",
+      "reference_type": "commit-sha",
+      "commit_abbrev": "ff25a24",
+      "full_sha": "ff25a247058b11a0f2a583306ec0396761e3d7d6",
+      "file_path": "test/circuit-breaker.test.ts",
+      "evidence_type": "Code (test)",
+      "description": "Simulates 3 consecutive failures, asserts OPEN state transition.",
+      "content_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": null
+    },
+    {
+      "component": "Header Chain Light Client",
+      "reference_type": "commit-sha",
+      "commit_abbrev": "ff25a24",
+      "full_sha": "ff25a247058b11a0f2a583306ec0396761e3d7d6",
+      "file_path": "src/light-client/header-chain.ts",
+      "evidence_type": "Code",
+      "description": "Sequential header sync, parent hash validation, signature verification.",
+      "content_hash": "a56e790cfc26ed4c7d058e8e2ae5ca988433d68d577ddfea076f417bbf26ffc5",
+      "provenance": null
+    },
+    {
+      "component": "SVL WASM Kernel (MPT verification)",
+      "reference_type": "commit-sha",
+      "commit_abbrev": "ff25a24",
+      "full_sha": "ff25a247058b11a0f2a583306ec0396761e3d7d6",
+      "file_path": "src/svl-wasm/src/lib.rs",
+      "evidence_type": "Code (Rust)",
+      "description": "verify_state_root() implementation and Merkle Patricia Trie proof logic.",
+      "content_hash": "07314117722936714346f8a068f85e69f6774e04b5157125d2a53a91e4abf0d6",
+      "provenance": null
+    },
+    {
+      "component": "Spec‑Parity Test Vectors",
+      "reference_type": "commit-sha",
+      "commit_abbrev": "ff25a24",
+      "full_sha": "ff25a247058b11a0f2a583306ec0396761e3d7d6",
+      "file_path": "test/svl/fixtures/geth-trie",
+      "evidence_type": "Test fixtures",
+      "description": "Merkle Patricia Trie test vectors",
+      "content_hash": "74f3f5f97328da477b0369a5f804bf39e3d34bf107980ea9b47d0719d4fdefa1",
+      "provenance": "Adapted from upstream Ethereum test suite"
+    },
+    {
+      "component": "Truth Domain Separation Specification",
+      "reference_type": "commit-sha",
+      "commit_abbrev": "ff25a24",
+      "full_sha": "ff25a247058b11a0f2a583306ec0396761e3d7d6",
+      "file_path": "docs/TRUTH_DOMAIN_SEPARATION.md",
+      "evidence_type": "Documentation",
+      "description": "Formal definitions: Fact, Internal State, Design Intent boundaries.",
+      "content_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": null
+    },
+    {
+      "component": "EPI v1.0 Evidence Binding Specification",
+      "reference_type": "commit-sha",
+      "commit_abbrev": "ff25a24",
+      "full_sha": "ff25a247058b11a0f2a583306ec0396761e3d7d6",
+      "file_path": "docs/EPI_v1.0.md",
+      "evidence_type": "Documentation",
+      "description": "Describes cryptographic evidence binding structure and verification protocol.",
+      "content_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "provenance": null
+    },
+    {
+      "component": "Guardian Operator Loop",
+      "reference_type": "external-commit",
+      "commit_abbrev": "<guardian-repo-sha>",
+      "full_sha": "PENDING",
+      "file_path": "guardian/guardian_v2.sh",
+      "evidence_type": "Code (bash)",
+      "description": "Contains health check pipeline and action dispatch logic.",
+      "content_hash": "PENDING",
+      "provenance": "External guardian repository"
+    },
+    {
+      "component": "Smart Inference Router (tiered fallback)",
+      "reference_type": "external-commit",
+      "commit_abbrev": "<guardian-repo-sha>",
+      "full_sha": "PENDING",
+      "file_path": "guardian/smart_infer.sh",
+      "evidence_type": "Code (bash)",
+      "description": "External → local 3B priority routing, cooldown logic, load guard.",
+      "content_hash": "PENDING",
+      "provenance": "External guardian repository"
+    },
+    {
+      "component": "Rate‑Limit Detection Rule Set",
+      "reference_type": "external-commit",
+      "commit_abbrev": "<guardian-repo-sha>",
+      "full_sha": "PENDING",
+      "file_path": "guardian/rules.json",
+      "evidence_type": "Config",
+      "description": "JSON pattern matching for 429, rate limit headers, TPM thresholds.",
+      "content_hash": "PENDING",
+      "provenance": "External guardian repository"
+    },
+    {
+      "component": "Offline Dev Guardian – Installer",
+      "reference_type": "external-commit",
+      "commit_abbrev": "<guardian-repo-sha>",
+      "full_sha": "PENDING",
+      "file_path": "install-forge.sh",
+      "evidence_type": "Code (bash)",
+      "description": "One-command installer for Linux Mint / Debian systems.",
+      "content_hash": "PENDING",
+      "provenance": "External guardian repository"
+    }
+  ],
+  "normalization_status": {
+    "immutable_commit_bound_references": true,
+    "no_branch_ambiguous_pointers": true,
+    "explicit_file_annotations": true,
+    "provenance_annotations": true,
+    "full_sha_expansion": true,
+    "guardian_sha_resolution": false,
+    "content_hashes_added": true
+  }
+}
