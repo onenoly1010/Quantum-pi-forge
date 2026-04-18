@@ -7,6 +7,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 
 const rootDir = path.join(__dirname, '..');
 const outputDir = path.join(rootDir, 'out');
@@ -68,6 +69,28 @@ function copyFile(src, dest) {
  */
 function build() {
   console.log('Building static assets for Cloudflare Pages...\n');
+
+  // Capture build metadata
+  let commitHash = 'dev-local';
+  let buildTime = new Date().toISOString();
+  
+  try {
+    commitHash = execSync('git rev-parse HEAD', { encoding: 'utf8' }).trim();
+    buildTime = execSync('date -u +"%Y-%m-%dT%H:%M:%SZ"', { encoding: 'utf8' }).trim();
+  } catch (e) {
+    console.warn('⚠ Could not retrieve git commit hash, using dev-local');
+  }
+
+  // Write version manifest
+  const versionManifest = {
+    commit: commitHash,
+    build_time: buildTime,
+    system: "OINIO Quantum Pi Forge",
+    version: "1.0.0"
+  };
+
+  fs.writeFileSync(path.join(rootDir, 'public', 'version.json'), JSON.stringify(versionManifest, null, 2));
+  console.log(`✓ Generated version manifest for commit: ${commitHash.slice(0, 7)}`);
 
   // Clean and create output directory structure
   if (fs.existsSync(outputDir)) {
