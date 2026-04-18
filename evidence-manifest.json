@@ -1,7 +1,7 @@
 {
   "manifest_version": "1.0",
   "schema": "https://quantumpiforge.com/ns/epi-v1.0",
-  "generated": "2026-04-18T01:35:13-06:00",
+  "generated": "2026-04-18T01:48:54-06:00",
   "generator": "Quantum Pi Forge EPI Tool (bash script)",
   "repository_context": {
     "primary_repo": "soul-feed",
@@ -71,10 +71,10 @@
       "reference_type": "commit-sha",
       "commit_abbrev": "ff25a24",
       "full_sha": "ff25a247058b11a0f2a583306ec0396761e3d7d6",
-      "file_path": "docs/TRUTH_DOMAIN_SEPARATION.md",
+      "file_path": "TRUTH_DOMAIN_SEPARATION_LAYER_v1.0.md",
       "evidence_type": "Documentation",
       "description": "Formal definitions: Fact, Internal State, Design Intent boundaries.",
-      "content_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "content_hash": "de7531b9b12ac8b6c05f07599ef329cff36ce2a54c3847310b363ba649c920fa",
       "provenance": null
     },
     {
@@ -82,10 +82,10 @@
       "reference_type": "commit-sha",
       "commit_abbrev": "ff25a24",
       "full_sha": "ff25a247058b11a0f2a583306ec0396761e3d7d6",
-      "file_path": "docs/EPI_v1.0.md",
+      "file_path": "EVIDENCE_BINDING_LAYER_EPI_v1.0.md",
       "evidence_type": "Documentation",
       "description": "Describes cryptographic evidence binding structure and verification protocol.",
-      "content_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "content_hash": "05501285444dd0a321ce6b499fa637d8838b30fe91b4b50d71e69a2fcea12e6d",
       "provenance": null
     },
     {
