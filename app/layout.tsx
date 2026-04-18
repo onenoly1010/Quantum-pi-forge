@@ -38,13 +38,11 @@ export default async function RootLayout({
           {children}
         </main>
         <footer style={{
-          fontSize: "11px",
-          opacity: 0.45,
-          padding: "16px",
+          fontSize: "12px",
+          opacity: 0.6,
+          padding: "12px",
           textAlign: "center",
-          borderTop: "1px solid #18181b",
-          userSelect: "text",
-          fontFamily: "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace"
+          borderTop: "1px solid #222"
         }}>
           <div className="flex flex-col items-center gap-1">
             <div>OINIO Quantum Pi Forge</div>

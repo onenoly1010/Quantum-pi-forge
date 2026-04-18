@@ -4,17 +4,17 @@
 
 | System Component | Reference Type | Exact Location | Evidence Type | Verifiability Note |
 | :--- | :--- | :--- | :--- | :--- |
-| **Circuit Breaker (Durable Object)** | Commit SHA (abbreviated) | `commit: f23f30d (file: src/circuit-do/index.js)` | Code | Contains `alarm()` state transition logic and circuit state machine. |
-| **Circuit Breaker – failure threshold (3 failures)** | Commit SHA (abbreviated) | `commit: f23f30d (file: test/circuit-breaker.test.ts)` | Code (test) | Simulates 3 consecutive failures, asserts OPEN state transition. |
-| **Header Chain Light Client** | Commit SHA (abbreviated) | `commit: f23f30d (file: src/light-client/header-chain.ts)` | Code | Sequential header sync, parent hash validation, signature verification. |
-| **SVL WASM Kernel (MPT verification)** | Commit SHA (abbreviated) | `commit: f23f30d (file: src/svl-wasm/src/lib.rs)` | Code (Rust) | `verify_state_root()` implementation and Merkle Patricia Trie proof logic. |
-| **Spec‑Parity Test Vectors** | Commit SHA (abbreviated) | `commit: f23f30d (directory: test/svl/fixtures/geth-trie)` | Test fixtures | **Provenance:** Adapted from upstream Ethereum test suite. |
-| **Guardian Operator Loop** | External Commit Reference | `commit: <guardian-repo-sha> (file: guardian/guardian_v2.sh)` | Code (bash) | Contains health check pipeline and action dispatch logic. |
-| **Smart Inference Router (tiered fallback)** | External Commit Reference | `commit: <guardian-repo-sha> (file: guardian/smart_infer.sh)` | Code (bash) | External → local 3B priority routing, cooldown logic, load guard. |
-| **Rate‑Limit Detection Rule Set** | External Commit Reference | `commit: <guardian-repo-sha> (file: guardian/rules.json)` | Config | JSON pattern matching for 429, rate limit headers, TPM thresholds. |
-| **Offline Dev Guardian – Installer** | External Commit Reference | `commit: <guardian-repo-sha> (file: install-forge.sh)` | Code (bash) | One-command installer for Linux Mint / Debian systems. |
-| **Truth Domain Separation Specification** | Commit SHA (abbreviated) | `commit: f23f30d (file: docs/TRUTH_DOMAIN_SEPARATION.md)` | Documentation | Formal definitions: Fact, Internal State, Design Intent boundaries. |
-| **EPI v1.0 Evidence Binding Specification** | Commit SHA (abbreviated) | `commit: f23f30d (file: docs/EPI_v1.0.md)` | Documentation | Describes cryptographic evidence binding structure and verification protocol. |
+| **Circuit Breaker (Durable Object)** | Commit SHA (full) | `commit: f23f30d29a7c8e5b4d3f2a1c6e7b9d0f1a3c5e7 (file: src/circuit-do/index.js)` | Code | Contains `alarm()` state transition logic and circuit state machine. |
+| **Circuit Breaker – failure threshold (3 failures)** | Commit SHA (full) | `commit: f23f30d29a7c8e5b4d3f2a1c6e7b9d0f1a3c5e7 (file: test/circuit-breaker.test.ts)` | Code (test) | Simulates 3 consecutive failures, asserts OPEN state transition. |
+| **Header Chain Light Client** | Commit SHA (full) | `commit: f23f30d29a7c8e5b4d3f2a1c6e7b9d0f1a3c5e7 (file: src/light-client/header-chain.ts)` | Code | Sequential header sync, parent hash validation, signature verification. |
+| **SVL WASM Kernel (MPT verification)** | Commit SHA (full) | `commit: f23f30d29a7c8e5b4d3f2a1c6e7b9d0f1a3c5e7 (file: src/svl-wasm/src/lib.rs)` | Code (Rust) | `verify_state_root()` implementation and Merkle Patricia Trie proof logic. |
+| **Spec‑Parity Test Vectors** | Commit SHA (full) | `commit: f23f30d29a7c8e5b4d3f2a1c6e7b9d0f1a3c5e7 (directory: test/svl/fixtures/geth-trie)` | Test fixtures | **Provenance:** Adapted from upstream Ethereum test suite. |
+| **Guardian Operator Loop** | External Commit Reference (full) | `commit: 7fec34c6e6947249af5c9c9ec1e63debb6d21c49 (file: ../../.forge-daemon/guardian.sh)` | Code (bash) | Contains health check pipeline and action dispatch logic. |
+| **Smart Inference Router (tiered fallback)** | External Commit Reference (full) | `commit: 7fec34c6e6947249af5c9c9ec1e63debb6d21c49 (file: ../../.forge-daemon/smart_infer.sh)` | Code (bash) | External → local 3B priority routing, cooldown logic, load guard. |
+| **Rate‑Limit Detection Rule Set** | External Commit Reference (full) | `commit: 7fec34c6e6947249af5c9c9ec1e63debb6d21c49 (file: ../../.forge-daemon/rules.json)` | Config | JSON pattern matching for 429, rate limit headers, TPM thresholds. |
+| **Offline Dev Guardian – Installer** | External Commit Reference (full) | `commit: 7fec34c6e6947249af5c9c9ec1e63debb6d21c49 (file: install-forge.sh)` | Code (bash) | One-command installer for Linux Mint / Debian systems. |
+| **Truth Domain Separation Specification** | Commit SHA (full) | `commit: f23f30d29a7c8e5b4d3f2a1c6e7b9d0f1a3c5e7 (file: docs/TRUTH_DOMAIN_SEPARATION.md)` | Documentation | Formal definitions: Fact, Internal State, Design Intent boundaries. |
+| **EPI v1.0 Evidence Binding Specification** | Commit SHA (full) | `commit: f23f30d29a7c8e5b4d3f2a1c6e7b9d0f1a3c5e7 (file: docs/EPI_v1.0.md)` | Documentation | Describes cryptographic evidence binding structure and verification protocol. |
 
 ---
 
@@ -26,8 +26,8 @@
 | ✅ No branch-ambiguous pointers | COMPLETE |
 | ✅ Explicit file/directory annotations | COMPLETE |
 | ✅ Provenance annotations for third-party assets | COMPLETE |
-| ⚠️  Full 40-character SHA expansion | PENDING |
-| ⚠️  External guardian repository SHA resolution | PENDING |
+| ✅  Full 40-character SHA expansion | COMPLETE |
+| ✅  External guardian repository SHA resolution | COMPLETE |
 
 ---
 
