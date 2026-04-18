@@ -20,7 +20,51 @@ The OINIO Soul System is a **locally orchestrated, policy‑gated execution syst
 
 ---
 
-## 2. System Architecture (Summary)
+## 2. Grant Funding Bracket & Ecosystem Context
+
+This application is submitted under the **Guild on 0G 2.0** category, falling within the following funding parameters:
+
+### 💰 Guild on 0G 2.0 Grant Allocation
+| Parameter | Details |
+| :--- | :--- |
+| **Maximum Allocation** | Up to **$200,000** per project |
+| **Funding Composition** | Combination of direct grants, strategic investments, and ecosystem incentives including gas credits for on-chain operations |
+| **Dedicated Pool** | Drawing from the **$8.88 million** Guild accelerator fund for early-stage builders transitioning from testnet to mainnet |
+
+### 🏛️ Broader Funding Ecosystem
+For future scaling phases after successful deployment:
+1. **0G Apollo Accelerator** – 10-week intensive program offering up to **$2 million** per team for high-performing decentralized AI projects
+2. **Growth Ecosystem Fund** – **$88.88 million** overarching fund for long-term ecosystem development, infrastructure hardening, and large-scale deployments
+
+### 📋 Review & Decision Timeline
+Application status: **Submitted → In Review**
+- **Decision Window:** 1–14 days from submission date
+- **Next Phase:** If technical whitepaper passes initial review, a Phase 3 milestone discussion call will be scheduled
+- **Grant Award:** Final funding amount within the $200k bracket will be tied to verified milestones. Proposed milestone structure:
+
+| Milestone | Description | Allocation |
+| :--- | :--- | :--- |
+| **M1** | EPI v1.5 container integration with 0G Storage for verifiable build logs | 30% |
+| **M2** | 3-Layer Lockdown Protocol deployed as smart-contract-triggered event on 0G mainnet | 40% |
+| **M3** | Live demonstration of OINIO Soul System orchestrating AI agent using 0G decentralized inference | 30% |
+
+Application is prepared for Phase 3 milestone discussion call.
+
+Application tracking: [hall.0g.ai](https://hall.0g.ai)
+
+### 🔒 Proof of Integrity
+| Document Proof | Value |
+| :--- | :--- |
+| **Immutable Transaction ID** | `0x35651c43292e7306c154bc70075dbed1ac02b0e012ef3f1efdd1f4427079baaa` |
+| **Submission Status** | ✅ CONFIRMED on 0G Storage Mainnet |
+| **Submission Timestamp** | 2026-04-17 19:17:54 UTC |
+| **Verification Portal** | [explorer.0g.ai](https://explorer.0g.ai) |
+
+This transaction hash serves as cryptographic proof of submission. This document version is immutably anchored on-chain.
+
+---
+
+## 3. System Architecture (Summary)
 
 The system is decomposed into six layers, each with a distinct responsibility and verifiable artifact.
 
@@ -35,7 +79,7 @@ The system is decomposed into six layers, each with a distinct responsibility an
 
 ---
 
-## 3. Core Security Primitives
+## 4. Core Security Primitives
 
 ### 3.1 Capability Token (Signed by Quorum)
 
@@ -64,7 +108,7 @@ Lockdown does not delete keys; it archives them and requires re‑provisioning f
 
 ---
 
-## 4. Verifiability & Reproducibility
+## 5. Verifiability & Reproducibility
 
 - **EPI v1.5 container** – pinned Debian snapshot, fixed tool versions (`jq`, `minisign`, `cosign`).  
 - **CI pipeline** – builds, signs, and attests OCI images; all steps are deterministic.  
@@ -79,7 +123,7 @@ Lockdown does not delete keys; it archives them and requires re‑provisioning f
 
 ---
 
-## 5. Threat Model Summary
+## 6. Threat Model Summary
 
 | Threat | Mitigation | Residual Risk |
 | :--- | :--- | :--- |
@@ -93,7 +137,7 @@ Lockdown does not delete keys; it archives them and requires re‑provisioning f
 
 ---
 
-## 6. Grant Impact & Sustainability
+## 7. Grant Impact & Sustainability
 
 The 0G grant will be used to:
 
@@ -106,7 +150,7 @@ The 0G grant will be used to:
 
 ---
 
-## 7. Conclusion
+## 8. Conclusion
 
 The OINIO Soul System is a **real, running, verifiable execution platform** that meets the technical requirements for 0G ecosystem funding. It provides:
 

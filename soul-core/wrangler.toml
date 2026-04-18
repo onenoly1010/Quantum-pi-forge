@@ -5,7 +5,7 @@ compatibility_flags = ["nodejs_compat"]
 
 # KV binding - replace YOUR_KV_NAMESPACE_ID_HERE with actual ID
 kv_namespaces = [
-  { binding = "MEMORY", id = "YOUR_KV_NAMESPACE_ID_HERE" }
+  { binding = "MEMORY", id = "c2ee9447ec994c5d9ef09020c24ff887" }
 ]
 
 # Secrets (do NOT commit - set with: npx wrangler secret put OPENAI_API_KEY)
