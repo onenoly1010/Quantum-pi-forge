@@ -1,38 +1,28 @@
 {
-  "name": "quantum-pi-forge-ignited",
+  "name": "sovereign-resonance-agent",
   "version": "1.0.0",
-  "description": "Sovereign AI agent framework for decentralized identity and multi-chain staking",
-  "packageManager": "npm@10.9.2",
+  "description": "The Sovereign Resonance Agent of the Quantum Pi Forge",
+  "main": "workers/resonance-worker.js",
+  "type": "commonjs",
   "scripts": {
-    "dev": "next dev",
-    "build": "npm run build:static",
-    "build:static": "node scripts/build.js",
-    "build:next": "next build",
-    "build:cf": "npm run build:static",
-    "deploy:cf": "wrangler pages deploy out --project-name quantumpiforge",
-    "doctor:env": "python3 scripts/env_doctor.py",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "engines": {
-    "node": ">=18"
+    "start": "docker compose up --build",
+    "stop": "docker compose down",
+    "poller": "node workers/trigger-poller.js",
+    "worker": "node workers/resonance-worker.js",
+    "audit": "node tools/sovereign-audit.js",
+    "test-post": "node tools/test-x-post-v2.js",
+    "broadcast": "echo \"$1\" > .broadcast",
+    "status": "bullmq-dashboard --queue resonance-events"
   },
   "dependencies": {
-    "@tailwindcss/postcss": "^4.2.2",
-    "autoprefixer": "^10.5.0",
-    "dotenv": "^17.4.2",
+    "@octokit/rest": "^21.0.0",
+    "bullmq": "^5.7.15",
+    "dotenv": "^16.4.5",
     "ethers": "^6.16.0",
-    "next": "^16.2.3",
-    "node-fetch": "^3.3.2",
-    "postcss": "^8.5.9",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.5",
-    "tailwindcss": "^4.2.2"
+    "node-cron": "^3.0.3",
+    "ollama": "^0.5.2",
+    "twitter-api-v2": "^1.17.1"
   },
-  "devDependencies": {
-    "@types/node": "^25.6.0",
-    "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0",
-    "typescript": "^6.0.2"
-  }
+  "author": "Quantum Pi Forge",
+  "license": "MIT"
 }
