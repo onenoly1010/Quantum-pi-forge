@@ -1,68 +1,60 @@
-# 🛠️ Offline Dev Guardian
+# Offline Dev Guardian
 
-**A local AI coding stack that installs cleanly and keeps working.**
+> A local AI coding stack that installs cleanly and keeps working.
 
 No API keys. No monthly bills. No cloud dependency.
 
 ---
 
-## The Problem Most Local Setups Have
+## The Problem
 
 You finally escape cloud API costs… only to spend hours fixing broken configs, missing models, or drifting tools.
 
-Most “local AI” guides stop at “run this one command.” Then reality hits on day 3.
+Most "local AI" guides stop at "run this one command." Then reality hits on day 3.
+
+## What You Get
+
+✅ **One-command installer** that adapts to your hardware
+✅ Pre-tuned, safe configs for Ollama + Aider + Continue
+✅ **Guardian**: lightweight background checks every 30 minutes that tell you exactly what's healthy
+✅ Simple update command so things stay fresh
+✅ Clear, human-readable logs
+
+**Install once → focus on coding, not maintenance.**
 
 ---
 
-## What Offline Dev Guardian Gives You
+## What's Included
 
-- One-command installer that adapts to your hardware
-- Pre-tuned, safe configs for Ollama + Aider + Continue
-- **Guardian**: lightweight background checks every 30 minutes that tell you exactly what’s healthy
-- Simple update command so things stay fresh
-- Clear, human-readable logs
-
-Install once → focus on coding, not maintenance.
-
----
-
-## What’s Included
-
-- `install-forge.sh` — detects RAM, sets up everything safely
-- Aider in isolated venv (no pip conflicts)
-- Continue.dev config (won’t overwrite your existing one)
-- Guardian health checks (Ollama, models, configs, disk space)
-- Aliases: `aider`, `forge-status`, `forge-update`
-- Update script + basic troubleshooting
+| Component | Description |
+|-----------|-------------|
+| `install-forge.sh` | Hardware detecting, safe installer |
+| Aider | Isolated venv - no pip conflicts |
+| Continue.dev | VS Code integration config |
+| Guardian | Health monitoring system |
+| Aliases | `aider`, `forge-status`, `forge-update` |
+| Update script | Keep everything working over time |
 
 ---
 
-## What This Is (and Isn’t)
+## This Is (and Isn't)
 
-**This is:**
+✅ **This is:**
 - A reliable way to run local AI coding without subscriptions
 - A setup that stays usable over time
 - Great for Linux Mint / Ubuntu users
 
-**This is not:**
+❌ **This is NOT:**
 - Fully autonomous code-writing magic
 - A replacement for 70B+ cloud models on weak hardware
-- “Zero effort forever” (you still need basic terminal comfort)
-
----
-
-## Requirements
-
-- Linux Mint or Ubuntu
-- 12GB+ RAM recommended (16GB+ ideal for 14B models)
-- ~10GB free disk space
-- Basic comfort with the terminal
+- "Zero effort forever" (you still need basic terminal comfort)
 
 ---
 
 ## Quick Start
 
 ```bash
+git clone https://github.com/onenoly1010/Quantum-pi-forge ~/offline-dev-guardian
 cd ~/offline-dev-guardian
 ./install-forge.sh
 ```
@@ -73,11 +65,13 @@ aider
 forge-status
 ```
 
-See QUICKSTART.md for full details.
+See [QUICKSTART.md](QUICKSTART.md) for full details.
 
 ---
 
-### Example Guardian Log
+## Guardian Health Check
+
+Runs automatically every 30 minutes:
 
 ```
 [2026-04-15 23:15:00] ----- Guardian Health Check Start -----
@@ -92,27 +86,27 @@ See QUICKSTART.md for full details.
 
 ## Why Go Local?
 
-✅ Your code and prompts never leave your machine
+✅ Your code and prompts **never leave your machine**
 ✅ No rate limits or surprise bills
-✅ Works offline
+✅ Works completely offline
 ✅ Full control over your tools
 
 ---
 
-## Pricing Tiers (for Gumroad)
+## Pricing
 
-**$29** — Core kit (installer + configs + Guardian)
-**$49** — Everything + 5 practical workflows + lifetime minor updates
+| Tier | Price | What's Included |
+|------|-------|-----------------|
+| Core | $29 | Installer + Configs + Guardian |
+| Pro | $49 | Everything + 5 practical workflows + lifetime minor updates |
+
+👉 **Get Offline Dev Guardian**: https://gumroad.com/l/offline-dev-guardian
 
 ---
 
-Ready to replace your API bills with a self-checking local stack?
+## Reproducible Environment
 
-👉 Get Offline Dev Guardian → (your-gumroad-link)
-
-## Reproducing the EPI Environment (Hermetic v1.5)
-
-Every build now runs inside a pinned container that enforces the v1.4 contract.
+Every build runs inside a pinned container that enforces the v1.5 contract:
 
 ```bash
 # Build & run locally
@@ -124,4 +118,11 @@ CI automatically verifies on every push/PR.
 
 ---
 
-Questions? Open an issue on the repo or check the logs first.
+## Support
+
+Questions? Open an issue on the repo or check the logs first at `~/.offline-dev-guardian/logs/guardian.log`
+
+---
+
+**Quantum Pi Forge**
+*Self-sovereign developer tools.*

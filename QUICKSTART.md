@@ -1,78 +1,163 @@
-# ⚡ Offline Dev Guardian — Quick Start
+# Offline Dev Guardian - Quick Start
 
-Get a fully local AI coding setup (Ollama + Aider + Continue) running in under 30 minutes — with automatic health checks.
+One command local AI coding stack that stays working. No API keys. No monthly bills. No cloud dependency.
 
 ---
 
-## 1. Run the Installer
+## 🚀 Quick Install
 
 ```bash
+git clone https://github.com/onenoly1010/Quantum-pi-forge ~/offline-dev-guardian
 cd ~/offline-dev-guardian
 ./install-forge.sh
 ```
 
-The script will:
-- Install Ollama
-- Pull the right model (7B or 14B based on your RAM)
-- Set up Aider in a clean venv
-- Configure Continue for VS Code
-- Install the Guardian health checks
+Installer will:
+✅ Detect your RAM and select optimal model
+✅ Install Ollama if missing
+✅ Setup Aider in isolated venv (no pip conflicts)
+✅ Install Guardian background health checks
+✅ Add command aliases to your shell
 
-Note: Model download can take 5–20 minutes depending on your connection.
+---
 
-## 2. Restart your terminal
+## ✅ After Install
 
-This loads the helpful aliases (aider, forge-status, etc.).
+Restart your terminal then run:
 
-## 3. Test It
+| Command | What it does |
+|---------|--------------|
+| `aider` | Start coding with local AI |
+| `forge-status` | Check full system health |
+| `forge-update` | Update all components |
 
-Option A — Terminal (fastest):
-```bash
-aider
-```
+---
 
-Option B — VS Code:
-- Install the Continue extension
-- Restart VS Code
-- Open the Continue sidebar and start chatting
+## 🛡️ Guardian Health Checks
 
-## 4. Verify the System
+Guardian automatically runs every 30 minutes and checks:
+- Ollama service status
+- Coding model availability
+- Aider configuration integrity
+- Free disk space
+- System resource status
 
+### View latest status:
 ```bash
 forge-status
 ```
 
-You should see clean output like:
+### Example healthy output:
 ```
-✔ Ollama is running
-✔ qwen2.5-coder model available
-✔ Aider config present
-✔ Disk space OK
+[2026-04-15 23:15:00] ----- Guardian Health Check Start -----
+[2026-04-15 23:15:00] ✔ Ollama is running
+[2026-04-15 23:15:00] ✔ qwen2.5-coder:7b model available
+[2026-04-15 23:15:00] ✔ Aider config present
+[2026-04-15 23:15:00] ✔ Disk space OK (18234MB free)
+[2026-04-15 23:15:00] ----- Guardian Health Check Complete -----
 ```
 
 ---
 
-### Daily Commands
+## 💻 First Time Using Aider
+
+1. Go to your project directory
+2. Run `aider`
+3. Aider will automatically detect git repos
+4. Start asking for code changes:
+```
+> add user authentication to this flask app
+> refactor the payment processing function
+> write tests for the api routes
+```
+
+---
+
+## 🔧 Continue.dev VS Code Setup
+
+Add this to your Continue `config.json` to use your local model:
+
+```json
+{
+  "models": [
+    {
+      "title": "Local Qwen Coder",
+      "provider": "ollama",
+      "model": "qwen2.5-coder:7b",
+      "apiBase": "http://localhost:11434"
+    }
+  ],
+  "tabAutocompleteModel": {
+    "title": "Local Autocomplete",
+    "provider": "ollama",
+    "model": "qwen2.5-coder:3b"
+  }
+}
+```
+
+---
+
+## 📋 System Requirements
+
+| RAM | Recommended Model | Performance |
+|-----|-------------------|-------------|
+| 32GB+ | qwen2.5-coder:14b | Excellent ✨ |
+| 16GB+ | qwen2.5-coder:7b | Very Good ✓ |
+| 12GB+ | qwen2.5-coder:7b-q4_K_M | Good ⚡ |
+| <12GB | qwen2.5-coder:3b | Basic |
+
+Supported: Linux Mint, Ubuntu 22.04+, Debian
+Required: ~10GB free disk space
+
+---
+
+## 🔄 Updates
 
 ```bash
-aider                  # Start AI coding session
-forge-status           # Check system health
-forge-update           # Refresh models & Aider
+forge-update
+```
+
+Updates:
+- Aider to latest version
+- Ollama coding model
+- Guardian scripts
+- Configurations
+
+---
+
+## 📝 Logs
+
+All Guardian logs are stored at:
+```
+~/.offline-dev-guardian/logs/guardian.log
 ```
 
 ---
 
-### If Something Goes Wrong
+## ❓ Troubleshooting
 
-```bash
-cat ~/offline-dev-guardian/logs/guardian.log
-```
-
-Common fixes:
-- Low RAM → use the 7B model (already handled by installer)
-- Ollama not running → restart your machine or run `ollama serve`
-- Model missing → `ollama pull qwen2.5-coder:14b`
+| Issue | Fix |
+|-------|-----|
+| Ollama not running | `systemctl --user start ollama` |
+| Model missing | `forge-update` |
+| Aider not found | Restart your terminal |
+| Slow responses | Check you have enough free RAM |
 
 ---
 
-You now have a private, zero-recurring-cost AI dev environment that checks itself every 30 minutes.
+## ✨ Why Local?
+
+✅ **Your code never leaves your machine**
+✅ No rate limits or surprise bills
+✅ Works completely offline
+✅ Full control over your tools
+✅ No API keys required
+
+---
+
+## Pricing Tiers
+
+- **Core Kit ($29):** Installer + Configs + Guardian
+- **Pro ($49):** Everything + 5 practical workflows + lifetime minor updates
+
+Get it at: https://gumroad.com/l/offline-dev-guardian
