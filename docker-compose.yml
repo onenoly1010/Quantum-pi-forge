@@ -1,59 +1,53 @@
-version: '3.8'
+version: '3.9'
+name: sovereign-resonance-agent
 
 services:
-  # OpenTelemetry Collector
-  otel-collector:
-    image: otel/opentelemetry-collector-contrib:latest
-    command: ["--config=/etc/otel-collector-config.yaml"]
-    volumes:
-      - ./otel-collector-config.yaml:/etc/otel-collector-config.yaml
+  redis:
+    image: redis:7-alpine
+    container_name: oinio-redis
     ports:
-      - "4318:4318"   # OTLP HTTP receiver
-      - "4317:4317"   # OTLP gRPC receiver
-      - "8889:8889"   # Prometheus metrics exporter
-    environment:
-      - OTEL_RESOURCE_ATTRIBUTES=service.name=pi-forge-quantum-genesis
-
-  # Prometheus
-  prometheus:
-    image: prom/prometheus:latest
+      - "127.0.0.1:6379:6379"
     volumes:
-      - ./prometheus.yml:/etc/prometheus/prometheus.yml
-      - prometheus-data:/prometheus
-    ports:
-      - "9090:9090"
-    command:
-      - '--config.file=/etc/prometheus/prometheus.yml'
-      - '--storage.tsdb.path=/prometheus'
+      - redis-data:/data
+    command: redis-server --appendonly yes
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
 
-  # Grafana
-  grafana:
-    image: grafana/grafana:latest
-    ports:
-      - "3000:3000"
-    environment:
-      - GF_SECURITY_ADMIN_PASSWORD=admin
-      - GF_USERS_ALLOW_SIGN_UP=false
-    volumes:
-      - grafana-data:/var/lib/grafana
-    depends_on:
-      - prometheus
-
-  # Application (for local dev)
-  app:
+  resonance-worker:
     build: .
-    ports:
-      - "8000:8000"
+    container_name: oinio-resonance-worker
+    depends_on:
+      redis:
+        condition: service_healthy
     env_file:
       - .env
-    environment:
-      - ENABLE_TELEMETRY=true
-      - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4318
-    depends_on:
-      - otel-collector
     volumes:
-      - .:/app
+      - ./:/app
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    command: node workers/resonance-worker.js
+    restart: unless-stopped
+
+  # Optional: Embedded Ollama (uncomment to run fully contained)
+  # ollama:
+  #   image: ollama/ollama:latest
+  #   container_name: oinio-ollama
+  #   ports:
+  #     - "127.0.0.1:11434:11434"
+  #   volumes:
+  #     - ollama-data:/root/.ollama
+  #   restart: unless-stopped
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #           - driver: nvidia
+  #             count: all
+  #             capabilities: [gpu]
 
 volumes:
-  prometheus-data:
-  grafana-data:
+  redis-data:
+  # ollama-data:
