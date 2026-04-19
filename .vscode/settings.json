@@ -28,7 +28,7 @@
     "liveServer.settings.CustomBrowser": "chrome",
     "editor.fontSize": 14,
     "editor.fontLigatures": true,
-    "editor.minimap.enabled": true,
+    "editor.minimap.enabled": false,
     "editor.wordWrap": "on",
     "editor.rulers": [88, 120],
     "workbench.colorTheme": "Dark+ (default dark)",
