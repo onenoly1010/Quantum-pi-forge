@@ -1,0 +1,14 @@
+[Unit]
+Description=Offline Dev Guardian
+After=network.target ollama.service
+
+[Service]
+Type=simple
+User=yourusername
+WorkingDirectory=/home/yourusername/offline-dev-guardian
+ExecStart=/home/yourusername/offline-dev-guardian/venv/bin/python /home/yourusername/offline-dev-guardian/guardian_v2.1.py
+Restart=on-failure
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target

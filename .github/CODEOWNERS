@@ -49,8 +49,8 @@ package.json @onenoly1010
 package-lock.json @onenoly1010
 
 # Canon configuration (requires special review)
-/canon/ @onenoly1010
-canon-*.json @onenoly1010
+/canon/ @onenoly1010 @org/canon-stewards @org/canon-curators
+canon-*.json @onenoly1010 @org/canon-stewards
 
 # Rollback and emergency procedures
 /rollback/ @onenoly1010
