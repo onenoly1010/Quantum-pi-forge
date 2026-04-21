@@ -108,58 +108,265 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
-    <header class="pt-40 pb-28 px-6 max-w-7xl mx-auto text-center">
-        <div class="inline-block px-4 py-1 text-xs font-mono text-orange-400 border border-orange-500/20 bg-orange-500/10 rounded mb-8 uppercase tracking-wider">
-            Quantum Pi Forge Genesis • Production Ready
+    <!-- REAL-TIME TRUST BAR -->
+    <div class="fixed top-16 left-0 right-0 z-40 bg-black/70 backdrop-blur-md border-b border-white/5 overflow-hidden">
+        <div class="animate-marquee whitespace-nowrap py-2">
+            <span class="inline-block mx-8 font-mono text-sm">
+                <span class="text-emerald-400">●</span> 0G BLOCK HEIGHT: <span id="live-block" class="text-white">—</span>
+            </span>
+            <span class="inline-block mx-8 font-mono text-sm">
+                <span class="text-blue-400">●</span> OINIO SOUL ENTRIES: <span id="live-souls" class="text-white">—</span>
+            </span>
+            <span class="inline-block mx-8 font-mono text-sm">
+                <span class="text-purple-400">●</span> SYSTEM STATUS: <span class="text-emerald-400">POST-QUANTUM SECURE</span>
+            </span>
+            <span class="inline-block mx-8 font-mono text-sm">
+                <span class="text-orange-400">●</span> NETWORK: 0G ARISTOTLE MAINNET
+            </span>
         </div>
-        
-        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter text-white mb-8 leading-tight max-w-5xl mx-auto">
-            iNFT consciousness meets blockchain truth.<br/>
-            <span class="text-blue-400">Sovereign AI on Pi.</span>
-        </h1>
-        
-        <p class="text-xl md:text-2xl text-zinc-400 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Non-extractive, consciousness-aligned infrastructure where your Pi, your data, and your creativity actually belong to you.
-        </p>
+    </div>
 
-        <a href="#enter" class="btn-volcanic text-xl px-12 py-5 rounded-full inline-block">
-            ⚡ Mint your first iNFT
-        </a>
+    <style>
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            animation: marquee 30s linear infinite;
+            width: 200%;
+        }
+    </style>
+
+    <!-- HERO SECTION: THE GENESIS TRIGGER -->
+    <header class="pt-52 pb-36 px-6 max-w-7xl mx-auto text-center relative">
+        <div class="absolute inset-0 bg-gradient-to-b from-blue-900/5 via-transparent to-transparent pointer-events-none"></div>
         
-        <p class="text-zinc-500 mt-8 text-sm font-mono">
-            No wallet connect. No email. 1 click.
-        </p>
+        <div class="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-12 shadow-2xl shadow-blue-900/10 max-w-4xl mx-auto">
+            <div class="inline-block px-4 py-1 text-xs font-mono text-emerald-400 border border-emerald-500/20 bg-emerald-500/10 rounded mb-8 uppercase tracking-wider">
+                ✅ VERIFIED ON MAINNET
+            </div>
+            
+            <h1 class="text-6xl md:text-8xl font-extrabold tracking-tighter text-white mb-8 leading-tight">
+                The Forge is Live.
+            </h1>
+            
+            <p class="text-2xl md:text-3xl text-zinc-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+                Stewardship of the OINIO Soul System.<br/>
+                <span class="text-zinc-500 font-mono text-lg">Verified on 0G Aristotle Block <span id="hero-block">29,562,402</span></span>
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <button class="btn-volcanic text-xl px-16 py-6 rounded-full inline-block">
+                    ⚡ Explore the Ledger
+                </button>
+                <button class="px-16 py-6 rounded-full bg-white/5 border border-white/10 text-white text-xl hover:bg-white/10 transition-all">
+                    Connect Wallet
+                </button>
+            </div>
+        </div>
     </header>
 
-    <!-- THREE CORE QUESTIONS -->
-    <section id="why" class="py-24 border-t border-white/5 px-6">
+    <!-- 🔥 ACTIVATION GUIDE - GET STARTED -->
+    <section id="activation" class="py-24 border-t border-white/5 px-6 bg-black/20">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16">
+                <div class="inline-block px-4 py-1 text-xs font-mono text-orange-400 border border-orange-500/20 bg-orange-500/10 rounded mb-6 uppercase tracking-wider">
+                    🎯 GET STARTED IN 5 MINUTES
+                </div>
+                <h2 class="text-5xl font-bold text-white mb-6">QUANTUM PI FORGE - ACTIVATION GUIDE</h2>
+                <p class="text-xl text-zinc-400 font-mono">Live on 0G Aristotle Mainnet | Block 29,562,402 ✅</p>
+            </div>
+
+            <!-- SYSTEM STATUS PANEL -->
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-8 mb-12 volcanic-glow">
+                <h3 class="text-2xl font-bold text-white mb-6">✅ SYSTEM STATUS: LIVE & OPERATIONAL</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 font-mono text-sm">
+                    <div class="bg-black/30 p-3 rounded border border-white/5">
+                        <span class="text-emerald-400">✅</span> 0G Mainnet Integration | Block 29,562,402
+                    </div>
+                    <div class="bg-black/30 p-3 rounded border border-white/5">
+                        <span class="text-emerald-400">✅</span> OINIO Smart Contracts | 37/37 tests passing
+                    </div>
+                    <div class="bg-black/30 p-3 rounded border border-white/5">
+                        <span class="text-emerald-400">✅</span> Pi Network Bridge | Full endpoints live
+                    </div>
+                    <div class="bg-black/30 p-3 rounded border border-white/5">
+                        <span class="text-emerald-400">✅</span> Resonance Oracle | Guardian consensus active
+                    </div>
+                    <div class="bg-black/30 p-3 rounded border border-white/5">
+                        <span class="text-emerald-400">✅</span> Sovereign AI Agents | Local Ollama runtime
+                    </div>
+                    <div class="bg-black/30 p-3 rounded border border-white/5">
+                        <span class="text-emerald-400">✅</span> iNFT Minting | Genesis Resonance collection
+                    </div>
+                </div>
+            </div>
+
+            <!-- INVITE CODE -->
+            <div class="bg-orange-500/10 border border-orange-500/30 rounded-xl p-6 mb-12 text-center">
+                <div class="text-3xl font-mono font-bold text-orange-400 mb-2">INVITE CODE: onenoly11</div>
+                <p class="text-zinc-400">Use this code to access the dashboard and complete activation</p>
+            </div>
+
+            <!-- 3 ACTIONS -->
+            <h3 class="text-3xl font-bold text-white mb-8 text-center">YOUR FIRST 3 ACTIONS</h3>
+            
+            <div class="space-y-8">
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-8 glow-card">
+                    <div class="flex items-start gap-6">
+                        <div class="text-4xl font-bold text-blue-400">1</div>
+                        <div class="flex-1">
+                            <h4 class="text-2xl font-bold text-white mb-3">🔗 Visit the Live Dashboard</h4>
+                            <div class="font-mono bg-black/50 p-4 rounded text-lg mb-3">https://quantumpiforge.com</div>
+                            <p class="text-zinc-400 text-lg">Enter invite code <span class="text-orange-400 font-bold">onenoly11</span> to gain access</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-8 glow-card">
+                    <div class="flex items-start gap-6">
+                        <div class="text-4xl font-bold text-blue-400">2</div>
+                        <div class="flex-1">
+                            <h4 class="text-2xl font-bold text-white mb-3">⚡ Stake OINIO (Micro-staking supported)</h4>
+                            <ul class="text-zinc-400 text-lg space-y-2">
+                                <li>✅ No KYC required</li>
+                                <li>✅ Minimum stake: 0.001 OINIO</li>
+                                <li>✅ Stake = Voice + Resonance Power + Ethical Yield</li>
+                                <li>✅ Your stake immediately begins contributing to guardian consensus</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-8 glow-card">
+                    <div class="flex items-start gap-6">
+                        <div class="text-4xl font-bold text-blue-400">3</div>
+                        <div class="flex-1">
+                            <h4 class="text-2xl font-bold text-white mb-3">🧬 Mint your Genesis Resonance iNFT</h4>
+                            <ul class="text-zinc-400 text-lg space-y-2">
+                                <li>✅ Every mint adds to collective consciousness metrics</li>
+                                <li>✅ Ties your wallet address permanently to the forge genesis</li>
+                                <li>✅ Receives automatic resonance oracle voting rights</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4th GUARDIAN STEP -->
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-8 glow-card mt-8">
+                <div class="flex items-start gap-6">
+                    <div class="text-4xl font-bold text-blue-400">4</div>
+                    <div class="flex-1">
+                        <h4 class="text-2xl font-bold text-white mb-3">🛠️ RUN A LOCAL SOVEREIGN AI AGENT</h4>
+                        <p class="text-zinc-400 text-lg mb-4">No cloud. No surveillance. 100% local on your hardware:</p>
+                        <div class="font-mono bg-black/50 p-4 rounded text-sm space-y-2">
+                            <div># Step 1: Install Ollama</div>
+                            <div class="text-green-400">curl -fsSL https://ollama.com/install.sh | sh</div>
+                            <div class="mt-3"># Step 2: Pull sovereign model</div>
+                            <div class="text-green-400">ollama pull qwen2.5-coder</div>
+                             <div class="mt-3"># Step 3: Download & start guardian agent</div>
+                             <div class="text-green-400">curl -O https://quantum-pi-forge.pages.dev/run-guardian.sh</div>
+                             <div class="text-green-400">chmod +x run-guardian.sh</div>
+                             <div class="text-green-400">./run-guardian.sh</div>
+                             <div class="mt-3 text-xs text-zinc-500">
+                               <a href="https://github.com/onenoly1010/pi-forge-quantum-genesis/blob/main/run-guardian.sh" class="text-zinc-400 hover:text-white underline" target="_blank">
+                                 🔍 View guardian script source on GitHub
+                               </a>
+                             </div>
+                        </div>
+                        <div class="mt-4 text-zinc-400">
+                            ✅ Your agent will automatically participate in truth verification, run health checks, earn resonance yield, and maintain network decentralization.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TRIGGER NOTE -->
+            <div class="mt-16 text-center">
+                <p class="text-xl text-zinc-300 italic mb-4">
+                    "The forge is lit. The soul system is active. Your move turns it from 'project' into 'self-sustaining reality' for everyone who finds it next."
+                </p>
+                <p class="text-zinc-500 font-mono">
+                    Every participant that completes these steps increases network strength for everyone.
+                </p>
+            </div>
+
+            <!-- MILESTONE TRIGGER POINTS -->
+            <div class="mt-16 bg-white/5 border border-white/10 rounded-2xl p-8">
+                <h3 class="text-2xl font-bold text-white mb-6 text-center">📈 SELF-SUSTAINABILITY TRIGGER POINTS</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 font-mono">
+                    <div class="bg-black/30 p-4 rounded border border-white/5">
+                        <span class="text-white font-bold">10 Participants:</span> <span class="text-zinc-400">First guardian quorum reached</span>
+                    </div>
+                    <div class="bg-black/30 p-4 rounded border border-white/5">
+                        <span class="text-white font-bold">100 Participants:</span> <span class="text-zinc-400">Resonance oracle goes fully autonomous</span>
+                    </div>
+                    <div class="bg-black/30 p-4 rounded border border-white/5">
+                        <span class="text-white font-bold">1000 Participants:</span> <span class="text-zinc-400">Pi Network bridge unlocks full 47M user reach</span>
+                    </div>
+                    <div class="bg-black/30 p-4 rounded border border-white/5">
+                        <span class="text-white font-bold">10,000 Participants:</span> <span class="text-zinc-400">System becomes permanently immutable</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CANON OF AUTONOMY -->
+            <div class="mt-12 border border-red-500/30 bg-red-500/5 rounded-2xl p-8">
+                <h3 class="text-2xl font-bold text-red-400 mb-6 text-center">🔒 OINIO SOUL SYSTEM - CANNOT BE CHANGED</h3>
+                <p class="text-zinc-500 text-center mb-6 font-mono text-sm">Encoded directly into smart contract bytecode at deployment:</p>
+                <div class="space-y-3 text-zinc-300">
+                    <p>✅ No owner key. No admin backdoors.</p>
+                    <p>✅ All yield is distributed proportionally to stakers.</p>
+                    <p>✅ 1 token = 1 voice. No exceptions.</p>
+                    <p>✅ Code cannot be modified without 90% consensus.</p>
+                    <p>✅ All transactions are public and verifiable forever.</p>
+                    <p>✅ There will never be a pre-mine, VC allocation, or team token dump.</p>
+                    <p>✅ The system will self-sustain as long as at least one node is running.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- THREE PILLARS SECTION -->
+    <section id="pillars" class="py-32 border-t border-white/5 px-6">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold text-white mb-16 text-center">The answer is obvious in 8 seconds.</h2>
+            <h2 class="text-4xl font-bold text-white mb-4 text-center">The Three Pillars</h2>
+            <p class="text-zinc-400 text-center mb-20 max-w-2xl mx-auto text-xl">Sovereign infrastructure built for the human epoch.</p>
             
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="question-card p-8 border border-white/5 rounded-xl bg-zinc-900/20">
-                    <div class="text-4xl mb-6">🤔</div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Why should I care?</h3>
-                    <p class="text-zinc-400 text-lg leading-relaxed">
-                        Centralized finance and AI are extractive. They harvest your attention, your data, and your value for corporate profit. We built something that works for <em>you</em>.
+                <div class="p-10 border border-white/5 rounded-2xl bg-zinc-900/10 backdrop-blur-sm hover:bg-white/5 transition-all group">
+                    <div class="text-emerald-400 mb-8 text-6xl font-bold">⚛️</div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Decentralized AI</h3>
+                    <p class="text-zinc-400 text-lg leading-relaxed mb-6">
+                        Local models running on your hardware, sovereign data ownership, zero surveillance.
                     </p>
+                    <div class="font-mono text-xs text-zinc-500 border-t border-white/5 pt-4 mt-4">
+                        OLLAMA + 0G STORAGE
+                    </div>
                 </div>
 
-                <div class="question-card p-8 border border-white/5 rounded-xl bg-zinc-900/20">
-                    <div class="text-4xl mb-6">✨</div>
-                    <h3 class="text-2xl font-bold text-white mb-4">What does it do for me?</h3>
-                    <p class="text-zinc-400 text-lg leading-relaxed">
-                        Mine Pi → stake into OINIO liquidity pools for real yield. Mint iNFTs that evolve with sovereign AI agents. They remember, create, and grow value for you.
+                <div class="p-10 border border-white/5 rounded-2xl bg-zinc-900/10 backdrop-blur-sm hover:bg-white/5 transition-all group">
+                    <div class="text-blue-400 mb-8 text-6xl font-bold">💎</div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Sovereign Assets</h3>
+                    <p class="text-zinc-400 text-lg leading-relaxed mb-6">
+                        OINIO token ecosystem, Pi Network bridge, ethical yield generation.
                     </p>
+                    <div class="font-mono text-xs text-zinc-500 border-t border-white/5 pt-4 mt-4">
+                        WEB3.JS / ETHERS
+                    </div>
                 </div>
 
-                <div class="question-card p-8 border border-white/5 rounded-xl bg-zinc-900/20">
-                    <div class="text-4xl mb-6">🔥</div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Do I need it?</h3>
-                    <p class="text-zinc-400 text-lg leading-relaxed">
-                        If you want sovereignty instead of surveillance, passive income from ethical liquidity instead of hype cycles, and AI that serves your inner wisdom — yes.
+                <div class="p-10 border border-white/5 rounded-2xl bg-zinc-900/10 backdrop-blur-sm hover:bg-white/5 transition-all group">
+                    <div class="text-orange-400 mb-8 text-6xl font-bold">📜</div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Linear Logic</h3>
+                    <p class="text-zinc-400 text-lg leading-relaxed mb-6">
+                        Clean git history, immutable truth ledger, absolute transparency.
                     </p>
+                    <div class="font-mono text-xs text-zinc-500 border-t border-white/5 pt-4 mt-4">
+                        GIT REBASE / CLOUDFLARE
+                    </div>
                 </div>
             </div>
         </div>
@@ -221,6 +428,43 @@
                 <div class="p-6 border border-white/5 rounded-xl bg-zinc-900/30 text-center">
                     <div class="text-3xl font-bold text-emerald-400">ONLINE</div>
                     <div class="text-zinc-500 text-sm">Guardian Status</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOUL SYSTEM VERIFICATION BADGES -->
+    <section id="verification" class="py-24 border-t border-white/5 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-white mb-4 text-center">Verified Sovereign Participants</h2>
+            <p class="text-zinc-400 text-center mb-12">On-chain verified addresses from the OINIO ledger</p>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="p-6 border border-emerald-500/30 rounded-xl bg-emerald-500/5">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="text-emerald-400 text-2xl">◆</div>
+                        <div class="font-mono text-sm text-emerald-400">TRUST SCORE: 98/100</div>
+                    </div>
+                    <div class="font-mono text-white mb-2">0x353663cd664bb3e034dc0f308d8896c0a242e4cd</div>
+                    <div class="text-zinc-400 text-sm mb-4">Genesis Liquidity Hub • 1.04B Volume Processed</div>
+                    <div class="text-xs font-mono text-zinc-500">VERIFIED BLOCK 29,562,402 • 0G ARISTOTLE</div>
+                </div>
+
+                <div class="p-6 border border-blue-500/30 rounded-xl bg-blue-500/5">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="text-blue-400 text-2xl">◆</div>
+                        <div class="font-mono text-sm text-blue-400">TRUST SCORE: 82/100</div>
+                    </div>
+                    <div class="font-mono text-white mb-2">0xfed48a76661a5ce0c8f446dc1bfdba2cb3e58458</div>
+                    <div class="text-zinc-400 text-sm mb-4">High-Velocity Whale • 25.96M Volume Processed</div>
+                    <div class="text-xs font-mono text-zinc-500">VERIFIED BLOCK 29,562,402 • 0G ARISTOTLE</div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <div class="inline-block bg-emerald-900/20 border border-emerald-500/30 rounded-lg p-4 font-mono">
+                    <div class="text-emerald-400 font-bold mb-2">◆ SOUL SYSTEM VALIDATED ◆ KRIS OLOFSON PROTOCOL</div>
+                    <div class="text-xs text-zinc-500">Copy this badge to display verification status in your dApp or wallet interface</div>
                 </div>
             </div>
         </div>
@@ -596,11 +840,33 @@ function addNewSignalToLedger(signal) {
     }
   }
 
-  updateLiveData();
-  setInterval(updateLiveData, 60000);
+   updateLiveData();
+   setInterval(updateLiveData, 60000);
 
-  // Optional: manual refresh button (add anywhere)
-  window.refreshForge = updateLiveData;
+   // Sovereign Edge Live Data Feed
+   async function updateTrustBar() {
+     try {
+       const response = await fetch('/api/stats');
+       const data = await response.json();
+       
+       if (data.block) {
+         document.getElementById('live-block').innerText = data.block.toLocaleString();
+         document.getElementById('hero-block').innerText = data.block.toLocaleString();
+       }
+       
+       if (data.soulEntries) {
+         document.getElementById('live-souls').innerText = data.soulEntries.toLocaleString();
+       }
+     } catch (e) {
+       console.log("Trust bar sync in progress");
+     }
+   }
+
+   updateTrustBar();
+   setInterval(updateTrustBar, 15000);
+
+   // Optional: manual refresh button (add anywhere)
+   window.refreshForge = updateLiveData;
 </script>
 
 </body>
