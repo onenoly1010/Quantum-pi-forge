@@ -5,9 +5,12 @@ export function resolveForgeLocal() {
   const m = JSON.parse(raw);
 
   return {
+    schemaVersion: m.schemaVersion,
     address: m.contractAddress,
     fromBlock: m.deploymentBlock,
     topic: m.eventTopic,
-    chainId: m.chainId
+    chainId: m.chainId,
+    rpcUrl: m.rpcUrl,
+    abi: m.abi
   };
 }
