@@ -1,13 +1,13 @@
 import { resolveForgeLocal } from '../config/forge-config.node.js';
-import { JsonRpcProvider } from 'ethers';
+import { JsonRpcProvider, Interface } from 'ethers';
 
 async function verify() {
   const forge = resolveForgeLocal();
 
-  const provider = new JsonRpcProvider("https://evmrpc-testnet.0g.ai");
+  const provider = new JsonRpcProvider(forge.rpcUrl);
 
   const logs = await provider.getLogs({
-    address: forge.address,
+    address: forge.address.toLowerCase(),
     fromBlock: forge.fromBlock,
     toBlock: "latest",
     topics: [forge.topic]
@@ -19,7 +19,23 @@ async function verify() {
     throw new Error("System not initialized");
   }
 
-  console.log("✅ System verified");
+  // Verify event schema integrity
+  const iface = new Interface(forge.abi);
+  let decodeFailures = 0;
+
+  for (const log of logs) {
+    try {
+      iface.parseLog(log);
+    } catch (e) {
+      decodeFailures++;
+    }
+  }
+
+  if (decodeFailures > 0) {
+    throw new Error(`Event schema mismatch: ${decodeFailures} logs failed to decode`);
+  }
+
+  console.log("✅ System verified | RPC: ok | Schema: ok");
 }
 
 verify();
