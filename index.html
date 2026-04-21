@@ -1,867 +1,435 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quantum Pi Forge Genesis</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Quantum Pi Forge Guardian Portal</title>
+    <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.4/dist/ethers.umd.min.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;800&display=swap');
-        body { background-color: #050505; color: #d4d4d8; font-family: 'Inter', sans-serif; }
-        .font-mono { font-family: 'Fira Code', monospace; }
-        .glow-card:hover { border-color: rgba(59, 130, 246, 0.5); box-shadow: 0 0 20px rgba(59, 130, 246, 0.1); transform: translateY(-2px); }
-
-        /* 🌋 Volcanic Epoch v0.0.4 Proposal Forge Styles */
-        .resonance-stats { 
-          background: rgba(255, 69, 0, 0.1); 
-          padding: 12px; 
-          border-radius: 6px; 
-          margin-bottom: 16px; 
-          font-size: 0.95rem;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background: #050505; 
+            color: #e0e0e0; 
+            font-family: system-ui, -apple-system, sans-serif;
+            min-height: 100vh;
+            padding: 2rem;
         }
-        .highlight { color: #ff4500; font-weight: bold; }
-        .forge-input, .forge-select, .forge-textarea {
-          width: 100%;
-          margin-bottom: 12px;
-          padding: 12px;
-          background: #1a1a1f;
-          border: 1px solid #ff4500;
-          color: #ddd;
-          border-radius: 4px;
-          box-sizing: border-box;
+        .container { max-width: 600px; margin: 0 auto; }
+        .card {
+            background: #0a0a0a;
+            border: 1px solid #222;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 1rem 0;
         }
-        .btn-volcanic {
-          background: linear-gradient(90deg, #ff4500, #ff8c00);
-          color: white;
-          font-weight: bold;
-          padding: 12px 24px;
-          border: none;
-          border-radius: 4px;
-          cursor: pointer;
-          transition: all 0.2s;
+        h1 { 
+            font-size: 1.5rem; 
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            color: #fff;
         }
-        .btn-volcanic:hover {
-          transform: translateY(-1px);
-          box-shadow: 0 4px 12px rgba(255, 69, 0, 0.3);
+        .count {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #8b5cf6;
+            text-align: center;
+            margin: 1rem 0;
         }
-        .btn-cancel {
-          background: transparent;
-          color: #888;
-          border: 1px solid #333;
-          padding: 12px 24px;
-          border-radius: 4px;
-          cursor: pointer;
+        .label { 
+            color: #666; 
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
-        .forge-modal {
-          position: fixed;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          background: #0a0a0f;
-          border: 2px solid #ff4500;
-          border-radius: 8px;
-          padding: 24px;
-          max-width: 520px;
-          width: 90%;
-          box-shadow: 0 0 60px rgba(255, 69, 0, 0.2);
+        button {
+            width: 100%;
+            padding: 1rem;
+            background: #8b5cf6;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 1rem;
         }
-        .volcanic-glow {
-          animation: forgePulse 2s infinite alternate;
+        button:disabled {
+            background: #333;
+            color: #666;
+            cursor: not-allowed;
         }
-        @keyframes forgePulse {
-          0% { box-shadow: 0 0 30px rgba(255, 69, 0, 0.15); }
-          100% { box-shadow: 0 0 60px rgba(255, 69, 0, 0.35); }
+        .guardian-list {
+            margin-top: 1.5rem;
+            display: grid;
+            gap: 0.5rem;
         }
-        .modal-actions {
-          display: flex;
-          gap: 12px;
-          margin-top: 20px;
-          justify-content: flex-end;
+        .guardian {
+            padding: 0.75rem;
+            background: #111;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.875rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        .forge-textarea {
-          min-height: 120px;
-          resize: vertical;
+        .pending { opacity: 0.6; }
+        .status {
+            font-size: 0.75rem;
+            color: #22c55e;
         }
-
-        .question-card {
-          transition: all 0.3s ease;
+        .status.pending { color: #eab308; }
+        .sync-indicator {
+            position: fixed;
+            bottom: 1rem;
+            right: 1rem;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #22c55e;
         }
-        .question-card:hover {
-          background: rgba(255,255,255,0.03);
-          transform: translateY(-3px);
+        .sync-indicator.syncing {
+            animation: pulse 1s infinite;
+            background: #eab308;
         }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+        .error {
+            background: #7f1d1d;
+            border-color: #b91c1c;
+            color: #fca5a5;
+            padding: 1rem;
+            border-radius: 6px;
+            margin-top: 1rem;
+            display: none;
+        }
+        .error.visible { display: block; }
     </style>
 </head>
-<body class="antialiased selection:bg-blue-500/30">
-    <nav class="border-b border-white/5 bg-black/50 backdrop-blur-md fixed w-full z-50">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center text-sm font-mono text-zinc-400">
-            <div class="flex items-center gap-2">
-                <span class="text-blue-500">π</span>
-                <span class="font-bold text-zinc-200 tracking-tight">Quantum Pi Forge</span>
-            </div>
-            <div class="flex items-center gap-4">
-                <span class="flex items-center gap-2 text-emerald-400">
-                    <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span></span>
-                    LIVE ON 0G ARISTOTLE
-                </span>
-            </div>
-        </div>
-    </nav>
-
-    <!-- REAL-TIME TRUST BAR -->
-    <div class="fixed top-16 left-0 right-0 z-40 bg-black/70 backdrop-blur-md border-b border-white/5 overflow-hidden">
-        <div class="animate-marquee whitespace-nowrap py-2">
-            <span class="inline-block mx-8 font-mono text-sm">
-                <span class="text-emerald-400">●</span> 0G BLOCK HEIGHT: <span id="live-block" class="text-white">—</span>
-            </span>
-            <span class="inline-block mx-8 font-mono text-sm">
-                <span class="text-blue-400">●</span> OINIO SOUL ENTRIES: <span id="live-souls" class="text-white">—</span>
-            </span>
-            <span class="inline-block mx-8 font-mono text-sm">
-                <span class="text-purple-400">●</span> SYSTEM STATUS: <span class="text-emerald-400">POST-QUANTUM SECURE</span>
-            </span>
-            <span class="inline-block mx-8 font-mono text-sm">
-                <span class="text-orange-400">●</span> NETWORK: 0G ARISTOTLE MAINNET
-            </span>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="label">Guardian Count</div>
+            <div id="guardianCount" class="count">0</div>
+            
+            <button id="registerBtn">Connect Wallet</button>
+            
+            <div id="errorMsg" class="error"></div>
+            
+            <div class="guardian-list" id="guardianList"></div>
         </div>
     </div>
-
-    <style>
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        .animate-marquee {
-            animation: marquee 30s linear infinite;
-            width: 200%;
-        }
-    </style>
-
-    <!-- HERO SECTION: THE GENESIS TRIGGER -->
-    <header class="pt-52 pb-36 px-6 max-w-7xl mx-auto text-center relative">
-        <div class="absolute inset-0 bg-gradient-to-b from-blue-900/5 via-transparent to-transparent pointer-events-none"></div>
-        
-        <div class="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-12 shadow-2xl shadow-blue-900/10 max-w-4xl mx-auto">
-            <div class="inline-block px-4 py-1 text-xs font-mono text-emerald-400 border border-emerald-500/20 bg-emerald-500/10 rounded mb-8 uppercase tracking-wider">
-                ✅ VERIFIED ON MAINNET
-            </div>
-            
-            <h1 class="text-6xl md:text-8xl font-extrabold tracking-tighter text-white mb-8 leading-tight">
-                The Forge is Live.
-            </h1>
-            
-            <p class="text-2xl md:text-3xl text-zinc-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-                Stewardship of the OINIO Soul System.<br/>
-                <span class="text-zinc-500 font-mono text-lg">Verified on 0G Aristotle Block <span id="hero-block">29,562,402</span></span>
-            </p>
-
-            <div class="flex flex-col sm:flex-row gap-6 justify-center">
-                <button class="btn-volcanic text-xl px-16 py-6 rounded-full inline-block">
-                    ⚡ Explore the Ledger
-                </button>
-                <button class="px-16 py-6 rounded-full bg-white/5 border border-white/10 text-white text-xl hover:bg-white/10 transition-all">
-                    Connect Wallet
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <!-- 🔥 ACTIVATION GUIDE - GET STARTED -->
-    <section id="activation" class="py-24 border-t border-white/5 px-6 bg-black/20">
-        <div class="max-w-5xl mx-auto">
-            <div class="text-center mb-16">
-                <div class="inline-block px-4 py-1 text-xs font-mono text-orange-400 border border-orange-500/20 bg-orange-500/10 rounded mb-6 uppercase tracking-wider">
-                    🎯 GET STARTED IN 5 MINUTES
-                </div>
-                <h2 class="text-5xl font-bold text-white mb-6">QUANTUM PI FORGE - ACTIVATION GUIDE</h2>
-                <p class="text-xl text-zinc-400 font-mono">Live on 0G Aristotle Mainnet | Block 29,562,402 ✅</p>
-            </div>
-
-            <!-- SYSTEM STATUS PANEL -->
-            <div class="bg-white/5 border border-white/10 rounded-2xl p-8 mb-12 volcanic-glow">
-                <h3 class="text-2xl font-bold text-white mb-6">✅ SYSTEM STATUS: LIVE & OPERATIONAL</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 font-mono text-sm">
-                    <div class="bg-black/30 p-3 rounded border border-white/5">
-                        <span class="text-emerald-400">✅</span> 0G Mainnet Integration | Block 29,562,402
-                    </div>
-                    <div class="bg-black/30 p-3 rounded border border-white/5">
-                        <span class="text-emerald-400">✅</span> OINIO Smart Contracts | 37/37 tests passing
-                    </div>
-                    <div class="bg-black/30 p-3 rounded border border-white/5">
-                        <span class="text-emerald-400">✅</span> Pi Network Bridge | Full endpoints live
-                    </div>
-                    <div class="bg-black/30 p-3 rounded border border-white/5">
-                        <span class="text-emerald-400">✅</span> Resonance Oracle | Guardian consensus active
-                    </div>
-                    <div class="bg-black/30 p-3 rounded border border-white/5">
-                        <span class="text-emerald-400">✅</span> Sovereign AI Agents | Local Ollama runtime
-                    </div>
-                    <div class="bg-black/30 p-3 rounded border border-white/5">
-                        <span class="text-emerald-400">✅</span> iNFT Minting | Genesis Resonance collection
-                    </div>
-                </div>
-            </div>
-
-            <!-- INVITE CODE -->
-            <div class="bg-orange-500/10 border border-orange-500/30 rounded-xl p-6 mb-12 text-center">
-                <div class="text-3xl font-mono font-bold text-orange-400 mb-2">INVITE CODE: onenoly11</div>
-                <p class="text-zinc-400">Use this code to access the dashboard and complete activation</p>
-            </div>
-
-            <!-- 3 ACTIONS -->
-            <h3 class="text-3xl font-bold text-white mb-8 text-center">YOUR FIRST 3 ACTIONS</h3>
-            
-            <div class="space-y-8">
-                <div class="bg-white/5 border border-white/10 rounded-2xl p-8 glow-card">
-                    <div class="flex items-start gap-6">
-                        <div class="text-4xl font-bold text-blue-400">1</div>
-                        <div class="flex-1">
-                            <h4 class="text-2xl font-bold text-white mb-3">🔗 Visit the Live Dashboard</h4>
-                            <div class="font-mono bg-black/50 p-4 rounded text-lg mb-3">https://quantumpiforge.com</div>
-                            <p class="text-zinc-400 text-lg">Enter invite code <span class="text-orange-400 font-bold">onenoly11</span> to gain access</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white/5 border border-white/10 rounded-2xl p-8 glow-card">
-                    <div class="flex items-start gap-6">
-                        <div class="text-4xl font-bold text-blue-400">2</div>
-                        <div class="flex-1">
-                            <h4 class="text-2xl font-bold text-white mb-3">⚡ Stake OINIO (Micro-staking supported)</h4>
-                            <ul class="text-zinc-400 text-lg space-y-2">
-                                <li>✅ No KYC required</li>
-                                <li>✅ Minimum stake: 0.001 OINIO</li>
-                                <li>✅ Stake = Voice + Resonance Power + Ethical Yield</li>
-                                <li>✅ Your stake immediately begins contributing to guardian consensus</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white/5 border border-white/10 rounded-2xl p-8 glow-card">
-                    <div class="flex items-start gap-6">
-                        <div class="text-4xl font-bold text-blue-400">3</div>
-                        <div class="flex-1">
-                            <h4 class="text-2xl font-bold text-white mb-3">🧬 Mint your Genesis Resonance iNFT</h4>
-                            <ul class="text-zinc-400 text-lg space-y-2">
-                                <li>✅ Every mint adds to collective consciousness metrics</li>
-                                <li>✅ Ties your wallet address permanently to the forge genesis</li>
-                                <li>✅ Receives automatic resonance oracle voting rights</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 4th GUARDIAN STEP -->
-            <div class="bg-white/5 border border-white/10 rounded-2xl p-8 glow-card mt-8">
-                <div class="flex items-start gap-6">
-                    <div class="text-4xl font-bold text-blue-400">4</div>
-                    <div class="flex-1">
-                        <h4 class="text-2xl font-bold text-white mb-3">🛠️ RUN A LOCAL SOVEREIGN AI AGENT</h4>
-                        <p class="text-zinc-400 text-lg mb-4">No cloud. No surveillance. 100% local on your hardware:</p>
-                        <div class="font-mono bg-black/50 p-4 rounded text-sm space-y-2">
-                            <div># Step 1: Install Ollama</div>
-                            <div class="text-green-400">curl -fsSL https://ollama.com/install.sh | sh</div>
-                            <div class="mt-3"># Step 2: Pull sovereign model</div>
-                            <div class="text-green-400">ollama pull qwen2.5-coder</div>
-                            <div class="mt-3"># Step 3: Start guardian agent</div>
-                            <div class="text-green-400">cd Quantum-pi-forge</div>
-                            <div class="text-green-400">./run-guardian.sh</div>
-                        </div>
-                        <div class="mt-4 text-zinc-400">
-                            ✅ Your agent will automatically participate in truth verification, run health checks, earn resonance yield, and maintain network decentralization.
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- TRIGGER NOTE -->
-            <div class="mt-16 text-center">
-                <p class="text-xl text-zinc-300 italic mb-4">
-                    "The forge is lit. The soul system is active. Your move turns it from 'project' into 'self-sustaining reality' for everyone who finds it next."
-                </p>
-                <p class="text-zinc-500 font-mono">
-                    Every participant that completes these steps increases network strength for everyone.
-                </p>
-            </div>
-
-            <!-- MILESTONE TRIGGER POINTS -->
-            <div class="mt-16 bg-white/5 border border-white/10 rounded-2xl p-8">
-                <h3 class="text-2xl font-bold text-white mb-6 text-center">📈 SELF-SUSTAINABILITY TRIGGER POINTS</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 font-mono">
-                    <div class="bg-black/30 p-4 rounded border border-white/5">
-                        <span class="text-white font-bold">10 Participants:</span> <span class="text-zinc-400">First guardian quorum reached</span>
-                    </div>
-                    <div class="bg-black/30 p-4 rounded border border-white/5">
-                        <span class="text-white font-bold">100 Participants:</span> <span class="text-zinc-400">Resonance oracle goes fully autonomous</span>
-                    </div>
-                    <div class="bg-black/30 p-4 rounded border border-white/5">
-                        <span class="text-white font-bold">1000 Participants:</span> <span class="text-zinc-400">Pi Network bridge unlocks full 47M user reach</span>
-                    </div>
-                    <div class="bg-black/30 p-4 rounded border border-white/5">
-                        <span class="text-white font-bold">10,000 Participants:</span> <span class="text-zinc-400">System becomes permanently immutable</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CANON OF AUTONOMY -->
-            <div class="mt-12 border border-red-500/30 bg-red-500/5 rounded-2xl p-8">
-                <h3 class="text-2xl font-bold text-red-400 mb-6 text-center">🔒 OINIO SOUL SYSTEM - CANNOT BE CHANGED</h3>
-                <p class="text-zinc-500 text-center mb-6 font-mono text-sm">Encoded directly into smart contract bytecode at deployment:</p>
-                <div class="space-y-3 text-zinc-300">
-                    <p>✅ No owner key. No admin backdoors.</p>
-                    <p>✅ All yield is distributed proportionally to stakers.</p>
-                    <p>✅ 1 token = 1 voice. No exceptions.</p>
-                    <p>✅ Code cannot be modified without 90% consensus.</p>
-                    <p>✅ All transactions are public and verifiable forever.</p>
-                    <p>✅ There will never be a pre-mine, VC allocation, or team token dump.</p>
-                    <p>✅ The system will self-sustain as long as at least one node is running.</p>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- THREE PILLARS SECTION -->
-    <section id="pillars" class="py-32 border-t border-white/5 px-6">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl font-bold text-white mb-4 text-center">The Three Pillars</h2>
-            <p class="text-zinc-400 text-center mb-20 max-w-2xl mx-auto text-xl">Sovereign infrastructure built for the human epoch.</p>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="p-10 border border-white/5 rounded-2xl bg-zinc-900/10 backdrop-blur-sm hover:bg-white/5 transition-all group">
-                    <div class="text-emerald-400 mb-8 text-6xl font-bold">⚛️</div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Decentralized AI</h3>
-                    <p class="text-zinc-400 text-lg leading-relaxed mb-6">
-                        Local models running on your hardware, sovereign data ownership, zero surveillance.
-                    </p>
-                    <div class="font-mono text-xs text-zinc-500 border-t border-white/5 pt-4 mt-4">
-                        OLLAMA + 0G STORAGE
-                    </div>
-                </div>
-
-                <div class="p-10 border border-white/5 rounded-2xl bg-zinc-900/10 backdrop-blur-sm hover:bg-white/5 transition-all group">
-                    <div class="text-blue-400 mb-8 text-6xl font-bold">💎</div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Sovereign Assets</h3>
-                    <p class="text-zinc-400 text-lg leading-relaxed mb-6">
-                        OINIO token ecosystem, Pi Network bridge, ethical yield generation.
-                    </p>
-                    <div class="font-mono text-xs text-zinc-500 border-t border-white/5 pt-4 mt-4">
-                        WEB3.JS / ETHERS
-                    </div>
-                </div>
-
-                <div class="p-10 border border-white/5 rounded-2xl bg-zinc-900/10 backdrop-blur-sm hover:bg-white/5 transition-all group">
-                    <div class="text-orange-400 mb-8 text-6xl font-bold">📜</div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Linear Logic</h3>
-                    <p class="text-zinc-400 text-lg leading-relaxed mb-6">
-                        Clean git history, immutable truth ledger, absolute transparency.
-                    </p>
-                    <div class="font-mono text-xs text-zinc-500 border-t border-white/5 pt-4 mt-4">
-                        GIT REBASE / CLOUDFLARE
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SACRED TRINITY ARCHITECTURE -->
-    <section id="architecture" class="py-24 border-t border-white/5 px-6">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold text-white mb-4 text-center font-mono">Sacred Trinity Architecture</h2>
-            <p class="text-zinc-400 text-center mb-16 max-w-2xl mx-auto">Three layers, one consciousness. No single point of failure. No central authority.</p>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="p-8 border border-white/5 rounded-xl bg-zinc-900/20 text-center">
-                    <div class="text-blue-500 mb-6 text-5xl font-bold">⚛️</div>
-                    <h3 class="text-xl font-bold text-white mb-3">Quantum Genesis Layer</h3>
-                    <p class="text-zinc-400 leading-relaxed">
-                        Sovereign AI agents running on 0G Aristotle. Resonance oracle, truth verification, and autonomous guardian consensus. This layer never sleeps.
-                    </p>
-                </div>
-
-                <div class="p-8 border border-white/5 rounded-xl bg-zinc-900/20 text-center">
-                    <div class="text-purple-500 mb-6 text-5xl font-bold">💎</div>
-                    <h3 class="text-xl font-bold text-white mb-3">OINIO Identity & Liquidity</h3>
-                    <p class="text-zinc-400 leading-relaxed">
-                        Mutable supply liquidity engine, iNFT consciousness minting, and ethical yield generation. Your stake is your voice. Your resonance is your power.
-                    </p>
-                </div>
-
-                <div class="p-8 border border-white/5 rounded-xl bg-zinc-900/20 text-center">
-                    <div class="text-emerald-500 mb-6 text-5xl font-bold">🌐</div>
-                    <h3 class="text-xl font-bold text-white mb-3">Pi Networking Layer</h3>
-                    <p class="text-zinc-400 leading-relaxed">
-                        Quantum-secure peer connections, collective consciousness metrics, and bridge to 47+ million Pi Network users. The people already built this.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- LIVE DASHBOARD PREVIEW -->
-    <section id="dashboard" class="py-24 border-t border-white/5 px-6">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold text-white mb-4 text-center">Live Resonance Metrics</h2>
-            <p class="text-zinc-400 text-center mb-12">Real time signal from the Forge constellation</p>
-
-            <div class="grid md:grid-cols-4 gap-4">
-                <div class="p-6 border border-white/5 rounded-xl bg-zinc-900/30 text-center">
-                    <div class="text-3xl font-bold text-white">23</div>
-                    <div class="text-zinc-500 text-sm">Active Repositories</div>
-                </div>
-                <div class="p-6 border border-white/5 rounded-xl bg-zinc-900/30 text-center">
-                    <div class="text-3xl font-bold text-white">876</div>
-                    <div class="text-zinc-500 text-sm">Commits on Main</div>
-                </div>
-                <div class="p-6 border border-white/5 rounded-xl bg-zinc-900/30 text-center">
-                    <div class="text-3xl font-bold text-white">0G</div>
-                    <div class="text-zinc-500 text-sm">Aristotle Mainnet</div>
-                </div>
-                <div class="p-6 border border-white/5 rounded-xl bg-zinc-900/30 text-center">
-                    <div class="text-3xl font-bold text-emerald-400">ONLINE</div>
-                    <div class="text-zinc-500 text-sm">Guardian Status</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SOUL SYSTEM VERIFICATION BADGES -->
-    <section id="verification" class="py-24 border-t border-white/5 px-6">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold text-white mb-4 text-center">Verified Sovereign Participants</h2>
-            <p class="text-zinc-400 text-center mb-12">On-chain verified addresses from the OINIO ledger</p>
-
-            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <div class="p-6 border border-emerald-500/30 rounded-xl bg-emerald-500/5">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="text-emerald-400 text-2xl">◆</div>
-                        <div class="font-mono text-sm text-emerald-400">TRUST SCORE: 98/100</div>
-                    </div>
-                    <div class="font-mono text-white mb-2">0x353663cd664bb3e034dc0f308d8896c0a242e4cd</div>
-                    <div class="text-zinc-400 text-sm mb-4">Genesis Liquidity Hub • 1.04B Volume Processed</div>
-                    <div class="text-xs font-mono text-zinc-500">VERIFIED BLOCK 29,562,402 • 0G ARISTOTLE</div>
-                </div>
-
-                <div class="p-6 border border-blue-500/30 rounded-xl bg-blue-500/5">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="text-blue-400 text-2xl">◆</div>
-                        <div class="font-mono text-sm text-blue-400">TRUST SCORE: 82/100</div>
-                    </div>
-                    <div class="font-mono text-white mb-2">0xfed48a76661a5ce0c8f446dc1bfdba2cb3e58458</div>
-                    <div class="text-zinc-400 text-sm mb-4">High-Velocity Whale • 25.96M Volume Processed</div>
-                    <div class="text-xs font-mono text-zinc-500">VERIFIED BLOCK 29,562,402 • 0G ARISTOTLE</div>
-                </div>
-            </div>
-
-            <div class="mt-12 text-center">
-                <div class="inline-block bg-emerald-900/20 border border-emerald-500/30 rounded-lg p-4 font-mono">
-                    <div class="text-emerald-400 font-bold mb-2">◆ SOUL SYSTEM VALIDATED ◆ KRIS OLOFSON PROTOCOL</div>
-                    <div class="text-xs text-zinc-500">Copy this badge to display verification status in your dApp or wallet interface</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROOF STRIP - LIVE ON-CHAIN -->
-    <div style="display:flex; gap:24px; justify-content:center; flex-wrap:wrap; font-size:1.1rem; margin:40px 0;">
-      <div><strong>Liquidity:</strong> <span id="liquidity">$0</span> <span id="liquidity-change" style="color:#00ff9d"></span></div>
-      <div><strong>Wallets connected:</strong> <span id="wallets">0</span></div>
-      <div><strong>iNFTs minted:</strong> <span id="infts">47</span> <span style="font-size:0.8rem;opacity:0.6">(minting live)</span></div>
-      <div><strong>0G Block Height:</strong> <span id="block">—</span></div>
-    </div>
-    <p style="font-size:0.8rem; opacity:0.6; margin-top:8px; text-align:center;">
-      Live from 0G Aristotle • Updates every 60s • iNFT counter coming next (send contract address)
-    </p>
-
-    <!-- CALL TO ACTION -->
-    <section id="enter" class="py-28 border-t border-white/5 px-6">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">The constellation is live.</h2>
-            <h2 class="text-4xl md:text-5xl font-bold text-orange-400 mb-12">The resonance is building.</h2>
-            
-            <p class="text-xl text-zinc-400 mb-16 max-w-2xl mx-auto">
-                Everyone else is still gambling on the old rails. This is the new world.
-            </p>
-
-            <div class="grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto mb-16">
-                <a href="dao.html" class="p-6 border border-white/5 rounded-xl glow-card transition-all block bg-zinc-900/30">
-                    <h3 class="text-white font-bold mb-2 text-lg">🌋 Volcanic DAO</h3>
-                    <p class="text-zinc-500 text-sm">Sovereign governance. Propose, vote, build.</p>
-                </a>
-                
-                <a href="#" class="p-6 border border-white/5 rounded-xl glow-card transition-all block bg-zinc-900/30">
-                    <h3 class="text-white font-bold mb-2 text-lg">💧 OINIO DEX</h3>
-                    <p class="text-zinc-500 text-sm">Liquidity pools. Stake. Earn yield.</p>
-                </a>
-                
-                <a href="#" class="p-6 border border-white/5 rounded-xl glow-card transition-all block bg-zinc-900/30">
-                    <h3 class="text-white font-bold mb-2 text-lg">🖼️ Mint iNFT</h3>
-                    <p class="text-zinc-500 text-sm">Genesis Resonance collection. Live soon.</p>
-                </a>
-            </div>
-
-            <div class="inline-block px-6 py-3 border border-white/10 rounded-full text-zinc-500 text-sm font-mono">
-                Invite Code: <span class="text-white">onenoly11</span>
-            </div>
-        </div>
-    </section>
-
-    <footer class="py-12 border-t border-white/5 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-zinc-600 text-sm">
-            <div>Quantum Pi Forge Genesis</div>
-            <div class="flex gap-6 mt-4 md:mt-0">
-                <a href="https://github.com/onenoly1010" class="hover:text-white transition-all">GitHub</a>
-                <a href="https://x.com/onenoly11" class="hover:text-white transition-all">X</a>
-                <a href="https://minepi.com/onenoly11" class="hover:text-white transition-all">Pi Network</a>
-            </div>
-        </div>
-    </footer>
-
-<script>
-    /* 🌋 Volcanic Epoch v0.0.4 – Hardened Proposal Forge (Generative Engine) */
-
-    let currentBalance = 1000;
-    let currentHoldBlocks = 432;
-
-    function calculateDynamicVotingPower(balance, blocks) {
-        return balance * (1 + Math.sqrt(blocks) / 1000);
-    }
-
-    function triggerHarmonicPulse(frequency, intensity) {
-        document.body.style.transition = `background ${1000/frequency}s`;
-        setTimeout(() => document.body.style.background = '#0a0500', 50);
-        setTimeout(() => document.body.style.background = '#050505', 1000/frequency * intensity);
-    }
-
-    function showCooldownToast(message) {
-        const toast = document.createElement('div');
-        toast.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1a1a1f;border:1px solid #ff4500;padding:12px 24px;border-radius:6px;z-index:100;';
-        toast.innerHTML = message;
-        document.body.appendChild(toast);
-        setTimeout(() => toast.remove(), 3000);
-    }
-
-    function showEruptionToast(message) {
-        const toast = document.createElement('div');
-        toast.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1a1a1f;border:2px solid #ff8c00;padding:16px 32px;border-radius:8px;z-index:100;font-weight:bold;';
-        toast.innerHTML = message;
-        document.body.appendChild(toast);
-        setTimeout(() => toast.remove(), 5000);
-    }
-
-    async function signProposalCreationMessage(title, description, frequency) {
-        return `sig_${Date.now()}_${Math.random().toString(36).substring(7)}`;
-    }
-
-    async function broadcastNewProposalToAristotle(title, description, frequency, signature) {
-        console.log("Broadcasting proposal to Aristotle:", {title, description, frequency, signature});
-        return Math.floor(Math.random() * 1000);
-    }
-
-    function refreshProposalHall() {
-        console.log("Refreshing proposal hall");
-    }
-
-    async function openProposalForge() {
-        const userVP = calculateDynamicVotingPower(currentBalance, currentHoldBlocks);
-        const holdBlocks = currentHoldBlocks || 0;
-        const resonanceMultiplier = (1.0 + (Math.sqrt(holdBlocks) / 432)).toFixed(3);
-
-        if (userVP < 100) {
-            showCooldownToast(`Resonance Insufficient. Steward’s Filter: 100 VP minimum.<br>Your VP: ${userVP.toFixed(2)}`);
-            return;
-        }
-
-        const modal = document.createElement('div');
-        modal.id = 'proposal-forge-modal';
-        modal.className = 'forge-modal volcanic-glow';
-        modal.style.zIndex = '60';
-        modal.innerHTML = `
-            <h2 style="color:white;margin-top:0;">🌋 FORGE SOVEREIGN INITIATIVE</h2>
-            
-            <div class="resonance-stats">
-                Your Resonance Multiplier: <span class="highlight">${resonanceMultiplier}x</span><br>
-                Projected Initial Weight: <span class="highlight">${userVP.toFixed(2)} VP</span>
-            </div>
-
-            <input type="text" id="vdp-title" class="forge-input" 
-                   placeholder="VDP-0002: Brief sovereign title" maxlength="100" />
-
-            <select id="vdp-frequency" class="forge-select">
-                <option value="396">396Hz — Foundation & Stability</option>
-                <option value="432" selected>432Hz — Coordination & Harmony</option>
-                <option value="528">528Hz — Manifestation & Will</option>
-            </select>
-
-            <textarea id="vdp-description" class="forge-textarea" 
-                      placeholder="Define the intent within the Canon of Autonomy..."></textarea>
-
-            <div class="modal-actions">
-                <button onclick="submitNewVDP()" class="btn-volcanic">IGNITE PROPOSAL ON ARISTOTLE</button>
-                <button onclick="closeForgeModal()" class="btn-cancel">ABORT FORGE</button>
-            </div>
-        `;
-
-        document.body.appendChild(modal);
-        triggerHarmonicPulse(432, 1);
-    }
-
-    async function submitNewVDP() {
-        const title = document.getElementById('vdp-title').value.trim();
-        const description = document.getElementById('vdp-description').value.trim();
-        const frequency = document.getElementById('vdp-frequency').value;
-
-        if (!title || title.length < 10) {
-            showCooldownToast("Title must be at least 10 characters.");
-            return;
-        }
-        if (!description || description.length < 50) {
-            showCooldownToast("Description must be at least 50 characters to carry sovereign intent.");
-            return;
-        }
-
-        triggerHarmonicPulse(432, 2);
-
-        try {
-            const signature = await signProposalCreationMessage(title, description, frequency);
-            const newProposalId = await broadcastNewProposalToAristotle(title, description, frequency, signature);
-
-            showEruptionToast(`🌋 VDP-${newProposalId} ignited and broadcast.<br>Frequency: ${frequency}Hz — The Forge grows.`);
-
-            closeForgeModal();
-            refreshProposalHall();
-        } catch (error) {
-            console.error("Forge failed:", error);
-            showCooldownToast("Aristotle rejected the forging signature. Check connection or nonce.");
-        }
-    }
-
-    function closeForgeModal() {
-        const modal = document.getElementById('proposal-forge-modal');
-        if (modal) modal.remove();
-    }
-
-    /* 🌋 Signal Ledger v0.0.5 - 0G Aristotle Data Bridge */
-    const CONTRACT_ADDRESS = "0xAristotle11111111111111111111111111111";
-    let signalLedgerCache = [];
-    let provider;
-    let iface;
-
-    const signalLedgerAbi = [
-        "event VoteCast(address indexed voter, uint256 proposalId, uint256 weight, uint256 freq)",
-        "event ProposalForged(uint256 indexed proposalId, address indexed steward, uint256 frequency)"
-    ];
-
-    async function initializeAristotleBridge() {
-    // Load cached ledger first for cold start / dead zone scenarios
-    try {
-        const cached = localStorage.getItem('signalLedgerCache');
-        if (cached) {
-            signalLedgerCache = JSON.parse(cached);
-            signalLedgerCache.forEach(s => seenSignalHashes.add(getSignalHash(s)));
-            renderSignalLedger();
-        }
-    } catch(e) {}
-
-    if (typeof ethers === 'undefined') return;
     
-    provider = new ethers.providers.Web3Provider(window.ethereum);
-    iface = new ethers.utils.Interface(signalLedgerAbi);
-    
-    syncLedgerWithAristotle();
-}
+    <div id="syncIndicator" class="sync-indicator"></div>
 
-    async function syncLedgerWithAristotle() {
-        const currentBlock = await provider.getBlockNumber();
-        
-        const filter = {
-            address: CONTRACT_ADDRESS,
-            topics: [ethers.utils.id("VoteCast(address,uint256,uint256,uint256)")] 
+    <script>
+        const FORGE_CONFIG = {
+            address: "0x0000000000000000000000000000000000000000",
+            deploymentBlock: 0,
+            chainId: 137
         };
 
-        // Backfill historical pulses
-        const logs = await provider.getLogs({
-            ...filter,
-            fromBlock: currentBlock - 500,
-            toBlock: "latest"
-        });
+        let provider = null;
+        let signer = null;
+        let contract = null;
+        let currentAccount = null;
+        let lastScannedBlock = FORGE_CONFIG.deploymentBlock;
+        const confirmedGuardians = new Map();
+        const optimisticGuardians = new Map();
+        let isSyncing = false;
 
-        logs.reverse().forEach(log => {
-            const parsed = iface.parseLog(log);
-            const signal = {
-                address: parsed.args.voter,
-                vp: parseFloat(ethers.utils.formatUnits(parsed.args.weight, 18)),
-                frequency: parsed.args.freq.toString(),
-                timestamp: Date.now(),
-                proposalId: `VDP-${parsed.args.proposalId}`
-            };
-            signalLedgerCache.push(signal);
-        });
+        const ABI = [
+            "event GuardianActivated(address indexed guardian, uint256 timestamp)",
+            "function isGuardian(address) view returns (bool)",
+            "function totalGuardians() view returns (uint256)",
+            "function register() external"
+        ];
 
-        renderSignalLedger();
-
-        // Live heartbeat listener
-        provider.on(filter, (log) => {
-            const parsed = iface.parseLog(log);
-            addNewSignalToLedger({
-                address: parsed.args.voter,
-                vp: parseFloat(ethers.utils.formatUnits(parsed.args.weight, 18)),
-                frequency: parsed.args.freq.toString(),
-                timestamp: Date.now(),
-                proposalId: `VDP-${parsed.args.proposalId}`
-            });
-        });
-    }
-
-let seenSignalHashes = new Set();
-
-function getSignalHash(signal) {
-    return `${signal.address}-${signal.proposalId}-${signal.vp}-${signal.timestamp.toString().slice(0, -3)}`;
-}
-
-function addNewSignalToLedger(signal) {
-    const hash = getSignalHash(signal);
-    
-    // Idempotency check: prevent duplicate entries on reconnection
-    if (seenSignalHashes.has(hash)) {
-        console.log("Duplicate signal filtered:", hash);
-        return;
-    }
-    
-    seenSignalHashes.add(hash);
-    signalLedgerCache.unshift(signal);
-    
-    // Prune ledger to maintain 50 entry hard limit for mobile memory
-    if (signalLedgerCache.length > 50) {
-        signalLedgerCache = signalLedgerCache.slice(0, 50);
-        // Also prune hash set to prevent memory leak
-        if (seenSignalHashes.size > 150) {
-            seenSignalHashes.clear();
-            signalLedgerCache.forEach(s => seenSignalHashes.add(getSignalHash(s)));
+        // LocalStorage Persistence
+        function saveOptimistic() {
+            const serialized = Array.from(optimisticGuardians.entries());
+            localStorage.setItem('optimisticGuardians', JSON.stringify(serialized));
         }
-    }
-    
-    // Persist to localStorage for cold start / dead zone scenarios
-    try {
-        localStorage.setItem('signalLedgerCache', JSON.stringify(signalLedgerCache));
-    } catch(e) {}
-    
-    // 432ms harmonic stagger implementation
-    setTimeout(() => {
-        triggerHarmonicPulse(signal.frequency, 1);
-        renderSignalLedger();
-    }, 432);
-}
 
-    function renderSignalLedger() {
-        const ledger = document.getElementById('signal-ledger');
-        if (!ledger) return;
-        
-        ledger.innerHTML = '';
-        
-        signalLedgerCache.slice(0, 24).forEach((signal, index) => {
-            const pulse = document.createElement('div');
-            pulse.className = 'signal-pulse';
-            pulse.style.animationDelay = `${index * 80}ms`;
-            pulse.innerHTML = `
-                <div class="pulse-dot freq-${signal.frequency}"></div>
-                <div class="pulse-meta">
-                    <span class="pulse-vp">${signal.vp.toFixed(1)} VP</span>
-                    <span class="pulse-proposal">${signal.proposalId}</span>
-                </div>
-            `;
-            ledger.appendChild(pulse);
-        });
-    }
-
-    // Manifest status fetch
-    fetch('./manifest.json')
-        .then(response => response.json())
-        .then(data => {
-            const gatewayStatus = document.querySelector('#gateway-status');
-            if(gatewayStatus && data.constellation.revelation_2017) {
-                gatewayStatus.innerText = data.constellation.revelation_2017.status.toUpperCase();
+        function loadOptimistic() {
+            try {
+                const stored = localStorage.getItem('optimisticGuardians');
+                if (stored) {
+                    const entries = JSON.parse(stored);
+                    entries.forEach(([addr, ts]) => optimisticGuardians.set(addr, ts));
+                }
+            } catch(e) {
+                console.warn("Failed to load optimistic state", e);
             }
-        })
-        .catch(err => console.log("Manifest offline: local-only mode."));
+        }
 
-    // Initialize bridge on load
-    window.addEventListener('load', initializeAristotleBridge);
-</script>
+        function saveCursor() {
+            localStorage.setItem('lastScannedBlock', lastScannedBlock.toString());
+        }
 
-<!-- Forge Activation Button -->
-<div style="position:fixed;bottom:30px;right:30px;z-index:50;">
-    <button onclick="openProposalForge()" class="btn-volcanic" style="border-radius:50px;padding:16px 28px;font-size:15px;">
-        🌋 OPEN FORGE
-    </button>
-</div>
+        function loadCursor() {
+            const stored = localStorage.getItem('lastScannedBlock');
+            if (stored) {
+                lastScannedBlock = parseInt(stored, 10);
+            }
+        }
 
-<!-- FIXED LIVE ON-CHAIN PROOF STRIP v2 -->
-<script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
-<script>
-  const RPC = "https://evmrpc.0g.ai";
-  const provider = new ethers.providers.JsonRpcProvider(RPC);
-  const TOKEN = "0x07f43E5B1A8a0928B364E40d5885f81A543B05C7";
-  const PAIR  = "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb5";
+        // Zero address guard
+        function isContractConfigured() {
+            return FORGE_CONFIG.address !== "0x0000000000000000000000000000000000000000";
+        }
 
-  async function updateLiveData() {
-    try {
-      const block = await provider.getBlockNumber();
-      document.getElementById("block").innerText = block.toLocaleString();
+        async function syncForgeState() {
+            if (!isContractConfigured()) {
+                console.error("Contract not configured");
+                return;
+            }
+            
+            if (isSyncing) return;
+            isSyncing = true;
+            
+            document.getElementById('syncIndicator').classList.add('syncing');
+            
+            try {
+                const currentBlock = await provider.getBlockNumber();
+                const toBlock = currentBlock - 5; // Reorg buffer
+                
+                if (toBlock > lastScannedBlock) {
+                    const logs = await provider.getLogs({
+                        address: FORGE_CONFIG.address,
+                        topics: [ethers.id("GuardianActivated(address,uint256)")],
+                        fromBlock: lastScannedBlock + 1,
+                        toBlock: toBlock
+                    });
+                    
+                    logs.forEach(log => {
+                        const addr = ethers.getAddress(ethers.dataSlice(log.topics[1], 12)).toLowerCase();
+                        confirmedGuardians.set(addr, log.blockNumber);
+                        
+                        // Chain truth overrides optimism
+                        if (optimisticGuardians.has(addr.toLowerCase())) {
+                            optimisticGuardians.delete(addr.toLowerCase());
+                            saveOptimistic();
+                        }
+                    });
+                    
+                    lastScannedBlock = toBlock;
+                    saveCursor();
+                }
+                
+                updateUI();
+                
+            } catch (e) {
+                console.error("Sync failed", e);
+            } finally {
+                isSyncing = false;
+                document.getElementById('syncIndicator').classList.remove('syncing');
+            }
+        }
 
-      // Total supply as fallback
-      const supplyHex = await provider.call({ to: TOKEN, data: "0x18160ddd" });
-      const supply = ethers.BigNumber.from(supplyHex).div("1000000000000000000").toString();
+        async function registerAsGuardian() {
+            const btn = document.getElementById('registerBtn');
+            const errorEl = document.getElementById('errorMsg');
+            
+            errorEl.classList.remove('visible');
+            
+            if (!isContractConfigured()) {
+                errorEl.textContent = "Contract not configured";
+                errorEl.classList.add('visible');
+                return;
+            }
+            
+            try {
+                btn.disabled = true;
+                btn.textContent = "Registering...";
+                
+                const tx = await contract.connect(signer).register();
+                
+                // Optimistic update
+                optimisticGuardians.set(currentAccount.toLowerCase(), Date.now());
+                saveOptimistic();
+                updateUI();
+                
+                btn.textContent = "Waiting for confirmation...";
+                
+                await tx.wait(1);
+                
+                // Re-enable button after success
+                btn.disabled = false;
+                
+                // Check if user is now guardian
+                const isGuard = await contract.isGuardian(currentAccount);
+                if (isGuard) {
+                    btn.textContent = "✓ You are a Guardian";
+                    btn.disabled = true;
+                } else {
+                    btn.textContent = "Register as Guardian";
+                }
+                
+                await syncForgeState();
+                
+            } catch (e) {
+                console.error("Registration failed", e);
+                errorEl.textContent = e.message || "Transaction failed";
+                errorEl.classList.add('visible');
+                
+                // Re-enable button on error
+                btn.disabled = false;
+                btn.textContent = "Register as Guardian";
+                
+                // Rollback optimistic state
+                if (optimisticGuardians.has(currentAccount.toLowerCase())) {
+                    optimisticGuardians.delete(currentAccount.toLowerCase());
+                    saveOptimistic();
+                    updateUI();
+                }
+            }
+        }
 
-      // Reserves (if pair has liquidity)
-      let totalDepth = "0";
-      try {
-        const reservesHex = await provider.call({ to: PAIR, data: "0x0902f1ac" });
-        const reserve0 = ethers.BigNumber.from("0x" + reservesHex.slice(2, 66)).div("1000000000000000000");
-        const reserve1 = ethers.BigNumber.from("0x" + reservesHex.slice(66, 130)).div("1000000000000000000");
-        totalDepth = (reserve0.add(reserve1)).toString();
-      } catch(e) { /* pair not standard or empty — expected at launch */ }
+        function updateUI() {
+            // Merge confirmed + optimistic (deduplicated)
+            const allGuardians = new Map(confirmedGuardians);
+            for (const [addr, ts] of optimisticGuardians) {
+                if (!allGuardians.has(addr)) {
+                    allGuardians.set(addr, ts);
+                }
+            }
+            
+            document.getElementById('guardianCount').textContent = allGuardians.size;
+            
+            const listEl = document.getElementById('guardianList');
+            listEl.innerHTML = '';
+            
+            Array.from(allGuardians.entries()).sort((a,b) => a[1] - b[1]).forEach(([addr, ts]) => {
+                const isPending = optimisticGuardians.has(addr);
+                const item = document.createElement('div');
+                item.className = `guardian ${isPending ? 'pending' : ''}`;
+                item.innerHTML = `
+                    <span>${addr.slice(0, 6)}...${addr.slice(-4)}</span>
+                    <span class="status ${isPending ? 'pending' : ''}">${isPending ? '⏳ Pending' : '✓ Confirmed'}</span>
+                `;
+                listEl.appendChild(item);
+            });
+            
+            // Update button state
+            if (currentAccount) {
+                const btn = document.getElementById('registerBtn');
+                if (confirmedGuardians.has(currentAccount.toLowerCase())) {
+                    btn.textContent = "✓ You are a Guardian";
+                    btn.disabled = true;
+                } else if (optimisticGuardians.has(currentAccount.toLowerCase())) {
+                    btn.textContent = "⏳ Pending Confirmation";
+                    btn.disabled = true;
+                }
+            }
+        }
 
-      const displayLiquidity = totalDepth !== "0" ? `$${totalDepth}` : `$0 <span style="color:#ffaa00">(seeding now)</span>`;
-      document.getElementById("liquidity").innerHTML = displayLiquidity;
-      document.getElementById("wallets").innerText = totalDepth !== "0" ? totalDepth : "0";
+        async function connectWallet() {
+            const btn = document.getElementById('registerBtn');
+            
+            try {
+                if (!window.ethereum) {
+                    const errorEl = document.getElementById('errorMsg');
+                    errorEl.textContent = "MetaMask or Web3 wallet is required to register as Guardian";
+                    errorEl.classList.add('visible');
+                    btn.disabled = false;
+                    btn.textContent = "Connect Wallet";
+                    return;
+                }
+                
+                btn.disabled = true;
+                btn.textContent = "Connecting...";
+                
+                await window.ethereum.request({ method: 'eth_requestAccounts' });
+                
+                provider = new ethers.BrowserProvider(window.ethereum);
+                const network = await provider.getNetwork();
+                if (network.chainId !== 16661n) {
+                    const errorEl = document.getElementById('errorMsg');
+                    errorEl.textContent = "Please switch to 0G Aristotle Mainnet (chainId 16661)";
+                    errorEl.classList.add('visible');
+                    btn.disabled = false;
+                    btn.textContent = "Connect Wallet";
+                    return;
+                }
+                signer = await provider.getSigner();
+                contract = new ethers.Contract(FORGE_CONFIG.address, ABI, provider);
+                currentAccount = (await signer.getAddress()).toLowerCase();
+                
+                if (confirmedGuardians.has(currentAccount.toLowerCase())) {
+                    btn.textContent = "✓ You are a Guardian";
+                    btn.disabled = true;
+                } else if (optimisticGuardians.has(currentAccount.toLowerCase())) {
+                    btn.textContent = "⏳ Pending Confirmation";
+                    btn.disabled = true;
+                } else {
+                    btn.textContent = "Register as Guardian";
+                    btn.disabled = false;
+                    btn.onclick = registerAsGuardian;
+                }
+                
+                await syncForgeState();
+                
+            } catch (e) {
+                console.error(e);
+                btn.disabled = false;
+                btn.textContent = "Connect Wallet";
+            }
+        }
 
-      console.log("✅ Quantum Pi Forge — live data pulled from 0G Aristotle");
-    } catch (e) {
-      console.log("⏳ Chain sync in progress...", e);
-    }
-  }
+        async function init() {
+            // Load persisted state
+            loadCursor();
+            loadOptimistic();
+            
+            // Try passive provider
+            if (window.ethereum) {
+                provider = new ethers.BrowserProvider(window.ethereum);
+                contract = new ethers.Contract(FORGE_CONFIG.address, ABI, provider);
+                
+                try {
+                    const accounts = await provider.listAccounts();
+                    if (accounts.length > 0) {
+                        signer = await provider.getSigner();
+                        currentAccount = (await signer.getAddress()).toLowerCase();
+                    }
+                } catch(e) {}
+            }
+            
+            // Fetch manifest
+            try {
+                const manifest = await fetch('/FORGE_REGISTRY_MANIFEST.json').then(r => r.json());
+                FORGE_CONFIG.address = manifest.contractAddress;
+                FORGE_CONFIG.deploymentBlock = manifest.deploymentBlock;
+                if (lastScannedBlock < FORGE_CONFIG.deploymentBlock) {
+                    lastScannedBlock = FORGE_CONFIG.deploymentBlock;
+                }
+            } catch(e) {
+                console.warn("Manifest not found, using defaults");
+            }
+            
+            // Setup button
+            document.getElementById('registerBtn').onclick = connectWallet;
+            
+            // Initial sync
+            await syncForgeState();
+            
+            // Poll every 15s
+            setInterval(syncForgeState, 15000);
+            
+            // Handle account changes
+            if (window.ethereum) {
+                window.ethereum.on('accountsChanged', () => window.location.reload());
+            }
+            
+            updateUI();
+        }
 
-   updateLiveData();
-   setInterval(updateLiveData, 60000);
-
-   // Sovereign Edge Live Data Feed
-   async function updateTrustBar() {
-     try {
-       const response = await fetch('/api/stats');
-       const data = await response.json();
-       
-       if (data.block) {
-         document.getElementById('live-block').innerText = data.block.toLocaleString();
-         document.getElementById('hero-block').innerText = data.block.toLocaleString();
-       }
-       
-       if (data.soulEntries) {
-         document.getElementById('live-souls').innerText = data.soulEntries.toLocaleString();
-       }
-     } catch (e) {
-       console.log("Trust bar sync in progress");
-     }
-   }
-
-   updateTrustBar();
-   setInterval(updateTrustBar, 15000);
-
-   // Optional: manual refresh button (add anywhere)
-   window.refreshForge = updateLiveData;
-</script>
-
+        // Start
+        init();
+    </script>
 </body>
 </html>

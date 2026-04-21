@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Forge Guardian Registry | Optimistic UI</title>
+    <meta charset="utf-8">
+    <style>
+        body { font-family: monospace; max-width: 900px; margin: 40px auto; padding: 0 20px; background: #0a0a0a; color: #e0e0e0; }
+        #register-btn { background: #2563eb; border: none; color: white; padding: 12px 24px; font-size: 16px; cursor: pointer; border-radius: 4px; }
+        #register-btn:disabled { background: #374151; cursor: wait; }
+        #count { font-size: 24px; font-weight: bold; color: #10b981; }
+        #list { margin-top: 30px; }
+        #list > div { padding: 8px 12px; border-bottom: 1px solid #1f2937; }
+        .pending { color: #f59e0b; }
+        .failed { color: #ef4444; }
+        .confirmed { color: #10b981; }
+    </style>
+</head>
+<body>
+    <h1>⚡ Forge Guardian Registry</h1>
+
+    <div>
+        <button id="register-btn">REGISTER AS GUARDIAN</button>
+    </div>
+
+    <h2>Active Guardians: <span id="count">0</span></h2>
+
+    <div id="list"></div>
+
+    <script src="https://cdn.ethers.io/lib/ethers-5.7.2.umd.min.js"></script>
+    <script>
+        const FORGE_CONFIG = {
+            address: "0x0000000000000000000000000000000000000000", // Replace with actual contract address
+            rpcUrl: "https://evmrpc.0g.ai",
+            deploymentBlock: 31097648
+        };
+
+        const EVENT_TOPIC = "0x6760ce85b1d88b62de57d71b5cc601cc8a3610138b395c76bc0f56198e392bba";
+
+        // ==============================================
+        // 1. OPTIMISTIC UI DATA MODEL
+        // ==============================================
+        let uniqueGuardians = new Set();
+        let lastScannedBlock = FORGE_CONFIG.deploymentBlock;
+
+        // Persist optimistic state across page reloads
+        const optimisticGuardians = new Map(
+            JSON.parse(localStorage.getItem("optimisticGuardians") || "[]")
+        );
+        // address -> { status: "pending" | "confirmed" | "failed", txHash }
+
+        function saveOptimistic() {
+            localStorage.setItem(
+                "optimisticGuardians",
+                JSON.stringify(Array.from(optimisticGuardians.entries()))
+            );
+        }
+
+
+        // ==============================================
+        // 2. REGISTER FLOW WITH OPTIMISTIC INSERT
+        // ==============================================
+        async function registerAsGuardian() {
+            const btn = document.getElementById("register-btn");
+
+            if (!window.ethereum) {
+                alert("Please install MetaMask or a compatible Web3 wallet.");
+                return;
+            }
+
+            try {
+                const provider = new ethers.providers.Web3Provider(window.ethereum);
+                await provider.send("eth_requestAccounts", []);
+                const signer = provider.getSigner();
+                const address = await signer.getAddress();
+
+                const contract = new ethers.Contract(
+                    FORGE_CONFIG.address,
+                    ["function register() external"],
+                    signer
+                );
+
+                // 🔥 OPTIMISTIC INSERT - INSTANT UI FEEDBACK
+                optimisticGuardians.set(address, {
+                    status: "pending",
+                    txHash: null
+                });
+                saveOptimistic();
+
+                renderGuardians();
+
+                btn.innerText = "SUBMITTING...";
+                btn.disabled = true;
+
+                // Send transaction
+                const tx = await contract.register({ gasLimit: 150000 });
+
+                optimisticGuardians.set(address, {
+                    status: "pending",
+                    txHash: tx.hash
+                });
+                saveOptimistic();
+
+                btn.innerText = "WAITING FOR CONFIRMATION...";
+
+                // Wait for chain confirmation
+                await tx.wait();
+
+                optimisticGuardians.set(address, {
+                    status: "confirmed",
+                    txHash: tx.hash
+                });
+                saveOptimistic();
+
+                btn.innerText = "REGISTERED ✓";
+                btn.disabled = false;
+
+                // Force sync with chain state
+                await syncForgeState();
+
+            } catch (err) {
+                console.error("Registration failed:", err);
+
+                try {
+                    const provider = new ethers.providers.Web3Provider(window.ethereum);
+                    const signer = provider.getSigner();
+                    const address = await signer.getAddress();
+
+                optimisticGuardians.set(address, {
+                    status: "failed",
+                    txHash: null
+                });
+                saveOptimistic();
+
+                btn.innerText = "FAILED - RETRY";
+                btn.disabled = false;
+
+                renderGuardians();
+                } catch(e) {}
+            }
+        }
+
+
+        // ==============================================
+        // 3. MERGE FUNCTION - CRITICAL RECONCILIATION
+        // ==============================================
+        function mergeState(chainGuardians) {
+            const merged = new Map();
+
+            // 1. FIRST: CANONICAL TRUTH FROM ON-CHAIN LOGS
+            chainGuardians.forEach(addr => {
+                merged.set(addr, { status: "confirmed" });
+            });
+
+            // 2. SECOND: APPLY OPTIMISTIC OVERLAY
+            optimisticGuardians.forEach((val, key) => {
+                if (!merged.has(key)) {
+                    // Not yet confirmed on chain - show optimistic state
+                    merged.set(key, val);
+                }
+                // ✅ Chain truth ALWAYS overrides optimism once present - NO EXCEPTIONS
+            });
+
+            return merged;
+        }
+
+
+        // ==============================================
+        // 4. RENDERER - UI PROJECTION LAYER
+        // ==============================================
+        function renderGuardians() {
+            const container = document.getElementById("list");
+            const countEl = document.getElementById("count");
+
+            const state = mergeState(Array.from(uniqueGuardians));
+
+            countEl.innerText = state.size;
+
+            container.innerHTML = Array.from(state.entries())
+                .slice(-10)
+                .reverse()
+                .map(([addr, data]) => {
+                    const badge =
+                        data.status === "pending" ? "⏳" :
+                        data.status === "failed" ? "❌" :
+                        "✅";
+
+                    const statusClass =
+                        data.status === "pending" ? "pending" :
+                        data.status === "failed" ? "failed" :
+                        "confirmed";
+
+                    return `<div class="${statusClass}">${addr} ${badge}</div>`;
+                })
+                .join("");
+        }
+
+
+        // ==============================================
+        // 5. SYNC FORGE STATE FROM CHAIN LOGS
+        // ==============================================
+        async function syncForgeState() {
+            try {
+                if (FORGE_CONFIG.address === "0x0000000000000000000000000000000000000000") {
+                    console.error("❌ Contract address not configured");
+                    return;
+                }
+
+                const provider = new ethers.providers.JsonRpcProvider(FORGE_CONFIG.rpcUrl);
+                const currentBlock = await provider.getBlockNumber();
+
+                // ✅ Incremental cursor sync - only scan new blocks since last check
+                // 5 block reorg safety buffer
+                const logs = await provider.getLogs({
+                    address: FORGE_CONFIG.address,
+                    fromBlock: lastScannedBlock,
+                    toBlock: currentBlock - 5,
+                    topics: [EVENT_TOPIC]
+                });
+
+                // Append only new guardians - never reset full state
+                logs.forEach(log => {
+                    uniqueGuardians.add(normalizeAddress(log.topics[1]));
+                });
+
+                // Advance cursor with 4 block safety margin
+                lastScannedBlock = Math.max(lastScannedBlock, currentBlock - 4);
+
+                // 🔁 HOOK OPTIMISTIC RENDER
+                renderGuardians();
+
+            } catch (err) {
+                console.error("Sync failed:", err);
+            }
+        }
+
+
+        function normalizeAddress(topic) {
+            return ethers.utils.getAddress(
+                ethers.utils.hexDataSlice(topic, 12)
+            );
+        }
+
+
+        // ==============================================
+        // INITIALIZE
+        // ==============================================
+        document.getElementById("register-btn").addEventListener("click", registerAsGuardian);
+
+        // Initial sync and polling
+        syncForgeState();
+        setInterval(syncForgeState, 12000); // Poll every 12 seconds
+
+        console.log("✅ Optimistic Guardian UI initialized");
+    </script>
+</body>
+</html>
