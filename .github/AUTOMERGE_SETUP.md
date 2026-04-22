@@ -2,7 +2,9 @@
 
 ## Overview
 
-The Canon Auto-Merge system provides autonomous PR merging for Canon of Closure artifacts through a multi-layered governance gate system. This document guides you through setup, configuration, testing, and troubleshooting.
+The Canon Auto-Merge system provides policy-governed automated PR merging for Canon of Closure artifacts through a multi-layered governance gate system. This document guides you through setup, configuration, testing, and troubleshooting.
+
+> **Trust Boundary Statement**: This system guarantees automation of Canon merges only inside GitHub's trust boundary. It does not provide independent cryptographic proof of governance decisions unless external signing is added.
 
 ## Table of Contents
 
@@ -46,6 +48,59 @@ permissions:
 
 ## System Architecture
 
+### Trust Boundary
+
+```text
+Contributor
+   ↓ [creates]
+GitHub PR
+   ↓ [reads/validates]
+Workflow Gates ──── Stewards can override at any layer
+   ↓ [executes]
+Validation Engine
+   ↓ [records]
+Audit Labels
+   ↓ [writes]
+Main Branch
+```
+
+| Layer               | Can Mutate          | Can Observe         | Can Override        |
+|---------------------|---------------------|---------------------|---------------------|
+| Contributor         | ✅ PR content       | ✅ all gates        | ❌                  |
+| GitHub Actions      | ✅ status checks    | ✅ all data         | ❌                  |
+| Curator             | ✅ approve          | ✅ all gates        | ❌                  |
+| Steward             | ✅ merge any PR     | ✅ all data         | ✅ any gate         |
+| Repository Admin    | ✅ force push       | ✅ everything       | ✅ everything       |
+
+### ClosureSentinel Contract
+
+Gate 2 implements the following API contract:
+
+```yaml
+ClosureSentinel:
+  input:
+    pr_number: integer
+    artifact_path: string
+    trace_id: string
+  output:
+    status: pass | fail | pending
+    reason: string
+    validation_hash: sha256 string
+  notes:
+    - Generated deterministically from artifact content and validation results
+    - Reserved for external verification anchoring
+    - Not currently enforced or stored externally
+  success_criteria:
+    - Valid canonical frontmatter
+    - No duplicate artifact ID
+    - Valid trace reference
+    - All required fields present
+  fallback_behavior:
+    - 5 minute timeout
+    - Proceed with warning on timeout
+    - Fail closed on explicit rejection
+```
+
 ### The 6 Gates
 
 ```
@@ -75,15 +130,21 @@ permissions:
          │
          ▼
   ┌─────────────┐
-  │   Gate 4:   │  Detect semantic conflicts
-  │  Conflict   │  Check structural validity
-  └──────┬──────┘  Verify continuity
+   │   Gate 4:   │  Detect duplicate IDs, structural conflicts
+   │  Conflict   │  Check reference validity
+   └──────┬──────┘  Optional content similarity checks
          │
          ▼
   ┌─────────────┐
-  │   Gate 5:   │  Log merge decision to A22
+  │   Gate 5:   │  Log merge decision locally
   │   Audit     │  Add audit-logged label
   └──────┬──────┘  Record gate results
+         │
+         ▼
+   ┌─────────────┐
+   │ Gate 5.5:   │  Generate validation hash
+   │ Attestation │  Create signed attestation
+   └──────┬──────┘  Commit audit record
          │
          ▼
   ┌─────────────┐
@@ -108,7 +169,7 @@ permissions:
 
 ### Python Scripts
 
-- **`check-conflicts.py`**: Semantic, structural, and continuity conflict detection
+- **`check-conflicts.py`**: ID uniqueness, structural validation, reference checking, and optional content similarity detection
 - **`update-canon-index.py`**: INDEX.md and artifacts.json generation
 - **`verify-canon-integrity.py`**: Reference validation and dependency checking
 - **`validate-artifact.py`**: YAML frontmatter and schema validation
@@ -271,6 +332,56 @@ Define roles and their capabilities:
 ```
 
 ### Gate Configuration
+
+#### Required Concurrency Setup
+
+Add this block at the top of `canon-auto-merge.yml` to prevent race conditions:
+
+```yaml
+concurrency:
+  group: canon-merge-${{ github.ref }}
+  cancel-in-progress: false
+```
+
+#### Gate 5.5 - Verifiable Attestation Layer
+
+Between audit and merge, an optional cryptographic audit trail is created:
+
+```yaml
+- name: Generate validation hash
+  id: hash
+  run: |
+    HASH=$(python .github/scripts/generate-validation-hash.py \
+      "${{ env.ARTIFACT_PATH }}" \
+      "${{ github.event.pull_request.number }}" \
+      "${{ github.sha }}")
+    echo "validation_hash=$HASH" >> $GITHUB_OUTPUT
+
+- name: Create attestation
+  run: |
+    chmod +x .github/scripts/sign-attestation.sh
+    .github/scripts/sign-attestation.sh \
+      "${{ steps.hash.outputs.validation_hash }}" \
+      "${{ github.event.pull_request.number }}" \
+      "${{ github.sha }}"
+
+- name: Commit audit record
+  run: |
+    git config user.name "canon-bot"
+    git config user.email "actions@github.com"
+    git add canon/attestations/
+    git commit -m "Audit: Attestation for PR #${{ github.event.pull_request.number }}"
+    git push
+```
+
+Each successful merge generates:
+- Deterministic SHA-256 validation hash
+- Signed attestation stored in `canon/attestations/`
+- Immutable audit record committed to git history
+
+These attestations provide a verifiable audit trail beyond GitHub UI state.
+
+### Gate Behavior
 
 Customize gate behavior:
 
@@ -456,182 +567,4 @@ Set up GitHub Action notifications:
 
 ### Issue: Gate 3 (Approval) Never Passes
 
-**Symptoms**: Approvals obtained but gate still waiting
-
-**Causes**:
-- Reviewers not in required teams
-- Required approval count mismatch
-- Stale review states
-
-**Solutions**:
-1. Verify reviewer team membership: `gh api /orgs/ORG/teams/TEAM/members`
-2. Check merge rules: `cat .github/config/canon-merge-rules.json`
-3. Request fresh approval from qualified reviewer
-4. Verify workflow has `pull-requests: write` permission
-
-### Issue: Gate 4 (Conflict) False Positives
-
-**Symptoms**: Semantic conflicts detected for unrelated content
-
-**Causes**:
-- Threshold too low (< 0.85)
-- Common terminology causing high similarity
-
-**Solutions**:
-1. Adjust threshold in config: `"semantic_threshold": 0.90`
-2. Review conflict details in workflow artifacts
-3. Use more specific artifact IDs and titles
-4. Steward can override with manual merge
-
-### Issue: Post-Merge Integrity Failure
-
-**Symptoms**: Merge succeeds but integrity check fails, incident issue created
-
-**Causes**:
-- Broken parent reference introduced
-- Circular dependency created
-- Duplicate artifact ID
-
-**Solutions**:
-1. Review incident issue for specific error
-2. Download integrity results artifact
-3. Fix broken reference with hotfix PR
-4. If needed, revert merge: `git revert <COMMIT_SHA>`
-
-### Issue: Index Not Regenerating
-
-**Symptoms**: INDEX.md not updated after merge
-
-**Causes**:
-- Post-merge workflow not triggered
-- Permissions issue on commit
-
-**Solutions**:
-1. Manually trigger: `gh workflow run canon-post-merge.yml`
-2. Check workflow logs for permission errors
-3. Verify bot has write access to main branch
-4. Run locally: `python .github/scripts/update-canon-index.py --canon-dir canon`
-
-## Rollback Procedures
-
-### Rollback Type 1: Revert Single Merge
-
-```bash
-# Find the merge commit
-git log --oneline --grep="Canon:" -n 5
-
-# Revert the merge
-git revert <MERGE_COMMIT_SHA>
-
-# Push revert
-git push origin main
-
-# Manually trigger index regeneration
-gh workflow run canon-post-merge.yml
-```
-
-### Rollback Type 2: Emergency Integrity Restore
-
-```bash
-# Checkout last known good state
-git checkout <LAST_GOOD_COMMIT>
-
-# Create emergency branch
-git checkout -b emergency/integrity-restore
-
-# Force push to main (requires admin)
-git push --force origin emergency/integrity-restore:main
-
-# Regenerate index
-python .github/scripts/update-canon-index.py --canon-dir canon
-git add canon/INDEX.md canon/artifacts.json
-git commit -m "Emergency: Restore Canon integrity"
-git push origin HEAD:main
-```
-
-### Rollback Type 3: Disable Auto-Merge
-
-Temporarily disable auto-merge system:
-
-```bash
-# Edit config to disable all auto-merge
-cat > .github/config/canon-merge-rules.json << 'EOF'
-{
-  "version": "1.0",
-  "artifact_types": {
-    "foundational": { "auto_merge_enabled": false },
-    "channel": { "auto_merge_enabled": false },
-    "closure": { "auto_merge_enabled": false },
-    "governance": { "auto_merge_enabled": false }
-  }
-}
-EOF
-
-git add .github/config/canon-merge-rules.json
-git commit -m "EMERGENCY: Disable Canon auto-merge"
-git push origin main
-```
-
-## FAQ
-
-### Q: Can I manually merge a Canon PR?
-
-**A**: Yes. Canon Stewards can manually merge PRs. The post-merge workflow will still run to regenerate the index and verify integrity.
-
-### Q: What happens if a gate fails?
-
-**A**: The workflow stops at the failed gate and comments on the PR with the failure reason. The PR will not be auto-merged. A steward can review and either fix the issue or manually merge with override.
-
-### Q: How do I override a gate failure?
-
-**A**: Stewards (users in teams configured in merge rules with `"can_override_gates": true`) can manually merge the PR using the GitHub UI. The audit log will record this as a manual override.
-
-### Q: Can I add custom gates?
-
-**A**: Yes. Edit `.github/workflows/canon-auto-merge.yml` to add new jobs between existing gates. Ensure new gates check `needs.<previous-gate>.outputs` and set their own outputs.
-
-### Q: How do I test changes to the workflows?
-
-**A**: Create a test branch, modify the workflow file, and create a test Canon PR. The modified workflow will run on your test PR. Do NOT merge workflow changes without testing.
-
-### Q: What if ClosureSentinel is not available?
-
-**A**: The workflow will wait 5 minutes and then proceed with a warning. You can disable Gate 2 entirely in the config if ClosureSentinel is not needed.
-
-### Q: How are conflicts between artifacts detected?
-
-**A**: The conflict detection script checks:
-1. **Semantic**: Content similarity using word overlap (can be enhanced with embeddings)
-2. **Structural**: ID uniqueness, parent references, trace ID format
-3. **Continuity**: Circular dependencies, orphaned artifacts
-
-### Q: Can I customize the merge commit message?
-
-**A**: Yes. Edit the `merge_strategy.commit_message_template` in `.github/config/canon-merge-rules.json`.
-
-### Q: Where are audit logs stored?
-
-**A**: Currently logged as workflow annotations and PR comments. For persistent storage, configure `CANON_API_URL` to send logs to your Canon backend API.
-
-## Support
-
-For issues or questions:
-
-1. **Check workflow logs**: `gh run view <RUN_ID> --log`
-2. **Review troubleshooting section**: See above
-3. **Open an issue**: Tag `@org/canon-stewards`
-4. **Manual intervention**: Stewards can always manually merge
-
-## References
-
-- [Canon Merge Rules Config](.github/config/canon-merge-rules.json)
-- [Auto-Merge Workflow](.github/workflows/canon-auto-merge.yml)
-- [Conflict Detection Script](.github/scripts/check-conflicts.py)
-- [GitHub Actions Documentation](https://docs.github.com/en/actions)
-- [Dependabot Auto-Merge](../docs/dependabot-auto-merge.md) (similar pattern)
-
----
-
-**Version**: 1.0  
-**Last Updated**: 2024-01-01  
-**Maintainers**: Canon Stewards
+**Symptoms**: Approvals obtained but

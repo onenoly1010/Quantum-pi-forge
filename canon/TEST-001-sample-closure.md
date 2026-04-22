@@ -1,11 +1,13 @@
 ---
 id: TEST-001
-title: Sample Closure Artifact
+title: "Sample Closure Artifact"
 type: closure
-created_at: 2024-01-01T00:00:00Z
-author: test-user
+version: 1.0.0
+status: closed
+author: "test-user"
+created: "2024-01-01"
+closed: "2026-04-22"
 trace_id: A22-001
-status: draft
 ---
 
 # Sample Closure Artifact
