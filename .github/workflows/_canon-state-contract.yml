@@ -1,0 +1,197 @@
+name: Canon State Contract
+on:
+  workflow_call:
+    inputs:
+      canon_path:
+        description: Path to canon directory
+        required: false
+        default: canon
+        type: string
+    outputs:
+      execution_state:
+        description: Layer 0 Execution state
+        value: ${{ jobs.execution.outputs.execution_state }}
+      observation_state:
+        description: Layer 1 Observation state
+        value: ${{ jobs.observation.outputs.observation_state }}
+      claim_object:
+        description: Layer 2 Final Canon Claim JSON
+        value: ${{ jobs.claim.outputs.claim_object }}
+
+jobs:
+  execution:
+    name: 0. Execution Layer
+    runs-on: ubuntu-latest
+    outputs:
+      execution_state: ${{ steps.finalize.outputs.execution_state }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Canon Generation
+        id: run
+        continue-on-error: true
+        run: |
+          echo "::group::Executing canon closure"
+          ./bin/generate-canon.sh "${{ inputs.canon_path }}"
+          echo "exit_code=$?" >> $GITHUB_OUTPUT
+          echo "::endgroup::"
+
+      - name: Finalize Execution State
+        id: finalize
+        run: |
+          cat > execution-state.json <<EOF
+          {
+            "state": "${{ steps.run.outputs.exit_code == 0 && 'EXECUTION_COMPLETED' || 'EXECUTION_FAILED' }}",
+            "timestamp": "$(date -Iseconds)",
+            "job_id": "${{ github.run_id }}",
+            "exit_code": ${{ steps.run.outputs.exit_code }},
+            "duration_ms": ${{ github.run_attempt }}
+          }
+          EOF
+          
+          echo "execution_state=$(cat execution-state.json | jq -c)" >> $GITHUB_OUTPUT
+
+      - name: Upload Execution Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: execution-outputs
+          path: |
+            ${{ inputs.canon_path }}/
+            execution-state.json
+          retention-days: 90
+
+  observation:
+    name: 1. Observation Layer
+    needs: execution
+    runs-on: ubuntu-latest
+    if: ${{ always() }}
+    outputs:
+      observation_state: ${{ steps.finalize.outputs.observation_state }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download Execution Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: execution-outputs
+
+      - name: Run Canon Integrity Verifier
+        id: verify
+        continue-on-error: true
+        run: |
+          echo "::group::Verifying canon integrity"
+          python ./bin/verify-canon-integrity.py "${{ inputs.canon_path }}"
+          echo "verifier_exit_code=$?" >> $GITHUB_OUTPUT
+          echo "::endgroup::"
+
+      - name: Finalize Observation State
+        id: finalize
+        run: |
+          OBSERVATION_STATE="OBSERVATION_FAILED"
+          INTEGRITY="unobserved"
+          
+          if [ "${{ steps.verify.outputs.verifier_exit_code }}" == "0" ]; then
+            OBSERVATION_STATE="OBSERVATION_VERIFIED"
+            INTEGRITY="full"
+          elif [ "${{ steps.verify.outputs.verifier_exit_code }}" == "2" ]; then
+            OBSERVATION_STATE="OBSERVATION_PARTIAL"
+            INTEGRITY="partial"
+          fi
+          
+          cat > observation-state.json <<EOF
+          {
+            "state": "${OBSERVATION_STATE}",
+            "timestamp": "$(date -Iseconds)",
+            "verifier_hash": "$(sha256sum ./bin/verify-canon-integrity.py | awk '{print $1}')",
+            "verifier_commit_sha": "${{ github.sha }}",
+            "invariants_checked": $(grep -c "^def check_" ./bin/verify-canon-integrity.py),
+            "integrity": "${INTEGRITY}"
+          }
+          EOF
+          
+          echo "observation_state=$(cat observation-state.json | jq -c)" >> $GITHUB_OUTPUT
+
+      - name: Upload Observation Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: observation-report
+          path: observation-state.json
+          retention-days: 90
+
+  claim:
+    name: 2. Claim Layer
+    needs: [execution, observation]
+    runs-on: ubuntu-latest
+    if: ${{ always() }}
+    outputs:
+      claim_object: ${{ steps.finalize.outputs.claim_object }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download Execution State
+        uses: actions/download-artifact@v4
+        with:
+          name: execution-outputs
+
+      - name: Download Observation Report
+        uses: actions/download-artifact@v4
+        with:
+          name: observation-report
+
+      - name: Install JSON validator
+        run: pip install jsonschema
+
+      - name: Generate Canon Claim
+        id: finalize
+        run: |
+          CANON_HASH=$(find "${{ inputs.canon_path }}" -type f -exec sha256sum {} \; | sort -k2 | sha256sum | awk '{print $1}')
+
+          # Merge objects safely with jq
+          jq -n \
+            --arg version "1.1.0" \
+            --arg hash "sha256:${CANON_HASH}" \
+            --argjson exec "$(cat execution-state.json)" \
+            --argjson obs "$(cat observation-state.json)" \
+            '{
+              canon_version: $version,
+              canon_hash: $hash,
+              epistemic_status: (if $obs.integrity == "full" then "claim_only" elif $obs.integrity == "partial" then "partial_claim" else "unobserved_claim" end),
+              execution: $exec,
+              observation: $obs,
+              claim: {
+                state: "CLAIM_GENERATED",
+                timestamp: (now | strftime("%Y-%m-%dT%H:%M:%SZ")),
+                authoritative: false,
+                verification_required: true,
+                claim_text: "This pipeline asserts that the canon closure reflects the requested transformations as observed in this execution. This is not a statement of truth. This is a claim only. External verification is required.",
+                integrity: $obs.integrity
+              },
+              integrity_summary: "Execution: \($exec.state) + Observation: \($obs.state) → Claim generated",
+              _meta: {
+                schema_version: "1.1.0",
+                generated_by: "_canon-state-contract.yml",
+                run_id: "${{ github.run_id }}",
+                previous_claim_reference: null,
+                external_attestation_hook: null
+              }
+            }' > canon-claim.json
+
+          echo "claim_object=$(jq -c . canon-claim.json)" >> $GITHUB_OUTPUT
+
+          echo "---"
+          echo "✅ CANON CLAIM GENERATED (v1.1)"
+          echo "---"
+          jq . canon-claim.json
+          echo "---"
+          echo "This is a claim, not a fact. External verification is required."
+
+      - name: Validate Canon State Object
+        run: |
+          python .github/scripts/validate-canon-state.py canon-claim.json
+
+      - name: Upload Final Canon State Object
+        uses: actions/upload-artifact@v4
+        with:
+          name: canon-state-object
+          path: canon-claim.json
+          retention-days: 365

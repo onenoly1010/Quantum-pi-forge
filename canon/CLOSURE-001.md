@@ -1,6 +1,7 @@
 ---
 id: CLOSURE-001
 title: "Initial Canon Closure"
+type: closure
 version: 1.0.0
 status: draft
 author: "system"
