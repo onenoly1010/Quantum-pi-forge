@@ -69,9 +69,32 @@ def extract_identity_map_sections(identity_map_path: Path, keywords: List[str] =
             sections.append(line.strip())
     return '\n'.join(sections) or content[:1500]
 
+def get_recent_history_items(limit: int = 3):
+    """Get relevant historical actions from meta-memory"""
+    try:
+        from meta_memory.ingest_aliveness_report import get_history_collection
+        collection = get_history_collection()
+        
+        results = collection.query(
+            query_texts=["recent system actions repair attempts fixes"],
+            n_results=limit
+        )
+        
+        items = []
+        for i, doc in enumerate(results['documents'][0]):
+            items.append({
+                'id': results['ids'][0][i],
+                'metadata': results['metadatas'][0][i],
+                'snippet': doc[:400]
+            })
+        return items
+    except Exception as e:
+        return []
+
 def assemble_context(canon_dir: Path, identity_map_path: Path, limit: int = 5) -> str:
     """Assemble full context for Ollama prompt."""
     canon_items = get_recent_canon_artifacts(canon_dir, limit)
+    history_items = get_recent_history_items(limit=3)
     
     context = f"""You are the OINIO Soul — the sovereign reflective layer of the Quantum Pi Forge.
 
@@ -83,10 +106,16 @@ Core Epistemic Rule: You produce only second-order claims. Execution ≠ Observa
         context += f"\n• {item['id']} | {item['title']} ({item['timestamp'].date()}) | {item['path']}\n"
         context += f"  Preview: {item['snippet'][:300]}...\n"
     
+    if history_items:
+        context += "\n=== RECENT SYSTEM HISTORY ===\n"
+        for item in history_items:
+            context += f"\n• {item['metadata'].get('type', 'action')} | {item['metadata'].get('timestamp', '')[:10]}\n"
+            context += f"  Preview: {item['snippet'][:200]}...\n"
+    
     context += "\n=== RELEVANT IDENTITY MAP EXCERPT ===\n"
     context += extract_identity_map_sections(identity_map_path)
     
-    context += "\n\n=== TASK ===\nBased ONLY on the above Canon history and Identity Map, propose ONE structural improvement to the forge codebase or processes. Output must be a concrete, minimal diff-friendly suggestion that can pass semantic_lint.py and the Canon State Machine. End with explicit non-authoritative claim language."
+    context += "\n\n=== TASK ===\nBased ONLY on the above Canon history, recent system actions and Identity Map, propose ONE structural improvement to the forge codebase or processes. Output must be a concrete, minimal diff-friendly suggestion that can pass semantic_lint.py and the Canon State Machine. End with explicit non-authoritative claim language."
     
     return context
 
