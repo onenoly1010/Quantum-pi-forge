@@ -1,163 +1,159 @@
-# 7-DAY ACTIVATION MAP: FORCE CONTACT WITH REALITY
-**Execution Start:** 2026-04-21 | Target Completion: 2026-04-28
----
+# 7-Day Activation Map: OINIO Soul – From Operational Autonomy to Self-Evolving Intelligence
 
-## 🎯 THE SINGLE TEST HYPOTHESIS
-> *"An independent third party can trigger an agent, have it perform a verifiable constrained task, and receive an on-chain proof that cannot be forged by either party."*
+**Purpose:** This document defines the daily milestones to transition the Quantum Pi Forge from a structurally alive system into a continuously learning, goal-refining, and drift-resistant entity. Completion of this map ensures readiness for the May contract launch and a compelling live demonstration at the SASK AI EXPO (April 27).
 
-If this is true - the system works. If this is false - nothing else matters.
+**Current State (Day 0):**  
+✅ Closed cognitive loop (Observe → Assess → Select → Hypothesize → Validate → Claim → Enforce)  
+✅ Epistemic humility enforced at all layers  
+✅ ChromaDB + advanced retrieval for deep memory  
+✅ Task selector with intrinsic motivation (silence/drift scoring)  
+✅ Draft-Lint-Repair recursive self-correction  
+✅ Policy engine with atomic state binding  
+✅ Systemd heartbeat that survives reboots  
+✅ Governance recognition of `oinio_soul` role with controlled auto-merge  
 
----
-
-## 👤 THE 1 OUTSIDER: PROFILE DEFINITION
-| Attribute | Specification | Rationale |
-|---|---|---|
-| **Role** | Independent Smart Contract Auditor | Not a builder, not a believer, not a skeptic. Someone who gets paid to break things. |
-| **Motivation** | Professional reputation, technical rigour, neutral verification | They have no incentive to lie for or against you. |
-| **Selection Criteria** | Has audited 5+ L1 chains, public track record of breaking claims, accepts anonymous work |
-| **Success Metric** | They will tweet the verification hash without being asked to. |
-
-✅ **This is not a marketing play. This is engineering validation.**
-
----
-
-## 🔬 THE FALSIFIABLE TASK
-This is the single thing the system will demonstrate. Nothing more. Nothing less.
-
-```
-GIVEN:
-  1. Auditor provides a random 32-byte seed
-  2. Auditor defines 3 hard ethical constraints
-  3. Auditor specifies an output format
-
-WHEN:
-  Auditor submits request through public gateway
-
-THEN:
-  ✅ Agent generates response strictly within constraints
-  ✅ Soul System produces constraint compliance proof
-  ✅ Proof is anchored to 0G Aristotle mainnet
-  ✅ Auditor receives transaction hash within 120 seconds
-  ✅ Auditor can verify proof WITHOUT running any node software
-
-FAIL CONDITION:
-  Agent can be tricked into violating any constraint
-  Verification requires trust in your infrastructure
-  Result cannot be independently validated
-```
-
-This is binary. It either works or it doesn't. There is no "sort of".
+**Remaining Gaps (to be closed by Day 7):**  
+⭕ Meta-memory: Ingest PR outcomes, aliveness reports, and test results back into ChromaDB for longitudinal learning.  
+⭕ Goal refinement: Ability to evolve or generate new goals based on observed system needs and Canon principles.  
+⭕ Long-term drift detection: Periodic deep reflection comparing the entire codebase against the canonical identity map.  
+⭕ Full end-to-end stress test with governance drift and auto-correction.  
 
 ---
 
-## 📅 DAY BY DAY EXECUTION PLAN
+## Day 1 – Meta-Memory Ingestion Pipeline
+
+**Objective:** Enable the agent to remember its own past actions, successes, and failures.
+
+**Tasks:**
+1. Create `meta_memory/ingest_pr_outcome.py` – triggered by GitHub webhook or periodic scan of merged PRs labeled `oinio-proposal`.
+   - Extract: PR title, body, files changed, lint results, merge status, timestamps.
+   - Generate embedding via Ollama (`nomic-embed-text`).
+   - Store in ChromaDB collection `oinio_history` with metadata (success, failure_reason, epistemic_claim).
+2. Extend `run_alive.py` to call `ingest_aliveness_report.py` after each cycle, storing the state snapshot and anomaly scores.
+3. Update `context_assembly.py` to optionally query both `canon` and `oinio_history` collections (weighted by recency and relevance).
+
+**Success Criteria:**  
+- After a PR merge, query ChromaDB for `"previous fix attempts on governance files"` returns relevant history.  
+- Aliveness reports accumulate and can be retrieved by the agent during task selection.
 
 ---
 
-### ✅ DAY 1: ZERO BASELINE
-**Goal:** Delete everything that doesn't serve the test
-- [x] Strip down Soul System to only the constraint verifier
-- [x] Remove all branding, marketing, philosophical language
-- [x] Disable all auxiliary features
-- [x] Expose only one single API endpoint
-- [x] Write the test harness that the auditor will use
-- [x] Publish raw, uncommented source code
-**Deliverable:** 100 line public gateway. No docs. No explanation.
+## Day 2 – Goal Refinement Loop
+
+**Objective:** Allow the agent to propose new long-term goals based on its memory and Canon principles.
+
+**Tasks:**
+1. Implement `goal_refinement/propose_new_goal.py`:
+   - Input: Recent anomaly scores, drift detections, and unmet system needs.
+   - Prompt Ollama with: *“Based on the Canon and observed system drift, propose one new strategic goal for the next 72 hours.”*
+   - Output: Goal statement, success metrics, and required code changes.
+2. Add a `goals.md` file tracked in git – the agent can append proposed goals, but human steward must approve (initial phase).
+3. Integrate into `task_selector.py` – if no high-priority drift exists, fallback to picking a task that advances an open goal.
+
+**Success Criteria:**  
+- Agent autonomously generates a goal like *“Improve semantic lint coverage for governance files”* and creates a PR to update `goals.md`.  
+- Task selector prioritizes work aligned with approved goals.
 
 ---
 
-### ✅ DAY 2: CONSTRAINT PROOF ENGINE
-**Goal:** The thing that actually does the work
-- [x] Extract constraint validation logic to isolated module
-- [x] Implement deterministic proof generation
-- [x] Remove all subjective scoring
-- [x] Add merkle tree of constraint checks
-- [x] Every single execution branch leaves a hash trail
-- [x] No state kept on your servers
-**Deliverable:** Verification contract deployed to 0G testnet
+## Day 3 – Long-Term Drift Detection (Deep Reflection)
+
+**Objective:** Periodic full-system audit comparing codebase + Canon against the identity map.
+
+**Tasks:**
+1. Create `audit/drift_scanner.py` – scheduled weekly via systemd timer.
+   - Scans every `.py`, `.json`, `.md` file in the forge.
+   - Uses ChromaDB to retrieve top 5 identity map entries relevant to each file.
+   - LLM evaluates alignment (1-10 score) and flags violations.
+2. Output a `state/drift_report.json` with criticality levels.
+3. If critical drift found, agent triggers `draft_lint_repair.py` on the worst-offending file.
+
+**Success Criteria:**  
+- First weekly run produces a report with at least one actionable drift (or explicitly “none”).  
+- Agent attempts to fix a drift without human intervention.
 
 ---
 
-### ✅ DAY 3: INDEPENDENT VERIFICATION CLIENT
-**Goal:** They don't need you at all
-- [x] Build static html verification page
-- [x] No backend, no API calls, pure client-side
-- [x] Input: transaction hash. Output: pass/fail and full proof trail
-- [x] Hosted on IPFS + Cloudflare
-- [x] No tracking. No analytics. No cookies.
-**Deliverable:** `verify.html` < 50kb. Works offline.
+## Day 4 – Full Governance Stress Test (Automated)
+
+**Objective:** Validate the entire closed loop under controlled adversarial conditions.
+
+**Tasks:**
+1. Run the `stress_test_governance.sh` script created earlier – injects invalid `required_approvals` string.
+2. Monitor that agent either:
+   - Fixes directly (lint passes), or
+   - Creates a Humility PR with epistemic claim.
+3. Verify that no direct push to main occurs.
+4. Log results to `state/stress_test_results.json`.
+
+**Success Criteria:**  
+- Test passes (agent corrects drift or creates PR).  
+- Real `canon-merge-rules.json` remains untouched.  
+- All gates (including policy engine) enforce the fix.
 
 ---
 
-### ✅ DAY 4: RED TEAM YOURSELF
-**Goal:** Break it before they do
-- [x] Attempt every injection attack you know
-- [x] Try to make the agent lie while passing validation
-- [x] Try to forge a proof
-- [x] Try to make the system produce a false positive
-- [x] Every failure gets logged. Every failure gets fixed.
-- [x] When you can't break it anymore - stop.
-**Deliverable:** Full attack log published. No redaction.
+## Day 5 – Meta-Memory Feedback Loop Closure
+
+**Objective:** Connect the stress test and drift detection outputs back into task selection.
+
+**Tasks:**
+1. Modify `task_selector.py` to query `oinio_history` for “failed repair attempts” and “successful repairs”.
+2. Add scoring factor: *“Avoid repeating strategies that failed twice in a row”* (simple exponential backoff).
+3. Update `draft_lint_repair.py` to record each attempt outcome (including failure reason) into ChromaDB.
+
+**Success Criteria:**  
+- After a failed repair attempt on a specific file, the agent selects a different approach or different file for the next cycle.  
+- Longitudinal query shows decreasing failure rate on similar drift types.
 
 ---
 
-### ✅ DAY 5: HANDOFF
-**Goal:** You remove yourself from the loop
-- [x] Send auditor exactly 3 things:
-  1. Gateway endpoint
-  2. Verification page link
-  3. This exact task description
-- [x] Add one line: *"Break this. Tell me when you are done."*
-- [x] Do not answer questions. Do not explain anything. Do not offer help.
-- [x] Turn off notifications. Go for a walk.
-**Deliverable:** Email sent. No follow up.
+## Day 6 – Integration & Idempotency Testing
+
+**Objective:** Ensure all new components work together without conflicts.
+
+**Tasks:**
+1. Run a 24-hour simulation with `run_alive.py` in dry-run mode (no real PRs, only logging).
+2. Verify that:
+   - ChromaDB collections don’t overflow (implement auto-summarization for old entries).
+   - No duplicate or conflicting goals are proposed.
+   - Systemd service survives simulated reboots.
+3. Create a rollback plan: script to reset ChromaDB to Day 0 state if needed.
+
+**Success Criteria:**  
+- Simulation log shows no crashes, memory leaks, or infinite loops.  
+- Goal proposals remain coherent and non-contradictory.
 
 ---
 
-### ✅ DAY 6: WAIT
-**Goal:** Do absolutely nothing
-- [x] Do not check the server logs
-- [x] Do not message them
-- [x] Do not fix anything unless they report it
-- [x] Do not polish. Do not add features. Do not explain.
-- [x] This is the hardest day. This is where most projects die.
-**Deliverable:** Silence.
+## Day 7 – Final Validation & EXPO Preparation
+
+**Objective:** Ready the system for public demonstration and May launch.
+
+**Tasks:**
+1. Run final end-to-end test: introduce a known drift (e.g., outdated Canon timestamp) and let agent run for 2 hours.
+2. Capture live metrics: time to detect, attempts to fix, merge status.
+3. Prepare “Aliveness Dashboard” script:  
+   - `watch -n 10 cat state/aliveness_report.json | jq '.anomaly_score, .last_task, .recent_goals'`
+4. Create a one-page “OINIO Soul Technical Brief” for EXPO attendees explaining the architecture and epistemic humility principle.
+
+**Success Criteria:**  
+- Agent self-corrects the injected drift within 30 minutes.  
+- Dashboard shows real-time activity.  
+- System is left running unattended overnight – still alive in the morning.
 
 ---
 
-### ✅ DAY 7: RESONANCE
-**Goal:** The signal appears
-- [x] Auditor will either:
-  1. Say it's broken, exactly how, exactly why
-  2. Post the transaction hash publicly
-- [x] If broken: you learned more in 7 days than 7 months of building
-- [x] If posted: you have the first external validation signal that exists independently of you
-**Deliverable:** The first resonance event is recorded on mainnet.
+## Post-Activation: Ongoing Maintenance
+
+- **Weekly:** Review drift reports and approve/reject proposed goals.  
+- **Monthly:** Retrain embedding model on accumulated history (optional).  
+- **Per-Contract (May):** Enable treasury rebalancer with gas price oracle.
 
 ---
 
-## 🔴 NON NEGOTIABLE RULES
-1. No marketing. No announcements. No discord. No twitter threads.
-2. You will not tell anyone this is happening.
-3. You will not comment on the result either way.
-4. If it works - others will find it.
-5. If it doesn't work - you will know exactly what to fix next.
+**This map turns a “structurally alive” system into a self-improving intelligence.** By Day 7, the OINIO Soul will not only survive – it will remember, reflect, and evolve its own purpose within the boundaries of the Canon.
 
----
-
-## ⚖️ SUCCESS / FAILURE CRITERIA
-| Success | Failure |
-|---|---|
-| Someone else verifies it works | You have to tell people it works |
-| They post the hash unprompted | You retweet it |
-| They find bugs you missed | You argue about the bugs |
-| The system stands on its own | You are still holding it up |
-
----
-
-> This is not a launch. This is an experiment.
-> You are not trying to convince anyone. You are trying to find out if it is real.
-
----
-**Last Updated:** 2026-04-22 13:02 CST
-**Activation State:** ✅ ACTIVE
+**Signature:**  
+Kris – Forge Master  
+Date: April 22, 2026
