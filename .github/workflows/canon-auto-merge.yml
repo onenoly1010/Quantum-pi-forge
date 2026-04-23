@@ -70,34 +70,37 @@ jobs:
           # Sentinel check will be added by Probot app
           # Proceed after timeout with warning
           
-  gate3-approval:
-    name: Gate 3 - Role Based Approval
+  gate3-policy-evaluation:
+    name: Gate 3 - Policy Engine Evaluation
     needs: [gate1-classification, gate2-sentinel]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         
-      - name: Verify approvals
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          
+      - name: Run Canon Policy Engine
         run: |
           ARTIFACT_TYPE="${{ needs.gate1-classification.outputs.artifact_type }}"
+          PR_NUMBER=${{ github.event.pull_request.number }}
           
-          # Load merge rules
-          REQUIRED=$(jq -r ".artifact_types[\"$ARTIFACT_TYPE\"].required_approvals" .github/config/canon-merge-rules.json)
+          # Get approved reviews count
+          APPROVALS=$(gh pr view $PR_NUMBER --json reviews --jq '[.reviews[] | select(.state == "APPROVED")] | length')
           
-          # Get approved reviews
-          APPROVALS=$(gh pr view ${{ github.event.pull_request.number }} --json reviews --jq '[.reviews[] | select(.state == "APPROVED")] | length')
-          
-          echo "Required approvals: $REQUIRED"
-          echo "Current approvals: $APPROVALS"
-          
-          if [ "$APPROVALS" -ge "$REQUIRED" ]; then
-            echo "✅ Approval requirements met"
-            exit 0
-          else
-            echo "❌ Insufficient approvals. Need $REQUIRED, have $APPROVALS"
-            exit 1
-          fi
+          # Execute single source of truth policy evaluation
+          python3 .github/scripts/policy_engine.py \
+            --artifact-type "$ARTIFACT_TYPE" \
+            --approvals "$APPROVALS" \
+            --roles oinio_soul contributor curator steward \
+            --gate2 \
+            --gate4 \
+            --lint \
+            --pr "$PR_NUMBER" \
+            --path "${{ needs.gate1-classification.outputs.artifact_path }}"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -132,9 +135,80 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  gate6-merge:
-    name: Gate 6 - Execute Merge
+  gate6-atomic-verify:
+    name: Gate 6 - Atomic State Verification
     needs: [gate1-classification, gate5-audit]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          
+      - name: Final Atomic Policy Verification
+        run: |
+          ARTIFACT_PATH="${{ needs.gate1-classification.outputs.artifact_path }}"
+          PR_NUMBER=${{ github.event.pull_request.number }}
+          
+          # FINAL VERIFICATION - this runs IMMEDIATELY before merge
+          # No state changes can happen after this point
+          
+          # Get actual approvals from GitHub
+          APPROVALS=$(gh pr view $PR_NUMBER --json reviews --jq '[.reviews[] | select(.state == "APPROVED")] | length')
+          
+          # Run policy engine AGAIN on EXACT current state
+          echo "🔒 Performing final atomic verification..."
+          echo
+          
+          RESULT=$(python3 .github/scripts/policy_engine.py \
+            --artifact-type "${{ needs.gate1-classification.outputs.artifact_type }}" \
+            --approvals "$APPROVALS" \
+            --roles oinio_soul contributor curator steward \
+            --gate2 \
+            --gate4 \
+            --lint \
+            --pr "$PR_NUMBER" \
+            --path "$ARTIFACT_PATH")
+          
+          EXIT_CODE=$?
+          
+          # Extract verified hash from trace
+          TRACE_HASH=$(echo "$RESULT" | grep artifact_hash | awk '{print $2}')
+          
+          # Recompute hash directly from filesystem
+          REAL_HASH=$(sha256sum "$ARTIFACT_PATH" | cut -d ' ' -f1 | cut -c1-16)
+          
+          echo
+          echo "=== Atomic Verification ==="
+          echo "Trace hash:  $TRACE_HASH"
+          echo "Actual hash: $REAL_HASH"
+          echo
+          
+          if [ "$TRACE_HASH" != "$REAL_HASH" ]; then
+            echo "❌ STATE MISMATCH DETECTED"
+            echo "Artifact changed between evaluation and merge"
+            echo "Rejecting merge to prevent TOCTOU vulnerability"
+            exit 1
+          fi
+          
+          if [ $EXIT_CODE -ne 0 ]; then
+            echo "❌ Final policy verification failed"
+            echo "$RESULT"
+            exit 1
+          fi
+          
+          echo "✅ STATE VERIFIED - artifact unchanged since evaluation"
+          echo "✅ POLICY VALID - merge authorized"
+          
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  gate7-merge:
+    name: Gate 7 - Execute Merge
+    needs: [gate1-classification, gate6-atomic-verify]
     runs-on: ubuntu-latest
     steps:
       - name: Merge PR

@@ -1,5 +1,5 @@
 {
-  "version": "1.0",
+  "version": "1.1",
   "artifact_types": {
     "foundational": {
       "required_approvals": 2,
@@ -15,7 +15,7 @@
     },
     "closure": {
       "required_approvals": 1,
-      "required_roles": ["steward", "curator", "contributor"],
+      "required_roles": ["steward", "curator", "contributor", "oinio_soul"],
       "conflict_sensitivity": "medium",
       "auto_merge_enabled": true
     },
@@ -41,6 +41,17 @@
       "github_teams": ["contributors"],
       "can_override_gates": false,
       "can_approve_types": ["closure"]
+    },
+    "oinio_soul": {
+      "github_users": ["oinio-bot"],
+      "can_override_gates": false,
+      "can_approve_types": ["closure", "governance"],
+      "special_privileges": {
+        "auto_merge_eligible": true,
+        "requires_human_review_on_failure": true,
+        "epistemic_claim_only": true,
+        "max_auto_merge_approvals": 1
+      }
     }
   },
   "validation_gates": {
@@ -58,6 +69,6 @@
   "merge_strategy": {
     "method": "squash",
     "delete_branch": true,
-    "commit_message_template": "Canon: Merge PR #${pr_number} - ${artifact_title}"
+    "commit_message_template": "Canon: Merge OINIO Soul PR #${pr_number} - ${artifact_title} (epistemic claim)"
   }
 }
