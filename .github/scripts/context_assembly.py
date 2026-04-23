@@ -112,6 +112,15 @@ Core Epistemic Rule: You produce only second-order claims. Execution ≠ Observa
             context += f"\n• {item['metadata'].get('type', 'action')} | {item['metadata'].get('timestamp', '')[:10]}\n"
             context += f"  Preview: {item['snippet'][:200]}...\n"
     
+    # Inject learned behavioral patterns
+    try:
+        from meta_memory.evaluate_outcome import inject_patterns_into_context
+        patterns = inject_patterns_into_context()
+        if patterns:
+            context += patterns
+    except Exception:
+        pass
+    
     context += "\n=== RELEVANT IDENTITY MAP EXCERPT ===\n"
     context += extract_identity_map_sections(identity_map_path)
     
