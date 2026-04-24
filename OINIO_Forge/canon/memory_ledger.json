@@ -1,0 +1,12 @@
+{
+  "events": [
+    {
+      "timestamp": "2026-04-23T18:50:49.928647Z",
+      "unix_time": 1776970249,
+      "target_file": "canon/merge_rules.json",
+      "strategy": "quick_patch",
+      "success": false,
+      "details": "Validation failed post-merge."
+    }
+  ]
+}

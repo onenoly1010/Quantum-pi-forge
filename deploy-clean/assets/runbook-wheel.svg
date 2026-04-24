@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="700">
+  <rect width="100%" height="100%" fill="#0f172a"/>
+
+  <!-- Title -->
+  <text x="350" y="40" text-anchor="middle" fill="#facc15" font-size="22" font-family="monospace">
+    Runbook Wheel — Circle of Closure
+  </text>
+
+  <!-- Outer Circle -->
+  <circle cx="350" cy="350" r="280" stroke="#38bdf8" stroke-width="6" fill="none"/>
+
+  <!-- Steps distributed around the wheel -->
+  <text x="350" y="80" text-anchor="middle" fill="#f8fafc" font-size="18">Lint</text>
+  <text x="520" y="130" text-anchor="middle" fill="#f8fafc" font-size="18">Test</text>
+  <text x="600" y="280" text-anchor="middle" fill="#f8fafc" font-size="18">Release</text>
+  <text x="600" y="420" text-anchor="middle" fill="#f8fafc" font-size="18">Deploy</text>
+  <text x="520" y="570" text-anchor="middle" fill="#f8fafc" font-size="18">Rollback</text>
+  <text x="350" y="620" text-anchor="middle" fill="#f8fafc" font-size="18">Monitor</text>
+  <text x="180" y="570" text-anchor="middle" fill="#f8fafc" font-size="18">Visualize</text>
+  <text x="100" y="420" text-anchor="middle" fill="#f8fafc" font-size="18">Alert</text>
+  <text x="100" y="280" text-anchor="middle" fill="#f8fafc" font-size="18">Pre‑aggregate</text>
+  <text x="180" y="130" text-anchor="middle" fill="#f8fafc" font-size="18">Host</text>
+
+  <!-- Inner Circle -->
+  <circle cx="350" cy="350" r="120" stroke="#facc15" stroke-width="4" fill="none"/>
+  <text x="350" y="355" text-anchor="middle" fill="#facc15" font-size="20">Closure</text>
+</svg>

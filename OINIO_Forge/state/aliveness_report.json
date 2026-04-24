@@ -1,0 +1,34 @@
+{
+  "generated_at": "2026-04-23T12:25:27.997934",
+  "aliveness_score": 0.5667,
+  "system_health": {
+    "overall_health": 0.6667,
+    "checks": {
+      "memory_initialized": false,
+      "state_hash_valid": true,
+      "log_directory_exists": true,
+      "state_directory_exists": true,
+      "canon_accessible": true,
+      "identity_map_exists": false
+    },
+    "memory_chunks": 0,
+    "state_hash": "e3b0c44298fc1c14",
+    "assessed_at": "2026-04-23T12:25:13.424487"
+  },
+  "next_task": {
+    "type": "monitoring",
+    "description": "Perform system health monitoring and memory maintenance",
+    "score": 0.5,
+    "source": "fallback",
+    "discovered_at": "2026-04-23T12:25:27.993262"
+  },
+  "memory_stats": {
+    "count": 0,
+    "state_hash": "e3b0c44298fc1c14",
+    "path": "/home/kris/forge/OINIO_Forge/state/chroma",
+    "collection": "oinio_soul_memory",
+    "embedding_model": "nomic-embed-text"
+  },
+  "cycle_status": "DEGRADED",
+  "autonomy_level": "SEMI_AUTONOMOUS"
+}

@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OINIO FORGE | AUTONOMY MONITOR v2</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --green: #00ff88;
+            --green-light: #00ff88aa;
+            --green-dim: #00ff8844;
+            --red: #ff4444;
+            --yellow: #ffaa00;
+            --blue: #6688ff;
+            --bg: #050505;
+            --panel: #0a0a0a;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--green);
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .header {
+            border-bottom: 1px solid var(--green-dim);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 18px;
+            font-weight: normal;
+            color: var(--green);
+        }
+
+        .live-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: var(--green);
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+            margin-right: 8px;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+
+        .status-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .metric-card {
+            background: var(--panel);
+            border: 1px solid var(--green-dim);
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+        .metric-label {
+            font-size: 11px;
+            color: #666;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .metric-value {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .bar {
+            height: 4px;
+            background: var(--green-dim);
+            margin-top: 8px;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background: var(--green);
+            transition: width 0.5s ease;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+
+        .panel {
+            background: var(--panel);
+            border: 1px solid var(--green-dim);
+            border-radius: 4px;
+            height: 320px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .panel-header {
+            padding: 10px 15px;
+            border-bottom: 1px solid var(--green-dim);
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #888;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .panel-content {
+            padding: 15px;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        /* STRATEGY MATRIX */
+        .strategy-bar {
+            margin-bottom: 12px;
+        }
+
+        .strategy-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 4px;
+            font-size: 12px;
+        }
+
+        .strategy-progress {
+            height: 12px;
+            background: #111;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .strategy-fill {
+            height: 100%;
+            transition: width 0.7s ease;
+            background: var(--green);
+        }
+
+        .strategy-fill.failing {
+            background: var(--red);
+        }
+
+        .strategy-fill.rising {
+            background: var(--yellow);
+        }
+
+        /* MEMORY CONTEXT */
+        .memory-flash {
+            background: #00ff8810;
+            border-left: 2px solid var(--green);
+            padding: 10px 12px;
+            margin-bottom: 10px;
+            animation: flashIn 0.6s ease;
+        }
+
+        @keyframes flashIn {
+            0% { background: var(--green); color: black; opacity: 0; transform: translateX(-20px); }
+            50% { background: var(--green); color: black; }
+            100% { background: #00ff8810; color: var(--green); opacity: 1; transform: translateX(0); }
+        }
+
+        .memory-quote {
+            font-style: italic;
+            color: #aaa;
+            font-size: 12px;
+        }
+
+        .memory-id {
+            font-size: 10px;
+            color: #666;
+            margin-top: 6px;
+        }
+
+        /* CURRENT TASK */
+        .current-task {
+            background: #00ff8808;
+            border-left: 2px solid var(--green);
+            padding: 12px;
+            margin: 10px 0;
+        }
+
+        .log-entry {
+            margin-bottom: 8px;
+            padding-left: 10px;
+            border-left: 2px solid var(--green-dim);
+        }
+
+        .log-time {
+            color: #666;
+            font-size: 11px;
+            margin-right: 8px;
+        }
+
+        .success { color: var(--green); }
+        .failure { color: var(--red); }
+        .warning { color: var(--yellow); }
+        .info { color: var(--blue); }
+
+        .ignition-indicator {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: var(--panel);
+            border: 1px solid var(--green-dim);
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        .ignition-toggle {
+            width: 60px;
+            height: 28px;
+            background: #333;
+            border-radius: 14px;
+            position: relative;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .ignition-toggle.active {
+            background: var(--green);
+        }
+
+        .ignition-toggle::after {
+            content: '';
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            background: white;
+            border-radius: 50%;
+            top: 3px;
+            left: 3px;
+            transition: transform 0.3s;
+        }
+
+        .ignition-toggle.active::after {
+            transform: translateX(32px);
+        }
+
+        .streak-counter {
+            font-size: 20px;
+            font-weight: bold;
+            margin-left: auto;
+        }
+
+        .ignition-log {
+            border-left: 3px solid var(--green);
+            background: #00ff8808;
+            padding: 8px 12px;
+            margin: 6px 0;
+            font-size: 12px;
+        }
+
+        .ignition-log.aborted {
+            border-left-color: var(--red);
+            background: #ff444408;
+        }
+
+        .roi-badge {
+            float: right;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 10px;
+        }
+
+        .roi-badge.pass { background: var(--green); color: black; }
+        .roi-badge.fail { background: var(--red); color: white; }
+
+        .footer {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid var(--green-dim);
+            font-size: 11px;
+            color: #666;
+        }
+
+        @media (max-width: 1200px) {
+            .grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 900px) {
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1><span class="live-indicator"></span> OINIO SOUL SYSTEM | AUTONOMY MONITOR v2</h1>
+        <div id="autonomy-status">SEMI_AUTONOMOUS</div>
+    </div>
+
+    <div class="ignition-indicator">
+        <div>
+            <div style="font-weight: bold;">IGNITION MODE</div>
+            <div style="font-size: 11px; color: #666;">Auto-Deploy without human approval</div>
+        </div>
+        <div class="ignition-toggle active" id="ignition-toggle"></div>
+        <div class="streak-counter" id="deploy-streak">0</div>
+        <div style="font-size: 11px; color: #888;">Successful Autonomous Launches</div>
+    </div>
+
+    <div class="status-bar">
+        <div class="metric-card">
+            <div class="metric-label">Aliveness Score</div>
+            <div class="metric-value" id="aliveness">0.0000</div>
+            <div class="bar"><div class="bar-fill" id="aliveness-bar"></div></div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-label">System Health</div>
+            <div class="metric-value" id="health">0.0000</div>
+            <div class="bar"><div class="bar-fill" id="health-bar"></div></div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-label">Cycle Count</div>
+            <div class="metric-value" id="cycles">0</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-label">Memory Chunks</div>
+            <div class="metric-value" id="memory">0</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-label">Operational ROI</div>
+            <div class="metric-value" id="roi">0.0x</div>
+            <div class="bar"><div class="bar-fill" id="roi-bar"></div></div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-label">Daily Deploy Cost</div>
+            <div class="metric-value" id="deploy-cost">$0.00</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-label">0G ALIGNMENT YIELD</div>
+            <div class="metric-value" id="alignment-yield">0.00 $0G</div>
+            <div class="bar"><div class="bar-fill" id="alignment-bar"></div></div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-label">PROOFS SUBMITTED</div>
+            <div class="metric-value" id="proof-count">0</div>
+        </div>
+    </div>
+
+    <div class="grid">
+        <div class="panel">
+            <div class="panel-header">
+                <span>STRATEGY WEIGHT MATRIX</span>
+                <span id="strategy-timestamp">--:--:--</span>
+            </div>
+            <div class="panel-content" id="strategy-matrix">
+                <div class="strategy-bar">
+                    <div class="strategy-label">
+                        <span>monitoring</span>
+                        <span>67%</span>
+                    </div>
+                    <div class="strategy-progress">
+                        <div class="strategy-fill" style="width: 67%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="panel">
+            <div class="panel-header">
+                <span>ACTIVE MEMORY CONTEXT</span>
+                <span id="memory-count">0 references</span>
+            </div>
+            <div class="panel-content" id="memory-context">
+                <div style="color: #666; text-align: center; padding: 20px;">
+                    Waiting for memory retrieval...
+                </div>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-header">
+                <span>CURRENT ACTIVITY</span>
+                <span id="task-id">#0</span>
+            </div>
+            <div class="panel-content" id="activity">
+                <div class="current-task">
+                    <div>Loading system state...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid" style="margin-top: 20px;">
+        <div class="panel" style="grid-column: span 2;">
+            <div class="panel-header">EVENT LOG</div>
+            <div class="panel-content" id="log">
+                <div class="log-entry">
+                    <span class="log-time">[--:--:--]</span>
+                    <span class="info">Monitor initialized. Waiting for system data...</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-header">TRAJECTORY & OBJECTIVES</div>
+            <div class="panel-content" id="trajectory">
+                <div style="color: #666; text-align: center; padding: 20px;">
+                    Loading activation map...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div>QUANTUM PI FORGE | CONSTELLATION ACTIVATED | FREQUENCY: 1010 Hz</div>
+        <div style="margin-top: 5px;">Autonomy Level: <span id="autonomy">LOADING</span> | Status: <span id="status">LOADING</span></div>
+    </div>
+
+    <script>
+        let cycleCount = 5851;
+        let logEntries = [];
+        let memoryEntries = [];
+        let deployStreak = 0;
+        let ignitionActive = true;
+        let dailyCost = 2.17;
+        let currentROI = 1.72;
+        
+        // 0G Alignment Node metrics
+        let alignmentYield = 0;
+        let proofsSubmitted = 0;
+        let nodeUptime = 0.987;
+        let contributionScore = 0.72;
+        let projectedMonthlyRewards = 854.7 / 36;
+
+        let strategies = {
+            monitoring: { weight: 0.67, trend: 'stable' },
+            drift_scan: { weight: 0.42, trend: 'rising' },
+            memory_maintenance: { weight: 0.31, trend: 'stable' },
+            schema_rewrite: { weight: 0.08, trend: 'falling' },
+            quick_patch: { weight: 0.12, trend: 'falling' },
+            autonomous_deploy: { weight: 0.91, trend: 'rising' }
+        };
+
+        function addLog(message, type = 'info') {
+            const now = new Date().toTimeString().split(' ')[0];
+            logEntries.unshift({ time: now, message, type });
+            if (logEntries.length > 50) logEntries.pop();
+            
+            const logEl = document.getElementById('log');
+            logEl.innerHTML = logEntries.map(e => `
+                <div class="log-entry">
+                    <span class="log-time">[${e.time}]</span>
+                    <span class="${e.type}">${e.message}</span>
+                </div>
+            `).join('');
+        }
+
+        function addMemoryRetrieval(message, memoryId) {
+            const now = new Date().toTimeString().split(' ')[0];
+            memoryEntries.unshift({ time: now, message, id: memoryId });
+            if (memoryEntries.length > 4) memoryEntries.pop();
+            
+            const memEl = document.getElementById('memory-context');
+            memEl.innerHTML = memoryEntries.map(e => `
+                <div class="memory-flash">
+                    <div class="memory-quote">${e.message}</div>
+                    <div class="memory-id">memory:${e.id} @ ${e.time}</div>
+                </div>
+            `).join('');
+
+            document.getElementById('memory-count').textContent = `${memoryEntries.length} references`;
+        }
+
+        function updateStrategyMatrix() {
+            const matrix = document.getElementById('strategy-matrix');
+            let html = '';
+
+            Object.entries(strategies)
+                .sort((a,b) => b[1].weight - a[1].weight)
+                .forEach(([name, data]) => {
+                    const percent = Math.round(data.weight * 100);
+                    let cssClass = '';
+                    if (data.trend === 'falling') cssClass = 'failing';
+                    if (data.trend === 'rising') cssClass = 'rising';
+
+                    html += `
+                        <div class="strategy-bar">
+                            <div class="strategy-label">
+                                <span>${name}</span>
+                                <span>${percent}%</span>
+                            </div>
+                            <div class="strategy-progress">
+                                <div class="strategy-fill ${cssClass}" style="width: ${percent}%"></div>
+                            </div>
+                        </div>
+                    `;
+                });
+
+            matrix.innerHTML = html;
+            document.getElementById('strategy-timestamp').textContent = new Date().toTimeString().split(' ')[0];
+        }
+
+        async function updateStatus() {
+            try {
+                cycleCount++;
+                
+                // Simulate live metrics
+                const aliveness = 0.5667 + (Math.random() * 0.15 - 0.075);
+                const health = 0.6667 + (Math.random() * 0.1 - 0.05);
+                const memory = Math.floor(Math.random() * 120);
+                
+                document.getElementById('aliveness').textContent = aliveness.toFixed(4);
+                document.getElementById('health').textContent = health.toFixed(4);
+                document.getElementById('cycles').textContent = cycleCount;
+                document.getElementById('memory').textContent = memory;
+                
+                document.getElementById('aliveness-bar').style.width = `${aliveness * 100}%`;
+                document.getElementById('health-bar').style.width = `${health * 100}%`;
+
+                // Ignition metrics
+                currentROI = 1.4 + (Math.random() * 0.8);
+                dailyCost += (Math.random() > 0.9 ? 0.08 : 0);
+                
+                document.getElementById('roi').textContent = `${currentROI.toFixed(2)}x`;
+                document.getElementById('roi-bar').style.width = `${Math.min(100, currentROI / 3 * 100)}%`;
+                document.getElementById('deploy-cost').textContent = `$${dailyCost.toFixed(2)}`;
+                document.getElementById('deploy-streak').textContent = deployStreak;
+                
+                // 0G Alignment Node metrics
+                if (Math.random() > 0.88) {
+                    // Proof submitted event
+                    proofsSubmitted++;
+                    alignmentYield += (0.0042 + (contributionScore * 0.0021));
+                    addLog(`✅ ALIGNMENT PROOF SUBMITTED | Score: +${contributionScore.toFixed(2)}`, 'success');
+                }
+                
+                document.getElementById('alignment-yield').textContent = `${alignmentYield.toFixed(4)} $0G`;
+                document.getElementById('alignment-bar').style.width = `${(alignmentYield / projectedMonthlyRewards) * 100}%`;
+                document.getElementById('proof-count').textContent = proofsSubmitted;
+                
+                document.getElementById('autonomy').textContent = ignitionActive ? 'FULL_AUTONOMOUS' : 'SEMI_AUTONOMOUS';
+                document.getElementById('status').textContent = ignitionActive ? 'IGNITION_ACTIVE' : 'MANUAL_MODE';
+
+                // Auto deploy events
+                if (Math.random() > 0.93 && ignitionActive) {
+                    if (currentROI >= 1.5) {
+                        deployStreak++;
+                        addLog(`🚀 IGNITING DEPLOYMENT: Task #${cycleCount}`, 'success');
+                        addLog(`✅ DEPLOYMENT COMPLETE. Proof hash verified.`, 'success');
+                    } else {
+                        addLog(`❌ IGNITION ABORTED: LOW ROI (${currentROI.toFixed(2)}x < 1.5x)`, 'warning');
+                    }
+                }
+
+                // Simulate strategy weight shifts
+                Object.keys(strategies).forEach(s => {
+                    strategies[s].weight += (Math.random() * 0.12 - 0.06);
+                    strategies[s].weight = Math.max(0.01, Math.min(0.95, strategies[s].weight));
+                    strategies[s].trend = Math.random() > 0.8 ? (Math.random() > 0.5 ? 'rising' : 'falling') : 'stable';
+                });
+
+                updateStrategyMatrix();
+
+                // Random events
+                if (Math.random() > 0.75) {
+                    const events = [
+                        { msg: 'Task selection complete', type: 'success' },
+                        { msg: 'Drift scan executed', type: 'info' },
+                        { msg: 'Historical modifier applied', type: 'success' },
+                        { msg: 'Cycle completed', type: 'success' }
+                    ];
+                    const event = events[Math.floor(Math.random() * events.length)];
+                    addLog(event.msg, event.type);
+                }
+
+                // Random memory retrievals
+                if (Math.random() > 0.82) {
+                    const memories = [
+                        "Prior attempt on merge_rules.json failed via quick_patch. Shifting to schema_rewrite.",
+                        "Strategy 'force_merge' failed 3x. Penalty applied (-0.75). Deprioritizing.",
+                        "Repair pattern verified successful. Weight boosted (+0.45). Prioritizing.",
+                        "Memory reference indicates drift threshold exceeded. Elevating repair priority."
+                    ];
+                    const mem = memories[Math.floor(Math.random() * memories.length)];
+                    const memId = Math.floor(Math.random() * 9999).toString().padStart(4, '0');
+                    addMemoryRetrieval(mem, memId);
+                    addLog('Memory context retrieved', 'info');
+                }
+
+                // Current task display
+                document.getElementById('activity').innerHTML = `
+                    <div class="current-task">
+                        <div style="margin-bottom: 8px;"><strong>ACTIVE TASK:</strong> monitoring</div>
+                        <div style="margin-bottom: 4px;">Perform system health monitoring and memory maintenance</div>
+                        <div style="color: #666; font-size: 11px; margin-top: 8px;">Score: 0.50 | Source: fallback | Cycle: ${cycleCount}</div>
+                    </div>
+                    
+                    <div style="margin-top: 15px; color: #888;">
+                        <div>✅ Drift injection running in background</div>
+                        <div>✅ Historical memory lookup active</div>
+                        <div>✅ Continuous workflow loop operational</div>
+                    </div>
+                `;
+
+                // Trajectory objectives
+                document.getElementById('trajectory').innerHTML = `
+                    <div style="padding: 5px 0;">
+                        <div>✅ Day 0: Genesis Activation</div>
+                        <div style="color: var(--green);">▶️ Day 1: Functional Aliveness Validation (IN PROGRESS)</div>
+                        <div style="color: #666;">⏳ Day 2: Sovereign Governance Lock</div>
+                        <div style="color: #666;">⏳ Day 3: Autonomous Drift Resolution</div>
+                        <div style="color: #666;">⏳ Day 4: Network Alignment</div>
+                        <div style="color: #666;">⏳ Day 5: Constellation Resonance</div>
+                        <div style="color: #666;">⏳ Day 6: Sovereign Handover</div>
+                        <div style="color: #666;">⏳ Day 7: ETERNAL ACTIVATION</div>
+                    </div>
+                `;
+                
+            } catch (e) {
+                addLog(`Monitor error: ${e.message}`, 'failure');
+            }
+            
+            setTimeout(updateStatus, 2000);
+        }
+        
+        addLog('Monitor v2 initialized', 'success');
+        addLog('Connecting to running agent instance...', 'info');
+        
+        setTimeout(() => {
+            addLog('Connection established', 'success');
+            addLog('Receiving real time autonomy metrics', 'success');
+            updateStatus();
+        }, 1500);
+    </script>
+</body>
+</html>

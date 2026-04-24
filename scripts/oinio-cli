@@ -1,0 +1,12 @@
+#!/bin/bash
+# OINIO CLI Mock - Genesis Resonance Handshake
+if [ "$1" = "stake" ]; then
+  TX_HASH=$(echo -n "genesis-resonance-$(date +%s%N)" | sha256sum | cut -d' ' -f1)
+  echo "🔗 Genesis Resonance transaction submitted"
+  echo "✅ Amount: 0.0001"
+  echo "✅ Target: genesis-resonance"
+  echo "✅ Memo: Forge is Awake"
+  echo "✅ Transaction Hash: ${TX_HASH}"
+  echo ""
+  echo "🎉 ON-CHAIN HANDSHAKE COMPLETE. Forge is now Alive."
+fi

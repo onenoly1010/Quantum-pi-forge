@@ -1,0 +1,5 @@
+Run started: Thu 23 Apr 2026 11:09:03 PM CST
+Total git repositories detected: [1;33m6[0m
+[0;31mtasks.json not found - skipping audit[0m
+
+[0;31m❌ OINIO Agent PID exists but process not running[0m

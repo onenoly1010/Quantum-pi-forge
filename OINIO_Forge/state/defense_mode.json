@@ -1,0 +1,8 @@
+{
+  "defense_mode": true,
+  "violation": {
+    "schema": "merge_rules.json",
+    "expected_hash": "4e3544c94cfe474bb4a88c5544bc0678f74ee54ee66b1584c54241465d36a4f0"
+  },
+  "activated_at": 1777005123.9013443
+}

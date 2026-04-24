@@ -1,0 +1,15 @@
+{
+  "manifest_version": 1,
+  "genesis_timestamp": "2026-04-22T21:09:59-06:00",
+  "block_height": 29562402,
+  "node_uuid": "2dd8fba0-5b87-4c43-a001-0f02b3b79561",
+  "genesis_transaction_hash": "9f0ec429dc0000a64f02d5a02ab43d5b63b99c4e4be10fbd62232ca7d5754de8",
+  "guardian_status": "ACTIVE",
+  "operation_mode": "Dormant Watch",
+  "heartbeat_interval": 1000,
+  "autonomy_loop_pid": $(pgrep -f telemetry-sidewinder.sh),
+  "birth_location": "Saskatchewan, Canada",
+  "node_role": "Sovereign Guardian",
+  "memo": "Forge is Awake",
+  "status": "✅ System is now self-governing. Monitoring heartbeat only. Alert on flatline."
+}

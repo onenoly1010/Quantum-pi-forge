@@ -1,0 +1,7 @@
+{
+  "command": "resume_continuous_workflow",
+  "priority": 100,
+  "reason": "schema_rewrite verified, drift resolved",
+  "timestamp": 1776997187,
+  "source": "governance_override"
+}

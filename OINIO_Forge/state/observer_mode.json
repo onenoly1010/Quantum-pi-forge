@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-04-23T14:09:38.274170",
+  "mode": "sovereign-observer",
+  "notify_target": "OINIO-Core",
+  "cycle": 232,
+  "status": "SOVEREIGN_OBSERVER",
+  "heartbeat_interval": 1800,
+  "block_height": 29562402,
+  "wake_on": [
+    "0G_MAINNET_DISCONNECT",
+    "HEARTBEAT_FAILURE",
+    "DRIFT_THRESHOLD_EXCEEDED",
+    "CRITICAL_ERROR"
+  ]
+}

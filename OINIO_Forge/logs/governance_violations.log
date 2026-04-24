@@ -1,0 +1,2 @@
+{"event": "GOVERNANCE_VIOLATION", "timestamp": 1776999176.6522298, "details": {"schema": "merge_rules.json", "expected_hash": "4e3544c94cfe474bb4a88c5544bc0678f74ee54ee66b1584c54241465d36a4f0"}, "action_taken": "READ_ONLY_MODE_ACTIVATED"}
+{"event": "GOVERNANCE_VIOLATION", "timestamp": 1777005123.8994312, "details": {"schema": "merge_rules.json", "expected_hash": "4e3544c94cfe474bb4a88c5544bc0678f74ee54ee66b1584c54241465d36a4f0"}, "action_taken": "READ_ONLY_MODE_ACTIVATED"}

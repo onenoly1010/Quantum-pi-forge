@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "consensus_threshold": 0.6667,
+  "required_approvals": 1,
+  "canon_timestamp": 1776995100,
+  "allow_quick_patch": false,
+  "schema_rewrite_required": true,
+  "merge_strategy": "three_way_safe",
+  "failure_tolerance": 2
+}

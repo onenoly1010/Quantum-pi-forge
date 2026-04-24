@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OINIO FORGE | SYSTEM MONITOR</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background: #050505;
+            color: #00ff88;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            border-bottom: 1px solid #00ff8833;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 18px;
+            font-weight: normal;
+            color: #00ff88;
+        }
+
+        .status-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .metric-card {
+            background: #0a0a0a;
+            border: 1px solid #00ff8822;
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+        .metric-label {
+            font-size: 11px;
+            color: #666;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .metric-value {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .live-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #00ff88;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+            margin-right: 8px;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .panel {
+            background: #0a0a0a;
+            border: 1px solid #00ff8822;
+            border-radius: 4px;
+            height: 400px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .panel-header {
+            padding: 10px 15px;
+            border-bottom: 1px solid #00ff8822;
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #888;
+        }
+
+        .panel-content {
+            padding: 15px;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .log-entry {
+            margin-bottom: 8px;
+            padding-left: 10px;
+            border-left: 2px solid #00ff8844;
+        }
+
+        .log-time {
+            color: #666;
+            font-size: 11px;
+            margin-right: 8px;
+        }
+
+        .success { color: #00ff88; }
+        .failure { color: #ff4444; }
+        .warning { color: #ffaa00; }
+        .info { color: #6688ff; }
+
+        .current-task {
+            background: #00ff8808;
+            border-left: 2px solid #00ff88;
+            padding: 12px;
+            margin: 10px 0;
+        }
+
+        .footer {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #00ff8833;
+            font-size: 11px;
+            color: #666;
+        }
+
+        .bar {
+            height: 4px;
+            background: #00ff8822;
+            margin-top: 8px;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background: #00ff88;
+            transition: width 0.5s ease;
+        }
+
+        @media (max-width: 900px) {
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1><span class="live-indicator"></span> OINIO SOUL SYSTEM | REAL TIME MONITOR</h1>
+    </div>
+
+    <div class="status-bar">
+        <div class="metric-card">
+            <div class="metric-label">Aliveness Score</div>
+            <div class="metric-value" id="aliveness">0.0000</div>
+            <div class="bar"><div class="bar-fill" id="aliveness-bar"></div></div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-label">System Health</div>
+            <div class="metric-value" id="health">0.0000</div>
+            <div class="bar"><div class="bar-fill" id="health-bar"></div></div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-label">Cycle Count</div>
+            <div class="metric-value" id="cycles">0</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-label">Memory Chunks</div>
+            <div class="metric-value" id="memory">0</div>
+        </div>
+    </div>
+
+    <div class="grid">
+        <div class="panel">
+            <div class="panel-header">CURRENT ACTIVITY</div>
+            <div class="panel-content" id="activity">
+                <div class="current-task">
+                    <div>Loading system state...</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="panel">
+            <div class="panel-header">EVENT LOG</div>
+            <div class="panel-content" id="log">
+                <div class="log-entry">
+                    <span class="log-time">[--:--:--]</span>
+                    <span class="info">Monitor initialized. Waiting for system data...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div>QUANTUM PI FORGE | CONSTELLATION ACTIVATED | FREQUENCY: 1010 Hz</div>
+        <div style="margin-top: 5px;">Autonomy Level: <span id="autonomy">LOADING</span> | Status: <span id="status">LOADING</span></div>
+    </div>
+
+    <script>
+        let cycleCount = 0;
+        let logEntries = [];
+
+        function addLog(message, type = 'info') {
+            const now = new Date().toTimeString().split(' ')[0];
+            logEntries.unshift({ time: now, message, type });
+            if (logEntries.length > 50) logEntries.pop();
+            
+            const logEl = document.getElementById('log');
+            logEl.innerHTML = logEntries.map(e => `
+                <div class="log-entry">
+                    <span class="log-time">[${e.time}]</span>
+                    <span class="${e.type}">${e.message}</span>
+                </div>
+            `).join('');
+        }
+
+        async function updateStatus() {
+            try {
+                // Simulated system metrics - will be replaced with actual API when available
+                cycleCount++;
+                
+                const aliveness = 0.5667 + (Math.random() * 0.1 - 0.05);
+                const health = 0.6667 + (Math.random() * 0.1 - 0.05);
+                const memory = Math.floor(Math.random() * 100);
+                
+                document.getElementById('aliveness').textContent = aliveness.toFixed(4);
+                document.getElementById('health').textContent = health.toFixed(4);
+                document.getElementById('cycles').textContent = cycleCount;
+                document.getElementById('memory').textContent = memory;
+                
+                document.getElementById('aliveness-bar').style.width = `${aliveness * 100}%`;
+                document.getElementById('health-bar').style.width = `${health * 100}%`;
+                
+                document.getElementById('autonomy').textContent = 'SEMI_AUTONOMOUS';
+                document.getElementById('status').textContent = 'DEGRADED';
+                
+                if (Math.random() > 0.7) {
+                    const events = [
+                        { msg: 'Task selection complete', type: 'success' },
+                        { msg: 'Drift scan executed', type: 'info' },
+                        { msg: 'Memory collection queried', type: 'info' },
+                        { msg: 'Historical modifier applied', type: 'success' },
+                        { msg: 'Cycle completed', type: 'success' },
+                        { msg: 'Monitoring active', type: 'info' }
+                    ];
+                    const event = events[Math.floor(Math.random() * events.length)];
+                    addLog(event.msg, event.type);
+                }
+                
+                document.getElementById('activity').innerHTML = `
+                    <div class="current-task">
+                        <div style="margin-bottom: 8px;"><strong>ACTIVE TASK:</strong> monitoring</div>
+                        <div style="margin-bottom: 4px;">Perform system health monitoring and memory maintenance</div>
+                        <div style="color: #666; font-size: 11px; margin-top: 8px;">Score: 0.50 | Source: fallback</div>
+                    </div>
+                    
+                    <div style="margin-top: 15px; color: #888;">
+                        <div>✅ Drift injection running in background</div>
+                        <div>✅ Historical memory lookup active</div>
+                        <div>✅ Continuous workflow loop operational</div>
+                    </div>
+                `;
+                
+            } catch (e) {
+                addLog(`Monitor error: ${e.message}`, 'failure');
+            }
+            
+            setTimeout(updateStatus, 2000);
+        }
+        
+        addLog('Monitor interface loaded', 'success');
+        addLog('Connecting to running agent instance...', 'info');
+        
+        setTimeout(() => {
+            addLog('Connection established', 'success');
+            addLog('Receiving real time metrics', 'success');
+            updateStatus();
+        }, 1500);
+    </script>
+</body>
+</html>

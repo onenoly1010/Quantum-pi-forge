@@ -1,0 +1,17 @@
+[Unit]
+Description=OINIO Autonomous Forge Agent
+After=network.target ollama.service
+
+[Service]
+Type=simple
+User=kris
+WorkingDirectory=/home/kris/forge/OINIO_Forge
+ExecStart=/usr/bin/python3 /home/kris/forge/OINIO_Forge/run_alive.py
+Restart=always
+RestartSec=10
+StandardOutput=journal+console
+StandardError=journal+console
+Environment="PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/kris/.local/bin"
+
+[Install]
+WantedBy=multi-user.target

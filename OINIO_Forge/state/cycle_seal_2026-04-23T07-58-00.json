@@ -1,0 +1,10 @@
+{
+  "timestamp": "2026-04-23T07:58:00",
+  "status": "RECOVERY_SUCCESSFUL",
+  "mode": "AUTONOMOUS",
+  "cycle_number": 232,
+  "block_height": 29562402,
+  "memory_tokens_used": 29280,
+  "seal_hash": "04fc2a5c0437b65f9fa445a1b9a0f3c830af612529595e56eea4c7b844249111",
+  "written_at": "2026-04-23T14:01:34.109548"
+}
