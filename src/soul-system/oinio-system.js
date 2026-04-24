@@ -15,6 +15,7 @@ const fsPromises = require('fs').promises;
 const path = require('path');
 const readline = require('readline');
 const { PATTERNS, MESSAGES, generateDeterministicReading, displayReading: displayReadingShared } = require('./oinio-shared');
+const { retry } = require('./retry-util.js');
 
 // ═══════════════════════════════════════════════════════════════
 // ⚡ QUANTUM FORGE BRIDGE (OPTIONAL ENHANCEMENT)
