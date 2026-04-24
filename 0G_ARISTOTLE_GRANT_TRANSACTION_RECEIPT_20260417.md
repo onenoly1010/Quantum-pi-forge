@@ -30,7 +30,11 @@ According to 0G Foundation Guild on 0G 2.0 program:
 - ✅ Whitepaper successfully uploaded to immutable storage
 - ✅ Transaction ID generated as cryptographic proof
 - ✅ Timestamp recorded on-chain
+- ✅ Follow-up email sent 2026-04-19 with mainnet deployment confirmation
+- ⏳ **Current Status: UNDER REVIEW**
+- ⏱️ Elapsed time: 6 days (43% through decision window)
 - ⏳ Decision window: 1–14 days from submission date
+- 📅 Final decision deadline: 2026-05-01
 - 📍 Status updates available at: hall.0g.ai
 
 ---
