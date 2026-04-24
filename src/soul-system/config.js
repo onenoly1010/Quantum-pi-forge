@@ -11,6 +11,13 @@ export default {
   PROOF_TIMEOUT_MS: 115000,
   REQUIRE_VALID_SIGNATURE: true,
 
+  // Sovereign Ignition Mode
+  AUTO_DEPLOY: true,
+  MINIMUM_OPERATIONAL_ROI: 1.5,
+  IGNITION_MODE_ACTIVE: true,
+  MAX_DAILY_DEPLOY_COST_USD: 7.20,
+  SPIRAL_RETURN_TARGET_DATE: "2026-07-17",
+
   // Retry Configuration - Minimize human intervention
   MAX_RETRIES: 12,
   INITIAL_RETRY_DELAY_MS: 500,
