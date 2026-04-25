@@ -131,8 +131,9 @@ class AdaptiveSpatialMemory:
         
         # Use adaptive precision for movement logic, normalize to precision 7 for storage
         precision = self.select_precision(speed_kmh, instability)
-        tracking_cell_id = geohash.encode(lat, lon, precision=precision)
-        base_cell_id = geohash.encode(lat, lon, precision=7)
+        full_hash = geohash.encode(lat, lon, precision=7)
+        tracking_cell_id = full_hash[:precision]
+        base_cell_id = full_hash
         
         if base_cell_id not in self.cells:
             self.cells[base_cell_id] = SpatialCell(base_cell_id)
@@ -222,10 +223,11 @@ class AdaptiveSpatialMemory:
             for cell_id, cell in self.cells.items():
                 scored.append( (cell.get_eviction_score(now), cell_id) )
             
-            # Sort lowest score first
+            # Sort lowest score first (lowest priority stays first to be evicted)
             scored.sort()
             evict_count = len(self.cells) - MAX_CELLS_TOTAL
             
+            # Evict lowest scoring cells
             for _, cell_id in scored[:evict_count]:
                 del self.cells[cell_id]
         
@@ -235,9 +237,9 @@ class AdaptiveSpatialMemory:
         """Merge groups of 4+ sibling cells into their parent"""
         parent_counts = {}
         
-        # Count siblings per parent
+        # Only count leaf cells at precision 7, ignore already merged parents
         for cell_id in self.cells.keys():
-            if len(cell_id) >= 7:
+            if len(cell_id) == 7:
                 parent = cell_id[:6]
                 parent_counts[parent] = parent_counts.get(parent, 0) + 1
         
@@ -251,6 +253,9 @@ class AdaptiveSpatialMemory:
                     if cell_id.startswith(parent_id) and len(cell_id) == 7:
                         child_cells.append(self.cells.pop(cell_id))
                 
+                if not child_cells:
+                    continue
+                
                 # Aggregate values
                 total_visits = sum(c.visits for c in child_cells)
                 parent_cell.visits = total_visits
@@ -261,6 +266,7 @@ class AdaptiveSpatialMemory:
                 parent_cell.confidence = max(c.confidence for c in child_cells)
                 parent_cell.known_dead_zone = any(c.known_dead_zone for c in child_cells)
                 parent_cell.last_visit = max(c.last_visit for c in child_cells)
+                parent_cell.first_visit = min(c.first_visit for c in child_cells)
                 
                 # Merge elevation profiles
                 for child in child_cells:

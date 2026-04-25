@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pi Forge SDK Example</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto+Mono&display=swap');
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            background: linear-gradient(135deg, #1a0033, #000033);
+            color: #e6e6ff;
+            font-family: 'Roboto Mono', monospace;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        #status {
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 30px;
+            background: rgba(0, 0, 50, 0.5);
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="piforge-card-title">Pi Forge SDK Example</h1>
+        
+        <div id="status">
+            <div id="status-text">Initializing...</div>
+            <div class="piforge-spinner" id="spinner"></div>
+        </div>
+
+        <div class="piforge-card section" id="auth-section">
+            <h2>Authentication</h2>
+            <p>Connect your Pi Network account to get started.</p>
+            <button class="piforge-btn" id="auth-btn" onclick="authenticateUser()">
+                Connect Pi Network
+            </button>
+            <div id="auth-result"></div>
+        </div>
+
+        <div class="piforge-card section" id="payment-section" style="display: none;">
+            <h2>Create Payment</h2>
+            <div class="piforge-form-group">
+                <label class="piforge-label" for="amount">Amount (Pi)</label>
+                <input type="number" class="piforge-input" id="amount" placeholder="1.0" step="0.1" min="0.1">
+            </div>
+            <div class="piforge-form-group">
+                <label class="piforge-label" for="memo">Memo</label>
+                <input type="text" class="piforge-input" id="memo" placeholder="Payment description">
+            </div>
+            <button class="piforge-btn" onclick="createPayment()">Create Payment</button>
+            <button class="piforge-btn piforge-btn-primary" onclick="activateBoost()">Activate Mining Boost (+50%)</button>
+            <div id="payment-result"></div>
+        </div>
+
+        <div class="piforge-card section" id="history-section" style="display: none;">
+            <h2>Payment History</h2>
+            <button class="piforge-btn piforge-btn-outline" onclick="loadHistory()">Load History</button>
+            <div id="history-list"></div>
+        </div>
+
+        <div class="piforge-card section">
+            <h2>Resonance Visualization</h2>
+            <div class="piforge-resonance">
+                <canvas class="piforge-resonance-canvas" id="resonance-canvas"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pi SDK -->
+    <script src="https://sdk.minepi.com/pi-sdk.js"></script>
+    
+    <!-- Pi Forge SDK -->
+    <script src="pi-forge-integration.js"></script>
+
+    <script>
+        let initialized = false;
+
+        // Initialize on page load
+        window.addEventListener('DOMContentLoaded', async () => {
+            try {
+                await PiForge.initialize({
+                    network: 'testnet',
+                    debug: true, // Set to false in production to avoid logging sensitive data
+                    apiBase: window.location.origin
+                });
+                
+                initialized = true;
+                updateStatus('Ready! Connect your Pi Network account.', 'success');
+                document.getElementById('spinner').style.display = 'none';
+            } catch (error) {
+                updateStatus(`Initialization failed: ${error.message}`, 'error');
+                console.error('Initialization error:', error);
+            }
+        });
+
+        // Listen for resonance events
+        window.addEventListener('piforge:resonance', (event) => {
+            console.log('Resonance event:', event.detail);
+            animateResonance(event.detail.payment);
+        });
+
+        // Listen for payment errors
+        window.addEventListener('piforge:payment:error', (event) => {
+            console.error('Payment error event:', event.detail);
+            updateStatus(`Payment error: ${event.detail.error.message}`, 'error');
+        });
+
+        async function authenticateUser() {
+            if (!initialized) {
+                alert('SDK not initialized yet. Please wait...');
+                return;
+            }
+
+            const btn = document.getElementById('auth-btn');
+            btn.disabled = true;
+            btn.textContent = 'Connecting...';
+
+            try {
+                const auth = await PiForge.authenticate(['payments', 'username']);
+                
+                document.getElementById('auth-result').innerHTML = `
+                    <div class="piforge-alert piforge-alert-success">
+                        ✓ Connected as <strong>${auth.user.username}</strong>
+                    </div>
+                `;
+                
+                // Show payment and history sections
+                document.getElementById('payment-section').style.display = 'block';
+                document.getElementById('history-section').style.display = 'block';
+                
+                updateStatus(`Connected as ${auth.user.username}`, 'success');
+                btn.textContent = 'Connected';
+            } catch (error) {
+                document.getElementById('auth-result').innerHTML = `
+                    <div class="piforge-alert piforge-alert-error">
+                        ✗ Authentication failed: ${error.message}
+                    </div>
+                `;
+                btn.disabled = false;
+                btn.textContent = 'Connect Pi Network';
+                updateStatus('Authentication failed', 'error');
+            }
+        }
+
+        async function createPayment() {
+            const amount = parseFloat(document.getElementById('amount').value);
+            const memo = document.getElementById('memo').value;
+
+            if (!amount || amount <= 0) {
+                alert('Please enter a valid amount');
+                return;
+            }
+
+            if (!memo) {
+                alert('Please enter a memo');
+                return;
+            }
+
+            updateStatus('Creating payment...', 'info');
+
+            try {
+                const payment = await PiForge.createPayment({
+                    amount: amount,
+                    memo: memo,
+                    metadata: { type: 'custom_payment' }
+                });
+
+                document.getElementById('payment-result').innerHTML = `
+                    <div class="piforge-alert piforge-alert-success">
+                        ✓ Payment created!<br>
+                        Payment ID: ${payment.paymentId}<br>
+                        Status: <span class="piforge-badge piforge-badge-${payment.status}">${payment.status}</span>
+                    </div>
+                `;
+
+                updateStatus('Payment created successfully!', 'success');
+                
+                // Clear form
+                document.getElementById('amount').value = '';
+                document.getElementById('memo').value = '';
+            } catch (error) {
+                document.getElementById('payment-result').innerHTML = `
+                    <div class="piforge-alert piforge-alert-error">
+                        ✗ Payment failed: ${error.message}
+                    </div>
+                `;
+                updateStatus('Payment creation failed', 'error');
+            }
+        }
+
+        async function activateBoost() {
+            updateStatus('Activating mining boost...', 'info');
+
+            try {
+                const boost = await PiForge.activateMiningBoost(50);
+
+                document.getElementById('payment-result').innerHTML = `
+                    <div class="piforge-alert piforge-alert-success">
+                        ✓ Mining boost activated! +50% for 24 hours<br>
+                        Payment ID: ${boost.paymentId}<br>
+                        Amount: ${boost.amount} Pi
+                    </div>
+                `;
+
+                updateStatus('Mining boost activated!', 'success');
+            } catch (error) {
+                document.getElementById('payment-result').innerHTML = `
+                    <div class="piforge-alert piforge-alert-error">
+                        ✗ Boost activation failed: ${error.message}
+                    </div>
+                `;
+                updateStatus('Boost activation failed', 'error');
+            }
+        }
+
+        async function loadHistory() {
+            updateStatus('Loading payment history...', 'info');
+
+            try {
+                const history = await PiForge.getPaymentHistory(10);
+
+                if (history.length === 0) {
+                    document.getElementById('history-list').innerHTML = `
+                        <p style="text-align: center; margin-top: 20px; opacity: 0.7;">
+                            No payment history yet.
+                        </p>
+                    `;
+                } else {
+                    const html = `
+                        <ul class="piforge-payment-list">
+                            ${history.map(p => `
+                                <li class="piforge-payment-item">
+                                    <div class="piforge-payment-details">
+                                        <div class="piforge-payment-amount">${p.amount} Pi</div>
+                                        <div class="piforge-payment-memo">${p.memo}</div>
+                                        <div class="piforge-payment-date">${new Date(p.created_at).toLocaleString()}</div>
+                                    </div>
+                                    <span class="piforge-badge piforge-badge-${p.status}">${p.status}</span>
+                                </li>
+                            `).join('')}
+                        </ul>
+                    `;
+                    document.getElementById('history-list').innerHTML = html;
+                }
+
+                updateStatus('History loaded', 'success');
+            } catch (error) {
+                document.getElementById('history-list').innerHTML = `
+                    <div class="piforge-alert piforge-alert-error">
+                        ✗ Failed to load history: ${error.message}
+                    </div>
+                `;
+                updateStatus('Failed to load history', 'error');
+            }
+        }
+
+        function updateStatus(message, type = 'info') {
+            const statusDiv = document.getElementById('status-text');
+            statusDiv.textContent = message;
+            statusDiv.style.color = type === 'success' ? '#00ff9d' : 
+                                    type === 'error' ? '#ff0055' : '#e6e6ff';
+        }
+
+        function animateResonance(payment) {
+            const canvas = document.getElementById('resonance-canvas');
+            const ctx = canvas.getContext('2d');
+            
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+            
+            let frame = 0;
+            const maxFrames = 120;
+            
+            function draw() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                const centerX = canvas.width / 2;
+                const centerY = canvas.height / 2;
+                const progress = frame / maxFrames;
+                
+                // Draw expanding circles
+                for (let i = 0; i < 5; i++) {
+                    const radius = (progress * 200 + i * 40) % 200;
+                    const alpha = 1 - (radius / 200);
+                    
+                    ctx.beginPath();
+                    ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+                    ctx.strokeStyle = `rgba(128, 0, 255, ${alpha * 0.5})`;
+                    ctx.lineWidth = 2;
+                    ctx.stroke();
+                }
+                
+                frame++;
+                
+                if (frame < maxFrames) {
+                    requestAnimationFrame(draw);
+                }
+            }
+            
+            draw();
+        }
+    </script>
+</body>
+</html>
