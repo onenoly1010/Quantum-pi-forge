@@ -1,1 +1,1 @@
-{"type": "module"}
+{"type":"module","dependencies":{"@nomicfoundation/hardhat-foundry":"^3.0.2","@nomiclabs/hardhat-ethers":"^2.2.3","chai":"^6.2.2","dotenv":"^17.4.2","ethers":"^6.16.0","hardhat":"^3.4.1","solc":"^0.8.34"}}
