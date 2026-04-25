@@ -1,0 +1,20 @@
+[Unit]
+Description=OINIO Quantum Forge LiteLLM Universal Agent Proxy
+After=network.target ollama.service
+Wants=network.target
+
+[Service]
+Type=simple
+User=kris
+WorkingDirectory=/home/kris/forge
+EnvironmentFile=/home/kris/forge/.env.proxy
+ExecStart=/usr/local/bin/litellm --config /home/kris/forge/config.yaml
+Restart=always
+RestartSec=5
+KillMode=mixed
+StandardOutput=journal+console
+StandardError=journal+console
+SyslogIdentifier=forge-proxy
+
+[Install]
+WantedBy=multi-user.target

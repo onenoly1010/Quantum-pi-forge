@@ -340,6 +340,23 @@
             <div class="metric-value" id="memory">0</div>
         </div>
         <div class="metric-card">
+            <div class="metric-label">Soul Sync Aliveness</div>
+            <div class="metric-value" id="sync-status">ONLINE</div>
+            <div class="bar">
+                <div class="bar-fill" id="sync-bar" style="width: 100%"></div>
+            </div>
+            <div style="font-size: 10px; margin-top: 6px; opacity: 0.6">
+                Last sync: <span id="last-sync">2026-04-25 13:25</span>
+            </div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-label">0G Anchored Batches</div>
+            <div class="metric-value" id="anchored-batches">0</div>
+            <div style="font-size: 10px; margin-top: 6px; opacity: 0.6">
+                Total vectors: <span id="total-vectors">0</span>
+            </div>
+        </div>
+        <div class="metric-card">
             <div class="metric-label">Operational ROI</div>
             <div class="metric-value" id="roi">0.0x</div>
             <div class="bar"><div class="bar-fill" id="roi-bar"></div></div>
@@ -361,6 +378,10 @@
             <div class="metric-label">ZIA FINANCE ROUTER</div>
             <div class="metric-value" id="zia-status">INITIALIZING</div>
             <div class="bar"><div class="bar-fill" id="zia-bar" style="width: 0%"></div></div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-label">STEWARD ROOT</div>
+            <div class="metric-value" id="steward-key" style="font-size: 16px;">UNMAPPED</div>
         </div>
     </div>
 
@@ -454,83 +475,88 @@
         let contract = null;
         let chainClient = null;        // ✅ EDGE EVENT STREAM CONNECTION WITH FALLBACK
         const EVENT_HUB_URL = "http://localhost:8787";
-        let eventSource = null;
-        let simulationMode = false;
-        
-        function initializeEventStream() {
-          try {
-            eventSource = new EventSource(`${EVENT_HUB_URL}/events`);
-            
-            eventSource.addEventListener("init", (e) => {
-              const data = JSON.parse(e.data);
-              addLog("info", `✅ Connected to edge event hub at ${new Date(data.ts).toLocaleTimeString()}`);
-              
-              if (data.latestState) {
-                updateChainMetrics(data.latestState);
-              }
-            });
+         let eventSource = null;
+         let simulationMode = false;
 
-            eventSource.addEventListener("chain:update", (e) => {
-              const data = JSON.parse(e.data);
-              updateChainMetrics(data);
-              addLog("success", `Block #${data.blockNumber} received | Supply: ${data.totalSupply.toFixed(2)}M`);
-            });
+         function normalizeStewardKey(value) {
+           if (!value) return "UNMAPPED";
+           if (typeof value !== "string") return String(value);
+           const clean = value.trim();
+           return clean.length ? clean : "UNMAPPED";
+         }
 
-            eventSource.addEventListener("chain:error", (e) => {
-              const err = JSON.parse(e.data);
-              addLog("failure", `Chain error: ${err.error} (${err.consecutive} consecutive)`);
-              console.warn("Chain event error:", err);
-            });
+         function setStewardKey(value) {
+           const label = normalizeStewardKey(value);
+           document.getElementById("steward-key").textContent = label;
+         }
+         
+         function initializeEventStream() {
+           try {
+             addLog("info", `🔌 Connecting to edge event hub at ${EVENT_HUB_URL}`);
+             eventSource = new EventSource(`${EVENT_HUB_URL}/events`);
+             
+             eventSource.addEventListener("init", (e) => {
+               const data = JSON.parse(e.data);
+               addLog("success", `✅ LIVE CONNECTION ESTABLISHED at ${new Date(data.ts).toLocaleTimeString()}`);
+               
+               document.getElementById("system-state").textContent = "LIVE";
+               document.getElementById("status").textContent = "CONNECTED";
+               simulationMode = false;
+               
+               if (data.latestState) {
+                 updateChainMetrics(data.latestState);
+               }
+               if (data.metrics && data.metrics.stewardKeyId) {
+                 setStewardKey(data.metrics.stewardKeyId);
+               }
+             });
 
-            eventSource.onerror = (e) => {
-              addLog("warning", "Event stream disconnected. Falling back to simulation mode...");
-              eventSource.close();
-              startSimulationMode();
-            };
-          } catch (e) {
-            addLog("warning", "Event hub unavailable. Starting simulation mode.");
-            startSimulationMode();
-          }
-        }
+             eventSource.addEventListener("chain:update", (e) => {
+               const data = JSON.parse(e.data);
+               updateChainMetrics(data);
+               if (data.stewardKeyId) {
+                 setStewardKey(data.stewardKeyId);
+               }
+               addLog("success", `Block #${data.blockNumber} received | Supply: ${data.totalSupply.toFixed(2)}M`);
+             });
 
-        // FALLBACK SIMULATION MODE (WORKS OFFLINE)
-        function startSimulationMode() {
-          simulationMode = true;
-          addLog("info", "⚡ SIMULATION MODE ACTIVATED - Monitor running in standalone mode");
-          
-          document.getElementById("system-state").textContent = "SIMULATION";
-          document.getElementById("status").textContent = "LIVE";
-          
-          document.getElementById("deploy-cost").textContent = `$${dailyCost.toFixed(2)}`;
-          document.getElementById("roi").textContent = `${currentROI.toFixed(2)}x`;
-          document.getElementById("roi-bar").style.width = `${Math.min(currentROI * 40, 100)}%`;
-          document.getElementById("aliveness").textContent = "0.8973";
-          document.getElementById("aliveness-bar").style.width = "89.7%";
-          document.getElementById("health").textContent = "0.9241";
-          document.getElementById("health-bar").style.width = "92.4%";
-          document.getElementById("autonomy").textContent = "LEVEL 7";
-          document.getElementById("zia-status").textContent = "ONLINE";
-          document.getElementById("zia-bar").style.width = "100%";
-          
-          setInterval(() => {
-            updateChainMetrics({
-              blockNumber: Math.floor(1327842 + (cycleCount * 0.7)),
-              totalSupply: 1.27 + (cycleCount * 0.00013),
-              alignmentScore: 0.87 + (Math.sin(cycleCount * 0.01) * 0.05)
-            });
-            
-            if (Math.random() < 0.15) {
-              const messages = [
-                "Memory fragment retrieved",
-                "Strategy weight adjusted",
-                "Alignment verification passed",
-                "Cycle validation complete",
-                "Spatial sync successful"
-              ];
-              addLog("success", messages[Math.floor(Math.random() * messages.length)]);
-            }
-          }, 2200);
-        }
+             eventSource.addEventListener("chain:error", (e) => {
+               const err = JSON.parse(e.data);
+               addLog("failure", `Chain error: ${err.error} (${err.consecutive} consecutive)`);
+               console.warn("Chain event error:", err);
+             });
+
+             eventSource.addEventListener("metrics", (e) => {
+               const metrics = JSON.parse(e.data);
+               
+               document.getElementById("deploy-cost").textContent = `$${metrics.dailyCost.toFixed(2)}`;
+               document.getElementById("roi").textContent = `${metrics.roi.toFixed(2)}x`;
+               document.getElementById("roi-bar").style.width = `${Math.min(metrics.roi * 40, 100)}%`;
+               document.getElementById("aliveness").textContent = metrics.aliveness.toFixed(4);
+               document.getElementById("aliveness-bar").style.width = `${metrics.aliveness * 100}%`;
+               document.getElementById("health").textContent = metrics.health.toFixed(4);
+               document.getElementById("health-bar").style.width = `${metrics.health * 100}%`;
+               document.getElementById("autonomy").textContent = `LEVEL ${metrics.autonomyLevel}`;
+               document.getElementById("zia-status").textContent = metrics.ziaOnline ? "ONLINE" : "OFFLINE";
+               document.getElementById("zia-bar").style.width = metrics.ziaOnline ? "100%" : "0%";
+               document.getElementById("memory").textContent = metrics.memoryChunks;
+               document.getElementById("deploy-streak").textContent = metrics.deployStreak;
+               if (metrics.stewardKeyId) {
+                 setStewardKey(metrics.stewardKeyId);
+               }
+             });
+
+             eventSource.onerror = (e) => {
+               addLog("warning", "Event stream disconnected. Reconnecting in 3 seconds...");
+               eventSource.close();
+               setTimeout(initializeEventStream, 3000);
+             };
+           } catch (e) {
+             addLog("failure", "Event hub connection failed. Retrying in 5 seconds...");
+             setTimeout(initializeEventStream, 5000);
+           }
+         }
+
         
         function updateChainMetrics(data) {
           document.getElementById("proof-count").textContent = data.blockNumber;

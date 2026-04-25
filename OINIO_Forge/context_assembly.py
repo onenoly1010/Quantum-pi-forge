@@ -108,6 +108,9 @@ def chunk_document(text: str, metadata: Dict) -> List[Dict]:
     chunks = []
     lines = text.split('\n')
     
+    # Calculate full document hash for provenance
+    document_hash = hashlib.sha256(text.encode()).hexdigest()
+    
     current_chunk = []
     current_length = 0
     
@@ -121,7 +124,10 @@ def chunk_document(text: str, metadata: Dict) -> List[Dict]:
                 "metadata": {
                     **metadata,
                     "chunk_length": len(chunk_text),
-                    "ingested_at": datetime.now().isoformat()
+                    "ingested_at": datetime.now().isoformat(),
+                    "document_hash": document_hash,
+                    "chunk_hash": hashlib.sha256(chunk_text.encode()).hexdigest(),
+                    "provenance_version": "1.0.0"
                 }
             })
             
@@ -141,7 +147,10 @@ def chunk_document(text: str, metadata: Dict) -> List[Dict]:
             "metadata": {
                 **metadata,
                 "chunk_length": len(chunk_text),
-                "ingested_at": datetime.now().isoformat()
+                "ingested_at": datetime.now().isoformat(),
+                "document_hash": document_hash,
+                "chunk_hash": hashlib.sha256(chunk_text.encode()).hexdigest(),
+                "provenance_version": "1.0.0"
             }
         })
     

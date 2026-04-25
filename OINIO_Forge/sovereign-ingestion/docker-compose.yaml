@@ -1,0 +1,103 @@
+# OINIO Sovereign Ingestion Engine - Local Stack
+# Self-hosted, zero external dependencies, all processing local-first
+
+version: '3.8'
+
+networks:
+  sovereign-ingestion:
+    driver: bridge
+    internal: true
+
+services:
+  # Firecrawl - Web to Markdown extraction
+  firecrawl:
+    image: ghcr.io/mendableai/firecrawl:latest
+    container_name: oinio-firecrawl
+    restart: unless-stopped
+    networks: [sovereign-ingestion]
+    ports:
+      - "127.0.0.1:3002:3002"
+    environment:
+      - NODE_ENV=production
+      - DISABLE_TELEMETRY=true
+      - PROXY_ENABLED=false
+    volumes:
+      - ./state/firecrawl:/app/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3002/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Unstructured.io - Document chunking
+  unstructured:
+    image: downloads.unstructured.io/unstructured-io/unstructured-api:latest
+    container_name: oinio-unstructured
+    restart: unless-stopped
+    networks: [sovereign-ingestion]
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      - NUM_WORKERS=2
+      - DISABLE_TELEMETRY=true
+    volumes:
+      - ./state/chunker:/tmp/unstructured
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/healthcheck"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+
+  # Qdrant - Local Vector Store
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: oinio-qdrant
+    restart: unless-stopped
+    networks: [sovereign-ingestion]
+    ports:
+      - "127.0.0.1:6333:6333"
+      - "127.0.0.1:6334:6334"
+    volumes:
+      - ./state/vector-store:/qdrant/storage
+    environment:
+      - QDRANT_ALLOW_RESET=true
+      - QDRANT_TELEMETRY_DISABLE=true
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:6333/readyz"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # n8n - Automation & Workflow Scheduler
+  n8n:
+    image: docker.n8n.io/n8nio/n8n:latest
+    container_name: oinio-n8n
+    restart: unless-stopped
+    networks: [sovereign-ingestion]
+    ports:
+      - "127.0.0.1:5678:5678"
+    environment:
+      - N8N_DIAGNOSTICS_ENABLED=false
+      - N8N_PERSONALIZATION_ENABLED=false
+      - N8N_TEMPLATES_ENABLED=false
+      - N8N_HOST=localhost
+    volumes:
+      - ./state/n8n:/home/node/.n8n
+      - /var/run/docker.sock:/var/run/docker.sock
+    user: "1000:1000"
+
+  # Ollama - Local Embeddings (mount host socket)
+  ollama:
+    image: ollama/ollama:latest
+    container_name: oinio-ollama
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - /home/kris/.ollama:/root/.ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]

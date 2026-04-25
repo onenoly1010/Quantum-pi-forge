@@ -1,0 +1,24 @@
+{
+  "request_id": "c20d066660a64a6b",
+  "api_key": "oinio_test_key_001",
+  "request": {
+    "prompt": "system activation verification",
+    "context": null,
+    "priority": 1,
+    "require_proof": false
+  },
+  "response": {
+    "request_id": "c20d066660a64a6b",
+    "status": "completed",
+    "result": {
+      "context_found": 0,
+      "state_hash": "e3b0c44298fc1c14",
+      "summary": "Processed request with 0 context chunks from semantic memory"
+    },
+    "processing_time_ms": 11410,
+    "credits_consumed": 1,
+    "proof_hash": "2f83d9e7dfaf3d4b85e6fe10454beb2e96fd28af8c5eaa06a04ca119e26ed6fc",
+    "created_at": "2026-04-25T13:34:17.358902+00:00"
+  },
+  "timestamp": "2026-04-25T13:34:28.769251+00:00"
+}

@@ -1,0 +1,88 @@
+# LiteLLM Universal Agentic Proxy Configuration
+# OINIO Quantum Forge - Unified MCP Gateway
+# All 5 Big Five models + Local inference
+# Single OpenAI compatible API endpoint for Cline / Continue.dev
+
+model_list:
+  # ✅ Big Five Agent Models
+  - model_name: claude-3-7-sonnet
+    litellm_params:
+      model: anthropic/claude-3-7-sonnet-20250219
+      api_key: os.environ/ANTHROPIC_API_KEY
+      max_tokens: 8192
+      temperature: 0.1
+
+  - model_name: gpt-4o
+    litellm_params:
+      model: openai/gpt-4o
+      api_key: os.environ/OPENAI_API_KEY
+      max_tokens: 4096
+      temperature: 0.05
+
+  - model_name: gemini-pro-1.5
+    litellm_params:
+      model: gemini/gemini-1.5-pro-latest
+      api_key: os.environ/GEMINI_API_KEY
+      max_tokens: 1048576
+      temperature: 0.2
+
+  - model_name: grok-3
+    litellm_params:
+      model: xai/grok-3
+      api_key: os.environ/XAI_API_KEY
+      max_tokens: 131072
+      temperature: 0.3
+
+  - model_name: deepseek-v3
+    litellm_params:
+      model: deepseek/deepseek-chat
+      api_key: os.environ/DEEPSEEK_API_KEY
+      max_tokens: 128000
+      temperature: 0.0
+
+  # 🧠 Local Inference
+  - model_name: deepseek-coder-local
+    litellm_params:
+      model: ollama/deepseek-coder-v2
+      api_base: http://localhost:11434
+      max_tokens: 131072
+      temperature: 0.0
+      stream: true
+
+  - model_name: qwen-2.5-coder-local
+    litellm_params:
+      model: ollama/qwen2.5-coder:32b
+      api_base: http://localhost:11434
+      max_tokens: 131072
+      temperature: 0.0
+
+# Gateway Configuration
+general_settings:
+  host: 0.0.0.0
+  port: 4000
+  debug: false
+  disable_startup_logs: false
+  add_headers:
+    x-provider: LiteLLM Universal Gateway
+    x-forge-identity: OINIO Quantum Pi Forge
+
+  # Enable tool use pass-through for ALL models
+  enable_tool_calling: true
+  tool_choice: auto
+  suppress_debug_messages: false
+
+  # MCP Bridge compatibility
+  disable_follow_redirects: false
+  allow_model_fallback: true
+
+# Authentication
+router_settings:
+  timeout: 120
+  num_retries: 3
+  retry_on: [429, 500, 502, 503, 504]
+  cooldown_time: 0.5
+
+# Cache
+cache: true
+cache_responses: true
+cache_ttl: 3600
