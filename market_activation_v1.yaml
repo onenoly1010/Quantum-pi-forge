@@ -1,0 +1,227 @@
+version: 1.0
+root: T0_bootstrap
+
+tasks:
+
+# ─────────────────────────────────────────────
+# T0: SYSTEM BOOTSTRAP
+# ─────────────────────────────────────────────
+- id: T0_bootstrap
+  description: Initialize execution context and verify repo access
+  inputs: []
+  outputs: ["/state/bootstrap.json"]
+  steps:
+    - verify_git_access
+    - verify_write_permissions
+    - list_repositories
+    - save_state
+  validation:
+    type: deterministic_check
+    criteria:
+      - file_exists:/state/bootstrap.json
+      - json_key_exists:/state/bootstrap.json.repositories
+  on_fail:
+    action: abort
+    max_retries: 1
+  risk_score: 0.01
+
+# ─────────────────────────────────────────────
+# T1: GENERATE llms.txt FOR EACH REPO
+# ─────────────────────────────────────────────
+- id: T1_generate_llms_docs
+  description: Generate AI-ingestable documentation for each repo
+  inputs: ["/state/bootstrap.json"]
+  outputs: ["/artifacts/llms/{repo}/llms.txt"]
+  steps:
+    - for_each_repo
+    - scan_codebase_for_endpoints
+    - extract_auth_methods
+    - extract_example_calls
+    - detect_failure_modes
+    - write_llms_file
+  validation:
+    type: deterministic_check
+    criteria:
+      - file_exists:/artifacts/llms/*/llms.txt
+      - file_contains_keys:
+          - project_name
+          - repo_map
+          - key_endpoints
+          - auth_method
+          - example_requests
+          - failure_modes
+          - last_verified
+  on_fail:
+    action: retry
+    max_retries: 2
+  risk_score: 0.05
+
+# ─────────────────────────────────────────────
+# T2: BUILD SINGLE INTEGRATION BLUEPRINT (CRITICAL PATH)
+# ─────────────────────────────────────────────
+- id: T2_build_blueprint
+  description: Create one working integration blueprint (0G + Polygon + local agent)
+  inputs: ["/artifacts/llms/*/llms.txt"]
+  outputs: ["/artifacts/blueprints/core_integration.md"]
+  steps:
+    - select_minimal_stack
+    - define_execution_flow
+    - generate_shell_commands
+    - generate_expected_output
+    - write_blueprint
+  validation:
+    type: deterministic_check
+    criteria:
+      - file_exists:/artifacts/blueprints/core_integration.md
+      - file_contains:
+          - "Step 1:"
+          - "Step 2:"
+          - "Expected Output:"
+          - "Verification:"
+  on_fail:
+    action: retry
+    max_retries: 2
+  risk_score: 0.08
+
+# ─────────────────────────────────────────────
+# T3: EXECUTE BLUEPRINT LOCALLY
+# ─────────────────────────────────────────────
+- id: T3_execute_blueprint
+  description: Run the integration blueprint and capture proof
+  inputs: ["/artifacts/blueprints/core_integration.md"]
+  outputs: ["/artifacts/execution/proof.json"]
+  steps:
+    - execute_shell_steps
+    - capture_stdout
+    - capture_errors
+    - verify_chain_write
+    - store_proof
+  validation:
+    type: deterministic_check
+    criteria:
+      - file_exists:/artifacts/execution/proof.json
+      - json_key_exists:/artifacts/execution/proof.json.tx_hash
+      - json_key_exists:/artifacts/execution/proof.json.storage_id
+  on_fail:
+    action: retry
+    max_retries: 3
+  risk_score: 0.15
+
+# ─────────────────────────────────────────────
+# T4: GENERATE TELEMETRY LOGGER
+# ─────────────────────────────────────────────
+- id: T4_create_telemetry
+  description: Create runtime telemetry logger for mobile node
+  inputs: []
+  outputs: ["/artifacts/telemetry/logger.py"]
+  steps:
+    - define_metrics_schema
+    - implement_logger
+    - add_gps_stub
+    - add_latency_probe
+    - add_uptime_tracker
+  validation:
+    type: deterministic_check
+    criteria:
+      - file_exists:/artifacts/telemetry/logger.py
+      - file_contains:
+          - "timestamp"
+          - "latency_ms"
+          - "uptime_status"
+  on_fail:
+    action: retry
+    max_retries: 2
+  risk_score: 0.06
+
+# ─────────────────────────────────────────────
+# T5: START TELEMETRY CAPTURE
+# ─────────────────────────────────────────────
+- id: T5_run_telemetry
+  description: Begin logging node telemetry
+  inputs: ["/artifacts/telemetry/logger.py"]
+  outputs: ["/artifacts/telemetry/telemetry.log"]
+  steps:
+    - run_logger
+    - append_metrics_loop
+  validation:
+    type: deterministic_check
+    criteria:
+      - file_exists:/artifacts/telemetry/telemetry.log
+      - file_line_count_min:10
+  on_fail:
+    action: retry
+    max_retries: 2
+  risk_score: 0.04
+
+# ─────────────────────────────────────────────
+# T6: BUILD SERVICE PACKAGES (MINIMAL SKU)
+# ─────────────────────────────────────────────
+- id: T6_define_services
+  description: Define 3 monetizable service packages
+  inputs: []
+  outputs: ["/artifacts/services/packages.json"]
+  steps:
+    - define_light_forge
+    - define_deep_soul
+    - define_sovereign_core
+    - assign_prices
+  validation:
+    type: deterministic_check
+    criteria:
+      - file_exists:/artifacts/services/packages.json
+      - json_array_length:/artifacts/services/packages.json >= 3
+      - json_keys_present:
+          - name
+          - price
+          - deliverable
+  on_fail:
+    action: retry
+    max_retries: 1
+  risk_score: 0.03
+
+# ─────────────────────────────────────────────
+# T7: LEAD INTELLIGENCE (PASSIVE ONLY)
+# ─────────────────────────────────────────────
+- id: T7_collect_leads
+  description: Collect potential leads from monitored platforms (no posting)
+  inputs: []
+  outputs: ["/artifacts/leads/leads.json"]
+  steps:
+    - scan_discord_channels
+    - scan_x_keywords
+    - extract_messages
+    - score_intent
+    - generate_reply_suggestions
+  validation:
+    type: deterministic_check
+    criteria:
+      - file_exists:/artifacts/leads/leads.json
+      - json_key_exists:/artifacts/leads/leads.json.intent_score
+  on_fail:
+    action: degrade
+    max_retries: 1
+  risk_score: 0.12
+
+# ─────────────────────────────────────────────
+# T8: FINAL STATE REPORT
+# ─────────────────────────────────────────────
+- id: T8_report
+  description: Aggregate all outputs into final system state
+  inputs:
+    - "/artifacts/execution/proof.json"
+    - "/artifacts/services/packages.json"
+    - "/artifacts/telemetry/telemetry.log"
+  outputs: ["/state/final_report.json"]
+  steps:
+    - aggregate_artifacts
+    - compute_success_rate
+    - log_summary
+  validation:
+    type: deterministic_check
+    criteria:
+      - file_exists:/state/final_report.json
+      - json_key_exists:/state/final_report.json.success_rate
+  on_fail:
+    action: retry
+    max_retries: 1
+  risk_score: 0.02

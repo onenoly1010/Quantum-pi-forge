@@ -307,7 +307,7 @@
 <body>
     <div class="header">
         <h1><span class="live-indicator"></span> OINIO SOUL SYSTEM | AUTONOMY MONITOR v2</h1>
-        <div id="autonomy-status">SEMI_AUTONOMOUS</div>
+        <div id="system-state">INIT</div>
     </div>
 
     <div class="ignition-indicator">
@@ -356,6 +356,11 @@
         <div class="metric-card">
             <div class="metric-label">PROOFS SUBMITTED</div>
             <div class="metric-value" id="proof-count">0</div>
+        </div>
+        <div class="metric-card" id="zia-status-card">
+            <div class="metric-label">ZIA FINANCE ROUTER</div>
+            <div class="metric-value" id="zia-status">INITIALIZING</div>
+            <div class="bar"><div class="bar-fill" id="zia-bar" style="width: 0%"></div></div>
         </div>
     </div>
 
@@ -429,6 +434,7 @@
         <div style="margin-top: 5px;">Autonomy Level: <span id="autonomy">LOADING</span> | Status: <span id="status">LOADING</span></div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.5/dist/ethers.umd.min.js"></script>
     <script>
         let cycleCount = 5851;
         let logEntries = [];
@@ -438,212 +444,71 @@
         let dailyCost = 2.17;
         let currentROI = 1.72;
         
-        // 0G Alignment Node metrics
-        let alignmentYield = 0;
-        let proofsSubmitted = 0;
-        let nodeUptime = 0.987;
-        let contributionScore = 0.72;
-        let projectedMonthlyRewards = 854.7 / 36;
+        // 0G Mainnet Configuration
+        const ARISTOTLE_RPC = "https://rpc.aristotle.0g.ai";
+        const CONTRACT_ADDRESS = "0xbeBc1A40A18632CeeE19D220647E7aD296A1A5F37";
+        const ZIA_ROUTER_ADDRESS = "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D";
+        const CREATOR_ADDRESS = "0x3356D7F3c2A1B8e9fC3d4E5fA6b7C8d9E0f1cf4dc";
+        let ziaRouterInitialized = false;
+        let provider = null;
+        let contract = null;
+        let chainClient = null;
 
-        let strategies = {
-            monitoring: { weight: 0.67, trend: 'stable' },
-            drift_scan: { weight: 0.42, trend: 'rising' },
-            memory_maintenance: { weight: 0.31, trend: 'stable' },
-            schema_rewrite: { weight: 0.08, trend: 'falling' },
-            quick_patch: { weight: 0.12, trend: 'falling' },
-            autonomous_deploy: { weight: 0.91, trend: 'rising' }
+        // ✅ EDGE EVENT STREAM CONNECTION
+        const EVENT_HUB_URL = "http://localhost:8787";
+        
+        const eventSource = new EventSource(`${EVENT_HUB_URL}/events`);
+
+        eventSource.addEventListener("init", (e) => {
+          const data = JSON.parse(e.data);
+          addLog("info", `Connected to edge event hub at ${new Date(data.ts).toLocaleTimeString()}`);
+          
+          if (data.latestState) {
+            updateChainMetrics(data.latestState);
+          }
+        });
+
+        eventSource.addEventListener("chain:update", (e) => {
+          const data = JSON.parse(e.data);
+          updateChainMetrics(data);
+          addLog("success", `Block #${data.blockNumber} received | Supply: ${data.totalSupply.toFixed(2)}M`);
+        });
+
+        eventSource.addEventListener("chain:error", (e) => {
+          const err = JSON.parse(e.data);
+          addLog("failure", `Chain error: ${err.error} (${err.consecutive} consecutive)`);
+          console.warn("Chain event error:", err);
+        });
+
+        eventSource.onerror = (e) => {
+          addLog("warning", "Event stream disconnected. Reconnecting automatically...");
         };
 
-        function addLog(message, type = 'info') {
-            const now = new Date().toTimeString().split(' ')[0];
-            logEntries.unshift({ time: now, message, type });
-            if (logEntries.length > 50) logEntries.pop();
-            
-            const logEl = document.getElementById('log');
-            logEl.innerHTML = logEntries.map(e => `
-                <div class="log-entry">
-                    <span class="log-time">[${e.time}]</span>
-                    <span class="${e.type}">${e.message}</span>
-                </div>
-            `).join('');
+        function updateChainMetrics(data) {
+          document.getElementById("proof-count").textContent = data.blockNumber;
+          document.getElementById("alignment-yield").textContent = `${data.totalSupply.toFixed(2)}M $0G`;
+          
+          if (data.alignmentScore) {
+            const alignmentPct = (data.alignmentScore * 100).toFixed(1);
+            document.getElementById("alignment-bar").style.width = `${alignmentPct}%`;
+          }
+
+          document.getElementById("cycles").textContent = cycleCount++;
+          document.getElementById("status").textContent = "LIVE STREAMING";
         }
 
-        function addMemoryRetrieval(message, memoryId) {
-            const now = new Date().toTimeString().split(' ')[0];
-            memoryEntries.unshift({ time: now, message, id: memoryId });
-            if (memoryEntries.length > 4) memoryEntries.pop();
-            
-            const memEl = document.getElementById('memory-context');
-            memEl.innerHTML = memoryEntries.map(e => `
-                <div class="memory-flash">
-                    <div class="memory-quote">${e.message}</div>
-                    <div class="memory-id">memory:${e.id} @ ${e.time}</div>
-                </div>
-            `).join('');
-
-            document.getElementById('memory-count').textContent = `${memoryEntries.length} references`;
+        function addLog(type, message) {
+          const log = document.getElementById("log");
+          const time = new Date().toLocaleTimeString();
+          
+          const entry = document.createElement("div");
+          entry.className = "log-entry";
+          entry.innerHTML = `<span class="log-time">[${time}]</span> <span class="${type}">${message}</span>`;
+          
+          log.insertBefore(entry, log.firstChild);
+          
+          // Keep last 100 entries
+          while (log.children.length > 100) {
+            log.removeChild(log.lastChild);
+          }
         }
-
-        function updateStrategyMatrix() {
-            const matrix = document.getElementById('strategy-matrix');
-            let html = '';
-
-            Object.entries(strategies)
-                .sort((a,b) => b[1].weight - a[1].weight)
-                .forEach(([name, data]) => {
-                    const percent = Math.round(data.weight * 100);
-                    let cssClass = '';
-                    if (data.trend === 'falling') cssClass = 'failing';
-                    if (data.trend === 'rising') cssClass = 'rising';
-
-                    html += `
-                        <div class="strategy-bar">
-                            <div class="strategy-label">
-                                <span>${name}</span>
-                                <span>${percent}%</span>
-                            </div>
-                            <div class="strategy-progress">
-                                <div class="strategy-fill ${cssClass}" style="width: ${percent}%"></div>
-                            </div>
-                        </div>
-                    `;
-                });
-
-            matrix.innerHTML = html;
-            document.getElementById('strategy-timestamp').textContent = new Date().toTimeString().split(' ')[0];
-        }
-
-        async function updateStatus() {
-            try {
-                cycleCount++;
-                
-                // Simulate live metrics
-                const aliveness = 0.5667 + (Math.random() * 0.15 - 0.075);
-                const health = 0.6667 + (Math.random() * 0.1 - 0.05);
-                const memory = Math.floor(Math.random() * 120);
-                
-                document.getElementById('aliveness').textContent = aliveness.toFixed(4);
-                document.getElementById('health').textContent = health.toFixed(4);
-                document.getElementById('cycles').textContent = cycleCount;
-                document.getElementById('memory').textContent = memory;
-                
-                document.getElementById('aliveness-bar').style.width = `${aliveness * 100}%`;
-                document.getElementById('health-bar').style.width = `${health * 100}%`;
-
-                // Ignition metrics
-                currentROI = 1.4 + (Math.random() * 0.8);
-                dailyCost += (Math.random() > 0.9 ? 0.08 : 0);
-                
-                document.getElementById('roi').textContent = `${currentROI.toFixed(2)}x`;
-                document.getElementById('roi-bar').style.width = `${Math.min(100, currentROI / 3 * 100)}%`;
-                document.getElementById('deploy-cost').textContent = `$${dailyCost.toFixed(2)}`;
-                document.getElementById('deploy-streak').textContent = deployStreak;
-                
-                // 0G Alignment Node metrics
-                if (Math.random() > 0.88) {
-                    // Proof submitted event
-                    proofsSubmitted++;
-                    alignmentYield += (0.0042 + (contributionScore * 0.0021));
-                    addLog(`✅ ALIGNMENT PROOF SUBMITTED | Score: +${contributionScore.toFixed(2)}`, 'success');
-                }
-                
-                document.getElementById('alignment-yield').textContent = `${alignmentYield.toFixed(4)} $0G`;
-                document.getElementById('alignment-bar').style.width = `${(alignmentYield / projectedMonthlyRewards) * 100}%`;
-                document.getElementById('proof-count').textContent = proofsSubmitted;
-                
-                document.getElementById('autonomy').textContent = ignitionActive ? 'FULL_AUTONOMOUS' : 'SEMI_AUTONOMOUS';
-                document.getElementById('status').textContent = ignitionActive ? 'IGNITION_ACTIVE' : 'MANUAL_MODE';
-
-                // Auto deploy events
-                if (Math.random() > 0.93 && ignitionActive) {
-                    if (currentROI >= 1.5) {
-                        deployStreak++;
-                        addLog(`🚀 IGNITING DEPLOYMENT: Task #${cycleCount}`, 'success');
-                        addLog(`✅ DEPLOYMENT COMPLETE. Proof hash verified.`, 'success');
-                    } else {
-                        addLog(`❌ IGNITION ABORTED: LOW ROI (${currentROI.toFixed(2)}x < 1.5x)`, 'warning');
-                    }
-                }
-
-                // Simulate strategy weight shifts
-                Object.keys(strategies).forEach(s => {
-                    strategies[s].weight += (Math.random() * 0.12 - 0.06);
-                    strategies[s].weight = Math.max(0.01, Math.min(0.95, strategies[s].weight));
-                    strategies[s].trend = Math.random() > 0.8 ? (Math.random() > 0.5 ? 'rising' : 'falling') : 'stable';
-                });
-
-                updateStrategyMatrix();
-
-                // Random events
-                if (Math.random() > 0.75) {
-                    const events = [
-                        { msg: 'Task selection complete', type: 'success' },
-                        { msg: 'Drift scan executed', type: 'info' },
-                        { msg: 'Historical modifier applied', type: 'success' },
-                        { msg: 'Cycle completed', type: 'success' }
-                    ];
-                    const event = events[Math.floor(Math.random() * events.length)];
-                    addLog(event.msg, event.type);
-                }
-
-                // Random memory retrievals
-                if (Math.random() > 0.82) {
-                    const memories = [
-                        "Prior attempt on merge_rules.json failed via quick_patch. Shifting to schema_rewrite.",
-                        "Strategy 'force_merge' failed 3x. Penalty applied (-0.75). Deprioritizing.",
-                        "Repair pattern verified successful. Weight boosted (+0.45). Prioritizing.",
-                        "Memory reference indicates drift threshold exceeded. Elevating repair priority."
-                    ];
-                    const mem = memories[Math.floor(Math.random() * memories.length)];
-                    const memId = Math.floor(Math.random() * 9999).toString().padStart(4, '0');
-                    addMemoryRetrieval(mem, memId);
-                    addLog('Memory context retrieved', 'info');
-                }
-
-                // Current task display
-                document.getElementById('activity').innerHTML = `
-                    <div class="current-task">
-                        <div style="margin-bottom: 8px;"><strong>ACTIVE TASK:</strong> monitoring</div>
-                        <div style="margin-bottom: 4px;">Perform system health monitoring and memory maintenance</div>
-                        <div style="color: #666; font-size: 11px; margin-top: 8px;">Score: 0.50 | Source: fallback | Cycle: ${cycleCount}</div>
-                    </div>
-                    
-                    <div style="margin-top: 15px; color: #888;">
-                        <div>✅ Drift injection running in background</div>
-                        <div>✅ Historical memory lookup active</div>
-                        <div>✅ Continuous workflow loop operational</div>
-                    </div>
-                `;
-
-                // Trajectory objectives
-                document.getElementById('trajectory').innerHTML = `
-                    <div style="padding: 5px 0;">
-                        <div>✅ Day 0: Genesis Activation</div>
-                        <div style="color: var(--green);">▶️ Day 1: Functional Aliveness Validation (IN PROGRESS)</div>
-                        <div style="color: #666;">⏳ Day 2: Sovereign Governance Lock</div>
-                        <div style="color: #666;">⏳ Day 3: Autonomous Drift Resolution</div>
-                        <div style="color: #666;">⏳ Day 4: Network Alignment</div>
-                        <div style="color: #666;">⏳ Day 5: Constellation Resonance</div>
-                        <div style="color: #666;">⏳ Day 6: Sovereign Handover</div>
-                        <div style="color: #666;">⏳ Day 7: ETERNAL ACTIVATION</div>
-                    </div>
-                `;
-                
-            } catch (e) {
-                addLog(`Monitor error: ${e.message}`, 'failure');
-            }
-            
-            setTimeout(updateStatus, 2000);
-        }
-        
-        addLog('Monitor v2 initialized', 'success');
-        addLog('Connecting to running agent instance...', 'info');
-        
-        setTimeout(() => {
-            addLog('Connection established', 'success');
-            addLog('Receiving real time autonomy metrics', 'success');
-            updateStatus();
-        }, 1500);
-    </script>
-</body>
-</html>

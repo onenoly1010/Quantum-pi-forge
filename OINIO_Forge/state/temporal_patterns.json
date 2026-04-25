@@ -1,0 +1,43 @@
+{
+  "version": "1.0.0",
+  "last_updated": 1777062903,
+  "patterns": {
+    "network_instability": {
+      "type": "periodic",
+      "interval_sec": 480,
+      "confidence": 1.0,
+      "variance": 0,
+      "last_event": 1777060503,
+      "next_expected": 1777060983,
+      "risk_window": 120,
+      "detected_at": 1777062903
+    }
+  },
+  "buffers": {
+    "micro": {
+      "network_instability": [
+        1777060503
+      ]
+    },
+    "meso": {
+      "network_instability": [
+        1777058103,
+        1777058583,
+        1777059063,
+        1777059543,
+        1777060023,
+        1777060503
+      ]
+    },
+    "macro": {
+      "network_instability": [
+        1777058103,
+        1777058583,
+        1777059063,
+        1777059543,
+        1777060023,
+        1777060503
+      ]
+    }
+  }
+}

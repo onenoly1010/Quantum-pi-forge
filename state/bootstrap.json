@@ -1,0 +1,17 @@
+{
+  "timestamp": 4309397,
+  "repositories": [
+    "pi-forge-quantum-genesis",
+    "deploy-clean",
+    "forge-deploy",
+    "logs",
+    "Quantum-pi-forge",
+    "scripts",
+    "state",
+    "OINIO_Forge",
+    "artifacts",
+    "oinio-soul-system-dist.bak"
+  ],
+  "working_directory": "/home/kris/forge",
+  "git_available": true
+}

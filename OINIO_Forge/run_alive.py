@@ -7,6 +7,7 @@ from context_assembly import build_context_prompt, get_collection_stats
 from task_selector import select_next_task, generate_aliveness_report, get_task_execution_prompt
 # Meta memory ingest is handled directly in falsifiable.py record_validation_event
 from falsifiable import validate_financial_oracle, validate_schema_rewriter, generate_proof, apply_aliveness_asymmetry, adjust_strategy_weight, record_validation_event
+from task_graph import load_graph, execute_task, FailureAction
 
 # CONFIGURATION
 MODEL_NAME = "llama3.2"          # Change to your local model name
@@ -441,6 +442,40 @@ import sys
 
 def write_simple_heartbeat():
     log("💓 Heartbeat")
+
+def execute_market_activation_cycle():
+    """Execute market activation task graph cycle"""
+    log("🔷 Loading Market Activation v1 Task Graph")
+    
+    try:
+        graph = load_graph("market_activation_v1.yaml")
+        log(f"✅ Task graph loaded: {len(graph.tasks)} tasks, root={graph.root_task_id}")
+        
+        for task in graph.execution_order():
+            log(f"\n⚡ Executing task graph node: {task.id}")
+            result = execute_task(task)
+            
+            if not result.success:
+                log(f"⛔ Task failure: {task.id} - {result.message}")
+                action = FailureAction(task.on_fail['action'].lower())
+                
+                if action == FailureAction.ABORT:
+                    log("💀 Task graph abort requested")
+                    return False
+                elif action == FailureAction.DEGRADE:
+                    log("⚠️  Degrading - continuing execution with partial state")
+                    continue
+                elif action == FailureAction.RETRY:
+                    log("❌ Task failed all retries")
+                    return False
+        
+        log("✅ Market activation task graph completed successfully")
+        return True
+        
+    except Exception as e:
+        log(f"💥 Task graph execution failed: {str(e)}")
+        return False
+
 
 def main():
     log("OINIO autonomous node starting...")
