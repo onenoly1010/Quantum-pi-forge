@@ -1,0 +1,81 @@
+export interface Env {
+  SOUL_METADATA: KVNamespace;
+}
+
+export default {
+  async fetch(request: Request, env: Env): Promise<Response> {
+    const headers = new Headers({
+      "Content-Type": "text/event-stream",
+      "Cache-Control": "no-cache",
+      "Connection": "keep-alive",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Headers": "Content-Type",
+    });
+
+    const { readable, writable } = new TransformStream();
+    const writer = writable.getWriter();
+    const encoder = new TextEncoder();
+
+    // Send initial connection event
+    const initData = JSON.stringify({
+      ts: Date.now(),
+      latestState: {
+        blockNumber: Math.floor(Math.random() * 100000),
+        totalSupply: 12.47,
+        alignmentScore: 0.7892
+      },
+      metrics: {
+        stewardKeyId: "0x" + Array(40).fill(0).map(() => Math.floor(Math.random() * 16).toString(16)).join(''),
+        dailyCost: 2.17,
+        roi: 1.72,
+        aliveness: 0.7234,
+        health: 0.8912,
+        autonomyLevel: 7,
+        ziaOnline: true,
+        memoryChunks: 3847,
+        deployStreak: 12
+      }
+    });
+
+    await writer.write(encoder.encode(`event: init\ndata: ${initData}\n\n`));
+
+    // Start metric update loop
+    const interval = setInterval(async () => {
+      try {
+        const metrics = JSON.stringify({
+          dailyCost: 2.17 + (Math.random() * 0.5),
+          roi: 1.65 + (Math.random() * 0.2),
+          aliveness: 0.65 + (Math.random() * 0.3),
+          health: 0.75 + (Math.random() * 0.2),
+          autonomyLevel: 7,
+          ziaOnline: Math.random() > 0.1,
+          memoryChunks: 3800 + Math.floor(Math.random() * 100),
+          deployStreak: 12,
+          stewardKeyId: "0x" + Array(40).fill(0).map(() => Math.floor(Math.random() * 16).toString(16)).join('')
+        });
+
+        await writer.write(encoder.encode(`event: metrics\ndata: ${metrics}\n\n`));
+
+        // Send chain update every 3 cycles
+        if (Math.random() > 0.66) {
+          const chainData = JSON.stringify({
+            blockNumber: Math.floor(Math.random() * 100000),
+            totalSupply: 12.47 + (Math.random() * 0.5),
+            alignmentScore: 0.7 + (Math.random() * 0.3)
+          });
+          await writer.write(encoder.encode(`event: chain:update\ndata: ${chainData}\n\n`));
+        }
+      } catch (e) {
+        clearInterval(interval);
+        writer.close();
+      }
+    }, 1500);
+
+    request.signal.addEventListener('abort', () => {
+      clearInterval(interval);
+      writer.close();
+    });
+
+    return new Response(readable, { headers });
+  }
+};
