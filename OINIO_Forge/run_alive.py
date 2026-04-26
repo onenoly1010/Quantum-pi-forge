@@ -7,6 +7,8 @@ from context_assembly import build_context_prompt, get_collection_stats
 from task_selector import select_next_task, generate_aliveness_report, get_task_execution_prompt
 # Meta memory ingest is handled directly in falsifiable.py record_validation_event
 from falsifiable import validate_financial_oracle, validate_schema_rewriter, generate_proof, apply_aliveness_asymmetry, adjust_strategy_weight, record_validation_event
+import sys
+sys.path.insert(0, '/home/kris/forge')
 from task_graph import load_graph, execute_task, FailureAction
 
 # CONFIGURATION
