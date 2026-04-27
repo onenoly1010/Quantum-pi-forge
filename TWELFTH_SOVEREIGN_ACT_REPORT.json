@@ -1,0 +1,16 @@
+{
+  "client_version": "1.0.0",
+  "activation_block": 1127511,
+  "anchor_transaction": "0x35651c43292e7306c154bc70075dbed1ac02b0e012ef3f1efdd1f4427079baaa",
+  "status": "ACTIVE",
+  "audit_entries": 1,
+  "cache_size": 0,
+  "generated_at": 1777257857343,
+  "protocol_invariants": {
+    "local_first": true,
+    "non_root": true,
+    "audit_trail": true,
+    "zero_trust_retrieval": true
+  },
+  "integrity_hash": "28640b98bf9a039cfa01c29dd62da41655bbc75ed6b3a1c09a6bf9fc917417f6"
+}

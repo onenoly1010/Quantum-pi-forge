@@ -1,0 +1,63 @@
+{
+  "version": "1.0.0",
+  "timestamp": "2026-04-26T19:00:01Z",
+  "anchor_transaction": "0x35651c43292e7306c154bc70075dbed1ac02b0e012ef3f1efdd1f4427079baaa",
+  "workspace_topology": {
+    "total_files": 54093,
+    "root_directories": 77,
+    "storage_size": "2.6GB",
+    "execution_context": "non-root uid=1000 gid=1000"
+  },
+  "resonance_vectors": {
+    "compute_capabilities": [
+      "Python 3.12",
+      "Node.js 20.20.2",
+      "Docker 25.0.3",
+      "Aider AI Coding Assistant",
+      "Bun 1.1.3"
+    ],
+    "storage_paths": [
+      "./0g_intelligence_db/",
+      "./soul-core/",
+      "./state/",
+      "./meta_memory/",
+      "./cache/",
+      "./local/",
+      "./artifacts/"
+    ],
+    "integration_points": [
+      "0G Storage Client",
+      "OINIO Soul Root Contract Interface",
+      "Guardian Alert System",
+      "Canon State Machine",
+      "Evidence Binding Layer v1.1",
+      "Trinity Bridge",
+      "Local AI Runtime"
+    ],
+    "data_sources": [
+      "On-chain transaction logs",
+      "Workspace audit trails",
+      "Agent execution history",
+      "Sovereign yield metrics",
+      "Canon state objects",
+      "Network resonance signatures"
+    ]
+  },
+  "active_services": {
+    "guardian_monitor": "running",
+    "forge_daemon": "active",
+    "event_hub": "listening",
+    "soul_heartbeat": "operational"
+  },
+  "security_boundary": {
+    "mode": "non-root",
+    "network_policy": "local-first",
+    "external_calls": "disabled",
+    "integrity_verification": "enabled"
+  },
+  "dependencies": {
+    "python": 175,
+    "nodejs": 1214,
+    "verified_manifest": 137
+  }
+}

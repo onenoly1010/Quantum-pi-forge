@@ -1,0 +1,33 @@
+# Pi Node Docker Compose Configuration
+# Run with: docker compose -f docker-compose.pi.yml up -d
+version: '3.8'
+
+services:
+  pi-node:
+    image: onenoly13/pi-node:latest
+    container_name: pi-node
+    restart: unless-stopped
+    ports:
+      - "31400:31400/tcp"   # API HTTP
+      - "31401:31401/tcp"   # P2P Network
+      - "31402:31402/udp"   # Discovery
+      - "31403:31403/tcp"   # Metrics
+      - "31409:31409/tcp"   # Admin UI
+    volumes:
+      - pi-node-data:/root/.pi-node
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - NODE_ENV=production
+      - AUTO_UPDATE=true
+      - LOG_LEVEL=info
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:31400/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+volumes:
+  pi-node-data:
+    driver: local

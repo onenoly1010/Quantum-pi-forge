@@ -1,4 +1,3 @@
-version: '3.9'
 name: sovereign-resonance-agent
 
 services:
@@ -26,9 +25,8 @@ services:
     env_file:
       - .env
     volumes:
-      - ./:/app
       - /var/run/docker.sock:/var/run/docker.sock:ro
-    command: node workers/resonance-worker.js
+    command: sh -c "node workers/resonance-worker.js"
     restart: unless-stopped
 
   # Optional: Embedded Ollama (uncomment to run fully contained)

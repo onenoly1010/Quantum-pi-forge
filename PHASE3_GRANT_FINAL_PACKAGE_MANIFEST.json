@@ -1,0 +1,38 @@
+{
+  "package_version": "1.0.0",
+  "timestamp": "2026-04-26T19:22:00-06:00",
+  "network": "0G Aristotle Mainnet",
+  "anchor_transaction": "0x35651c43292e7306c154bc70075dbed1ac02b0e012ef3f1efdd1f4427079baaa",
+  "resonance_core_hash": "815d27673e8a427dda3d67d03273ab72d9ea188bac2966eb82f07e4c9fc782e3",
+  
+  "required_artifacts": {
+    "on_chain_settlement_proof": {
+      "status": "VERIFIED",
+      "hash": "0x35651c43292e7306c154bc70075dbed1ac02b0e012ef3f1efdd1f4427079baaa"
+    },
+    "build_manifest_image_hash": {
+      "status": "VERIFIED",
+      "hash": "ba2a60a8fecccbed685f8c9005e8001f3421ec4c9c7516cfd63b6f632766d608"
+    },
+    "self_audit_proof": {
+      "status": "VERIFIED",
+      "hash": "d616581cfd87b845bbad89a4f9c1be91f59ddd4835aa822bfff4b9c81f84ed97"
+    },
+    "soul_map_genesis_log": {
+      "status": "VERIFIED",
+      "hash": "3d6da7a2bba723c6ca5a07e816d42f778a0ccf7164f69a33ac85ffb808fb9f38"
+    },
+    "resonance_core_report": {
+      "status": "VERIFIED",
+      "hash": "4ce1e12861b1f617e169bf5b9ea2ef268b644cc743544627d49284e5aecd6e81"
+    }
+  },
+  
+  "missing_components": [],
+  
+  "package_integrity_hash": "c471f188e456a22c1227488e78a17d98165a0f3c7b11c8e8e06e16e9f8e4d7a2",
+  
+  "execution_mode": "sovereign_non_root",
+  "audit_trail_complete": true,
+  "submission_ready": true
+}
