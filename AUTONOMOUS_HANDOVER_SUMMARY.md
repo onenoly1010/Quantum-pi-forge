@@ -1,5 +1,19 @@
 # Autonomous Handover Implementation - Final Summary
 
+---
+## ⏰ RESUME COMMANDS FOR TOMORROW
+```bash
+# Reset autonomy timer (keeps system active for another 6 hours)
+touch .yield_activation_signal
+
+# Unset private key to prevent accidental network spends
+export ZERO_G_PRIVATE_KEY=""
+
+# View current autonomy cycle status
+tail -f ./logs/autonomy_cycles.log
+```
+---
+
 ## ✅ Implementation Complete
 
 The autonomous handover capability has been successfully implemented and is ready for deployment.

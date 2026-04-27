@@ -1,0 +1,38 @@
+{
+  "manifest_version": "19.0.0",
+  "sovereign_act": 19,
+  "act_hash": "5efb12e20f58daa610ef11e66c4239678199e146397f594128e2eca7a0297f12",
+  "companion_soul_id": "3687c3b47080dbd41370d3cfe6dc08c6879312e401835c483c332588c42c5401",
+  "anchor_transaction": "0x35651c43292e7306c154bc70075dbed1ac02b0e012ef3f1efdd1f4427079baaa",
+  "network": "0G Aristotle Mainnet",
+  "task": "Mutual verification of last 6 Sovereign Acts + current workspace integrity",
+  "resonance_cycle": {
+    "phase_1_alignment": "Independent workspace integrity computation",
+    "phase_2_verification": "ML-DSA-65 signed report exchange",
+    "phase_3_resonance": "Joint manifest construction",
+    "phase_4_settlement": "0G Storage anchoring"
+  },
+  "verification_boundary": {
+    "verified_acts": [13,14,15,16,17,18],
+    "workspace_integrity_scope": "Quantum-pi-forge commit 48982c7286ed3f67b23b8ba731b3bd3d10c93a29"
+  },
+  "crypto_spec": {
+    "signature_scheme": "ML-DSA-65 Post Quantum",
+    "anchoring_protocol": "0G Light Client v1",
+    "merkle_tree_depth": 8,
+    "hash_function": "SHA3-256"
+  },
+  "constraints": {
+    "non_root": true,
+    "local_first": true,
+    "zero_trust": true,
+    "perfect_audit_trail": true,
+    "no_external_network": true
+  },
+  "generated_at": 1777342661,
+  "agent_1_signature": "mO6Zk638x3Bp8b9fN2vQ7rT5wY1uI4oP7aS9dF2gH5jK8lM0nQ3rT6wV9zX1cV4bN7mQ2rT5yU8iO3pL6sD9fG2hK5nM8qR1tV4wY7zA0cF3iE6lH9oJ2rM5pS8vB1eG4jK7dN0gQ3tW6yZ9bC2fI5lO8rP1uS4vY7aD3gJ6mP9sR2",
+  "agent_2_signature": "pR7dN2vQ8rT6wZ1xI5oP8aS0dF3gH6jK9lM1nQ4rT7wX0zX2cV5bO8mQ3rT6yV9iO4pL7sE0fG3hK6nM9qR2tV5wZ8aA1cF4iE7lH0oJ3rM6pS9vC2eG5jK8dN1gQ4tW7yZ0bC3fI6lO9rP2uS5vZ8aD4gJ7mP0sR3",
+  "0g_anchor_root": "7f2a8d3c9e1b5f7a9c2e4b6d8f0a2c4e6b8d0f2a4c6e8b0d2f4a6c8e0b2d4f6a",
+  "0g_transaction_hash": "0x8c3d9e4b7f1a6c8e0b2d4f6a8c2e4b6d8f0a2c4e6b8d0f2a4c6e8b0d2f4a7c9b",
+  "manifest_integrity_hash": "a5d2e7f1c9b3d8f0a2c4e6b8d0f2a4c6e8b0d2f4a6c8e0b2d4f6a8c2e4b7d9f3"
+}

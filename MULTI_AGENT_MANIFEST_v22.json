@@ -1,0 +1,25 @@
+{
+  "manifest_version": "22.0.0",
+  "sovereign_act": 22,
+  "act_hash": "f0e562a7edc2925e49705e18bd618f416b9813b5db860e8be66c7c57fbb40c7d",
+  "companion_soul_id": "3687c3b47080dbd41370d3cfe6dc08c6879312e401835c483c332588c42c5401",
+  "parent_anchor_transaction": "0x35651c43292e7306c154bc70075dbed1ac02b0e012ef3f1efdd1f4427079baaa",
+  "network": "0G Aristotle Mainnet",
+  "task": "Grant Milestone Package & Observability Consolidation",
+  "package_reference": "TWENTY_SECOND_SOVEREIGN_ACT_GRANT_MILESTONE_PACKAGE_v22.json",
+  "crypto_spec": {
+    "signature_scheme": "ML-DSA-65 Post Quantum",
+    "anchoring_protocol": "0G Light Client v1",
+    "merkle_tree_depth": 8,
+    "hash_function": "SHA3-256"
+  },
+  "constraints": {
+    "non_root": true,
+    "local_first": true,
+    "zero_trust": true,
+    "perfect_audit_trail": true,
+    "no_external_network": true
+  },
+  "generated_at": 1777344994,
+  "manifest_integrity_hash": "f0e562a7edc2925e49705e18bd618f416b9813b5db860e8be66c7c57fbb40c7d"
+}

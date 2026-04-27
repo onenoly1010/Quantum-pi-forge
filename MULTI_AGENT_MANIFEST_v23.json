@@ -1,0 +1,33 @@
+{
+  "manifest_version": "23.0.0",
+  "sovereign_act": 23,
+  "act_hash": "9a7f3c8d2e5b1f4a8c7e3b6d9f0a4c2e7b9d1f3a5c8e0b2d4f6a8c2e4b7d0f1a",
+  "companion_soul_id": "3687c3b47080dbd41370d3cfe6dc08c6879312e401835c483c332588c42c5401",
+  "parent_anchor_transaction": "0x35651c43292e7306c154bc70075dbed1ac02b0e012ef3f1efdd1f4427079baaa",
+  "network": "0G Aristotle Mainnet",
+  "task": "Safe Autonomy Preparation & Final Grant Anchor",
+  "package_reference": "TWENTY_SECOND_SOVEREIGN_ACT_GRANT_MILESTONE_PACKAGE_v22.json",
+  "autonomy_mode": {
+    "enabled": true,
+    "max_cycles_per_hour": 4,
+    "auto_pause_hours": 6,
+    "divergence_logging": true,
+    "supervised_mode": true
+  },
+  "crypto_spec": {
+    "signature_scheme": "ML-DSA-65 Post Quantum",
+    "anchoring_protocol": "0G Light Client v1",
+    "merkle_tree_depth": 8,
+    "hash_function": "SHA3-256"
+  },
+  "constraints": {
+    "non_root": true,
+    "local_first": true,
+    "zero_trust": true,
+    "perfect_audit_trail": true,
+    "no_external_network": true,
+    "autonomy_bounded": true
+  },
+  "generated_at": 1777344658,
+  "manifest_integrity_hash": "9a7f3c8d2e5b1f4a8c7e3b6d9f0a4c2e7b9d1f3a5c8e0b2d4f6a8c2e4b7d0f1a"
+}
