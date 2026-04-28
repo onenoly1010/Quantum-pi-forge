@@ -1,4 +1,2732 @@
-Traceback (most recent call last):
-  File "/home/kris/forge/OINIO_Forge/run_alive.py", line 10, in <module>
-    from task_graph import load_graph, execute_task, FailureAction
-ModuleNotFoundError: No module named 'task_graph'
+2026-04-25T20:39:03.379874 - OINIO autonomous node starting...
+2026-04-25T20:39:03.412707 - ✅ Autonomous retry system active: 10 retries enabled
+2026-04-25T20:39:03.448226 - Cycle 247 starting
+2026-04-25T20:39:03.448710 - Running system self-assessment...
+2026-04-25T20:39:07.785718 - Selected task: monitoring (score: 0.5)
+2026-04-25T20:39:07.785882 - System health: 66.7%
+2026-04-25T20:39:09.966437 - Cycle 247 starting
+2026-04-25T20:39:09.966759 - Running system self-assessment...
+2026-04-25T20:39:16.533449 - Selected task: monitoring (score: 0.5)
+2026-04-25T20:39:16.533669 - System health: 66.7%
+2026-04-25T20:39:20.953114 - Cycle 247 starting
+2026-04-25T20:39:20.953649 - Running system self-assessment...
+2026-04-25T20:39:32.657517 - Selected task: monitoring (score: 0.5)
+2026-04-25T20:39:32.657972 - System health: 66.7%
+2026-04-25T20:39:33.469424 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-25T20:39:41.469924 - Cycle 247 starting
+2026-04-25T20:39:41.470365 - Running system self-assessment...
+2026-04-25T20:39:59.992654 - Selected task: monitoring (score: 0.5)
+2026-04-25T20:39:59.993610 - System health: 66.7%
+2026-04-25T20:40:00.867951 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-25T20:40:16.877566 - Cycle 247 starting
+2026-04-25T20:40:16.888241 - Running system self-assessment...
+2026-04-25T20:40:31.008778 - Selected task: monitoring (score: 0.5)
+2026-04-25T20:40:31.012572 - System health: 66.7%
+2026-04-25T20:40:31.387415 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-25T20:41:03.388706 - Cycle 247 starting
+2026-04-25T20:41:03.389089 - Running system self-assessment...
+2026-04-25T20:41:12.032942 - Selected task: monitoring (score: 0.5)
+2026-04-25T20:41:12.033098 - System health: 66.7%
+2026-04-25T20:41:12.277302 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T20:42:12.582613 - Cycle 247 starting
+2026-04-25T20:42:12.582933 - Running system self-assessment...
+2026-04-25T20:42:48.338442 - Selected task: monitoring (score: 0.5)
+2026-04-25T20:42:48.338927 - System health: 66.7%
+2026-04-25T20:42:49.255502 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T20:43:49.256752 - Cycle 247 starting
+2026-04-25T20:43:49.257076 - Running system self-assessment...
+2026-04-25T20:44:02.502368 - Selected task: monitoring (score: 0.5)
+2026-04-25T20:44:02.503659 - System health: 66.7%
+2026-04-25T20:44:02.765989 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T20:45:03.182622 - Cycle 247 starting
+2026-04-25T20:45:03.184170 - Running system self-assessment...
+2026-04-25T20:45:15.643058 - Selected task: monitoring (score: 0.5)
+2026-04-25T20:45:15.643281 - System health: 66.7%
+2026-04-25T20:45:16.097428 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T20:46:16.098059 - Cycle 247 starting
+2026-04-25T20:46:16.098332 - Running system self-assessment...
+2026-04-25T20:46:39.554391 - Selected task: monitoring (score: 0.5)
+2026-04-25T20:46:39.555696 - System health: 66.7%
+2026-04-25T20:46:40.421231 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T20:47:40.423566 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-25T20:47:40.423839 - ⚠️  System will continue to next cycle automatically
+2026-04-25T20:47:40.423950 - Sleeping for 300 seconds
+2026-04-25T20:52:40.459713 - Cycle 247 starting
+2026-04-25T20:52:40.459915 - Running system self-assessment...
+2026-04-25T20:53:03.059278 - Selected task: monitoring (score: 0.5)
+2026-04-25T20:53:03.059519 - System health: 66.7%
+2026-04-25T20:53:05.735202 - Cycle 247 starting
+2026-04-25T20:53:05.735606 - Running system self-assessment...
+2026-04-25T20:53:28.454229 - Selected task: monitoring (score: 0.5)
+2026-04-25T20:53:28.454493 - System health: 66.7%
+2026-04-25T20:53:33.515149 - Cycle 247 starting
+2026-04-25T20:53:33.516027 - Running system self-assessment...
+2026-04-25T20:53:53.028759 - Selected task: monitoring (score: 0.5)
+2026-04-25T20:53:53.029033 - System health: 66.7%
+2026-04-25T20:53:53.802875 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-25T20:54:01.804396 - Cycle 247 starting
+2026-04-25T20:54:01.804933 - Running system self-assessment...
+2026-04-25T20:54:22.355255 - Selected task: monitoring (score: 0.5)
+2026-04-25T20:54:22.355514 - System health: 66.7%
+2026-04-25T20:54:23.396121 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-25T20:54:39.401563 - Cycle 247 starting
+2026-04-25T20:54:39.403326 - Running system self-assessment...
+2026-04-25T20:55:04.191834 - Selected task: monitoring (score: 0.5)
+2026-04-25T20:55:04.192109 - System health: 66.7%
+2026-04-25T20:55:04.990759 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-25T20:55:36.992864 - Cycle 247 starting
+2026-04-25T20:55:36.993298 - Running system self-assessment...
+2026-04-25T20:55:43.822047 - Selected task: monitoring (score: 0.5)
+2026-04-25T20:55:43.822278 - System health: 66.7%
+2026-04-25T20:55:44.246802 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T20:56:44.252687 - Cycle 247 starting
+2026-04-25T20:56:44.252992 - Running system self-assessment...
+2026-04-25T20:57:10.277755 - Selected task: monitoring (score: 0.5)
+2026-04-25T20:57:10.278537 - System health: 66.7%
+2026-04-25T20:57:12.307260 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T20:58:12.308264 - Cycle 247 starting
+2026-04-25T20:58:12.308566 - Running system self-assessment...
+2026-04-25T20:58:25.038833 - Selected task: monitoring (score: 0.5)
+2026-04-25T20:58:25.039063 - System health: 66.7%
+2026-04-25T20:58:25.302590 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T20:59:25.306523 - Cycle 247 starting
+2026-04-25T20:59:25.306790 - Running system self-assessment...
+2026-04-25T20:59:49.184320 - Selected task: monitoring (score: 0.5)
+2026-04-25T20:59:49.185097 - System health: 66.7%
+2026-04-25T20:59:49.871602 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T21:00:49.873786 - Cycle 247 starting
+2026-04-25T21:00:49.898883 - Running system self-assessment...
+2026-04-25T21:01:11.428257 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:01:11.428477 - System health: 66.7%
+2026-04-25T21:01:12.368657 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T21:02:12.370587 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-25T21:02:12.971235 - ⚠️  System will continue to next cycle automatically
+2026-04-25T21:02:12.971954 - Sleeping for 300 seconds
+2026-04-25T21:07:12.996638 - Cycle 247 starting
+2026-04-25T21:07:12.996928 - Running system self-assessment...
+2026-04-25T21:07:28.870098 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:07:28.870370 - System health: 66.7%
+2026-04-25T21:07:31.280599 - Cycle 247 starting
+2026-04-25T21:07:31.280971 - Running system self-assessment...
+2026-04-25T21:07:44.427833 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:07:44.428085 - System health: 66.7%
+2026-04-25T21:07:49.400004 - Cycle 247 starting
+2026-04-25T21:07:49.400261 - Running system self-assessment...
+2026-04-25T21:08:05.031816 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:08:05.032166 - System health: 66.7%
+2026-04-25T21:08:05.369806 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-25T21:08:13.370352 - Cycle 247 starting
+2026-04-25T21:08:13.370698 - Running system self-assessment...
+2026-04-25T21:08:29.024230 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:08:29.024975 - System health: 66.7%
+2026-04-25T21:08:29.856328 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-25T21:08:45.857342 - Cycle 247 starting
+2026-04-25T21:08:45.857584 - Running system self-assessment...
+2026-04-25T21:08:56.921712 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:08:56.921997 - System health: 66.7%
+2026-04-25T21:08:57.443189 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-25T21:09:29.443705 - Cycle 247 starting
+2026-04-25T21:09:29.443965 - Running system self-assessment...
+2026-04-25T21:09:38.974757 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:09:38.974940 - System health: 66.7%
+2026-04-25T21:09:39.404760 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T21:10:39.405102 - Cycle 247 starting
+2026-04-25T21:10:39.405361 - Running system self-assessment...
+2026-04-25T21:11:09.412124 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:11:09.412434 - System health: 66.7%
+2026-04-25T21:11:10.469913 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T21:12:10.475081 - Cycle 247 starting
+2026-04-25T21:12:10.475342 - Running system self-assessment...
+2026-04-25T21:12:25.166084 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:12:25.166815 - System health: 66.7%
+2026-04-25T21:12:26.684119 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T21:13:26.685636 - Cycle 247 starting
+2026-04-25T21:13:26.685938 - Running system self-assessment...
+2026-04-25T21:13:45.351569 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:13:45.351833 - System health: 66.7%
+2026-04-25T21:13:46.070742 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T21:14:46.122597 - Cycle 247 starting
+2026-04-25T21:14:46.123086 - Running system self-assessment...
+2026-04-25T21:15:08.306396 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:15:08.306669 - System health: 66.7%
+2026-04-25T21:15:09.611034 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T21:16:09.611484 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-25T21:16:09.611886 - ⚠️  System will continue to next cycle automatically
+2026-04-25T21:16:09.611994 - Sleeping for 300 seconds
+2026-04-25T21:21:09.613647 - Cycle 247 starting
+2026-04-25T21:21:09.613849 - Running system self-assessment...
+2026-04-25T21:21:31.795823 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:21:31.796106 - System health: 66.7%
+2026-04-25T21:21:34.092498 - Cycle 247 starting
+2026-04-25T21:21:34.092901 - Running system self-assessment...
+2026-04-25T21:22:01.444851 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:22:01.445012 - System health: 66.7%
+2026-04-25T21:22:06.471763 - Cycle 247 starting
+2026-04-25T21:22:06.472135 - Running system self-assessment...
+2026-04-25T21:22:33.721977 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:22:33.722220 - System health: 66.7%
+2026-04-25T21:22:34.239489 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-25T21:22:42.239899 - Cycle 247 starting
+2026-04-25T21:22:42.240129 - Running system self-assessment...
+2026-04-25T21:22:49.629378 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:22:49.629596 - System health: 66.7%
+2026-04-25T21:22:50.175665 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-25T21:23:06.176084 - Cycle 247 starting
+2026-04-25T21:23:06.176383 - Running system self-assessment...
+2026-04-25T21:23:14.821826 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:23:14.822101 - System health: 66.7%
+2026-04-25T21:23:15.096210 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-25T21:23:47.097502 - Cycle 247 starting
+2026-04-25T21:23:47.097784 - Running system self-assessment...
+2026-04-25T21:23:55.003859 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:23:55.004019 - System health: 66.7%
+2026-04-25T21:23:55.496349 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T21:24:55.496924 - Cycle 247 starting
+2026-04-25T21:24:55.497257 - Running system self-assessment...
+2026-04-25T21:25:29.597233 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:25:29.597807 - System health: 66.7%
+2026-04-25T21:25:30.742943 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T21:26:30.800679 - Cycle 247 starting
+2026-04-25T21:26:30.800963 - Running system self-assessment...
+2026-04-25T21:27:02.613243 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:27:02.613767 - System health: 66.7%
+2026-04-25T21:27:03.658308 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T21:28:03.658807 - Cycle 247 starting
+2026-04-25T21:28:03.659098 - Running system self-assessment...
+2026-04-25T21:28:18.231818 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:28:18.231997 - System health: 66.7%
+2026-04-25T21:28:19.037815 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T21:29:19.038380 - Cycle 247 starting
+2026-04-25T21:29:19.038772 - Running system self-assessment...
+2026-04-25T21:29:32.561743 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:29:32.562234 - System health: 66.7%
+2026-04-25T21:29:33.640303 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T21:30:33.644555 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-25T21:30:33.644837 - ⚠️  System will continue to next cycle automatically
+2026-04-25T21:30:33.644933 - Sleeping for 300 seconds
+2026-04-25T21:35:33.685734 - Cycle 247 starting
+2026-04-25T21:35:33.718627 - Running system self-assessment...
+2026-04-25T21:35:59.390342 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:35:59.391745 - System health: 66.7%
+2026-04-25T21:36:01.758587 - Cycle 247 starting
+2026-04-25T21:36:01.763015 - Running system self-assessment...
+2026-04-25T21:36:20.757747 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:36:20.758075 - System health: 66.7%
+2026-04-25T21:36:25.242773 - Cycle 247 starting
+2026-04-25T21:36:25.243152 - Running system self-assessment...
+2026-04-25T21:36:34.118776 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:36:34.119010 - System health: 66.7%
+2026-04-25T21:36:34.340767 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-25T21:36:42.341591 - Cycle 247 starting
+2026-04-25T21:36:42.341894 - Running system self-assessment...
+2026-04-25T21:36:46.989887 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:36:46.990114 - System health: 66.7%
+2026-04-25T21:36:47.230952 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-25T21:37:03.231517 - Cycle 247 starting
+2026-04-25T21:37:03.231755 - Running system self-assessment...
+2026-04-25T21:37:11.932996 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:37:11.933161 - System health: 66.7%
+2026-04-25T21:37:12.049750 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-25T21:37:44.050413 - Cycle 247 starting
+2026-04-25T21:37:44.050788 - Running system self-assessment...
+2026-04-25T21:37:49.004795 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:37:49.005046 - System health: 66.7%
+2026-04-25T21:37:49.279942 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T21:38:49.280701 - Cycle 247 starting
+2026-04-25T21:38:49.281042 - Running system self-assessment...
+2026-04-25T21:38:53.675694 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:38:53.675892 - System health: 66.7%
+2026-04-25T21:38:53.835528 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T21:39:53.836018 - Cycle 247 starting
+2026-04-25T21:39:53.836248 - Running system self-assessment...
+2026-04-25T21:39:57.670924 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:39:57.671172 - System health: 66.7%
+2026-04-25T21:39:57.786872 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T21:40:57.787370 - Cycle 247 starting
+2026-04-25T21:40:57.787746 - Running system self-assessment...
+2026-04-25T21:41:01.497756 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:41:01.497965 - System health: 66.7%
+2026-04-25T21:41:01.619580 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T21:42:01.634917 - Cycle 247 starting
+2026-04-25T21:42:01.635257 - Running system self-assessment...
+2026-04-25T21:42:08.777059 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:42:08.777238 - System health: 66.7%
+2026-04-25T21:42:08.920811 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T21:43:08.921327 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-25T21:43:08.921700 - ⚠️  System will continue to next cycle automatically
+2026-04-25T21:43:08.921808 - Sleeping for 300 seconds
+2026-04-25T21:48:08.922674 - Cycle 247 starting
+2026-04-25T21:48:08.922879 - Running system self-assessment...
+2026-04-25T21:48:15.116394 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:48:15.116797 - System health: 66.7%
+2026-04-25T21:48:17.232639 - Cycle 247 starting
+2026-04-25T21:48:17.233032 - Running system self-assessment...
+2026-04-25T21:48:20.792322 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:48:20.792527 - System health: 66.7%
+2026-04-25T21:48:24.964199 - Cycle 247 starting
+2026-04-25T21:48:24.964671 - Running system self-assessment...
+2026-04-25T21:48:29.295167 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:48:29.295347 - System health: 66.7%
+2026-04-25T21:48:29.442631 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-25T21:48:37.442973 - Cycle 247 starting
+2026-04-25T21:48:37.443234 - Running system self-assessment...
+2026-04-25T21:48:41.343786 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:48:41.343945 - System health: 66.7%
+2026-04-25T21:48:41.456727 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-25T21:48:57.457217 - Cycle 247 starting
+2026-04-25T21:48:57.457632 - Running system self-assessment...
+2026-04-25T21:49:01.455111 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:49:01.455357 - System health: 66.7%
+2026-04-25T21:49:01.722009 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-25T21:49:33.723233 - Cycle 247 starting
+2026-04-25T21:49:33.723610 - Running system self-assessment...
+2026-04-25T21:49:37.750011 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:49:37.750400 - System health: 66.7%
+2026-04-25T21:49:37.957185 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T21:50:37.957632 - Cycle 247 starting
+2026-04-25T21:50:37.957907 - Running system self-assessment...
+2026-04-25T21:51:02.833497 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:51:02.833699 - System health: 66.7%
+2026-04-25T21:51:03.795944 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T21:52:03.802799 - Cycle 247 starting
+2026-04-25T21:52:03.803197 - Running system self-assessment...
+2026-04-25T21:52:34.995941 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:52:34.996344 - System health: 66.7%
+2026-04-25T21:52:36.063041 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T21:53:36.063482 - Cycle 247 starting
+2026-04-25T21:53:36.063763 - Running system self-assessment...
+2026-04-25T21:53:55.972173 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:53:55.972643 - System health: 66.7%
+2026-04-25T21:53:56.157416 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T21:54:56.158365 - Cycle 247 starting
+2026-04-25T21:54:56.158717 - Running system self-assessment...
+2026-04-25T21:55:11.922880 - Selected task: monitoring (score: 0.5)
+2026-04-25T21:55:11.923160 - System health: 66.7%
+2026-04-25T21:55:13.108931 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T21:56:13.109391 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-25T21:56:13.110736 - ⚠️  System will continue to next cycle automatically
+2026-04-25T21:56:13.111024 - Sleeping for 300 seconds
+2026-04-25T22:01:13.417587 - Cycle 247 starting
+2026-04-25T22:01:13.417862 - Running system self-assessment...
+2026-04-25T22:01:36.734115 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:01:36.735788 - System health: 66.7%
+2026-04-25T22:01:40.059074 - Cycle 247 starting
+2026-04-25T22:01:40.059384 - Running system self-assessment...
+2026-04-25T22:02:02.151818 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:02:02.152854 - System health: 66.7%
+2026-04-25T22:02:07.085241 - Cycle 247 starting
+2026-04-25T22:02:07.085906 - Running system self-assessment...
+2026-04-25T22:02:29.549169 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:02:29.551133 - System health: 66.7%
+2026-04-25T22:02:30.784577 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-25T22:02:38.785590 - Cycle 247 starting
+2026-04-25T22:02:38.785967 - Running system self-assessment...
+2026-04-25T22:02:59.378545 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:02:59.379951 - System health: 66.7%
+2026-04-25T22:03:00.750868 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-25T22:03:16.752737 - Cycle 247 starting
+2026-04-25T22:03:16.753015 - Running system self-assessment...
+2026-04-25T22:03:40.396955 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:03:40.400415 - System health: 66.7%
+2026-04-25T22:03:41.767087 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-25T22:04:13.768754 - Cycle 247 starting
+2026-04-25T22:04:13.769105 - Running system self-assessment...
+2026-04-25T22:04:24.083764 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:04:24.083930 - System health: 66.7%
+2026-04-25T22:04:24.327243 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T22:05:24.327545 - Cycle 247 starting
+2026-04-25T22:05:24.327772 - Running system self-assessment...
+2026-04-25T22:05:30.316250 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:05:30.317287 - System health: 66.7%
+2026-04-25T22:05:31.345673 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T22:06:31.350031 - Cycle 247 starting
+2026-04-25T22:06:31.352950 - Running system self-assessment...
+2026-04-25T22:06:54.440111 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:06:54.440314 - System health: 66.7%
+2026-04-25T22:06:54.944510 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T22:07:54.944999 - Cycle 247 starting
+2026-04-25T22:07:54.945687 - Running system self-assessment...
+2026-04-25T22:08:32.032188 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:08:32.033648 - System health: 66.7%
+2026-04-25T22:08:33.107621 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T22:09:33.242792 - Cycle 247 starting
+2026-04-25T22:09:33.243051 - Running system self-assessment...
+2026-04-25T22:10:17.453606 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:10:17.454914 - System health: 66.7%
+2026-04-25T22:10:18.897286 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T22:11:18.899059 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-25T22:11:18.899446 - ⚠️  System will continue to next cycle automatically
+2026-04-25T22:11:18.899642 - Sleeping for 300 seconds
+2026-04-25T22:16:18.938236 - Cycle 247 starting
+2026-04-25T22:16:18.976564 - Running system self-assessment...
+2026-04-25T22:16:29.919148 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:16:29.919310 - System health: 66.7%
+2026-04-25T22:16:32.059003 - Cycle 247 starting
+2026-04-25T22:16:32.059282 - Running system self-assessment...
+2026-04-25T22:16:43.148578 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:16:43.148803 - System health: 66.7%
+2026-04-25T22:16:47.606535 - Cycle 247 starting
+2026-04-25T22:16:47.607431 - Running system self-assessment...
+2026-04-25T22:16:55.564960 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:16:55.565200 - System health: 66.7%
+2026-04-25T22:16:56.537415 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-25T22:17:04.539212 - Cycle 247 starting
+2026-04-25T22:17:04.539421 - Running system self-assessment...
+2026-04-25T22:17:12.127174 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:17:12.127384 - System health: 66.7%
+2026-04-25T22:17:12.308273 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-25T22:17:28.409540 - Cycle 247 starting
+2026-04-25T22:17:28.409851 - Running system self-assessment...
+2026-04-25T22:17:41.559383 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:17:41.559612 - System health: 66.7%
+2026-04-25T22:17:41.742088 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-25T22:18:13.742855 - Cycle 247 starting
+2026-04-25T22:18:13.743251 - Running system self-assessment...
+2026-04-25T22:18:19.985415 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:18:19.985662 - System health: 66.7%
+2026-04-25T22:18:20.165975 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T22:19:20.166332 - Cycle 247 starting
+2026-04-25T22:19:20.166697 - Running system self-assessment...
+2026-04-25T22:19:30.073810 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:19:30.074001 - System health: 66.7%
+2026-04-25T22:19:30.231425 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T22:20:30.231796 - Cycle 247 starting
+2026-04-25T22:20:30.232085 - Running system self-assessment...
+2026-04-25T22:20:41.345295 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:20:41.345514 - System health: 66.7%
+2026-04-25T22:20:41.616446 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T22:21:41.617028 - Cycle 247 starting
+2026-04-25T22:21:41.617340 - Running system self-assessment...
+2026-04-25T22:21:47.735113 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:21:47.735327 - System health: 66.7%
+2026-04-25T22:21:47.915410 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T22:22:47.915731 - Cycle 247 starting
+2026-04-25T22:22:47.915969 - Running system self-assessment...
+2026-04-25T22:22:54.347487 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:22:54.347683 - System health: 66.7%
+2026-04-25T22:22:54.676131 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T22:23:54.676486 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-25T22:23:54.676828 - ⚠️  System will continue to next cycle automatically
+2026-04-25T22:23:54.676986 - Sleeping for 300 seconds
+2026-04-25T22:28:54.677557 - Cycle 247 starting
+2026-04-25T22:28:54.677748 - Running system self-assessment...
+2026-04-25T22:29:01.951050 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:29:01.951220 - System health: 66.7%
+2026-04-25T22:29:04.147522 - Cycle 247 starting
+2026-04-25T22:29:04.147764 - Running system self-assessment...
+2026-04-25T22:29:12.011520 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:29:12.011698 - System health: 66.7%
+2026-04-25T22:29:16.239429 - Cycle 247 starting
+2026-04-25T22:29:16.239716 - Running system self-assessment...
+2026-04-25T22:29:28.372917 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:29:28.373280 - System health: 66.7%
+2026-04-25T22:29:28.933658 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-25T22:29:36.934537 - Cycle 247 starting
+2026-04-25T22:29:36.934884 - Running system self-assessment...
+2026-04-25T22:29:49.218422 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:29:49.218700 - System health: 66.7%
+2026-04-25T22:29:49.673701 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-25T22:30:05.674129 - Cycle 247 starting
+2026-04-25T22:30:05.676103 - Running system self-assessment...
+2026-04-25T22:30:19.300925 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:30:19.301093 - System health: 66.7%
+2026-04-25T22:30:19.571353 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-25T22:30:51.572182 - Cycle 247 starting
+2026-04-25T22:30:51.572760 - Running system self-assessment...
+2026-04-25T22:30:57.884228 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:30:57.884377 - System health: 66.7%
+2026-04-25T22:30:58.044575 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T22:31:58.045162 - Cycle 247 starting
+2026-04-25T22:31:58.045440 - Running system self-assessment...
+2026-04-25T22:32:04.679798 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:32:04.679946 - System health: 66.7%
+2026-04-25T22:32:04.839391 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T22:33:04.839758 - Cycle 247 starting
+2026-04-25T22:33:04.840114 - Running system self-assessment...
+2026-04-25T22:33:16.922994 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:33:16.923708 - System health: 66.7%
+2026-04-25T22:33:17.387239 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T22:34:17.387760 - Cycle 247 starting
+2026-04-25T22:34:17.388102 - Running system self-assessment...
+2026-04-25T22:34:23.136619 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:34:23.136775 - System health: 66.7%
+2026-04-25T22:34:24.245650 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T22:35:24.246513 - Cycle 247 starting
+2026-04-25T22:35:24.246749 - Running system self-assessment...
+2026-04-25T22:35:40.106298 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:35:40.106967 - System health: 66.7%
+2026-04-25T22:35:40.270919 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T22:36:40.271306 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-25T22:36:40.271739 - ⚠️  System will continue to next cycle automatically
+2026-04-25T22:36:40.271861 - Sleeping for 300 seconds
+2026-04-25T22:41:40.272517 - Cycle 247 starting
+2026-04-25T22:41:40.272633 - Running system self-assessment...
+2026-04-25T22:41:54.158569 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:41:54.158797 - System health: 66.7%
+2026-04-25T22:41:56.737695 - Cycle 247 starting
+2026-04-25T22:41:56.737951 - Running system self-assessment...
+2026-04-25T22:42:06.911855 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:42:06.912443 - System health: 66.7%
+2026-04-25T22:42:11.412703 - Cycle 247 starting
+2026-04-25T22:42:11.413079 - Running system self-assessment...
+2026-04-25T22:42:20.187388 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:42:20.187641 - System health: 66.7%
+2026-04-25T22:42:20.398948 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-25T22:42:28.399377 - Cycle 247 starting
+2026-04-25T22:42:28.399763 - Running system self-assessment...
+2026-04-25T22:42:38.548434 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:42:38.548649 - System health: 66.7%
+2026-04-25T22:42:38.835040 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-25T22:42:54.835393 - Cycle 247 starting
+2026-04-25T22:42:54.835671 - Running system self-assessment...
+2026-04-25T22:43:07.551549 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:43:07.551703 - System health: 66.7%
+2026-04-25T22:43:08.264542 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-25T22:43:40.264925 - Cycle 247 starting
+2026-04-25T22:43:40.265220 - Running system self-assessment...
+2026-04-25T22:43:48.635692 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:43:48.636811 - System health: 66.7%
+2026-04-25T22:43:48.964858 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T22:44:48.965689 - Cycle 247 starting
+2026-04-25T22:44:48.966039 - Running system self-assessment...
+2026-04-25T22:44:58.032626 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:44:58.032779 - System health: 66.7%
+2026-04-25T22:44:58.234289 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T22:45:58.234756 - Cycle 247 starting
+2026-04-25T22:45:58.235015 - Running system self-assessment...
+2026-04-25T22:46:04.478496 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:46:04.478668 - System health: 66.7%
+2026-04-25T22:46:04.626519 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T22:47:04.626945 - Cycle 247 starting
+2026-04-25T22:47:04.627554 - Running system self-assessment...
+2026-04-25T22:47:30.969580 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:47:30.969809 - System health: 66.7%
+2026-04-25T22:47:33.826060 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T22:48:33.854405 - Cycle 247 starting
+2026-04-25T22:48:33.861766 - Running system self-assessment...
+2026-04-25T22:49:02.926936 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:49:02.929594 - System health: 66.7%
+2026-04-25T22:49:03.739840 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T22:50:03.740270 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-25T22:50:03.740716 - ⚠️  System will continue to next cycle automatically
+2026-04-25T22:50:03.741055 - Sleeping for 300 seconds
+2026-04-25T22:55:03.741984 - Cycle 247 starting
+2026-04-25T22:55:03.742141 - Running system self-assessment...
+2026-04-25T22:55:09.216937 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:55:09.217133 - System health: 66.7%
+2026-04-25T22:55:11.373741 - Cycle 247 starting
+2026-04-25T22:55:11.374012 - Running system self-assessment...
+2026-04-25T22:55:16.780331 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:55:16.781591 - System health: 66.7%
+2026-04-25T22:55:20.994536 - Cycle 247 starting
+2026-04-25T22:55:20.994913 - Running system self-assessment...
+2026-04-25T22:55:40.013835 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:55:40.014030 - System health: 66.7%
+2026-04-25T22:55:40.789931 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-25T22:55:48.790392 - Cycle 247 starting
+2026-04-25T22:55:48.791126 - Running system self-assessment...
+2026-04-25T22:55:55.057423 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:55:55.057608 - System health: 66.7%
+2026-04-25T22:55:55.219986 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-25T22:56:11.221156 - Cycle 247 starting
+2026-04-25T22:56:11.221386 - Running system self-assessment...
+2026-04-25T22:56:17.440606 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:56:17.440761 - System health: 66.7%
+2026-04-25T22:56:17.720260 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-25T22:56:49.720926 - Cycle 247 starting
+2026-04-25T22:56:49.721953 - Running system self-assessment...
+2026-04-25T22:57:03.511940 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:57:03.512119 - System health: 66.7%
+2026-04-25T22:57:03.662562 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T22:58:03.663513 - Cycle 247 starting
+2026-04-25T22:58:03.663739 - Running system self-assessment...
+2026-04-25T22:58:12.613019 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:58:12.613206 - System health: 66.7%
+2026-04-25T22:58:12.793739 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T22:59:12.794518 - Cycle 247 starting
+2026-04-25T22:59:12.794761 - Running system self-assessment...
+2026-04-25T22:59:18.671505 - Selected task: monitoring (score: 0.5)
+2026-04-25T22:59:18.671909 - System health: 66.7%
+2026-04-25T22:59:18.924908 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T23:00:18.925341 - Cycle 247 starting
+2026-04-25T23:00:18.925612 - Running system self-assessment...
+2026-04-25T23:00:26.067988 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:00:26.068573 - System health: 66.7%
+2026-04-25T23:00:26.246803 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T23:01:26.247831 - Cycle 247 starting
+2026-04-25T23:01:26.249602 - Running system self-assessment...
+2026-04-25T23:01:45.242746 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:01:45.243202 - System health: 66.7%
+2026-04-25T23:01:46.329138 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T23:02:46.331944 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-25T23:02:46.332296 - ⚠️  System will continue to next cycle automatically
+2026-04-25T23:02:46.332400 - Sleeping for 300 seconds
+2026-04-25T23:07:46.333130 - Cycle 247 starting
+2026-04-25T23:07:46.333313 - Running system self-assessment...
+2026-04-25T23:08:02.139442 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:08:02.139672 - System health: 66.7%
+2026-04-25T23:08:04.480563 - Cycle 247 starting
+2026-04-25T23:08:04.482037 - Running system self-assessment...
+2026-04-25T23:08:20.554533 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:08:20.554815 - System health: 66.7%
+2026-04-25T23:08:25.182672 - Cycle 247 starting
+2026-04-25T23:08:25.182978 - Running system self-assessment...
+2026-04-25T23:08:37.884397 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:08:37.884695 - System health: 66.7%
+2026-04-25T23:08:38.288997 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-25T23:08:46.289858 - Cycle 247 starting
+2026-04-25T23:08:46.290118 - Running system self-assessment...
+2026-04-25T23:08:57.133955 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:08:57.134178 - System health: 66.7%
+2026-04-25T23:08:59.035160 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-25T23:09:15.035562 - Cycle 247 starting
+2026-04-25T23:09:15.035906 - Running system self-assessment...
+2026-04-25T23:09:20.199427 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:09:20.199698 - System health: 66.7%
+2026-04-25T23:09:20.828346 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-25T23:09:52.828779 - Cycle 247 starting
+2026-04-25T23:09:52.829164 - Running system self-assessment...
+2026-04-25T23:10:00.884191 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:10:00.884345 - System health: 66.7%
+2026-04-25T23:10:01.121111 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T23:11:01.121422 - Cycle 247 starting
+2026-04-25T23:11:01.121655 - Running system self-assessment...
+2026-04-25T23:11:06.261901 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:11:06.262060 - System health: 66.7%
+2026-04-25T23:11:06.504409 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T23:12:06.504768 - Cycle 247 starting
+2026-04-25T23:12:06.505016 - Running system self-assessment...
+2026-04-25T23:12:14.832825 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:12:14.832982 - System health: 66.7%
+2026-04-25T23:12:14.972864 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T23:13:14.973229 - Cycle 247 starting
+2026-04-25T23:13:14.974631 - Running system self-assessment...
+2026-04-25T23:13:37.224732 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:13:37.225776 - System health: 66.7%
+2026-04-25T23:13:38.129980 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T23:14:38.130401 - Cycle 247 starting
+2026-04-25T23:14:38.135101 - Running system self-assessment...
+2026-04-25T23:15:08.716427 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:15:08.716605 - System health: 66.7%
+2026-04-25T23:15:09.211079 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T23:16:09.211455 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-25T23:16:09.211812 - ⚠️  System will continue to next cycle automatically
+2026-04-25T23:16:09.211929 - Sleeping for 300 seconds
+2026-04-25T23:21:09.212942 - Cycle 247 starting
+2026-04-25T23:21:09.213607 - Running system self-assessment...
+2026-04-25T23:21:14.512726 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:21:14.512877 - System health: 66.7%
+2026-04-25T23:21:16.649519 - Cycle 247 starting
+2026-04-25T23:21:16.649794 - Running system self-assessment...
+2026-04-25T23:21:22.635239 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:21:22.635422 - System health: 66.7%
+2026-04-25T23:21:26.787310 - Cycle 247 starting
+2026-04-25T23:21:26.787639 - Running system self-assessment...
+2026-04-25T23:21:41.797510 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:21:41.797819 - System health: 66.7%
+2026-04-25T23:21:42.083837 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-25T23:21:50.084340 - Cycle 247 starting
+2026-04-25T23:21:50.084714 - Running system self-assessment...
+2026-04-25T23:21:56.945112 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:21:56.945510 - System health: 66.7%
+2026-04-25T23:21:57.382004 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-25T23:22:13.382451 - Cycle 247 starting
+2026-04-25T23:22:13.382812 - Running system self-assessment...
+2026-04-25T23:22:20.993073 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:22:20.993221 - System health: 66.7%
+2026-04-25T23:22:21.193432 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-25T23:22:53.193763 - Cycle 247 starting
+2026-04-25T23:22:53.194005 - Running system self-assessment...
+2026-04-25T23:22:58.704553 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:22:58.704714 - System health: 66.7%
+2026-04-25T23:22:58.852740 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T23:23:58.853071 - Cycle 247 starting
+2026-04-25T23:23:58.866025 - Running system self-assessment...
+2026-04-25T23:24:08.928321 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:24:08.928491 - System health: 66.7%
+2026-04-25T23:24:09.418783 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T23:25:09.419412 - Cycle 247 starting
+2026-04-25T23:25:09.419809 - Running system self-assessment...
+2026-04-25T23:25:13.905576 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:25:13.905744 - System health: 66.7%
+2026-04-25T23:25:14.112579 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T23:26:14.113509 - Cycle 247 starting
+2026-04-25T23:26:14.113730 - Running system self-assessment...
+2026-04-25T23:26:26.195907 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:26:26.196316 - System health: 66.7%
+2026-04-25T23:26:27.135618 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T23:27:27.136090 - Cycle 247 starting
+2026-04-25T23:27:27.136339 - Running system self-assessment...
+2026-04-25T23:27:31.860062 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:27:31.860255 - System health: 66.7%
+2026-04-25T23:27:32.003911 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T23:28:32.004261 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-25T23:28:32.004655 - ⚠️  System will continue to next cycle automatically
+2026-04-25T23:28:32.004861 - Sleeping for 300 seconds
+2026-04-25T23:33:32.006945 - Cycle 247 starting
+2026-04-25T23:33:32.007197 - Running system self-assessment...
+2026-04-25T23:33:38.181617 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:33:38.181897 - System health: 66.7%
+2026-04-25T23:33:40.763395 - Cycle 247 starting
+2026-04-25T23:33:40.763822 - Running system self-assessment...
+2026-04-25T23:33:49.221011 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:33:49.222591 - System health: 66.7%
+2026-04-25T23:33:54.333653 - Cycle 247 starting
+2026-04-25T23:33:54.334075 - Running system self-assessment...
+2026-04-25T23:34:03.262835 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:34:03.263083 - System health: 66.7%
+2026-04-25T23:34:03.625730 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-25T23:34:11.626379 - Cycle 247 starting
+2026-04-25T23:34:11.626773 - Running system self-assessment...
+2026-04-25T23:34:16.751054 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:34:16.751254 - System health: 66.7%
+2026-04-25T23:34:16.886209 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-25T23:34:32.886573 - Cycle 247 starting
+2026-04-25T23:34:32.887381 - Running system self-assessment...
+2026-04-25T23:34:42.813749 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:34:42.813912 - System health: 66.7%
+2026-04-25T23:34:42.940272 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-25T23:35:14.940700 - Cycle 247 starting
+2026-04-25T23:35:14.941055 - Running system self-assessment...
+2026-04-25T23:35:19.954896 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:35:19.955087 - System health: 66.7%
+2026-04-25T23:35:20.112926 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T23:36:20.113503 - Cycle 247 starting
+2026-04-25T23:36:20.113837 - Running system self-assessment...
+2026-04-25T23:36:25.160521 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:36:25.160687 - System health: 66.7%
+2026-04-25T23:36:25.304378 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T23:37:25.305080 - Cycle 247 starting
+2026-04-25T23:37:25.305325 - Running system self-assessment...
+2026-04-25T23:37:30.697925 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:37:30.698088 - System health: 66.7%
+2026-04-25T23:37:30.841967 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T23:38:30.842350 - Cycle 247 starting
+2026-04-25T23:38:30.842732 - Running system self-assessment...
+2026-04-25T23:38:42.894580 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:38:42.894782 - System health: 66.7%
+2026-04-25T23:38:43.640569 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T23:39:43.640991 - Cycle 247 starting
+2026-04-25T23:39:43.641360 - Running system self-assessment...
+2026-04-25T23:40:19.171086 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:40:19.173063 - System health: 66.7%
+2026-04-25T23:40:22.540580 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T23:41:22.543559 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-25T23:41:22.543813 - ⚠️  System will continue to next cycle automatically
+2026-04-25T23:41:22.543896 - Sleeping for 300 seconds
+2026-04-25T23:46:22.544415 - Cycle 247 starting
+2026-04-25T23:46:22.545601 - Running system self-assessment...
+2026-04-25T23:46:33.622564 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:46:33.622827 - System health: 66.7%
+2026-04-25T23:46:35.973438 - Cycle 247 starting
+2026-04-25T23:46:35.974384 - Running system self-assessment...
+2026-04-25T23:46:44.787826 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:46:44.787981 - System health: 66.7%
+2026-04-25T23:46:48.994040 - Cycle 247 starting
+2026-04-25T23:46:48.994434 - Running system self-assessment...
+2026-04-25T23:47:02.782560 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:47:02.782818 - System health: 66.7%
+2026-04-25T23:47:03.751634 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-25T23:47:11.753756 - Cycle 247 starting
+2026-04-25T23:47:11.754037 - Running system self-assessment...
+2026-04-25T23:47:21.247749 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:47:21.247943 - System health: 66.7%
+2026-04-25T23:47:21.859556 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-25T23:47:37.860219 - Cycle 247 starting
+2026-04-25T23:47:37.861238 - Running system self-assessment...
+2026-04-25T23:47:47.167975 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:47:47.168258 - System health: 66.7%
+2026-04-25T23:47:47.445198 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-25T23:48:19.454490 - Cycle 247 starting
+2026-04-25T23:48:19.462621 - Running system self-assessment...
+2026-04-25T23:48:32.395734 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:48:32.395886 - System health: 66.7%
+2026-04-25T23:48:32.646740 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T23:49:32.647595 - Cycle 247 starting
+2026-04-25T23:49:32.706379 - Running system self-assessment...
+2026-04-25T23:49:50.338551 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:49:50.338745 - System health: 66.7%
+2026-04-25T23:49:51.307003 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T23:50:51.307962 - Cycle 247 starting
+2026-04-25T23:50:51.308297 - Running system self-assessment...
+2026-04-25T23:51:02.238913 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:51:02.239099 - System health: 66.7%
+2026-04-25T23:51:02.758590 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T23:52:02.758949 - Cycle 247 starting
+2026-04-25T23:52:02.759279 - Running system self-assessment...
+2026-04-25T23:52:22.739643 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:52:22.739806 - System health: 66.7%
+2026-04-25T23:52:22.930870 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T23:53:22.931228 - Cycle 247 starting
+2026-04-25T23:53:22.932705 - Running system self-assessment...
+2026-04-25T23:53:51.964384 - Selected task: monitoring (score: 0.5)
+2026-04-25T23:53:51.965972 - System health: 66.7%
+2026-04-25T23:53:52.797622 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-25T23:54:52.798302 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-25T23:54:52.798652 - ⚠️  System will continue to next cycle automatically
+2026-04-25T23:54:52.798765 - Sleeping for 300 seconds
+2026-04-25T23:59:52.799225 - Cycle 247 starting
+2026-04-25T23:59:52.799355 - Running system self-assessment...
+2026-04-26T00:00:02.383523 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:00:02.383723 - System health: 66.7%
+2026-04-26T00:00:05.516527 - Cycle 247 starting
+2026-04-26T00:00:05.516871 - Running system self-assessment...
+2026-04-26T00:00:15.639760 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:00:15.639919 - System health: 66.7%
+2026-04-26T00:00:19.762843 - Cycle 247 starting
+2026-04-26T00:00:19.763233 - Running system self-assessment...
+2026-04-26T00:00:26.171009 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:00:26.171233 - System health: 66.7%
+2026-04-26T00:00:26.540348 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-26T00:00:34.540958 - Cycle 247 starting
+2026-04-26T00:00:34.541337 - Running system self-assessment...
+2026-04-26T00:00:42.206363 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:00:42.207048 - System health: 66.7%
+2026-04-26T00:00:42.474148 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-26T00:00:58.474988 - Cycle 247 starting
+2026-04-26T00:00:58.475314 - Running system self-assessment...
+2026-04-26T00:01:03.827561 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:01:03.827838 - System health: 66.7%
+2026-04-26T00:01:04.218982 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-26T00:01:36.219956 - Cycle 247 starting
+2026-04-26T00:01:36.220710 - Running system self-assessment...
+2026-04-26T00:01:41.271135 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:01:41.271287 - System health: 66.7%
+2026-04-26T00:01:41.388815 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T00:02:41.389141 - Cycle 247 starting
+2026-04-26T00:02:41.389399 - Running system self-assessment...
+2026-04-26T00:02:47.602405 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:02:47.602615 - System health: 66.7%
+2026-04-26T00:02:48.735698 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T00:03:48.736323 - Cycle 247 starting
+2026-04-26T00:03:48.736694 - Running system self-assessment...
+2026-04-26T00:03:53.246943 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:03:53.247100 - System health: 66.7%
+2026-04-26T00:03:53.371320 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T00:04:53.371941 - Cycle 247 starting
+2026-04-26T00:04:53.372287 - Running system self-assessment...
+2026-04-26T00:04:58.570113 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:04:58.570298 - System health: 66.7%
+2026-04-26T00:04:58.718075 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T00:05:58.718722 - Cycle 247 starting
+2026-04-26T00:05:58.719049 - Running system self-assessment...
+2026-04-26T00:06:16.920567 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:06:16.920799 - System health: 66.7%
+2026-04-26T00:06:18.781166 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T00:07:18.782506 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-26T00:07:18.782878 - ⚠️  System will continue to next cycle automatically
+2026-04-26T00:07:18.782981 - Sleeping for 300 seconds
+2026-04-26T00:12:18.783504 - Cycle 247 starting
+2026-04-26T00:12:18.783676 - Running system self-assessment...
+2026-04-26T00:12:27.191228 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:12:27.192096 - System health: 66.7%
+2026-04-26T00:12:29.571538 - Cycle 247 starting
+2026-04-26T00:12:29.571893 - Running system self-assessment...
+2026-04-26T00:12:36.651126 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:12:36.651567 - System health: 66.7%
+2026-04-26T00:12:40.888718 - Cycle 247 starting
+2026-04-26T00:12:40.889097 - Running system self-assessment...
+2026-04-26T00:12:44.372537 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:12:44.372702 - System health: 66.7%
+2026-04-26T00:12:44.513682 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-26T00:12:52.514504 - Cycle 247 starting
+2026-04-26T00:12:52.514849 - Running system self-assessment...
+2026-04-26T00:12:59.625274 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:12:59.625950 - System health: 66.7%
+2026-04-26T00:12:59.776587 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-26T00:13:15.776933 - Cycle 247 starting
+2026-04-26T00:13:15.777349 - Running system self-assessment...
+2026-04-26T00:13:22.892623 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:13:22.892801 - System health: 66.7%
+2026-04-26T00:13:23.157632 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-26T00:13:55.157954 - Cycle 247 starting
+2026-04-26T00:13:55.158183 - Running system self-assessment...
+2026-04-26T00:13:59.727266 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:13:59.727428 - System health: 66.7%
+2026-04-26T00:13:59.850306 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T00:14:59.851522 - Cycle 247 starting
+2026-04-26T00:14:59.876848 - Running system self-assessment...
+2026-04-26T00:15:18.018241 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:15:18.018519 - System health: 66.7%
+2026-04-26T00:15:18.962167 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T00:16:18.962851 - Cycle 247 starting
+2026-04-26T00:16:18.963193 - Running system self-assessment...
+2026-04-26T00:16:23.654373 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:16:23.654567 - System health: 66.7%
+2026-04-26T00:16:23.770729 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T00:17:23.771182 - Cycle 247 starting
+2026-04-26T00:17:23.771517 - Running system self-assessment...
+2026-04-26T00:17:30.452644 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:17:30.453362 - System health: 66.7%
+2026-04-26T00:17:30.755388 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T00:18:30.755845 - Cycle 247 starting
+2026-04-26T00:18:30.756167 - Running system self-assessment...
+2026-04-26T00:18:36.225548 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:18:36.230383 - System health: 66.7%
+2026-04-26T00:18:36.381606 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T00:19:36.382106 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-26T00:19:36.382496 - ⚠️  System will continue to next cycle automatically
+2026-04-26T00:19:36.382635 - Sleeping for 300 seconds
+2026-04-26T00:24:36.402250 - Cycle 247 starting
+2026-04-26T00:24:36.438292 - Running system self-assessment...
+2026-04-26T00:24:42.510748 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:24:42.510906 - System health: 66.7%
+2026-04-26T00:24:44.631363 - Cycle 247 starting
+2026-04-26T00:24:44.632161 - Running system self-assessment...
+2026-04-26T00:24:48.942135 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:24:48.942331 - System health: 66.7%
+2026-04-26T00:24:53.295093 - Cycle 247 starting
+2026-04-26T00:24:53.295395 - Running system self-assessment...
+2026-04-26T00:24:57.698842 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:24:57.699012 - System health: 66.7%
+2026-04-26T00:24:57.835906 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-26T00:25:05.836412 - Cycle 247 starting
+2026-04-26T00:25:05.836782 - Running system self-assessment...
+2026-04-26T00:25:16.758322 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:25:16.760060 - System health: 66.7%
+2026-04-26T00:25:17.299301 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-26T00:25:33.299958 - Cycle 247 starting
+2026-04-26T00:25:33.300223 - Running system self-assessment...
+2026-04-26T00:25:37.878995 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:25:37.879154 - System health: 66.7%
+2026-04-26T00:25:38.004053 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-26T00:26:10.004684 - Cycle 247 starting
+2026-04-26T00:26:10.005034 - Running system self-assessment...
+2026-04-26T00:26:15.866340 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:26:15.866606 - System health: 66.7%
+2026-04-26T00:26:16.124406 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T00:27:16.125152 - Cycle 247 starting
+2026-04-26T00:27:16.125544 - Running system self-assessment...
+2026-04-26T00:27:21.451090 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:27:21.451269 - System health: 66.7%
+2026-04-26T00:27:21.602010 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T00:28:21.602344 - Cycle 247 starting
+2026-04-26T00:28:21.602603 - Running system self-assessment...
+2026-04-26T00:28:25.696930 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:28:25.698090 - System health: 66.7%
+2026-04-26T00:28:25.816316 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T00:29:25.817003 - Cycle 247 starting
+2026-04-26T00:29:25.817339 - Running system self-assessment...
+2026-04-26T00:29:33.899153 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:29:33.899302 - System health: 66.7%
+2026-04-26T00:29:34.013930 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T00:30:34.014421 - Cycle 247 starting
+2026-04-26T00:30:34.015203 - Running system self-assessment...
+2026-04-26T00:30:45.908811 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:30:45.908976 - System health: 66.7%
+2026-04-26T00:30:46.815707 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T00:31:46.816067 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-26T00:31:46.816398 - ⚠️  System will continue to next cycle automatically
+2026-04-26T00:31:46.816541 - Sleeping for 300 seconds
+2026-04-26T00:36:46.817012 - Cycle 247 starting
+2026-04-26T00:36:46.817136 - Running system self-assessment...
+2026-04-26T00:36:54.337960 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:36:54.338148 - System health: 66.7%
+2026-04-26T00:36:56.454445 - Cycle 247 starting
+2026-04-26T00:36:56.454885 - Running system self-assessment...
+2026-04-26T00:37:03.528901 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:37:03.529079 - System health: 66.7%
+2026-04-26T00:37:07.674325 - Cycle 247 starting
+2026-04-26T00:37:07.674929 - Running system self-assessment...
+2026-04-26T00:37:19.477228 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:37:19.477512 - System health: 66.7%
+2026-04-26T00:37:19.682307 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-26T00:37:27.682941 - Cycle 247 starting
+2026-04-26T00:37:27.683304 - Running system self-assessment...
+2026-04-26T00:37:32.040521 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:37:32.040671 - System health: 66.7%
+2026-04-26T00:37:32.151100 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-26T00:37:48.151612 - Cycle 247 starting
+2026-04-26T00:37:48.151943 - Running system self-assessment...
+2026-04-26T00:37:56.815856 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:37:56.816013 - System health: 66.7%
+2026-04-26T00:37:56.932200 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-26T00:38:28.932683 - Cycle 247 starting
+2026-04-26T00:38:28.932941 - Running system self-assessment...
+2026-04-26T00:38:36.725299 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:38:36.725555 - System health: 66.7%
+2026-04-26T00:38:37.074419 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T00:39:37.074847 - Cycle 247 starting
+2026-04-26T00:39:37.075257 - Running system self-assessment...
+2026-04-26T00:39:43.561946 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:39:43.562132 - System health: 66.7%
+2026-04-26T00:39:43.711783 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T00:40:43.712641 - Cycle 247 starting
+2026-04-26T00:40:43.712988 - Running system self-assessment...
+2026-04-26T00:40:49.426106 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:40:49.426858 - System health: 66.7%
+2026-04-26T00:40:49.784631 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T00:41:49.785170 - Cycle 247 starting
+2026-04-26T00:41:49.785438 - Running system self-assessment...
+2026-04-26T00:41:56.989935 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:41:56.990091 - System health: 66.7%
+2026-04-26T00:41:57.098776 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T00:42:57.100543 - Cycle 247 starting
+2026-04-26T00:42:57.100856 - Running system self-assessment...
+2026-04-26T00:43:08.126350 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:43:08.126606 - System health: 66.7%
+2026-04-26T00:43:08.338396 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T00:44:08.338985 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-26T00:44:08.353709 - ⚠️  System will continue to next cycle automatically
+2026-04-26T00:44:08.353969 - Sleeping for 300 seconds
+2026-04-26T00:49:08.354555 - Cycle 247 starting
+2026-04-26T00:49:08.354689 - Running system self-assessment...
+2026-04-26T00:49:12.967520 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:49:12.967709 - System health: 66.7%
+2026-04-26T00:49:15.167522 - Cycle 247 starting
+2026-04-26T00:49:15.167875 - Running system self-assessment...
+2026-04-26T00:49:24.124429 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:49:24.124635 - System health: 66.7%
+2026-04-26T00:49:28.335505 - Cycle 247 starting
+2026-04-26T00:49:28.335782 - Running system self-assessment...
+2026-04-26T00:49:32.740321 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:49:32.740516 - System health: 66.7%
+2026-04-26T00:49:32.856704 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-26T00:49:40.858592 - Cycle 247 starting
+2026-04-26T00:49:40.869567 - Running system self-assessment...
+2026-04-26T00:49:58.013485 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:49:58.013740 - System health: 66.7%
+2026-04-26T00:49:59.139324 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-26T00:50:15.141205 - Cycle 247 starting
+2026-04-26T00:50:15.141533 - Running system self-assessment...
+2026-04-26T00:50:35.178112 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:50:35.178878 - System health: 66.7%
+2026-04-26T00:50:36.089699 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-26T00:51:08.102706 - Cycle 247 starting
+2026-04-26T00:51:08.103032 - Running system self-assessment...
+2026-04-26T00:51:26.180093 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:51:26.180274 - System health: 66.7%
+2026-04-26T00:51:27.116273 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T00:52:27.118706 - Cycle 247 starting
+2026-04-26T00:52:27.119051 - Running system self-assessment...
+2026-04-26T00:52:31.142188 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:52:31.142359 - System health: 66.7%
+2026-04-26T00:52:31.256047 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T00:53:31.256372 - Cycle 247 starting
+2026-04-26T00:53:31.256714 - Running system self-assessment...
+2026-04-26T00:53:39.990884 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:53:39.991069 - System health: 66.7%
+2026-04-26T00:53:40.098777 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T00:54:40.099118 - Cycle 247 starting
+2026-04-26T00:54:40.099361 - Running system self-assessment...
+2026-04-26T00:54:47.817138 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:54:47.817288 - System health: 66.7%
+2026-04-26T00:54:48.021578 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T00:55:48.022519 - Cycle 247 starting
+2026-04-26T00:55:48.022734 - Running system self-assessment...
+2026-04-26T00:55:52.408131 - Selected task: monitoring (score: 0.5)
+2026-04-26T00:55:52.408296 - System health: 66.7%
+2026-04-26T00:55:52.535368 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T00:56:52.536000 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-26T00:56:52.536315 - ⚠️  System will continue to next cycle automatically
+2026-04-26T00:56:52.536433 - Sleeping for 300 seconds
+2026-04-26T01:01:52.537049 - Cycle 247 starting
+2026-04-26T01:01:52.537352 - Running system self-assessment...
+2026-04-26T01:01:56.990538 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:01:56.990691 - System health: 66.7%
+2026-04-26T01:01:59.099399 - Cycle 247 starting
+2026-04-26T01:01:59.100631 - Running system self-assessment...
+2026-04-26T01:02:03.836085 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:02:03.836256 - System health: 66.7%
+2026-04-26T01:02:07.958551 - Cycle 247 starting
+2026-04-26T01:02:07.958950 - Running system self-assessment...
+2026-04-26T01:02:14.743162 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:02:14.743391 - System health: 66.7%
+2026-04-26T01:02:15.007139 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-26T01:02:23.007982 - Cycle 247 starting
+2026-04-26T01:02:23.008320 - Running system self-assessment...
+2026-04-26T01:02:30.582362 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:02:30.582655 - System health: 66.7%
+2026-04-26T01:02:30.894761 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-26T01:02:46.895336 - Cycle 247 starting
+2026-04-26T01:02:46.895724 - Running system self-assessment...
+2026-04-26T01:02:56.144247 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:02:56.144422 - System health: 66.7%
+2026-04-26T01:02:56.317770 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-26T01:03:28.318212 - Cycle 247 starting
+2026-04-26T01:03:28.318445 - Running system self-assessment...
+2026-04-26T01:03:33.251533 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:03:33.251769 - System health: 66.7%
+2026-04-26T01:03:33.458263 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T01:04:33.458687 - Cycle 247 starting
+2026-04-26T01:04:33.458907 - Running system self-assessment...
+2026-04-26T01:04:38.552252 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:04:38.552516 - System health: 66.7%
+2026-04-26T01:04:38.892971 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T01:05:38.893584 - Cycle 247 starting
+2026-04-26T01:05:38.893914 - Running system self-assessment...
+2026-04-26T01:05:42.659135 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:05:42.659285 - System health: 66.7%
+2026-04-26T01:05:42.770545 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T01:06:42.771012 - Cycle 247 starting
+2026-04-26T01:06:42.771349 - Running system self-assessment...
+2026-04-26T01:06:57.799204 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:06:57.799595 - System health: 66.7%
+2026-04-26T01:06:59.743928 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T01:07:59.744314 - Cycle 247 starting
+2026-04-26T01:07:59.744645 - Running system self-assessment...
+2026-04-26T01:08:10.141773 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:08:10.141943 - System health: 66.7%
+2026-04-26T01:08:10.266480 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T01:09:10.266749 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-26T01:09:10.266999 - ⚠️  System will continue to next cycle automatically
+2026-04-26T01:09:10.267305 - Sleeping for 300 seconds
+2026-04-26T01:14:10.268152 - Cycle 247 starting
+2026-04-26T01:14:10.268365 - Running system self-assessment...
+2026-04-26T01:14:15.738144 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:14:15.738482 - System health: 66.7%
+2026-04-26T01:14:18.059144 - Cycle 247 starting
+2026-04-26T01:14:18.059609 - Running system self-assessment...
+2026-04-26T01:14:23.256044 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:14:23.256278 - System health: 66.7%
+2026-04-26T01:14:27.542020 - Cycle 247 starting
+2026-04-26T01:14:27.542366 - Running system self-assessment...
+2026-04-26T01:14:35.738429 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:14:35.739082 - System health: 66.7%
+2026-04-26T01:14:36.160373 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-26T01:14:44.161027 - Cycle 247 starting
+2026-04-26T01:14:44.161362 - Running system self-assessment...
+2026-04-26T01:14:48.461454 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:14:48.461623 - System health: 66.7%
+2026-04-26T01:14:48.576014 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-26T01:15:04.576909 - Cycle 247 starting
+2026-04-26T01:15:04.577302 - Running system self-assessment...
+2026-04-26T01:15:10.649329 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:15:10.650690 - System health: 66.7%
+2026-04-26T01:15:11.193696 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-26T01:15:43.194102 - Cycle 247 starting
+2026-04-26T01:15:43.194371 - Running system self-assessment...
+2026-04-26T01:15:48.479311 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:15:48.479509 - System health: 66.7%
+2026-04-26T01:15:48.595496 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T01:16:48.595939 - Cycle 247 starting
+2026-04-26T01:16:48.596257 - Running system self-assessment...
+2026-04-26T01:16:55.237129 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:16:55.237320 - System health: 66.7%
+2026-04-26T01:16:55.388274 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T01:17:55.388889 - Cycle 247 starting
+2026-04-26T01:17:55.583066 - Running system self-assessment...
+2026-04-26T01:18:01.322988 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:18:01.323210 - System health: 66.7%
+2026-04-26T01:18:01.536162 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T01:19:01.537519 - Cycle 247 starting
+2026-04-26T01:19:01.537737 - Running system self-assessment...
+2026-04-26T01:19:14.412208 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:19:14.412439 - System health: 66.7%
+2026-04-26T01:19:15.153242 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T01:20:15.154201 - Cycle 247 starting
+2026-04-26T01:20:15.154569 - Running system self-assessment...
+2026-04-26T01:20:19.650257 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:20:19.650431 - System health: 66.7%
+2026-04-26T01:20:19.766324 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T01:21:19.767514 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-26T01:21:19.767764 - ⚠️  System will continue to next cycle automatically
+2026-04-26T01:21:19.767854 - Sleeping for 300 seconds
+2026-04-26T01:26:19.768601 - Cycle 247 starting
+2026-04-26T01:26:19.768797 - Running system self-assessment...
+2026-04-26T01:26:23.515177 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:26:23.515327 - System health: 66.7%
+2026-04-26T01:26:25.720154 - Cycle 247 starting
+2026-04-26T01:26:25.720548 - Running system self-assessment...
+2026-04-26T01:26:29.494650 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:26:29.494803 - System health: 66.7%
+2026-04-26T01:26:33.608819 - Cycle 247 starting
+2026-04-26T01:26:33.609160 - Running system self-assessment...
+2026-04-26T01:26:39.822157 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:26:39.822410 - System health: 66.7%
+2026-04-26T01:26:40.914743 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-26T01:26:48.915194 - Cycle 247 starting
+2026-04-26T01:26:48.915649 - Running system self-assessment...
+2026-04-26T01:26:56.514806 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:26:56.515026 - System health: 66.7%
+2026-04-26T01:26:56.694564 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-26T01:27:12.694892 - Cycle 247 starting
+2026-04-26T01:27:12.695295 - Running system self-assessment...
+2026-04-26T01:27:17.098651 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:27:17.098819 - System health: 66.7%
+2026-04-26T01:27:17.211364 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-26T01:27:49.212009 - Cycle 247 starting
+2026-04-26T01:27:49.212274 - Running system self-assessment...
+2026-04-26T01:27:54.836367 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:27:54.836665 - System health: 66.7%
+2026-04-26T01:27:54.951022 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T01:28:54.951577 - Cycle 247 starting
+2026-04-26T01:28:55.038159 - Running system self-assessment...
+2026-04-26T01:29:01.794395 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:29:01.794607 - System health: 66.7%
+2026-04-26T01:29:02.094577 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T01:30:02.095137 - Cycle 247 starting
+2026-04-26T01:30:02.095359 - Running system self-assessment...
+2026-04-26T01:30:12.711294 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:30:12.711575 - System health: 66.7%
+2026-04-26T01:30:12.821570 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T01:31:12.822076 - Cycle 247 starting
+2026-04-26T01:31:12.822415 - Running system self-assessment...
+2026-04-26T01:31:20.457416 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:31:20.457663 - System health: 66.7%
+2026-04-26T01:31:20.910290 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T01:32:20.911078 - Cycle 247 starting
+2026-04-26T01:32:20.911404 - Running system self-assessment...
+2026-04-26T01:32:24.766684 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:32:24.766858 - System health: 66.7%
+2026-04-26T01:32:24.956387 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T01:33:24.956720 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-26T01:33:24.956966 - ⚠️  System will continue to next cycle automatically
+2026-04-26T01:33:24.957048 - Sleeping for 300 seconds
+2026-04-26T01:38:24.957810 - Cycle 247 starting
+2026-04-26T01:38:24.958007 - Running system self-assessment...
+2026-04-26T01:38:31.221087 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:38:31.221255 - System health: 66.7%
+2026-04-26T01:38:33.379253 - Cycle 247 starting
+2026-04-26T01:38:33.379665 - Running system self-assessment...
+2026-04-26T01:38:40.676865 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:38:40.677054 - System health: 66.7%
+2026-04-26T01:38:44.842943 - Cycle 247 starting
+2026-04-26T01:38:44.843335 - Running system self-assessment...
+2026-04-26T01:38:53.762375 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:38:53.762582 - System health: 66.7%
+2026-04-26T01:38:54.299028 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-26T01:39:02.300233 - Cycle 247 starting
+2026-04-26T01:39:02.300605 - Running system self-assessment...
+2026-04-26T01:39:06.251147 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:39:06.251533 - System health: 66.7%
+2026-04-26T01:39:06.377944 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-26T01:39:22.378252 - Cycle 247 starting
+2026-04-26T01:39:22.378662 - Running system self-assessment...
+2026-04-26T01:39:26.112159 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:39:26.112332 - System health: 66.7%
+2026-04-26T01:39:26.283217 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-26T01:39:58.283713 - Cycle 247 starting
+2026-04-26T01:39:58.284056 - Running system self-assessment...
+2026-04-26T01:40:06.084306 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:40:06.084487 - System health: 66.7%
+2026-04-26T01:40:06.199269 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T01:41:06.199803 - Cycle 247 starting
+2026-04-26T01:41:06.200208 - Running system self-assessment...
+2026-04-26T01:41:10.013918 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:41:10.014118 - System health: 66.7%
+2026-04-26T01:41:10.127352 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T01:42:10.127674 - Cycle 247 starting
+2026-04-26T01:42:10.128100 - Running system self-assessment...
+2026-04-26T01:42:14.048953 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:42:14.049508 - System health: 66.7%
+2026-04-26T01:42:14.189824 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T01:43:14.190268 - Cycle 247 starting
+2026-04-26T01:43:14.190555 - Running system self-assessment...
+2026-04-26T01:43:19.623180 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:43:19.623356 - System health: 66.7%
+2026-04-26T01:43:20.013866 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T01:44:20.014409 - Cycle 247 starting
+2026-04-26T01:44:20.016399 - Running system self-assessment...
+2026-04-26T01:44:25.435216 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:44:25.435392 - System health: 66.7%
+2026-04-26T01:44:25.600514 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T01:45:25.601078 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-26T01:45:25.601425 - ⚠️  System will continue to next cycle automatically
+2026-04-26T01:45:25.601564 - Sleeping for 300 seconds
+2026-04-26T01:50:25.602315 - Cycle 247 starting
+2026-04-26T01:50:25.602565 - Running system self-assessment...
+2026-04-26T01:50:29.752552 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:50:29.752708 - System health: 66.7%
+2026-04-26T01:50:31.930989 - Cycle 247 starting
+2026-04-26T01:50:31.931382 - Running system self-assessment...
+2026-04-26T01:50:36.365388 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:50:36.365573 - System health: 66.7%
+2026-04-26T01:50:40.480730 - Cycle 247 starting
+2026-04-26T01:50:40.481141 - Running system self-assessment...
+2026-04-26T01:50:51.611001 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:50:51.611457 - System health: 66.7%
+2026-04-26T01:50:51.992549 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-26T01:50:59.993177 - Cycle 247 starting
+2026-04-26T01:50:59.993557 - Running system self-assessment...
+2026-04-26T01:51:03.939726 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:51:03.939891 - System health: 66.7%
+2026-04-26T01:51:04.065250 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-26T01:51:20.065800 - Cycle 247 starting
+2026-04-26T01:51:20.066153 - Running system self-assessment...
+2026-04-26T01:51:23.758732 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:51:23.758895 - System health: 66.7%
+2026-04-26T01:51:23.879545 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-26T01:51:55.880213 - Cycle 247 starting
+2026-04-26T01:51:57.964631 - Running system self-assessment...
+2026-04-26T01:52:19.026074 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:52:19.162975 - System health: 66.7%
+2026-04-26T01:52:20.111615 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T01:53:20.123577 - Cycle 247 starting
+2026-04-26T01:53:20.583156 - Running system self-assessment...
+2026-04-26T01:53:34.068873 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:53:34.069027 - System health: 66.7%
+2026-04-26T01:53:34.766422 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T01:54:34.766887 - Cycle 247 starting
+2026-04-26T01:54:34.785558 - Running system self-assessment...
+2026-04-26T01:54:42.930071 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:54:42.930252 - System health: 66.7%
+2026-04-26T01:54:43.086141 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T01:55:43.086503 - Cycle 247 starting
+2026-04-26T01:55:43.086771 - Running system self-assessment...
+2026-04-26T01:55:49.872358 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:55:49.872558 - System health: 66.7%
+2026-04-26T01:55:49.993651 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T01:56:49.994164 - Cycle 247 starting
+2026-04-26T01:56:49.994533 - Running system self-assessment...
+2026-04-26T01:56:54.824631 - Selected task: monitoring (score: 0.5)
+2026-04-26T01:56:54.824802 - System health: 66.7%
+2026-04-26T01:56:54.945248 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T01:57:54.945601 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-26T01:57:54.945851 - ⚠️  System will continue to next cycle automatically
+2026-04-26T01:57:54.946014 - Sleeping for 300 seconds
+2026-04-26T02:02:54.946781 - Cycle 247 starting
+2026-04-26T02:02:54.946978 - Running system self-assessment...
+2026-04-26T02:03:00.357237 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:03:00.357515 - System health: 66.7%
+2026-04-26T02:03:02.643985 - Cycle 247 starting
+2026-04-26T02:03:02.644381 - Running system self-assessment...
+2026-04-26T02:03:06.704611 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:03:06.704781 - System health: 66.7%
+2026-04-26T02:03:10.842716 - Cycle 247 starting
+2026-04-26T02:03:10.842981 - Running system self-assessment...
+2026-04-26T02:03:22.035248 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:03:22.035432 - System health: 66.7%
+2026-04-26T02:03:22.188103 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-26T02:03:30.188620 - Cycle 247 starting
+2026-04-26T02:03:30.188952 - Running system self-assessment...
+2026-04-26T02:03:33.948308 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:03:33.948525 - System health: 66.7%
+2026-04-26T02:03:34.068417 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-26T02:03:50.068918 - Cycle 247 starting
+2026-04-26T02:03:50.069258 - Running system self-assessment...
+2026-04-26T02:03:58.927627 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:03:58.927779 - System health: 66.7%
+2026-04-26T02:03:59.050350 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-26T02:04:31.050971 - Cycle 247 starting
+2026-04-26T02:04:31.051246 - Running system self-assessment...
+2026-04-26T02:04:37.442711 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:04:37.442888 - System health: 66.7%
+2026-04-26T02:04:37.617011 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T02:05:37.617525 - Cycle 247 starting
+2026-04-26T02:05:37.617773 - Running system self-assessment...
+2026-04-26T02:05:44.963310 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:05:44.963515 - System health: 66.7%
+2026-04-26T02:05:45.283879 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T02:06:45.284535 - Cycle 247 starting
+2026-04-26T02:06:45.284761 - Running system self-assessment...
+2026-04-26T02:06:49.564571 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:06:49.565110 - System health: 66.7%
+2026-04-26T02:06:49.677917 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T02:07:49.815774 - Cycle 247 starting
+2026-04-26T02:07:49.816023 - Running system self-assessment...
+2026-04-26T02:08:11.822926 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:08:11.823196 - System health: 66.7%
+2026-04-26T02:08:11.996704 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T02:09:11.997124 - Cycle 247 starting
+2026-04-26T02:09:11.999622 - Running system self-assessment...
+2026-04-26T02:09:19.912204 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:09:19.912382 - System health: 66.7%
+2026-04-26T02:09:20.110241 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T02:10:20.128534 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-26T02:10:20.128798 - ⚠️  System will continue to next cycle automatically
+2026-04-26T02:10:20.128875 - Sleeping for 300 seconds
+2026-04-26T02:15:20.129294 - Cycle 247 starting
+2026-04-26T02:15:20.129485 - Running system self-assessment...
+2026-04-26T02:15:36.443700 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:15:36.443888 - System health: 66.7%
+2026-04-26T02:15:38.984129 - Cycle 247 starting
+2026-04-26T02:15:38.984381 - Running system self-assessment...
+2026-04-26T02:15:44.644946 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:15:44.645147 - System health: 66.7%
+2026-04-26T02:15:48.774563 - Cycle 247 starting
+2026-04-26T02:15:48.775234 - Running system self-assessment...
+2026-04-26T02:15:55.461793 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:15:55.461966 - System health: 66.7%
+2026-04-26T02:15:55.582204 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-26T02:16:03.582732 - Cycle 247 starting
+2026-04-26T02:16:03.583079 - Running system self-assessment...
+2026-04-26T02:16:07.900988 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:16:07.901141 - System health: 66.7%
+2026-04-26T02:16:08.032518 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-26T02:16:24.033015 - Cycle 247 starting
+2026-04-26T02:16:24.033354 - Running system self-assessment...
+2026-04-26T02:16:29.196566 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:16:29.197098 - System health: 66.7%
+2026-04-26T02:16:29.366731 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-26T02:17:01.367679 - Cycle 247 starting
+2026-04-26T02:17:01.368020 - Running system self-assessment...
+2026-04-26T02:17:07.375933 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:17:07.376117 - System health: 66.7%
+2026-04-26T02:17:07.521623 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T02:18:07.521974 - Cycle 247 starting
+2026-04-26T02:18:07.522261 - Running system self-assessment...
+2026-04-26T02:18:11.650802 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:18:11.650976 - System health: 66.7%
+2026-04-26T02:18:11.841126 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T02:19:11.842523 - Cycle 247 starting
+2026-04-26T02:19:11.842768 - Running system self-assessment...
+2026-04-26T02:19:16.844664 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:19:16.844888 - System health: 66.7%
+2026-04-26T02:19:17.034253 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T02:20:17.066936 - Cycle 247 starting
+2026-04-26T02:20:17.067328 - Running system self-assessment...
+2026-04-26T02:20:23.086056 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:20:23.086335 - System health: 66.7%
+2026-04-26T02:20:23.209698 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T02:21:23.210177 - Cycle 247 starting
+2026-04-26T02:21:23.210548 - Running system self-assessment...
+2026-04-26T02:21:29.405131 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:21:29.405352 - System health: 66.7%
+2026-04-26T02:21:29.739790 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T02:22:29.740385 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-26T02:22:29.740797 - ⚠️  System will continue to next cycle automatically
+2026-04-26T02:22:29.740896 - Sleeping for 300 seconds
+2026-04-26T02:27:29.741687 - Cycle 247 starting
+2026-04-26T02:27:29.741885 - Running system self-assessment...
+2026-04-26T02:27:34.045012 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:27:34.045183 - System health: 66.7%
+2026-04-26T02:27:36.159548 - Cycle 247 starting
+2026-04-26T02:27:36.159827 - Running system self-assessment...
+2026-04-26T02:27:40.974824 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:27:40.974994 - System health: 66.7%
+2026-04-26T02:27:45.093762 - Cycle 247 starting
+2026-04-26T02:27:45.096050 - Running system self-assessment...
+2026-04-26T02:27:53.871382 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:27:53.871567 - System health: 66.7%
+2026-04-26T02:27:54.057834 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-26T02:28:02.058634 - Cycle 247 starting
+2026-04-26T02:28:02.529127 - Running system self-assessment...
+2026-04-26T02:28:06.604544 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:28:06.604694 - System health: 66.7%
+2026-04-26T02:28:06.731849 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-26T02:28:22.732338 - Cycle 247 starting
+2026-04-26T02:28:22.732717 - Running system self-assessment...
+2026-04-26T02:28:29.534584 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:28:29.534809 - System health: 66.7%
+2026-04-26T02:28:29.733920 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-26T02:29:01.734311 - Cycle 247 starting
+2026-04-26T02:29:01.734711 - Running system self-assessment...
+2026-04-26T02:29:10.457169 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:29:10.457325 - System health: 66.7%
+2026-04-26T02:29:10.568611 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T02:30:10.569221 - Cycle 247 starting
+2026-04-26T02:30:10.569605 - Running system self-assessment...
+2026-04-26T02:30:17.610433 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:30:17.610856 - System health: 66.7%
+2026-04-26T02:30:18.069693 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T02:31:18.070211 - Cycle 247 starting
+2026-04-26T02:31:18.070430 - Running system self-assessment...
+2026-04-26T02:31:23.125592 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:31:23.125757 - System health: 66.7%
+2026-04-26T02:31:23.241784 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T02:32:23.242119 - Cycle 247 starting
+2026-04-26T02:32:23.242381 - Running system self-assessment...
+2026-04-26T02:32:34.033760 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:32:34.033934 - System health: 66.7%
+2026-04-26T02:32:34.155977 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T02:33:34.156597 - Cycle 247 starting
+2026-04-26T02:33:34.156932 - Running system self-assessment...
+2026-04-26T02:33:40.447683 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:33:40.447871 - System health: 66.7%
+2026-04-26T02:33:40.586812 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T02:34:40.587333 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-26T02:34:40.587757 - ⚠️  System will continue to next cycle automatically
+2026-04-26T02:34:40.587857 - Sleeping for 300 seconds
+2026-04-26T02:39:40.588454 - Cycle 247 starting
+2026-04-26T02:39:40.589344 - Running system self-assessment...
+2026-04-26T02:39:46.024407 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:39:46.024640 - System health: 66.7%
+2026-04-26T02:39:48.174180 - Cycle 247 starting
+2026-04-26T02:39:48.174614 - Running system self-assessment...
+2026-04-26T02:39:54.036740 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:39:54.036964 - System health: 66.7%
+2026-04-26T02:39:58.275301 - Cycle 247 starting
+2026-04-26T02:39:58.275675 - Running system self-assessment...
+2026-04-26T02:40:04.322604 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:40:04.322834 - System health: 66.7%
+2026-04-26T02:40:04.706184 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-26T02:40:12.706644 - Cycle 247 starting
+2026-04-26T02:40:12.706888 - Running system self-assessment...
+2026-04-26T02:40:16.834517 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:40:16.834741 - System health: 66.7%
+2026-04-26T02:40:17.046456 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-26T02:40:33.047074 - Cycle 247 starting
+2026-04-26T02:40:33.067545 - Running system self-assessment...
+2026-04-26T02:40:36.909159 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:40:36.909374 - System health: 66.7%
+2026-04-26T02:40:37.050398 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-26T02:41:09.052502 - Cycle 247 starting
+2026-04-26T02:41:09.052769 - Running system self-assessment...
+2026-04-26T02:41:14.888535 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:41:14.888688 - System health: 66.7%
+2026-04-26T02:41:14.996658 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T02:42:14.997950 - Cycle 247 starting
+2026-04-26T02:42:14.998218 - Running system self-assessment...
+2026-04-26T02:42:19.625274 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:42:19.625433 - System health: 66.7%
+2026-04-26T02:42:19.791865 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T02:43:19.792316 - Cycle 247 starting
+2026-04-26T02:43:19.792628 - Running system self-assessment...
+2026-04-26T02:43:25.804646 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:43:25.804903 - System health: 66.7%
+2026-04-26T02:43:26.079933 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T02:44:26.080534 - Cycle 247 starting
+2026-04-26T02:44:26.080845 - Running system self-assessment...
+2026-04-26T02:44:38.053062 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:44:38.053698 - System health: 66.7%
+2026-04-26T02:44:38.282455 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T02:45:38.282846 - Cycle 247 starting
+2026-04-26T02:45:38.283154 - Running system self-assessment...
+2026-04-26T02:45:46.937168 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:45:46.937390 - System health: 66.7%
+2026-04-26T02:45:47.278935 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T02:46:47.279346 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-26T02:46:47.279628 - ⚠️  System will continue to next cycle automatically
+2026-04-26T02:46:47.279697 - Sleeping for 300 seconds
+2026-04-26T02:51:47.280296 - Cycle 247 starting
+2026-04-26T02:51:47.280532 - Running system self-assessment...
+2026-04-26T02:51:51.693292 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:51:51.693454 - System health: 66.7%
+2026-04-26T02:51:53.809834 - Cycle 247 starting
+2026-04-26T02:51:53.810197 - Running system self-assessment...
+2026-04-26T02:51:58.684517 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:51:58.684685 - System health: 66.7%
+2026-04-26T02:52:02.805188 - Cycle 247 starting
+2026-04-26T02:52:02.805613 - Running system self-assessment...
+2026-04-26T02:52:08.556352 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:52:08.556625 - System health: 66.7%
+2026-04-26T02:52:08.826864 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-26T02:52:16.827446 - Cycle 247 starting
+2026-04-26T02:52:16.827822 - Running system self-assessment...
+2026-04-26T02:52:24.402940 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:52:24.403186 - System health: 66.7%
+2026-04-26T02:52:24.786138 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-26T02:52:40.786542 - Cycle 247 starting
+2026-04-26T02:52:40.787178 - Running system self-assessment...
+2026-04-26T02:52:46.607537 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:52:46.607751 - System health: 66.7%
+2026-04-26T02:52:47.275659 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-26T02:53:19.276206 - Cycle 247 starting
+2026-04-26T02:53:19.276591 - Running system self-assessment...
+2026-04-26T02:53:27.434890 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:53:27.435325 - System health: 66.7%
+2026-04-26T02:53:28.031388 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T02:54:28.032027 - Cycle 247 starting
+2026-04-26T02:54:28.032372 - Running system self-assessment...
+2026-04-26T02:54:31.808168 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:54:31.808335 - System health: 66.7%
+2026-04-26T02:54:31.921201 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T02:55:31.921578 - Cycle 247 starting
+2026-04-26T02:55:31.921846 - Running system self-assessment...
+2026-04-26T02:55:37.582886 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:55:37.583118 - System health: 66.7%
+2026-04-26T02:55:37.937036 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T02:56:37.950655 - Cycle 247 starting
+2026-04-26T02:56:37.951812 - Running system self-assessment...
+2026-04-26T02:56:47.615183 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:56:47.617594 - System health: 66.7%
+2026-04-26T02:56:48.652179 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T02:57:48.652889 - Cycle 247 starting
+2026-04-26T02:57:48.653127 - Running system self-assessment...
+2026-04-26T02:57:52.751679 - Selected task: monitoring (score: 0.5)
+2026-04-26T02:57:52.751869 - System health: 66.7%
+2026-04-26T02:57:52.918521 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T02:58:52.918989 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-26T02:58:52.919325 - ⚠️  System will continue to next cycle automatically
+2026-04-26T02:58:52.919430 - Sleeping for 300 seconds
+2026-04-26T03:03:52.919908 - Cycle 247 starting
+2026-04-26T03:03:52.920029 - Running system self-assessment...
+2026-04-26T03:03:57.184668 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:03:57.184822 - System health: 66.7%
+2026-04-26T03:03:59.299719 - Cycle 247 starting
+2026-04-26T03:03:59.300114 - Running system self-assessment...
+2026-04-26T03:04:03.499487 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:04:03.499656 - System health: 66.7%
+2026-04-26T03:04:07.821968 - Cycle 247 starting
+2026-04-26T03:04:07.822368 - Running system self-assessment...
+2026-04-26T03:04:12.413494 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:04:12.413676 - System health: 66.7%
+2026-04-26T03:04:12.530185 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-26T03:04:20.531538 - Cycle 247 starting
+2026-04-26T03:04:20.531832 - Running system self-assessment...
+2026-04-26T03:04:32.168381 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:04:32.168627 - System health: 66.7%
+2026-04-26T03:04:32.390935 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-26T03:04:48.391523 - Cycle 247 starting
+2026-04-26T03:04:48.391794 - Running system self-assessment...
+2026-04-26T03:04:53.495497 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:04:53.495659 - System health: 66.7%
+2026-04-26T03:04:53.615281 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-26T03:05:25.616541 - Cycle 247 starting
+2026-04-26T03:05:25.616774 - Running system self-assessment...
+2026-04-26T03:05:29.739223 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:05:29.739392 - System health: 66.7%
+2026-04-26T03:05:29.857436 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T03:06:29.857821 - Cycle 247 starting
+2026-04-26T03:06:29.858056 - Running system self-assessment...
+2026-04-26T03:06:33.607746 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:06:33.607958 - System health: 66.7%
+2026-04-26T03:06:33.769227 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T03:07:33.769729 - Cycle 247 starting
+2026-04-26T03:07:33.770067 - Running system self-assessment...
+2026-04-26T03:07:37.520548 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:07:37.520697 - System health: 66.7%
+2026-04-26T03:07:37.646954 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T03:08:37.647270 - Cycle 247 starting
+2026-04-26T03:08:37.647684 - Running system self-assessment...
+2026-04-26T03:08:50.774297 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:08:50.774525 - System health: 66.7%
+2026-04-26T03:08:51.179941 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T03:09:51.180893 - Cycle 247 starting
+2026-04-26T03:09:51.181856 - Running system self-assessment...
+2026-04-26T03:10:02.631118 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:10:02.631307 - System health: 66.7%
+2026-04-26T03:10:02.784284 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T03:11:02.784636 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-26T03:11:02.784903 - ⚠️  System will continue to next cycle automatically
+2026-04-26T03:11:02.785514 - Sleeping for 300 seconds
+2026-04-26T03:16:02.891365 - Cycle 247 starting
+2026-04-26T03:16:02.905183 - Running system self-assessment...
+2026-04-26T03:16:08.103751 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:16:08.103915 - System health: 66.7%
+2026-04-26T03:16:10.216001 - Cycle 247 starting
+2026-04-26T03:16:10.216393 - Running system self-assessment...
+2026-04-26T03:16:16.156789 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:16:16.156972 - System health: 66.7%
+2026-04-26T03:16:20.302434 - Cycle 247 starting
+2026-04-26T03:16:20.302835 - Running system self-assessment...
+2026-04-26T03:16:26.086107 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:16:26.086368 - System health: 66.7%
+2026-04-26T03:16:26.292933 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-26T03:16:34.293513 - Cycle 247 starting
+2026-04-26T03:16:34.293727 - Running system self-assessment...
+2026-04-26T03:16:38.930496 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:16:38.930670 - System health: 66.7%
+2026-04-26T03:16:39.058180 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-26T03:16:55.058853 - Cycle 247 starting
+2026-04-26T03:16:55.059096 - Running system self-assessment...
+2026-04-26T03:16:59.965644 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:16:59.965795 - System health: 66.7%
+2026-04-26T03:17:00.109689 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-26T03:17:32.110334 - Cycle 247 starting
+2026-04-26T03:17:32.110736 - Running system self-assessment...
+2026-04-26T03:17:37.576270 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:17:37.576441 - System health: 66.7%
+2026-04-26T03:17:38.310685 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T03:18:38.311250 - Cycle 247 starting
+2026-04-26T03:18:38.311641 - Running system self-assessment...
+2026-04-26T03:18:45.461588 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:18:45.461752 - System health: 66.7%
+2026-04-26T03:18:45.703365 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T03:19:45.705960 - Cycle 247 starting
+2026-04-26T03:19:45.706205 - Running system self-assessment...
+2026-04-26T03:19:53.058428 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:19:53.058610 - System health: 66.7%
+2026-04-26T03:19:53.233166 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T03:20:53.233706 - Cycle 247 starting
+2026-04-26T03:20:53.234244 - Running system self-assessment...
+2026-04-26T03:21:04.110678 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:21:04.111082 - System health: 66.7%
+2026-04-26T03:21:04.459225 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T03:22:04.460571 - Cycle 247 starting
+2026-04-26T03:22:04.460817 - Running system self-assessment...
+2026-04-26T03:22:14.522887 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:22:14.523108 - System health: 66.7%
+2026-04-26T03:22:14.732621 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T03:23:14.733017 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-26T03:23:14.733258 - ⚠️  System will continue to next cycle automatically
+2026-04-26T03:23:14.733322 - Sleeping for 300 seconds
+2026-04-26T03:28:14.734026 - Cycle 247 starting
+2026-04-26T03:28:14.734229 - Running system self-assessment...
+2026-04-26T03:28:18.665610 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:28:18.665763 - System health: 66.7%
+2026-04-26T03:28:20.776288 - Cycle 247 starting
+2026-04-26T03:28:20.776724 - Running system self-assessment...
+2026-04-26T03:28:27.340543 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:28:27.340700 - System health: 66.7%
+2026-04-26T03:28:31.457789 - Cycle 247 starting
+2026-04-26T03:28:31.458163 - Running system self-assessment...
+2026-04-26T03:28:42.334095 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:28:42.334366 - System health: 66.7%
+2026-04-26T03:28:42.642810 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-26T03:28:50.643383 - Cycle 247 starting
+2026-04-26T03:28:50.643758 - Running system self-assessment...
+2026-04-26T03:28:56.344045 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:28:56.344211 - System health: 66.7%
+2026-04-26T03:28:56.698353 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-26T03:29:12.698679 - Cycle 247 starting
+2026-04-26T03:29:12.698884 - Running system self-assessment...
+2026-04-26T03:29:18.078411 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:29:18.078610 - System health: 66.7%
+2026-04-26T03:29:18.194650 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-26T03:29:50.195148 - Cycle 247 starting
+2026-04-26T03:29:50.195523 - Running system self-assessment...
+2026-04-26T03:29:56.296218 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:29:56.296395 - System health: 66.7%
+2026-04-26T03:29:56.439985 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T03:30:56.440541 - Cycle 247 starting
+2026-04-26T03:30:56.440808 - Running system self-assessment...
+2026-04-26T03:31:01.898676 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:31:01.898829 - System health: 66.7%
+2026-04-26T03:31:02.005406 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T03:32:02.005967 - Cycle 247 starting
+2026-04-26T03:32:02.006316 - Running system self-assessment...
+2026-04-26T03:32:06.944118 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:32:06.944267 - System health: 66.7%
+2026-04-26T03:32:07.056563 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T03:33:07.057152 - Cycle 247 starting
+2026-04-26T03:33:07.057546 - Running system self-assessment...
+2026-04-26T03:33:14.500715 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:33:14.501744 - System health: 66.7%
+2026-04-26T03:33:14.815892 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T03:34:14.816355 - Cycle 247 starting
+2026-04-26T03:34:14.816614 - Running system self-assessment...
+2026-04-26T03:34:21.660330 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:34:21.660524 - System health: 66.7%
+2026-04-26T03:34:21.770738 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T03:35:21.771240 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-26T03:35:21.771633 - ⚠️  System will continue to next cycle automatically
+2026-04-26T03:35:21.771742 - Sleeping for 300 seconds
+2026-04-26T03:40:21.772357 - Cycle 247 starting
+2026-04-26T03:40:21.772580 - Running system self-assessment...
+2026-04-26T03:40:29.502961 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:40:29.503157 - System health: 66.7%
+2026-04-26T03:40:31.634958 - Cycle 247 starting
+2026-04-26T03:40:31.635355 - Running system self-assessment...
+2026-04-26T03:40:35.832251 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:40:35.832448 - System health: 66.7%
+2026-04-26T03:40:40.078973 - Cycle 247 starting
+2026-04-26T03:40:40.079365 - Running system self-assessment...
+2026-04-26T03:40:45.476625 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:40:45.476857 - System health: 66.7%
+2026-04-26T03:40:45.685151 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-26T03:40:53.685536 - Cycle 247 starting
+2026-04-26T03:40:53.685756 - Running system self-assessment...
+2026-04-26T03:40:59.234452 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:40:59.234714 - System health: 66.7%
+2026-04-26T03:41:00.263025 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-26T03:41:16.263631 - Cycle 247 starting
+2026-04-26T03:41:16.264022 - Running system self-assessment...
+2026-04-26T03:41:22.783607 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:41:22.784004 - System health: 66.7%
+2026-04-26T03:41:23.533635 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-26T03:41:55.534202 - Cycle 247 starting
+2026-04-26T03:41:55.534578 - Running system self-assessment...
+2026-04-26T03:42:02.835960 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:42:02.836148 - System health: 66.7%
+2026-04-26T03:42:02.998817 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T03:43:02.999414 - Cycle 247 starting
+2026-04-26T03:43:02.999733 - Running system self-assessment...
+2026-04-26T03:43:06.641186 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:43:06.641334 - System health: 66.7%
+2026-04-26T03:43:06.749239 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T03:44:06.749609 - Cycle 247 starting
+2026-04-26T03:44:06.749942 - Running system self-assessment...
+2026-04-26T03:44:13.886887 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:44:13.888422 - System health: 66.7%
+2026-04-26T03:44:15.445012 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T03:45:15.445702 - Cycle 247 starting
+2026-04-26T03:45:15.446033 - Running system self-assessment...
+2026-04-26T03:45:24.414384 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:45:24.415633 - System health: 66.7%
+2026-04-26T03:45:24.765661 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T03:46:24.766342 - Cycle 247 starting
+2026-04-26T03:46:24.766715 - Running system self-assessment...
+2026-04-26T03:46:28.440593 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:46:28.440752 - System health: 66.7%
+2026-04-26T03:46:28.555115 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T03:47:28.555616 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-26T03:47:28.555954 - ⚠️  System will continue to next cycle automatically
+2026-04-26T03:47:28.556050 - Sleeping for 300 seconds
+2026-04-26T03:52:28.556838 - Cycle 247 starting
+2026-04-26T03:52:28.557041 - Running system self-assessment...
+2026-04-26T03:52:32.859437 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:52:32.859618 - System health: 66.7%
+2026-04-26T03:52:35.012531 - Cycle 247 starting
+2026-04-26T03:52:35.012813 - Running system self-assessment...
+2026-04-26T03:52:39.235055 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:52:39.235204 - System health: 66.7%
+2026-04-26T03:52:43.356697 - Cycle 247 starting
+2026-04-26T03:52:43.357087 - Running system self-assessment...
+2026-04-26T03:52:48.735001 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:52:48.735203 - System health: 66.7%
+2026-04-26T03:52:48.923446 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-26T03:52:56.924147 - Cycle 247 starting
+2026-04-26T03:52:56.924527 - Running system self-assessment...
+2026-04-26T03:53:06.025100 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:53:06.026524 - System health: 66.7%
+2026-04-26T03:53:06.814454 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-26T03:53:22.814977 - Cycle 247 starting
+2026-04-26T03:53:22.815313 - Running system self-assessment...
+2026-04-26T03:53:28.283450 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:53:28.283661 - System health: 66.7%
+2026-04-26T03:53:28.428602 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-26T03:54:00.429243 - Cycle 247 starting
+2026-04-26T03:54:00.429624 - Running system self-assessment...
+2026-04-26T03:54:05.105725 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:54:05.105882 - System health: 66.7%
+2026-04-26T03:54:05.242070 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T03:55:05.242341 - Cycle 247 starting
+2026-04-26T03:55:05.242680 - Running system self-assessment...
+2026-04-26T03:55:10.530582 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:55:10.530800 - System health: 66.7%
+2026-04-26T03:55:10.745422 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T03:56:10.746009 - Cycle 247 starting
+2026-04-26T03:56:10.746346 - Running system self-assessment...
+2026-04-26T03:56:15.337040 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:56:15.337266 - System health: 66.7%
+2026-04-26T03:56:15.744609 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T03:57:15.745532 - Cycle 247 starting
+2026-04-26T03:57:15.745837 - Running system self-assessment...
+2026-04-26T03:57:23.735684 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:57:23.736025 - System health: 66.7%
+2026-04-26T03:57:24.123529 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T03:58:24.124550 - Cycle 247 starting
+2026-04-26T03:58:24.124886 - Running system self-assessment...
+2026-04-26T03:58:31.058275 - Selected task: monitoring (score: 0.5)
+2026-04-26T03:58:31.058420 - System health: 66.7%
+2026-04-26T03:58:31.180167 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T03:59:31.180691 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-26T03:59:31.181002 - ⚠️  System will continue to next cycle automatically
+2026-04-26T03:59:31.181089 - Sleeping for 300 seconds
+2026-04-26T04:04:31.181902 - Cycle 247 starting
+2026-04-26T04:04:31.182110 - Running system self-assessment...
+2026-04-26T04:04:38.008294 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:04:38.008579 - System health: 66.7%
+2026-04-26T04:04:40.816137 - Cycle 247 starting
+2026-04-26T04:04:40.816437 - Running system self-assessment...
+2026-04-26T04:04:47.625879 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:04:47.626039 - System health: 66.7%
+2026-04-26T04:04:51.755354 - Cycle 247 starting
+2026-04-26T04:04:51.755949 - Running system self-assessment...
+2026-04-26T04:04:57.479434 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:04:57.479696 - System health: 66.7%
+2026-04-26T04:04:57.778103 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-26T04:05:05.778789 - Cycle 247 starting
+2026-04-26T04:05:05.779103 - Running system self-assessment...
+2026-04-26T04:05:17.349886 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:05:17.350042 - System health: 66.7%
+2026-04-26T04:05:17.465174 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-26T04:05:33.465668 - Cycle 247 starting
+2026-04-26T04:05:33.466095 - Running system self-assessment...
+2026-04-26T04:05:38.858520 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:05:38.858702 - System health: 66.7%
+2026-04-26T04:05:38.977505 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-26T04:06:10.978119 - Cycle 247 starting
+2026-04-26T04:06:10.978454 - Running system self-assessment...
+2026-04-26T04:06:22.790502 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:06:22.791444 - System health: 66.7%
+2026-04-26T04:06:24.115939 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T04:07:24.116392 - Cycle 247 starting
+2026-04-26T04:07:24.117660 - Running system self-assessment...
+2026-04-26T04:07:30.328139 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:07:30.328329 - System health: 66.7%
+2026-04-26T04:07:30.915149 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T04:08:30.915512 - Cycle 247 starting
+2026-04-26T04:08:30.915707 - Running system self-assessment...
+2026-04-26T04:08:43.399628 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:08:43.399778 - System health: 66.7%
+2026-04-26T04:08:43.516396 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T04:09:43.516800 - Cycle 247 starting
+2026-04-26T04:09:43.517133 - Running system self-assessment...
+2026-04-26T04:09:47.716977 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:09:47.878546 - System health: 66.7%
+2026-04-26T04:09:48.068694 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T04:10:48.069195 - Cycle 247 starting
+2026-04-26T04:10:48.069578 - Running system self-assessment...
+2026-04-26T04:10:54.168698 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:10:54.168928 - System health: 66.7%
+2026-04-26T04:10:54.484824 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T04:11:54.485609 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-26T04:11:54.485954 - ⚠️  System will continue to next cycle automatically
+2026-04-26T04:11:54.486063 - Sleeping for 300 seconds
+2026-04-26T04:16:54.486857 - Cycle 247 starting
+2026-04-26T04:16:54.487050 - Running system self-assessment...
+2026-04-26T04:16:59.395848 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:16:59.396072 - System health: 66.7%
+2026-04-26T04:17:01.672765 - Cycle 247 starting
+2026-04-26T04:17:01.673154 - Running system self-assessment...
+2026-04-26T04:17:12.717805 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:17:12.718025 - System health: 66.7%
+2026-04-26T04:17:17.227090 - Cycle 247 starting
+2026-04-26T04:17:17.227552 - Running system self-assessment...
+2026-04-26T04:17:22.602362 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:17:22.602615 - System health: 66.7%
+2026-04-26T04:17:23.091897 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-26T04:17:31.092516 - Cycle 247 starting
+2026-04-26T04:17:31.092853 - Running system self-assessment...
+2026-04-26T04:17:35.945048 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:17:35.945209 - System health: 66.7%
+2026-04-26T04:17:36.058825 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-26T04:17:52.059523 - Cycle 247 starting
+2026-04-26T04:17:52.059754 - Running system self-assessment...
+2026-04-26T04:17:57.409404 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:17:57.409807 - System health: 66.7%
+2026-04-26T04:17:57.559795 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-26T04:18:29.560521 - Cycle 247 starting
+2026-04-26T04:18:29.560853 - Running system self-assessment...
+2026-04-26T04:18:38.065753 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:18:38.065917 - System health: 66.7%
+2026-04-26T04:18:38.366756 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T04:19:38.367527 - Cycle 247 starting
+2026-04-26T04:19:38.367832 - Running system self-assessment...
+2026-04-26T04:19:42.789012 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:19:42.789177 - System health: 66.7%
+2026-04-26T04:19:42.899543 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T04:20:42.900023 - Cycle 247 starting
+2026-04-26T04:20:42.900659 - Running system self-assessment...
+2026-04-26T04:20:49.533735 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:20:49.533893 - System health: 66.7%
+2026-04-26T04:20:49.648159 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T04:21:49.648657 - Cycle 247 starting
+2026-04-26T04:21:49.648989 - Running system self-assessment...
+2026-04-26T04:21:53.368752 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:21:53.368905 - System health: 66.7%
+2026-04-26T04:21:53.485946 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T04:22:53.486438 - Cycle 247 starting
+2026-04-26T04:22:53.486829 - Running system self-assessment...
+2026-04-26T04:22:58.396021 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:22:58.396201 - System health: 66.7%
+2026-04-26T04:22:58.545841 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T04:23:58.546388 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-26T04:23:58.546730 - ⚠️  System will continue to next cycle automatically
+2026-04-26T04:23:58.546830 - Sleeping for 300 seconds
+2026-04-26T04:28:58.547254 - Cycle 247 starting
+2026-04-26T04:28:58.547378 - Running system self-assessment...
+2026-04-26T04:29:02.827696 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:29:02.827957 - System health: 66.7%
+2026-04-26T04:29:05.109336 - Cycle 247 starting
+2026-04-26T04:29:05.111527 - Running system self-assessment...
+2026-04-26T04:29:10.264816 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:29:10.264979 - System health: 66.7%
+2026-04-26T04:29:14.380228 - Cycle 247 starting
+2026-04-26T04:29:14.380498 - Running system self-assessment...
+2026-04-26T04:29:24.585960 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:29:24.586684 - System health: 66.7%
+2026-04-26T04:29:24.728548 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-26T04:29:32.729529 - Cycle 247 starting
+2026-04-26T04:29:32.729826 - Running system self-assessment...
+2026-04-26T04:29:37.636772 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:29:37.637061 - System health: 66.7%
+2026-04-26T04:29:37.843004 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-26T04:29:53.843529 - Cycle 247 starting
+2026-04-26T04:29:53.843856 - Running system self-assessment...
+2026-04-26T04:29:57.265957 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:29:57.266148 - System health: 66.7%
+2026-04-26T04:29:57.490534 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-26T04:30:29.491094 - Cycle 247 starting
+2026-04-26T04:30:29.491443 - Running system self-assessment...
+2026-04-26T04:30:32.942116 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:30:32.942263 - System health: 66.7%
+2026-04-26T04:30:33.056319 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T04:31:33.056780 - Cycle 247 starting
+2026-04-26T04:31:33.057096 - Running system self-assessment...
+2026-04-26T04:31:37.928042 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:31:37.928274 - System health: 66.7%
+2026-04-26T04:31:38.192193 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T04:32:38.192775 - Cycle 247 starting
+2026-04-26T04:32:38.193116 - Running system self-assessment...
+2026-04-26T04:32:43.044102 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:32:43.044322 - System health: 66.7%
+2026-04-26T04:32:43.248213 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T04:33:43.248832 - Cycle 247 starting
+2026-04-26T04:33:43.249165 - Running system self-assessment...
+2026-04-26T04:33:51.181757 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:33:51.182031 - System health: 66.7%
+2026-04-26T04:33:51.474103 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T04:34:51.474741 - Cycle 247 starting
+2026-04-26T04:34:51.475072 - Running system self-assessment...
+2026-04-26T04:34:55.579738 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:34:55.579908 - System health: 66.7%
+2026-04-26T04:34:55.711932 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T04:35:55.712531 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-26T04:35:55.712838 - ⚠️  System will continue to next cycle automatically
+2026-04-26T04:35:55.712909 - Sleeping for 300 seconds
+2026-04-26T04:40:55.713511 - Cycle 247 starting
+2026-04-26T04:40:55.713738 - Running system self-assessment...
+2026-04-26T04:41:00.296330 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:41:00.296557 - System health: 66.7%
+2026-04-26T04:41:02.438526 - Cycle 247 starting
+2026-04-26T04:41:02.438798 - Running system self-assessment...
+2026-04-26T04:41:10.762701 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:41:10.762854 - System health: 66.7%
+2026-04-26T04:41:14.866283 - Cycle 247 starting
+2026-04-26T04:41:14.866715 - Running system self-assessment...
+2026-04-26T04:41:18.329025 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:41:18.329178 - System health: 66.7%
+2026-04-26T04:41:18.440178 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-26T04:41:26.440688 - Cycle 247 starting
+2026-04-26T04:41:26.441016 - Running system self-assessment...
+2026-04-26T04:41:30.360640 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:41:30.360790 - System health: 66.7%
+2026-04-26T04:41:30.472736 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-26T04:41:46.473251 - Cycle 247 starting
+2026-04-26T04:41:46.473624 - Running system self-assessment...
+2026-04-26T04:41:51.269621 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:41:51.269785 - System health: 66.7%
+2026-04-26T04:41:51.380173 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-26T04:42:23.380515 - Cycle 247 starting
+2026-04-26T04:42:23.380748 - Running system self-assessment...
+2026-04-26T04:42:27.089720 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:42:27.089882 - System health: 66.7%
+2026-04-26T04:42:27.245949 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T04:43:27.246252 - Cycle 247 starting
+2026-04-26T04:43:27.247592 - Running system self-assessment...
+2026-04-26T04:43:30.611867 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:43:30.612018 - System health: 66.7%
+2026-04-26T04:43:30.720836 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T04:44:30.721156 - Cycle 247 starting
+2026-04-26T04:44:30.721390 - Running system self-assessment...
+2026-04-26T04:44:34.683870 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:44:34.684040 - System health: 66.7%
+2026-04-26T04:44:34.800679 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T04:45:34.800998 - Cycle 247 starting
+2026-04-26T04:45:34.801441 - Running system self-assessment...
+2026-04-26T04:45:45.339322 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:45:45.339668 - System health: 66.7%
+2026-04-26T04:45:45.660357 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T04:46:45.660732 - Cycle 247 starting
+2026-04-26T04:46:45.660965 - Running system self-assessment...
+2026-04-26T04:46:49.913151 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:46:49.913372 - System health: 66.7%
+2026-04-26T04:46:50.263662 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T04:47:50.264102 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-26T04:47:50.264331 - ⚠️  System will continue to next cycle automatically
+2026-04-26T04:47:50.266540 - Sleeping for 300 seconds
+2026-04-26T04:52:50.267504 - Cycle 247 starting
+2026-04-26T04:52:50.267688 - Running system self-assessment...
+2026-04-26T04:52:53.761371 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:52:53.761552 - System health: 66.7%
+2026-04-26T04:52:55.938626 - Cycle 247 starting
+2026-04-26T04:52:55.939216 - Running system self-assessment...
+2026-04-26T04:53:00.497983 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:53:00.498136 - System health: 66.7%
+2026-04-26T04:53:04.685224 - Cycle 247 starting
+2026-04-26T04:53:04.685654 - Running system self-assessment...
+2026-04-26T04:53:09.999751 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:53:09.999942 - System health: 66.7%
+2026-04-26T04:53:10.141383 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-26T04:53:18.141939 - Cycle 247 starting
+2026-04-26T04:53:18.142268 - Running system self-assessment...
+2026-04-26T04:53:22.950153 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:53:22.950383 - System health: 66.7%
+2026-04-26T04:53:23.816111 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-26T04:53:39.816546 - Cycle 247 starting
+2026-04-26T04:53:39.816838 - Running system self-assessment...
+2026-04-26T04:53:43.836789 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:53:43.836965 - System health: 66.7%
+2026-04-26T04:53:43.980211 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-26T04:54:15.980528 - Cycle 247 starting
+2026-04-26T04:54:15.980745 - Running system self-assessment...
+2026-04-26T04:54:23.272371 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:54:23.272690 - System health: 66.7%
+2026-04-26T04:54:23.630132 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T04:55:23.630497 - Cycle 247 starting
+2026-04-26T04:55:23.630804 - Running system self-assessment...
+2026-04-26T04:55:29.546629 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:55:29.546862 - System health: 66.7%
+2026-04-26T04:55:29.788710 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T04:56:29.789357 - Cycle 247 starting
+2026-04-26T04:56:29.789689 - Running system self-assessment...
+2026-04-26T04:56:33.117183 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:56:33.117631 - System health: 66.7%
+2026-04-26T04:56:33.263652 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T04:57:33.264246 - Cycle 247 starting
+2026-04-26T04:57:33.264598 - Running system self-assessment...
+2026-04-26T04:57:39.450337 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:57:39.450517 - System health: 66.7%
+2026-04-26T04:57:39.563055 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T04:58:39.563553 - Cycle 247 starting
+2026-04-26T04:58:39.563898 - Running system self-assessment...
+2026-04-26T04:58:44.662580 - Selected task: monitoring (score: 0.5)
+2026-04-26T04:58:44.663146 - System health: 66.7%
+2026-04-26T04:58:44.930448 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T04:59:44.931054 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-26T04:59:44.931276 - ⚠️  System will continue to next cycle automatically
+2026-04-26T04:59:44.931331 - Sleeping for 300 seconds
+2026-04-26T05:04:44.931936 - Cycle 247 starting
+2026-04-26T05:04:44.932367 - Running system self-assessment...
+2026-04-26T05:04:51.503099 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:04:51.503259 - System health: 66.7%
+2026-04-26T05:04:53.608018 - Cycle 247 starting
+2026-04-26T05:04:53.608327 - Running system self-assessment...
+2026-04-26T05:04:58.216314 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:04:58.216483 - System health: 66.7%
+2026-04-26T05:05:02.328436 - Cycle 247 starting
+2026-04-26T05:05:02.465606 - Running system self-assessment...
+2026-04-26T05:05:08.191168 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:05:08.191421 - System health: 66.7%
+2026-04-26T05:05:09.193376 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-26T05:05:17.194088 - Cycle 247 starting
+2026-04-26T05:05:17.194420 - Running system self-assessment...
+2026-04-26T05:05:21.331278 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:05:21.331430 - System health: 66.7%
+2026-04-26T05:05:21.511915 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-26T05:05:37.512221 - Cycle 247 starting
+2026-04-26T05:05:37.512498 - Running system self-assessment...
+2026-04-26T05:05:41.680506 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:05:41.680657 - System health: 66.7%
+2026-04-26T05:05:41.818225 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-26T05:06:13.818718 - Cycle 247 starting
+2026-04-26T05:06:13.819057 - Running system self-assessment...
+2026-04-26T05:06:18.468351 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:06:18.468553 - System health: 66.7%
+2026-04-26T05:06:18.657494 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T05:07:18.658204 - Cycle 247 starting
+2026-04-26T05:07:18.658568 - Running system self-assessment...
+2026-04-26T05:07:25.038986 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:07:25.039370 - System health: 66.7%
+2026-04-26T05:07:25.302004 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T05:08:25.302792 - Cycle 247 starting
+2026-04-26T05:08:25.303084 - Running system self-assessment...
+2026-04-26T05:08:30.385260 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:08:30.385422 - System health: 66.7%
+2026-04-26T05:08:30.495110 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T05:09:30.495587 - Cycle 247 starting
+2026-04-26T05:09:30.495923 - Running system self-assessment...
+2026-04-26T05:09:41.302985 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:09:41.303194 - System health: 66.7%
+2026-04-26T05:09:41.825547 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T05:10:41.826218 - Cycle 247 starting
+2026-04-26T05:10:41.826594 - Running system self-assessment...
+2026-04-26T05:10:45.628192 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:10:45.628351 - System health: 66.7%
+2026-04-26T05:10:45.738237 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T05:11:45.738525 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-26T05:11:45.738783 - ⚠️  System will continue to next cycle automatically
+2026-04-26T05:11:45.738850 - Sleeping for 300 seconds
+2026-04-26T05:16:45.739594 - Cycle 247 starting
+2026-04-26T05:16:45.739797 - Running system self-assessment...
+2026-04-26T05:16:49.786935 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:16:49.787132 - System health: 66.7%
+2026-04-26T05:16:51.894236 - Cycle 247 starting
+2026-04-26T05:16:51.895569 - Running system self-assessment...
+2026-04-26T05:16:55.813988 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:16:55.814135 - System health: 66.7%
+2026-04-26T05:16:59.923656 - Cycle 247 starting
+2026-04-26T05:16:59.924049 - Running system self-assessment...
+2026-04-26T05:17:04.764775 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:17:04.764959 - System health: 66.7%
+2026-04-26T05:17:04.905116 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-26T05:17:12.905656 - Cycle 247 starting
+2026-04-26T05:17:12.905995 - Running system self-assessment...
+2026-04-26T05:17:16.302370 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:17:16.302696 - System health: 66.7%
+2026-04-26T05:17:16.903654 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-26T05:17:33.056250 - Cycle 247 starting
+2026-04-26T05:17:33.056604 - Running system self-assessment...
+2026-04-26T05:17:42.747717 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:17:42.747872 - System health: 66.7%
+2026-04-26T05:17:42.887871 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-26T05:18:14.888372 - Cycle 247 starting
+2026-04-26T05:18:14.888753 - Running system self-assessment...
+2026-04-26T05:18:18.621100 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:18:18.621323 - System health: 66.7%
+2026-04-26T05:18:18.821783 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T05:19:18.822181 - Cycle 247 starting
+2026-04-26T05:19:18.822405 - Running system self-assessment...
+2026-04-26T05:19:24.024864 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:19:24.025031 - System health: 66.7%
+2026-04-26T05:19:24.135520 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T05:20:24.135955 - Cycle 247 starting
+2026-04-26T05:20:24.136221 - Running system self-assessment...
+2026-04-26T05:20:28.100827 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:20:28.100999 - System health: 66.7%
+2026-04-26T05:20:28.219840 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T05:21:28.220439 - Cycle 247 starting
+2026-04-26T05:21:28.220827 - Running system self-assessment...
+2026-04-26T05:21:33.922172 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:21:33.922408 - System health: 66.7%
+2026-04-26T05:21:34.683661 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T05:22:34.684962 - Cycle 247 starting
+2026-04-26T05:22:34.685297 - Running system self-assessment...
+2026-04-26T05:22:38.138649 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:22:38.138840 - System health: 66.7%
+2026-04-26T05:22:38.265074 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T05:23:38.265776 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-26T05:23:38.266121 - ⚠️  System will continue to next cycle automatically
+2026-04-26T05:23:38.266245 - Sleeping for 300 seconds
+2026-04-26T05:28:38.266752 - Cycle 247 starting
+2026-04-26T05:28:38.267128 - Running system self-assessment...
+2026-04-26T05:28:43.619243 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:28:43.619411 - System health: 66.7%
+2026-04-26T05:28:45.727818 - Cycle 247 starting
+2026-04-26T05:28:45.728375 - Running system self-assessment...
+2026-04-26T05:28:49.686349 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:28:49.686543 - System health: 66.7%
+2026-04-26T05:28:53.799841 - Cycle 247 starting
+2026-04-26T05:28:53.800240 - Running system self-assessment...
+2026-04-26T05:28:59.463088 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:28:59.463320 - System health: 66.7%
+2026-04-26T05:28:59.660024 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-26T05:29:07.660409 - Cycle 247 starting
+2026-04-26T05:29:07.660587 - Running system self-assessment...
+2026-04-26T05:29:13.879802 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:29:13.880023 - System health: 66.7%
+2026-04-26T05:29:14.079038 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-26T05:29:30.079422 - Cycle 247 starting
+2026-04-26T05:29:30.079758 - Running system self-assessment...
+2026-04-26T05:29:37.334149 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:29:37.334377 - System health: 66.7%
+2026-04-26T05:29:37.621355 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-26T05:30:09.621850 - Cycle 247 starting
+2026-04-26T05:30:09.622186 - Running system self-assessment...
+2026-04-26T05:30:14.116866 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:30:14.117026 - System health: 66.7%
+2026-04-26T05:30:14.224117 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T05:31:14.224607 - Cycle 247 starting
+2026-04-26T05:31:14.224938 - Running system self-assessment...
+2026-04-26T05:31:18.100433 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:31:18.100672 - System health: 66.7%
+2026-04-26T05:31:18.288664 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T05:32:18.288970 - Cycle 247 starting
+2026-04-26T05:32:18.289167 - Running system self-assessment...
+2026-04-26T05:32:23.026067 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:32:23.026300 - System health: 66.7%
+2026-04-26T05:32:23.230783 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T05:33:23.231351 - Cycle 247 starting
+2026-04-26T05:33:23.231743 - Running system self-assessment...
+2026-04-26T05:33:29.950269 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:33:29.950453 - System health: 66.7%
+2026-04-26T05:33:30.276245 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T05:34:30.276918 - Cycle 247 starting
+2026-04-26T05:34:30.277259 - Running system self-assessment...
+2026-04-26T05:34:33.739414 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:34:33.739600 - System health: 66.7%
+2026-04-26T05:34:33.852242 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T05:35:33.852730 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-26T05:35:33.853073 - ⚠️  System will continue to next cycle automatically
+2026-04-26T05:35:33.853178 - Sleeping for 300 seconds
+2026-04-26T05:40:33.855934 - Cycle 247 starting
+2026-04-26T05:40:33.856168 - Running system self-assessment...
+2026-04-26T05:40:38.569254 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:40:38.569529 - System health: 66.7%
+2026-04-26T05:40:40.935497 - Cycle 247 starting
+2026-04-26T05:40:40.935843 - Running system self-assessment...
+2026-04-26T05:40:45.982169 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:40:45.982387 - System health: 66.7%
+2026-04-26T05:40:50.184257 - Cycle 247 starting
+2026-04-26T05:40:50.184647 - Running system self-assessment...
+2026-04-26T05:40:55.600099 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:40:55.600331 - System health: 66.7%
+2026-04-26T05:40:55.800796 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-26T05:41:03.801366 - Cycle 247 starting
+2026-04-26T05:41:03.801717 - Running system self-assessment...
+2026-04-26T05:41:08.234453 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:41:08.234725 - System health: 66.7%
+2026-04-26T05:41:09.344838 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-26T05:41:25.345520 - Cycle 247 starting
+2026-04-26T05:41:25.345862 - Running system self-assessment...
+2026-04-26T05:41:28.709625 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:41:28.709784 - System health: 66.7%
+2026-04-26T05:41:28.818287 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-26T05:42:00.818807 - Cycle 247 starting
+2026-04-26T05:42:00.819146 - Running system self-assessment...
+2026-04-26T05:42:04.854307 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:42:04.854697 - System health: 66.7%
+2026-04-26T05:42:05.072092 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T05:43:05.072593 - Cycle 247 starting
+2026-04-26T05:43:05.072936 - Running system self-assessment...
+2026-04-26T05:43:10.490336 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:43:10.490628 - System health: 66.7%
+2026-04-26T05:43:10.820517 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T05:44:10.820912 - Cycle 247 starting
+2026-04-26T05:44:10.836176 - Running system self-assessment...
+2026-04-26T05:44:15.628364 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:44:15.628617 - System health: 66.7%
+2026-04-26T05:44:15.900195 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T05:45:15.901233 - Cycle 247 starting
+2026-04-26T05:45:15.901587 - Running system self-assessment...
+2026-04-26T05:45:22.125615 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:45:22.125838 - System health: 66.7%
+2026-04-26T05:45:22.351581 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T05:46:22.352192 - Cycle 247 starting
+2026-04-26T05:46:22.352570 - Running system self-assessment...
+2026-04-26T05:46:27.128706 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:46:27.128929 - System health: 66.7%
+2026-04-26T05:46:27.417800 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T05:47:27.418387 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-26T05:47:27.418641 - ⚠️  System will continue to next cycle automatically
+2026-04-26T05:47:27.418713 - Sleeping for 300 seconds
+2026-04-26T05:52:27.419401 - Cycle 247 starting
+2026-04-26T05:52:27.419652 - Running system self-assessment...
+2026-04-26T05:52:30.906556 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:52:30.906738 - System health: 66.7%
+2026-04-26T05:52:33.107540 - Cycle 247 starting
+2026-04-26T05:52:33.107904 - Running system self-assessment...
+2026-04-26T05:52:38.155949 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:52:38.156126 - System health: 66.7%
+2026-04-26T05:52:42.314728 - Cycle 247 starting
+2026-04-26T05:52:42.315129 - Running system self-assessment...
+2026-04-26T05:52:48.029606 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:52:48.029782 - System health: 66.7%
+2026-04-26T05:52:48.192745 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-26T05:52:56.193313 - Cycle 247 starting
+2026-04-26T05:52:56.193687 - Running system self-assessment...
+2026-04-26T05:53:02.100426 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:53:02.100616 - System health: 66.7%
+2026-04-26T05:53:02.206985 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-26T05:53:18.207515 - Cycle 247 starting
+2026-04-26T05:53:18.207836 - Running system self-assessment...
+2026-04-26T05:53:21.732566 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:53:21.732738 - System health: 66.7%
+2026-04-26T05:53:21.842969 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-26T05:53:53.843498 - Cycle 247 starting
+2026-04-26T05:53:53.843832 - Running system self-assessment...
+2026-04-26T05:53:58.010608 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:53:58.010760 - System health: 66.7%
+2026-04-26T05:53:58.181287 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T05:54:58.182532 - Cycle 247 starting
+2026-04-26T05:54:58.182910 - Running system self-assessment...
+2026-04-26T05:55:02.255933 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:55:02.256203 - System health: 66.7%
+2026-04-26T05:55:03.080847 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T05:56:03.081512 - Cycle 247 starting
+2026-04-26T05:56:03.081853 - Running system self-assessment...
+2026-04-26T05:56:07.436700 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:56:07.436912 - System health: 66.7%
+2026-04-26T05:56:07.546529 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T05:57:07.547161 - Cycle 247 starting
+2026-04-26T05:57:07.547515 - Running system self-assessment...
+2026-04-26T05:57:13.434688 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:57:13.434837 - System health: 66.7%
+2026-04-26T05:57:13.622222 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T05:58:13.622540 - Cycle 247 starting
+2026-04-26T05:58:13.622758 - Running system self-assessment...
+2026-04-26T05:58:19.893993 - Selected task: monitoring (score: 0.5)
+2026-04-26T05:58:19.894225 - System health: 66.7%
+2026-04-26T05:58:20.148519 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T05:59:20.149018 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-26T05:59:20.149365 - ⚠️  System will continue to next cycle automatically
+2026-04-26T05:59:20.149510 - Sleeping for 300 seconds
+2026-04-26T06:04:20.150367 - Cycle 247 starting
+2026-04-26T06:04:20.150683 - Running system self-assessment...
+2026-04-26T06:04:26.239983 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:04:26.240135 - System health: 66.7%
+2026-04-26T06:04:28.399006 - Cycle 247 starting
+2026-04-26T06:04:28.399297 - Running system self-assessment...
+2026-04-26T06:04:32.264190 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:04:32.264347 - System health: 66.7%
+2026-04-26T06:04:36.425293 - Cycle 247 starting
+2026-04-26T06:04:36.425693 - Running system self-assessment...
+2026-04-26T06:04:41.091653 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:04:41.091878 - System health: 66.7%
+2026-04-26T06:04:41.303316 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-26T06:04:49.304526 - Cycle 247 starting
+2026-04-26T06:04:49.304756 - Running system self-assessment...
+2026-04-26T06:04:55.080161 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:04:55.080312 - System health: 66.7%
+2026-04-26T06:04:55.199628 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-26T06:05:11.200113 - Cycle 247 starting
+2026-04-26T06:05:11.200454 - Running system self-assessment...
+2026-04-26T06:05:15.290833 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:05:15.290989 - System health: 66.7%
+2026-04-26T06:05:15.406429 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-26T06:05:47.406749 - Cycle 247 starting
+2026-04-26T06:05:47.407793 - Running system self-assessment...
+2026-04-26T06:05:51.367893 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:05:51.368079 - System health: 66.7%
+2026-04-26T06:05:51.485825 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T06:06:51.486125 - Cycle 247 starting
+2026-04-26T06:06:51.486699 - Running system self-assessment...
+2026-04-26T06:06:54.849618 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:06:54.849767 - System health: 66.7%
+2026-04-26T06:06:54.962320 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T06:07:54.963528 - Cycle 247 starting
+2026-04-26T06:07:54.963865 - Running system self-assessment...
+2026-04-26T06:07:58.880618 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:07:58.880869 - System health: 66.7%
+2026-04-26T06:07:59.122755 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T06:08:59.123351 - Cycle 247 starting
+2026-04-26T06:08:59.123729 - Running system self-assessment...
+2026-04-26T06:09:03.895030 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:09:03.895250 - System health: 66.7%
+2026-04-26T06:09:04.098641 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T06:10:04.099220 - Cycle 247 starting
+2026-04-26T06:10:04.099594 - Running system self-assessment...
+2026-04-26T06:10:09.530215 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:10:09.530643 - System health: 66.7%
+2026-04-26T06:10:10.503811 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T06:11:10.504650 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-26T06:11:10.504880 - ⚠️  System will continue to next cycle automatically
+2026-04-26T06:11:10.504933 - Sleeping for 300 seconds
+2026-04-26T06:16:10.505502 - Cycle 247 starting
+2026-04-26T06:16:10.505739 - Running system self-assessment...
+2026-04-26T06:16:16.151282 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:16:16.151602 - System health: 66.7%
+2026-04-26T06:16:18.565392 - Cycle 247 starting
+2026-04-26T06:16:18.565822 - Running system self-assessment...
+2026-04-26T06:16:22.000650 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:16:22.000827 - System health: 66.7%
+2026-04-26T06:16:26.110081 - Cycle 247 starting
+2026-04-26T06:16:26.110507 - Running system self-assessment...
+2026-04-26T06:16:31.293713 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:16:31.293967 - System health: 66.7%
+2026-04-26T06:16:31.658638 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-26T06:16:39.659244 - Cycle 247 starting
+2026-04-26T06:16:39.659668 - Running system self-assessment...
+2026-04-26T06:16:49.480734 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:16:49.481068 - System health: 66.7%
+2026-04-26T06:16:49.732564 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-26T06:17:05.733041 - Cycle 247 starting
+2026-04-26T06:17:05.733375 - Running system self-assessment...
+2026-04-26T06:17:09.812375 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:17:09.812599 - System health: 66.7%
+2026-04-26T06:17:09.944287 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-26T06:17:41.944916 - Cycle 247 starting
+2026-04-26T06:17:41.945233 - Running system self-assessment...
+2026-04-26T06:17:46.231058 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:17:46.231205 - System health: 66.7%
+2026-04-26T06:17:46.372001 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T06:18:46.372348 - Cycle 247 starting
+2026-04-26T06:18:46.372664 - Running system self-assessment...
+2026-04-26T06:18:50.469608 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:18:50.470175 - System health: 66.7%
+2026-04-26T06:18:50.759136 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T06:19:50.759662 - Cycle 247 starting
+2026-04-26T06:19:50.759992 - Running system self-assessment...
+2026-04-26T06:19:54.145883 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:19:54.146271 - System health: 66.7%
+2026-04-26T06:19:54.507309 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T06:20:54.507604 - Cycle 247 starting
+2026-04-26T06:20:54.525259 - Running system self-assessment...
+2026-04-26T06:20:59.117380 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:20:59.117776 - System health: 66.7%
+2026-04-26T06:20:59.378192 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T06:21:59.378970 - Cycle 247 starting
+2026-04-26T06:21:59.379298 - Running system self-assessment...
+2026-04-26T06:22:03.589773 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:22:03.590276 - System health: 66.7%
+2026-04-26T06:22:03.705134 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T06:23:03.705617 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-26T06:23:03.705960 - ⚠️  System will continue to next cycle automatically
+2026-04-26T06:23:03.706061 - Sleeping for 300 seconds
+2026-04-26T06:28:03.706970 - Cycle 247 starting
+2026-04-26T06:28:03.707261 - Running system self-assessment...
+2026-04-26T06:28:07.686675 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:28:07.686915 - System health: 66.7%
+2026-04-26T06:28:09.984840 - Cycle 247 starting
+2026-04-26T06:28:09.985207 - Running system self-assessment...
+2026-04-26T06:28:15.130095 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:28:15.130276 - System health: 66.7%
+2026-04-26T06:28:19.306939 - Cycle 247 starting
+2026-04-26T06:28:19.307312 - Running system self-assessment...
+2026-04-26T06:28:24.408432 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:28:24.408694 - System health: 66.7%
+2026-04-26T06:28:24.818499 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-26T06:28:32.819078 - Cycle 247 starting
+2026-04-26T06:28:32.819410 - Running system self-assessment...
+2026-04-26T06:28:38.904957 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:28:38.905144 - System health: 66.7%
+2026-04-26T06:28:39.046307 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-26T06:28:55.046982 - Cycle 247 starting
+2026-04-26T06:28:55.047512 - Running system self-assessment...
+2026-04-26T06:29:00.153638 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:29:00.153860 - System health: 66.7%
+2026-04-26T06:29:00.456185 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-26T06:29:32.456811 - Cycle 247 starting
+2026-04-26T06:29:32.457141 - Running system self-assessment...
+2026-04-26T06:29:42.762190 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:29:42.762452 - System health: 66.7%
+2026-04-26T06:29:42.908072 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T06:30:42.908692 - Cycle 247 starting
+2026-04-26T06:30:42.909026 - Running system self-assessment...
+2026-04-26T06:30:46.763776 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:30:46.763938 - System health: 66.7%
+2026-04-26T06:30:46.873447 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T06:31:46.873817 - Cycle 247 starting
+2026-04-26T06:31:46.874268 - Running system self-assessment...
+2026-04-26T06:31:53.249756 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:31:53.249906 - System health: 66.7%
+2026-04-26T06:31:53.354636 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T06:32:53.355144 - Cycle 247 starting
+2026-04-26T06:32:53.355530 - Running system self-assessment...
+2026-04-26T06:32:58.865668 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:32:58.865898 - System health: 66.7%
+2026-04-26T06:32:59.075145 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T06:33:59.076104 - Cycle 247 starting
+2026-04-26T06:33:59.093092 - Running system self-assessment...
+2026-04-26T06:34:04.474228 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:34:04.474453 - System health: 66.7%
+2026-04-26T06:34:04.829998 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T06:35:04.830584 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-26T06:35:04.830947 - ⚠️  System will continue to next cycle automatically
+2026-04-26T06:35:04.831056 - Sleeping for 300 seconds
+2026-04-26T06:40:04.831869 - Cycle 247 starting
+2026-04-26T06:40:04.832064 - Running system self-assessment...
+2026-04-26T06:40:08.330185 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:40:08.330336 - System health: 66.7%
+2026-04-26T06:40:10.437519 - Cycle 247 starting
+2026-04-26T06:40:10.437778 - Running system self-assessment...
+2026-04-26T06:40:14.672997 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:40:14.673157 - System health: 66.7%
+2026-04-26T06:40:18.784083 - Cycle 247 starting
+2026-04-26T06:40:18.784360 - Running system self-assessment...
+2026-04-26T06:40:27.439114 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:40:27.439266 - System health: 66.7%
+2026-04-26T06:40:27.562830 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-26T06:40:35.563368 - Cycle 247 starting
+2026-04-26T06:40:35.563734 - Running system self-assessment...
+2026-04-26T06:40:39.025751 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:40:39.025899 - System health: 66.7%
+2026-04-26T06:40:39.191647 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-26T06:40:55.192136 - Cycle 247 starting
+2026-04-26T06:40:55.192512 - Running system self-assessment...
+2026-04-26T06:40:58.611965 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:40:58.612122 - System health: 66.7%
+2026-04-26T06:40:58.733686 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-26T06:41:30.734277 - Cycle 247 starting
+2026-04-26T06:41:30.734637 - Running system self-assessment...
+2026-04-26T06:41:34.359012 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:41:34.359179 - System health: 66.7%
+2026-04-26T06:41:34.472610 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T06:42:34.472970 - Cycle 247 starting
+2026-04-26T06:42:34.473301 - Running system self-assessment...
+2026-04-26T06:42:38.003117 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:42:38.003264 - System health: 66.7%
+2026-04-26T06:42:38.112546 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T06:43:38.116067 - Cycle 247 starting
+2026-04-26T06:43:38.116411 - Running system self-assessment...
+2026-04-26T06:43:42.097429 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:43:42.097611 - System health: 66.7%
+2026-04-26T06:43:42.207793 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T06:44:42.208528 - Cycle 247 starting
+2026-04-26T06:44:42.208854 - Running system self-assessment...
+2026-04-26T06:44:46.239165 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:44:46.239347 - System health: 66.7%
+2026-04-26T06:44:46.384111 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T06:45:46.384727 - Cycle 247 starting
+2026-04-26T06:45:46.384992 - Running system self-assessment...
+2026-04-26T06:45:50.028651 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:45:50.028808 - System health: 66.7%
+2026-04-26T06:45:50.196285 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T06:46:50.196648 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-26T06:46:50.197921 - ⚠️  System will continue to next cycle automatically
+2026-04-26T06:46:50.198224 - Sleeping for 300 seconds
+2026-04-26T06:51:50.199042 - Cycle 247 starting
+2026-04-26T06:51:50.199236 - Running system self-assessment...
+2026-04-26T06:51:54.970079 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:51:54.970420 - System health: 66.7%
+2026-04-26T06:51:57.368064 - Cycle 247 starting
+2026-04-26T06:51:57.368501 - Running system self-assessment...
+2026-04-26T06:52:02.499591 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:52:02.499774 - System health: 66.7%
+2026-04-26T06:52:06.640772 - Cycle 247 starting
+2026-04-26T06:52:06.641164 - Running system self-assessment...
+2026-04-26T06:52:15.932697 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:52:15.932876 - System health: 66.7%
+2026-04-26T06:52:16.041998 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-26T06:52:24.042660 - Cycle 247 starting
+2026-04-26T06:52:24.043177 - Running system self-assessment...
+2026-04-26T06:52:27.530671 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:52:27.530858 - System health: 66.7%
+2026-04-26T06:52:27.752279 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-26T06:52:43.752923 - Cycle 247 starting
+2026-04-26T06:52:43.753248 - Running system self-assessment...
+2026-04-26T06:52:47.143744 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:52:47.143893 - System health: 66.7%
+2026-04-26T06:52:47.252001 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-26T06:53:19.252388 - Cycle 247 starting
+2026-04-26T06:53:19.252692 - Running system self-assessment...
+2026-04-26T06:53:22.906715 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:53:22.906868 - System health: 66.7%
+2026-04-26T06:53:23.019646 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T06:54:23.019964 - Cycle 247 starting
+2026-04-26T06:54:23.020187 - Running system self-assessment...
+2026-04-26T06:54:31.830378 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:54:31.830631 - System health: 66.7%
+2026-04-26T06:54:32.054108 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T06:55:32.054695 - Cycle 247 starting
+2026-04-26T06:55:32.055004 - Running system self-assessment...
+2026-04-26T06:55:36.666357 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:55:36.666604 - System health: 66.7%
+2026-04-26T06:55:36.899682 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T06:56:36.900110 - Cycle 247 starting
+2026-04-26T06:56:36.900443 - Running system self-assessment...
+2026-04-26T06:56:41.256346 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:56:41.256559 - System health: 66.7%
+2026-04-26T06:56:41.401207 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T06:57:41.401898 - Cycle 247 starting
+2026-04-26T06:57:41.402230 - Running system self-assessment...
+2026-04-26T06:57:45.570594 - Selected task: monitoring (score: 0.5)
+2026-04-26T06:57:45.570819 - System health: 66.7%
+2026-04-26T06:57:45.771966 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T06:58:45.772559 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-26T06:58:45.772888 - ⚠️  System will continue to next cycle automatically
+2026-04-26T06:58:45.772995 - Sleeping for 300 seconds
+2026-04-26T07:03:45.773620 - Cycle 247 starting
+2026-04-26T07:03:45.773832 - Running system self-assessment...
+2026-04-26T07:03:49.851289 - Selected task: monitoring (score: 0.5)
+2026-04-26T07:03:49.851495 - System health: 66.7%
+2026-04-26T07:03:51.991679 - Cycle 247 starting
+2026-04-26T07:03:51.992067 - Running system self-assessment...
+2026-04-26T07:04:03.419120 - Selected task: monitoring (score: 0.5)
+2026-04-26T07:04:03.419356 - System health: 66.7%
+2026-04-26T07:04:07.888359 - Cycle 247 starting
+2026-04-26T07:04:07.888754 - Running system self-assessment...
+2026-04-26T07:04:17.464619 - Selected task: monitoring (score: 0.5)
+2026-04-26T07:04:17.464849 - System health: 66.7%
+2026-04-26T07:04:18.510912 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-26T07:04:26.511519 - Cycle 247 starting
+2026-04-26T07:04:26.511731 - Running system self-assessment...
+2026-04-26T07:04:29.943929 - Selected task: monitoring (score: 0.5)
+2026-04-26T07:04:29.944086 - System health: 66.7%
+2026-04-26T07:04:30.050910 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-26T07:04:46.051256 - Cycle 247 starting
+2026-04-26T07:04:46.051556 - Running system self-assessment...
+2026-04-26T07:04:51.537938 - Selected task: monitoring (score: 0.5)
+2026-04-26T07:04:51.538176 - System health: 66.7%
+2026-04-26T07:04:51.738702 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-26T07:05:23.739134 - Cycle 247 starting
+2026-04-26T07:05:23.739455 - Running system self-assessment...
+2026-04-26T07:05:27.788917 - Selected task: monitoring (score: 0.5)
+2026-04-26T07:05:27.789075 - System health: 66.7%
+2026-04-26T07:05:27.905741 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T07:06:27.906207 - Cycle 247 starting
+2026-04-26T07:06:27.906590 - Running system self-assessment...
+2026-04-26T07:06:31.844338 - Selected task: monitoring (score: 0.5)
+2026-04-26T07:06:31.844739 - System health: 66.7%
+2026-04-26T07:06:32.771493 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T07:07:32.772144 - Cycle 247 starting
+2026-04-26T07:07:32.772410 - Running system self-assessment...
+2026-04-26T07:07:36.774196 - Selected task: monitoring (score: 0.5)
+2026-04-26T07:07:36.774552 - System health: 66.7%
+2026-04-26T07:07:36.913686 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T07:08:36.914307 - Cycle 247 starting
+2026-04-26T07:08:36.914697 - Running system self-assessment...
+2026-04-26T07:08:41.832105 - Selected task: monitoring (score: 0.5)
+2026-04-26T07:08:41.832327 - System health: 66.7%
+2026-04-26T07:08:42.033326 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T07:09:42.035593 - Cycle 247 starting
+2026-04-26T07:09:42.035919 - Running system self-assessment...
+2026-04-26T07:09:46.786983 - Selected task: monitoring (score: 0.5)
+2026-04-26T07:09:46.787170 - System health: 66.7%
+2026-04-26T07:09:46.930639 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T07:10:46.931157 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-26T07:10:46.931553 - ⚠️  System will continue to next cycle automatically
+2026-04-26T07:10:46.931660 - Sleeping for 300 seconds
+2026-04-26T07:15:46.932150 - Cycle 247 starting
+2026-04-26T07:15:46.932318 - Running system self-assessment...
+2026-04-26T07:15:52.956310 - Selected task: monitoring (score: 0.5)
+2026-04-26T07:15:52.956534 - System health: 66.7%
+2026-04-26T07:15:55.420565 - Cycle 247 starting
+2026-04-26T07:15:55.420940 - Running system self-assessment...
+2026-04-26T07:15:59.004878 - Selected task: monitoring (score: 0.5)
+2026-04-26T07:15:59.005047 - System health: 66.7%
+2026-04-26T07:16:03.116435 - Cycle 247 starting
+2026-04-26T07:16:03.116843 - Running system self-assessment...
+2026-04-26T07:16:08.499263 - Selected task: monitoring (score: 0.5)
+2026-04-26T07:16:08.499444 - System health: 66.7%
+2026-04-26T07:16:08.644587 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-26T07:16:16.645198 - Cycle 247 starting
+2026-04-26T07:16:16.645509 - Running system self-assessment...
+2026-04-26T07:16:21.120086 - Selected task: monitoring (score: 0.5)
+2026-04-26T07:16:21.120333 - System health: 66.7%
+2026-04-26T07:16:21.779193 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-26T07:16:37.780486 - Cycle 247 starting
+2026-04-26T07:16:37.780794 - Running system self-assessment...
+2026-04-26T07:16:42.042907 - Selected task: monitoring (score: 0.5)
+2026-04-26T07:16:42.043140 - System health: 66.7%
+2026-04-26T07:16:42.404874 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-26T07:17:14.405263 - Cycle 247 starting
+2026-04-26T07:17:14.406613 - Running system self-assessment...
+2026-04-26T07:17:18.476017 - Selected task: monitoring (score: 0.5)
+2026-04-26T07:17:18.476332 - System health: 66.7%
+2026-04-26T07:17:19.154674 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T07:18:19.155282 - Cycle 247 starting
+2026-04-26T07:18:19.155660 - Running system self-assessment...
+2026-04-26T07:18:22.993089 - Selected task: monitoring (score: 0.5)
+2026-04-26T07:18:22.993242 - System health: 66.7%
+2026-04-26T07:18:23.103188 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T07:19:23.103668 - Cycle 247 starting
+2026-04-26T07:19:23.103972 - Running system self-assessment...
+2026-04-26T07:19:28.408449 - Selected task: monitoring (score: 0.5)
+2026-04-26T07:19:28.408630 - System health: 66.7%
+2026-04-26T07:19:28.519134 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T07:20:28.519704 - Cycle 247 starting
+2026-04-26T07:20:28.520025 - Running system self-assessment...
+2026-04-26T07:20:33.489229 - Selected task: monitoring (score: 0.5)
+2026-04-26T07:20:33.489447 - System health: 66.7%
+2026-04-26T07:20:33.845947 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T07:21:33.846551 - Cycle 247 starting
+2026-04-26T07:21:33.846887 - Running system self-assessment...
+2026-04-26T07:21:38.166713 - Selected task: monitoring (score: 0.5)
+2026-04-26T07:21:38.166879 - System health: 66.7%
+2026-04-26T07:21:38.308600 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T07:22:38.309048 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-26T07:22:38.309286 - ⚠️  System will continue to next cycle automatically
+2026-04-26T07:22:38.309378 - Sleeping for 300 seconds
+2026-04-26T07:27:38.310075 - Cycle 247 starting
+2026-04-26T07:27:38.310268 - Running system self-assessment...
+2026-04-26T07:27:45.028875 - Selected task: monitoring (score: 0.5)
+2026-04-26T07:27:45.029042 - System health: 66.7%
+2026-04-26T07:27:47.138438 - Cycle 247 starting
+2026-04-26T07:27:47.138779 - Running system self-assessment...
+2026-04-26T07:27:51.069574 - Selected task: monitoring (score: 0.5)
+2026-04-26T07:27:51.069746 - System health: 66.7%
+2026-04-26T07:27:55.178390 - Cycle 247 starting
+2026-04-26T07:27:55.178834 - Running system self-assessment...
+2026-04-26T07:28:04.132927 - Selected task: monitoring (score: 0.5)
+2026-04-26T07:28:04.133247 - System health: 66.7%
+2026-04-26T07:28:04.421276 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-26T07:28:12.421755 - Cycle 247 starting
+2026-04-26T07:28:12.422123 - Running system self-assessment...
+2026-04-26T07:28:16.582392 - Selected task: monitoring (score: 0.5)
+2026-04-26T07:28:16.582576 - System health: 66.7%
+2026-04-26T07:28:16.697434 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-26T07:28:32.697865 - Cycle 247 starting
+2026-04-26T07:28:32.698088 - Running system self-assessment...
+2026-04-26T07:28:36.391294 - Selected task: monitoring (score: 0.5)
+2026-04-26T07:28:36.391553 - System health: 66.7%
+2026-04-26T07:28:36.509323 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-26T07:29:08.509853 - Cycle 247 starting
+2026-04-26T07:29:08.510190 - Running system self-assessment...
+2026-04-26T07:29:13.927003 - Selected task: monitoring (score: 0.5)
+2026-04-26T07:29:13.927181 - System health: 66.7%
+2026-04-26T07:29:14.068738 - ⚠️  Attempt 6/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T07:30:14.069272 - Cycle 247 starting
+2026-04-26T07:30:14.069662 - Running system self-assessment...
+2026-04-26T07:30:20.878565 - Selected task: monitoring (score: 0.5)
+2026-04-26T07:30:20.878793 - System health: 66.7%
+2026-04-26T07:30:21.080049 - ⚠️  Attempt 7/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T07:31:21.080690 - Cycle 247 starting
+2026-04-26T07:31:21.081019 - Running system self-assessment...
+2026-04-26T07:31:29.247975 - Selected task: monitoring (score: 0.5)
+2026-04-26T07:31:29.248137 - System health: 66.7%
+2026-04-26T07:31:29.553650 - ⚠️  Attempt 8/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T07:32:29.554023 - Cycle 247 starting
+2026-04-26T07:32:29.554228 - Running system self-assessment...
+2026-04-26T07:32:33.528596 - Selected task: monitoring (score: 0.5)
+2026-04-26T07:32:33.528748 - System health: 66.7%
+2026-04-26T07:32:33.641569 - ⚠️  Attempt 9/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T07:33:33.642041 - Cycle 247 starting
+2026-04-26T07:33:33.642377 - Running system self-assessment...
+2026-04-26T07:33:37.924891 - Selected task: monitoring (score: 0.5)
+2026-04-26T07:33:37.925046 - System health: 66.7%
+2026-04-26T07:33:38.081397 - ⚠️  Attempt 10/10 failed: name 'context' is not defined | Retrying in 60s
+2026-04-26T07:34:38.081776 - ❌ Failed after 10 attempts: name 'context' is not defined
+2026-04-26T07:34:38.082005 - ⚠️  System will continue to next cycle automatically
+2026-04-26T07:34:38.082059 - Sleeping for 300 seconds
+2026-04-26T07:39:38.082795 - Cycle 247 starting
+2026-04-26T07:39:38.082994 - Running system self-assessment...
+2026-04-26T07:39:44.229378 - Selected task: monitoring (score: 0.5)
+2026-04-26T07:39:44.230107 - System health: 66.7%
+2026-04-26T07:39:46.428960 - Cycle 247 starting
+2026-04-26T07:39:46.429357 - Running system self-assessment...
+2026-04-26T07:39:50.294082 - Selected task: monitoring (score: 0.5)
+2026-04-26T07:39:50.294398 - System health: 66.7%
+2026-04-26T07:39:54.406489 - Cycle 247 starting
+2026-04-26T07:39:54.406774 - Running system self-assessment...
+2026-04-26T07:40:02.971169 - Selected task: monitoring (score: 0.5)
+2026-04-26T07:40:02.971327 - System health: 66.7%
+2026-04-26T07:40:03.074293 - ⚠️  Attempt 3/10 failed: name 'context' is not defined | Retrying in 8.0s
+2026-04-26T07:40:11.074699 - Cycle 247 starting
+2026-04-26T07:40:11.075019 - Running system self-assessment...
+2026-04-26T07:40:17.614643 - Selected task: monitoring (score: 0.5)
+2026-04-26T07:40:17.614878 - System health: 66.7%
+2026-04-26T07:40:17.999277 - ⚠️  Attempt 4/10 failed: name 'context' is not defined | Retrying in 16.0s
+2026-04-26T07:40:34.000161 - Cycle 247 starting
+2026-04-26T07:40:34.000450 - Running system self-assessment...
+2026-04-26T07:40:41.202549 - Selected task: monitoring (score: 0.5)
+2026-04-26T07:40:41.202781 - System health: 66.7%
+2026-04-26T07:40:41.411407 - ⚠️  Attempt 5/10 failed: name 'context' is not defined | Retrying in 32.0s
+2026-04-26T07:41:13.411851 - Cycle 247 starting
+2026-04-26T07:41:13.412068 - Running system self-assessment...
+2026-04-26T07:41:18.834994 - Selected task: monitoring (score: 0.5)
+2026-04-26T07:41:18.835249 - System health: 66.7%
