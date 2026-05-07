@@ -1,0 +1,18 @@
+{
+  "name": "quantum-pi-forge-audit-listener",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "On-chain event verification pipeline for Quantum Pi Forge audit specification",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js"
+  },
+  "dependencies": {
+    "ethers": "^6.13.0",
+    "dotenv": "^16.4.5"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
