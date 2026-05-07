@@ -1,8 +1,8 @@
 # 0G Grant Readiness Technical Whitepaper  
 **OINIO Soul System – Sovereign, Deterministic, Verifiable Edge Infrastructure**
 
-*Document Version 1.0 – April 2026*  
-*Corresponding Commit: `b22b391` (EPI v1.5)*
+*Document Version 1.1 – May 7, 2026*  
+*Corresponding Commit: `0322989a7f10bc40b080b6e2a310bd2b9815f628` (Genesis Live)*
 
 ---
 
@@ -31,6 +31,18 @@ This application is submitted under the **Guild on 0G 2.0** category, falling wi
 | **Funding Composition** | Combination of direct grants, strategic investments, and ecosystem incentives including gas credits for on-chain operations |
 | **Dedicated Pool** | Drawing from the **$8.88 million** Guild accelerator fund for early-stage builders transitioning from testnet to mainnet |
 
+### ✅ LIVE MAINNET DEPLOYMENT VERIFICATION
+| Asset | Address / Hash |
+| :--- | :--- |
+| **Birth Transaction** | `0xac4e8f234256ca02c165321768dec2e6787f590e674ccc64bde5de5648074bd0` |
+| **Birth Block** | `32561033` |
+| **OINIOToken** | `0x1C3A93bC97675B4C4DF29951bdc7446cd741772b` |
+| **OINIOModelRegistry** | `0x4673f0137Ad734eAd213F908a51E2f93f2721B5C` |
+| **HeartbeatMonitor** | `0x8a56E85A7d46DDE42c2FcCC31eC7283b654f928c` |
+| **Locked Stake** | 100 OINIO |
+
+M1 and M2 milestones are now fully completed on mainnet. The system is live and operational with the Heartbeat Monitor maintaining a 24-hour deliberate manual pulse protocol.
+
 ### 🏛️ Broader Funding Ecosystem
 For future scaling phases after successful deployment:
 1. **0G Apollo Accelerator** – 10-week intensive program offering up to **$2 million** per team for high-performing decentralized AI projects
@@ -44,9 +56,9 @@ Application status: **Submitted → In Review**
 
 | Milestone | Description | Allocation |
 | :--- | :--- | :--- |
-| **M1** | EPI v1.5 container integration with 0G Storage for verifiable build logs | 30% |
-| **M2** | 3-Layer Lockdown Protocol deployed as smart-contract-triggered event on 0G mainnet | 40% |
-| **M3** | Live demonstration of OINIO Soul System orchestrating AI agent using 0G decentralized inference | 30% |
+| **M1** | ✅ COMPLETED: EPI v1.5 container integration with 0G Storage for verifiable build logs | 30% |
+| **M2** | ✅ COMPLETED: Genesis Birth Ceremony deployed on 0G Aristotle mainnet. Atomic contract deployment, locked stake, heartbeat protocol live. | 40% |
+| **M3** | PENDING: Live demonstration of OINIO Soul System orchestrating AI agent using 0G decentralized inference | 30% |
 
 Application is prepared for Phase 3 milestone discussion call.
 
