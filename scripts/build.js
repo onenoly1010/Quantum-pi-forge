@@ -5,39 +5,36 @@
  * Produces a static `out/` directory plus Pages-compatible redirects/headers.
  */
 
-const fs = require('fs');
-const path = require('path');
-const { execSync } = require('child_process');
+import fs from 'node:fs';
+import path from 'node:path';
+import { execSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const rootDir = path.join(__dirname, '..');
 const outputDir = path.join(rootDir, 'out');
+const deployDir = path.join(rootDir, 'deploy');
 
-// Files to copy from root to the Cloudflare Pages output directory
 const staticFiles = [
-  '_headers',
-  'index.html',
-  'ceremonial_interface.html',
-  'resonance_dashboard.html',
-  'spectral_command_shell.html',
-  'pi-forge-integration.js'
+  { src: 'deploy/_headers', dest: '_headers', fallback: '_headers' },
+  { src: 'deploy/index.html', dest: 'index.html' },
+  { src: 'deploy/dao.html', dest: 'dao.html' },
+  { src: 'deploy/resonate.html', dest: 'resonate.html' },
+  { src: 'deploy/manifest.json', dest: 'manifest.json' },
+  { src: 'ceremonial_interface.html', dest: 'ceremonial_interface.html', optional: true },
+  { src: 'spectral_command_shell.html', dest: 'spectral_command_shell.html', optional: true },
+  { src: 'pi-forge-integration.js', dest: 'pi-forge-integration.js', optional: true }
 ];
 
-// Directories to copy from root to the Cloudflare Pages output directory
 const staticDirs = [
-  'frontend'
+  { src: 'frontend', dest: 'frontend', optional: true }
 ];
 
-/**
- * Recursively copy a directory
- */
 function copyDir(src, dest) {
-  if (!fs.existsSync(dest)) {
-    fs.mkdirSync(dest, { recursive: true });
-  }
+  fs.mkdirSync(dest, { recursive: true });
 
-  const entries = fs.readdirSync(src, { withFileTypes: true });
-
-  for (const entry of entries) {
+  for (const entry of fs.readdirSync(src, { withFileTypes: true })) {
     const srcPath = path.join(src, entry.name);
     const destPath = path.join(dest, entry.name);
 
@@ -49,56 +46,67 @@ function copyDir(src, dest) {
   }
 }
 
-/**
- * Copy a single file
- */
-function copyFile(src, dest) {
-  const srcPath = path.join(rootDir, src);
-  const destPath = path.join(dest, path.basename(src));
+function resolveSource(file) {
+  const primary = path.join(rootDir, file.src);
+  if (fs.existsSync(primary)) return primary;
 
-  if (fs.existsSync(srcPath)) {
-    fs.copyFileSync(srcPath, destPath);
-    console.log(`✓ Copied ${src}`);
-  } else {
-    console.warn(`⚠ File not found: ${src}`);
+  if (file.fallback) {
+    const fallback = path.join(rootDir, file.fallback);
+    if (fs.existsSync(fallback)) return fallback;
   }
+
+  return null;
 }
 
-/**
- * Main build function
- */
-function build() {
-  console.log('Building static assets for Cloudflare Pages...\n');
+function copyFile(file) {
+  const srcPath = resolveSource(file);
 
-  // Capture build metadata
+  if (!srcPath) {
+    const message = `File not found: ${file.src}`;
+    if (file.optional) {
+      console.warn(`WARN ${message}`);
+      return;
+    }
+    throw new Error(message);
+  }
+
+  const destPath = path.join(outputDir, file.dest);
+  fs.mkdirSync(path.dirname(destPath), { recursive: true });
+  fs.copyFileSync(srcPath, destPath);
+  console.log(`OK copied ${path.relative(rootDir, srcPath)} -> out/${file.dest}`);
+}
+
+function writeVersionManifest() {
   let commitHash = 'dev-local';
   let buildTime = new Date().toISOString();
-  
+
   try {
     commitHash = execSync('git rev-parse HEAD', { encoding: 'utf8' }).trim();
     buildTime = execSync('date -u +"%Y-%m-%dT%H:%M:%SZ"', { encoding: 'utf8' }).trim();
-  } catch (e) {
-    console.warn('⚠ Could not retrieve git commit hash, using dev-local');
+  } catch {
+    console.warn('WARN Could not retrieve git metadata, using dev-local');
   }
 
-  // Write version manifest
   const versionManifest = {
     commit: commitHash,
     build_time: buildTime,
-    system: "OINIO Quantum Pi Forge",
-    version: "1.0.0"
+    system: 'OINIO Quantum Pi Forge',
+    version: '1.0.0'
   };
 
-  fs.writeFileSync(path.join(rootDir, 'public', 'version.json'), JSON.stringify(versionManifest, null, 2));
-  console.log(`✓ Generated version manifest for commit: ${commitHash.slice(0, 7)}`);
+  fs.mkdirSync(path.join(rootDir, 'public'), { recursive: true });
+  fs.writeFileSync(
+    path.join(rootDir, 'public', 'version.json'),
+    `${JSON.stringify(versionManifest, null, 2)}\n`
+  );
+  fs.writeFileSync(
+    path.join(outputDir, 'version.json'),
+    `${JSON.stringify(versionManifest, null, 2)}\n`
+  );
+  console.log(`OK generated version manifest for ${commitHash.slice(0, 7)}`);
+}
 
-  // Clean and create output directory structure
-  if (fs.existsSync(outputDir)) {
-    fs.rmSync(outputDir, { recursive: true });
-  }
-  fs.mkdirSync(outputDir, { recursive: true });
-  console.log('✓ Created out/ directory\n');
-
+function writeRedirects() {
   const redirects = [
     '/dashboard /frontend/production_dashboard.html 200',
     '/dashboard/ /frontend/production_dashboard.html 200',
@@ -106,44 +114,51 @@ function build() {
     '/api/* https://pi-forge-quantum-genesis.railway.app/api/:splat 200',
     '/health https://pi-forge-quantum-genesis.railway.app/health 200'
   ].join('\n') + '\n';
+
   fs.writeFileSync(path.join(outputDir, '_redirects'), redirects);
-  console.log('✓ Created out/_redirects\n');
-
-  // Copy static files
-  console.log('Copying static files:');
-  for (const file of staticFiles) {
-    copyFile(file, outputDir);
-  }
-  console.log('');
-
-  // Copy static directories
-  console.log('Copying static directories:');
-  for (const dir of staticDirs) {
-    const srcPath = path.join(rootDir, dir);
-    const destPath = path.join(outputDir, dir);
-    
-    if (fs.existsSync(srcPath)) {
-      const stats = fs.statSync(srcPath);
-      if (stats.isDirectory()) {
-        copyDir(srcPath, destPath);
-        console.log(`✓ Copied ${dir}/`);
-      } else {
-        console.warn(`⚠ ${dir} is not a directory, skipping`);
-      }
-    } else {
-      console.warn(`⚠ Directory not found: ${dir}`);
-    }
-  }
-
-  console.log('\n✅ Build completed successfully!');
-  console.log(`📁 Output directory: ${outputDir}\n`);
+  console.log('OK created out/_redirects');
 }
 
-// Run the build
+function build() {
+  console.log('Building static assets for Cloudflare Pages\n');
+
+  if (!fs.existsSync(deployDir)) {
+    throw new Error('deploy/ directory is required for the public landing bundle');
+  }
+
+  fs.rmSync(outputDir, { recursive: true, force: true });
+  fs.mkdirSync(outputDir, { recursive: true });
+
+  writeRedirects();
+
+  console.log('\nCopying static files');
+  for (const file of staticFiles) copyFile(file);
+
+  console.log('\nCopying static directories');
+  for (const dir of staticDirs) {
+    const srcPath = path.join(rootDir, dir.src);
+    const destPath = path.join(outputDir, dir.dest);
+
+    if (!fs.existsSync(srcPath)) {
+      if (dir.optional) {
+        console.warn(`WARN directory not found: ${dir.src}`);
+        continue;
+      }
+      throw new Error(`Directory not found: ${dir.src}`);
+    }
+
+    copyDir(srcPath, destPath);
+    console.log(`OK copied ${dir.src}/ -> out/${dir.dest}/`);
+  }
+
+  writeVersionManifest();
+
+  console.log(`\nBuild completed: ${outputDir}\n`);
+}
+
 try {
   build();
-  process.exit(0);
 } catch (error) {
-  console.error('\n❌ Build failed:', error.message);
+  console.error(`\nBuild failed: ${error.message}`);
   process.exit(1);
 }

@@ -122,6 +122,7 @@
             display: block;
         }
     </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -148,7 +149,10 @@
 <h3 class="text-2xl font-bold text-white mb-6">✅ SYSTEM STATUS: LIVE & OPERATIONAL</h3>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 font-mono text-sm">
 <div class="bg-black/30 p-3 rounded border border-white/5">
-<span class="text-emerald-400">✅</span> 0G Mainnet Integration | Block 29,562,402
+<span class="text-emerald-400">✅</span> 0G Mainnet Integration | Current Block: <span id="blockHeight">Loading...</span>
+</div>
+<div class="bg-black/30 p-3 rounded border border-white/5">
+<span class="text-orange-400">⏳</span> Genesis Activation | Blocks Remaining: <span id="blocksRemaining">Loading...</span>
 </div>
 <div class="bg-black/30 p-3 rounded border border-white/5">
 <span class="text-emerald-400">✅</span> OINIO Smart Contracts | 37/37 tests passing
@@ -161,9 +165,6 @@
 </div>
 <div class="bg-black/30 p-3 rounded border border-white/5">
 <span class="text-emerald-400">✅</span> Sovereign AI Agents | Local Ollama runtime
-</div>
-<div class="bg-black/30 p-3 rounded border border-white/5">
-<span class="text-emerald-400">✅</span> iNFT Minting | Genesis Resonance collection
 </div>
 </div>
 </div>
@@ -307,28 +308,4 @@ Every participant that completes these steps increases network strength for ever
 
 <div class="sync-indicator" id="syncIndicator"></div>
 
-<script>
-    let provider;
-    let signer;
-    let contract;
-    let currentAccount;
-    
-    const confirmedGuardians = new Map();
-    const optimisticGuardians = new Map();
-    let lastScannedBlock = 29562402;
-    let isSyncing = false;
-    
-    const FORGE_CONFIG = {
-        address: "0x0000000000000000000000000000000000000000",
-        deploymentBlock: 29562402,
-        abi: [
-            "function register() external",
-            "function isGuardian(address) external view returns (bool)",
-            "function guardianCount() external view returns (uint256)",
-            "event GuardianActivated(address indexed guardian, uint256 timestamp)"
-        ]
-    };
-
-    async function connectWallet() {
-        if (!window.ethereum) {
-            document.getElementById('errorMsg').textContent = "
+<script src="app.js"></script>

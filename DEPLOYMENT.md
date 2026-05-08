@@ -3,7 +3,6 @@
 > **📌 Note**: This document is part of the deployment documentation suite.  
 > For the complete deployment guide, see the **[Deployment Dashboard](docs/DEPLOYMENT_DASHBOARD.md)**.
 
-## Cloudflare Pages Deployment
 ## ⚠️ Important: Repository Purpose
 
 **This repository is a COORDINATION HUB, not a deployable application.**
@@ -15,8 +14,8 @@ This repo serves as:
 - Canon of Autonomy preservation
 
 **For production deployments, refer to the appropriate service repositories:**
-- **Public Site**: `quantum-pi-forge-site` → GitHub Pages
-- **Coordination Interfaces**: This repo → Cloudflare Pages
+- **Primary landing bundle**: `deploy/` → copied into `out/` by `npm run build`
+- **Cloudflare Pages output**: `out/` → configured in `wrangler.toml`
 - **Backend API**: Canonical upstream service used by redirects during migration
 
 ---
@@ -33,9 +32,10 @@ Cloudflare Pages is the supported static hosting target for this repository.
 
 The build process:
 1. Creates `out/`
-2. Copies static HTML and JavaScript assets into `out/`
-3. Copies `_headers` for Cloudflare edge response headers
-4. Generates `_redirects` to route `/api/*` and `/health` to the canonical backend
+2. Copies the public landing bundle from `deploy/`
+3. Copies `dao.html`, `resonate.html`, `manifest.json`, and optional legacy static assets
+4. Copies `_headers` for Cloudflare edge response headers
+5. Generates `_redirects` to route `/api/*` and `/health` to the canonical backend
 
 ### Environment Variables
 
@@ -54,9 +54,24 @@ To test the build locally:
 ```bash
 npm install
 npm run build
+npm run serve:deploy
 ```
 
 The `out/` directory will contain all deployable assets for Cloudflare Pages.
+
+Before deployment, verify:
+
+```bash
+curl -I http://127.0.0.1:8100/
+curl -I http://127.0.0.1:8100/dao.html
+curl -I http://127.0.0.1:8100/resonate.html
+```
+
+Production deploy:
+
+```bash
+npm run deploy:cf
+```
 
 ---
 

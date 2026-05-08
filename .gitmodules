@@ -7,3 +7,9 @@
 [submodule "contracts/lib/forge-std"]
 	path = contracts/lib/forge-std
 	url = https://github.com/foundry-rs/forge-std
+[submodule "quantum-pi-forge-ignited/quantum-pi-forge-ignited"]
+	path = quantum-pi-forge-ignited/quantum-pi-forge-ignited
+	url = https://github.com/onenoly1010/quantum-pi-forge-ignited.git
+[submodule "server/pi-forge-quantum-genesis"]
+	path = server/pi-forge-quantum-genesis
+	url = https://github.com/onenoly1010/pi-forge-quantum-genesis.git

@@ -156,13 +156,14 @@
             </p>
 
             <div class="flex flex-col sm:flex-row gap-6 justify-center">
-                <button class="btn-volcanic text-xl px-16 py-6 rounded-full inline-block">
+                <a href="#proof-strip" class="btn-volcanic text-xl px-16 py-6 rounded-full inline-block">
                     ⚡ Explore the Ledger
-                </button>
-                <button class="px-16 py-6 rounded-full bg-white/5 border border-white/10 text-white text-xl hover:bg-white/10 transition-all">
+                </a>
+                <button id="connect-wallet-btn" type="button" onclick="connectForgeWallet()" class="px-16 py-6 rounded-full bg-white/5 border border-white/10 text-white text-xl hover:bg-white/10 transition-all">
                     Connect Wallet
                 </button>
             </div>
+            <div id="wallet-status" class="mt-6 text-sm font-mono text-zinc-500" role="status" aria-live="polite"></div>
         </div>
     </header>
 
@@ -217,7 +218,7 @@
                         <div class="text-4xl font-bold text-blue-400">1</div>
                         <div class="flex-1">
                             <h4 class="text-2xl font-bold text-white mb-3">🔗 Visit the Live Dashboard</h4>
-                            <div class="font-mono bg-black/50 p-4 rounded text-lg mb-3">https://quantumpiforge.com</div>
+                            <a href="#enter" class="font-mono bg-black/50 p-4 rounded text-lg mb-3 block hover:text-white transition-all">https://quantumpiforge.com</a>
                             <p class="text-zinc-400 text-lg">Enter invite code <span class="text-orange-400 font-bold">onenoly11</span> to gain access</p>
                         </div>
                     </div>
@@ -471,7 +472,7 @@
     </section>
 
     <!-- PROOF STRIP - LIVE ON-CHAIN -->
-    <div style="display:flex; gap:24px; justify-content:center; flex-wrap:wrap; font-size:1.1rem; margin:40px 0;">
+    <div id="proof-strip" style="display:flex; gap:24px; justify-content:center; flex-wrap:wrap; font-size:1.1rem; margin:40px 0; scroll-margin-top:120px;">
       <div><strong>Liquidity:</strong> <span id="liquidity">$0</span> <span id="liquidity-change" style="color:#00ff9d"></span></div>
       <div><strong>Wallets connected:</strong> <span id="wallets">0</span></div>
       <div><strong>iNFTs minted:</strong> <span id="infts">47</span> <span style="font-size:0.8rem;opacity:0.6">(minting live)</span></div>
@@ -497,12 +498,12 @@
                     <p class="text-zinc-500 text-sm">Sovereign governance. Propose, vote, build.</p>
                 </a>
                 
-                <a href="#" class="p-6 border border-white/5 rounded-xl glow-card transition-all block bg-zinc-900/30">
+                <a href="#proof-strip" class="p-6 border border-white/5 rounded-xl glow-card transition-all block bg-zinc-900/30">
                     <h3 class="text-white font-bold mb-2 text-lg">💧 OINIO DEX</h3>
                     <p class="text-zinc-500 text-sm">Liquidity pools. Stake. Earn yield.</p>
                 </a>
                 
-                <a href="#" class="p-6 border border-white/5 rounded-xl glow-card transition-all block bg-zinc-900/30">
+                <a href="resonate.html" class="p-6 border border-white/5 rounded-xl glow-card transition-all block bg-zinc-900/30">
                     <h3 class="text-white font-bold mb-2 text-lg">🖼️ Mint iNFT</h3>
                     <p class="text-zinc-500 text-sm">Genesis Resonance collection. Live soon.</p>
                 </a>
@@ -518,9 +519,9 @@
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-zinc-600 text-sm">
             <div>Quantum Pi Forge Genesis</div>
             <div class="flex gap-6 mt-4 md:mt-0">
-                <a href="https://github.com/onenoly1010" class="hover:text-white transition-all">GitHub</a>
-                <a href="https://x.com/onenoly11" class="hover:text-white transition-all">X</a>
-                <a href="https://minepi.com/onenoly11" class="hover:text-white transition-all">Pi Network</a>
+                <a href="https://github.com/onenoly1010" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-all">GitHub</a>
+                <a href="https://x.com/onenoly11" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-all">X</a>
+                <a href="https://minepi.com/onenoly11" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-all">Pi Network</a>
             </div>
         </div>
     </footer>
@@ -650,9 +651,9 @@
     }
 
     /* 🌋 Signal Ledger v0.0.5 - 0G Aristotle Data Bridge */
-    const CONTRACT_ADDRESS = "0xAristotle11111111111111111111111111111";
+    const CONTRACT_ADDRESS = "";
     let signalLedgerCache = [];
-    let provider;
+    let signalProvider;
     let iface;
 
     const signalLedgerAbi = [
@@ -671,16 +672,18 @@
         }
     } catch(e) {}
 
-    if (typeof ethers === 'undefined') return;
+    if (typeof ethers === 'undefined' || !window.ethereum || !ethers.providers || !CONTRACT_ADDRESS) return;
     
-    provider = new ethers.providers.Web3Provider(window.ethereum);
+    signalProvider = new ethers.providers.Web3Provider(window.ethereum);
     iface = new ethers.utils.Interface(signalLedgerAbi);
     
     syncLedgerWithAristotle();
 }
 
     async function syncLedgerWithAristotle() {
-        const currentBlock = await provider.getBlockNumber();
+        if (!signalProvider) return;
+
+        const currentBlock = await signalProvider.getBlockNumber();
         
         const filter = {
             address: CONTRACT_ADDRESS,
@@ -688,7 +691,7 @@
         };
 
         // Backfill historical pulses
-        const logs = await provider.getLogs({
+        const logs = await signalProvider.getLogs({
             ...filter,
             fromBlock: currentBlock - 500,
             toBlock: "latest"
@@ -709,7 +712,7 @@
         renderSignalLedger();
 
         // Live heartbeat listener
-        provider.on(filter, (log) => {
+        signalProvider.on(filter, (log) => {
             const parsed = iface.parseLog(log);
             addNewSignalToLedger({
                 address: parsed.args.voter,
@@ -808,23 +811,102 @@ function addNewSignalToLedger(signal) {
 <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
 <script>
   const RPC = "https://evmrpc.0g.ai";
-  const provider = new ethers.providers.JsonRpcProvider(RPC);
+  const ARISTOTLE_CHAIN_ID = "0x4115";
+  const ARISTOTLE_NETWORK = {
+    chainId: ARISTOTLE_CHAIN_ID,
+    chainName: "0G Aristotle Mainnet",
+    nativeCurrency: { name: "0G", symbol: "0G", decimals: 18 },
+    rpcUrls: [RPC],
+    blockExplorerUrls: ["https://chainscan.0g.ai"]
+  };
+  const readProvider = new ethers.providers.JsonRpcProvider(RPC);
   const TOKEN = "0x07f43E5B1A8a0928B364E40d5885f81A543B05C7";
   const PAIR  = "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb5";
 
+  function setWalletStatus(message, tone = "muted") {
+    const status = document.getElementById("wallet-status");
+    if (!status) return;
+
+    const tones = {
+      muted: "text-zinc-500",
+      ok: "text-emerald-400",
+      warn: "text-orange-400",
+      error: "text-red-400"
+    };
+
+    status.className = `mt-6 text-sm font-mono ${tones[tone] || tones.muted}`;
+    status.textContent = message;
+  }
+
+  async function ensureAristotleNetwork() {
+    if (!window.ethereum) throw new Error("No browser wallet detected. Install MetaMask or another EVM wallet.");
+
+    const currentChainId = await window.ethereum.request({ method: "eth_chainId" });
+    if (currentChainId && currentChainId.toLowerCase() === ARISTOTLE_CHAIN_ID.toLowerCase()) return;
+
+    try {
+      await window.ethereum.request({
+        method: "wallet_switchEthereumChain",
+        params: [{ chainId: ARISTOTLE_CHAIN_ID }]
+      });
+    } catch (switchError) {
+      if (switchError.code !== 4902) throw switchError;
+
+      await window.ethereum.request({
+        method: "wallet_addEthereumChain",
+        params: [ARISTOTLE_NETWORK]
+      });
+    }
+  }
+
+  async function connectForgeWallet() {
+    const button = document.getElementById("connect-wallet-btn");
+
+    try {
+      if (button) {
+        button.disabled = true;
+        button.textContent = "Connecting...";
+      }
+
+      setWalletStatus("Opening wallet handshake...", "warn");
+      await ensureAristotleNetwork();
+
+      const walletProvider = new ethers.providers.Web3Provider(window.ethereum, "any");
+      await walletProvider.send("eth_requestAccounts", []);
+      const signer = walletProvider.getSigner();
+      const address = await signer.getAddress();
+      const balance = await walletProvider.getBalance(address);
+      const shortAddress = `${address.slice(0, 6)}...${address.slice(-4)}`;
+
+      if (button) button.textContent = `Connected: ${shortAddress}`;
+      setWalletStatus(`Connected on 0G Aristotle • ${ethers.utils.formatEther(balance).slice(0, 8)} 0G`, "ok");
+
+      localStorage.setItem("quantumPiForgeWallet", address);
+      document.getElementById("wallets").innerText = "1";
+    } catch (error) {
+      console.error("Wallet connection failed:", error);
+      if (button) button.textContent = "Connect Wallet";
+      setWalletStatus(error.message || "Wallet connection failed", "error");
+    } finally {
+      if (button) button.disabled = false;
+    }
+  }
+
+  window.connectForgeWallet = connectForgeWallet;
+
   async function updateLiveData() {
     try {
-      const block = await provider.getBlockNumber();
+      const block = await readProvider.getBlockNumber();
       document.getElementById("block").innerText = block.toLocaleString();
 
       // Total supply as fallback
-      const supplyHex = await provider.call({ to: TOKEN, data: "0x18160ddd" });
+      const supplyHex = await readProvider.call({ to: TOKEN, data: "0x18160ddd" });
       const supply = ethers.BigNumber.from(supplyHex).div("1000000000000000000").toString();
 
       // Reserves (if pair has liquidity)
       let totalDepth = "0";
       try {
-        const reservesHex = await provider.call({ to: PAIR, data: "0x0902f1ac" });
+        const reservesHex = await readProvider.call({ to: PAIR, data: "0x0902f1ac" });
         const reserve0 = ethers.BigNumber.from("0x" + reservesHex.slice(2, 66)).div("1000000000000000000");
         const reserve1 = ethers.BigNumber.from("0x" + reservesHex.slice(66, 130)).div("1000000000000000000");
         totalDepth = (reserve0.add(reserve1)).toString();

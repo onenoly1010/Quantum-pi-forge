@@ -67,6 +67,12 @@ Final pre-submission verification before May 12, 2026
 ### Question 5: Alignment with 0G
 > OINIO represents the first production protocol on 0G to achieve Hardened State status. Our design philosophy aligns perfectly with 0G's vision of maximum decentralization, mathematical guarantees, and long term economic sustainability.
 
+### Confirmed Tracking References
+- Guild Reference ID: `#789`
+- Hall topic URL: https://hall.0g.ai/t/oinio-protocol-hardened-state-on-0g-aristotle-mainnet-immutable-revenue-protocol-with-infinite-runway-at-10th-percentile-guild-on-0g-2-0-request-120k-cad/295/2
+- Earlier Hall post reference: https://hall.0g.ai/post/quantum-pi-forge-sovereign-agent-system
+- 0G Storage submission TxID: `0x35651c43292e7306c154bc70075dbed1ac02b0e012ef3f1efdd1f4427079baaa`
+
 ---
 
 ## 📌 POST SUBMISSION

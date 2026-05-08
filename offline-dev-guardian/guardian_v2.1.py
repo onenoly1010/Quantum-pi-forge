@@ -19,7 +19,7 @@ import requests
 # ---------- Configuration ----------
 CONFIG = {
     "ollama_url": "http://localhost:11434",
-    "model": "qwen2.5-coder:7b",          # will be overridden by auto-detect later
+    "model": "qwen2.5:0.5b",
     "canon_repo_path": str(Path.home() / "canon"),  # change to your actual path
     "check_interval_sec": 1800,           # 30 minutes
     "log_file": "guardian.log",
@@ -40,10 +40,10 @@ logging.getLogger().addHandler(console)
 def log_event(level: str, msg: str):
     getattr(logging, level.lower())(msg)
 
-def run_command(cmd: List[str], timeout: int = 30) -> Tuple[int, str, str]:
+def run_command(cmd: List[str], timeout: int = 30, cwd: Optional[Path] = None) -> Tuple[int, str, str]:
     """Run a shell command, return (returncode, stdout, stderr)."""
     try:
-        proc = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout)
+        proc = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout, cwd=cwd)
         return proc.returncode, proc.stdout.strip(), proc.stderr.strip()
     except subprocess.TimeoutExpired:
         return -1, "", "Command timed out"
@@ -84,6 +84,18 @@ def run_canon_health() -> Dict:
 
 def llm_classify(telemetry: Dict, canon_result: Dict) -> Dict:
     """Ask local LLM to classify system health."""
+    if not telemetry.get("ollama_running"):
+        return {"health": "degraded", "confidence": 0.9, "reason": "Ollama is not responding"}
+
+    if telemetry.get("cpu_percent", 0) >= 90:
+        return {"health": "critical", "confidence": 0.95, "reason": "CPU is saturated; skipping local inference"}
+
+    if telemetry.get("ram_available_gb", 0) < 1.0:
+        return {"health": "critical", "confidence": 0.95, "reason": "Available RAM is below 1 GiB; skipping local inference"}
+
+    if canon_result.get("status") == "error":
+        return {"health": "degraded", "confidence": 0.85, "reason": canon_result.get("reason", "Canon health check unavailable")}
+
     prompt = f"""You are a system health classifier. Based on the following data, output ONLY a JSON object with keys: "health" (one of: healthy, degraded, critical), "confidence" (0.0-1.0), "reason" (short sentence).
 
 Telemetry:
