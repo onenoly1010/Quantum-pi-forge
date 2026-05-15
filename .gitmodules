@@ -1,0 +1,3 @@
+[submodule "Quantum-pi-forge"]
+	path = Quantum-pi-forge
+	url = https://github.com/onenoly1010/pi-forge-quantum-genesis.git
