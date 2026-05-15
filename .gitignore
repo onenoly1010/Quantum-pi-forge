@@ -1,0 +1,4 @@
+OINIO_Forge/logs/
+OINIO_Forge/state/
+*.pid
+*.bak
