@@ -15,7 +15,6 @@ import sys
 import os
 import re
 import hashlib
-import yaml
 from pathlib import Path
 
 FORBIDDEN_PATTERNS = [
@@ -85,7 +84,7 @@ def calculate_canon_hash(canon_path: Path) -> str:
     
     return hasher.hexdigest()
 
-def verify_workflow_invariants() -> tuple[bool, list[str]]:
+def verify_workflow_invariants(canon_path: Path | None = None) -> tuple[bool, list[str]]:
     """Verify that the calling workflow itself adheres to state machine invariants"""
     failures = []
     
