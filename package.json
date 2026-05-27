@@ -14,5 +14,8 @@
     "ethers": "^6.16.0",
     "hardhat": "^3.4.5",
     "solc": "^0.8.34"
+  },
+  "devDependencies": {
+    "wrangler": "^4.95.0"
   }
 }
