@@ -466,8 +466,6 @@
                 displayFallbackMetrics();
                 return;
             }
-                return;
-            }
             let web3;
             let contract;
             
@@ -660,7 +658,20 @@
                 container.innerHTML = '<div class="alert alert-info"><span>No dApps yet. Click "Create New dApp" to get started!</span></div>';
                 return;
             }
-            container.innerHTML = dapps.map(dapp => '<div class="card" style="margin-bottom: 1rem;"><div class="card-header"><span class="card-title">' + dapp.name + '</span><span class="status-badge ' + (dapp.status === 'deployed' ? 'status-active' : 'status-warning') + '">' + dapp.status.toUpperCase() + '</span></div><p style="color: var(--text-secondary); margin-bottom: 1rem;">' + dapp.description + '</p><div style="display: flex; gap: 0.5rem;"><button class="btn btn-secondary" onclick="deployDapp('' + dapp.id + '', 'testnet')">Deploy Testnet</button><button class="btn btn-primary" onclick="deployDapp('' + dapp.id + '', 'mainnet')">Deploy Mainnet</button><button class="btn btn-secondary" onclick="auditDapp('' + dapp.id + '')">Audit</button></div></div>').join('');
+            container.innerHTML = dapps.map(dapp => `
+                <div class="card" style="margin-bottom: 1rem;">
+                    <div class="card-header">
+                        <span class="card-title">${dapp.name}</span>
+                        <span class="status-badge ${dapp.status === 'deployed' ? 'status-active' : 'status-warning'}">${String(dapp.status || '').toUpperCase()}</span>
+                    </div>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">${dapp.description || ''}</p>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <button class="btn btn-secondary" onclick="deployDapp('${dapp.id}', 'testnet')">Deploy Testnet</button>
+                        <button class="btn btn-primary" onclick="deployDapp('${dapp.id}', 'mainnet')">Deploy Mainnet</button>
+                        <button class="btn btn-secondary" onclick="auditDapp('${dapp.id}')">Audit</button>
+                    </div>
+                </div>
+            `).join('');
         }
 
         async function createDapp() {
@@ -712,7 +723,25 @@
                 container.innerHTML = '<div class="alert alert-info"><span>No active proposals. Be the first to create one!</span></div>';
                 return;
             }
-            container.innerHTML = proposals.map(p => '<div class="card" style="margin-bottom: 1rem;"><div class="card-header"><span class="card-title">' + p.title + '</span><span class="status-badge status-active">' + p.status.toUpperCase() + '</span></div><p style="color: var(--text-secondary); margin-bottom: 1rem;">' + p.description + '</p><div style="display: flex; gap: 1rem; margin-bottom: 1rem;"><span>For: ' + p.votes.for + '</span><span>Against: ' + p.votes.against + '</span><span>Abstain: ' + p.votes.abstain + '</span></div><div style="display: flex; gap: 0.5rem;"><button class="btn btn-success" onclick="vote('' + p.id + '', 'for')">Vote For</button><button class="btn btn-secondary" onclick="vote('' + p.id + '', 'against')">Vote Against</button><button class="btn btn-secondary" onclick="vote('' + p.id + '', 'abstain')">Abstain</button></div></div>').join('');
+            container.innerHTML = proposals.map(p => `
+                <div class="card" style="margin-bottom: 1rem;">
+                    <div class="card-header">
+                        <span class="card-title">${p.title}</span>
+                        <span class="status-badge status-active">${String(p.status || '').toUpperCase()}</span>
+                    </div>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">${p.description || ''}</p>
+                    <div style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+                        <span>For: ${p.votes?.for || 0}</span>
+                        <span>Against: ${p.votes?.against || 0}</span>
+                        <span>Abstain: ${p.votes?.abstain || 0}</span>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <button class="btn btn-success" onclick="vote('${p.id}', 'for')">Vote For</button>
+                        <button class="btn btn-secondary" onclick="vote('${p.id}', 'against')">Vote Against</button>
+                        <button class="btn btn-secondary" onclick="vote('${p.id}', 'abstain')">Abstain</button>
+                    </div>
+                </div>
+            `).join('');
         }
 
         async function createProposal() {
