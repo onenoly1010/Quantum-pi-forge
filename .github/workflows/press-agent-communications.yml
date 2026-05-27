@@ -1,0 +1,63 @@
+name: Press Agent Communications
+
+on:
+  workflow_dispatch:
+    inputs:
+      message:
+        description: "Message to dispatch through the Press Agent"
+        required: true
+        type: string
+
+  push:
+    branches:
+      - main
+    paths:
+      - "press-agent/**"
+      - ".github/workflows/press-agent-communications.yml"
+
+jobs:
+  verify-press-agent:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: press-agent
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+          cache-dependency-path: press-agent/package-lock.json
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Syntax check
+        run: |
+          node -c src/server.js
+          node -c src/dispatcher.js
+          node -c src/logger.js
+          node -c src/templates.js
+          node -c src/bots/discord.js
+          node -c src/bots/twitter.js
+          node -c src/bots/telegram.js
+
+      - name: Run health smoke check
+        run: |
+          npm start &
+          sleep 5
+          curl -f http://localhost:3001/health
+        env:
+          PORT: 3001
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
+          TWITTER_API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
+          TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          TWITTER_ACCESS_SECRET: ${{ secrets.TWITTER_ACCESS_SECRET }}
