@@ -1,8 +1,6 @@
 name: 🛡️ EPI Hermetic Audit Pipeline
 
 on:
-  push:
-    branches: [ main ]
   pull_request:
     paths:
       - 'EVIDENCE_BINDING_LAYER_EPI_v1.0_NORMALIZED.md'

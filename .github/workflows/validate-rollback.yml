@@ -26,9 +26,6 @@ on:
       - '.github/workflows/validate-rollback.yml'
       - 'tests/test_rollback_validation.py'
       - 'scripts/**'
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 permissions:

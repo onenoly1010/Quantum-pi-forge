@@ -8,8 +8,7 @@
 name: Production Deployment Pipeline
 
 on:
-  push:
-    branches: [ main ]
+  workflow_dispatch:
 
 # Minimum required permissions for this workflow
 permissions:
