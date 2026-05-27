@@ -4,14 +4,14 @@ pragma solidity =0.6.6;
 import '@uniswap/v2-core/contracts/interfaces/IUniswapV2Factory.sol';
 import '@uniswap/lib/contracts/libraries/TransferHelper.sol';
 
-import './interfaces/IUniswapV2Router02.sol';
+import './interfaces/IUniswapV2Router01.sol';
 import './libraries/UniswapV2Library.sol';
-import './libraries/SafeMath.sol';
+import './libraries/SafeMath06.sol';
 import './interfaces/IERC20.sol';
 import './interfaces/IWETH.sol';
 
-contract UniswapV2Router02 is IUniswapV2Router02 {
-    using SafeMath for uint;
+contract UniswapV2Router02 is IUniswapV2Router01 {
+    using SafeMath06 for uint;
 
     address public immutable override factory;
     address public immutable override WETH;

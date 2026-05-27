@@ -1,12 +1,11 @@
 // SPDX-License-Identifier: GPL-3.0
-pragma solidity ^0.8.24;
+pragma solidity =0.6.6;
 
-import '../UniswapV2Pair.sol';
 import '../interfaces/IUniswapV2Pair.sol';
-import "./SafeMath.sol";
+import "./SafeMath06.sol";
 
 library UniswapV2Library {
-    using SafeMath for uint;
+    using SafeMath06 for uint;
 
     // returns sorted token addresses, used to handle return values from pairs sorted in this order
     function sortTokens(address tokenA, address tokenB) internal pure returns (address token0, address token1) {
@@ -19,11 +18,11 @@ library UniswapV2Library {
     function pairFor(address factory, address tokenA, address tokenB) internal pure returns (address pair) {
         (address token0, address token1) = sortTokens(tokenA, tokenB);
         pair = address(uint160(uint(keccak256(abi.encodePacked(
-                hex'ff',
-                factory,
-                keccak256(abi.encodePacked(token0, token1)),
-                keccak256(type(UniswapV2Pair).creationCode) // Path A: Dynamically computed hash
-            ))));
+            hex'ff',
+            factory,
+            keccak256(abi.encodePacked(token0, token1)),
+            hex'96e8ac4277198ff8b6f785478aa9a39f403cb768dd02b8f06d4eeefc4fbcb6ba'
+        )))));
     }
 
     // fetches and sorts the reserves for a pair

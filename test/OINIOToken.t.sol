@@ -2,7 +2,7 @@
 pragma solidity ^0.8.20;
 
 import "forge-std/Test.sol";
-import "../src/OINIOToken.sol";
+import "../contracts/src/OINIOToken.sol";
 
 contract OINIOTokenTest is Test {
     OINIOToken public token;
