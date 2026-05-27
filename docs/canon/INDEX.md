@@ -39,3 +39,9 @@ This is a claim, not a fact.
 Claim: This document records that router-void mitigation evidence is path-specific and must not be claimed globally across all router implementations.
 
 This is a claim, not a fact.
+
+### evidence/grant/grant-production-boundary.md
+
+Claim: This document records the boundary for production 0G Aristotle grant artifacts and prevents grant-facing claims from being treated as execution truth without independent verification.
+
+This is a claim, not a fact.
