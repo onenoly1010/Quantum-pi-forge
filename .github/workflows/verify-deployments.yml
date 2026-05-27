@@ -111,18 +111,18 @@ jobs:
               const emoji = summary.summary.failed === 0 ? '🎉' : '⚠️';
               
               const comment = `## ${emoji} Deployment Verification Report
-              
-**Status:** ${status}
-**Network:** ${{ inputs.network }}
 
-### Summary
-- **Total Verifications:** ${summary.summary.total}
-- **Successful:** ${summary.summary.successful} ✓
-- **Failed:** ${summary.summary.failed} ✗
+              **Status:** ${status}
+              **Network:** ${{ inputs.network }}
 
-**Timestamp:** ${summary.timestamp}
+              ### Summary
+              - **Total Verifications:** ${summary.summary.total}
+              - **Successful:** ${summary.summary.successful} ✓
+              - **Failed:** ${summary.summary.failed} ✗
 
-[View detailed reports in artifacts](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+              **Timestamp:** ${summary.timestamp}
+
+              [View detailed reports in artifacts](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
               `;
               
               github.rest.issues.createComment({

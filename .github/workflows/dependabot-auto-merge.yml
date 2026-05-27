@@ -15,7 +15,14 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
+      - name: Skip non-Dependabot PRs
+        if: github.actor != 'dependabot[bot]'
+        run: |
+          echo "Not a Dependabot PR; auto-merge gate is not applicable."
+          echo "Actor: ${{ github.actor }}"
+
       - name: Validate REPO_MERGE_TOKEN secret
+        if: github.actor == 'dependabot[bot]'
         env:
           REPO_MERGE_TOKEN: ${{ secrets.REPO_MERGE_TOKEN }}
         run: |
@@ -28,17 +35,21 @@ jobs:
           fi
 
       - name: Checkout (for local script logging only)
+        if: github.actor == 'dependabot[bot]'
         uses: actions/checkout@v4
 
       - name: Set up Python
+        if: github.actor == 'dependabot[bot]'
         uses: actions/setup-python@v4
         with:
           python-version: "3.10"
 
       - name: Install dependencies
+        if: github.actor == 'dependabot[bot]'
         run: python -m pip install --upgrade pip && pip install -r .github/scripts/requirements.txt
 
       - name: Run Dependabot auto-merge gate
+        if: github.actor == 'dependabot[bot]'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
