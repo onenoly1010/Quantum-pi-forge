@@ -106,7 +106,7 @@ jobs:
 
   gate4-conflict:
     name: Gate 4 - Conflict Detection
-    needs: [gate1-classification, gate3-approval]
+    needs: [gate1-classification, gate3-policy-evaluation]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
