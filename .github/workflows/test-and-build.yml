@@ -20,7 +20,7 @@ permissions:
 jobs:
   lint-and-test:
     name: Lint and Test
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -51,7 +51,7 @@ jobs:
 
   build-and-package:
     name: Build and Package
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: lint-and-test
     steps:
       - name: Checkout repository
@@ -223,7 +223,7 @@ jobs:
 
   health-check:
     name: API Health Check
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: lint-and-test
     steps:
       - name: Checkout repository
