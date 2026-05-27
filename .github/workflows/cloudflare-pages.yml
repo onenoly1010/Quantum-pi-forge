@@ -8,9 +8,9 @@ on:
     branches:
       - main
       - quantum-pi-forge-fixed
-  pull_request:
-    branches:
-      - main
+  # PR deploy previews are disabled by default because repository secrets are not
+  # always available to pull_request workflows. Build validation remains in
+  # cloudflare-pages-status.yml.
 
 env:
   # Node.js version
@@ -70,14 +70,8 @@ jobs:
           branch: main
 
       - name: Deploy preview to Cloudflare Pages
-        if: github.event_name == 'pull_request'
-        uses: cloudflare/pages-action@v1
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: ${{ secrets.CLOUDFLARE_PAGES_PROJECT }}
-          directory: .next
-          branch: preview-${{ github.event.pull_request.number }}
+        if: false
+        run: echo "Cloudflare preview deploy disabled for PR safety."
 
   # Optional: Add audit job using local agent
   audit:
