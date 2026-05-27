@@ -21,3 +21,15 @@ This is a claim, not a fact.
 Claim: This document records the boundary for the historical 0G node installer evidence.
 
 This is a claim, not a fact.
+
+### evidence/0g-storage-upload-command.md
+
+Claim: This document records the boundary for historical 0G Storage upload command evidence.
+
+This is a claim, not a fact.
+
+### evidence/0g-router-void-fix.md
+
+Claim: This document records the boundary for historical router-zero-address mitigation evidence.
+
+This is a claim, not a fact.
