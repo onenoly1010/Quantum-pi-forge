@@ -1,0 +1,1 @@
+# No Python dependencies required for Cloudflare Pages static build.
