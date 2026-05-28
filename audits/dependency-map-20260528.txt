@@ -1,0 +1,556 @@
+# Quantum Pi Forge Dependency Map — 2026-05-28T13:15:19-06:00
+
+## Git state
+?? DEPLOYMENT_RECOVERY_CHECKPOINT_20260528.md
+?? audits/
+main
+4488bed (HEAD -> main, origin/main, origin/HEAD) Reduce automatic Actions billing risk (#70)
+d8741ae Publish guardian runner in Pages output
+e4a2e3e Add deployment checkpoint documentation
+e0edc46 Reduce noisy legacy workflows on main pushes
+860f783 Align Cloudflare Pages deploy workflow with static output
+3687acc Apply safe npm audit lockfile updates (#69)
+754cba7 Fix production dashboard inline JavaScript syntax
+87bae20 Remove tracked zero-byte root junk files
+
+## Public Cloudflare endpoints
+
+### https://quantumpiforge.pages.dev
+HTTP/2 200 
+date: Thu, 28 May 2026 19:15:23 GMT
+content-type: text/html; charset=utf-8
+access-control-allow-origin: *
+cache-control: public, max-age=0, must-revalidate
+referrer-policy: strict-origin-when-cross-origin
+x-content-type-options: nosniff
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=yQgkvSO95726Nek%2Bzo2pO7RCqcm5%2FX1ijLJ8FRuxCJfTvcwMRXSV50q%2FROeqhRr4jO75B%2B%2BSakgE0OH%2FZomn%2FqNiwFYSnrhBByOPiAjB%2BHbvCHBtyQuSCX6jaLW7qBFvQGQH%2B4Sl1iaHA%2B8%3D"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+server: cloudflare
+cf-ray: a02f96752ce2799f-DEN
+alt-svc: h3=":443"; ma=86400
+
+
+### https://quantumpiforge.com
+HTTP/2 200 
+date: Thu, 28 May 2026 19:15:24 GMT
+content-type: text/html; charset=utf-8
+access-control-allow-origin: *
+cache-control: public, max-age=0, must-revalidate
+referrer-policy: strict-origin-when-cross-origin
+x-content-type-options: nosniff
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=YSkVX1Y%2FfA6uDP4BJr4WENeIs3kEcNTgQz7jdk17h%2BjuGO5a0HKz0aewin488IVGJ2DuFcczDsPhIs%2Bdlj7qGey37h%2F1FPHsqibHmsABfU6kwPfldx8N6SHP1HzrdRMEUI2b8qk%3D"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+server: cloudflare
+cf-cache-status: DYNAMIC
+speculation-rules: "/cdn-cgi/speculation"
+cf-ray: a02f967aed925209-DEN
+alt-svc: h3=":443"; ma=86400
+
+
+### https://www.quantumpiforge.com
+HTTP/2 200 
+date: Thu, 28 May 2026 19:15:24 GMT
+content-type: text/html; charset=utf-8
+access-control-allow-origin: *
+cache-control: public, max-age=0, must-revalidate
+referrer-policy: strict-origin-when-cross-origin
+x-content-type-options: nosniff
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=8kQZkRiSidfFceFoQzUu8IPg5em%2BphSiBNc0IfzDcPA4Za2VZTcGlNmIZLSlMGruURNkM7OhixI4p9%2FmszRpwgsdVDSEVobZJLQEYQF0nwenznZdSQJkUBH2uMdOEoMx8tQ0xJg9%2BfWp"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+server: cloudflare
+cf-cache-status: DYNAMIC
+speculation-rules: "/cdn-cgi/speculation"
+cf-ray: a02f9680697b2c1a-DEN
+alt-svc: h3=":443"; ma=86400
+
+
+### https://quantumpiforge.com/run-guardian.sh
+HTTP/2 200 
+date: Thu, 28 May 2026 19:15:25 GMT
+content-type: application/x-sh
+access-control-allow-origin: *
+cache-control: public, max-age=0, must-revalidate
+etag: "7c34e76f386adf7b1686339d8afac57a"
+referrer-policy: strict-origin-when-cross-origin
+x-content-type-options: nosniff
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=SPpoF7ROCDTMSgE%2FpeQa2wpz2gyqMy38asjq8CdgLMWH93Jt1rujUis68OgSbXEJ%2FforKn2KHIE7%2FINqEOmX2E%2BuedZj4OE5cwML9ytQQ5SDnowF5dj7zY2WsfDB%2B%2BzoObv7%2FHM%3D"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+server: cloudflare
+cf-cache-status: DYNAMIC
+speculation-rules: "/cdn-cgi/speculation"
+cf-ray: a02f9683df17638c-DEN
+alt-svc: h3=":443"; ma=86400
+
+
+## Local Node/Wrangler
+/home/kris/.nvm/versions/node/v22.22.3/bin/node
+v22.22.3
+/home/kris/.nvm/versions/node/v22.22.3/bin/npm
+10.9.8
+4.95.0
+
+## Package scripts
+{
+  "build": "node scripts/build.js",
+  "build:cf": "node scripts/build.js",
+  "serve:deploy": "python3 -m http.server 8100 --directory out",
+  "deploy:cf": "wrangler pages deploy out --project-name quantumpiforge"
+}
+
+## Cloudflare-related files
+./deploy/_headers
+./event-hub/wrangler.toml
+./_headers
+./out/_headers
+./out/_redirects
+./soul-core/wrangler.toml
+./workers/wrangler.toml
+./wrangler.toml
+
+## Deploy/build files
+deploy/dao.html
+deploy/FORGE_ACTIVATION_GUIDE.md
+deploy/_headers
+deploy/index.html
+deploy/manifest.json
+deploy/resonate.html
+frontend/example.html
+frontend/index.html
+frontend/pi-forge-integration.js
+frontend/production_dashboard.html
+frontend/README.md
+frontend/src/App.css
+frontend/src/App.tsx
+frontend/src/index.css
+frontend/src/main.tsx
+frontend/styles.css
+out/ceremonial_interface.html
+out/dao.html
+out/frontend/example.html
+out/frontend/index.html
+out/frontend/pi-forge-integration.js
+out/frontend/production_dashboard.html
+out/frontend/README.md
+out/frontend/src/App.css
+out/frontend/src/App.tsx
+out/frontend/src/index.css
+out/frontend/src/main.tsx
+out/frontend/styles.css
+out/_headers
+out/index.html
+out/manifest.json
+out/pi-forge-integration.js
+out/_redirects
+out/resonate.html
+out/run-guardian.sh
+out/spectral_command_shell.html
+out/version.json
+public/version.json
+
+## Systemd user services
+  gcr-ssh-agent.service                 loaded    inactive dead    GCR ssh-agent wrapper
+  gpg-agent.service                     loaded    active   running GnuPG cryptographic agent and passphrase cache
+  gvfs-afc-volume-monitor.service       loaded    active   running Virtual filesystem service - Apple File Conduit monitor
+  gvfs-goa-volume-monitor.service       loaded    active   running Virtual filesystem service - GNOME Online Accounts monitor
+  gvfs-gphoto2-volume-monitor.service   loaded    active   running Virtual filesystem service - digital camera monitor
+  gvfs-mtp-volume-monitor.service       loaded    active   running Virtual filesystem service - Media Transfer Protocol monitor
+  gvfs-udisks2-volume-monitor.service   loaded    active   running Virtual filesystem service - disk device monitor
+
+app-geoclue\x2ddemo\x2dagent@autostart.service                        generated -
+app-polkit\x2dgnome\x2dauthentication\x2dagent\x2d1@autostart.service generated -
+forge-guardian.service                                                disabled  enabled
+gcr-ssh-agent.service                                                 enabled   enabled
+gpg-agent.service                                                     static    -
+gvfs-afc-volume-monitor.service                                       static    -
+gvfs-goa-volume-monitor.service                                       static    -
+gvfs-gphoto2-volume-monitor.service                                   static    -
+gvfs-mtp-volume-monitor.service                                       static    -
+gvfs-udisks2-volume-monitor.service                                   static    -
+ssh-agent.service                                                     static    -
+gcr-ssh-agent.socket                                                  enabled   enabled
+gpg-agent-browser.socket                                              enabled   enabled
+gpg-agent-extra.socket                                                enabled   enabled
+gpg-agent-ssh.socket                                                  enabled   enabled
+gpg-agent.socket                                                      enabled   enabled
+
+## Guardian service status
+○ forge-guardian.service - OINIO Quantum Pi Forge Guardian — Sovereign Autonomous Steward
+     Loaded: loaded (/home/kris/.config/systemd/user/forge-guardian.service; disabled; preset: enabled)
+    Drop-In: /home/kris/.config/systemd/user/forge-guardian.service.d
+             └─override.conf
+     Active: inactive (dead)
+
+May 28 12:48:44 quantum-pi-forge systemd[4051]: forge-guardian.service: Main process exited, code=exited, status=2/INVALIDARGUMENT
+May 28 12:48:44 quantum-pi-forge systemd[4051]: forge-guardian.service: Failed with result 'exit-code'.
+May 28 12:48:44 quantum-pi-forge systemd[4051]: forge-guardian.service: Consumed 3.462s CPU time.
+May 28 12:49:44 quantum-pi-forge systemd[4051]: forge-guardian.service: Scheduled restart job, restart counter is at 2191.
+May 28 12:49:44 quantum-pi-forge systemd[4051]: Started forge-guardian.service - OINIO Quantum Pi Forge Guardian — Sovereign Autonomous Steward.
+May 28 12:49:50 quantum-pi-forge systemd[4051]: forge-guardian.service: Main process exited, code=exited, status=2/INVALIDARGUMENT
+May 28 12:49:50 quantum-pi-forge systemd[4051]: forge-guardian.service: Failed with result 'exit-code'.
+May 28 12:49:50 quantum-pi-forge systemd[4051]: forge-guardian.service: Consumed 3.490s CPU time.
+May 28 12:49:51 quantum-pi-forge systemd[4051]: Stopped forge-guardian.service - OINIO Quantum Pi Forge Guardian — Sovereign Autonomous Steward.
+May 28 12:49:51 quantum-pi-forge systemd[4051]: forge-guardian.service: Consumed 3.490s CPU time.
+
+## Ollama state
+NAME                    ID              SIZE      MODIFIED     
+qwen2.5-coder:latest    dae161e27b0e    4.7 GB    21 hours ago    
+qwen2.5:0.5b            a8b0c5157701    397 MB    41 hours ago    
+
+NAME    ID    SIZE    PROCESSOR    CONTEXT    UNTIL 
+
+{
+    "models": [
+        {
+            "name": "qwen2.5-coder:latest",
+            "model": "qwen2.5-coder:latest",
+            "modified_at": "2026-05-27T16:03:51.550569531-06:00",
+            "size": 4683087561,
+            "digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+            "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen2",
+                "families": [
+                    "qwen2"
+                ],
+                "parameter_size": "7.6B",
+                "quantization_level": "Q4_K_M"
+            }
+        },
+        {
+            "name": "qwen2.5:0.5b",
+            "model": "qwen2.5:0.5b",
+            "modified_at": "2026-05-26T20:10:35.107113874-06:00",
+            "size": 397821319,
+            "digest": "a8b0c51577010a279d933d14c2a8ab4b268079d44c5c8830c0a93900f1827c67",
+            "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "qwen2",
+                "families": [
+                    "qwen2"
+                ],
+                "parameter_size": "494.03M",
+                "quantization_level": "Q4_K_M"
+            }
+        }
+    ]
+}
+
+## Active pressure
+    PID    PPID CMD                         %CPU %MEM
+1013726 1013499 ps -eo pid,ppid,cmd,%cpu,%m 42.8  0.0
+ 168071    5253 /usr/lib/firefox/firefox     9.5  5.7
+  27337    5298 xfce4-taskmanager            8.7  0.3
+ 168417  168191 /usr/lib/firefox/firefox-bi  8.4 20.6
+   1355    1327 /usr/lib/xorg/Xorg -core :0  5.7  0.5
+ 713239  168191 /usr/lib/firefox/firefox-bi  5.2 10.5
+   5210    4400 xfwm4                        1.8  0.2
+   2892    2868 redis-server *:6379          1.1  0.0
+ 168620  168191 /usr/lib/firefox/firefox-bi  0.7  2.1
+   5291       1 mintreport-tray              0.6  0.2
+      1       0 /sbin/init splash            0.4  0.1
+   5253    4400 xfce4-panel                  0.3  0.3
+ 996082  168191 /usr/lib/firefox/firefox-bi  0.3  2.6
+ 168254  168191 /usr/lib/firefox/firefox-bi  0.2  2.1
+     15       2 [rcu_preempt]                0.2  0.0
+     40       2 [kcompactd0]                 0.2  0.0
+1011261       2 [kworker/u16:3-gfx]          0.2  0.0
+ 100998   76613 ollama serve                 0.2  0.2
+   1050       1 @dbus-daemon --system --add  0.1  0.0
+   7001    4051 /usr/libexec/xdg-desktop-po  0.1  0.3
+   1334       1 /usr/bin/containerd          0.1  0.2
+ 734693       1 /usr/lib/systemd/systemd-jo  0.1  0.7
+1013361    4051 /usr/lib/x86_64-linux-gnu/x  0.1  0.0
+   1471       1 /usr/bin/dockerd -H fd:// -  0.1  0.4
+   2868       1 /usr/bin/containerd-shim-ru  0.1  0.1
+     57       2 [kswapd0]                    0.1  0.0
+1012664       2 [kworker/u16:0-sdma0]        0.1  0.0
+ 965301       2 [kworker/u16:1-gfx]          0.0  0.0
+1010345  168191 /usr/lib/firefox/firefox-bi  0.0  0.9
+  76287    5253 xfce4-terminal               0.0  0.6
+1011520       2 [kworker/u18:3-events_unbou  0.0  0.0
+   1252       1 /usr/sbin/preload -s /var/l  0.0  0.1
+    113       2 [kworker/1:1H-acpi_thermal_  0.0  0.0
+     56       2 [kworker/0:1H-kblockd]       0.0  0.0
+
+## Local ports
+State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess                            
+LISTEN 0      4096       127.0.0.1:631        0.0.0.0:*                                      
+LISTEN 0      4096      127.0.0.54:53         0.0.0.0:*                                      
+LISTEN 0      4096       127.0.0.1:11434      0.0.0.0:*    users:(("ollama",pid=100998,fd=4))
+LISTEN 0      4096   127.0.0.53%lo:53         0.0.0.0:*                                      
+LISTEN 0      4096       127.0.0.1:39573      0.0.0.0:*                                      
+LISTEN 0      4096       127.0.0.1:6379       0.0.0.0:*                                      
+LISTEN 0      4096           [::1]:631           [::]:*                                      
+
+## Environment files present, names only
+./contracts/0g-uniswap-v2/.env.example
+./contracts/.env.example
+./.env.example
+./.env.launch.example
+./.env.verification.example
+./ledger-api/.env.example
+./pi-forge-quantum-genesis/contracts/0g-uniswap-v2/.env.example
+./pi-forge-quantum-genesis/contracts/.env.example
+./pi-forge-quantum-genesis/contracts/.env.template
+./pi-forge-quantum-genesis/.env.example
+./pi-forge-quantum-genesis/.env.generated
+./pi-forge-quantum-genesis/.env.launch.example
+./pi-forge-quantum-genesis/.env.render.example
+./pi-forge-quantum-genesis/.env.verification.example
+./pi-forge-quantum-genesis/ledger-api/.env.example
+./pi-forge-quantum-genesis/press-agent/.env.example
+./press-agent/.env
+./press-agent/.env.example
+./server/pi-forge-quantum-genesis/contracts/.env.example
+./server/pi-forge-quantum-genesis/contracts/.env.template
+./server/pi-forge-quantum-genesis/.env.example
+./server/pi-forge-quantum-genesis/.env.generated
+./server/pi-forge-quantum-genesis/.env.launch.example
+./server/pi-forge-quantum-genesis/.env.render.example
+./server/pi-forge-quantum-genesis/.env.verification.example
+./server/pi-forge-quantum-genesis/ledger-api/.env.example
+./server/pi-forge-quantum-genesis/press-agent/.env.example
+
+## Platform config hints
+package.json:7:    "deploy:cf": "wrangler pages deploy out --project-name quantumpiforge"
+package.json:19:    "@storacha/cli": "^3.0.1",
+package.json:20:    "@storacha/client": "^2.1.4",
+package.json:23:    "wrangler": "^4.95.0"
+.github/BRANCH_PROTECTION_SUMMARY.md:11:1. **`.github/branch-protection-config.json`**
+.github/BRANCH_PROTECTION_SUMMARY.md:16:2. **`.github/CODEOWNERS`**
+.github/BRANCH_PROTECTION_SUMMARY.md:21:3. **`.github/BRANCH_PROTECTION.md`**
+.github/BRANCH_PROTECTION_SUMMARY.md:27:4. **`.github/BRANCH_PROTECTION_QUICKSTART.md`**
+.github/BRANCH_PROTECTION_SUMMARY.md:34:1. **`.github/scripts/setup-branch-protection.sh`** (Bash)
+.github/BRANCH_PROTECTION_SUMMARY.md:39:2. **`.github/scripts/setup-branch-protection.ps1`** (PowerShell)
+.github/BRANCH_PROTECTION_SUMMARY.md:44:3. **`.github/workflows/apply-branch-protection.yml`** (GitHub Actions)
+.github/BRANCH_PROTECTION_SUMMARY.md:101:./.github/scripts/setup-branch-protection.sh
+.github/BRANCH_PROTECTION_SUMMARY.md:104:.\.github\scripts\setup-branch-protection.ps1
+.github/BRANCH_PROTECTION_SUMMARY.md:109:See [BRANCH_PROTECTION_QUICKSTART.md](.github/BRANCH_PROTECTION_QUICKSTART.md) for detailed instructions.
+.github/BRANCH_PROTECTION_SUMMARY.md:114:https://github.com/onenoly1010/pi-forge-quantum-genesis/settings/branch_protection_rules
+.github/BRANCH_PROTECTION_SUMMARY.md:152:.github/
+.github/BRANCH_PROTECTION_SUMMARY.md:169:- [Branch Protection Rules - GitHub Docs](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)
+.github/BRANCH_PROTECTION_SUMMARY.md:170:- [CODEOWNERS - GitHub Docs](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners)
+.github/BRANCH_PROTECTION_SUMMARY.md:171:- [Required Status Checks - GitHub Docs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)
+.github/BRANCH_PROTECTION_SUMMARY.md:189:See the troubleshooting section in [BRANCH_PROTECTION.md](.github/BRANCH_PROTECTION.md) or open an issue.
+.github/branch-protection-config.json:72:      "description": "Create .github/CODEOWNERS file for automatic reviewer assignment",
+.github/branch-protection-config.json:73:      "path": ".github/CODEOWNERS"
+.github/branch-protection-config.json:76:  "github_api_endpoint": {
+.github/branch-protection-config.json:77:    "url": "https://api.github.com/repos/{OWNER}/{REPO}/branches/main/protection",
+.github/branch-protection-config.json:83:    "1. Navigate to: https://github.com/{OWNER}/{REPO}/settings/branches (replace with your repository)",
+.github/CODEOWNERS:13:/.github/workflows/ @onenoly1010
+.github/CODEOWNERS:14:/.github/config/ @onenoly1010
+.github/CODEOWNERS:15:/.github/scripts/ @onenoly1010
+.github/CODEOWNERS:19:railway.toml @onenoly1010
+.github/CODEOWNERS:20:vercel.json @onenoly1010
+.github/ISSUE_TEMPLATE/guardian-decision-template.md:107:- [Guardian HQ - Issue #100](https://github.com/onenoly1010/pi-forge-quantum-genesis/issues/100)
+.github/BRANCH_PROTECTION_QUICKSTART.md:14:./.github/scripts/setup-branch-protection.sh
+.github/BRANCH_PROTECTION_QUICKSTART.md:20:.\.github\scripts\setup-branch-protection.ps1
+.github/BRANCH_PROTECTION_QUICKSTART.md:25:1. Go to the **Actions** tab in GitHub: https://github.com/onenoly1010/pi-forge-quantum-genesis/actions
+.github/BRANCH_PROTECTION_QUICKSTART.md:74:  -H "Accept: application/vnd.github+json" \
+.github/BRANCH_PROTECTION_QUICKSTART.md:82:1. **Navigate to settings**: https://github.com/onenoly1010/pi-forge-quantum-genesis/settings/branches
+.github/BRANCH_PROTECTION_QUICKSTART.md:105:Visit: https://github.com/onenoly1010/pi-forge-quantum-genesis/settings/branch_protection_rules
+.github/BRANCH_PROTECTION_QUICKSTART.md:110:  -H "Accept: application/vnd.github+json" \
+.github/BRANCH_PROTECTION_QUICKSTART.md:148:- **Full Documentation**: [BRANCH_PROTECTION.md](.github/BRANCH_PROTECTION.md)
+.github/BRANCH_PROTECTION_QUICKSTART.md:149:- **Configuration File**: [branch-protection-config.json](.github/branch-protection-config.json)
+.github/BRANCH_PROTECTION_QUICKSTART.md:150:- **Code Owners**: [CODEOWNERS](.github/CODEOWNERS)
+.github/BRANCH_PROTECTION_QUICKSTART.md:151:- **GitHub Docs**: [Branch Protection Rules](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)
+.github/BRANCH_PROTECTION_QUICKSTART.md:156:Install GitHub CLI: https://cli.github.com/
+.github/BRANCH_PROTECTION_QUICKSTART.md:165:See the full documentation in [BRANCH_PROTECTION.md](.github/BRANCH_PROTECTION.md) for detailed troubleshooting steps.
+.github/config/canon-merge-rules.json:31:      "github_teams": ["canon-stewards"],
+.github/config/canon-merge-rules.json:36:      "github_teams": ["canon-curators"],
+.github/config/canon-merge-rules.json:41:      "github_teams": ["contributors"],
+.github/config/canon-merge-rules.json:46:      "github_users": ["oinio-bot"],
+.github/scripts/check-conflicts.py:151:    config_path = Path('.github/config/canon-merge-rules.json')
+.github/scripts/dependabot_auto_merge.py:26:GITHUB_API_URL = "https://api.github.com"
+.github/scripts/dependabot_auto_merge.py:30:def get_github_token() -> str:
+.github/scripts/dependabot_auto_merge.py:39:def github_request(
+.github/scripts/dependabot_auto_merge.py:50:        "Accept": "application/vnd.github+json",
+.github/scripts/dependabot_auto_merge.py:61:    response = github_request("GET", f"/repos/{repo}/pulls/{pr_number}", token)
+.github/scripts/dependabot_auto_merge.py:84:    locations = [".github/CODEOWNERS", "CODEOWNERS", "docs/CODEOWNERS"]
+.github/scripts/dependabot_auto_merge.py:87:        response = github_request(
+.github/scripts/dependabot_auto_merge.py:169:        response = github_request(
+.github/scripts/dependabot_auto_merge.py:216:        response = github_request(
+.github/scripts/dependabot_auto_merge.py:267:        response = github_request(
+.github/scripts/dependabot_auto_merge.py:352:    response = github_request(
+.github/scripts/dependabot_auto_merge.py:387:    token = get_github_token()
+.github/scripts/setup-branch-protection.sh:66:    echo "  1. Install GitHub CLI: https://cli.github.com/"
+.github/scripts/setup-branch-protection.sh:71:    echo "  1. Create a token at: https://github.com/settings/tokens"
+.github/scripts/setup-branch-protection.sh:77:    echo "  1. Go to: https://github.com/$REPO/settings/branches"
+.github/scripts/setup-branch-protection.sh:78:    echo "  2. Follow the steps in: .github/branch-protection-config.json"
+.github/scripts/setup-branch-protection.sh:129:        -H "Accept: application/vnd.github+json" \
+.github/scripts/setup-branch-protection.sh:143:        -H "Accept: application/vnd.github+json" \
+.github/scripts/setup-branch-protection.sh:146:        "https://api.github.com/repos/$REPO/branches/$BRANCH/protection" \
+.github/scripts/setup-branch-protection.sh:188:echo "To verify, visit: https://github.com/$REPO/settings/branch_protection_rules"
+.github/scripts/setup-branch-protection.ps1:71:    Write-Host "  1. Install GitHub CLI: https://cli.github.com/"
+.github/scripts/setup-branch-protection.ps1:76:    Write-Host "  1. Create a token at: https://github.com/settings/tokens"
+.github/scripts/setup-branch-protection.ps1:82:    Write-Host "  1. Go to: https://github.com/$REPO/settings/branches"
+.github/scripts/setup-branch-protection.ps1:83:    Write-Host "  2. Follow the steps in: .github\branch-protection-config.json"
+.github/scripts/setup-branch-protection.ps1:133:        -H "Accept: application/vnd.github+json" `
+.github/scripts/setup-branch-protection.ps1:153:        "Accept" = "application/vnd.github+json"
+.github/scripts/setup-branch-protection.ps1:160:            -Uri "https://api.github.com/repos/$REPO/branches/$BRANCH/protection" `
+.github/scripts/setup-branch-protection.ps1:200:Write-Host "To verify, visit: https://github.com/$REPO/settings/branch_protection_rules" -ForegroundColor Cyan
+.github/scripts/draft_lint_repair.py:7:    python .github/scripts/draft_lint_repair.py --target-file path/to/file.py --task "Add X feature while preserving invariants"
+.github/scripts/draft_lint_repair.py:92:        lint_code, lint_out, lint_err = run_command(f"python3 .github/scripts/semantic_lint.py {tmp_path}")
+.github/workflows/cloudflare-pages.yml:19:      - 'wrangler.toml'
+.github/workflows/cloudflare-pages.yml:20:      - '.github/workflows/cloudflare-pages.yml'
+.github/workflows/cloudflare-pages.yml:50:          DEPLOY_TARGET: cloudflare-pages
+.github/workflows/cloudflare-pages.yml:60:        uses: cloudflare/pages-action@v1
+.github/workflows/auto-fix-fastapi.yml:28:          git config user.name "github-actions[bot]"
+.github/workflows/auto-fix-fastapi.yml:29:          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+.github/workflows/auto-fix-fastapi.yml:61:            See failing CI job: https://github.com/onenoly1010/pi-forge-quantum-genesis/actions/runs/19921783065/job/57123443495 (ref: 30cd602663b76ed33c42b5270e771e6307b4c1af)
+.github/workflows/mandala-fire.yml:35:          RESONANCE_LEVEL: ${{ github.event.inputs.resonance_level }}
+.github/workflows/mandala-fire.yml:38:          node .scripts/mandala-pulse.js "${{ github.event.inputs.resonance_level }}"
+.github/workflows/release-on-merge.yml:60:          cp railway.toml build/pi-studio/ || true
+.github/workflows/release-on-merge.yml:61:          cp railway.json build/pi-studio/ || true
+.github/workflows/release-on-merge.yml:62:          cp vercel.json build/pi-studio/ || true
+.github/workflows/_canon-state-contract.yml:46:            "job_id": "${{ github.run_id }}",
+.github/workflows/_canon-state-contract.yml:48:            "duration_ms": ${{ github.run_attempt }}
+.github/workflows/_canon-state-contract.yml:106:            "verifier_commit_sha": "${{ github.sha }}",
+.github/workflows/_canon-state-contract.yml:173:                run_id: "${{ github.run_id }}",
+.github/workflows/_canon-state-contract.yml:190:          python .github/scripts/validate-canon-state.py canon-claim.json
+.github/workflows/deploy-testnet.yml:26:  IMAGE_NAME: ${{ github.repository }}
+.github/workflows/deploy-testnet.yml:45:          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+.github/workflows/deploy-testnet.yml:46:            CONFIRM="${{ github.event.inputs.confirm_testnet }}"
+.github/workflows/deploy-testnet.yml:170:          username: ${{ github.actor }}
+.github/workflows/deploy-testnet.yml:223:  deploy-railway:
+.github/workflows/deploy-testnet.yml:230:      url: https://pi-forge-testnet.up.railway.app
+.github/workflows/deploy-testnet.yml:237:          npm i -g @railway/cli
+.github/workflows/deploy-testnet.yml:258:      #     railway link <YOUR_RAILWAY_PROJECT_ID>
+.github/workflows/deploy-testnet.yml:259:      #     railway up --service fastapi-server
+.github/workflows/deploy-testnet.yml:265:      #     railway up --service flask-dashboard
+.github/workflows/deploy-testnet.yml:271:      #     railway up --service gradio-interface
+.github/workflows/deploy-testnet.yml:283:          echo "For manual deployment, run: railway up --service <service-name>"
+.github/workflows/deploy-testnet.yml:285:          echo "See infra/railway/README.md for detailed instructions"
+.github/workflows/deploy-testnet.yml:303:    needs: deploy-railway
+.github/workflows/deploy-testnet.yml:330:          echo './scripts/smoke_test.sh https://your-deployment.up.railway.app' >> $GITHUB_STEP_SUMMARY
+.github/workflows/deploy-testnet.yml:337:    needs: [deploy-railway, smoke-test]
+.github/workflows/deploy-testnet.yml:349:          echo "  railway rollback --service <service-name>"
+.github/workflows/deploy-testnet.yml:351:          echo "See .github/workflows/rollback.yml for automated rollback"
+.github/workflows/deploy-testnet.yml:361:          echo "2. CLI: \`railway rollback --service <service-name>\`" >> $GITHUB_STEP_SUMMARY
+.github/workflows/verify-deployments.yml:79:          name: verification-reports-${{ inputs.network }}-${{ github.run_number }}
+.github/workflows/verify-deployments.yml:85:        if: github.event_name == 'pull_request' && always()
+.github/workflows/verify-deployments.yml:86:        uses: actions/github-script@v7
+.github/workflows/verify-deployments.yml:125:              [View detailed reports in artifacts](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+.github/workflows/verify-deployments.yml:128:              github.rest.issues.createComment({
+.github/workflows/scheduled-monitoring.yml.disabled:135:          - **Branch:** ${{ github.ref_name }}
+.github/workflows/scheduled-monitoring.yml.disabled:136:          - **Commit:** ${{ github.sha }}
+.github/workflows/scheduled-monitoring.yml.disabled:137:          - **Run ID:** ${{ github.run_id }}
+.github/workflows/scheduled-monitoring.yml.disabled:163:        uses: actions/github-script@v7
+.github/workflows/scheduled-monitoring.yml.disabled:166:            const issues = await github.rest.issues.listForRepo({
+.github/workflows/scheduled-monitoring.yml.disabled:184:        uses: actions/github-script@v7
+.github/workflows/scheduled-monitoring.yml.disabled:190:            const runUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+.github/workflows/scheduled-monitoring.yml.disabled:218:            See [docs/automation.md](https://github.com/${context.repo.owner}/${context.repo.repo}/blob/main/docs/automation.md) for setup instructions.
+.github/workflows/scheduled-monitoring.yml.disabled:225:              await github.rest.issues.update({
+.github/workflows/scheduled-monitoring.yml.disabled:233:              await github.rest.issues.createComment({
+.github/workflows/scheduled-monitoring.yml.disabled:243:              const newIssue = await github.rest.issues.create({
+.github/workflows/scheduled-monitoring.yml.disabled:266:          RUN_URL="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+.github/workflows/scheduled-monitoring.yml.disabled:277:                    \"text\": \"*Status:* ${STATUS}\\n*Repository:* ${{ github.repository }}\\n<${RUN_URL}|View Details>\"
+.github/workflows/scheduled-monitoring.yml.disabled:289:          RUN_URL="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+.github/workflows/scheduled-monitoring.yml.disabled:300:                  {\"name\": \"Repository\", \"value\": \"${{ github.repository }}\", \"inline\": true},
+.github/workflows/apply-branch-protection.yml:45:          echo "Dry Run: ${{ github.event.inputs.dry_run }}"
+.github/workflows/apply-branch-protection.yml:46:          echo "Target Branch: ${{ github.event.inputs.branch }}"
+.github/workflows/apply-branch-protection.yml:88:          echo "📋 Current branch protection rules for ${{ github.event.inputs.branch }}:"
+.github/workflows/apply-branch-protection.yml:92:            -H "Accept: application/vnd.github+json" \
+.github/workflows/apply-branch-protection.yml:94:            "/repos/${{ github.repository }}/branches/${{ github.event.inputs.branch }}/protection" \
+.github/workflows/apply-branch-protection.yml:100:        if: github.event.inputs.dry_run == 'true'
+.github/workflows/apply-branch-protection.yml:104:          echo "The following protection rules would be applied to branch '${{ github.event.inputs.branch }}':"
+.github/workflows/apply-branch-protection.yml:111:        if: github.event.inputs.dry_run == 'false'
+.github/workflows/apply-branch-protection.yml:122:        if: github.event.inputs.dry_run == 'false'
+.github/workflows/apply-branch-protection.yml:124:          echo "🚀 Applying branch protection rules to branch '${{ github.event.inputs.branch }}'..."
+.github/workflows/apply-branch-protection.yml:129:            -H "Accept: application/vnd.github+json" \
+.github/workflows/apply-branch-protection.yml:131:            "/repos/${{ github.repository }}/branches/${{ github.event.inputs.branch }}/protection" \
+.github/workflows/apply-branch-protection.yml:141:        if: github.event.inputs.dry_run == 'false'
+.github/workflows/apply-branch-protection.yml:147:            -H "Accept: application/vnd.github+json" \
+.github/workflows/apply-branch-protection.yml:149:            "/repos/${{ github.repository }}/branches/${{ github.event.inputs.branch }}/protection" \
+.github/workflows/apply-branch-protection.yml:161:          echo "**Branch**: \`${{ github.event.inputs.branch }}\`" >> $GITHUB_STEP_SUMMARY
+.github/workflows/apply-branch-protection.yml:162:          echo "**Dry Run**: ${{ github.event.inputs.dry_run }}" >> $GITHUB_STEP_SUMMARY
+.github/workflows/apply-branch-protection.yml:165:          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+.github/workflows/apply-branch-protection.yml:191:          echo "View protection rules: [Branch Protection Settings](https://github.com/${{ github.repository }}/settings/branch_protection_rules)" >> $GITHUB_STEP_SUMMARY
+.github/workflows/build-sign.yml:8:  IMAGE_NAME: ${{ github.repository }}/guardian-quorum
+.github/workflows/build-sign.yml:30:          username: ${{ github.actor }}
+.github/workflows/build-sign.yml:42:            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+.github/workflows/build-sign.yml:44:            org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}
+.github/workflows/build-sign.yml:45:            org.opencontainers.image.revision=${{ github.sha }}
+.github/workflows/build-sign.yml:46:            org.opencontainers.image.created=${{ github.event.head_commit.timestamp }}
+.github/workflows/validate-rollback.yml:25:      - '.github/workflows/ai-agent-handoff-runbook.yml'
+.github/workflows/validate-rollback.yml:26:      - '.github/workflows/validate-rollback.yml'
+.github/workflows/validate-rollback.yml:48:          if [ ! -f ".github/workflows/ai-agent-handoff-runbook.yml" ]; then
+.github/workflows/validate-rollback.yml:59:            .github/workflows/ai-agent-handoff-runbook.yml
+.github/workflows/validate-rollback.yml:68:          if ! grep -q "^  rollback:" .github/workflows/ai-agent-handoff-runbook.yml; then
+.github/workflows/validate-rollback.yml:75:          if ! grep -q "rollback_version:" .github/workflows/ai-agent-handoff-runbook.yml; then
+.github/workflows/validate-rollback.yml:82:          if ! grep -q "'rollback'" .github/workflows/ai-agent-handoff-runbook.yml; then
+.github/workflows/validate-rollback.yml:361:        if: github.event_name == 'pull_request'
+.github/workflows/validate-rollback.yml:362:        uses: actions/github-script@v7
+.github/workflows/validate-rollback.yml:391:            github.rest.issues.createComment({
+.github/workflows/cloudflare-pages-status.yml:12:  cloudflare-pages-check:
+.github/workflows/canon-auto-merge.yml:10:  group: canon-merge-${{ github.event.pull_request.number }}
+.github/workflows/canon-auto-merge.yml:37:          CHANGED_FILES=$(gh pr view ${{ github.event.pull_request.number }} --json files --jq '.files[].path' | grep '^canon/.*\.md$' | head -1)
+.github/workflows/canon-auto-merge.yml:89:          PR_NUMBER=${{ github.event.pull_request.number }}
+.github/workflows/canon-auto-merge.yml:95:          python3 .github/scripts/policy_engine.py \
+.github/workflows/canon-auto-merge.yml:122:          python .github/scripts/check-conflicts.py \
+.github/workflows/canon-auto-merge.yml:133:          gh pr edit ${{ github.event.pull_request.number }} \
+.github/workflows/canon-auto-merge.yml:154:          PR_NUMBER=${{ github.event.pull_request.number }}
+.github/workflows/canon-auto-merge.yml:166:          RESULT=$(python3 .github/scripts/policy_engine.py \
+.github/workflows/canon-auto-merge.yml:216:          gh pr merge ${{ github.event.pull_request.number }} \
+.github/workflows/canon-auto-merge.yml:219:            --subject "Canon: Merge PR #${{ github.event.pull_request.number }}"
+.github/workflows/approval_watcher.yml.disabled:30:  group: mainnet-smoke-guardian-${{ github.ref }}
+.github/workflows/approval_watcher.yml.disabled:80:          echo "Triggered by: ${{ github.actor }}"
+.github/workflows/approval_watcher.yml.disabled:150:          echo "| Triggered By | ${{ github.actor }} |" >> $GITHUB_STEP_SUMMARY
+.github/workflows/approval_watcher.yml.disabled:151:          echo "| Run ID | ${{ github.run_id }} |" >> $GITHUB_STEP_SUMMARY
+.github/workflows/dependabot-auto-merge.yml:19:        if: github.actor != 'dependabot[bot]'
+.github/workflows/dependabot-auto-merge.yml:22:          echo "Actor: ${{ github.actor }}"
+.github/workflows/dependabot-auto-merge.yml:25:        if: github.actor == 'dependabot[bot]'
+.github/workflows/dependabot-auto-merge.yml:38:        if: github.actor == 'dependabot[bot]'
+.github/workflows/dependabot-auto-merge.yml:42:        if: github.actor == 'dependabot[bot]'
+.github/workflows/dependabot-auto-merge.yml:48:        if: github.actor == 'dependabot[bot]'
+.github/workflows/dependabot-auto-merge.yml:49:        run: python -m pip install --upgrade pip && pip install -r .github/scripts/requirements.txt
+.github/workflows/dependabot-auto-merge.yml:52:        if: github.actor == 'dependabot[bot]'
+.github/workflows/dependabot-auto-merge.yml:55:          GITHUB_REPOSITORY: ${{ github.repository }}
+.github/workflows/dependabot-auto-merge.yml:56:          PR_NUMBER: ${{ github.event.pull_request.number }}
+.github/workflows/dependabot-auto-merge.yml:65:          python .github/scripts/dependabot_auto_merge.py \
+.github/workflows/canon-conflict-check.yml:37:          pip install -r .github/scripts/requirements.txt
+.github/workflows/canon-conflict-check.yml:41:        uses: actions/github-script@v7
+.github/workflows/canon-conflict-check.yml:46:            const { data: files } = await github.rest.pulls.listFiles({
+.github/workflows/canon-conflict-check.yml:82:            if python .github/scripts/check-conflicts.py \
+.github/workflows/canon-conflict-check.yml:119:        uses: actions/github-script@v7
+.github/workflows/canon-conflict-check.yml:171:            await github.rest.checks.create({
+.github/workflows/canon-conflict-check.yml:185:        if: always() && github.event_name == 'pull_request'
+.github/workflows/canon-conflict-check.yml:186:        uses: actions/github-script@v7
+.github/workflows/canon-conflict-check.yml:245:            await github.rest.issues.createComment({
+.github/workflows/canon-conflict-check.yml:273:          pip install -r .github/scripts/requirements.txt
+.github/workflows/canon-conflict-check.yml:300:          pip install -r .github/scripts/requirements.txt
+.github/workflows/canon-conflict-check.yml:332:          pip install -r .github/scripts/requirements.txt
+.github/workflows/canon-conflict-check.yml:338:          python .github/scripts/verify-canon-integrity.py \
+.github/workflows/rollback.yml:47:          if [ "${{ github.event.inputs.confirm_rollback }}" != "ROLLBACK" ]; then
+.github/workflows/rollback.yml:54:          if [ -z "${{ github.event.inputs.reason }}" ]; then
+.github/workflows/rollback.yml:58:          echo "✅ Rollback reason: ${{ github.event.inputs.reason }}"
+.github/workflows/rollback.yml:61:          if [ -z "${{ github.event.inputs.service }}" ]; then
+.github/workflows/rollback.yml:65:          echo "✅ Service: ${{ github.event.inputs.service }}"
+.github/workflows/rollback.yml:73:          echo "**Initiated by:** ${{ github.actor }}" >> $GITHUB_STEP_SUMMARY
+.github/workflows/rollback.yml:74:          echo "**Service:** ${{ github.event.inputs.service }}" >> $GITHUB_STEP_SUMMARY
+.github/workflows/rollback.yml:75:          echo "**Deployment ID:** ${{ github.event.inputs.deployment_id || 'Previous deployment' }}" >> $GITHUB_STEP_SUMMARY
+.github/workflows/rollback.yml:76:          echo "**Reason:** ${{ github.event.inputs.reason }}" >> $GITHUB_STEP_SUMMARY
+.github/workflows/rollback.yml:92:          npm i -g @railway/cli
+.github/workflows/rollback.yml:108:      # railway rollback --service <service-name>
+.github/workflows/rollback.yml:111:      # railway rollback --service <service-name> --to <deployment-id>
+.github/workflows/rollback.yml:114:      # railway up --detach --service <service-name> --image ghcr.io/<owner>/<repo>:<tag>
+.github/workflows/rollback.yml:126:          # railway link <YOUR_RAILWAY_PROJECT_ID>
+.github/workflows/rollback.yml:127:          # railway rollback --service fastapi-server
+.github/workflows/rollback.yml:130:          # if [ -n "${{ github.event.inputs.deployment_id }}" ]; then
+.github/workflows/rollback.yml:131:          #   railway rollback --service fastapi-server --to "${{ github.event.inputs.deployment_id }}"
+.github/workflows/rollback.yml:133:          #   railway rollback --service fastapi-server
+.github/workflows/rollback.yml:138:          # railway up --detach --service fastapi-server \
+.github/workflows/rollback.yml:139:          #   --image ghcr.io/${{ github.repository }}-fastapi:${LAST_GOOD_TAG}
+.github/workflows/rollback.yml:152:          # railway rollback --service flask-dashboard
+.github/workflows/rollback.yml:164:          # railway rollback --service gradio-interface
+.github/workflows/rollback.yml:178:          echo "**Service(s):** ${{ github.event.inputs.service }}" >> $GITHUB_STEP_SUMMARY
+.github/workflows/rollback.yml:179:          echo "**Deployment ID:** ${{ github.event.inputs.deployment_id || 'Previous' }}" >> $GITHUB_STEP_SUMMARY
+.github/workflows/rollback.yml:220:          echo "3. Monitor logs: \`railway logs --service <service-name>\`" >> $GITHUB_STEP_SUMMARY
+.github/workflows/rollback.yml:223:          echo '   ./scripts/smoke_test.sh https://your-deployment.up.railway.app' >> $GITHUB_STEP_SUMMARY
+.github/workflows/rollback.yml:238:          echo "Initiated by:   ${{ github.actor }}"
+.github/workflows/rollback.yml:239:          echo "Service(s):     ${{ github.event.inputs.service }}"
+.github/workflows/rollback.yml:240:          echo "Deployment ID:  ${{ github.event.inputs.deployment_id || 'Previous' }}"
+.github/workflows/rollback.yml:241:          echo "Reason:         ${{ github.event.inputs.reason }}"
+.github/workflows/rollback.yml:242:          echo "Workflow Run:   ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
