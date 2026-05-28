@@ -86,7 +86,7 @@ async function main() {
     console.log(`Router bytecode hash: ${routerCodeHash}`);
   } else {
     console.log("Router candidate: not set");
-    console.log("Manifest will be generated without router setup. Live deploy will refuse router configuration until OINIO_ROUTER_ADDRESS is proven.");
+    console.log("Manifest will be generated without router setup. Live deploy will skip router configuration unless an EVM router is configured and proven.");
   }
 
   fs.mkdirSync("./cache", { recursive: true });
