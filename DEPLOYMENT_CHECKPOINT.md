@@ -42,4 +42,8 @@ Run locally from the repo version:
     cd ~/forge/Quantum-pi-forge
     ./run-guardian.sh
 
-Do not curl-download run-guardian.sh from the Pages URL.
+Public guardian installer URL:
+
+    https://quantumpiforge.pages.dev/run-guardian.sh
+
+Use the active `quantumpiforge` Pages project, not the stale `quantum-pi-forge.pages.dev` project.

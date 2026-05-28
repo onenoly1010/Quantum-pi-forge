@@ -162,3 +162,25 @@ try {
   console.error(`\nBuild failed: ${error.message}`);
   process.exit(1);
 }
+
+
+// BEGIN publish run-guardian.sh for public install
+await (async () => {
+  const fs = await import("node:fs");
+  const path = await import("node:path");
+
+  const root = process.cwd();
+  const src = path.join(root, "run-guardian.sh");
+  const outDir = path.join(root, "out");
+  const dest = path.join(outDir, "run-guardian.sh");
+
+  if (fs.existsSync(src)) {
+    fs.mkdirSync(outDir, { recursive: true });
+    fs.copyFileSync(src, dest);
+    fs.chmodSync(dest, 0o755);
+    console.log("OK copied run-guardian.sh -> out/run-guardian.sh");
+  } else {
+    console.warn("WARN run-guardian.sh not found; public guardian installer not copied");
+  }
+})();
+// END publish run-guardian.sh for public install
