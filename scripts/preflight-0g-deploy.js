@@ -7,6 +7,7 @@ dotenv.config();
 const RPC_URL = process.env.OG_RPC_URL || "https://evmrpc.0g.ai";
 const EXPECTED_CHAIN_ID = 16661n;
 const ARTIFACT_PATH = "./artifacts/src/OINIO.sol/OINIO.json";
+const MANIFEST_PATH = "./cache/deployment-manifest.json";
 const INITIAL_SUPPLY = ethers.parseUnits("1000000000", 18);
 const ROUTER_ADDRESS = process.env.OINIO_ROUTER_ADDRESS || "";
 
@@ -19,9 +20,11 @@ async function main() {
   }
 
   const artifact = JSON.parse(fs.readFileSync(ARTIFACT_PATH, "utf8"));
-  if (!artifact.abi || !artifact.bytecode) {
+  if (!artifact.abi || !artifact.bytecode || artifact.bytecode === "0x") {
     throw new Error("Artifact missing abi or bytecode");
   }
+
+  const bytecodeHash = ethers.keccak256(artifact.bytecode);
 
   const provider = new ethers.JsonRpcProvider(RPC_URL, Number(EXPECTED_CHAIN_ID));
   const network = await provider.getNetwork();
@@ -45,6 +48,7 @@ async function main() {
   console.log(`Deployer: ${wallet.address}`);
   console.log(`Balance: ${ethers.formatEther(balance)} 0G`);
   console.log(`RPC gasPrice: ${feeData.gasPrice ? ethers.formatUnits(feeData.gasPrice, "gwei") : "unavailable"} gwei`);
+  console.log(`Artifact bytecode hash: ${bytecodeHash}`);
 
   const factory = new ethers.ContractFactory(artifact.abi, artifact.bytecode, wallet);
   const deployTx = await factory.getDeployTransaction(INITIAL_SUPPLY);
@@ -64,6 +68,7 @@ async function main() {
     throw new Error("Insufficient balance for estimated deploy cost");
   }
 
+  let routerCodeHash = "";
   if (ROUTER_ADDRESS) {
     if (!ethers.isAddress(ROUTER_ADDRESS)) {
       throw new Error(`Invalid OINIO_ROUTER_ADDRESS: ${ROUTER_ADDRESS}`);
@@ -76,12 +81,37 @@ async function main() {
     if (routerCode === "0x") {
       throw new Error("Router candidate has no bytecode on 0G Aristotle");
     }
+
+    routerCodeHash = ethers.keccak256(routerCode);
+    console.log(`Router bytecode hash: ${routerCodeHash}`);
   } else {
     console.log("Router candidate: not set");
-    console.log("Set OINIO_ROUTER_ADDRESS only after proving the router address is valid on 0G Aristotle.");
+    console.log("Manifest will be generated without router setup. Live deploy will refuse router configuration until OINIO_ROUTER_ADDRESS is proven.");
   }
 
-  console.log("\n✅ Preflight passed. No transactions were sent.");
+  fs.mkdirSync("./cache", { recursive: true });
+
+  const manifest = {
+    timestamp: new Date().toISOString(),
+    mode: "read-only-preflight",
+    rpcUrl: RPC_URL,
+    chainId: network.chainId.toString(),
+    expectedChainId: EXPECTED_CHAIN_ID.toString(),
+    deployer: wallet.address,
+    artifactPath: ARTIFACT_PATH,
+    artifactBytecodeHash: bytecodeHash,
+    initialSupplyWei: INITIAL_SUPPLY.toString(),
+    initialSupplyTokens: ethers.formatUnits(INITIAL_SUPPLY, 18),
+    estimatedGas: estimatedGas.toString(),
+    gasPriceWei: gasPrice.toString(),
+    estimatedCostWei: estimatedCost.toString(),
+    routerAddress: ROUTER_ADDRESS,
+    routerCodeHash
+  };
+
+  fs.writeFileSync(MANIFEST_PATH, JSON.stringify(manifest, null, 2) + "\n");
+  console.log(`\n✅ Manifest generated at ${MANIFEST_PATH}`);
+  console.log("✅ Preflight passed. No transactions were sent.");
 }
 
 main().catch((err) => {

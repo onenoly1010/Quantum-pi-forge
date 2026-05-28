@@ -181,3 +181,5 @@ reports/*.html
 .env.*
 .aider*
 .wrangler/
+cache/deployment-manifest.json
+cache/deployment-receipt.json
