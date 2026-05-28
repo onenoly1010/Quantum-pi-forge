@@ -43,18 +43,19 @@ async function main() {
     throw new Error("Artifact bytecode hash mismatch. Re-run preflight.");
   }
 
-  if (!manifest.routerAddress) {
-    throw new Error("Manifest has no routerAddress. Set OINIO_ROUTER_ADDRESS and re-run preflight before live deployment.");
-  }
+  let routerCodeHash = "";
+  const shouldConfigureRouter = Boolean(manifest.routerAddress);
 
-  const routerCode = await provider.getCode(manifest.routerAddress);
-  if (routerCode === "0x") {
-    throw new Error("Router has no bytecode at live deploy time");
-  }
+  if (shouldConfigureRouter) {
+    const routerCode = await provider.getCode(manifest.routerAddress);
+    if (routerCode === "0x") {
+      throw new Error("Router has no bytecode at live deploy time");
+    }
 
-  const routerCodeHash = ethers.keccak256(routerCode);
-  if (routerCodeHash !== manifest.routerCodeHash) {
-    throw new Error("Router bytecode hash mismatch. Re-run preflight.");
+    routerCodeHash = ethers.keccak256(routerCode);
+    if (routerCodeHash !== manifest.routerCodeHash) {
+      throw new Error("Router bytecode hash mismatch. Re-run preflight.");
+    }
   }
 
   const factory = new ethers.ContractFactory(artifact.abi, artifact.bytecode, wallet);
@@ -70,9 +71,10 @@ async function main() {
   console.log(`Initial supply: ${manifest.initialSupplyTokens} OINIO`);
   console.log(`Manifest deploy gas: ${manifest.estimatedGas}`);
   console.log(`Current estimated deploy gas: ${estimatedGas.toString()}`);
-  console.log(`Router: ${manifest.routerAddress}`);
+  console.log(`Router: ${manifest.routerAddress || "not configured"}`);
+  console.log(`Router setup: ${shouldConfigureRouter ? "enabled" : "skipped"}`);
   console.log(`Artifact hash: ${bytecodeHash}`);
-  console.log(`Router hash: ${routerCodeHash}`);
+  console.log(`Router hash: ${routerCodeHash || "not applicable"}`);
 
   if (!LIVE_DEPLOY) {
     console.log("\n✅ Dry run passed. No transactions were sent.");
@@ -91,22 +93,34 @@ async function main() {
   console.log(`✅ Contract deployed: ${contractAddress}`);
   console.log(`Deployment tx: ${deployTxHash}`);
 
-  console.log(`\n🔗 Sending router initialization: ${manifest.routerAddress}`);
-  const setRouterTx = await oinio.setRouter(manifest.routerAddress);
-  const setRouterReceipt = await setRouterTx.wait();
+  let configuredRouter = "";
+  let setRouterTxHash = "";
+  let setRouterBlockNumber = "";
 
-  const configuredRouter = await oinio.router();
-  if (configuredRouter.toLowerCase() !== manifest.routerAddress.toLowerCase()) {
-    throw new Error(`Router verification failed: expected=${manifest.routerAddress}, got=${configuredRouter}`);
+  if (shouldConfigureRouter) {
+    console.log(`\n🔗 Sending router initialization: ${manifest.routerAddress}`);
+    const setRouterTx = await oinio.setRouter(manifest.routerAddress);
+    const setRouterReceipt = await setRouterTx.wait();
+
+    configuredRouter = await oinio.router();
+    if (configuredRouter.toLowerCase() !== manifest.routerAddress.toLowerCase()) {
+      throw new Error(`Router verification failed: expected=${manifest.routerAddress}, got=${configuredRouter}`);
+    }
+
+    setRouterTxHash = setRouterTx.hash;
+    setRouterBlockNumber = setRouterReceipt.blockNumber;
+  } else {
+    console.log("\nℹ️ Router configuration skipped. No EVM liquidity router was configured in the manifest.");
   }
 
   const receipt = {
     timestamp: new Date().toISOString(),
     contractAddress,
     deployTxHash,
+    routerConfigured: shouldConfigureRouter,
     routerAddress: configuredRouter,
-    setRouterTxHash: setRouterTx.hash,
-    setRouterBlockNumber: setRouterReceipt.blockNumber,
+    setRouterTxHash,
+    setRouterBlockNumber,
     manifest
   };
 
