@@ -11,14 +11,14 @@
     "chai": "^6.2.2",
     "dotenv": "^17.4.2",
     "ethers": "^6.16.0",
-    "hardhat": "^3.4.5",
-    "solc": "^0.8.34"
+    "hardhat": "^3.4.5"
   },
   "devDependencies": {
     "@storacha/cli": "^3.0.1",
     "@storacha/client": "^2.1.4",
     "@uniswap/v2-core": "^1.0.1",
     "@uniswap/v2-periphery": "^1.1.0-beta.0",
+    "solc": "^0.8.35",
     "wrangler": "^4.95.0"
   }
 }
