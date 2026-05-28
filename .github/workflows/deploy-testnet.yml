@@ -4,21 +4,14 @@ on:
   workflow_dispatch:
     inputs:
       confirm_testnet:
-        description: 'Confirm testnet deployment (type "testnet")'
+        description: 'Confirm testnet deployment by typing testnet'
         required: true
         default: ''
       deploy_services:
-        description: 'Services to deploy (comma-separated: fastapi,flask,gradio,all)'
+        description: 'Services to deploy: fastapi, flask, gradio, all'
         required: false
         default: 'all'
-  push:
-    branches:
-      - testnet
-    paths-ignore:
-      - '**.md'
-      - 'docs/**'
 
-# Prevent concurrent deployments
 concurrency:
   group: testnet-deploy
   cancel-in-progress: false

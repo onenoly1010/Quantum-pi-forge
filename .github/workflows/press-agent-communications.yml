@@ -5,15 +5,8 @@ on:
     inputs:
       message:
         description: "Message to dispatch through the Press Agent"
-        required: true
+        required: false
         type: string
-
-  push:
-    branches:
-      - main
-    paths:
-      - "press-agent/**"
-      - ".github/workflows/press-agent-communications.yml"
 
 jobs:
   verify-press-agent:
