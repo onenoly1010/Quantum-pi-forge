@@ -73,3 +73,48 @@ Restore only after:
 ## Conclusion
 
 Duplicate or incomplete deployment paths have been archived while preserving the canonical Cloudflare Pages deployment workflow.
+
+## Production Deployment Workflow Review
+
+The production deployment workflow was reviewed after Cloudflare and escrow workflow cleanup.
+
+### Finding
+
+`.github/workflows/deploy-production.yml` was manual-only through `workflow_dispatch`, which prevented ordinary push noise.
+
+However, the workflow still represented a high-impact production deployment surface because it:
+
+- built and pushed GHCR images
+- published a mutable `latest` image tag
+- installed Railway CLI using floating `@latest`
+- deployed directly to Railway using `RAILWAY_TOKEN`
+- used a hardcoded production health endpoint
+- mutated submodules inside CI using `git checkout main` and `git pull origin main`
+
+The submodule mutation was the primary determinism concern. A production workflow should deploy the exact reviewed commit and pinned submodule state, not pull fresh submodule `main` branches during deployment.
+
+### Decision
+
+The workflow was archived:
+
+- from: `.github/workflows/deploy-production.yml`
+- to: `.github/workflows/deploy-production.yml.disabled`
+
+### Rationale
+
+Production deployment should remain unavailable until the workflow is deterministic, explicitly confirmed, and environment-protected. Manual-only triggering is necessary but not sufficient for production safety.
+
+### Restore Criteria
+
+Restore only after:
+
+1. Submodules are verified but not mutated during CI.
+2. Railway CLI versioning is pinned or otherwise controlled.
+3. Production deploy requires an explicit confirmation input.
+4. GHCR tags are immutable or release-scoped instead of relying on `latest`.
+5. Health checks are aligned with the actual production service and failure policy.
+6. `RAILWAY_TOKEN` is scoped to the protected production environment.
+
+### Recommended Future Trigger
+
+The restored workflow should remain manual-only and require an explicit typed confirmation such as `DEPLOY-PRODUCTION`.
