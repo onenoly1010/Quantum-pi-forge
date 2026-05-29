@@ -249,3 +249,34 @@ The workflow remains active only if its referenced verification scripts exist, a
 3. Missing verification paths must fail clearly.
 4. Reports may be uploaded as artifacts, but deployment state must not be mutated.
 5. Any mainnet verification must remain manual-only.
+
+## Rollback Validation Workflow Review
+
+The rollback validation workflow was reviewed after the rollback execution workflow was archived.
+
+### Finding
+
+`.github/workflows/validate-rollback.yml` remained active after `.github/workflows/rollback.yml` was disabled.
+
+Rollback validation logic should not outlive the rollback execution path it validates unless it independently verifies a current local recovery mechanism.
+
+### Decision
+
+The workflow was archived:
+
+- from: `.github/workflows/validate-rollback.yml`
+- to: `.github/workflows/validate-rollback.yml.disabled`
+
+### Rationale
+
+Keeping rollback validation active after rollback execution is disabled can create ghost-gate telemetry and reviewer confusion. Validation workflows should map to active, supported operational paths.
+
+### Restore Criteria
+
+Restore only after:
+
+1. A supported rollback or recovery workflow is reintroduced.
+2. Referenced rollback scripts exist and are tested.
+3. Validation checks are deterministic and do not require privileged secrets.
+4. The workflow validates current recovery behavior rather than archived Railway templates.
+5. Trigger behavior is limited to manual or clearly relevant file-path changes.
