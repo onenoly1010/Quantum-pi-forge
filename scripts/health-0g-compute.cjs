@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 
-require('dotenv').config();
+const JSON_OUTPUT = process.argv.includes('--json');
+
+// Suppress dotenv logs in JSON mode
+require('dotenv').config(JSON_OUTPUT ? { quiet: true } : {});
 
 const https = require('https');
 const fs = require('fs');
@@ -11,7 +14,6 @@ const path = require('path');
 const ROUTER_URL = process.env.OG_COMPUTE_ROUTER_URL || 'https://router-api.0g.ai/v1';
 const API_KEY = process.env.OG_COMPUTE_API_KEY || '';
 const MODEL = process.env.OG_COMPUTE_MODEL || '0GM-1.0-35B-A3B';
-const JSON_OUTPUT = process.argv.includes('--json');
 
 // State
 const results = {
@@ -19,6 +21,17 @@ const results = {
   ROUTER_CHAT: { status: 'UNKNOWN', details: {} },
   DIRECT_PROVIDER: { status: 'UNKNOWN', details: {} }
 };
+
+/**
+ * Log to stderr in JSON mode, stdout otherwise
+ */
+function logDebug(message) {
+  if (JSON_OUTPUT) {
+    console.error(message);
+  } else {
+    console.log(message);
+  }
+}
 
 /**
  * Make an HTTPS request
@@ -271,8 +284,10 @@ function testDirectProvider() {
  */
 function printResults() {
   if (JSON_OUTPUT) {
+    // JSON mode: only valid JSON to stdout
     console.log(JSON.stringify(results, null, 2));
   } else {
+    // Human-readable mode: banners and details to stdout
     console.log('=== 0G Compute Health Check ===\n');
     console.log(`ROUTER_MODELS=${results.ROUTER_MODELS.status}`);
     console.log(`ROUTER_CHAT=${results.ROUTER_CHAT.status}`);
@@ -328,7 +343,7 @@ async function main() {
     printResults();
     process.exit(getExitCode());
   } catch (error) {
-    console.error('Fatal error:', error.message);
+    logDebug('Fatal error: ' + error.message);
     process.exit(1);
   }
 }
