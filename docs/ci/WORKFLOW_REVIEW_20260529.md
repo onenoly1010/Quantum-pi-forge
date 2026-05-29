@@ -1,50 +1,55 @@
 # GitHub Actions Workflow Review
 
-**Project:** OINIO / Quantum Pi Forge  
-**Date:** 2026-05-29  
+**Project:** OINIO / Quantum Pi Forge
+**Date:** 2026-05-29
 **Status:** CI/deploy workflow noise reduced.
 
-## Summary
+## Cloudflare Deployment Workflow Review
 
-The workflow inventory identified duplicate Cloudflare Pages deployment workflows:
+Duplicate Cloudflare Pages deployment workflows were found.
 
-1. `.github/workflows/cloudflare-pages.yml`
-2. `.github/workflows/deploy-cloudflare.yml`
+- Active canonical workflow: `.github/workflows/cloudflare-pages.yml`
+- Archived duplicate workflow: `.github/workflows/deploy-cloudflare.yml.disabled`
 
-Both used the display name `Deploy to Cloudflare Pages`, but only `cloudflare-pages.yml` is the canonical active workflow for this repository.
+The archived duplicate used Node 20 and `npm install`, while the canonical workflow uses Node 22, `npm ci`, builds static output, verifies Pages artifacts, and deploys `out/`.
 
-## Decision
+## Escrow Deployment Workflow Review
 
-The duplicate manual workflow was archived:
+The escrow deployment workflow was reviewed after the Cloudflare cleanup.
 
-- from: `.github/workflows/deploy-cloudflare.yml`
-- to: `.github/workflows/deploy-cloudflare.yml.disabled`
+### Finding
 
-The canonical active Cloudflare workflow remains:
+`.github/workflows/deploy-escrow.yml` was not triggered by ordinary pushes to `main`; it only ran manually or on broad version tags like `v*.*.*`.
 
-- `.github/workflows/cloudflare-pages.yml`
+However, the workflow referenced a missing deployment script:
 
-## Rationale
+- `scripts/deploy-escrow.sh`
 
-Keeping two Cloudflare deployment workflows increases review noise and creates ambiguity over which one represents production deployment.
+It also required deployment secrets:
 
-The canonical workflow:
+- `RPC_URL`
+- `DEPLOYER_PRIVATE_KEY`
 
-- uses Node 22
-- uses `npm ci`
-- runs `npm run build`
-- verifies `out/index.html` and `out/_redirects`
-- deploys `out/` to Cloudflare Pages
-- is triggered by relevant pushes to `main`
-- remains manually runnable through `workflow_dispatch`
+### Decision
 
-The archived duplicate workflow:
+The incomplete escrow deployment workflow was archived:
 
-- used Node 20
-- used `npm install`
-- duplicated the deployment destination
-- carried repository-specific comments from an older/alternate Cloudflare migration path
-- was manual-only and not necessary for normal deployment review
+- from: `.github/workflows/deploy-escrow.yml`
+- to: `.github/workflows/deploy-escrow.yml.disabled`
+
+### Rationale
+
+Escrow or on-chain deployment workflows should not remain active when their deployment script is missing. Even a manual run or version-tag trigger would fail and create misleading red CI/deployment telemetry.
+
+### Restore Criteria
+
+Restore only after:
+
+1. `scripts/deploy-escrow.sh` exists.
+2. Required secrets are configured.
+3. A dry-run mode exists.
+4. Testnet execution is verified.
+5. Mainnet execution is explicitly gated.
 
 ## Current Recommended Workflow Roles
 
@@ -55,20 +60,16 @@ The archived duplicate workflow:
 | `cloudflare-pages-status.yml` | PR Pages build artifact check | Active |
 | `ci-healthcheck.yml` | Optional Python/FastAPI health check | Active |
 | `deploy-cloudflare.yml.disabled` | Legacy duplicate Cloudflare deploy | Archived |
+| `deploy-escrow.yml.disabled` | Incomplete escrow/on-chain deploy | Archived |
 
 ## Follow-up Review Targets
 
-Further workflow cleanup should inspect:
-
-- `deploy-escrow.yml`
 - `deploy-production.yml`
 - `deploy-testnet.yml`
 - `rollback.yml`
 - `apply-branch-protection.yml`
 - `dependabot-auto-merge.yml`
 
-These workflows are more sensitive because they reference external services, privileged GitHub API operations, Railway, or deployment rollback semantics.
-
 ## Conclusion
 
-The duplicate Cloudflare deployment path has been archived while preserving the canonical Pages deployment workflow. This reduces CI/deploy ambiguity without weakening the public deployment path.
+Duplicate or incomplete deployment paths have been archived while preserving the canonical Cloudflare Pages deployment workflow.
