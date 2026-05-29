@@ -129,40 +129,6 @@ The testnet deployment workflow was reviewed after production deployment hardeni
 
 However, the workflow still represented a noisy deployment surface if manually triggered before full environment configuration.
 
-Potential concerns include Railway placeholder deployment logic, external service assumptions, GHCR publishing, smoke-test URL configuration, and manual setup requirements that could produce misleading failed deployment telemetry.
-
-### Decision
-
-The workflow was archived:
-
-- from: `.github/workflows/deploy-testnet.yml`
-- to: `.github/workflows/deploy-testnet.yml.disabled`
-
-### Rationale
-
-Testnet deployment workflows should remain inactive until they are fully configured, deterministic, and reviewer-safe. Manual-only triggering reduces risk, but does not prevent a reviewer or operator from creating avoidable red deployment telemetry by running an incomplete pipeline.
-
-### Restore Criteria
-
-Restore only after:
-
-1. Railway project and service IDs are explicitly configured.
-2. Required secrets are scoped to a protected testnet environment.
-3. Smoke-test URLs are real and documented.
-4. Placeholder deployment commands are replaced with verified commands.
-5. GHCR image tags are release-scoped or commit-scoped.
-6. The workflow can complete successfully from a clean checkout.
-
-## Testnet Deployment Workflow Review
-
-The testnet deployment workflow was reviewed after production deployment hardening.
-
-### Finding
-
-`.github/workflows/deploy-testnet.yml` was manual-only and required a typed `testnet` confirmation, which reduced ordinary push noise.
-
-However, the workflow still represented a noisy deployment surface if manually triggered before full environment configuration.
-
 Specific concerns included:
 
 - GHCR image publishing for multiple services
@@ -194,3 +160,4 @@ Restore only after:
 4. Placeholder deployment commands are replaced with verified commands.
 5. GHCR image tags are release-scoped or commit-scoped.
 6. The workflow can complete successfully from a clean checkout.
+
