@@ -1,9 +1,9 @@
 # OINIO Grant Evidence Report
 
-**Generated:** 2026-05-29T21:34:42.387Z  
+**Generated:** 2026-05-29T21:38:49.893Z  
 **Project:** OINIO / Quantum Pi Forge  
 **Git branch:** main  
-**Git commit:** 639f43f2e78cab0c778a1f67f26136f169e27143  
+**Git commit:** 40715d073ce28cf077d5a61538c77dc21380af2d  
 **Node:** v18.19.1  
 **npm:** 9.2.0  
 
@@ -23,11 +23,11 @@ This report captures repository state, environment metadata, diagnostic document
 ```json
 {
   "project": "OINIO / Quantum Pi Forge",
-  "generated_at": "2026-05-29T21:34:42.387Z",
+  "generated_at": "2026-05-29T21:38:49.893Z",
   "cwd": "/home/kris/forge/Quantum-pi-forge",
   "git_branch": "main",
-  "git_commit": "639f43f2e78cab0c778a1f67f26136f169e27143",
-  "git_commit_short": "639f43f",
+  "git_commit": "40715d073ce28cf077d5a61538c77dc21380af2d",
+  "git_commit_short": "40715d0",
   "git_status_short": "",
   "node_version": "v18.19.1",
   "npm_version": "9.2.0"
@@ -41,7 +41,7 @@ This report captures repository state, environment metadata, diagnostic document
 **Command:** `git status --short`  
 **Exit code:** `0`  
 **Signal:** `none`  
-**Started:** `2026-05-29T21:34:45.930Z`
+**Started:** `2026-05-29T21:38:52.367Z`
 
 
 **stdout**
@@ -61,13 +61,13 @@ This report captures repository state, environment metadata, diagnostic document
 **Command:** `git log -1 --oneline`  
 **Exit code:** `0`  
 **Signal:** `none`  
-**Started:** `2026-05-29T21:34:46.133Z`
+**Started:** `2026-05-29T21:38:52.552Z`
 
 
 **stdout**
 
 ```text
-639f43f Add grant technical summary and evidence generator
+40715d0 Refresh grant evidence report
 ```
 
 **stderr**
@@ -81,7 +81,7 @@ This report captures repository state, environment metadata, diagnostic document
 **Command:** `node --version`  
 **Exit code:** `0`  
 **Signal:** `none`  
-**Started:** `2026-05-29T21:34:46.145Z`
+**Started:** `2026-05-29T21:38:52.570Z`
 
 
 **stdout**
@@ -101,7 +101,7 @@ v18.19.1
 **Command:** `npm --version`  
 **Exit code:** `0`  
 **Signal:** `none`  
-**Started:** `2026-05-29T21:34:46.223Z`
+**Started:** `2026-05-29T21:38:52.682Z`
 
 
 **stdout**
@@ -121,7 +121,7 @@ v18.19.1
 **Command:** `sed -n 1,220p OINIO_0G_COMPUTE_PATH_DIAGNOSIS_20260529.md`  
 **Exit code:** `0`  
 **Signal:** `none`  
-**Started:** `2026-05-29T21:34:48.540Z`
+**Started:** `2026-05-29T21:38:55.479Z`
 
 
 **stdout**
@@ -164,102 +164,236 @@ OINIO bypasses the Router abstraction while remaining strictly inside the intend
 **Command:** `sed -n 1,240p docs/TECHNICAL_SUMMARY.md`  
 **Exit code:** `0`  
 **Signal:** `none`  
-**Started:** `2026-05-29T21:34:48.546Z`
+**Started:** `2026-05-29T21:38:55.488Z`
 
 
 **stdout**
 
 ```text
-# OINIO Technical Summary
+# OINIO Resonance Worker: Technical Summary
 
-**Project:** OINIO / Quantum Pi Forge  
-**Date:** 2026-05-29  
-**Status:** Core 0G Compute direct-provider path proven; router path requires upstream billing/account-state resolution.
+**Last Updated:** May 29, 2026  
+**Status:** Core proof validated; upstream blocker documented  
+**Grant Stage:** M1/M2 complete; review pending
+
+---
 
 ## Executive Summary
 
-OINIO is a sovereign AI agent infrastructure project designed to provide locally orchestrated, policy-gated, and auditable execution for AI-assisted workflows. The project integrates with the 0G ecosystem through storage, diagnostics, compute access, and verifiable execution artifacts.
+OINIO is a sovereign, non-root, self-verifying AI agent operating on 0G Aristotle Mainnet. This document proves that core 0G Compute integration works and identifies where the external blocker exists.
 
-Recent diagnostics confirm that OINIO can successfully execute inference through the 0G Compute **direct provider** path. The 0G Compute **router** path currently returns HTTP 402, which indicates a billing/account-state issue at the router abstraction layer rather than a failure of local execution, provider visibility, or wallet-authenticated direct provider access.
+**Bottom line:** Direct provider inference is proven working (HTTP 200). Router inference is blocked by external billing sync (HTTP 402), not by local code failure.
 
-## Current Integration Standing
+---
 
-| Area | Status | Evidence |
-|---|---|---|
-| 0G Compute provider discovery | Working | Provider discovery succeeds |
-| 0G Compute router path | Blocked upstream | `/v1/proxy` returns HTTP 402 |
-| 0G Compute direct provider path | Working | Direct provider execution returns HTTP 200 |
-| Local diagnostic tooling | Working | Health scripts isolate router vs direct-provider behavior |
-| Repository hygiene | Stable | Diagnostic reports committed and working tree kept clean |
-| Grant review posture | Improved | Technical proof can now be summarized and reproduced |
+## What Is Proven
 
-## Router vs Direct Provider Distinction
+### Direct Provider Path: ✅ PASS
 
-0G Compute currently exposes two relevant execution paths:
+- **Endpoint:** `https://compute-network-20.integratenetwork.work/v1/proxy/chat/completions`
+- **Status:** HTTP 200 (confirmed operational)
+- **Evidence:** Reproducible via `node scripts/query-0g-direct-provider.js`
+- **Proof:** Completion ID returned; inference loop operational
+- **Security:** Token loaded from local file, never logged
 
-1. **Router Path**
-   - OpenAI-compatible API style
-   - Uses a unified router/proxy endpoint
-   - Expected path includes `/v1/proxy`
-   - Current observed result: HTTP 402
+### Router Model Discovery: ✅ PASS
 
-2. **Direct Provider Path**
-   - Provider-specific execution
-   - Uses wallet/provider-authenticated request flow
-   - Bypasses the higher-level router abstraction
-   - Current observed result: HTTP 200 with valid completion response
+- **Endpoint:** `https://router-api.0g.ai/v1/models`
+- **Status:** HTTP 200
+- **Models Available:** 13 (including 0GM-1.0-35B-A3B)
+- **Evidence:** `node scripts/check-0g-compute-router.js`
+- **Proof:** Router is reachable and responsive
 
-The direct provider success is important because it proves the local OINIO environment can reach and execute against 0G Compute infrastructure even while the router abstraction reports a billing/account-state failure.
+### Diagnostics Infrastructure: ✅ PASS
 
-## Current Limitation
+- All diagnostic scripts execute without credential leakage
+- Reports are timestamped and include request_ids for support correlation
+- Health check runs in dual-mode: human-readable and JSON-only
+- No API keys or bearer tokens appear in any output
 
-The router path currently returns HTTP 402. Based on diagnostics, this does not appear to be caused by:
+---
 
-- broken local runtime
-- invalid provider discovery
-- total network failure
-- inability to access 0G Compute
-- direct provider execution failure
+## What Is Blocked (Upstream)
 
-The current working interpretation is that the router billing/account-state layer is out of sync or otherwise rejecting requests before they reach the successfully tested provider execution lane.
+### Router Billable Inference: ⚠️ WARN
 
-Only the 0G infrastructure team can fully resolve the router-side HTTP 402 behavior.
+- **Endpoint:** `https://router-api.0g.ai/v1/chat/completions`
+- **Status:** HTTP 402 (Payment Required)
+- **Error Type:** `payment_error`
+- **Error Code:** `insufficient_balance`
+- **Error Message:** "Insufficient balance"
+- **Latest Request ID:** `949fa68f-3b56-4e1b-a9b6-6617cf7f905a`
+- **Root Cause:** Not a local code failure. The router is reachable but returns a billing/account-state error.
+- **Evidence:** `node scripts/check-0g-router-chat.cjs`
 
-## Proven Capability
+**Interpretation:**
+The 0G router API key is accepted for model discovery but rejected for billable inference. This suggests the account or API key is not linked to a billing balance, or the balance is insufficient. This is **not** a code defect — it is an upstream router/account configuration issue.
 
-OINIO currently demonstrates:
+---
 
-- local 0G Compute diagnostics
-- provider discovery
-- direct provider inference execution
-- separation of router failure from direct execution success
-- clean technical reporting suitable for grant review
-- auditable command-line evidence
+## 0G Storage & Compute Integration Status
 
-## Grant Review Relevance
+| Component | Status | Evidence |
+|-----------|--------|----------|
+| 0G Storage (immutable logs) | Designed, not yet active | Project architecture supports it; awaiting milestone 3 |
+| 0G Compute direct provider | **✅ Live** | HTTP 200, completion ID verified |
+| 0G Router model discovery | **✅ Live** | 13 models listed via HTTP 200 |
+| 0G Router billable inference | **⚠️ Blocked** | HTTP 402, external account sync issue |
+| Policy/attestation layer | **✅ Designed** | Diagnostic scripts enforce secret-safe output |
 
-This standing supports the claim that OINIO is not merely a conceptual grant proposal. It has live diagnostic tooling and a working 0G Compute execution lane.
+---
 
-The current evidence is sufficient to show:
+## How to Reproduce This Evidence
 
-- the system can interact with 0G Compute
-- failure modes are isolated and documented
-- upstream router issues are not being hidden or misrepresented
-- OINIO can continue operating through the direct provider path while router behavior is investigated
+### Test 1: Direct Provider (Should Pass)
 
-## Recommended Next Steps
+```bash
+node scripts/query-0g-direct-provider.js
+```
 
-1. Maintain the direct provider path as the known-good compute lane.
-2. Preserve router HTTP 402 request IDs and diagnostic output for 0G review.
-3. Add a grant evidence generator that captures reproducible diagnostic reports.
-4. Add a fallback mode that treats direct provider execution as a resilience path when router execution fails.
-5. Polish CI/deployment workflows after the evidence package is committed.
+Expected output: HTTP 200, completion with inference result.
 
-## Summary Rating
+### Test 2: Router Models (Should Pass)
 
-Current technical standing: **8.2 / 10**
+```bash
+node scripts/check-0g-compute-router.js
+```
 
-OINIO is technically credible and strategically well positioned. The project has proven core 0G Compute execution through the direct provider path, while the remaining router issue appears external and has been cleanly documented rather than obscured.
+Expected output: HTTP 200, list of available models.
+
+### Test 3: Router Billing Inference (Will Warn)
+
+```bash
+node scripts/check-0g-router-chat.cjs
+```
+
+Expected output: HTTP 402, `payment_error / insufficient_balance`, request_id.
+
+### Test 4: Full Health Check (Text)
+
+```bash
+node scripts/health-0g-compute.cjs
+```
+
+Output:
+```
+ROUTER_MODELS=PASS
+ROUTER_CHAT=WARN
+DIRECT_PROVIDER=PASS
+```
+
+### Test 5: Full Health Check (JSON)
+
+```bash
+node scripts/health-0g-compute.cjs --json | python3 -m json.tool
+```
+
+Returns valid JSON only to stdout; diagnostics to stderr.
+
+### Test 6: Generate Timestamped Report
+
+```bash
+node scripts/write-0g-router-billing-report.cjs
+```
+
+Writes markdown report to `~/archive/0g-operational-notes/0G_ROUTER_BILLING_YYYY-MM-DDTHH-mm-ss.md`
+
+---
+
+## Architectural Layers
+
+```
+OINIO Sovereign Agent
+        ↓
+Policy / Attestation / Audit
+        ↓
+0G Compute Access (Two Paths)
+   ├── Router Abstraction
+   │   ├── /v1/models → HTTP 200 ✓
+   │   └── /v1/chat/completions → HTTP 402 ⚠️ (external blocker)
+   │
+   └── Direct Provider
+       └── /v1/proxy/chat/completions → HTTP 200 ✓
+```
+
+**Key Point:** Router failure is isolated and does not invalidate direct provider proof.
+
+---
+
+## Milestone Status
+
+| Milestone | Status | Proof |
+|-----------|--------|-------|
+| M1: Direct provider integration | **✅ Complete** | `query-0g-direct-provider.js` returns HTTP 200 |
+| M2: Router model discovery | **✅ Complete** | `check-0g-compute-router.js` lists 13 models |
+| M2: Diagnostic infrastructure | **✅ Complete** | 4 diagnostic scripts, secret-safe, timestamped reports |
+| M3: Storage integration | In progress | Architecture ready; awaiting funding approval |
+| M3: CI/deploy polish | In progress | Workflows exist; refinement pending |
+
+---
+
+## Known Limitations
+
+1. **Router Billing Sync (External)**
+   - The HTTP 402 is not a code defect.
+   - Resolution requires 0G team to verify account/billing linkage.
+   - Workaround: Direct provider path remains fully operational.
+
+2. **CI/Deployment Noise**
+   - GitHub Actions and Cloudflare Pages have had intermittent failures (May 27–28).
+   - Core agent logic is unaffected; infrastructure polish is pending.
+   - Does not block grant approval or technical validation.
+
+3. **Storage Integration**
+   - Not yet active pending M3 funding.
+   - Architecture is designed; implementation is ready.
+
+---
+
+## How to Get Support / Unblock Router
+
+If you are a 0G team member reviewing this:
+
+1. **Latest diagnostic data:** Request ID `949fa68f-3b56-4e1b-a9b6-6617cf7f905a`
+2. **Reproducible test:** `node scripts/check-0g-router-chat.cjs`
+3. **Question:** Is the OINIO API key linked to a billing account and balance on 0G router?
+4. **Next steps:** Confirm account state or provide remediation instructions.
+
+---
+
+## Next Steps (In Priority Order)
+
+1. **Grant Review Response** — Awaiting 0G Guild/Ecosystem team confirmation on M1/M2 and funding decision.
+2. **Router Billing Sync** — Awaiting 0G Compute team verification of account linkage.
+3. **CI/Deploy Polish** — GitHub Actions and Pages refinement (does not block core features).
+4. **Storage Integration** — Pending M3 funding approval.
+5. **Evidence Generator** — Automated report with git/Node/npm context (see `scripts/generate-grant-evidence.cjs`).
+
+---
+
+## Files Referenced
+
+- `scripts/query-0g-direct-provider.js` — Direct provider integration test
+- `scripts/check-0g-compute-router.js` — Router model discovery test
+- `scripts/check-0g-router-chat.cjs` — Router billing inference test (HTTP 402)
+- `scripts/health-0g-compute.cjs` — Comprehensive 3-path health check
+- `scripts/write-0g-router-billing-report.cjs` — Timestamped report generator
+- `scripts/generate-grant-evidence.cjs` — Grant evidence attestation (coming)
+- `docs/ARCHITECTURE.md` — System design and layer explanation
+
+---
+
+## Security & Secrets Policy
+
+- ✅ No API keys appear in any script output
+- ✅ No bearer tokens logged or printed
+- ✅ Reports explicitly state "No secrets recorded"
+- ✅ Credentials loaded from local files or `.env`, never exposed
+- ✅ Request IDs included for support escalation (these are safe to share)
+
+---
+
+**For questions or verification:** Run the reproduction steps above and share the output + request_id with the 0G team.
 ```
 
 **stderr**
@@ -273,271 +407,272 @@ OINIO is technically credible and strategically well positioned. The project has
 **Command:** `sed -n 1,260p docs/ARCHITECTURE.md`  
 **Exit code:** `0`  
 **Signal:** `none`  
-**Started:** `2026-05-29T21:34:48.554Z`
+**Started:** `2026-05-29T21:38:55.500Z`
 
 
 **stdout**
 
 ```text
-# 🏗️ Pi Forge Quantum Genesis - System Architecture
+# OINIO Architecture
 
-## Foundation
-
-This architecture is built upon the principles established in **[GENESIS.md](../GENESIS.md)** — the Eternal Archive containing the OINIO Seal Declaration minted on Winter Solstice 2025.
-
-For ecosystem-level overview, see **[ECOSYSTEM_OVERVIEW.md](../ECOSYSTEM_OVERVIEW.md)**.
+**Version:** 1.0  
+**Last Updated:** May 29, 2026
 
 ---
 
-## Overview
+## System Overview
 
-Pi Forge Quantum Genesis is a production-ready autonomous AI platform built on Pi Network. The system combines autonomous decision-making, human guardian oversight, self-healing infrastructure, and ethical AI governance to create a truly self-sustaining ecosystem.
-
----
-
-## High-Level Architecture
+OINIO is a sovereign, non-root AI agent deployed on 0G Aristotle Mainnet. It operates through a layered stack that separates concerns and provides redundancy.
 
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│                    👥 HUMAN LAYER (Guardian Team)                    │
-│  Lead Guardian: @onenoly1010  |  AI Assistant: @app/copilot         │
-│                                                                       │
-│  • Critical Decision Approval    • Emergency Protocols               │
-│  • Ethical Oversight            • Policy Updates                     │
-│  • Incident Response            • System Audits                      │
-└───────────────────────────┬─────────────────────────────────────────┘
-                            │ Escalations & Approvals
-                            ▼
-┌─────────────────────────────────────────────────────────────────────┐
-│              🤖 AUTONOMOUS AI LAYER (Decision Matrix)                │
-│                                                                       │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐             │
-│  │ Deployment   │  │  Scaling     │  │  Rollback    │             │
-│  │ Decisions    │  │  Decisions   │  │  Decisions   │             │
-│  └──────────────┘  └──────────────┘  └──────────────┘             │
-│                                                                       │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐             │
-│  │ Self-Healing │  │  Monitoring  │  │  Guardian    │             │
-│  │ Actions      │  │  Alerts      │  │  Override    │             │
-│  └──────────────┘  └──────────────┘  └──────────────┘             │
-│                                                                       │
-│  Confidence-Based Approval: 0.0 → 1.0                               │
-│  Auto-Approve: >= 0.8  |  Guardian Required: < 0.8                  │
-└───────────────────────────┬─────────────────────────────────────────┘
-                            │
-                            ▼
-┌─────────────────────────────────────────────────────────────────────┐
-│               🔧 APPLICATION LAYER (Quantum Triad)                   │
-│                                                                       │
-│  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐    │
-│  │   FastAPI       │  │    Flask        │  │    Gradio       │    │
-│  │ Quantum Conduit │  │  Glyph Weaver   │  │  Truth Mirror   │    │
-│  │                 │  │                 │  │                 │    │
-│  │ • REST APIs     │  │ • Dashboards    │  │ • Ethical AI    │    │
-│  │ • WebSocket     │  │ • Visualizations│  │ • Audit Tools   │    │
-│  │ • Pi Auth       │  │ • SVG Render    │  │ • Evaluation    │    │
-│  │ • Payments      │  │ • Templates     │  │ • Interface     │    │
-│  │                 │  │                 │  │                 │    │
-│  │ Port: 8000      │  │ Port: 5000      │  │ Port: 7860      │    │
-│  └─────────────────┘  └─────────────────┘  └─────────────────┘    │
-└───────────────────────────┬─────────────────────────────────────────┘
-                            │
-        ┌───────────────────┼───────────────────┐
-        ▼                   ▼                   ▼
-┌──────────────┐    ┌──────────────┐    ┌──────────────┐
-│  Monitoring  │    │ Self-Healing │    │   Guardian   │
-│   Agents     │    │    System    │    │   Monitor    │
-│              │    │              │    │              │
-│ • Performance│    │ • Diagnostics│    │ • Safety     │
-│ • Security   │    │ • Recovery   │    │ • Override   │
-│ • Health     │    │ • Metrics    │    │ • Escalation │
-│ • Decision   │    │ • Incidents  │    │ • Audit      │
-└──────────────┘    └──────────────┘    └──────────────┘
-                            │
-                            ▼
-┌─────────────────────────────────────────────────────────────────────┐
-│                  💾 DATA & BLOCKCHAIN LAYER                          │
-│                                                                       │
-│  ┌─────────────────┐           ┌─────────────────┐                 │
-│  │   Supabase      │           │  Pi Network     │                 │
-│  │   Database      │           │   Blockchain    │                 │
-│  │                 │           │                 │                 │
-│  │ • User Data     │◄─────────►│ • Smart Contract│                 │
-│  │ • Payments      │           │ • OINIO Token   │                 │
-│  │ • Sessions      │           │ • Model Registry│                 │
-│  │ • Audits        │           │ • Transactions  │                 │
-│  └─────────────────┘           └─────────────────┘                 │
-└─────────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────┐
+│           OINIO Sovereign Agent Layer                │
+│   (Policy execution, local orchestration, no root)   │
+└─────────────────────────┬───────────────────────────┘
+                          │
+┌─────────────────────────▼───────────────────────────┐
+│  Diagnostics / Policy / Attestation / Audit Layer   │
+│  (Self-verifying, secret-safe, timestamped)         │
+└─────────────────────────┬───────────────────────────┘
+                          │
+┌─────────────────────────▼───────────────────────────┐
+│        0G Compute Access Layer (Dual Path)          │
+│                                                      │
+│  Path A: Router Abstraction                         │
+│  ├─ /v1/models         → HTTP 200 ✓                │
+│  └─ /v1/chat/completions → HTTP 402 ⚠️ (external)  │
+│                                                      │
+│  Path B: Direct Provider                            │
+│  └─ /v1/proxy/chat/completions → HTTP 200 ✓        │
+└──────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## Core Components
+## Layer 1: Sovereign Agent Orchestration
 
-### 1. Guardian System (Human Oversight)
+**Responsibility:** Local policy execution, decision-making, state management
 
-**Purpose**: Provide human oversight and approval for critical decisions.
+**Characteristics:**
+- No central control point or root authority
+- Autonomous execution loop
+- Local-first (runs on your infrastructure)
+- Wallet/provider auth managed locally
+- No API keys stored in cloud
 
-**Components**:
-- **Lead Guardian**: @onenoly1010 - Primary decision maker
-- **AI Assistant**: @app/copilot-swe-agent - 24/7 triage and support
-- **Decision Templates**: Structured workflows for consistent decision-making
-- **Emergency Protocols**: Rapid response procedures for critical incidents
-
-**Key Features**:
-- Real-time dashboard at `/api/guardian/dashboard`
-- Escalation system for high-risk decisions
-- Audit trail for all guardian actions
-- One-command emergency stop and rollback
-
-**Reference**: [Issue #100](https://github.com/onenoly1010/pi-forge-quantum-genesis/issues/100), [Issue #102](https://github.com/onenoly1010/pi-forge-quantum-genesis/issues/102)
+**Proof:**
+- `scripts/query-0g-direct-provider.js` demonstrates end-to-end local execution
+- Token loaded from filesystem; completions requested and verified locally
+- No third-party orchestration layer required
 
 ---
 
-### 2. Autonomous Decision Matrix
+## Layer 2: Diagnostics, Policy & Attestation
 
-**Purpose**: Enable AI-driven decision-making with confidence-based approval.
+**Responsibility:** 
+- Monitor system health across all 0G paths
+- Enforce secret-safety (no credentials in logs)
+- Generate timestamped, request_id-correlated audit trails
+- Provide machine-readable and human-readable output
 
-**Decision Types**:
-1. **Deployment** - Code deployment and release decisions
-2. **Scaling** - Resource scaling and optimization
-3. **Rollback** - Automated rollback on failures
-4. **Healing** - Self-healing system actions
-5. **Monitoring** - Alert management and response
-6. **Guardian Override** - Emergency override capabilities
+**Characteristics:**
+- Dual-mode output: human-readable text + JSON-only
+- All diagnostics routed to stderr in JSON mode (stdout = valid JSON only)
+- Timestamped reports with request_ids for support correlation
+- Explicit statement: "No secrets recorded"
 
-**Decision Process**:
-```
-1. Request → 2. Analyze Parameters → 3. Calculate Confidence
-                                           ↓
-                      ┌────────────────────┴────────────────────┐
-                      ▼                                         ▼
-              Confidence >= 0.8                         Confidence < 0.8
-                      │                                         │
-                      ▼                                         ▼
-              Auto-Approve                              Guardian Escalation
-                      │                                         │
-                      └─────────────────┬───────────────────────┘
-                                        ▼
-                                   Execute Action
-                                        ▼
-                                   Log & Audit
-```
+**Scripts:**
+- `health-0g-compute.cjs` — 3-path health check (router models, router billing, direct provider)
+- `check-0g-router-chat.cjs` — Router inference detail (captures HTTP 402 with request_id)
+- `write-0g-router-billing-report.cjs` — Timestamped markdown reports for escalation
+- `generate-grant-evidence.cjs` — Attestation with git/Node/npm context (coming)
 
-**Configuration**:
-```python
-{
-    "deployment": {
-        "approval_threshold": 0.8,
-        "requires_guardian": "< 0.8 confidence",
-        "max_auto_approvals_per_hour": 10
-    },
-    "scaling": {
-        "approval_threshold": 0.85,
-        "auto_approve_scale_down": True
-    },
-    "rollback": {
-        "approval_threshold": 0.7,
-        "emergency_auto_approve": True
-    }
-}
-```
-
-**Implementation**: `server/autonomous_decision.py`
+**Policy Enforced:**
+- ✅ Never print API keys or bearer tokens
+- ✅ Never print full authorization headers
+- ✅ Capture request_id for all transactions
+- ✅ Timestamp all reports
 
 ---
 
-### 3. Self-Healing System
+## Layer 3: 0G Compute Access (Dual Path)
 
-**Purpose**: Automatically detect and resolve system issues without human intervention.
+### Path A: Router Abstraction
 
-**Capabilities**:
-- **Diagnostics**: CPU, memory, disk, process health monitoring
-- **Recovery Actions**:
-  - Service restart
-  - Resource cleanup
-  - Cache clearing
-  - Connection pool reset
-- **Incident Reporting**: Automatic incident logging and notification
-- **Metrics Tracking**: Real-time healing metrics and success rates
+**Endpoint:** `https://router-api.0g.ai/v1`
 
-**Healing Process**:
-```
-1. Detect Issue → 2. Run Diagnostics → 3. Determine Root Cause
-                                              ↓
-                          ┌───────────────────┴───────────────────┐
-                          ▼                                       ▼
-                   Known Issue Pattern                     Unknown Issue
-                          │                                       │
-                          ▼                                       ▼
-                   Auto-Healing Action                    Guardian Alert
-                          │                                       │
-                          └───────────────┬───────────────────────┘
-                                          ▼
-                                  Log Incident & Outcome
-                                          ▼
-                                  Update Metrics & Learn
-```
+**Status:**
+- Model discovery: **✅ PASS** (HTTP 200)
+  - 13 models available (including 0GM-1.0-35B-A3B)
+  - Accessed via `GET /v1/models`
+  - API key accepted; authentication works
 
-**Monitoring**:
-- CPU usage > 90% → Identify and optimize processes
-- Memory usage > 90% → Garbage collection and cleanup
-- Disk usage > 90% → Log rotation and temp file cleanup
-- Process crashes → Automatic restart with backoff
+- Billable inference: **⚠️ WARN** (HTTP 402)
+  - `POST /v1/chat/completions` returns payment_error
+  - Error code: `insufficient_balance`
+  - Not a code defect; upstream account/billing sync issue
+  - Router is reachable and responding correctly to the error condition
 
-**Implementation**: `server/self_healing.py`
+**Interpretation:**
+The router is **working as designed** — it is correctly rejecting inference requests for an account without sufficient balance. This is not a failure of OINIO or the local code; it is expected behavior when billing constraints are triggered.
 
 ---
 
-### 4. Monitoring Agents
+### Path B: Direct Provider
 
-**Purpose**: Continuous system monitoring with specialized agents.
+**Endpoint:** `https://compute-network-20.integratenetwork.work/v1/proxy/chat/completions`
 
-**Agent Types**:
+**Status:** **✅ PASS** (HTTP 200)
 
-1. **Performance Agent**
-   - Response time tracking
-   - Throughput monitoring
-   - Resource utilization
-   - Performance regression detection
+- Model inference: Complete and verified
+- Completion ID returned: Usable for tracking
+- Token auth: Loaded from local file, never exposed in logs
+- Integration: Fully functional end-to-end
 
-2. **Security Agent**
-   - Authentication monitoring
-   - Access pattern analysis
-   - Threat detection
-   - Security score calculation
-
-3. **Health Agent**
-   - Service availability
-   - Database connectivity
-   - API endpoint health
-   - Dependency status
-
-4. **Decision Agent**
-   - Decision pattern analysis
-   - Confidence trend tracking
-   - Guardian escalation rates
-   - Decision quality metrics
-
-**Operation**:
-- All agents run asynchronously
-- 5-minute monitoring intervals
-- Automatic alert generation
-- Guardian notification on critical issues
-
-**Implementation**: `server/monitoring_agents.py`
+**Interpretation:**
+Direct provider is the **proven, operational path** for OINIO inference. This proves:
+- 0G Compute network is reachable
+- Authentication works (token-based)
+- Model inference loop is functional
+- Response parsing and validation work
+- Local orchestration succeeds
 
 ---
 
-### 5. Guardian Monitor
+## Redundancy & Failover
 
-**Purpose**: Safety validation and guardian override capabilities.
+The dual-path architecture provides **intentional redundancy**:
 
-**Features**:
-- **Multi-Level Safety Validation**: Transaction, ethical, security
-- **Decision Override**: Guardian can override autonomous decisions
-- **Configurable Monitoring**: Adjust sensitivity and thresholds
-- **Safety Metrics**: Auto-adjusting safety scores
+| Scenario | Router Path | Direct Path | Agent Status |
+|----------|-------------|-------------|--------------|
+| Both paths up | Primary (if billing OK) | Backup | Fully operational |
+| Router 402 (billing) | Unavailable | **Primary** | Fully operational |
+| Router network down | Unavailable | **Primary** | Fully operational |
+| Direct provider down | **Primary** | Unavailable | Degraded but recoverable |
+| Both down | Unavailable | Unavailable | Wait for recovery |
+
+**Current state:** Router billing blocked → Direct provider is primary → Agent is operational.
+
+---
+
+## Data Flow
+
+### Direct Provider Inference
+
+```
+1. Agent generates inference request
+   ├─ Model: 0GM-1.0-35B-A3B
+   ├─ Messages: [system role, user role]
+   └─ Max tokens: configurable
+
+2. Load auth token from ~/.0g-compute-cli/oinio-0gm-token1.txt
+   └─ Token format: "Bearer app-sk-..."
+
+3. POST to https://compute-network-20.integratenetwork.work/v1/proxy/chat/completions
+   └─ Headers: Content-Type: application/json, Authorization: Bearer <token>
+
+4. Receive HTTP 200 response
+   ├─ Parse JSON: { choices: [{ message: { content: "..." } }], ... }
+   └─ Extract completion
+
+5. Log request_id (if present) for audit trail
+   ├─ Never log token
+   ├─ Never log full response
+   └─ Timestamp the transaction
+
+6. Agent processes completion result
+```
+
+### Router Model Discovery
+
+```
+1. Agent requests model list
+   └─ GET /v1/models
+
+2. Send auth header
+   └─ Authorization: Bearer <OG_COMPUTE_API_KEY>
+
+3. Receive HTTP 200
+   ├─ Parse: { data: [ { id: "0GM-1.0-35B-A3B", ... }, ... ] }
+   └─ Count: 13 models available
+
+4. Cache model list locally
+```
+
+### Diagnostics Flow
+
+```
+1. Run: node scripts/health-0g-compute.cjs --json
+   
+2. Internal subprocess calls:
+   ├─ Test router /v1/models
+   ├─ Test router /v1/chat/completions
+   └─ Spawn child process: query-0g-direct-provider.js
+
+3. Collect results:
+   ├─ ROUTER_MODELS: PASS/FAIL + HTTP status
+   ├─ ROUTER_CHAT: PASS/WARN/FAIL + HTTP status + error details + request_id
+   └─ DIRECT_PROVIDER: PASS/FAIL + exit code
+
+4. Output to stdout: { "ROUTER_MODELS": {...}, ... } (valid JSON only)
+   Output to stderr: diagnostics, timestamps, any warnings
+```
+
+---
+
+## Security Model
+
+### Secret Safety
+
+All scripts enforce:
+- ✅ API keys never logged
+- ✅ Bearer tokens never printed
+- ✅ Credentials loaded from local files only
+- ✅ No secrets in reports or diagnostics
+- ✅ Request IDs (safe to share) are recorded for support
+
+### Token Storage
+
+- Direct provider token: `~/.0g-compute-cli/oinio-0gm-token1.txt`
+- Router API key: `$OG_COMPUTE_API_KEY` environment variable (from `.env`)
+- Both protected by filesystem permissions and not committed to git
+
+### Audit Trail
+
+- All transactions timestamped
+- Request IDs captured from responses
+- Reports written to `~/archive/0g-operational-notes/`
+- Archive is **outside** the repo (not committed to git)
+
+---
+
+## Integration Points
+
+### 0G Storage (Planned)
+
+- Immutable build logs (milestone 3)
+- Permanent audit trail
+- Cryptographic proof of execution history
+- Integration: Write report hashes to 0G Storage after generation
+
+### 0G Attestation (Planned)
+
+- State commitments anchored on-chain
+- Self-verifying proof of execution
+- Integration: Hash diagnostics and submit to Attestation contract
+
+### Mainnet Settlement (Planned)
+
+- On-chain escrow for M3 funding
+- Automated milestone disbursement
+- Integration: Milestone completion proof → on-chain execution
+
+---
+
+## Deployment Checklist
+
+| Item | Status | Reference |
+|------|--------|-----------|
 ```
 
 **stderr**
@@ -551,7 +686,7 @@ Pi Forge Quantum Genesis is a production-ready autonomous AI platform built on P
 **Command:** `ls -la scripts/query-0g-direct-provider.js`  
 **Exit code:** `0`  
 **Signal:** `none`  
-**Started:** `2026-05-29T21:34:48.562Z`
+**Started:** `2026-05-29T21:38:55.513Z`
 
 
 **stdout**
@@ -571,7 +706,7 @@ Pi Forge Quantum Genesis is a production-ready autonomous AI platform built on P
 **Command:** `node health-0g-compute.cjs`  
 **Exit code:** `null`  
 **Signal:** `none`  
-**Started:** `2026-05-29T21:34:42.387Z`
+**Started:** `2026-05-29T21:38:49.893Z`
 
 **Error:** `missing_script`
 
@@ -589,6 +724,6 @@ health-0g-compute.cjs not found
 
 ## Report Integrity
 
-**SHA-256:** `07526efc5156807a9dbb71b099c40da2954c60638f311a042d3642e20fda8126`
+**SHA-256:** `a88d546194891138cf3f35ed05f1cdd715aba891d4d47a4b2ee769387a611c08`
 
 This hash was calculated from the report body before this integrity section was appended.
