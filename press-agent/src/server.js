@@ -13,6 +13,26 @@ const logger = require('./logger');
 const articleTemplates = require('./templates');
 const { WordPressPublisher } = require('./publishers/wordpress');
 
+
+function renderTemplateString(value, data = {}) {
+  if (typeof value !== 'string') return value;
+
+  return value.replace(/\{\{\s*([A-Za-z0-9_]+)\s*\}\}/g, (match, key) => {
+    const replacement = data[key];
+    return replacement === undefined || replacement === null ? match : String(replacement);
+  });
+}
+
+function renderTemplateObject(template, data = {}) {
+  return {
+    ...template,
+    title: renderTemplateString(template.title, data),
+    content: renderTemplateString(template.content, data),
+    excerpt: renderTemplateString(template.excerpt, data),
+  };
+}
+
+
 const app = express();
 const PORT = process.env.PRESS_AGENT_PORT || 3001;
 
@@ -65,7 +85,8 @@ app.get('/api/templates', (req, res) => {
  * Generate a new press article from template
  */
 app.post('/api/articles/generate', (req, res) => {
-    const { templateId, customData = {} } = req.body;
+    const { templateId } = req.body;
+    const customData = req.body.customData || req.body.data || {};
 
     if (!templateId) {
         logger.warn('Article generation failed: missing templateId');
