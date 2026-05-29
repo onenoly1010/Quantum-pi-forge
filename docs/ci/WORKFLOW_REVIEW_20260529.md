@@ -193,3 +193,35 @@ Restore only after:
 4. Railway CLI versioning is pinned or otherwise controlled.
 5. Health checks and smoke tests use real documented endpoints.
 6. The workflow has been tested against a non-production rollback target.
+
+## 0G DEX Deployment Workflow Review
+
+The 0G DEX deployment workflow was reviewed after rollback workflow archival.
+
+### Finding
+
+`.github/workflows/deploy-0g-dex.yml` represented a high-optics on-chain deployment surface because it referenced 0G and DEX deployment behavior from the active workflow set.
+
+Any workflow that deploys or verifies DEX infrastructure can imply wallet signing, liquidity routing, contract deployment, or privileged RPC access. If not fully hardened, this creates unnecessary reviewer risk for the current OINIO grant-review scope.
+
+### Decision
+
+The workflow was archived:
+
+- from: `.github/workflows/deploy-0g-dex.yml`
+- to: `.github/workflows/deploy-0g-dex.yml.disabled`
+
+### Rationale
+
+0G DEX deployment automation should remain inactive unless it is explicitly in-scope, deterministic, environment-protected, and verified against the current deployment state. Leaving experimental or roadmap deployment workflows active creates avoidable security and telemetry noise.
+
+### Restore Criteria
+
+Restore only after:
+
+1. The DEX deployment scope is confirmed as current and grant-relevant.
+2. All RPC and wallet secrets are scoped to protected environments.
+3. Deployment scripts are present and verified from a clean checkout.
+4. Contract addresses and chain IDs are documented.
+5. Mainnet execution is explicitly gated.
+6. Dry-run or testnet execution is proven before any live deployment path is enabled.
