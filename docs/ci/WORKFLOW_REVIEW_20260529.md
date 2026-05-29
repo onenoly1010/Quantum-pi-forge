@@ -161,3 +161,35 @@ Restore only after:
 5. GHCR image tags are release-scoped or commit-scoped.
 6. The workflow can complete successfully from a clean checkout.
 
+
+## Rollback Workflow Review
+
+The rollback workflow was reviewed after production and testnet deployment workflows were archived.
+
+### Finding
+
+`.github/workflows/rollback.yml` was manual-only and required a typed rollback confirmation, which reduced accidental execution risk.
+
+However, rollback workflows represent a high-impact operational safety surface. If the workflow relies on placeholder Railway commands, floating CLI installs, missing deployment IDs, or manual verification steps, it can create misleading failure telemetry and provide a false sense of recovery readiness.
+
+### Decision
+
+The workflow was archived:
+
+- from: `.github/workflows/rollback.yml`
+- to: `.github/workflows/rollback.yml.disabled`
+
+### Rationale
+
+Rollback automation should not remain active unless it is deterministic, environment-protected, and verified against real deployment state. A partially configured rollback action is riskier than an explicitly documented manual recovery procedure.
+
+### Restore Criteria
+
+Restore only after:
+
+1. Railway project and service targets are explicitly configured.
+2. Rollback targets are resolved from verified deployment records.
+3. Required secrets are scoped to a protected rollback environment.
+4. Railway CLI versioning is pinned or otherwise controlled.
+5. Health checks and smoke tests use real documented endpoints.
+6. The workflow has been tested against a non-production rollback target.
