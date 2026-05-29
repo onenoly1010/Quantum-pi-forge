@@ -1,9 +1,9 @@
 # OINIO Grant Evidence Report
 
-**Generated:** 2026-05-29T21:33:43.618Z  
+**Generated:** 2026-05-29T21:34:42.387Z  
 **Project:** OINIO / Quantum Pi Forge  
 **Git branch:** main  
-**Git commit:** 0ce08fe222e36393e62b642bbce19d959a85eeea  
+**Git commit:** 639f43f2e78cab0c778a1f67f26136f169e27143  
 **Node:** v18.19.1  
 **npm:** 9.2.0  
 
@@ -23,12 +23,12 @@ This report captures repository state, environment metadata, diagnostic document
 ```json
 {
   "project": "OINIO / Quantum Pi Forge",
-  "generated_at": "2026-05-29T21:33:43.618Z",
+  "generated_at": "2026-05-29T21:34:42.387Z",
   "cwd": "/home/kris/forge/Quantum-pi-forge",
   "git_branch": "main",
-  "git_commit": "0ce08fe222e36393e62b642bbce19d959a85eeea",
-  "git_commit_short": "0ce08fe",
-  "git_status_short": "A  docs/TECHNICAL_SUMMARY.md\nA  scripts/generate-grant-evidence.cjs\n?? reports/",
+  "git_commit": "639f43f2e78cab0c778a1f67f26136f169e27143",
+  "git_commit_short": "639f43f",
+  "git_status_short": "",
   "node_version": "v18.19.1",
   "npm_version": "9.2.0"
 }
@@ -41,15 +41,13 @@ This report captures repository state, environment metadata, diagnostic document
 **Command:** `git status --short`  
 **Exit code:** `0`  
 **Signal:** `none`  
-**Started:** `2026-05-29T21:33:47.695Z`
+**Started:** `2026-05-29T21:34:45.930Z`
 
 
 **stdout**
 
 ```text
-A  docs/TECHNICAL_SUMMARY.md
-A  scripts/generate-grant-evidence.cjs
-?? reports/
+(empty)
 ```
 
 **stderr**
@@ -63,13 +61,13 @@ A  scripts/generate-grant-evidence.cjs
 **Command:** `git log -1 --oneline`  
 **Exit code:** `0`  
 **Signal:** `none`  
-**Started:** `2026-05-29T21:33:47.857Z`
+**Started:** `2026-05-29T21:34:46.133Z`
 
 
 **stdout**
 
 ```text
-0ce08fe Document 0G compute direct provider path diagnosis
+639f43f Add grant technical summary and evidence generator
 ```
 
 **stderr**
@@ -83,7 +81,7 @@ A  scripts/generate-grant-evidence.cjs
 **Command:** `node --version`  
 **Exit code:** `0`  
 **Signal:** `none`  
-**Started:** `2026-05-29T21:33:47.868Z`
+**Started:** `2026-05-29T21:34:46.145Z`
 
 
 **stdout**
@@ -103,7 +101,7 @@ v18.19.1
 **Command:** `npm --version`  
 **Exit code:** `0`  
 **Signal:** `none`  
-**Started:** `2026-05-29T21:33:47.939Z`
+**Started:** `2026-05-29T21:34:46.223Z`
 
 
 **stdout**
@@ -123,7 +121,7 @@ v18.19.1
 **Command:** `sed -n 1,220p OINIO_0G_COMPUTE_PATH_DIAGNOSIS_20260529.md`  
 **Exit code:** `0`  
 **Signal:** `none`  
-**Started:** `2026-05-29T21:33:49.912Z`
+**Started:** `2026-05-29T21:34:48.540Z`
 
 
 **stdout**
@@ -166,7 +164,7 @@ OINIO bypasses the Router abstraction while remaining strictly inside the intend
 **Command:** `sed -n 1,240p docs/TECHNICAL_SUMMARY.md`  
 **Exit code:** `0`  
 **Signal:** `none`  
-**Started:** `2026-05-29T21:33:49.920Z`
+**Started:** `2026-05-29T21:34:48.546Z`
 
 
 **stdout**
@@ -275,7 +273,7 @@ OINIO is technically credible and strategically well positioned. The project has
 **Command:** `sed -n 1,260p docs/ARCHITECTURE.md`  
 **Exit code:** `0`  
 **Signal:** `none`  
-**Started:** `2026-05-29T21:33:49.930Z`
+**Started:** `2026-05-29T21:34:48.554Z`
 
 
 **stdout**
@@ -553,7 +551,7 @@ Pi Forge Quantum Genesis is a production-ready autonomous AI platform built on P
 **Command:** `ls -la scripts/query-0g-direct-provider.js`  
 **Exit code:** `0`  
 **Signal:** `none`  
-**Started:** `2026-05-29T21:33:49.937Z`
+**Started:** `2026-05-29T21:34:48.562Z`
 
 
 **stdout**
@@ -573,7 +571,7 @@ Pi Forge Quantum Genesis is a production-ready autonomous AI platform built on P
 **Command:** `node health-0g-compute.cjs`  
 **Exit code:** `null`  
 **Signal:** `none`  
-**Started:** `2026-05-29T21:33:43.618Z`
+**Started:** `2026-05-29T21:34:42.387Z`
 
 **Error:** `missing_script`
 
@@ -591,6 +589,6 @@ health-0g-compute.cjs not found
 
 ## Report Integrity
 
-**SHA-256:** `5ece43023617795cb16a6b2b0acaffe641c67e8b1e372ca6cc21604ef66fe3bb`
+**SHA-256:** `07526efc5156807a9dbb71b099c40da2954c60638f311a042d3642e20fda8126`
 
 This hash was calculated from the report body before this integrity section was appended.
