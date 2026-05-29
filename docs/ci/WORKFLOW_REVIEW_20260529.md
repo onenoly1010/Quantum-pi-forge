@@ -225,3 +225,27 @@ Restore only after:
 4. Contract addresses and chain IDs are documented.
 5. Mainnet execution is explicitly gated.
 6. Dry-run or testnet execution is proven before any live deployment path is enabled.
+
+## Deployment Verification Workflow Review
+
+The deployment verification workflow was reviewed after 0G DEX deployment workflow archival.
+
+### Finding
+
+`.github/workflows/verify-deployments.yml` is a manual verification workflow. Unlike deployment workflows, it can provide useful audit evidence if it remains read-only and deterministic.
+
+### Decision
+
+The workflow remains active only if its referenced verification scripts exist, avoid transaction broadcasting, and operate as read-only state checks.
+
+### Hardening Applied
+
+- Foundry toolchain version was changed from `nightly` to `stable` to reduce upstream drift risk.
+
+### Ongoing Requirements
+
+1. Verification scripts must not broadcast transactions.
+2. Verification must not require wallet private keys.
+3. Missing verification paths must fail clearly.
+4. Reports may be uploaded as artifacts, but deployment state must not be mutated.
+5. Any mainnet verification must remain manual-only.
