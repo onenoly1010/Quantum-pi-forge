@@ -407,3 +407,40 @@ Restore only after:
 4. The workflow cannot merge arbitrary code changes.
 5. Permissions are minimized to the final merge job.
 6. Branch protection requires the canon validation suite before merge.
+
+## Canon Auto-Merge Workflow Review
+
+The canon auto-merge workflow was reviewed after automated dependency, release, and FastAPI mutation workflows were archived.
+
+### Finding
+
+`.github/workflows/canon-auto-merge.yml` was scoped to `canon/**`, which reduced blast radius compared with broad repository automation.
+
+However, it still represented a privileged repository mutation surface because it granted write permissions and executed `gh pr merge` automatically.
+
+The workflow included several strong design elements, including canon path scoping, policy-engine checks, conflict checks, approval counting, and final artifact hash verification.
+
+The remaining concern was that automatic merge authority depended on workflow-local logic rather than fully documented branch-protection enforcement, trusted-approver constraints, and a confirmed external ClosureSentinel check.
+
+### Decision
+
+The auto-merge executor was archived:
+
+- from: `.github/workflows/canon-auto-merge.yml`
+- to: `.github/workflows/canon-auto-merge.yml.disabled`
+
+### Rationale
+
+Canon validation and conflict detection can remain active as proof and review systems, but automatic merge authority should remain disabled until its trust boundary is fully enforced.
+
+### Restore Criteria
+
+Restore only after:
+
+1. Auto-merge is limited to canon-only paths.
+2. Required validation and conflict checks are enforced by branch protection.
+3. ClosureSentinel or equivalent external validation is actually checked before merge.
+4. Merge labels can only be applied by trusted maintainers.
+5. Required approvals are restricted to trusted maintainers or CODEOWNERS.
+6. The workflow cannot merge arbitrary code changes.
+7. Permissions are minimized to the final merge job.
