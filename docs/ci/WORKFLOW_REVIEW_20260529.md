@@ -343,3 +343,35 @@ Restore only after:
 4. Version tags are semantic and milestone-based.
 5. `contents: write` is limited to the release job that requires it.
 6. Documentation-only and workflow-only commits do not trigger release creation.
+
+## FastAPI Auto-Fix Workflow Review
+
+The FastAPI auto-fix workflow was reviewed after release automation was archived.
+
+### Finding
+
+`.github/workflows/auto-fix-fastapi.yml` represented an automated repository mutation surface because it could create commits, push branches, or open pull requests with generated code changes.
+
+Automated formatter or fixer workflows can be useful, but they should not mutate repository state unless dependencies are pinned, triggers are narrow, and the workflow cannot loop on its own generated changes.
+
+### Decision
+
+The workflow was archived:
+
+- from: `.github/workflows/auto-fix-fastapi.yml`
+- to: `.github/workflows/auto-fix-fastapi.yml.disabled`
+
+### Rationale
+
+Formatting and lint corrections should preferably run as deterministic check-only gates. Developer-local fixes preserve authorship and avoid CI-generated mutation noise.
+
+### Restore Criteria
+
+Restore only after:
+
+1. Formatter and fixer dependencies are pinned.
+2. The workflow runs on narrow, relevant paths.
+3. The workflow cannot push directly to protected branches.
+4. Generated changes are proposed only through clearly labeled pull requests.
+5. The workflow avoids infinite PR/update loops.
+6. Check-only enforcement is considered as the default alternative.
