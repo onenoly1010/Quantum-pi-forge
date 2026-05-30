@@ -280,3 +280,34 @@ Restore only after:
 3. Validation checks are deterministic and do not require privileged secrets.
 4. The workflow validates current recovery behavior rather than archived Railway templates.
 5. Trigger behavior is limited to manual or clearly relevant file-path changes.
+
+## Dependabot Auto-Merge Workflow Review
+
+The Dependabot auto-merge workflow was reviewed after deployment and rollback workflow cleanup.
+
+### Finding
+
+`.github/workflows/dependabot-auto-merge.yml` represented an unattended repository mutation surface because dependency updates can introduce third-party code changes into the default branch.
+
+Automated dependency merging treats green CI as sufficient evidence of safety. For a sovereign infrastructure repository, dependency changes should remain human-reviewed unless deep runtime and supply-chain validation are in place.
+
+### Decision
+
+The workflow was archived:
+
+- from: `.github/workflows/dependabot-auto-merge.yml`
+- to: `.github/workflows/dependabot-auto-merge.yml.disabled`
+
+### Rationale
+
+Dependency updates are supply-chain ingress points. They should not be merged automatically into `main` without explicit human review, especially while dependency vulnerabilities are still being documented and triaged.
+
+### Restore Criteria
+
+Restore only after:
+
+1. Auto-merge is limited to tightly scoped patch updates.
+2. Required CI checks include build, test, audit, and runtime smoke validation.
+3. Major and minor dependency updates require human review.
+4. Permissions are minimized.
+5. The workflow cannot approve or merge arbitrary pull requests.
