@@ -1,6 +1,6 @@
 ---
 id: VDP-0002
-title: VDP-0002: Forge Sovereign Genesis Activation
+title: "VDP-0002: Forge Sovereign Genesis Activation"
 type: governance
 created_at: 2026-04-14T12:22:33Z
 author: onenoly11

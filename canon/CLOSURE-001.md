@@ -5,7 +5,7 @@ type: closure
 version: 1.0.0
 status: draft
 author: "system"
-created: "2026-04-19"
+created_at: "2026-04-19T00:00:00Z"
 ---
 
 # CLOSURE-001
