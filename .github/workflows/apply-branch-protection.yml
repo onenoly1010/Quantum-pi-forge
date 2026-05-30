@@ -57,7 +57,8 @@ jobs:
                 "Lint and Test",
                 "Build and Package",
                 "API Health Check",
-                "healthcheck"
+                "Canon Artifact Validation",
+                "Canon Conflict Detection"
               ]
             },
             "enforce_admins": true,
