@@ -375,3 +375,35 @@ Restore only after:
 4. Generated changes are proposed only through clearly labeled pull requests.
 5. The workflow avoids infinite PR/update loops.
 6. Check-only enforcement is considered as the default alternative.
+
+## Canon Auto-Merge Workflow Review
+
+The canon auto-merge workflow was reviewed after automated dependency and release mutation workflows were archived.
+
+### Finding
+
+`.github/workflows/canon-auto-merge.yml` represented a privileged repository mutation surface because it could merge pull requests using automation.
+
+Canon workflows may be core governance infrastructure, but auto-merge authority must be narrowly gated by deterministic validation, conflict checks, trusted labels, and branch protection.
+
+### Decision
+
+The auto-merge executor was archived:
+
+- from: `.github/workflows/canon-auto-merge.yml`
+- to: `.github/workflows/canon-auto-merge.yml.disabled`
+
+### Rationale
+
+Canon validation can remain active as a read-only or comment-only proof system, but automatic merge authority should remain disabled unless its trust boundary is fully documented and enforced.
+
+### Restore Criteria
+
+Restore only after:
+
+1. Auto-merge is limited to canon-only paths.
+2. Required validation and conflict checks are mandatory.
+3. Merge labels can only be applied by trusted maintainers.
+4. The workflow cannot merge arbitrary code changes.
+5. Permissions are minimized to the final merge job.
+6. Branch protection requires the canon validation suite before merge.
