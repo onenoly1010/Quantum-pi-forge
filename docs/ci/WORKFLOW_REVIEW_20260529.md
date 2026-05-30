@@ -311,3 +311,35 @@ Restore only after:
 3. Major and minor dependency updates require human review.
 4. Permissions are minimized.
 5. The workflow cannot approve or merge arbitrary pull requests.
+
+## Release-on-Merge Workflow Review
+
+The release-on-merge workflow was reviewed after Dependabot auto-merge was archived.
+
+### Finding
+
+`.github/workflows/release-on-merge.yml` represented an unattended repository mutation surface because release automation can create tags, release records, and externally visible project artifacts.
+
+Automated release creation on ordinary merges can pollute version history and create confusing reviewer telemetry, especially when commits are documentation, workflow cleanup, or audit-only changes.
+
+### Decision
+
+The workflow was archived:
+
+- from: `.github/workflows/release-on-merge.yml`
+- to: `.github/workflows/release-on-merge.yml.disabled`
+
+### Rationale
+
+Releases should represent deliberate semantic milestones, not automatic side effects of every merge to `main`. Release automation should remain inactive until it is manual, scoped, and pinned.
+
+### Restore Criteria
+
+Restore only after:
+
+1. The workflow is manual-only or tag-triggered.
+2. Releases are created as drafts unless explicitly approved.
+3. Third-party actions are pinned to immutable commit SHAs.
+4. Version tags are semantic and milestone-based.
+5. `contents: write` is limited to the release job that requires it.
+6. Documentation-only and workflow-only commits do not trigger release creation.
