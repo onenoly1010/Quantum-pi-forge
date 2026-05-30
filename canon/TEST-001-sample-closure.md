@@ -5,7 +5,7 @@ type: closure
 version: 1.0.0
 status: closed
 author: "test-user"
-created: "2024-01-01"
+created_at: "2024-01-01T00:00:00Z"
 closed: "2026-04-22"
 trace_id: A22-001
 ---

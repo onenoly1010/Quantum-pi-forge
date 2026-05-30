@@ -1,5 +1,5 @@
 ---
-id: CLOSURE-001
+id: EXAMPLE-CLOSURE-001
 title: Example Issue Closure Documentation
 type: closure
 created_at: 2024-01-01T00:00:00Z
@@ -14,7 +14,7 @@ tags:
   - closure
   - issue-resolution
 related:
-  - CLOSURE-002
+  - EXAMPLE-CLOSURE-002
 ---
 
 # Example Issue Closure Documentation
