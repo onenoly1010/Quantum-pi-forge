@@ -413,3 +413,44 @@ Restore only after:
 6. The workflow cannot merge arbitrary code changes.
 7. Permissions are minimized to the final merge job.
 
+
+## Canon Post-Merge Workflow Review
+
+The canon post-merge workflow was reviewed after the canon auto-merge executor was archived.
+
+### Finding
+
+`.github/workflows/canon-post-merge.yml` was a live main-branch mutation workflow.
+
+It triggered on pushes to `main` under `canon/**`, regenerated `canon/INDEX.md` and `canon/artifacts.json`, committed those generated files, and pushed directly back to `main`.
+
+The workflow appeared to use default GitHub Actions credentials rather than an explicit PAT or deploy key, which reduced recursive trigger risk.
+
+However, the generated files lived inside the same `canon/**` trigger perimeter, and the workflow performed direct post-merge mutation after the reviewed merge snapshot.
+
+The index generator also embedded live timestamps, making generated state time-dependent rather than purely content-derived.
+
+### Decision
+
+The post-merge mutator was archived:
+
+- from: `.github/workflows/canon-post-merge.yml`
+- to: `.github/workflows/canon-post-merge.yml.disabled`
+
+### Rationale
+
+Canon indexes are useful derived artifacts, but direct mutation of `main` after merge weakens commit integrity.
+
+Generated canon state should be produced through a visible pull request or a manual, explicitly authorized maintenance action.
+
+### Restore Criteria
+
+Restore only after:
+
+1. Generated index updates are proposed through a pull request, not pushed directly to `main`.
+2. The workflow does not write to paths that trigger itself.
+3. Generated output is deterministic or timestamp drift is intentionally documented.
+4. Integrity verification runs before any mutation is proposed.
+5. Required branch protection checks enforce canon validation.
+6. Workflow permissions are reduced to read-only except for the narrow PR-creation step.
+7. The bot identity and generated commit message clearly mark derived-state updates.
