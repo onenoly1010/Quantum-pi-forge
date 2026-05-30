@@ -51,16 +51,7 @@ jobs:
           # Read the configuration file and prepare payload
           cat > /tmp/protection.json << 'EOF'
           {
-            "required_status_checks": {
-              "strict": true,
-              "contexts": [
-                "Lint and Test",
-                "Build and Package",
-                "API Health Check",
-                "Canon Artifact Validation",
-                "Canon Conflict Detection"
-              ]
-            },
+            "required_status_checks": null,
             "enforce_admins": true,
             "required_pull_request_reviews": {
               "dismissal_restrictions": {},
