@@ -1,0 +1,19 @@
+name: Runner Smoke Test
+
+on:
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Runner reached
+        run: |
+          echo "runner reached"
+          uname -a
+          date -u
