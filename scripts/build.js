@@ -186,3 +186,11 @@ await (async () => {
   }
 })();
 // END publish run-guardian.sh for public install
+
+// Copy read-only API telemetry files into the static output.
+// This keeps /api/liquidity-signals.json available on Cloudflare Pages
+// without introducing any server-side or write-capability behavior.
+if (fs.existsSync('api')) {
+  fs.cpSync('api', 'out/api', { recursive: true });
+  console.log('OK copied api/ -> out/api');
+}
