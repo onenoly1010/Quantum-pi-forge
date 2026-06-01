@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6a5b0eec14ec34fd47c9f732437b9256f56f52bd039a627bf7b7ff1ff005e105
-size 611
+fastapi
+uvicorn
+requests
+python-dotenv
