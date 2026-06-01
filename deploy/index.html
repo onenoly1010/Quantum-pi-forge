@@ -935,6 +935,45 @@ function addNewSignalToLedger(signal) {
       const connectedWalletsCount = window.FORGE_CONNECTED_WALLETS_COUNT || 0;
       document.getElementById("wallets").innerText = String(connectedWalletsCount);
 
+      function setConnectedWallet(address) {
+        const shortAddress = `${address.slice(0, 6)}...${address.slice(-4)}`;
+        window.FORGE_CONNECTED_WALLETS_COUNT = 1;
+        document.getElementById("wallets").innerText = "1";
+
+        const connectedWalletEl = document.getElementById("connected-wallet");
+        if (connectedWalletEl) connectedWalletEl.textContent = `Connected: ${shortAddress}`;
+
+        const governanceWeightEl = document.getElementById("governance-weight");
+        if (governanceWeightEl) governanceWeightEl.textContent = "Connected / Pending Verification";
+      }
+
+      async function connectForgeWallet() {
+        if (!window.ethereum) {
+          alert("No EIP-1193 wallet detected. Install or unlock a browser wallet.");
+          return;
+        }
+
+        const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
+        if (accounts && accounts[0]) setConnectedWallet(accounts[0]);
+      }
+
+      window.connectForgeWallet = connectForgeWallet;
+
+      if (window.ethereum && window.ethereum.on) {
+        window.ethereum.on("accountsChanged", (accounts) => {
+          if (accounts && accounts[0]) {
+            setConnectedWallet(accounts[0]);
+          } else {
+            window.FORGE_CONNECTED_WALLETS_COUNT = 0;
+            document.getElementById("wallets").innerText = "0";
+            const connectedWalletEl = document.getElementById("connected-wallet");
+            if (connectedWalletEl) connectedWalletEl.textContent = "";
+            const governanceWeightEl = document.getElementById("governance-weight");
+            if (governanceWeightEl) governanceWeightEl.textContent = "Pending Wallet";
+          }
+        });
+      }
+
       console.log("✅ Quantum Pi Forge — live data pulled from 0G Aristotle");
     } catch (e) {
       console.log("⏳ Chain sync in progress...", e);
