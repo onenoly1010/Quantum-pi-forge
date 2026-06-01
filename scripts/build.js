@@ -109,6 +109,7 @@ function writeVersionManifest() {
 
 function writeRedirects() {
   const redirects = [
+    '/trust/* /trust/:splat 200',
     '/dashboard /frontend/production_dashboard.html 200',
     '/dashboard/ /frontend/production_dashboard.html 200',
     '/resonance-dashboard /frontend/production_dashboard.html 200',
