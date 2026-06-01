@@ -4,7 +4,7 @@
     "build": "node scripts/build.js",
     "build:cf": "node scripts/build.js",
     "serve:deploy": "python3 -m http.server 8100 --directory out",
-    "deploy:cf": "wrangler pages deploy out --project-name quantumpiforge"
+    "deploy:cf": "wrangler pages deploy out --config wrangler.pages.toml --branch main"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.2",
