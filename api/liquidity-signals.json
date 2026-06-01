@@ -1,5 +1,7 @@
 {
   "liquiditySource": null,
   "treasuryStatus": "Not Seeded",
-  "lpPairAddress": null
+  "lpPairAddress": null,
+  "updatedAt": "2026-06-01T07:36:38.335Z",
+  "mode": "read-only-manual"
 }
