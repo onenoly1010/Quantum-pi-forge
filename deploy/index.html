@@ -932,7 +932,8 @@ function addNewSignalToLedger(signal) {
           ? "(configured)"
           : "(treasury not seeded)";
       }
-      document.getElementById("wallets").innerText = totalDepth !== "0" ? totalDepth : "0";
+      const connectedWalletsCount = window.FORGE_CONNECTED_WALLETS_COUNT || 0;
+      document.getElementById("wallets").innerText = String(connectedWalletsCount);
 
       console.log("✅ Quantum Pi Forge — live data pulled from 0G Aristotle");
     } catch (e) {
