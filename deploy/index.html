@@ -473,8 +473,10 @@
 
     <!-- PROOF STRIP - LIVE ON-CHAIN -->
     <div id="proof-strip" style="display:flex; gap:24px; justify-content:center; flex-wrap:wrap; font-size:1.1rem; margin:40px 0; scroll-margin-top:120px;">
-      <div><strong>Liquidity:</strong> <span id="liquidity">$0</span> <span id="liquidity-change" style="color:#00ff9d"></span></div>
-      <div><strong>Wallets connected:</strong> <span id="wallets">0</span></div>
+      <div><strong>Liquidity:</strong> <span id="liquidity">Pending Activation</span> <span id="liquidity-change" style="color:#ffaa00">(treasury not seeded)</span></div>
+      <div><strong>LP Pair:</strong> <span id="lp-pair">Not Deployed</span></div>
+      <div><strong>Wallets connected:</strong> <span id="wallets">0</span> <span id="connected-wallet" style="font-size:0.8rem;opacity:0.6"></span></div>
+      <div><strong>Governance Weight:</strong> <span id="governance-weight">Pending Wallet</span></div>
       <div><strong>iNFTs minted:</strong> <span id="infts">47</span> <span style="font-size:0.8rem;opacity:0.6">(minting live)</span></div>
       <div><strong>0G Block Height:</strong> <span id="block">—</span></div>
     </div>
@@ -838,61 +840,87 @@ function addNewSignalToLedger(signal) {
     status.textContent = message;
   }
 
-  async function ensureAristotleNetwork() {
-    if (!window.ethereum) throw new Error("No browser wallet detected. Install MetaMask or another EVM wallet.");
 
-    const currentChainId = await window.ethereum.request({ method: "eth_chainId" });
-    if (currentChainId && currentChainId.toLowerCase() === ARISTOTLE_CHAIN_ID.toLowerCase()) return;
+
+  const FORGE_EXPECTED_CHAIN_ID = (
+    window.FORGE_ARISTOTLE_CHAIN_ID ||
+    (typeof ARISTOTLE_CHAIN_ID !== "undefined" ? ARISTOTLE_CHAIN_ID : "")
+  ).toLowerCase();
+
+  function resetForgeWalletState() {
+    window.FORGE_CONNECTED_WALLETS_COUNT = 0;
+    const walletsEl = document.getElementById("wallets");
+    if (walletsEl) walletsEl.innerText = "0";
+
+    const connectedWalletEl = document.getElementById("connected-wallet");
+    if (connectedWalletEl) connectedWalletEl.textContent = "";
+
+    const governanceWeightEl = document.getElementById("governance-weight");
+    if (governanceWeightEl) governanceWeightEl.textContent = "Pending Wallet";
+  }
+
+  async function getForgeChainId() {
+    if (!window.ethereum) return "";
+    const chainId = await window.ethereum.request({ method: "eth_chainId" });
+    return String(chainId || "").toLowerCase();
+  }
+
+  async function setConnectedWallet(address) {
+    const shortAddress = `${address.slice(0, 6)}...${address.slice(-4)}`;
+    window.FORGE_CONNECTED_WALLETS_COUNT = 1;
+
+    const walletsEl = document.getElementById("wallets");
+    if (walletsEl) walletsEl.innerText = "1";
+
+    const connectedWalletEl = document.getElementById("connected-wallet");
+    if (connectedWalletEl) connectedWalletEl.textContent = `Connected: ${shortAddress}`;
+
+    const governanceWeightEl = document.getElementById("governance-weight");
+    if (!governanceWeightEl) return;
 
     try {
-      await window.ethereum.request({
-        method: "wallet_switchEthereumChain",
-        params: [{ chainId: ARISTOTLE_CHAIN_ID }]
-      });
-    } catch (switchError) {
-      if (switchError.code !== 4902) throw switchError;
+      const chainId = await getForgeChainId();
+      const chainMatches = FORGE_EXPECTED_CHAIN_ID && chainId === FORGE_EXPECTED_CHAIN_ID;
 
-      await window.ethereum.request({
-        method: "wallet_addEthereumChain",
-        params: [ARISTOTLE_NETWORK]
-      });
+      governanceWeightEl.textContent = chainMatches
+        ? "Connected / Pending Verification"
+        : "Wrong Network — Please Switch to 0G Aristotle";
+    } catch (error) {
+      governanceWeightEl.textContent = "Network Verification Failed";
     }
   }
 
   async function connectForgeWallet() {
-    const button = document.getElementById("connect-wallet-btn");
-
-    try {
-      if (button) {
-        button.disabled = true;
-        button.textContent = "Connecting...";
-      }
-
-      setWalletStatus("Opening wallet handshake...", "warn");
-      await ensureAristotleNetwork();
-
-      const walletProvider = new ethers.providers.Web3Provider(window.ethereum, "any");
-      await walletProvider.send("eth_requestAccounts", []);
-      const signer = walletProvider.getSigner();
-      const address = await signer.getAddress();
-      const balance = await walletProvider.getBalance(address);
-      const shortAddress = `${address.slice(0, 6)}...${address.slice(-4)}`;
-
-      if (button) button.textContent = `Connected: ${shortAddress}`;
-      setWalletStatus(`Connected on 0G Aristotle • ${ethers.utils.formatEther(balance).slice(0, 8)} 0G`, "ok");
-
-      localStorage.setItem("quantumPiForgeWallet", address);
-      document.getElementById("wallets").innerText = "1";
-    } catch (error) {
-      console.error("Wallet connection failed:", error);
-      if (button) button.textContent = "Connect Wallet";
-      setWalletStatus(error.message || "Wallet connection failed", "error");
-    } finally {
-      if (button) button.disabled = false;
+    if (!window.ethereum) {
+      alert("No EIP-1193 wallet detected. Install or unlock a browser wallet.");
+      return;
     }
+
+    const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
+    if (accounts && accounts[0]) await setConnectedWallet(accounts[0]);
+  }
+
+  function bindForgeWalletEvents() {
+    if (!window.ethereum || !window.ethereum.on || window.FORGE_WALLET_EVENTS_BOUND) return;
+    window.FORGE_WALLET_EVENTS_BOUND = true;
+
+    window.ethereum.on("accountsChanged", async (accounts) => {
+      if (accounts && accounts[0]) {
+        await setConnectedWallet(accounts[0]);
+      } else {
+        resetForgeWalletState();
+      }
+    });
+
+    window.ethereum.on("chainChanged", async () => {
+      const address = window.ethereum.selectedAddress;
+      if (address) await setConnectedWallet(address);
+    });
   }
 
   window.connectForgeWallet = connectForgeWallet;
+  bindForgeWalletEvents();
+
 
   async function updateLiveData() {
     try {
@@ -912,9 +940,27 @@ function addNewSignalToLedger(signal) {
         totalDepth = (reserve0.add(reserve1)).toString();
       } catch(e) { /* pair not standard or empty — expected at launch */ }
 
-      const displayLiquidity = totalDepth !== "0" ? `$${totalDepth}` : `$0 <span style="color:#ffaa00">(seeding now)</span>`;
+      const liquiditySource = window.FORGE_LIQUIDITY_SOURCE || "";
+      const liquidityPairAddress = window.FORGE_LIQUIDITY_PAIR_ADDRESS || "";
+      const displayLiquidity = totalDepth !== "0"
+        ? `$${totalDepth}`
+        : (!liquiditySource && !liquidityPairAddress ? "Pending Activation" : "Live");
       document.getElementById("liquidity").innerHTML = displayLiquidity;
-      document.getElementById("wallets").innerText = totalDepth !== "0" ? totalDepth : "0";
+      const lpPairEl = document.getElementById("lp-pair");
+      if (lpPairEl) {
+        lpPairEl.textContent = liquidityPairAddress
+          ? `${liquidityPairAddress.slice(0, 6)}...${liquidityPairAddress.slice(-4)}`
+          : "Not Deployed";
+      }
+      const liquidityChangeEl = document.getElementById("liquidity-change");
+      if (liquidityChangeEl && totalDepth === "0") {
+        liquidityChangeEl.textContent = liquiditySource || liquidityPairAddress
+          ? "(configured)"
+          : "(treasury not seeded)";
+      }
+      const connectedWalletsCount = window.FORGE_CONNECTED_WALLETS_COUNT || 0;
+      const walletsEl = document.getElementById("wallets");
+      if (walletsEl) walletsEl.innerText = String(connectedWalletsCount);
 
       console.log("✅ Quantum Pi Forge — live data pulled from 0G Aristotle");
     } catch (e) {
