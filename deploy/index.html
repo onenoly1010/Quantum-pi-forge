@@ -959,35 +959,8 @@ function addNewSignalToLedger(signal) {
           : "(treasury not seeded)";
       }
       const connectedWalletsCount = window.FORGE_CONNECTED_WALLETS_COUNT || 0;
-      document.getElementById("wallets").innerText = String(connectedWalletsCount);
-
-
-      async function connectForgeWallet() {
-        if (!window.ethereum) {
-          alert("No EIP-1193 wallet detected. Install or unlock a browser wallet.");
-          return;
-        }
-
-        const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
-        if (accounts && accounts[0]) setConnectedWallet(accounts[0]);
-      }
-
-      window.connectForgeWallet = connectForgeWallet;
-
-      if (window.ethereum && window.ethereum.on) {
-        window.ethereum.on("accountsChanged", (accounts) => {
-          if (accounts && accounts[0]) {
-            setConnectedWallet(accounts[0]);
-          } else {
-            window.FORGE_CONNECTED_WALLETS_COUNT = 0;
-            document.getElementById("wallets").innerText = "0";
-            const connectedWalletEl = document.getElementById("connected-wallet");
-            if (connectedWalletEl) connectedWalletEl.textContent = "";
-            const governanceWeightEl = document.getElementById("governance-weight");
-            if (governanceWeightEl) governanceWeightEl.textContent = "Pending Wallet";
-          }
-        });
-      }
+      const walletsEl = document.getElementById("wallets");
+      if (walletsEl) walletsEl.innerText = String(connectedWalletsCount);
 
       console.log("✅ Quantum Pi Forge — live data pulled from 0G Aristotle");
     } catch (e) {
