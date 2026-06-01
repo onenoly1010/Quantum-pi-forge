@@ -473,8 +473,10 @@
 
     <!-- PROOF STRIP - LIVE ON-CHAIN -->
     <div id="proof-strip" style="display:flex; gap:24px; justify-content:center; flex-wrap:wrap; font-size:1.1rem; margin:40px 0; scroll-margin-top:120px;">
-      <div><strong>Liquidity:</strong> <span id="liquidity">$0</span> <span id="liquidity-change" style="color:#00ff9d"></span></div>
-      <div><strong>Wallets connected:</strong> <span id="wallets">0</span></div>
+      <div><strong>Liquidity:</strong> <span id="liquidity">Pending Activation</span> <span id="liquidity-change" style="color:#ffaa00">(treasury not seeded)</span></div>
+      <div><strong>LP Pair:</strong> <span id="lp-pair">Not Deployed</span></div>
+      <div><strong>Wallets connected:</strong> <span id="wallets">0</span> <span id="connected-wallet" style="font-size:0.8rem;opacity:0.6"></span></div>
+      <div><strong>Governance Weight:</strong> <span id="governance-weight">Pending Wallet</span></div>
       <div><strong>iNFTs minted:</strong> <span id="infts">47</span> <span style="font-size:0.8rem;opacity:0.6">(minting live)</span></div>
       <div><strong>0G Block Height:</strong> <span id="block">—</span></div>
     </div>
@@ -912,8 +914,24 @@ function addNewSignalToLedger(signal) {
         totalDepth = (reserve0.add(reserve1)).toString();
       } catch(e) { /* pair not standard or empty — expected at launch */ }
 
-      const displayLiquidity = totalDepth !== "0" ? `$${totalDepth}` : `$0 <span style="color:#ffaa00">(seeding now)</span>`;
+      const liquiditySource = window.FORGE_LIQUIDITY_SOURCE || "";
+      const liquidityPairAddress = window.FORGE_LIQUIDITY_PAIR_ADDRESS || "";
+      const displayLiquidity = totalDepth !== "0"
+        ? `$${totalDepth}`
+        : (!liquiditySource && !liquidityPairAddress ? "Pending Activation" : "Live");
       document.getElementById("liquidity").innerHTML = displayLiquidity;
+      const lpPairEl = document.getElementById("lp-pair");
+      if (lpPairEl) {
+        lpPairEl.textContent = liquidityPairAddress
+          ? `${liquidityPairAddress.slice(0, 6)}...${liquidityPairAddress.slice(-4)}`
+          : "Not Deployed";
+      }
+      const liquidityChangeEl = document.getElementById("liquidity-change");
+      if (liquidityChangeEl && totalDepth === "0") {
+        liquidityChangeEl.textContent = liquiditySource || liquidityPairAddress
+          ? "(configured)"
+          : "(treasury not seeded)";
+      }
       document.getElementById("wallets").innerText = totalDepth !== "0" ? totalDepth : "0";
 
       console.log("✅ Quantum Pi Forge — live data pulled from 0G Aristotle");
