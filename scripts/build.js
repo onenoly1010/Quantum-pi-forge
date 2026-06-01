@@ -28,7 +28,8 @@ const staticFiles = [
 ];
 
 const staticDirs = [
-  { src: 'frontend', dest: 'frontend', optional: true }
+  { src: 'frontend', dest: 'frontend', optional: true },
+  { src: 'deploy/trust', dest: 'trust', optional: true }
 ];
 
 function copyDir(src, dest) {
@@ -184,19 +185,3 @@ await (async () => {
   }
 })();
 // END publish run-guardian.sh for public install
-
-
-// Copy trust evidence assets for public zero-trust verification.
-{
-  const fs = require("fs");
-  const path = require("path");
-
-  const src = path.join(process.cwd(), "deploy", "trust");
-  const dst = path.join(process.cwd(), "out", "trust");
-
-  if (fs.existsSync(src)) {
-    fs.mkdirSync(dst, { recursive: true });
-    fs.cpSync(src, dst, { recursive: true });
-    console.log("OK copied deploy/trust/ -> out/trust/");
-  }
-}
