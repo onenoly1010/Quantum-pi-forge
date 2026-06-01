@@ -28,7 +28,8 @@ const staticFiles = [
 ];
 
 const staticDirs = [
-  { src: 'frontend', dest: 'frontend', optional: true }
+  { src: 'frontend', dest: 'frontend', optional: true },
+  { src: 'deploy/trust', dest: 'trust', optional: true }
 ];
 
 function copyDir(src, dest) {

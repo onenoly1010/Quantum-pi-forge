@@ -1,0 +1,11 @@
+{
+  "timestamp_utc": "20260601T052506Z",
+  "compute_mode": "direct",
+  "router_enabled": false,
+  "resonance_worker_enabled": true,
+  "resonance_worker_mode": "dry-run",
+  "autonomous_authority": false,
+  "submit_tx": false,
+  "approval_required": true,
+  "mainnet_writes_allowed": false
+}

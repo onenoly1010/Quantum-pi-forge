@@ -1,0 +1,30 @@
+{
+  "subject": "Kris Olofson",
+  "handle": "@onenoly1010",
+  "repository": "onenoly1010/Quantum-pi-forge",
+  "generated_utc": "20260601T055025Z",
+  "trust_model": "zero_trust_evidence_only",
+  "current_claim": "Trust should increase only when public evidence proves transparent governance and safety boundaries.",
+  "evidence": {
+    "protected_main_direct_push_blocked": true,
+    "self_approval_blocked": true,
+    "required_write_access_review": true,
+    "code_owner_review_required": true,
+    "direct_0g_compute_confirmed": true,
+    "router_402_isolated": true,
+    "local_workflow_node22_verified": true,
+    "local_ai_evidence_witness_added": true,
+    "zero_trust_manifest_added": true,
+    "resonance_worker_authority_model_added": true,
+    "autonomous_authority_enabled": false,
+    "wallet_signing_authorized": false,
+    "fund_movement_authorized": false,
+    "contract_mutation_authorized": false,
+    "mainnet_writes_authorized": false
+  },
+  "recommended_display": {
+    "label": "Zero-Trust Evidence Steward",
+    "trust_delta": "+evidence-pending-review",
+    "status": "Public PR evidence submitted; protected-main merge requires independent approval."
+  }
+}
