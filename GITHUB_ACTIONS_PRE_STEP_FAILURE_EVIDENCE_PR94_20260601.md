@@ -23,3 +23,15 @@ The diagnostic was locally verified under:
 - npm: 10.9.8
 
 The script completed GREEN locally before commit.
+
+## Runner Smoke Test Registry Residue
+
+GitHub Actions lists a workflow named `Runner Smoke Test` at:
+
+- `.github/workflows/runner-smoke-test.yml`
+
+However, this file is not present in the current branch or `origin/main`, and the GitHub contents API returns 404 for the path on `main`.
+
+This workflow should be treated as stale registry residue, not an active repository workflow.
+
+The active blocker remains the repeated pre-step failure pattern across live workflows, where jobs complete with `steps: []` before checkout or script execution.
