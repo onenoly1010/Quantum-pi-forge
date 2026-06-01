@@ -77,6 +77,22 @@ function copyFile(file) {
   console.log(`OK copied ${path.relative(rootDir, srcPath)} -> out/${file.dest}`);
 }
 
+
+function pruneProductionArtifacts() {
+  const forbiddenRelativePaths = [
+    'frontend/README.md',
+    'frontend/example.html'
+  ];
+
+  for (const rel of forbiddenRelativePaths) {
+    const target = path.join(outputDir, rel);
+    if (fs.existsSync(target)) {
+      fs.rmSync(target, { force: true });
+      console.log(`OK pruned dev artifact out/${rel}`);
+    }
+  }
+}
+
 function writeVersionManifest() {
   let commitHash = 'dev-local';
   let buildTime = new Date().toISOString();
@@ -152,6 +168,8 @@ function build() {
     copyDir(srcPath, destPath);
     console.log(`OK copied ${dir.src}/ -> out/${dir.dest}/`);
   }
+
+  pruneProductionArtifacts();
 
   writeVersionManifest();
 

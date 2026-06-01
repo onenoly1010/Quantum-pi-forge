@@ -418,7 +418,7 @@
             
             // TODO: Replace with your deployed treasury contract address BEFORE production.
             // NOTE: This is a valid-format, non-zero placeholder address to satisfy basic validation.
-            const TREASURY_CONTRACT_ADDRESS = '0x0000000000000000000000000000000000000001';
+            const TREASURY_CONTRACT_ADDRESS = '0x07f43E5B1A8a0928B364E40d5885f81A543B05C7';
             
             // Fallback metrics configuration
             const TREASURY_FALLBACK_METRICS = {
@@ -666,7 +666,7 @@
                     </div>
                     <p style="color: var(--text-secondary); margin-bottom: 1rem;">${dapp.description || ''}</p>
                     <div style="display: flex; gap: 0.5rem;">
-                        <button class="btn btn-secondary" onclick="deployDapp('${dapp.id}', 'testnet')">Deploy Testnet</button>
+                        <button class="btn btn-secondary" disabled title="Test deployment disabled in production">Test Deployment Disabled</button>
                         <button class="btn btn-primary" onclick="deployDapp('${dapp.id}', 'mainnet')">Deploy Mainnet</button>
                         <button class="btn btn-secondary" onclick="auditDapp('${dapp.id}')">Audit</button>
                     </div>
