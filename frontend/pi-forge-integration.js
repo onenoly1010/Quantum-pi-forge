@@ -22,11 +22,11 @@
     class PiForgeSDK {
         constructor() {
             this.config = {
-                network: 'testnet',
+                network: 'mainnet',
                 debug: false,
                 apiBase: typeof window !== 'undefined' && window.location.protocol === 'https:' 
-                    ? 'https://localhost:8000' 
-                    : 'http://localhost:8000',
+                    ? 'https://pi-forge-quantum-genesis.railway.app' 
+                    : 'https://pi-forge-quantum-genesis.railway.app',
                 apiPath: '/api/pi-network'
             };
             this.initialized = false;
@@ -39,7 +39,7 @@
         /**
          * Initialize the Pi Forge SDK
          * @param {Object} options - Configuration options
-         * @param {string} options.network - Network mode: 'testnet' or 'mainnet'
+         * @param {string} options.network - Network mode: 'mainnet'
          * @param {boolean} options.debug - Enable debug logging
          * @param {string} options.apiBase - Base URL for API endpoints
          */
