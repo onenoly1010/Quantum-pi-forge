@@ -28,6 +28,6 @@ echo "  project: $PROJECT_NAME"
 echo "  branch: $BRANCH_NAME"
 
 cd "$TMP_DEPLOY"
-wrangler pages deploy . \
+npx wrangler pages deploy . \
   --project-name "$PROJECT_NAME" \
   --branch "$BRANCH_NAME"
