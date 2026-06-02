@@ -27,10 +27,10 @@ https://quantumpiforge.com
 ```
 Invite Code: **onenoly11**
 
-### 2. ⚡ Stake OINIO (Micro-staking supported)
-- No KYC required
-- Minimum stake: 0.001 OINIO
-- Stake = Voice + Resonance Power + Ethical Yield
+### 2. ⚡ OINIO Staking Portal
+- Recovery-mode route restored
+- Execution remains disabled until the backing contract path is verified
+- No staking, gasless staking, relayer, wallet signing, or autonomous transaction flow is enabled by this guide
 - Your stake immediately begins contributing to guardian consensus
 
 ### 3. 🧬 Mint your Genesis Resonance iNFT
