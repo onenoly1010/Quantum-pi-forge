@@ -4,7 +4,7 @@
 
 ## 📜 PROJECT SUMMARY
 
-OINIO Protocol is a production-deployed decentralized revenue protocol live on 0G Aristotle Mainnet. We have successfully completed the $235,000 CAD 0G Aristotle Grant, with all milestones delivered and verified.
+OINIO Protocol is presented as a review-ready decentralized revenue protocol package for the 0G Aristotle ecosystem. The repository contains candidate evidence, direct-compute proof material, and deployment/verification documentation that require independent reviewer validation before being treated as production, live, grant-complete, or fully verified claims.
 
 The protocol has reached **Hardened State** — defined as a deployment condition where core contracts are immutable, critical parameters are fixed, and the protocol can operate without further code changes under expected conditions.
 
@@ -12,7 +12,7 @@ Revenue streams are active from real network usage (validator rewards, DEX swaps
 
 **No admin keys. No upgrade functions. No backdoors.**
 
-All Aristotle Grant milestones are complete. This protocol will run indefinitely without maintenance.
+Aristotle Grant milestone evidence has been assembled for review. Long-term operation assumptions require independent validation, monitoring, and documented maintenance boundaries.
 
 ---
 
@@ -76,7 +76,7 @@ These mechanisms prioritize predictability and alignment.
 
 ## 💼 GUILD ON 0G 2.0 FUNDING REQUEST: $120,000 CAD
 
-This request is not for initial development. The protocol is already live and operational. We are seeking support to strengthen: Security assurance, Validator decentralization, and Compliance and reporting capabilities.
+This request is not positioned as an initial concept only. The project has assembled implementation and verification materials for external review. We are seeking support to strengthen: security assurance, validator decentralization, and compliance/reporting capabilities.
 
 | Allocation | Amount | Purpose |
 |---|---|---|
@@ -89,7 +89,7 @@ This request is not for initial development. The protocol is already live and op
 
 ## 📌 FINAL STATEMENT
 
-OINIO has reached a stable operational state on 0G Aristotle Mainnet. This Guild application focuses on further reinforcing security, decentralization, and long-term reliability to benefit the broader 0G ecosystem.
+OINIO has assembled a review-ready evidence package for the 0G Aristotle ecosystem. This Guild application focuses on external review of security, decentralization, and long-term reliability assumptions before any stable-operational-state claim is relied upon.
 
 OINIO’s design emphasizes immutable economic constraints, transparent on-chain accounting, and revenue derived from genuine usage.
 
@@ -102,4 +102,4 @@ We welcome detailed technical and financial review from the Guild committee.
 **Submitted:** 2026-05-06  
 **Category:** Guild on 0G 2.0  
 **Network:** 0G Aristotle Mainnet  
-**Grant Status:** Aristotle Grant Completed ✅
+**Grant Status:** Aristotle Grant evidence package assembled for external review
