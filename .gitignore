@@ -183,3 +183,5 @@ reports/*.html
 .wrangler/
 cache/deployment-manifest.json
 cache/deployment-receipt.json
+
+.tmp-evidence/
