@@ -1,0 +1,51 @@
+# 0G Claim Source Scan
+
+## Purpose
+
+This file captures candidate 0G-related claim sources for classification in `0G_CLAIM_AUDIT.md`.
+
+## Candidate Source Files
+
+
+```text
+./0G_ARISTOTLE_GRANT_APPLICATION_OUTLINE.md
+./0G_ARISTOTLE_GRANT_APPLICATION_PRODUCTION.md
+./0G_ARISTOTLE_GRANT_TRANSACTION_RECEIPT_20260417.md
+./0G_BLOCKCHAIN_VERIFICATION_FIX_GUIDE.md
+./0G_COMPUTE_DIRECT_SUCCESS_20260531.md
+./0G_EPI_MANIFEST_ANCHOR_TRANSACTION.md
+./0G_GRANT_FOLLOWUP_EMAIL.md
+./0G_GRANT_STATUS_TRACKING.md
+./0G_GUILD_APPLICATION_OUTLINE.md
+./0G_HALL_HEARTBEAT_ANNOUNCEMENT.md
+./0G_HALL_POST_FINAL.md
+./0G_ROUTER_VOID_FIX.md
+./0G_SOVEREIGN_AGENT_SYSTEM_TRUTH_TABLE.md
+./0G_STORAGE_UPLOAD_COMMAND.md
+./0G_VERIFICATION_PROTOCOL.md
+./ARISTOTLE_GRANT_MILESTONE_VERIFICATION_REPORT.md
+./audits/0gskills/OINIO_COMPUTE_AUTH_NOTE_20260528.md
+./docs/0G_DEX_DEPLOYMENT.md
+./docs/0G_DEX_IMPLEMENTATION_SUMMARY.md
+./docs/0G_DEX_QUICKSTART.md
+./docs/0G_SHIP_SKILL_REFERENCE.md
+./docs/canon/0g_canon_boundary.md
+./docs/canon/0g_local_client_audit.md
+./docs/canon/evidence/0g-node-installer-historical.md
+./docs/canon/evidence/0g-router-void-fix.md
+./docs/canon/evidence/0g-storage-upload-command.md
+./docs/canon/evidence/router-path-boundary.md
+./docs/GRANT-REVIEW-PACKET.md
+./docs/MAINNET_USER_GUIDE.md
+./docs/ROUTER-STATE-FRICTION.md
+./evidence/mainnet-shadow/0g-direct-shadow-20260601T052506Z.md
+./evidence/mainnet-shadow/RESONANCE_DIRECT_COMPUTE_CONFIRMED_20260601T052708Z.md
+./evidence/mainnet-shadow/RESONANCE_DIRECT_COMPUTE_CONFIRMED_20260601T053037Z.md
+./GRANT_OPPORTUNITY_TRACKER_2026.md
+./MAINNET_INTEGRATION_COMPLETE.md
+./OINIO_0G_COMPUTE_PATH_DIAGNOSIS_20260529.md
+./OINIO_COMPUTE_RUNTIME_POLICY_20260531.md
+./OINIO_RESONANCE_WORKER_GRANT_DRAFT.md
+./ROUTER_DEPLOYMENT_READY.md
+./wiki/Mainnet-Guide.md
+```

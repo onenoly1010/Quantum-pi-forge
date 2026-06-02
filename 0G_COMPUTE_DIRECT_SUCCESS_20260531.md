@@ -44,6 +44,6 @@ Despite that script error, direct inference succeeded, proving the required dire
 
 ## Operational Conclusion
 
-Quantum Pi Forge now has verified mainnet decentralized AI inference through the 0G Compute direct provider lane.
+Quantum Pi Forge has demonstrated direct-provider 0G Compute inference through the direct provider lane, supported by local logs and internal evidence.
 
 The autonomous runtime should continue to treat the Router path as non-authoritative until the upstream `402` billing-state issue is resolved.
