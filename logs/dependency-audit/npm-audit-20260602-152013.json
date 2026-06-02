@@ -1,0 +1,149 @@
+{
+  "auditReportVersion": 2,
+  "vulnerabilities": {
+    "@opentelemetry/auto-instrumentations-node": {
+      "name": "@opentelemetry/auto-instrumentations-node",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "@opentelemetry/sdk-node",
+        {
+          "source": 1117941,
+          "name": "@opentelemetry/auto-instrumentations-node",
+          "dependency": "@opentelemetry/auto-instrumentations-node",
+          "title": "Prometheus exporter process crash via malformed HTTP request",
+          "url": "https://github.com/advisories/GHSA-q7rr-3cgh-j5r3",
+          "severity": "high",
+          "cwe": [
+            "CWE-755"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": "<0.75.0"
+        }
+      ],
+      "effects": [
+        "@storacha/cli"
+      ],
+      "range": "<=0.74.0",
+      "nodes": [
+        "node_modules/@opentelemetry/auto-instrumentations-node"
+      ],
+      "fixAvailable": {
+        "name": "@storacha/cli",
+        "version": "2.0.2",
+        "isSemVerMajor": true
+      }
+    },
+    "@opentelemetry/exporter-prometheus": {
+      "name": "@opentelemetry/exporter-prometheus",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1117943,
+          "name": "@opentelemetry/exporter-prometheus",
+          "dependency": "@opentelemetry/exporter-prometheus",
+          "title": "Prometheus exporter process crash via malformed HTTP request",
+          "url": "https://github.com/advisories/GHSA-q7rr-3cgh-j5r3",
+          "severity": "high",
+          "cwe": [
+            "CWE-755"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": "<0.217.0"
+        }
+      ],
+      "effects": [
+        "@opentelemetry/sdk-node"
+      ],
+      "range": "<0.217.0",
+      "nodes": [
+        "node_modules/@opentelemetry/exporter-prometheus"
+      ],
+      "fixAvailable": {
+        "name": "@storacha/cli",
+        "version": "2.0.2",
+        "isSemVerMajor": true
+      }
+    },
+    "@opentelemetry/sdk-node": {
+      "name": "@opentelemetry/sdk-node",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "@opentelemetry/exporter-prometheus",
+        {
+          "source": 1117942,
+          "name": "@opentelemetry/sdk-node",
+          "dependency": "@opentelemetry/sdk-node",
+          "title": "Prometheus exporter process crash via malformed HTTP request",
+          "url": "https://github.com/advisories/GHSA-q7rr-3cgh-j5r3",
+          "severity": "high",
+          "cwe": [
+            "CWE-755"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": "<0.217.0"
+        }
+      ],
+      "effects": [
+        "@opentelemetry/auto-instrumentations-node"
+      ],
+      "range": "<=0.216.0",
+      "nodes": [
+        "node_modules/@opentelemetry/sdk-node"
+      ],
+      "fixAvailable": {
+        "name": "@storacha/cli",
+        "version": "2.0.2",
+        "isSemVerMajor": true
+      }
+    },
+    "@storacha/cli": {
+      "name": "@storacha/cli",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "@opentelemetry/auto-instrumentations-node",
+        "@opentelemetry/sdk-node"
+      ],
+      "effects": [],
+      "range": ">=2.0.3",
+      "nodes": [
+        "node_modules/@storacha/cli"
+      ],
+      "fixAvailable": {
+        "name": "@storacha/cli",
+        "version": "2.0.2",
+        "isSemVerMajor": true
+      }
+    }
+  },
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 4,
+      "critical": 0,
+      "total": 4
+    },
+    "dependencies": {
+      "prod": 64,
+      "dev": 679,
+      "optional": 93,
+      "peer": 0,
+      "peerOptional": 0,
+      "total": 776
+    }
+  }
+}
