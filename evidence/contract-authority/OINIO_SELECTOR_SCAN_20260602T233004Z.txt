@@ -1,0 +1,17 @@
+TOKEN: 0xbEbC1A40A18632CeE19D220647E7aD296A1A5F37
+bytecode bytes: 4380
+
+owner(): FOUND
+transferOwnership(address): FOUND
+renounceOwnership(): FOUND
+mint(address,uint256): FOUND
+burn(uint256): not found
+burnFrom(address,uint256): not found
+pause(): not found
+unpause(): not found
+paused(): not found
+hasRole(bytes32,address): not found
+grantRole(bytes32,address): not found
+revokeRole(bytes32,address): not found
+renounceRole(bytes32,address): not found
+getRoleAdmin(bytes32): not found
