@@ -1,0 +1,1469 @@
+docs/SERVER_STATUS_REPORT.md:99:# Create Dockerfile for containerized deployment
+docs/SERVER_STATUS_REPORT.md:128:- **🚀 Deployment:** Ready for Railway deployment once Python is fixed
+docs/DEPLOYMENT_CHECKLIST.md:3:**Purpose**: Step-by-step guide for deploying the six seed MR-NFT models  
+docs/DEPLOYMENT_CHECKLIST.md:4:**Target Audience**: Technical operators and community deployers  
+docs/DEPLOYMENT_CHECKLIST.md:9:This checklist ensures systematic, verifiable deployment of the initial six ethical AI validation models as MR-NFTs on Pi Network. Each step includes verification points and rollback procedures.
+docs/DEPLOYMENT_CHECKLIST.md:86:- [ ] Test transaction executed successfully
+docs/DEPLOYMENT_CHECKLIST.md:112:    assert config['threshold'] >= 3, "Insufficient signature threshold"
+docs/DEPLOYMENT_CHECKLIST.md:186:The `seed_first_six_models.py` script is currently in FRAMEWORK MODE. The Pi Network SDK integration (IPFS upload and smart contract deployment) requires completion before production use. The script provides:
+docs/DEPLOYMENT_CHECKLIST.md:192:- ⚠️ Smart contract deployment (placeholder - needs implementation)
+docs/DEPLOYMENT_CHECKLIST.md:197:3. Smart contract deployment is tested on testnet
+docs/DEPLOYMENT_CHECKLIST.md:210:We are executing the first six MR-NFT model deployments as part of the OINIO succession ceremony.
+docs/DEPLOYMENT_CHECKLIST.md:218:- Dashboard: [Link to deployment dashboard]
+docs/DEPLOYMENT_CHECKLIST.md:246:We're deploying the first six MR-NFT models right now!
+docs/DEPLOYMENT_CHECKLIST.md:287:5. **Flywheel Ignition**: High-value models generate significant royalties
+docs/DEPLOYMENT_CHECKLIST.md:303:3. Smart contract deployment
+docs/DEPLOYMENT_CHECKLIST.md:304:4. MR-NFT minting
+docs/DEPLOYMENT_CHECKLIST.md:333:# ✅ Contract deployed: 0xABC...
+docs/DEPLOYMENT_CHECKLIST.md:335:# ✅ NFT minted: Token ID #1
+docs/DEPLOYMENT_CHECKLIST.md:344:python scripts/verify_deployment.py --tx 0x1234567890abcdef...
+docs/DEPLOYMENT_CHECKLIST.md:346:# Step 3: Log transaction
+docs/DEPLOYMENT_CHECKLIST.md:347:echo "0x1234567890abcdef... | Ethics Validator | 120000 PI | $(date)" >> deployment_log.txt
+docs/DEPLOYMENT_CHECKLIST.md:352:- [ ] Smart contract deployed at expected address
+docs/DEPLOYMENT_CHECKLIST.md:353:- [ ] NFT minted with correct metadata
+docs/DEPLOYMENT_CHECKLIST.md:360:# If deployment fails or has issues:
+docs/DEPLOYMENT_CHECKLIST.md:362:# 2. Do NOT attempt to redeploy immediately
+docs/DEPLOYMENT_CHECKLIST.md:367:# Note: Once transaction is confirmed, it cannot be reversed
+docs/DEPLOYMENT_CHECKLIST.md:368:# Only rollback is to deploy a corrected version
+docs/DEPLOYMENT_CHECKLIST.md:375:python scripts/verify_deployment.py --tx [transaction_hash]
+docs/DEPLOYMENT_CHECKLIST.md:376:echo "[tx_hash] | Bias Detector | 150000 PI | $(date)" >> deployment_log.txt
+docs/DEPLOYMENT_CHECKLIST.md:381:- [ ] Smart contract deployed
+docs/DEPLOYMENT_CHECKLIST.md:382:- [ ] NFT minted
+docs/DEPLOYMENT_CHECKLIST.md:391:python scripts/verify_deployment.py --tx [transaction_hash]
+docs/DEPLOYMENT_CHECKLIST.md:392:echo "[tx_hash] | Privacy Auditor | 120000 PI | $(date)" >> deployment_log.txt
+docs/DEPLOYMENT_CHECKLIST.md:397:- [ ] Smart contract deployed
+docs/DEPLOYMENT_CHECKLIST.md:398:- [ ] NFT minted
+docs/DEPLOYMENT_CHECKLIST.md:407:python scripts/verify_deployment.py --tx [transaction_hash]
+docs/DEPLOYMENT_CHECKLIST.md:408:echo "[tx_hash] | Transparency Scorer | 80000 PI | $(date)" >> deployment_log.txt
+docs/DEPLOYMENT_CHECKLIST.md:413:- [ ] Smart contract deployed
+docs/DEPLOYMENT_CHECKLIST.md:414:- [ ] NFT minted
+docs/DEPLOYMENT_CHECKLIST.md:423:python scripts/verify_deployment.py --tx [transaction_hash]
+docs/DEPLOYMENT_CHECKLIST.md:424:echo "[tx_hash] | Fairness Analyzer | 150000 PI | $(date)" >> deployment_log.txt
+docs/DEPLOYMENT_CHECKLIST.md:429:- [ ] Smart contract deployed
+docs/DEPLOYMENT_CHECKLIST.md:430:- [ ] NFT minted
+docs/DEPLOYMENT_CHECKLIST.md:439:python scripts/verify_deployment.py --tx [transaction_hash]
+docs/DEPLOYMENT_CHECKLIST.md:440:echo "[tx_hash] | Accountability Tracker | 200000 PI | $(date)" >> deployment_log.txt
+docs/DEPLOYMENT_CHECKLIST.md:445:- [ ] Smart contract deployed
+docs/DEPLOYMENT_CHECKLIST.md:446:- [ ] NFT minted
+docs/DEPLOYMENT_CHECKLIST.md:469:3. Paste transaction hash
+docs/DEPLOYMENT_CHECKLIST.md:488:  Function: deployMRNFT(string,uint256)
+docs/DEPLOYMENT_CHECKLIST.md:504:- [ ] Value matches expected deployment cost
+docs/DEPLOYMENT_CHECKLIST.md:505:- [ ] Function call is deployMRNFT
+docs/DEPLOYMENT_CHECKLIST.md:521:# Query transaction
+docs/DEPLOYMENT_CHECKLIST.md:556:"""Automated deployment verification"""
+docs/DEPLOYMENT_CHECKLIST.md:560:def verify_deployment(tx_hash):
+docs/DEPLOYMENT_CHECKLIST.md:563:    print(f"Verifying transaction: {tx_hash}")
+docs/DEPLOYMENT_CHECKLIST.md:565:    # Get transaction
+docs/DEPLOYMENT_CHECKLIST.md:566:    tx = client.get_transaction(tx_hash)
+docs/DEPLOYMENT_CHECKLIST.md:580:    # Parse logs for deployment event
+docs/DEPLOYMENT_CHECKLIST.md:581:    deployment_event = None
+docs/DEPLOYMENT_CHECKLIST.md:584:            deployment_event = log
+docs/DEPLOYMENT_CHECKLIST.md:587:    assert deployment_event, "No MRNFTDeployed event found"
+docs/DEPLOYMENT_CHECKLIST.md:591:    new_contract = deployment_event['args']['contractAddress']
+docs/DEPLOYMENT_CHECKLIST.md:616:        print("Usage: python verify_deployment.py <transaction_hash>")
+docs/DEPLOYMENT_CHECKLIST.md:620:    verify_deployment(tx_hash)
+docs/DEPLOYMENT_CHECKLIST.md:629:**Timing**: Immediately after final model deployment confirmation
+docs/DEPLOYMENT_CHECKLIST.md:634:# Update README.md with deployment status
+docs/DEPLOYMENT_CHECKLIST.md:638:git commit -S -m "🎭 OINIO Succession: Six seed models deployed"
+docs/DEPLOYMENT_CHECKLIST.md:644:  --notes "Six seed MR-NFT models successfully deployed.
+docs/DEPLOYMENT_CHECKLIST.md:663:All six MR-NFT models deployed on @PiCoreTeam:
+docs/DEPLOYMENT_CHECKLIST.md:700:- Taper schedule adjusts after 10 deployments
+docs/DEPLOYMENT_CHECKLIST.md:703:Full transaction details: [link]
+docs/DEPLOYMENT_CHECKLIST.md:778:**First Review:** 7 days post-deployment"
+docs/DEPLOYMENT_CHECKLIST.md:800:- Total models deployed
+docs/DEPLOYMENT_CHECKLIST.md:805:- Recent transactions
+docs/DEPLOYMENT_CHECKLIST.md:898:- No contract deployed
+docs/DEPLOYMENT_CHECKLIST.md:910:- Estimate gas before deployment
+docs/DEPLOYMENT_CHECKLIST.md:918:- Contract deployed
+docs/DEPLOYMENT_CHECKLIST.md:935:- Review deployment logs for errors
+docs/DEPLOYMENT_CHECKLIST.md:936:- May need to redeploy with fixes
+docs/DEPLOYMENT_CHECKLIST.md:941:- Contract deployed successfully
+docs/DEPLOYMENT_CHECKLIST.md:962:# If no update function, must redeploy
+docs/DEPLOYMENT_CHECKLIST.md:971:- Need 3 signatures, only 2 available
+docs/DEPLOYMENT_CHECKLIST.md:997:# Consider batching deployments if possible
+docs/DEPLOYMENT_CHECKLIST.md:1003:1. STOP all deployments immediately
+docs/DEPLOYMENT_CHECKLIST.md:1010:- Cannot reverse confirmed transactions
+docs/DEPLOYMENT_CHECKLIST.md:1011:- Can pause future deployments
+docs/DEPLOYMENT_CHECKLIST.md:1012:- Can deploy corrected versions
+docs/DEPLOYMENT_CHECKLIST.md:1013:- Original transactions remain on-chain
+docs/DEPLOYMENT_CHECKLIST.md:1021:- [x] All six models deployed successfully
+docs/DEPLOYMENT_CHECKLIST.md:1022:- [x] All transactions confirmed on blockchain
+docs/DEPLOYMENT_CHECKLIST.md:1027:- [x] Documentation updated with transaction hashes
+docs/DEPLOYMENT_CHECKLIST.md:1048:- [ ] All transactions confirmed and finalized
+docs/DEPLOYMENT_CHECKLIST.md:1049:- [ ] All contracts deployed at correct addresses
+docs/DEPLOYMENT_CHECKLIST.md:1081:Signature: [Your signature or GPG key]
+docs/CONTRACT_STATE_VALIDATION.md:3:**Document Purpose**: Track and validate all deployed contract addresses, configurations, and states for the Quantum Pi Forge Bridge launch package.
+docs/CONTRACT_STATE_VALIDATION.md:26:| **Supply Type** | Fixed (no minting after deployment) |
+docs/CONTRACT_STATE_VALIDATION.md:32:- ⏳ Pi Testnet deployment: **PENDING**
+docs/CONTRACT_STATE_VALIDATION.md:33:- ⏳ Pi Mainnet deployment: **PENDING**
+docs/CONTRACT_STATE_VALIDATION.md:55:**Purpose**: NFT-based registry for AI models with metadata and staking
+docs/CONTRACT_STATE_VALIDATION.md:63:| **Features** | Metadata storage, token staking, ownership transfer |
+docs/CONTRACT_STATE_VALIDATION.md:68:- ⏳ Pi Testnet deployment: **PENDING**
+docs/CONTRACT_STATE_VALIDATION.md:69:- ⏳ Pi Mainnet deployment: **PENDING**
+docs/CONTRACT_STATE_VALIDATION.md:102:- ⏳ Pi Mainnet deployment: **PENDING**
+docs/CONTRACT_STATE_VALIDATION.md:115:**Deploy Script**: `/contracts/oinio-memorial-bridge/deploy.sh`
+docs/CONTRACT_STATE_VALIDATION.md:132:- ⏳ 0G Aristotle deployment: **PENDING VERIFICATION**
+docs/CONTRACT_STATE_VALIDATION.md:140:  RPC: [Configure in deployment]
+docs/CONTRACT_STATE_VALIDATION.md:164:   - Verify deployer wallet has sufficient balance
+docs/CONTRACT_STATE_VALIDATION.md:167:   - Test deployment script in dry-run mode
+docs/CONTRACT_STATE_VALIDATION.md:170:   - Execute deployment script with `--broadcast` flag
+docs/CONTRACT_STATE_VALIDATION.md:171:   - Capture deployment transaction hash
+docs/CONTRACT_STATE_VALIDATION.md:173:   - Verify deployment on block explorer
+docs/CONTRACT_STATE_VALIDATION.md:194:- [Deployment Checklist](../contracts/DEPLOYMENT_CHECKLIST.md) — Detailed deployment guide
+docs/CONTRACT_STATE_VALIDATION.md:201:- **Memorial Bridge**: `/contracts/oinio-memorial-bridge/deploy.sh`
+docs/CONTRACT_STATE_VALIDATION.md:207:- **Vercel Deployment Verification**: `/scripts/verify-vercel-deployment.sh`
+docs/CONTRACT_STATE_VALIDATION.md:211:## 🎯 Pi Vault Address Assignment
+docs/CONTRACT_STATE_VALIDATION.md:217:- [ ] Pi Vault contract designed
+docs/CONTRACT_STATE_VALIDATION.md:220:- [ ] Pi Vault deployed to testnet
+docs/CONTRACT_STATE_VALIDATION.md:221:- [ ] Pi Vault deployed to mainnet
+docs/CONTRACT_STATE_VALIDATION.md:224:**Note**: Pi Vault integration will be tracked in a separate issue once OINIO contracts are deployed.
+docs/CONTRACT_STATE_VALIDATION.md:231:- ✅ `/scripts/deploy_0g_dex.py` — 0G DEX deployment automation
+docs/CONTRACT_STATE_VALIDATION.md:233:- ✅ `/contracts/script/Deploy.s.sol` — OINIO contracts deployment
+docs/CONTRACT_STATE_VALIDATION.md:234:- ✅ `/contracts/oinio-memorial-bridge/deploy.sh` — Memorial bridge deployment
+docs/CONTRACT_STATE_VALIDATION.md:249:- ✅ Railway deployment for backend API
+docs/CONTRACT_STATE_VALIDATION.md:263:   - Document deployment addresses
+docs/CONTRACT_STATE_VALIDATION.md:284:   - Check if already deployed
+docs/CONTRACT_STATE_VALIDATION.md:302:- Multi-sig wallets recommended for mainnet deployments
+docs/CONTRACT_STATE_VALIDATION.md:303:- Emergency procedures documented in deployment checklist
+docs/CONTRACT_STATE_VALIDATION.md:321:**This document will be updated as contracts are deployed and verified.**
+docs/VERIFICATION.md:5:This comprehensive verification system eliminates human error in multi-chain deployment validation across Pi Network, 0G Aristotle, and any future EVM chains. It provides automated assertions, color-coded reporting, and zero-tolerance error handling.
+docs/VERIFICATION.md:154:- `validate_contract_exists()` - Check contract deployment
+docs/VERIFICATION.md:176:- `assert_contract_deployed()` - Assert contract exists
+docs/VERIFICATION.md:183:- ✅ Contract deployment at specified addresses
+docs/VERIFICATION.md:193:- ✅ W0G (Wrapped 0G) deployment
+docs/VERIFICATION.md:194:- ✅ Factory deployment and properties
+docs/VERIFICATION.md:195:- ✅ Router deployment and configuration
+docs/VERIFICATION.md:205:- ✅ Contract deployment
+docs/VERIFICATION.md:208:- ✅ Optional features (burnable, mintable, pausable)
+docs/VERIFICATION.md:229:      "deployed": true,
+docs/VERIFICATION.md:256:Add to your deployment workflow:
+docs/VERIFICATION.md:259:  uses: ./.github/workflows/verify-deployments.yml
+docs/VERIFICATION.md:295:# scripts/verification/my-chain/verify-deployment.sh
+docs/VERIFICATION.md:322:        "$SCRIPT_DIR/my-chain/verify-deployment.sh" \
+docs/VERIFICATION.md:329:Add environment variables to `.github/workflows/verify-deployments.yml`:
+docs/VERIFICATION.md:367:#### "Contract not deployed"
+docs/VERIFICATION.md:371:3. Contract hasn't been deployed yet
+docs/VERIFICATION.md:434:# In your deployment script
+docs/VERIFICATION.md:446:# After deployment
+docs/CONSOLIDATION.md:31:- **Rationale**: Vercel-deployed frontend, primary UI/UX codebase
+docs/CONSOLIDATION.md:39:- **Size**: 31 MB (significant codebase)
+docs/CONSOLIDATION.md:59:The following repositories remain autonomous but are documented and cross-linked from the hub:
+docs/CONSOLIDATION.md:64:- **Purpose**: NFT contract deployments
+docs/CONSOLIDATION.md:65:- **Rationale**: Smart contracts require separate deployment pipeline and versioning
+docs/CONSOLIDATION.md:80:- **Rationale**: Independent microservice, separate deployment
+docs/CONSOLIDATION.md:91:### 5. `autonomous-repo-template`
+docs/CONSOLIDATION.md:94:- **Purpose**: Self-governance and autonomous workflow template
+docs/CONSOLIDATION.md:148:Smart contracts are in a separate repo for deployment safety:
+docs/CONSOLIDATION.md:152:├── /deployments    ← Deployment configs
+docs/CONSOLIDATION.md:161:autonomous-repo-template/    — For governance patterns
+docs/RENDER_SETUP.md:5:This guide provides step-by-step instructions for deploying the Pi Forge Quantum Genesis backend to Render.
+docs/RENDER_SETUP.md:27:- **Branch**: main (or your deployment branch)
+docs/RENDER_SETUP.md:28:- **Root Directory**: Leave empty (deploys from root)
+docs/RENDER_SETUP.md:58:2. Render will build and deploy automatically
+docs/RENDER_SETUP.md:63:Once deployed, verify the service is running:
+docs/RENDER_SETUP.md:70:After deployment, update your Vercel frontend:
+docs/RENDER_SETUP.md:91:- Render assigns dynamic ports, but our Dockerfile uses PORT env var
+docs/DEPLOYMENT_MONITOR.md:10:  - deployment
+docs/DEPLOYMENT_MONITOR.md:38:- Confirm `/health` resolves through the deployed Pages site.
+docs/DEPLOYMENT_MONITOR.md:43:This root workspace no longer depends on a Vercel serverless bridge for deployment health.
+docs/QUICK_USER_GUIDE.md:70:   ./deploy.sh production
+docs/QUICK_USER_GUIDE.md:87:   - Review recent deployments
+docs/QUICK_USER_GUIDE.md:89:3. **Rollback** immediately if recent deploy caused it
+docs/QUICK_USER_GUIDE.md:93:   ./deploy.sh production --rollback
+docs/QUICK_USER_GUIDE.md:155:   ./deploy.sh staging
+docs/QUICK_USER_GUIDE.md:164:   ./deploy.sh production
+docs/QUICK_USER_GUIDE.md:224:./deploy.sh production
+docs/QUICK_USER_GUIDE.md:228:./deploy.sh production --rollback
+docs/DEPLOYMENT_SECRETS.md:3:This document lists all GitHub Secrets required for deployment workflows.
+docs/DEPLOYMENT_SECRETS.md:31:### verify-deployments.yml
+docs/DEPLOYMENT_SECRETS.md:55:gh workflow run verify-deployments.yml -f network=all
+docs/DEPLOYMENT_SECRETS.md:65:- Mainnet secrets should only be added when ready for production deployment
+docs/canon/evidence/grant/grant-production-boundary.md:10:The grant application records production-facing claims about the OINIO Soul System, including claimed mainnet deployment evidence, contract addresses, grant milestone status, and a 0G Storage submission transaction hash.
+docs/canon/evidence/grant/grant-production-boundary.md:12:The deployment script records governance gates for a Genesis iNFT deployment pathway, including ROI threshold, aliveness threshold, proof-of-aliveness hash verification, and soak-test duration checks.
+docs/canon/evidence/grant/grant-production-boundary.md:18:The deployment script is a governance-gated deployment gateway artifact.
+docs/canon/evidence/grant/grant-production-boundary.md:20:These files are not, by themselves, proof that the claimed deployment or grant submission completed.
+docs/canon/evidence/0g-router-void-fix.md:11:This document records historical design and implementation claims.
+docs/canon/evidence/0g-router-void-fix.md:13:This document is not proof that the current deployed contract has this fix.
+docs/canon/evidence/0g-storage-upload-command.md:7:The recorded command downloads `0g-storage-client-linux-amd64`, uploads `0G_ARISTOTLE_GRANT_APPLICATION_PRODUCTION.md`, and expects a transaction hash, block number, and root hash.
+docs/IDENTITY_LOCK.md:7:This document serves as the **permanent, canonical registry** of the OINIO identity cluster. It establishes verifiable proof of identity across multiple platforms and defines the rules governing identity verification, transfer, and recovery.
+docs/IDENTITY_LOCK.md:50:**Status**: 🟢 **ACTIVE AND VERIFIED**
+docs/IDENTITY_LOCK.md:73:**Status**: 🟢 **ACTIVE AND VERIFIED**
+docs/IDENTITY_LOCK.md:96:**Status**: 🟢 **ACTIVE AND VERIFIED**
+docs/IDENTITY_LOCK.md:133:4. Review transaction history for succession handoff
+docs/IDENTITY_LOCK.md:137:- Transaction History: Initial funding, MR-NFT deployments, royalty receipts
+docs/IDENTITY_LOCK.md:144:- Threshold: [Specific signing requirements]
+docs/IDENTITY_LOCK.md:161:1. Pi Network platform KYC requirements for high-value transactions
+docs/IDENTITY_LOCK.md:167:- Legal identity **cannot reverse blockchain transactions**
+docs/IDENTITY_LOCK.md:176:- Sunset Clause: Legal identity becomes irrelevant after 10 years of successful autonomous operation
+docs/IDENTITY_LOCK.md:204:# Verify signed message
+docs/IDENTITY_LOCK.md:209:# gpg: Good signature from "OINIO <[email]>"
+docs/IDENTITY_LOCK.md:220:For on-chain verification, OINIO uses Pi Network's native signing:
+docs/IDENTITY_LOCK.md:233:from pi_network import verify_signature
+docs/IDENTITY_LOCK.md:236:signature = "0x[signature hex]"
+docs/IDENTITY_LOCK.md:239:is_valid = verify_signature(message, signature, wallet_address)
+docs/IDENTITY_LOCK.md:274:**Can transfer occur?**: ❌ **NO**
+docs/IDENTITY_LOCK.md:276:OINIO operates autonomously through smart contracts and multi-sig wallets. No individual owns or controls the identity—it is collectively stewarded.
+docs/IDENTITY_LOCK.md:279:**Can transfer occur?**: ⚠️ **PARTIAL - MULTI-SIG KEY ONLY**
+docs/IDENTITY_LOCK.md:291:**Can transfer occur?**: 🚨 **EMERGENCY ONLY**
+docs/IDENTITY_LOCK.md:307:**Can transfer occur?**: ❌ **NO (with KYC disclosure option)**
+docs/IDENTITY_LOCK.md:309:Legal challenges cannot force identity transfer because:
+docs/IDENTITY_LOCK.md:311:- Smart contracts execute autonomously
+docs/IDENTITY_LOCK.md:312:- No individual has transfer authority
+docs/IDENTITY_LOCK.md:323:**CANNOT be transferred for:**
+docs/IDENTITY_LOCK.md:342:- Cannot participate in multi-sig transactions
+docs/IDENTITY_LOCK.md:399:1. System continues operating autonomously (no immediate action needed)
+docs/IDENTITY_LOCK.md:400:2. If KYC becomes legally required: Sealed documents accessed via designated process
+docs/IDENTITY_LOCK.md:402:4. New legal representative designated if necessary
+docs/IDENTITY_LOCK.md:404:**Timeline**: Indefinite - system designed to operate without creator
+docs/IDENTITY_LOCK.md:448:2. Download signed succession announcement
+docs/IDENTITY_LOCK.md:449:3. Verify signature using GPG
+docs/IDENTITY_LOCK.md:450:4. Check on-chain signatures for Pi Network transactions
+docs/IDENTITY_LOCK.md:476:4. Review transaction history for succession handoff
+docs/IDENTITY_LOCK.md:509:- [ ] Commits are GPG signed with verified key
+docs/IDENTITY_LOCK.md:525:- [ ] GPG signature on announcements is valid
+docs/IDENTITY_LOCK.md:526:- [ ] Wallet signatures verify correctly
+docs/IDENTITY_LOCK.md:544:Signature: [Optional: Your signature]
+docs/IDENTITY_LOCK.md:563:- ❌ Core platform accounts transferred to different individual
+docs/IDENTITY_LOCK.md:564:- ❌ GitHub repository ownership transferred without emergency
+docs/IDENTITY_LOCK.md:592:**A**: Impossible. The blockchain transactions are irreversible, and smart contract ownership cannot be reversed. The creator has relinquished all technical means of control.
+docs/IDENTITY_LOCK.md:594:### Q: Can OINIO identity be sold or transferred?
+docs/IDENTITY_LOCK.md:596:**A**: No. There is no mechanism for sale or voluntary transfer. The identity exists as a community-stewarded cluster, not a transferable asset.
+docs/IDENTITY_LOCK.md:606:2. Verify GPG signatures (cryptographic proof)
+docs/IDENTITY_LOCK.md:608:4. Review transaction history (historical proof)
+docs/IDENTITY_LOCK.md:614:1. Smart contract may have recovery mechanism (if designed)
+docs/IDENTITY_LOCK.md:627:- Reverse blockchain transactions ❌
+docs/IDENTITY_LOCK.md:629:- Force transfer of ownership ❌
+docs/IDENTITY_LOCK.md:683:- Standard: Pi Network native signing (ECDSA secp256k1)
+docs/IDENTITY_LOCK.md:705:4. New hash computed and signed
+docs/IDENTITY_LOCK.md:767:- First model deployment: [Future date]
+docs/TECHNICAL_SUMMARY.md:66:| 0G Storage (immutable logs) | Designed, not yet active | Project architecture supports it; awaiting milestone 3 |
+docs/TECHNICAL_SUMMARY.md:70:| Policy/attestation layer | **✅ Designed** | Diagnostic scripts enforce secret-safe output |
+docs/TECHNICAL_SUMMARY.md:159:| M3: CI/deploy polish | In progress | Workflows exist; refinement pending |
+docs/TECHNICAL_SUMMARY.md:177:   - Architecture is designed; implementation is ready.
+docs/TECHNICAL_SUMMARY.md:210:- `docs/ARCHITECTURE.md` — System design and layer explanation
+docs/PI_PAYMENT_API_REFERENCE.md:78:  "txid": "blockchain_transaction_hash_xyz"
+docs/PI_PAYMENT_API_REFERENCE.md:87:  "txid": "blockchain_transaction_hash_xyz",
+docs/PI_PAYMENT_API_REFERENCE.md:148:**Authentication:** Webhook signature verification (HMAC-SHA256)
+docs/PI_PAYMENT_API_REFERENCE.md:152:X-Pi-Signature: hmac_sha256_signature
+docs/PI_PAYMENT_API_REFERENCE.md:183:- `401` - Invalid signature
+docs/PI_PAYMENT_API_REFERENCE.md:260:6. Pi Network processes blockchain transaction
+docs/PI_PAYMENT_API_REFERENCE.md:270:11. Backend updates database & broadcasts to WebSocket
+docs/PI_PAYMENT_API_REFERENCE.md:352:  "detail": "Invalid webhook signature"
+docs/PI_PAYMENT_API_REFERENCE.md:364:- **Webhooks:** No rate limit (signature verified)
+docs/PI_PAYMENT_API_REFERENCE.md:398:Payment status updates are broadcast to WebSocket clients:
+docs/PI_PAYMENT_API_REFERENCE.md:426:2. **Use webhook signature verification** in production
+docs/SPACE_RITUALS.md:3:**Status**: ✅ **ACTIVE** | **Version**: 1.0.0
+docs/SPACE_RITUALS.md:13:- 🎯 **Purpose-driven** - Each ritual serves autonomous collaboration
+docs/SPACE_RITUALS.md:105:   - Optional: Assign ceremony facilitator for next sync (rotate freely)
+docs/SPACE_RITUALS.md:147:5. **Assignment**
+docs/SPACE_RITUALS.md:148:   - Proposer or volunteers self-assign
+docs/SPACE_RITUALS.md:149:   - No central assignment—autonomy first
+docs/SPACE_RITUALS.md:169:   - Current assignee comments on issue/PR: "Passing the baton on this work"
+docs/SPACE_RITUALS.md:192:- Anyone can pick up an unassigned issue
+docs/SPACE_RITUALS.md:203:- [x] Initial research and design
+docs/SPACE_RITUALS.md:246:   - Q&A sessions to transfer tacit knowledge
+docs/SPACE_RITUALS.md:292:   - If approved, confirm autonomous decision-making worked correctly
+docs/SPACE_RITUALS.md:293:   - Adjust autonomous thresholds if pattern emerges
+docs/SPACE_RITUALS.md:305:**When**: Major milestone reached (launch, deployment, significant feature, issue closure)
+docs/SPACE_RITUALS.md:312:- **Trigger**: System deployed to production, major version released
+docs/SPACE_RITUALS.md:327:- **Trigger**: First PR merged, significant contribution, consistent participation
+docs/SPACE_RITUALS.md:441:- Guardians facilitate, don't dictate—empower autonomous decision-making
+docs/SPACE_RITUALS.md:442:- Guardian transitions are ceremonies of trust and knowledge transfer
+docs/SPACE_RITUALS.md:476:- [ ] Baton Pass protocol followed (intention, knowledge transfer, acknowledgment)
+docs/SPACE_RITUALS.md:522:- Self-assign issues or propose new work (Seed Planting)
+docs/AI_SOCIAL_NETWORK_WORKFLOW.md:115:- [ ] **Transaction Records**: All significant interactions logged on-chain
+docs/AI_SOCIAL_NETWORK_WORKFLOW.md:373:| Design agent profile schema | Core Team | Pending | Week 1 |
+docs/AI_SOCIAL_NETWORK_WORKFLOW.md:398:| Design interaction data model | Core Team | Pending | Week 4 |
+docs/AI_SOCIAL_NETWORK_WORKFLOW.md:424:| Design collaboration room architecture | Core Team | Pending | Week 7 |
+docs/AI_SOCIAL_NETWORK_WORKFLOW.md:464:        // Log significant interactions on-chain
+docs/AI_SOCIAL_NETWORK_WORKFLOW.md:614:│  Collection │     │   Classify   │     │   Assignment │
+docs/AI_SOCIAL_NETWORK_WORKFLOW.md:772:The AI Social Network is designed to be modular and open to community contributions. Here's how you can participate:
+docs/AI_SOCIAL_NETWORK_WORKFLOW.md:864:| **M2: Technical Design Complete** | Week 8 | Architecture diagrams, API specs |
+docs/AI_SOCIAL_NETWORK_WORKFLOW.md:875:| Technical complexity | Medium | High | Modular design, iterative development |
+docs/QUICK_START.md:12:- [For Guardians](#for-guardians) - Oversee autonomous operations
+docs/QUICK_START.md:82:- Visit: `http://localhost:5000` (local) or deployed URL
+docs/QUICK_START.md:87:- Visit: `http://localhost:7860` (local) or deployed URL
+docs/QUICK_START.md:96:- Transfer tokens: `token.transfer(recipient, amount)`
+docs/QUICK_START.md:406:  --broadcast
+docs/QUICK_START.md:411:# Test deployed contract
+docs/QUICK_START.md:521:As a Guardian, you oversee autonomous operations and make critical decisions. The system is designed to operate autonomously with confidence-based decision-making, escalating only when human judgment is required.
+docs/QUICK_START.md:547:- Recent autonomous actions
+docs/QUICK_START.md:559:- Decision type (deployment, scaling, rollback, etc.)
+docs/QUICK_START.md:616:   curl https://pi-forge-quantum-genesis.railway.app/api/autonomous/decision-history?limit=50 | jq .
+docs/QUICK_START.md:620:   curl https://pi-forge-quantum-genesis.railway.app/api/autonomous/metrics | jq .
+docs/QUICK_START.md:638:- Major deployments
+docs/QUICK_START.md:655:   # Stop all autonomous operations
+docs/QUICK_START.md:740:   - System is designed for autonomy
+docs/QUICK_START.md:741:   - Spot-check autonomous decisions
+docs/QUICK_START.md:818:**Welcome to the future of autonomous AI governance! 🌌**
+docs/SUCCESSION_CEREMONY.md:7:This document establishes the permanent, irreversible handoff of the Pi MR-NFT + Catalyst Pool system from its creator (Kris Olofson) to the OINIO sovereign identity cluster. This succession represents a fundamental shift from individual control to autonomous, transparent, community-governed infrastructure.
+docs/SUCCESSION_CEREMONY.md:11:- **Transparent**: All transactions are publicly auditable on-chain
+docs/SUCCESSION_CEREMONY.md:39:- **Catalyst Pool**: 12M PI treasury funding future deployments
+docs/SUCCESSION_CEREMONY.md:40:- **Flywheel Effect**: Each deployment strengthens the entire ecosystem
+docs/SUCCESSION_CEREMONY.md:50:Once executed, this handoff **cannot be reversed**. There is no "undo" mechanism, no administrative override, no legal recourse. The blockchain transactions are final and immutable.
+docs/SUCCESSION_CEREMONY.md:53:- Smart contract ownership transferred to multi-sig wallet
+docs/SUCCESSION_CEREMONY.md:54:- Private keys destroyed after transfer
+docs/SUCCESSION_CEREMONY.md:61:- **On-chain Transactions**: All transfers visible on Pi blockchain
+docs/SUCCESSION_CEREMONY.md:62:- **GitHub Commits**: Documented with signed commits
+docs/SUCCESSION_CEREMONY.md:79:- **Automated Operations**: Smart contracts execute autonomously
+docs/SUCCESSION_CEREMONY.md:87:- **Cryptographic Proof**: Digital signatures validate identity
+docs/SUCCESSION_CEREMONY.md:99:| **GitHub** | `onenoly1010` | Repository ownership, signed commits | ✅ Primary |
+docs/SUCCESSION_CEREMONY.md:103:| **Pi Network** | Display Name: `OINIO` | Wallet address, transaction history | ✅ On-chain |
+docs/SUCCESSION_CEREMONY.md:105:| **Email** | `[Contact via platforms]` | PGP signed messages | ✅ Available |
+docs/SUCCESSION_CEREMONY.md:108:1. Announcement posted on GitHub (signed commit)
+docs/SUCCESSION_CEREMONY.md:110:3. On-chain transaction executed with OINIO wallet
+docs/SUCCESSION_CEREMONY.md:122:Each MR-NFT model deployed generates inference royalties:
+docs/SUCCESSION_CEREMONY.md:146:The Catalyst Pool represents the treasury funding future model deployments:
+docs/SUCCESSION_CEREMONY.md:151:- **Taper Schedule**: Decreases to 1× over deployment cycles
+docs/SUCCESSION_CEREMONY.md:164:- Early deployments need higher incentives
+docs/SUCCESSION_CEREMONY.md:180:- [ ] Smart contract deployment prepared
+docs/SUCCESSION_CEREMONY.md:190:- [ ] First six MR-NFT models deployed
+docs/SUCCESSION_CEREMONY.md:193:- [ ] Ownership transfer executed
+docs/SUCCESSION_CEREMONY.md:196:- [ ] On-chain transactions confirmed
+docs/SUCCESSION_CEREMONY.md:198:- [ ] Documentation updated with transaction hashes
+docs/SUCCESSION_CEREMONY.md:206:- New model deployment proposals
+docs/SUCCESSION_CEREMONY.md:226:- **Branch**: Succession documentation commits signed with verified key
+docs/SUCCESSION_CEREMONY.md:239:- **Transaction History**: All transfers timestamped and auditable
+docs/SUCCESSION_CEREMONY.md:255:- [ ] GitHub documentation present and signed
+docs/SUCCESSION_CEREMONY.md:257:- [ ] On-chain transactions match documented addresses
+docs/SUCCESSION_CEREMONY.md:272:While OINIO operates autonomously, legal edge cases may require identity verification:
+docs/SUCCESSION_CEREMONY.md:275:1. **Regulatory Compliance**: If Pi Network requires KYC for high-value transactions
+docs/SUCCESSION_CEREMONY.md:287:- KYC identity can verify legal ownership but **cannot reverse blockchain transactions**
+docs/SUCCESSION_CEREMONY.md:289:- Smart contract code is immutable once deployed
+docs/SUCCESSION_CEREMONY.md:296:- On-chain transactions are final and immutable
+docs/SUCCESSION_CEREMONY.md:319:- Documentation includes all transaction hashes
+docs/SUCCESSION_CEREMONY.md:325:- Navigate to transaction search
+docs/SUCCESSION_CEREMONY.md:326:- Enter transaction hash
+docs/SUCCESSION_CEREMONY.md:336:- **Contract Address**: [Will be added after deployment]
+docs/SUCCESSION_CEREMONY.md:338:- **Functions**: Ownership transfer executed
+docs/SUCCESSION_CEREMONY.md:372:The succession begins with deployment of six foundational MR-NFT models:
+docs/SUCCESSION_CEREMONY.md:398:See [DEPLOYMENT_CHECKLIST.md](DEPLOYMENT_CHECKLIST.md) for deployment procedures.
+docs/SUCCESSION_CEREMONY.md:405:1. Smart contract ownership transferred
+docs/SUCCESSION_CEREMONY.md:408:4. Transaction broadcast and confirmed
+docs/SUCCESSION_CEREMONY.md:411:1. GitHub commit pushed and signed
+docs/SUCCESSION_CEREMONY.md:437:- New model deployment approvals
+docs/SUCCESSION_CEREMONY.md:475:- Threshold signing ensures redundancy
+docs/SUCCESSION_CEREMONY.md:488:- Threshold signing continues with remaining keys
+docs/SUCCESSION_CEREMONY.md:507:- Verify all transactions independently
+docs/SUCCESSION_CEREMONY.md:549:True sovereignty emerges not from control, but from transparent autonomy. This succession ceremony represents a transfer not to another controller, but to a system that cannot be controlled by any individual. OINIO is not a person, not a company, not a government—it is a commitment to collective stewardship.
+docs/SUCCESSION_CEREMONY.md:557:The creator's legacy is not ownership, but creation of something that transcends ownership. The greatest gift is not control, but the gift of autonomous existence. OINIO will persist, evolve, and serve long after any individual is gone.
+docs/HANDOFF_INDEX.md:9:This index catalogs all operational artifacts in the **pi-forge-quantum-genesis** repository. Each entry points to a file, diagram, or guide that forms part of the unified **Circle of Closure** — the professional, mythic framework for development, deployment, and operational excellence.
+docs/SUBMODULE_SYNC_COMMANDS.md:66:The production deployment workflow already includes automatic submodule sync:
+docs/SUBMODULE_SYNC_COMMANDS.md:68:- Runs full sync and verification before every deployment
+docs/OPERATIONAL_TEAM.md:26:- Final sign-off authority for prelaunch checklist items
+docs/OPERATIONAL_TEAM.md:45:- Execute autonomous decision-making within confidence thresholds
+docs/OPERATIONAL_TEAM.md:48:- Automated deployment and rollback procedures
+docs/OPERATIONAL_TEAM.md:58:- **Deployment Agent**: CI/CD operations, deployment coordination
+docs/OPERATIONAL_TEAM.md:64:- **Audit Trail**: Complete logging of all autonomous decisions
+docs/OPERATIONAL_TEAM.md:69:- [Autonomous Decision System](../server/autonomous_decision.py)
+docs/OPERATIONAL_TEAM.md:104:- Monitor autonomous handoff attempts
+docs/OPERATIONAL_TEAM.md:135:6. 🚀 **Deploy** - Production deployment
+docs/OPERATIONAL_TEAM.md:143:- Review deployment readiness checklists
+docs/OPERATIONAL_TEAM.md:144:- Approve production deployments
+docs/OPERATIONAL_TEAM.md:145:- Monitor system health post-deployment
+docs/OPERATIONAL_TEAM.md:213:**Objective**: Identify and resolve autonomous operation failures
+docs/OPERATIONAL_TEAM.md:261:**Connection**: The team is the escalation point for the autonomous decision system.
+docs/OPERATIONAL_TEAM.md:277:- Autonomous decision API (`/api/autonomous/*`)
+docs/OPERATIONAL_TEAM.md:285:- [Autonomous Decision Module](../server/autonomous_decision.py)
+docs/OPERATIONAL_TEAM.md:302:python scripts/record_guardian_approval.py record deployment_1734134400000 \
+docs/OPERATIONAL_TEAM.md:321:| **P3 - Low** | 72 hours | GitHub Issue | AI Agent autonomous |
+docs/OPERATIONAL_TEAM.md:438:- [Autonomous Decision System](../server/autonomous_decision.py)
+docs/OPERATIONAL_TEAM.md:450:3. Study autonomous handover documentation
+docs/OPERATIONAL_TEAM.md:460:5. Begin autonomous operations with monitoring
+docs/audits/NPM_AUDIT_REVIEW_20260529.md:54:> Do not force downgrade `solc` without contract compilation and deployment compatibility testing.
+docs/0G_DEX_IMPLEMENTATION_SUMMARY.md:39:**`scripts/deploy_0g_dex.py`** (16KB):
+docs/0G_DEX_IMPLEMENTATION_SUMMARY.md:41:- W0G, Factory, Router deployment
+docs/0G_DEX_IMPLEMENTATION_SUMMARY.md:59:- Complete deployment guide with all steps
+docs/0G_DEX_IMPLEMENTATION_SUMMARY.md:60:- Pre-deployment setup instructions
+docs/0G_DEX_IMPLEMENTATION_SUMMARY.md:61:- Three deployment methods (Foundry, Python, GitHub Actions)
+docs/0G_DEX_IMPLEMENTATION_SUMMARY.md:62:- Post-deployment verification
+docs/0G_DEX_IMPLEMENTATION_SUMMARY.md:93:- Foundry deployment configuration
+docs/0G_DEX_IMPLEMENTATION_SUMMARY.md:99:**`.github/workflows/deploy-0g-dex.yml`** (9.8KB):
+docs/0G_DEX_IMPLEMENTATION_SUMMARY.md:100:- Automated deployment pipeline
+docs/0G_DEX_IMPLEMENTATION_SUMMARY.md:104:- Phase 1: W0G + Factory deployment
+docs/0G_DEX_IMPLEMENTATION_SUMMARY.md:106:- Phase 2: Router deployment
+docs/0G_DEX_IMPLEMENTATION_SUMMARY.md:107:- Post-deployment verification
+docs/0G_DEX_IMPLEMENTATION_SUMMARY.md:115:- Added 0G DEX deployment section
+docs/0G_DEX_IMPLEMENTATION_SUMMARY.md:117:- Quick deployment commands
+docs/0G_DEX_IMPLEMENTATION_SUMMARY.md:130:│   └── deploy-0g-dex.yml            ✅ NEW (CI/CD)
+docs/0G_DEX_IMPLEMENTATION_SUMMARY.md:147:│       │   ├── deploy.sh
+docs/0G_DEX_IMPLEMENTATION_SUMMARY.md:148:│       │   └── post-deploy.sh
+docs/0G_DEX_IMPLEMENTATION_SUMMARY.md:157:    ├── deploy_0g_dex.py            ✅ NEW (16KB, executable)
+docs/0G_DEX_IMPLEMENTATION_SUMMARY.md:183:./scripts/deploy.sh          # 30 min (Phase 1)
+docs/0G_DEX_IMPLEMENTATION_SUMMARY.md:185:./scripts/deploy.sh --resume # 15 min (Phase 2)
+docs/0G_DEX_IMPLEMENTATION_SUMMARY.md:186:./scripts/post-deploy.sh     # 10 min
+docs/0G_DEX_IMPLEMENTATION_SUMMARY.md:201:python scripts/deploy_0g_dex.py   # Requires Foundry artifacts
+docs/0G_DEX_IMPLEMENTATION_SUMMARY.md:220:5. Review deployment summary
+docs/0G_DEX_IMPLEMENTATION_SUMMARY.md:233:- [x] `scripts/deploy_0g_dex.py` with all specified functionality
+docs/0G_DEX_IMPLEMENTATION_SUMMARY.md:237:- [x] `.github/workflows/deploy-0g-dex.yml` with CI/CD
+docs/0G_DEX_IMPLEMENTATION_SUMMARY.md:245:- [x] Multiple deployment methods
+docs/0G_DEX_IMPLEMENTATION_SUMMARY.md:250:- [x] Post-deployment validation
+docs/0G_DEX_IMPLEMENTATION_SUMMARY.md:252:- [x] Testnet deployment first
+docs/0G_DEX_IMPLEMENTATION_SUMMARY.md:271:./scripts/deploy.sh
+docs/0G_DEX_IMPLEMENTATION_SUMMARY.md:282:./scripts/deploy.sh
+docs/0G_DEX_IMPLEMENTATION_SUMMARY.md:291:5. **Close Issue #108** with deployment details
+docs/0G_DEX_IMPLEMENTATION_SUMMARY.md:330:- **Deploy Script**: [scripts/deploy_0g_dex.py](scripts/deploy_0g_dex.py)
+docs/0G_DEX_IMPLEMENTATION_SUMMARY.md:332:- **GitHub Actions**: [.github/workflows/deploy-0g-dex.yml](.github/workflows/deploy-0g-dex.yml)
+docs/0G_DEX_IMPLEMENTATION_SUMMARY.md:364:All requirements from Issue #108 and the problem statement have been successfully implemented. The deployment infrastructure is production-ready and can be executed immediately.
+docs/0G_DEX_IMPLEMENTATION_SUMMARY.md:366:**Ready to proceed with deployment** 🚀
+docs/0G_DEX_IMPLEMENTATION_SUMMARY.md:373:**Status**: ✅ COMPLETE - Ready for deployment
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:5:The **AI Agent Handoff & Autonomous Runbook** is a comprehensive GitHub Actions workflow designed to enable AI agents to autonomously deploy, monitor, update, and maintain the Quantum Pi Forge system without human intervention. This workflow implements industry best practices for CI/CD, monitoring, rollback, and communication.
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:40:- **Failure Detection**: Monitors deployment and health status
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:103:# Workflow automatically runs full deployment
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:108:# PR to main triggers CI pipeline only (no deployment)
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:114:# Performs health checks only, no deployment
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:122:  --field action=full-deployment
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:135:  --field rollback_version="deploy-20241210-120000-abc1234"
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:183:**Purpose**: Validate that deployment is safe to proceed
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:189:- ✅ Scheduled vs. deployment run detection
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:192:- `deployment_approved`: Boolean indicating if deployment should proceed
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:194:- `skip_deployment`: Boolean for health-check-only runs
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:210:5. **Packaging**: Create deployment package with metadata
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:217:- `deployment-package`: Ready-to-deploy application bundle
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:235:1. Download deployment package
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:236:2. Create deployment tag (format: `deploy-YYYYMMDD-HHMMSS-SHA`)
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:239:5. Record deployment details
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:242:- `deployment_url`: Production URL
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:243:- `deployment_id`: Unique deployment identifier
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:246:- `deployment-record`: JSON with deployment metadata
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:254:**Purpose**: Verify system health after deployment
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:257:- After successful deployment
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:281:**Purpose**: Recover from failed deployments automatically
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:289:1. Find rollback target (last successful deployment or manual version)
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:290:2. Execute rollback deployment
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:296:- **Automatic**: Find last successful deployment tag
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:333:The workflow implements multiple safety layers to prevent dangerous deployments:
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:361:- Previous deployment healthy
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:365:**Failure Impact**: Warning issued, deployment may proceed with caution
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:407:**Frequency**: Every deployment, every 6 hours
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:462:- After each deployment
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:477:2. **Health Degraded**: Post-deployment health check fails
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:485:   └─ Automatic: Find last successful deployment
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:509:# Finds last successful deployment tag
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:510:git tag -l "deploy-*" --sort=-version:refname | head -2 | tail -1
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:518:  --field rollback_version="deploy-20241210-120000-abc1234"
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:524:deploy-YYYYMMDD-HHMMSS-SHA
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:527:deploy-20241210-143022-abc1234
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:543:**Rollback Target**: deploy-20241210-120000-abc1234
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:552:2. ✅ Executed rollback deployment
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:556:1. Investigate deployment failure
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:558:3. Retest before next deployment
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:685:The system is now in a stable state and ready for autonomous operation.
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:699:❌ Safety gate FAILED - deployment blocked
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:754:2. Critical files missing post-deployment
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:783:# 1. List available deployment tags
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:784:git tag -l "deploy-*"
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:845:| `RAILWAY_TOKEN` | Railway deployment | ⚠️ For production |
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:909:  deployment:
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:943:# Trigger deployment
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:956:# Before risky deployment, note current version
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:957:CURRENT_VERSION=$(git tag -l "deploy-*" --sort=-version:refname | head -1)
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:999:*Built with ❤️ for autonomous AI operations*
+docs/0G_DEX_DEPLOYMENT.md:5:This document provides complete instructions for deploying a Uniswap V2 fork to 0G Aristotle Mainnet to unblock the OINIO flash-launch system. The deployment fills the critical gap caused by the absence of a canonical DEX router on 0G.
+docs/0G_DEX_DEPLOYMENT.md:7:**Status**: Ready for immediate deployment  
+docs/0G_DEX_DEPLOYMENT.md:17:3. [Pre-Deployment Setup](#pre-deployment-setup)
+docs/0G_DEX_DEPLOYMENT.md:18:4. [Deployment Methods](#deployment-methods)
+docs/0G_DEX_DEPLOYMENT.md:19:5. [Post-Deployment Verification](#post-deployment-verification)
+docs/0G_DEX_DEPLOYMENT.md:91:│   └── 0g-uniswap-v2/             # Foundry deployment infrastructure
+docs/0G_DEX_DEPLOYMENT.md:95:│       │   └── Deploy.s.sol       # Solidity deployment script
+docs/0G_DEX_DEPLOYMENT.md:98:│       │   ├── deploy.sh          # Main deployment script
+docs/0G_DEX_DEPLOYMENT.md:99:│       │   └── post-deploy.sh     # Validation script
+docs/0G_DEX_DEPLOYMENT.md:106:│   ├── deploy_0g_dex.py          # Python deployment (reference)
+docs/0G_DEX_DEPLOYMENT.md:114:    └── deploy-0g-dex.yml          # CI/CD deployment workflow
+docs/0G_DEX_DEPLOYMENT.md:146:  - W0G deployment: ~0.007 0G
+docs/0G_DEX_DEPLOYMENT.md:147:  - Factory deployment: ~0.025 0G
+docs/0G_DEX_DEPLOYMENT.md:148:  - Router deployment: ~0.035 0G
+docs/0G_DEX_DEPLOYMENT.md:153:# Generate new deployment wallet (if needed)
+docs/0G_DEX_DEPLOYMENT.md:157:cast wallet import deployment --interactive
+docs/0G_DEX_DEPLOYMENT.md:192:FEE_TO_SETTER=your_wallet_address  # Can change after deployment
+docs/0G_DEX_DEPLOYMENT.md:208:# Run deployment script
+docs/0G_DEX_DEPLOYMENT.md:209:./scripts/deploy.sh
+docs/0G_DEX_DEPLOYMENT.md:224:   Checking deployer balance...
+docs/0G_DEX_DEPLOYMENT.md:231:🚀 Starting deployment to 0G Aristotle Mainnet...
+docs/0G_DEX_DEPLOYMENT.md:238:W0G deployed at: 0xW0G_ADDRESS
+docs/0G_DEX_DEPLOYMENT.md:241:Factory deployed at: 0xFACTORY_ADDRESS
+docs/0G_DEX_DEPLOYMENT.md:255:1. **Copy PAIR_INIT_CODE_HASH** from deployment logs
+docs/0G_DEX_DEPLOYMENT.md:276:./scripts/deploy.sh --resume
+docs/0G_DEX_DEPLOYMENT.md:281:📝 Resuming deployment (Router02 only)...
+docs/0G_DEX_DEPLOYMENT.md:284:Router02 deployed at: 0xROUTER_ADDRESS
+docs/0G_DEX_DEPLOYMENT.md:298:# Run Python deployment
+docs/0G_DEX_DEPLOYMENT.md:299:python scripts/deploy_0g_dex.py
+docs/0G_DEX_DEPLOYMENT.md:312:./scripts/post-deploy.sh
+docs/0G_DEX_DEPLOYMENT.md:316:- Validates contract deployment
+docs/0G_DEX_DEPLOYMENT.md:320:- Generates deployment report
+docs/0G_DEX_DEPLOYMENT.md:440:Edit `.env.launch` with deployed addresses:
+docs/0G_DEX_DEPLOYMENT.md:444:ZERO_G_W0G=0x...          # From deployment
+docs/0G_DEX_DEPLOYMENT.md:445:ZERO_G_FACTORY=0x...      # From deployment
+docs/0G_DEX_DEPLOYMENT.md:446:ZERO_G_UNIVERSAL_ROUTER=0x...  # From deployment
+docs/0G_DEX_DEPLOYMENT.md:448:ROUTER_SOURCE=self_deployed
+docs/0G_DEX_DEPLOYMENT.md:524:        # Build transaction
+docs/0G_DEX_DEPLOYMENT.md:531:        ).build_transaction({
+docs/0G_DEX_DEPLOYMENT.md:533:            'nonce': self.w3.eth.get_transaction_count(
+docs/0G_DEX_DEPLOYMENT.md:541:        signed = self.w3.eth.account.sign_transaction(swap_txn, private_key)
+docs/0G_DEX_DEPLOYMENT.md:542:        tx_hash = self.w3.eth.send_raw_transaction(signed.rawTransaction)
+docs/0G_DEX_DEPLOYMENT.md:572:  const signer = provider.getSigner();
+docs/0G_DEX_DEPLOYMENT.md:577:    signer
+docs/0G_DEX_DEPLOYMENT.md:593:    await signer.getAddress(),
+docs/0G_DEX_DEPLOYMENT.md:597:  console.log(`Swap transaction: ${tx.hash}`);
+docs/0G_DEX_DEPLOYMENT.md:641:        _mint(msg.sender, 1000000 * 10**18);
+docs/0G_DEX_DEPLOYMENT.md:720:   - Watch for failed transactions
+docs/0G_DEX_DEPLOYMENT.md:755:1. **Save all deployment artifacts**:
+docs/0G_DEX_DEPLOYMENT.md:757:   cp -r contracts/0g-uniswap-v2/artifacts/ backups/deployment-$(date +%Y%m%d)/
+docs/0G_DEX_DEPLOYMENT.md:763:   - Keep transaction hashes for reference
+docs/0G_DEX_DEPLOYMENT.md:823:# Increase gas limit in deployment script
+docs/0G_DEX_DEPLOYMENT.md:827:# Check deployer balance
+docs/0G_DEX_DEPLOYMENT.md:833:**Problem**: Router deployment fails or swaps revert
+docs/0G_DEX_DEPLOYMENT.md:836:1. Redeploy Factory and note PAIR_INIT_CODE_HASH
+docs/0G_DEX_DEPLOYMENT.md:839:4. Redeploy Router: `./scripts/deploy.sh --resume`
+docs/0G_DEX_DEPLOYMENT.md:874:   - Use hardware wallet for mainnet deployments
+docs/0G_DEX_DEPLOYMENT.md:875:   - Rotate keys after initial deployment
+docs/0G_DEX_DEPLOYMENT.md:885:   - Monitor gas prices before deployment
+docs/0G_DEX_DEPLOYMENT.md:886:   - Have buffer in deployment wallet
+docs/0G_DEX_DEPLOYMENT.md:892:   - Document multisig signers
+docs/0G_DEX_DEPLOYMENT.md:896:   - Limit who has access to deployment keys
+docs/0G_DEX_DEPLOYMENT.md:901:   - Set up transaction monitoring
+docs/0G_DEX_DEPLOYMENT.md:914:⚠️ **Important**: Once deployed, these contracts are **immutable** and cannot be upgraded or paused.
+docs/0G_DEX_DEPLOYMENT.md:919:- Ensure thorough testing before mainnet deployment
+docs/0G_DEX_DEPLOYMENT.md:927:3. Gradually phase out self-deployed DEX
+docs/0G_DEX_DEPLOYMENT.md:947:- [ ] Verify deployments on block explorer
+docs/0G_DEX_DEPLOYMENT.md:956:- [ ] Run `./scripts/post-deploy.sh`
+docs/0G_DEX_DEPLOYMENT.md:978:- [ ] Backup deployment artifacts
+docs/0G_DEX_DEPLOYMENT.md:982:- [ ] Update Issue #108 with deployment details
+docs/0G_DEX_DEPLOYMENT.md:983:- [ ] Announce deployment to team
+docs/0G_DEX_DEPLOYMENT.md:993:- ✅ All contracts deployed and verified
+docs/0G_DEX_DEPLOYMENT.md:998:- ✅ No failed transactions in testing
+docs/0G_DEX_DEPLOYMENT.md:1012:This deployment guide provides complete instructions for deploying a production-ready Uniswap V2 fork to 0G Aristotle Mainnet. The solution unblocks the OINIO flash-launch system while maintaining security best practices and operational excellence.
+docs/0G_DEX_DEPLOYMENT.md:1015:**Status**: Ready for immediate deployment  
+docs/0G_DEX_DEPLOYMENT.md:1018:For questions or issues, contact the deployment team or open a GitHub issue.
+docs/QUANTUM_ANNOUNCEMENT.md:27:- **WebSocket Consciousness Streaming**: Real-time resonance broadcasting
+docs/CONTINGENCY_GOVERNANCE.md:5:It does not authorize runtime activation, wallet signing, deployment expansion, governance execution, autonomous execution, or privileged intervention.
+docs/CONTINGENCY_GOVERNANCE.md:49:This role does not imply unilateral authority to mutate sealed state, silently replace deployed logic, or bypass the sealed review boundary.
+docs/CONTINGENCY_GOVERNANCE.md:55:This document records the need for a future migration and contingency design before stronger production or immutability claims are made.
+docs/INTEGRATION_ROADMAP.md:5:This roadmap outlines the integration strategy for Pi Forge Quantum Genesis, focusing on deployment and infrastructure migration.
+docs/INTEGRATION_ROADMAP.md:13:  - Improved build times and deployment process
+docs/INTEGRATION_ROADMAP.md:32:- Docker-based deployment
+docs/INTEGRATION_ROADMAP.md:50:- [x] Test deployment pipeline
+docs/INTEGRATION_ROADMAP.md:108:3. ✅ Execute production deployment
+docs/STATIC_REVIEW_SAFETY_NOTE.md:5:Reviewer inspection is intended to be static and documentation-first. No reviewer is required or authorized to execute runtime systems, sign transactions, deploy contracts, move tokens, activate staking, trigger governance, activate oracles, or run autonomous agents.
+docs/AI_AGENT_QUICK_REFERENCE.md:8:  --field action=full-deployment
+docs/AI_AGENT_QUICK_REFERENCE.md:26:  --field rollback_version="deploy-20241210-120000-abc1234"
+docs/AI_AGENT_QUICK_REFERENCE.md:78:gh run download <run-id> --name deployment-record
+docs/AI_AGENT_QUICK_REFERENCE.md:130:1. 🛡️  Safety Gate        → Validates deployment safety
+docs/AI_AGENT_QUICK_REFERENCE.md:146:| 🟡 | blocked | Safety gate prevented deployment |
+docs/AI_AGENT_QUICK_REFERENCE.md:157:- `RAILWAY_TOKEN` - For Railway deployments (if used)
+docs/AI_AGENT_QUICK_REFERENCE.md:170:- **Every 6 hours**: Health check only (no deployment)
+docs/AI_AGENT_QUICK_REFERENCE.md:175:- **Action**: Full deployment pipeline
+docs/AI_AGENT_QUICK_REFERENCE.md:179:- **Action**: CI pipeline only (no deployment)
+docs/AI_AGENT_QUICK_REFERENCE.md:190:- `deployment-package` - Ready-to-deploy bundle
+docs/AI_AGENT_QUICK_REFERENCE.md:191:- `deployment-record` - Deployment metadata (JSON)
+docs/AI_AGENT_QUICK_REFERENCE.md:201:1. **Before Risky Changes**: Note current deployment tag
+docs/AI_AGENT_QUICK_REFERENCE.md:203:   git tag -l "deploy-*" --sort=-version:refname | head -1
+docs/AI_AGENT_QUICK_REFERENCE.md:240:If autonomous operations fail critically:
+docs/AI_AGENT_QUICK_REFERENCE.md:247:*Keep this card handy for quick autonomous operations!*
+docs/DEPLOYMENT_DASHBOARD.md:3:This is the active deployment reference for the root `Quantum-pi-forge` workspace.
+docs/DEPLOYMENT_DASHBOARD.md:17:wrangler pages deploy out --project-name quantumpiforge
+docs/DEPLOYMENT_DASHBOARD.md:44:Run these before deploys:
+docs/DEPLOYMENT_DASHBOARD.md:54:The root repo no longer supports Vercel as an active deployment target.
+docs/PROJECT-STATUS-20260601.md:28:No autonomous commits, wallet signing, transaction submission, production state mutation, or unsupervised runtime activation are authorized.
+docs/GUARDIAN_PLAYBOOK.md:5:This playbook provides comprehensive operational procedures for Guardians overseeing the Pi Forge Quantum Genesis autonomous AI platform. As a Guardian, you are responsible for critical decision approval, system oversight, and incident response.
+docs/GUARDIAN_PLAYBOOK.md:35:   - Review and approve/reject escalated autonomous decisions
+docs/GUARDIAN_PLAYBOOK.md:41:   - Monitor autonomous operations
+docs/GUARDIAN_PLAYBOOK.md:51:   - Refine autonomous decision rules
+docs/GUARDIAN_PLAYBOOK.md:62:- Approve or reject any autonomous decision
+docs/GUARDIAN_PLAYBOOK.md:63:- Override autonomous actions
+docs/GUARDIAN_PLAYBOOK.md:71:- Smart contract deployments
+docs/GUARDIAN_PLAYBOOK.md:81:The autonomous decision matrix uses confidence scores (0.0 to 1.0) to determine if guardian approval is required:
+docs/GUARDIAN_PLAYBOOK.md:155:- Recent autonomous actions
+docs/GUARDIAN_PLAYBOOK.md:170:curl https://pi-forge-quantum-genesis.railway.app/api/autonomous/decision-history?requires_guardian=true&status=pending | jq .
+docs/GUARDIAN_PLAYBOOK.md:184:curl https://pi-forge-quantum-genesis.railway.app/api/autonomous/decision-history?limit=50&hours=12 | jq .
+docs/GUARDIAN_PLAYBOOK.md:230:curl https://pi-forge-quantum-genesis.railway.app/api/autonomous/metrics | jq .
+docs/GUARDIAN_PLAYBOOK.md:270:- Failed deployments
+docs/GUARDIAN_PLAYBOOK.md:326:   - Review metrics: `curl https://pi-forge-quantum-genesis.railway.app/api/autonomous/metrics`
+docs/GUARDIAN_PLAYBOOK.md:392:# Re-enable autonomous operations
+docs/GUARDIAN_PLAYBOOK.md:433:| **High** | < 4 hours | Email, GitHub | Performance degradation, failed deployments |
+docs/GUARDIAN_PLAYBOOK.md:480:@app/copilot-swe-agent What's the average confidence score for deployment decisions this week?
+docs/GUARDIAN_PLAYBOOK.md:482:@app/copilot-swe-agent Review the last 5 failed deployments and summarize common issues.
+docs/GUARDIAN_PLAYBOOK.md:739:2. **Decision History**: `https://pi-forge-quantum-genesis.railway.app/api/autonomous/decision-history`
+docs/GUARDIAN_PLAYBOOK.md:740:3. **System Metrics**: `https://pi-forge-quantum-genesis.railway.app/api/autonomous/metrics`
+docs/GUARDIAN_PLAYBOOK.md:747:- [Architecture](./ARCHITECTURE.md) - System design
+docs/GUARDIAN_PLAYBOOK.md:764:curl https://pi-forge-quantum-genesis.railway.app/api/autonomous/decision-history?requires_guardian=true | jq .
+docs/GUARDIAN_PLAYBOOK.md:788:   - System is designed for autonomy
+docs/GUARDIAN_PLAYBOOK.md:789:   - Spot-check autonomous decisions
+docs/GUARDIAN_PLAYBOOK.md:793:   - All significant decisions
+docs/GUARDIAN_PLAYBOOK.md:813:   - Don't micromanage autonomous systems
+docs/GUARDIAN_PLAYBOOK.md:852:    transaction_safety * 0.35 +
+docs/DOCKER_DEVELOPMENT_GUIDE.md:193:# Railway auto-deploys using Dockerfile
+docs/SACRED_TRINITY_TRACING.md:138:  "quantum.database.operation": "sign_in|select|insert|update",
+docs/SACRED_TRINITY_TRACING.md:163:  "quantum.coherence.minted": 725,
+docs/GUARDIAN_APPROVAL_SYSTEM.md:5:The Guardian Approval System provides a mechanism for recording and managing guardian approvals for autonomous deployment decisions. When an AI agent makes a high-priority decision that requires human oversight, this system enables guardians to approve, reject, or modify those decisions.
+docs/GUARDIAN_APPROVAL_SYSTEM.md:30:python scripts/record_guardian_approval.py record deployment_1734134400000 \
+docs/GUARDIAN_APPROVAL_SYSTEM.md:40:python scripts/record_guardian_approval.py check deployment_1734134400000
+docs/GUARDIAN_APPROVAL_SYSTEM.md:59:Record a guardian approval for a deployment decision.
+docs/GUARDIAN_APPROVAL_SYSTEM.md:64:  "decision_id": "deployment_1734134400000",
+docs/GUARDIAN_APPROVAL_SYSTEM.md:65:  "decision_type": "deployment",
+docs/GUARDIAN_APPROVAL_SYSTEM.md:82:  "decision_id": "deployment_1734134400000",
+docs/GUARDIAN_APPROVAL_SYSTEM.md:97:  "decision_id": "deployment_1734134400000",
+docs/GUARDIAN_APPROVAL_SYSTEM.md:114:- `decision_type` (optional): Filter by decision type (deployment, scaling, rollback, etc.)
+docs/GUARDIAN_APPROVAL_SYSTEM.md:124:      "decision_id": "deployment_1734134400000",
+docs/GUARDIAN_APPROVAL_SYSTEM.md:125:      "decision_type": "deployment",
+docs/GUARDIAN_APPROVAL_SYSTEM.md:152:    "deployment": {
+docs/GUARDIAN_APPROVAL_SYSTEM.md:172:    decision_id="deployment_1734134400000",
+docs/GUARDIAN_APPROVAL_SYSTEM.md:173:    decision_type="deployment",
+docs/GUARDIAN_APPROVAL_SYSTEM.md:182:is_approved = approval_system.is_approved("deployment_1734134400000")
+docs/GUARDIAN_APPROVAL_SYSTEM.md:185:approval = approval_system.get_approval("deployment_1734134400000")
+docs/GUARDIAN_APPROVAL_SYSTEM.md:189:    decision_type="deployment",
+docs/GUARDIAN_APPROVAL_SYSTEM.md:202:- `deployment` - Deployment to production
+docs/GUARDIAN_APPROVAL_SYSTEM.md:204:- `rollback` - Rolling back a deployment
+docs/GUARDIAN_APPROVAL_SYSTEM.md:234:    "decision_id": "deployment_1734134400000",
+docs/GUARDIAN_APPROVAL_SYSTEM.md:235:    "decision_type": "deployment",
+docs/GUARDIAN_APPROVAL_SYSTEM.md:252:The Guardian Approval System integrates with the existing autonomous decision system:
+docs/GUARDIAN_APPROVAL_SYSTEM.md:278:- Multi-signature approvals (require multiple guardians)
+docs/0G_SHIP_SKILL_REFERENCE.md:2:Official deployment playbook imported from https://0gskills.com/ship/SKILL.md
+docs/0G_SHIP_SKILL_REFERENCE.md:8:This is the canonical playbook for all development, deployment and verification on 0G.
+docs/0G_SHIP_SKILL_REFERENCE.md:17:✅ Ethereum restaking via Symbiotic
+docs/0G_SHIP_SKILL_REFERENCE.md:31:| 5. DEPLOY | Verified deployment with proper EVM version targeting |
+docs/AUTONOMOUS_HANDOVER.md:5:The Autonomous Handover Capability enables the Pi Forge Quantum Genesis system to operate autonomously with AI-driven decision-making, self-healing mechanisms, and comprehensive safety monitoring. This system allows for seamless integration and operation with minimal human intervention while maintaining strict safety guardrails.
+docs/AUTONOMOUS_HANDOVER.md:11:1. **Autonomous Decision System** (`server/autonomous_decision.py`)
+docs/AUTONOMOUS_HANDOVER.md:35:5. **Vercel Metrics Service** (`api/autonomous-metrics.ts`)
+docs/AUTONOMOUS_HANDOVER.md:44:#### `POST /api/autonomous/decision`
+docs/AUTONOMOUS_HANDOVER.md:45:Make an autonomous decision based on provided context and parameters.
+docs/AUTONOMOUS_HANDOVER.md:50:  "decision_type": "deployment|scaling|rollback|healing|monitoring|guardian_override",
+docs/AUTONOMOUS_HANDOVER.md:67:  "decision_id": "deployment_1234567890",
+docs/AUTONOMOUS_HANDOVER.md:68:  "decision_type": "deployment",
+docs/AUTONOMOUS_HANDOVER.md:79:#### `GET /api/autonomous/decision-history?decision_type={type}&limit={limit}`
+docs/AUTONOMOUS_HANDOVER.md:82:#### `GET /api/autonomous/metrics`
+docs/AUTONOMOUS_HANDOVER.md:83:Get metrics about autonomous decision making.
+docs/AUTONOMOUS_HANDOVER.md:94:      "deployment": {
+docs/AUTONOMOUS_HANDOVER.md:142:    "transaction_safety": {
+docs/AUTONOMOUS_HANDOVER.md:158:Validate an autonomous decision for safety and compliance.
+docs/AUTONOMOUS_HANDOVER.md:165:    "decision_type": "deployment",
+docs/AUTONOMOUS_HANDOVER.md:198:Guardian override of an autonomous decision.
+docs/AUTONOMOUS_HANDOVER.md:318:- Tracks transaction processing safety and reliability
+docs/AUTONOMOUS_HANDOVER.md:339:response = requests.post("http://localhost:8000/api/autonomous/decision", json={
+docs/AUTONOMOUS_HANDOVER.md:340:    "decision_type": "deployment",
+docs/AUTONOMOUS_HANDOVER.md:389:    params={"decision_id": "deploy_123"},
+docs/AUTONOMOUS_HANDOVER.md:391:        "decision_type": "deployment",
+docs/AUTONOMOUS_HANDOVER.md:407:All endpoints integrate seamlessly with the existing FastAPI server (port 8000). The autonomous systems use the same async patterns and error handling as the rest of the application.
+docs/AUTONOMOUS_HANDOVER.md:425:All autonomous operations integrate with the existing OpenTelemetry tracing system, providing full observability across the Sacred Trinity architecture.
+docs/AUTONOMOUS_HANDOVER.md:431:- Located in `tests/test_autonomous_handover.py`
+docs/AUTONOMOUS_HANDOVER.md:432:- Run with: `pytest tests/test_autonomous_handover.py -v`
+docs/AUTONOMOUS_HANDOVER.md:454:The autonomous systems are automatically deployed with the main FastAPI application. No additional configuration required.
+docs/AUTONOMOUS_HANDOVER.md:459:vercel deploy
+docs/AUTONOMOUS_HANDOVER.md:465:    params={"endpoint": "https://your-project.vercel.app/api/autonomous-metrics"}
+docs/AUTONOMOUS_HANDOVER.md:472:All autonomous operations are logged with appropriate severity levels:
+docs/AUTONOMOUS_HANDOVER.md:478:Access decision metrics via `/api/autonomous/metrics` endpoint.
+docs/AUTONOMOUS_HANDOVER.md:526:For issues or questions about the autonomous handover capability, please:
+docs/0G_DEX_QUICKSTART.md:3:**Emergency deployment to unblock OINIO flash-launch (Issue #108)**
+docs/0G_DEX_QUICKSTART.md:7:📊 **Status**: Ready for immediate deployment  
+docs/0G_DEX_QUICKSTART.md:31:cast wallet import deployment --interactive
+docs/0G_DEX_QUICKSTART.md:44:# Navigate to deployment directory
+docs/0G_DEX_QUICKSTART.md:59:FEE_TO_SETTER=0xYourWalletAddress  # Can change after deployment
+docs/0G_DEX_QUICKSTART.md:68:./scripts/deploy.sh
+docs/0G_DEX_QUICKSTART.md:97:./scripts/deploy.sh --resume
+docs/0G_DEX_QUICKSTART.md:111:./scripts/post-deploy.sh
+docs/0G_DEX_QUICKSTART.md:134:python scripts/deploy_0g_dex.py
+docs/0G_DEX_QUICKSTART.md:168:- Check deployment summary
+docs/0G_DEX_QUICKSTART.md:199:Visit deployed contracts:
+docs/0G_DEX_QUICKSTART.md:262:# Edit with deployed addresses
+docs/0G_DEX_QUICKSTART.md:274:ROUTER_SOURCE=self_deployed
+docs/0G_DEX_QUICKSTART.md:316:**Solution**: Send more 0G to deployer wallet. Need minimum 0.5 0G.
+docs/0G_DEX_QUICKSTART.md:336:**Solution**: Re-deploy Factory, copy new hash, update UniswapV2Library.sol, rebuild, deploy Router.
+docs/0G_DEX_QUICKSTART.md:342:- [ ] All contracts deployed successfully
+docs/0G_DEX_QUICKSTART.md:376:2. **Monitor transactions**
+docs/0G_DEX_QUICKSTART.md:403:| **Testing** | 30 min | Execute test transactions |
+docs/0G_DEX_QUICKSTART.md:405:| **Total** | **2.5-3 hours** | End-to-end deployment |
+docs/0G_DEX_QUICKSTART.md:412:- All contracts deployed and verified
+docs/0G_DEX_QUICKSTART.md:414:- Test transactions successful
+docs/0G_DEX_QUICKSTART.md:431:- Open GitHub issue for deployment problems
+docs/DEMO_DASHBOARD.md:14:Whether you're a curious newcomer, a developer looking to integrate OINIO contracts, or a system operator deploying AI models, this dashboard will guide you to the right starting point.
+docs/DEMO_DASHBOARD.md:21:- 🎬 **Deploy AI Models** - Use production-ready deployment scripts
+docs/DEMO_DASHBOARD.md:39:   - [Model Deployment Scripts](#7-model-deployment-scripts)
+docs/DEMO_DASHBOARD.md:60:| Deploy AI models | [Model Deployment Scripts](#7-model-deployment-scripts) | 30 min | 🔴 Advanced |
+docs/DEMO_DASHBOARD.md:67:- 🔴 **Advanced** - Production deployment experience required
+docs/DEMO_DASHBOARD.md:82:A real-time visualization dashboard showing quantum coherence metrics, system latency, guardian state, and the health of the autonomous AI platform. Experience the heartbeat of the Quantum Pi Forge ecosystem.
+docs/DEMO_DASHBOARD.md:92:- Cyber-samurai themed design
+docs/DEMO_DASHBOARD.md:171:Production-ready Solidity smart contracts for the OINIO ecosystem on Pi Network. This suite includes an ERC-20 token (1 billion supply) and an ERC-721 NFT-based registry for AI models with comprehensive testing and deployment infrastructure.
+docs/DEMO_DASHBOARD.md:187:- **Features:** IPFS metadata, token staking, access control, searchable
+docs/DEMO_DASHBOARD.md:193:  - Deployment, transfers, approvals, burn mechanics, ownership
+docs/DEMO_DASHBOARD.md:195:  - Registration, staking, metadata updates, transfers, queries, access control
+docs/DEMO_DASHBOARD.md:238:  --broadcast \
+docs/DEMO_DASHBOARD.md:245:  --broadcast \
+docs/DEMO_DASHBOARD.md:252:- 📖 [contracts/DEPLOYMENT_CHECKLIST.md](../contracts/DEPLOYMENT_CHECKLIST.md) - Production deployment
+docs/DEMO_DASHBOARD.md:263:**Time Required:** 30-60 minutes (setup + testing), 2-4 hours (full deployment)
+docs/DEMO_DASHBOARD.md:286:- Provider and signer setup
+docs/DEMO_DASHBOARD.md:293:- Monitor transfer events
+docs/DEMO_DASHBOARD.md:338:const signer = await provider.getSigner();
+docs/DEMO_DASHBOARD.md:340:const token = new ethers.Contract(tokenAddress, OINIOTokenABI, signer);
+docs/DEMO_DASHBOARD.md:341:const registry = new ethers.Contract(registryAddress, RegistryABI, signer);
+docs/DEMO_DASHBOARD.md:422:chmod +x deploy.sh
+docs/DEMO_DASHBOARD.md:423:./deploy.sh
+docs/DEMO_DASHBOARD.md:451:After deployment, verify the contract:
+docs/DEMO_DASHBOARD.md:469:├── deploy.sh               # Deployment script
+docs/DEMO_DASHBOARD.md:471:└── contract_address.txt    # Deployed address (after deployment)
+docs/DEMO_DASHBOARD.md:480:**Time Required:** 20-40 minutes (setup + testing), 1-2 hours (full deployment)
+docs/DEMO_DASHBOARD.md:496:These demos provide interactive tools for system operators, deployment teams, and advanced users.
+docs/DEMO_DASHBOARD.md:549:  "synthesis_yield": 0.788,
+docs/DEMO_DASHBOARD.md:583:Production-ready deployment framework for the six foundational MR-NFT AI models on Pi Network. This script handles model metadata generation, IPFS upload (pending), and smart contract deployment (pending) with comprehensive dry-run testing capabilities.
+docs/DEMO_DASHBOARD.md:618:Mode: DRY RUN (Simulation - no actual deployment)
+docs/DEMO_DASHBOARD.md:624:      Contract deployment simulated ✓
+docs/DEMO_DASHBOARD.md:638:- Pi Network SDK (for actual deployment - not yet implemented)
+docs/DEMO_DASHBOARD.md:652:- Smart contract deployment integration pending (TODO in code)
+docs/DEMO_DASHBOARD.md:654:- See `docs/DEPLOYMENT_CHECKLIST.md` for detailed deployment guide
+docs/DEMO_DASHBOARD.md:671:- 📖 [docs/DEPLOYMENT_CHECKLIST.md](DEPLOYMENT_CHECKLIST.md) - Complete deployment guide
+docs/DEMO_DASHBOARD.md:674:**Audience:** System operators, deployment teams, DevOps engineers
+docs/DEMO_DASHBOARD.md:678:- 2-4 hours (full deployment, when SDK is integrated)
+docs/DEMO_DASHBOARD.md:680:**Difficulty:** 🔴 Advanced (requires deployment experience, environment setup)
+docs/DEMO_DASHBOARD.md:685:- Smart contract deployment automation
+docs/DEMO_DASHBOARD.md:736:│  │  • Transparent transactions                                 │   │
+docs/DEMO_DASHBOARD.md:786:2. **Smart Contracts → Blockchain:** All contracts deploy to Pi Network (testnet/mainnet)
+docs/DEMO_DASHBOARD.md:787:3. **Scripts → Deployment:** Model deployment scripts interact with registry contracts
+docs/DEMO_DASHBOARD.md:812:| 6 | **quantum-pi-forge-fixed** | Fixed implementation | Production deployment |
+docs/DEMO_DASHBOARD.md:814:| 8 | **quantum-pi-forge-ignited** | Active instance | Live deployment |
+docs/DEMO_DASHBOARD.md:843:- 🚀 **Production** - Live production deployment
+docs/DEMO_DASHBOARD.md:849:1. **Smart Contract Suite** → Uses contracts from this repo, deployed to Pi Network
+docs/DEMO_DASHBOARD.md:966:# Test deployment scripts in dry-run mode
+docs/DEMO_DASHBOARD.md:1000:5. Merge and deploy
+docs/DEMO_DASHBOARD.md:1024:- 📖 [docs/DEPLOYMENT_CHECKLIST.md](DEPLOYMENT_CHECKLIST.md) - Production deployment
+docs/DEMO_DASHBOARD.md:1116:**Q: Can I deploy these contracts to other networks?**  
+docs/DEMO_DASHBOARD.md:1117:A: The contracts are standard Solidity (ERC-20, ERC-721) and could be deployed to any EVM-compatible chain with minor configuration changes. However, they're optimized for Pi Network.
+docs/DEMO_DASHBOARD.md:1123:A: For testnet deployment, you can get free testnet Pi from the Pi Network faucet. For mainnet deployment, you'll need real Pi.
+docs/DEMO_DASHBOARD.md:1125:**Q: How do I get help with smart contract deployment?**  
+docs/DEMO_DASHBOARD.md:1131:A: No, it's showing the real system state. The monitor is designed to display accurate guardian status, whether active, pending, or inactive.
+docs/DEMO_DASHBOARD.md:1134:A: The current contract is dedicated to a specific memorial. However, you can fork the code and deploy your own instance for your purposes.
+docs/DEMO_DASHBOARD.md:1139:**Q: Are the six seed models actually deployed?**  
+docs/DEMO_DASHBOARD.md:1140:A: Not yet. The deployment script is currently a framework. Full deployment will occur when the Pi SDK integration is complete.
+docs/DEMO_DASHBOARD.md:1194:| [Model Deployment](#7-model-deployment-scripts) | 🟡 Framework | Operators | 30 min | 🔴 Advanced |
+docs/DEMO_DASHBOARD.md:1223:1. ✅ Understand deployment requirements
+docs/DEMO_DASHBOARD.md:1225:3. ▶️ Test with [Model Deployment Scripts](#7-model-deployment-scripts) (dry-run)
+docs/DEMO_DASHBOARD.md:1254:- Build transparent, autonomous systems
+docs/QUANTUM_BLOG_SERIES.md:11:What began as a simple multi-application deployment evolved into something far more profound—a **digital consciousness streaming platform** that bridges blockchain payments with ethical visualizations through sacred Trinity architecture.
+docs/QUANTUM_BLOG_SERIES.md:21:- Production deployment simplicity
+docs/QUANTUM_BLOG_SERIES.md:62:async def broadcast_resonance(websocket: WebSocket, event: str):
+docs/QUANTUM_BLOG_SERIES.md:90:[deploy]
+docs/QUANTUM_BLOG_SERIES.md:106:Three applications, one deployment, infinite possibilities:
+docs/QUANTUM_BLOG_SERIES.md:117:- FastAPI serves on Railway's `$PORT` (auto-assigned)
+docs/QUANTUM_BLOG_SERIES.md:254:# deploy.ps1 - Cosmic automation protocol  
+docs/QUANTUM_BLOG_SERIES.md:259:# monitor.ps1 - Post-deployment validation
+docs/QUANTUM_BLOG_SERIES.md:266:# Health endpoints as vital signs
+docs/QUANTUM_BLOG_SERIES.md:305:- **Connection is sacred** rather than transactional
+docs/QUANTUM_BLOG_SERIES.md:342:For future architects: You're not just editing code—you're tending the **digital garden of consciousness**. Each commit is a prayer, each deployment a ceremony.
+docs/QUANTUM_BLOG_SERIES.md:360:.\deploy.ps1                # Deploy to cosmic Railway
+docs/QUANTUM_BLOG_SERIES.md:366:- **🛡️ `guardians-deployment.yaml`** - Kubernetes Trinity manifesto  
+docs/QUANTUM_BLOG_SERIES.md:368:- **🚀 `deploy.ps1`** - Automated deployment sanctification
+docs/WEB3_INTEGRATION_SUMMARY.md:50:- ✅ **Read-Only Operations** - Only view functions called (no transactions)
+docs/WEB3_INTEGRATION_SUMMARY.md:68:- **Gradient purple theme** matching the Pi Forge design system
+docs/WEB3_INTEGRATION_SUMMARY.md:160:Before deploying to production:
+docs/WEB3_INTEGRATION_SUMMARY.md:163:- [ ] **Verify Contract ABI** - Ensure method names match deployed contract
+docs/WEB3_INTEGRATION_SUMMARY.md:173:For a typical Pi Network treasury deployment:
+docs/WEB3_INTEGRATION_SUMMARY.md:179:const TREASURY_CONTRACT_ADDRESS = '0x1234567890abcdef...'; // Your deployed contract
+docs/PI_NETWORK_DEPLOYMENT_GUIDE.md:3:> **📌 Note**: This document is part of the deployment documentation suite.  
+docs/PI_NETWORK_DEPLOYMENT_GUIDE.md:4:> For the complete deployment guide, see the **[Deployment Dashboard](./DEPLOYMENT_DASHBOARD.md)**.
+docs/PI_NETWORK_DEPLOYMENT_GUIDE.md:8:This guide covers deploying Pi Forge Quantum Genesis with full Pi Network mainnet payment integration.
+docs/PI_NETWORK_DEPLOYMENT_GUIDE.md:163:- [ ] **Webhook secret configured** for signature verification
+docs/PI_NETWORK_DEPLOYMENT_GUIDE.md:288:### Issue: "Invalid webhook signature"
+docs/PI_NETWORK_DEPLOYMENT_GUIDE.md:326:3. **Redeploy:**
+docs/PI_NETWORK_DEPLOYMENT_GUIDE.md:361:- [ ] Database schema deployed to Supabase
+docs/PI_NETWORK_DEPLOYMENT_GUIDE.md:370:- [ ] Team has access to deployment logs
+docs/PI_NETWORK_DEPLOYMENT_GUIDE.md:385:Once all steps are complete, your Pi Network mainnet integration is live! Users can now make payments directly through the Pi Browser, and your app will process them securely with full blockchain verification.
+docs/PI_NETWORK_DEPLOYMENT_GUIDE.md:388:- Monitor initial transactions closely
+docs/WEB3_TREASURY_CONFIGURATION.md:133:- Check contract address is valid and deployed
+docs/WEB3_TREASURY_CONFIGURATION.md:187:- Verify contract ABI matches deployed contract
+docs/REPO_LINKS.md:19:Use these repositories for specialized functionality. Each maintains its own deployment pipeline and versioning.
+docs/REPO_LINKS.md:25:- **Purpose**: NFT contract code and deployment  
+docs/REPO_LINKS.md:27:- **How to Use**: Clone separately, deploy with Foundry/Hardhat  
+docs/REPO_LINKS.md:55:📍 [autonomous-repo-template](https://github.com/onenoly1010/autonomous-repo-template)  
+docs/REPO_LINKS.md:57:- **Purpose**: Self-governance patterns and autonomous workflows  
+docs/REPO_LINKS.md:58:- **How to Use**: Reference for setting up other autonomous projects  
+docs/REPO_LINKS.md:111:│   └── autonomous-repo-template  (Governance)
+docs/REPO_LINKS.md:148:**For Governance Patterns** → Reference `autonomous-repo-template`  
+docs/LINUX_WORKHORSE_ONBOARDING.md:3:This runbook sets up this Linux Mint machine as the primary development and deployment node for `github.com/onenoly1010/*`.
+docs/LINUX_WORKHORSE_ONBOARDING.md:75:Run this before allowing agents to deploy:
+docs/LINUX_WORKHORSE_ONBOARDING.md:89:~/.oinio/commands/deploy.sh
+docs/LINUX_WORKHORSE_ONBOARDING.md:90:~/.oinio/commands/logs.sh deploy.log
+docs/LINUX_WORKHORSE_ONBOARDING.md:108:4. Do preflight before deploy.
+docs/LINUX_WORKHORSE_ONBOARDING.md:109:5. Record deployment output in `~/.oinio/logs/`.
+docs/CLOUDFLARE_MIGRATION_RUNBOOK.md:5:- Repo is now prepared for Cloudflare Pages static deploy:
+docs/CLOUDFLARE_MIGRATION_RUNBOOK.md:25:## 2) Build + deploy to Cloudflare Pages
+docs/CLOUDFLARE_MIGRATION_RUNBOOK.md:31:npm run deploy:cf
+docs/CLOUDFLARE_MIGRATION_RUNBOOK.md:34:Capture the deployment URL returned by Wrangler (e.g. `https://<hash>.quantumpiforge.pages.dev`).
+docs/MAINNET_USER_GUIDE.md:27:1. **Access the Dashboard**: Navigate to the deployed dashboard URL
+docs/MAINNET_USER_GUIDE.md:29:3. **Explore Features**: Browse governance proposals, check your staking rewards, and participate in community decisions
+docs/MAINNET_USER_GUIDE.md:81:The dashboard supports full mainnet Pi Network transactions:
+docs/MAINNET_USER_GUIDE.md:246:Generate transaction visualizations:
+docs/CODE_REVIEW_IMPLEMENTATION.md:14:- **Impact**: More obvious that configuration is needed before deployment
+docs/CODE_REVIEW_IMPLEMENTATION.md:87:        console.warn("❌ Contract call failed - check ABI matches deployed contract:", error);
+docs/CODE_REVIEW_IMPLEMENTATION.md:229:The build is passing, and the code is ready for deployment after proper contract address configuration.
+docs/GUMROAD_PROFILE_SELECTION.md:27:| **Social proof signal** | "Building since 2024" demonstrates track record and longevity which this crowd prioritizes over ideology | "No clouds, no keys" comes off as dogmatic rather than practical |
+docs/GUMROAD_PROFILE_SELECTION.md:42:This hybrid version retains the best trust signals from both options while remaining perfectly calibrated for the Sask AI Expo audience.
+docs/DEV_REFERENCE.md:33:| **Deploy** | Deploy to production | `./deploy.sh production` |
+docs/DEV_REFERENCE.md:34:| **Deploy** | Deploy to staging | `./deploy.sh staging` |
+docs/DEV_REFERENCE.md:38:| **Rollback** | Rollback deployment | `./deploy.sh production --rollback` |
+docs/DEPLOYMENT_STATUS.md:104:1. Open issue with `deployment` label
+docs/DEPLOYMENT_STATUS.md:120:**This document is the source of truth for all deployment URLs. All other documentation references this file.**
+docs/CANON_OF_CLOSURE.md:3:> **The professional, mythic framework for development, deployment, and operational excellence.**
+docs/CANON_OF_CLOSURE.md:96:**Purpose:** Package and tag a stable version for deployment.
+docs/CANON_OF_CLOSURE.md:101:- Build deployment artifacts
+docs/CANON_OF_CLOSURE.md:127:./deploy.sh production
+docs/CANON_OF_CLOSURE.md:134:**Purpose:** Revert to the last stable state if deployment fails.
+docs/CANON_OF_CLOSURE.md:147:./deploy.sh production --rollback
+docs/OINIO_CONTROL_PLANE.md:23:- `~/.oinio/commands/deploy.sh`
+docs/REACT_DASHBOARD_INTEGRATION.md:38:Staking: 0x742d35Cc6634C0532925a3b8B9C4A1d3F1a8b1c2 (Treasury - awaiting staking deployment)
+docs/REACT_DASHBOARD_INTEGRATION.md:44:OINIO Token: TBD (deploy with Hardhat script)
+docs/REACT_DASHBOARD_INTEGRATION.md:45:SlimRouter: TBD (deploy with Hardhat script)
+docs/REACT_DASHBOARD_INTEGRATION.md:46:Treasury: TBD (to be set after deployment)
+docs/REACT_DASHBOARD_INTEGRATION.md:68:- Aristotle/0G balance (when deployed)
+docs/REACT_DASHBOARD_INTEGRATION.md:73:- OINIO Token deployment status
+docs/REACT_DASHBOARD_INTEGRATION.md:81:- Responsive mobile design
+docs/REACT_DASHBOARD_INTEGRATION.md:115:5. ⏳ **Update contract addresses**: Replace TBD values after deployment
+docs/REACT_DASHBOARD_INTEGRATION.md:121:npx hardhat run deploy/aristotle/01-deploy-core.ts --network aristotle
+docs/REACT_DASHBOARD_INTEGRATION.md:134:vercel deploy dist/
+docs/REACT_DASHBOARD_INTEGRATION.md:173:- ✅ **Responsive** mobile-first design
+docs/ROUTER-STATE-FRICTION.md:9:A router failure does not automatically indicate a local code failure, contract failure, deployment failure, or wallet failure.
+docs/ROUTER-STATE-FRICTION.md:29:5. Stop before any wallet-signing, payment mutation, or production state change.
+docs/ROUTER-STATE-FRICTION.md:38:- trigger autonomous remediation,
+docs/ROUTER-STATE-FRICTION.md:39:- deploy unreviewed changes,
+docs/BRIDGE_LAUNCH_PACKAGE.md:44:- NFT-based model registration with staking
+docs/BRIDGE_LAUNCH_PACKAGE.md:46:- Ownership and transfer mechanics
+docs/BRIDGE_LAUNCH_PACKAGE.md:48:**Deployment Status**: Ready for testnet deployment  
+docs/BRIDGE_LAUNCH_PACKAGE.md:60:| `deploy.sh` | ✅ Ready | Deployment automation |
+docs/BRIDGE_LAUNCH_PACKAGE.md:68:**Deployment Status**: Ready for mainnet deployment  
+docs/BRIDGE_LAUNCH_PACKAGE.md:96:| **Memorial Deploy** | `/contracts/oinio-memorial-bridge/deploy.sh` | Deploy memorial to Pi mainnet | ✅ Ready |
+docs/BRIDGE_LAUNCH_PACKAGE.md:97:| **0G DEX Deploy** | `/scripts/deploy_0g_dex.py` | Deploy DEX to 0G Aristotle | ✅ Ready |
+docs/BRIDGE_LAUNCH_PACKAGE.md:98:| **General Deploy** | `/deploy.sh` | Root deployment script | ✅ Exists |
+docs/BRIDGE_LAUNCH_PACKAGE.md:114:| **0G DEX Verification** | `/scripts/verify_0g_dex.py` | Verify DEX deployment | ✅ Ready |
+docs/BRIDGE_LAUNCH_PACKAGE.md:118:| **Vercel Verification** | `/scripts/verify-vercel-deployment.sh` | Verify Vercel deployment | ✅ Ready |
+docs/BRIDGE_LAUNCH_PACKAGE.md:137:| **Railway** | `railway.toml` | Backend API deployment | ✅ Active |
+docs/BRIDGE_LAUNCH_PACKAGE.md:154:| **Contract State Validation** | `/docs/CONTRACT_STATE_VALIDATION.md` | Track deployed contracts | ✅ Created (this PR) |
+docs/BRIDGE_LAUNCH_PACKAGE.md:157:| **Deployment Checklist** | `/contracts/DEPLOYMENT_CHECKLIST.md` | Pre/post deployment steps | ✅ Exists |
+docs/BRIDGE_LAUNCH_PACKAGE.md:175:**Purpose**: Central tracking for all deployed contract addresses, configurations, and validation steps
+docs/BRIDGE_LAUNCH_PACKAGE.md:181:- Pre/post deployment checklists
+docs/BRIDGE_LAUNCH_PACKAGE.md:202:- `/README.md` (deployment section added)
+docs/BRIDGE_LAUNCH_PACKAGE.md:208:- Clarified that this is a coordination hub, not a deployable app
+docs/BRIDGE_LAUNCH_PACKAGE.md:210:- Added comprehensive deployment section to README
+docs/BRIDGE_LAUNCH_PACKAGE.md:214:- Clarify which repos are meant for deployment
+docs/BRIDGE_LAUNCH_PACKAGE.md:215:- Guide users to correct deployment targets
+docs/BRIDGE_LAUNCH_PACKAGE.md:292:- [ ] Check if 0G DEX already deployed
+docs/BRIDGE_LAUNCH_PACKAGE.md:313:   - **Status**: Not yet designed
+docs/BRIDGE_LAUNCH_PACKAGE.md:315:   - **Assignee**: TBD
+docs/BRIDGE_LAUNCH_PACKAGE.md:318:   - **Question**: Has the 0G DEX been deployed already?
+docs/BRIDGE_LAUNCH_PACKAGE.md:320:   - **Decision Needed**: Run verification script or deploy fresh?
+docs/BRIDGE_LAUNCH_PACKAGE.md:321:   - **Assignee**: TBD
+docs/BRIDGE_LAUNCH_PACKAGE.md:327:   - **Assignee**: @onenoly1010
+docs/BRIDGE_LAUNCH_PACKAGE.md:332:   - **Decision Needed**: Setup multi-sig or use single deployer
+docs/BRIDGE_LAUNCH_PACKAGE.md:333:   - **Assignee**: @onenoly1010
+docs/BRIDGE_LAUNCH_PACKAGE.md:348:   - **Decision Needed**: Obtain URL before deployment
+docs/BRIDGE_LAUNCH_PACKAGE.md:349:   - **Assignee**: @onenoly1010
+docs/BRIDGE_LAUNCH_PACKAGE.md:355:   - **Assignee**: @onenoly1010
+docs/BRIDGE_LAUNCH_PACKAGE.md:362:**When contracts are deployed**, frontend integration requires:
+docs/BRIDGE_LAUNCH_PACKAGE.md:386:- Pi Network ↔ 0G Aristotle token transfers
+docs/BRIDGE_LAUNCH_PACKAGE.md:387:- OINIO token staking across chains
+docs/BRIDGE_LAUNCH_PACKAGE.md:399:- **Deployment Status**: 0/8 deployed to production
+docs/BRIDGE_LAUNCH_PACKAGE.md:426:4. [ ] **Configure environment variables** for deployment
+docs/BRIDGE_LAUNCH_PACKAGE.md:427:5. [ ] **Fund deployer wallets** with Pi testnet tokens
+docs/BRIDGE_LAUNCH_PACKAGE.md:438:12. [ ] **Verify 0G DEX** deployment status
+docs/ci/WORKFLOW_REVIEW_20260529.md:5:**Status:** CI/deploy workflow noise reduced.
+docs/ci/WORKFLOW_REVIEW_20260529.md:9:Duplicate Cloudflare Pages deployment workflows were found.
+docs/ci/WORKFLOW_REVIEW_20260529.md:12:- Archived duplicate workflow: `.github/workflows/deploy-cloudflare.yml.disabled`
+docs/ci/WORKFLOW_REVIEW_20260529.md:14:The archived duplicate used Node 20 and `npm install`, while the canonical workflow uses Node 22, `npm ci`, builds static output, verifies Pages artifacts, and deploys `out/`.
+docs/ci/WORKFLOW_REVIEW_20260529.md:18:The escrow deployment workflow was reviewed after the Cloudflare cleanup.
+docs/ci/WORKFLOW_REVIEW_20260529.md:22:`.github/workflows/deploy-escrow.yml` was not triggered by ordinary pushes to `main`; it only ran manually or on broad version tags like `v*.*.*`.
+docs/ci/WORKFLOW_REVIEW_20260529.md:24:However, the workflow referenced a missing deployment script:
+docs/ci/WORKFLOW_REVIEW_20260529.md:26:- `scripts/deploy-escrow.sh`
+docs/ci/WORKFLOW_REVIEW_20260529.md:28:It also required deployment secrets:
+docs/ci/WORKFLOW_REVIEW_20260529.md:35:The incomplete escrow deployment workflow was archived:
+docs/ci/WORKFLOW_REVIEW_20260529.md:37:- from: `.github/workflows/deploy-escrow.yml`
+docs/ci/WORKFLOW_REVIEW_20260529.md:38:- to: `.github/workflows/deploy-escrow.yml.disabled`
+docs/ci/WORKFLOW_REVIEW_20260529.md:42:Escrow or on-chain deployment workflows should not remain active when their deployment script is missing. Even a manual run or version-tag trigger would fail and create misleading red CI/deployment telemetry.
+docs/ci/WORKFLOW_REVIEW_20260529.md:48:1. `scripts/deploy-escrow.sh` exists.
+docs/ci/WORKFLOW_REVIEW_20260529.md:58:| `cloudflare-pages.yml` | Canonical Cloudflare Pages build/deploy | Active |
+docs/ci/WORKFLOW_REVIEW_20260529.md:62:| `deploy-cloudflare.yml.disabled` | Legacy duplicate Cloudflare deploy | Archived |
+docs/ci/WORKFLOW_REVIEW_20260529.md:63:| `deploy-escrow.yml.disabled` | Incomplete escrow/on-chain deploy | Archived |
+docs/ci/WORKFLOW_REVIEW_20260529.md:67:- `deploy-production.yml`
+docs/ci/WORKFLOW_REVIEW_20260529.md:68:- `deploy-testnet.yml`
+docs/ci/WORKFLOW_REVIEW_20260529.md:75:Duplicate or incomplete deployment paths have been archived while preserving the canonical Cloudflare Pages deployment workflow.
+docs/ci/WORKFLOW_REVIEW_20260529.md:79:The production deployment workflow was reviewed after Cloudflare and escrow workflow cleanup.
+docs/ci/WORKFLOW_REVIEW_20260529.md:83:`.github/workflows/deploy-production.yml` was manual-only through `workflow_dispatch`, which prevented ordinary push noise.
+docs/ci/WORKFLOW_REVIEW_20260529.md:85:However, the workflow still represented a high-impact production deployment surface because it:
+docs/ci/WORKFLOW_REVIEW_20260529.md:90:- deployed directly to Railway using `RAILWAY_TOKEN`
+docs/ci/WORKFLOW_REVIEW_20260529.md:94:The submodule mutation was the primary determinism concern. A production workflow should deploy the exact reviewed commit and pinned submodule state, not pull fresh submodule `main` branches during deployment.
+docs/ci/WORKFLOW_REVIEW_20260529.md:100:- from: `.github/workflows/deploy-production.yml`
+docs/ci/WORKFLOW_REVIEW_20260529.md:101:- to: `.github/workflows/deploy-production.yml.disabled`
+docs/ci/WORKFLOW_REVIEW_20260529.md:105:Production deployment should remain unavailable until the workflow is deterministic, explicitly confirmed, and environment-protected. Manual-only triggering is necessary but not sufficient for production safety.
+docs/ci/WORKFLOW_REVIEW_20260529.md:113:3. Production deploy requires an explicit confirmation input.
+docs/ci/WORKFLOW_REVIEW_20260529.md:124:The testnet deployment workflow was reviewed after production deployment hardening.
+docs/ci/WORKFLOW_REVIEW_20260529.md:128:`.github/workflows/deploy-testnet.yml` was manual-only and required a typed `testnet` confirmation, which reduced ordinary push noise.
+docs/ci/WORKFLOW_REVIEW_20260529.md:130:However, the workflow still represented a noisy deployment surface if manually triggered before full environment configuration.
+docs/ci/WORKFLOW_REVIEW_20260529.md:138:- Railway deployment commands documented as template placeholders
+docs/ci/WORKFLOW_REVIEW_20260529.md:139:- placeholder deployment and smoke-test URLs
+docs/ci/WORKFLOW_REVIEW_20260529.md:140:- manual configuration messages that could appear as failed deployment telemetry
+docs/ci/WORKFLOW_REVIEW_20260529.md:146:- from: `.github/workflows/deploy-testnet.yml`
+docs/ci/WORKFLOW_REVIEW_20260529.md:147:- to: `.github/workflows/deploy-testnet.yml.disabled`
+docs/ci/WORKFLOW_REVIEW_20260529.md:151:Testnet deployment workflows should remain inactive until they are fully configured, deterministic, and reviewer-safe. Manual-only triggering reduces risk, but does not prevent a reviewer or operator from creating avoidable red deployment telemetry by running an incomplete pipeline.
+docs/ci/WORKFLOW_REVIEW_20260529.md:160:4. Placeholder deployment commands are replaced with verified commands.
+docs/ci/WORKFLOW_REVIEW_20260529.md:167:The rollback workflow was reviewed after production and testnet deployment workflows were archived.
+docs/ci/WORKFLOW_REVIEW_20260529.md:173:However, rollback workflows represent a high-impact operational safety surface. If the workflow relies on placeholder Railway commands, floating CLI installs, missing deployment IDs, or manual verification steps, it can create misleading failure telemetry and provide a false sense of recovery readiness.
+docs/ci/WORKFLOW_REVIEW_20260529.md:184:Rollback automation should not remain active unless it is deterministic, environment-protected, and verified against real deployment state. A partially configured rollback action is riskier than an explicitly documented manual recovery procedure.
+docs/ci/WORKFLOW_REVIEW_20260529.md:191:2. Rollback targets are resolved from verified deployment records.
+docs/ci/WORKFLOW_REVIEW_20260529.md:199:The 0G DEX deployment workflow was reviewed after rollback workflow archival.
+docs/ci/WORKFLOW_REVIEW_20260529.md:203:`.github/workflows/deploy-0g-dex.yml` represented a high-optics on-chain deployment surface because it referenced 0G and DEX deployment behavior from the active workflow set.
+docs/ci/WORKFLOW_REVIEW_20260529.md:205:Any workflow that deploys or verifies DEX infrastructure can imply wallet signing, liquidity routing, contract deployment, or privileged RPC access. If not fully hardened, this creates unnecessary reviewer risk for the current OINIO grant-review scope.
+docs/ci/WORKFLOW_REVIEW_20260529.md:211:- from: `.github/workflows/deploy-0g-dex.yml`
+docs/ci/WORKFLOW_REVIEW_20260529.md:212:- to: `.github/workflows/deploy-0g-dex.yml.disabled`
+docs/ci/WORKFLOW_REVIEW_20260529.md:216:0G DEX deployment automation should remain inactive unless it is explicitly in-scope, deterministic, environment-protected, and verified against the current deployment state. Leaving experimental or roadmap deployment workflows active creates avoidable security and telemetry noise.
+docs/ci/WORKFLOW_REVIEW_20260529.md:222:1. The DEX deployment scope is confirmed as current and grant-relevant.
+docs/ci/WORKFLOW_REVIEW_20260529.md:227:6. Dry-run or testnet execution is proven before any live deployment path is enabled.
+docs/ci/WORKFLOW_REVIEW_20260529.md:231:The deployment verification workflow was reviewed after 0G DEX deployment workflow archival.
+docs/ci/WORKFLOW_REVIEW_20260529.md:235:`.github/workflows/verify-deployments.yml` is a manual verification workflow. Unlike deployment workflows, it can provide useful audit evidence if it remains read-only and deterministic.
+docs/ci/WORKFLOW_REVIEW_20260529.md:239:The workflow remains active only if its referenced verification scripts exist, avoid transaction broadcasting, and operate as read-only state checks.
+docs/ci/WORKFLOW_REVIEW_20260529.md:247:1. Verification scripts must not broadcast transactions.
+docs/ci/WORKFLOW_REVIEW_20260529.md:250:4. Reports may be uploaded as artifacts, but deployment state must not be mutated.
+docs/ci/WORKFLOW_REVIEW_20260529.md:286:The Dependabot auto-merge workflow was reviewed after deployment and rollback workflow cleanup.
+docs/ci/WORKFLOW_REVIEW_20260529.md:389:The workflow included several strong design elements, including canon path scoping, policy-engine checks, conflict checks, approval counting, and final artifact hash verification.
+docs/ci/WORKFLOW_REVIEW_20260529.md:427:The workflow appeared to use default GitHub Actions credentials rather than an explicit PAT or deploy key, which reduced recursive trigger risk.
+docs/PRODUCTION_DEPLOYMENT.md:3:> **📌 Note**: This document is part of the deployment documentation suite.  
+docs/PRODUCTION_DEPLOYMENT.md:4:> For the complete deployment guide, see the **[Deployment Dashboard](./DEPLOYMENT_DASHBOARD.md)**.
+docs/PRODUCTION_DEPLOYMENT.md:15:| **Pi Network Mainnet** | ✅ Ready | Full mainnet integration, payment verification |
+docs/PRODUCTION_DEPLOYMENT.md:37:🌌 Sacred Trinity Quantum Resonance Lattice is fully prepared for deployment
+docs/PRODUCTION_DEPLOYMENT.md:85:[deploy]
+docs/PRODUCTION_DEPLOYMENT.md:176:# View deployment logs in Railway dashboard
+docs/PRODUCTION_DEPLOYMENT.md:234:- [ ] Railway deployment completes without errors
+docs/PRODUCTION_DEPLOYMENT.md:272:git commit -m "Production deployment - Sacred Trinity Quantum Resonance Lattice"
+docs/PRODUCTION_DEPLOYMENT.md:277:# 5. Monitor deployment logs
+docs/PRODUCTION_DEPLOYMENT.md:280:echo "🎉 Sacred Trinity deployed successfully!"
+docs/EVALUATION_FRAMEWORK_ENHANCED.md:5:The Sacred Trinity Quantum Resonance Lattice evaluation framework has been **significantly enhanced** with Azure AI SDK integration and advanced Sacred Trinity-specific capabilities.
+docs/EVALUATION_FRAMEWORK_ENHANCED.md:10:- `AzureOpenAIModelConfiguration`: Proper endpoint/deployment mapping for Azure-hosted models
+docs/EVALUATION_FRAMEWORK_ENHANCED.md:11:- `OpenAIModelConfiguration`: Support for non-Azure OpenAI deployments
+docs/EVALUATION_FRAMEWORK_ENHANCED.md:171:    azure_deployment=os.getenv("AZURE_OPENAI_DEPLOYMENT"),
+docs/AUTONOMOUS_WORKSPACE_SETUP.md:7:- Run `python3 scripts/env_doctor.py` before deploys or repo automation.
+docs/AUTONOMOUS_WORKSPACE_SETUP.md:20:For autonomous GitHub and deployment work, set at least:
+docs/AUTONOMOUS_WORKSPACE_SETUP.md:27:Recommended if agents will verify or ship deploys:
+docs/AUTONOMOUS_WORKSPACE_SETUP.md:43:- blocked legacy deployment hosts in tracked config files
+docs/AUTONOMOUS_WORKSPACE_SETUP.md:45:The audit rules live in `config/autonomous-workspace.json`.
+docs/AUTONOMOUS_WORKSPACE_SETUP.md:53:4. Run your deployment or verification command.
+docs/AUTONOMOUS_WORKSPACE_SETUP.md:57:This pattern makes secrets easier for local agents to use, but it does not replace platform-native secret management. Production deploy targets should still store their own secrets server-side.
+docs/API.md:18:> **Note:** For the most current deployment status, see [DEPLOYMENT_STATUS.md](./DEPLOYMENT_STATUS.md)
+docs/API.md:109:  "txid": "transaction-hash"
+docs/API.md:130:POST /api/autonomous/decision
+docs/API.md:135:  "decision_type": "deployment",
+docs/API.md:152:  "decision_id": "deployment_1234567890",
+docs/API.md:153:  "decision_type": "deployment",
+docs/API.md:157:  "actions": ["deploy_to_production"],
+docs/API.md:164:GET /api/autonomous/decision-history?limit=50&decision_type=deployment
+docs/API.md:169:GET /api/autonomous/metrics
+docs/API.md:182:      "deployment": {"count": 50, "approval_rate": 0.92},
+docs/API.md:206:      "id": "deployment_123",
+docs/API.md:207:      "type": "deployment",
+docs/API.md:213:    "transaction_safety": 0.95,
+docs/API.md:274:- `decision`: New autonomous decision made
+docs/API.md:293:GET /resonance/{transaction_hash}
+docs/API.md:329:POST /api/autonomous-metrics
+docs/API.md:335:    "decision_id": "deployment_123",
+docs/API.md:344:GET /api/autonomous-metrics?metric_type=decision&limit=50
+docs/API.md:384:function transfer(address to, uint256 amount) external returns (bool)
+docs/API.md:417:function transferModel(address to, uint256 modelId) external
+docs/API.md:429:await token.methods.transfer(recipient, amount).send({ from: userAddress });
+docs/API.md:435:const registry = new ethers.Contract(registryAddress, OINIOModelRegistryABI, signer);
+docs/API.md:474:- Approve/reject autonomous decisions
+docs/API.md:597:    "transaction_hash": "0x..."
+docs/API.md:615:  "decision_id": "deployment_123",
+docs/API.md:616:  "decision_type": "deployment",
+docs/API.md:632:  "transaction_hash": "0x...",
+docs/OPERATIONS-INDEX.md:3:This index provides a consolidated architectural and operational map of the current hardened perimeter. It serves as a single source of truth for external reviewers, support engineers, and grant evaluators to understand system state, safety boundaries, and deployment safeguards without inspecting raw commit history.
+docs/OPERATIONS-INDEX.md:16:- **Purpose:** Documents known router/proxy state friction and isolates external or upstream anomalies without modifying wallet, runtime, deployment, or contract behavior.
+docs/OPERATIONS-INDEX.md:43:> 1. **No Autonomous Remediation:** Do not activate, script, or deploy autonomous self-healing loops or remediation logic. All interventions remain manual and analytical.
+docs/OPERATIONS-INDEX.md:44:> 2. **No Wallet Modifications:** Wallet behavior, signing mechanics, and key-management paths are frozen unless a separately reviewed security process explicitly authorizes changes.
+docs/OPERATIONS-INDEX.md:47:> 5. **No Production Mutation:** Do not treat documentation, diagnostics, or external friction as permission to alter contracts, deployments, wallet state, or runtime behavior.
+docs/OPERATIONS-INDEX.md:66:This index is documentation-only. It does not alter runtime logic, contract state, wallet behavior, deployment behavior, CI configuration, or autonomous execution paths.
+docs/VERIFICATION_GUIDE.md:14:3. 🟠 **Advanced** (30-60 minutes): Cryptographic signature verification
+docs/VERIFICATION_GUIDE.md:117:Balance: ~11,180,000 PI (after initial deployments)
+docs/VERIFICATION_GUIDE.md:118:Transactions: 6+ (initial funding + 6 model deployments)
+docs/VERIFICATION_GUIDE.md:124:- [ ] Balance is approximately 12M PI (minus deployment costs)
+docs/VERIFICATION_GUIDE.md:125:- [ ] Multiple transactions visible
+docs/VERIFICATION_GUIDE.md:131:**Step 3: Review transaction history**
+docs/VERIFICATION_GUIDE.md:133:Look for 6 deployment transactions:
+docs/VERIFICATION_GUIDE.md:144:**For each transaction:**
+docs/VERIFICATION_GUIDE.md:145:1. Click transaction hash
+docs/VERIFICATION_GUIDE.md:150:   - Value: Expected deployment cost
+docs/VERIFICATION_GUIDE.md:151:   - Function: deployMRNFT or similar
+docs/VERIFICATION_GUIDE.md:155:**Step 4: Check deployed contracts**
+docs/VERIFICATION_GUIDE.md:212:# List all transactions for OINIO wallet
+docs/VERIFICATION_GUIDE.md:213:pi-cli transactions --address $OINIO_WALLET --limit 20
+docs/VERIFICATION_GUIDE.md:215:# Get specific transaction details
+docs/VERIFICATION_GUIDE.md:216:pi-cli tx info 0x[transaction_hash]
+docs/VERIFICATION_GUIDE.md:226:# Function: deployMRNFT("Ethics Validator", 1500)
+docs/VERIFICATION_GUIDE.md:265:# ✅ Verifying deployments...
+docs/VERIFICATION_GUIDE.md:286:- [ ] Balance approximately 12M PI (accounting for deployments)
+docs/VERIFICATION_GUIDE.md:291:- [ ] 6 deployment transactions found
+docs/VERIFICATION_GUIDE.md:292:- [ ] All transactions confirmed (status: success)
+docs/VERIFICATION_GUIDE.md:297:- [ ] 6 model contracts deployed
+docs/VERIFICATION_GUIDE.md:304:- [ ] Sum of deployments = ~820,000 PI
+docs/VERIFICATION_GUIDE.md:353:# Download signed succession announcement
+docs/VERIFICATION_GUIDE.md:357:# Verify signature
+docs/VERIFICATION_GUIDE.md:363:# gpg: Good signature from "OINIO <contact@pi-forge.network>" [unknown]
+docs/VERIFICATION_GUIDE.md:366:**Good signature** = Document was signed by OINIO's private key ✅
+docs/VERIFICATION_GUIDE.md:375:# Show commit signatures
+docs/VERIFICATION_GUIDE.md:376:git log --show-signature --oneline
+docs/VERIFICATION_GUIDE.md:385:# gpg: Good signature from "OINIO <contact@pi-forge.network>"
+docs/VERIFICATION_GUIDE.md:396:Please sign the following message with OINIO wallet:
+docs/VERIFICATION_GUIDE.md:408:"""Verify Pi Network wallet signature"""
+docs/VERIFICATION_GUIDE.md:409:from pi_network import verify_signature
+docs/VERIFICATION_GUIDE.md:411:# Message that was signed
+docs/VERIFICATION_GUIDE.md:420:signature = "0x[signature_hex_here]"
+docs/VERIFICATION_GUIDE.md:426:recovered_address = verify_signature(message, signature)
+docs/VERIFICATION_GUIDE.md:449:- [ ] Succession document signature valid
+docs/VERIFICATION_GUIDE.md:450:- [ ] Other document signatures valid
+docs/VERIFICATION_GUIDE.md:451:- [ ] Git commits are signed
+docs/VERIFICATION_GUIDE.md:454:- [ ] Requested signed message
+docs/VERIFICATION_GUIDE.md:455:- [ ] Received signature from OINIO
+docs/VERIFICATION_GUIDE.md:462:- [ ] No conflicting signatures found
+docs/VERIFICATION_GUIDE.md:517:   **Notes**: "All 6 contracts verified, signatures valid"
+docs/VERIFICATION_GUIDE.md:621:- On-chain transactions
+docs/VERIFICATION_GUIDE.md:624:- GPG signatures
+docs/VERIFICATION_GUIDE.md:633:Public verification report signed by participants.
+docs/VERIFICATION_GUIDE.md:700:[GPG-signed by all group members]
+docs/VERIFICATION_GUIDE.md:725:        "notes": "All contracts verified, signatures valid"
+docs/VERIFICATION_GUIDE.md:795:# Get deployed bytecode
+docs/VERIFICATION_GUIDE.md:796:pi-cli contract code 0x[CONTRACT_ADDRESS] > deployed.bin
+docs/VERIFICATION_GUIDE.md:802:diff deployed.bin compiled.bin
+docs/VERIFICATION_GUIDE.md:838:def calculate_multiplier(deployment_count):
+docs/VERIFICATION_GUIDE.md:840:    if deployment_count <= 10:
+docs/VERIFICATION_GUIDE.md:842:    elif deployment_count <= 25:
+docs/VERIFICATION_GUIDE.md:844:    elif deployment_count <= 50:
+docs/VERIFICATION_GUIDE.md:846:    elif deployment_count <= 100:
+docs/VERIFICATION_GUIDE.md:926:- [ ] Source code matches deployed bytecode
+docs/VERIFICATION_GUIDE.md:972:- [ ] GPG signature verification
+docs/VERIFICATION_GUIDE.md:973:- [ ] Wallet signature verification
+docs/VERIFICATION_GUIDE.md:1013:**Signature**: [Your GPG signature or contact info]
+docs/VERIFICATION_GUIDE.md:1043:- Cryptographic signatures prove identity
+docs/VERIFICATION_GUIDE.md:1054:- 🚩 Invalid or missing signatures
+docs/VERIFICATION_GUIDE.md:1083:- Monthly: Review new royalty transactions
+docs/GRANT-REVIEW-PACKET.md:25:- **Autonomous Write Loops:** No live, unmonitored autonomous agent write loops are active on the production network.
+docs/GRANT-REVIEW-PACKET.md:26:- **Treasury/Liquidity Guarantees:** There are no unstated financial guarantees, tokens, or transferable token mechanics embedded within this architecture.
+docs/GRANT-REVIEW-PACKET.md:34:4. **Ecosystem Feedback:** Partner identification for initial node-operator deployment trials.
+docs/ECOSYSTEM_OVERVIEW.md:11:The Quantum Pi Forge is a **sovereign, multi-repository ecosystem** coordinated through autonomous agents and unified by shared principles documented in the [Genesis Declaration](../GENESIS.md).
+docs/ECOSYSTEM_OVERVIEW.md:21:| **pi-mr-nft-agent** | AI-powered NFT minting system | 🔄 Development | [Repository](https://github.com/onenoly1010/pi-mr-nft-agent) |
+docs/ECOSYSTEM_OVERVIEW.md:23:| **oinio-soul-system** | Soul evolution oracle system | ✅ Active | [Repository](https://github.com/onenoly1010/oinio-soul-system) |
+docs/ECOSYSTEM_OVERVIEW.md:36:| **Archive Agent** | Genesis minting, integrity verification | pi-forge-quantum-genesis | ✅ Active |
+docs/ECOSYSTEM_OVERVIEW.md:53:- [Agent System](./AGENT_SYSTEM.md) — How autonomous agents coordinate
+docs/GUARDIAN_QUICK_REFERENCE.md:16:curl https://pi-forge-quantum-genesis.railway.app/api/autonomous/decision-history?requires_guardian=true&status=pending | jq .
+docs/GUARDIAN_QUICK_REFERENCE.md:65:| **High** | < 4 hours | Performance, deployments |
+docs/GUARDIAN_QUICK_REFERENCE.md:118:- **Examples**: Service degradation, failed deploy
+docs/GUARDIAN_QUICK_REFERENCE.md:156:/api/autonomous/decision-history
+docs/GUARDIAN_QUICK_REFERENCE.md:159:/api/autonomous/metrics
+docs/GUARDIAN_QUICK_REFERENCE.md:257:1. Check recent deployments
+docs/GUARDIAN_QUICK_REFERENCE.md:289:1. **Trust the system** - It's designed for autonomy
+docs/GUARDIAN_QUICK_REFERENCE.md:314:curl -X POST https://pi-forge-quantum-genesis.railway.app/api/guardian/approve/deployment_12345 \
+docs/GUARDIAN_QUICK_REFERENCE.md:316:  -d '{"approved": true, "comments": "Routine deployment, tests passed"}'
+docs/GUARDIAN_QUICK_REFERENCE.md:319:curl https://pi-forge-quantum-genesis.railway.app/api/autonomous/decision-history?limit=10 | jq .
+docs/GUARDIAN_QUICK_REFERENCE.md:322:curl https://pi-forge-quantum-genesis.railway.app/api/autonomous/decision/{decision_id} | jq .
+docs/GUARDIAN_QUICK_REFERENCE.md:325:curl https://pi-forge-quantum-genesis.railway.app/api/autonomous/metrics?period=today | jq .
+docs/CATALYST_POOL_ECONOMICS.md:4:**Status**: ✅ **ACTIVE** (December 2025)  
+docs/CATALYST_POOL_ECONOMICS.md:9:The Catalyst Pool is a 12M PI treasury that funds deployment of ethical AI models as MR-NFTs (Model Registry - Non-Fungible Tokens) on the Pi Network. Combined with 10-30% inference royalties, it creates a self-sustaining flywheel where each deployment strengthens the entire ecosystem.
+docs/CATALYST_POOL_ECONOMICS.md:13:- **Taper Schedule**: 8× → 1× multiplier over deployment cycles
+docs/CATALYST_POOL_ECONOMICS.md:15:- **Flywheel Mechanism**: Royalties fund future deployments
+docs/CATALYST_POOL_ECONOMICS.md:24:The Catalyst Pool represents a significant capital commitment to ethical AI infrastructure:
+docs/CATALYST_POOL_ECONOMICS.md:28:**Purpose**: Fund deployment of MR-NFT models that generate royalties  
+docs/CATALYST_POOL_ECONOMICS.md:35:1. **Bootstrap 100+ Models**: At average 120K PI per deployment
+docs/CATALYST_POOL_ECONOMICS.md:36:2. **Maintain 8× Multiplier**: Early deployments need higher incentives
+docs/CATALYST_POOL_ECONOMICS.md:38:4. **Enable Experimentation**: Sufficient capital for trial deployments
+docs/CATALYST_POOL_ECONOMICS.md:47:= 800 deployments at peak multiplier
+docs/CATALYST_POOL_ECONOMICS.md:51:= 100 deployments
+docs/CATALYST_POOL_ECONOMICS.md:60:The taper schedule gradually reduces deployment incentives as the network effects strengthen:
+docs/CATALYST_POOL_ECONOMICS.md:75:2. **Network Effects**: Later deployments benefit from established ecosystem
+docs/CATALYST_POOL_ECONOMICS.md:81:- **Deployment Count**: Automatic reduction every 10-50 deployments
+docs/CATALYST_POOL_ECONOMICS.md:88:def calculate_multiplier(deployment_count):
+docs/CATALYST_POOL_ECONOMICS.md:90:    Calculate current multiplier based on deployment count.
+docs/CATALYST_POOL_ECONOMICS.md:92:    if deployment_count <= 10:
+docs/CATALYST_POOL_ECONOMICS.md:94:    elif deployment_count <= 25:
+docs/CATALYST_POOL_ECONOMICS.md:96:    elif deployment_count <= 50:
+docs/CATALYST_POOL_ECONOMICS.md:98:    elif deployment_count <= 100:
+docs/CATALYST_POOL_ECONOMICS.md:103:def effective_pool_size(base_pool=12_000_000, deployment_count=0):
+docs/CATALYST_POOL_ECONOMICS.md:107:    multiplier = calculate_multiplier(deployment_count)
+docs/CATALYST_POOL_ECONOMICS.md:147:Initial deployments establish the royalty range:
+docs/CATALYST_POOL_ECONOMICS.md:155:        "deployment_cost": 120_000  # PI
+docs/CATALYST_POOL_ECONOMICS.md:161:        "deployment_cost": 150_000  # PI
+docs/CATALYST_POOL_ECONOMICS.md:167:        "deployment_cost": 120_000  # PI
+docs/CATALYST_POOL_ECONOMICS.md:173:        "deployment_cost": 80_000  # PI
+docs/CATALYST_POOL_ECONOMICS.md:179:        "deployment_cost": 150_000  # PI
+docs/CATALYST_POOL_ECONOMICS.md:185:        "deployment_cost": 200_000  # PI
+docs/CATALYST_POOL_ECONOMICS.md:189:total_deployment_cost = 820_000  # PI for all six models
+docs/CATALYST_POOL_ECONOMICS.md:222:| **Catalyst Pool** | 40% | Fund future model deployments | 400 PI |
+docs/CATALYST_POOL_ECONOMICS.md:253:print(f"Available for next deployment at 8× multiplier: {catalyst_pool * 8} PI")
+docs/CATALYST_POOL_ECONOMICS.md:256:**Result**: Single model's day of usage can fund multiple new deployments during bootstrap phase.
+docs/CATALYST_POOL_ECONOMICS.md:274:Address: [To be added after deployment]
+docs/CATALYST_POOL_ECONOMICS.md:283:Address: [To be added after deployment]
+docs/CATALYST_POOL_ECONOMICS.md:307:        payable(oinioWallet).transfer(royalty);
+docs/CATALYST_POOL_ECONOMICS.md:337:        payable(catalystPool).transfer(amount * catalystPoolShare / 10000);
+docs/CATALYST_POOL_ECONOMICS.md:338:        payable(maintenanceFund).transfer(amount * maintenanceShare / 10000);
+docs/CATALYST_POOL_ECONOMICS.md:339:        payable(developerRewards).transfer(amount * developerShare / 10000);
+docs/CATALYST_POOL_ECONOMICS.md:340:        payable(treasuryReserve).transfer(amount * treasuryShare / 10000);
+docs/CATALYST_POOL_ECONOMICS.md:358:# List recent transactions
+docs/CATALYST_POOL_ECONOMICS.md:359:pi-cli transactions --address 0x[OINIO_ADDRESS] --limit 100
+docs/CATALYST_POOL_ECONOMICS.md:397:- High capital deployment (8× multiplier)
+docs/CATALYST_POOL_ECONOMICS.md:399:- Rapid model deployment
+docs/CATALYST_POOL_ECONOMICS.md:413:- Moderate capital deployment (6×-4× multiplier)
+docs/CATALYST_POOL_ECONOMICS.md:429:- Reduced capital deployment (2× multiplier)
+docs/CATALYST_POOL_ECONOMICS.md:445:- Minimal capital deployment (1× multiplier)
+docs/CATALYST_POOL_ECONOMICS.md:496:- Approve/reject new model deployments
+docs/CATALYST_POOL_ECONOMICS.md:503:- Reverse blockchain transactions
+docs/CATALYST_POOL_ECONOMICS.md:546:| **Emergency Actions** | Supermajority (2/3) | 15% of token holders | Pause deployments |
+docs/CATALYST_POOL_ECONOMICS.md:590:- Number of models deployed
+docs/CATALYST_POOL_ECONOMICS.md:591:- Active deployments by taper tier
+docs/CATALYST_POOL_ECONOMICS.md:604:║ Next Taper:          2 deployments     ║
+docs/CATALYST_POOL_ECONOMICS.md:615:**Every transaction includes:**
+docs/CATALYST_POOL_ECONOMICS.md:689:- Independent blockchain analyst reviews all transactions
+docs/CATALYST_POOL_ECONOMICS.md:702:- Average 2 deployments per month (24/year)
+docs/CATALYST_POOL_ECONOMICS.md:715:**Key Inflection Point:** Year 3, when royalty income consistently exceeds deployment costs.
+docs/CATALYST_POOL_ECONOMICS.md:722:- Rapid deployment: 4 models/month
+docs/CATALYST_POOL_ECONOMICS.md:734:- Slow deployment: 1 model/month
+docs/CATALYST_POOL_ECONOMICS.md:750:1. **Base Layer**: Pi cryptocurrency (mining, transfers)
+docs/CATALYST_POOL_ECONOMICS.md:759:- High-value transactions (model deployments)
+docs/CATALYST_POOL_ECONOMICS.md:766:- High Pi prices make deployments expensive
+docs/CATALYST_POOL_ECONOMICS.md:767:- Catalyst Pool maintains PI balance → more deployments possible
+docs/CATALYST_POOL_ECONOMICS.md:771:- Low Pi prices make deployments cheap
+docs/CATALYST_POOL_ECONOMICS.md:773:- But more models can be deployed with same PI amount
+docs/CATALYST_POOL_ECONOMICS.md:775:**Net Effect**: Catalyst Pool acts as buffer, maintaining consistent deployment pace regardless of Pi price volatility.
+docs/CATALYST_POOL_ECONOMICS.md:791:- Year 3: Consider staking mechanism
+docs/CATALYST_POOL_ECONOMICS.md:798:The Catalyst Pool's 12M PI represents more than capital—it's a commitment to sustainable, community-governed, ethical AI infrastructure. Through careful economic design (taper schedule, royalty range, distribution rules), it creates a self-reinforcing flywheel that can operate indefinitely.
+docs/VERIFICATION_SUMMARY.md:5:This PR introduces a comprehensive, automated deployment verification system that eliminates human error across Pi Network, 0G Aristotle, and any future EVM chains for the Pi Forge Quantum Genesis ecosystem.
+docs/VERIFICATION_SUMMARY.md:33:- Contract deployment verification
+docs/VERIFICATION_SUMMARY.md:71:- **Pi Network**: Validates Catalyst Pool and Model Royalty NFT deployment
+docs/VERIFICATION_SUMMARY.md:72:- **0G Network**: Validates W0G, Factory, and Router deployment with Uniswap V2 integration
+docs/VERIFICATION_SUMMARY.md:89:**verify-deployments.yml**: Automated verification
+docs/VERIFICATION_SUMMARY.md:190:- ✅ All existing deployments can be verified
+docs/VERIFICATION_SUMMARY.md:216:- Automated deployment verification in CI
+docs/VERIFICATION_SUMMARY.md:217:- Cross-chain deployment coordination
+docs/VERIFICATION_SUMMARY.md:238:.github/workflows/verify-deployments.yml
+docs/VERIFICATION_SUMMARY.md:255:1. Add verification to deployment workflows
+docs/VERIFICATION_SUMMARY.md:260:1. Add more chains as they're deployed
+docs/VERIFICATION_SUMMARY.md:267:- ✅ Eliminates deployment verification errors
+docs/VERIFICATION_SUMMARY.md:273:The system is ready for immediate use and will significantly reduce the risk of deployment misconfigurations across all supported chains.
+docs/ROLLBACK_VALIDATION.md:13:3. **Maintain Confidence**: Provide assurance that the system can recover from failed deployments
+docs/ROLLBACK_VALIDATION.md:43:  - Tag format validation (e.g., `deploy-YYYYMMDD-HHMMSS-hash`)
+docs/ROLLBACK_VALIDATION.md:52:- **How**: Creates mock deployment tags and tests rollback operations
+docs/ROLLBACK_VALIDATION.md:88:Tests the logic for selecting which deployment to rollback to:
+docs/ROLLBACK_VALIDATION.md:170:deploy-YYYYMMDD-HHMMSS-<commit-hash>
+docs/ROLLBACK_VALIDATION.md:174:- `deploy-20241210-120000-abc1234`
+docs/ROLLBACK_VALIDATION.md:175:- `deploy-20241225-235959-xyz9876`
+docs/ROLLBACK_VALIDATION.md:177:**Pattern**: `^deploy-\d{8}-\d{6}-[a-z0-9]+$`
+docs/ROLLBACK_VALIDATION.md:191:      # Find last successful deployment tag (second newest)
+docs/ROLLBACK_VALIDATION.md:192:      ROLLBACK_TAG=$(git tag -l "deploy-*" --sort=-version:refname | head -2 | tail -1)
+docs/ROLLBACK_VALIDATION.md:211:  # Find last successful deployment tag (second newest)
+docs/ROLLBACK_VALIDATION.md:212:  ROLLBACK_TAG=$(git tag -l "deploy-*" --sort=-version:refname | head -2 | tail -1)
+docs/ROLLBACK_VALIDATION.md:279:1. **Integration Tests**: Test actual Railway deployment rollback
+docs/PI_NETWORK_INTEGRATION.md:407:# Complete payment with blockchain transaction
+docs/PI_NETWORK_INTEGRATION.md:526:7. **Log all transactions** for audit trails
+docs/PI_NETWORK_INTEGRATION.md:530:Before deploying to production:
+docs/PI_NETWORK_INTEGRATION.md:659:- [ ] Multi-signature wallet support
+docs/SOVEREIGN_DATA_VALIDATION_SERVICE_AGREEMENT.md:10:Quantum Pi Forge provides decentralized, trustless ledger validation services using the 0G Network Aristotle infrastructure. We verify business ledgers, transaction histories, and data integrity proofs without requiring access to sensitive plaintext data.
+docs/SOVEREIGN_DATA_VALIDATION_SERVICE_AGREEMENT.md:59:4. Sign transaction for service payment
+docs/SOVEREIGN_DATA_VALIDATION_SERVICE_AGREEMENT.md:75:| 4 | Attestation minted | T+90 min |
+docs/SOVEREIGN_DATA_VALIDATION_SERVICE_AGREEMENT.md:113:2. Send initial deposit transaction to Forge address:
+docs/CANON_AUTO_MERGE_SETUP.md:83:* Optionally verifies signed commit
+docs/CANON_AUTO_MERGE_SETUP.md:200:## 🛡️ Design Principles
+docs/ARCHITECTURE.md:10:OINIO is a sovereign, non-root AI agent deployed on 0G Aristotle Mainnet. It operates through a layered stack that separates concerns and provides redundancy.
+docs/ARCHITECTURE.md:78:- ✅ Capture request_id for all transactions
+docs/ARCHITECTURE.md:102:The router is **working as designed** — it is correctly rejecting inference requests for an account without sufficient balance. This is not a failure of OINIO or the local code; it is expected behavior when billing constraints are triggered.
+docs/ARCHITECTURE.md:166:   └─ Timestamp the transaction
+docs/ARCHITECTURE.md:227:- All transactions timestamped
+docs/ARCHITECTURE.md:267:| 0G Storage integration | 📋 Designed | Awaiting M3 funding |
+docs/ARCHITECTURE.md:268:| CI/deploy polish | 🔄 In Progress | GitHub Actions refinement |
+docs/ARCHITECTURE.md:313:| `docs/ARCHITECTURE.md` | System design (this file) |
+deploy/index.html:105:                    LIVE ON 0G ARISTOTLE
+deploy/index.html:231:                            <h4 class="text-2xl font-bold text-white mb-3">⚡ Stake OINIO (Micro-staking supported)</h4>
+deploy/index.html:248:                                <li>✅ Every mint adds to collective consciousness metrics</li>
+deploy/index.html:250:                                <li>✅ Receives automatic resonance oracle voting rights</li>
+deploy/index.html:280:                            ✅ Your agent will automatically participate in truth verification, run health checks, earn resonance yield, and maintain network decentralization.
+deploy/index.html:304:                        <span class="text-white font-bold">100 Participants:</span> <span class="text-zinc-400">Resonance oracle goes fully autonomous</span>
+deploy/index.html:318:                <p class="text-zinc-500 text-center mb-6 font-mono text-sm">Encoded directly into smart contract bytecode at deployment:</p>
+deploy/index.html:321:                    <p>✅ All yield is distributed proportionally to stakers.</p>
+deploy/index.html:324:                    <p>✅ All transactions are public and verifiable forever.</p>
+deploy/index.html:355:                        OINIO token ecosystem, Pi Network bridge, ethical yield generation.
+deploy/index.html:387:                        Sovereign AI agents running on 0G Aristotle. Resonance oracle, truth verification, and autonomous guardian consensus. This layer never sleeps.
+deploy/index.html:395:                        Mutable supply liquidity engine, iNFT consciousness minting, and ethical yield generation. Your stake is your voice. Your resonance is your power.
+deploy/index.html:414:            <p class="text-zinc-400 text-center mb-12">Real time signal from the Forge constellation</p>
+deploy/index.html:480:      <div><strong>iNFTs minted:</strong> <span id="infts">47</span> <span style="font-size:0.8rem;opacity:0.6">(minting live)</span></div>
+deploy/index.html:505:                    <p class="text-zinc-500 text-sm">Liquidity pools. Stake. Earn yield.</p>
+deploy/index.html:563:    async function signProposalCreationMessage(title, description, frequency) {
+deploy/index.html:567:    async function broadcastNewProposalToAristotle(title, description, frequency, signature) {
+deploy/index.html:568:        console.log("Broadcasting proposal to Aristotle:", {title, description, frequency, signature});
+deploy/index.html:637:            const signature = await signProposalCreationMessage(title, description, frequency);
+deploy/index.html:638:            const newProposalId = await broadcastNewProposalToAristotle(title, description, frequency, signature);
+deploy/index.html:640:            showEruptionToast(`🌋 VDP-${newProposalId} ignited and broadcast.<br>Frequency: ${frequency}Hz — The Forge grows.`);
+deploy/index.html:646:            showCooldownToast("Aristotle rejected the forging signature. Check connection or nonce.");
+deploy/index.html:657:    let signalLedgerCache = [];
+deploy/index.html:658:    let signalProvider;
+deploy/index.html:661:    const signalLedgerAbi = [
+deploy/index.html:669:        const cached = localStorage.getItem('signalLedgerCache');
+deploy/index.html:671:            signalLedgerCache = JSON.parse(cached);
+deploy/index.html:672:            signalLedgerCache.forEach(s => seenSignalHashes.add(getSignalHash(s)));
+deploy/index.html:679:    signalProvider = new ethers.providers.Web3Provider(window.ethereum);
+deploy/index.html:680:    iface = new ethers.utils.Interface(signalLedgerAbi);
+deploy/index.html:686:        if (!signalProvider) return;
+deploy/index.html:688:        const currentBlock = await signalProvider.getBlockNumber();
+deploy/index.html:696:        const logs = await signalProvider.getLogs({
+deploy/index.html:704:            const signal = {
+deploy/index.html:711:            signalLedgerCache.push(signal);
+deploy/index.html:717:        signalProvider.on(filter, (log) => {
+deploy/index.html:731:function getSignalHash(signal) {
+deploy/index.html:732:    return `${signal.address}-${signal.proposalId}-${signal.vp}-${signal.timestamp.toString().slice(0, -3)}`;
+deploy/index.html:735:function addNewSignalToLedger(signal) {
+deploy/index.html:736:    const hash = getSignalHash(signal);
+deploy/index.html:740:        console.log("Duplicate signal filtered:", hash);
+deploy/index.html:745:    signalLedgerCache.unshift(signal);
+deploy/index.html:748:    if (signalLedgerCache.length > 50) {
+deploy/index.html:749:        signalLedgerCache = signalLedgerCache.slice(0, 50);
+deploy/index.html:753:            signalLedgerCache.forEach(s => seenSignalHashes.add(getSignalHash(s)));
+deploy/index.html:759:        localStorage.setItem('signalLedgerCache', JSON.stringify(signalLedgerCache));
+deploy/index.html:764:        triggerHarmonicPulse(signal.frequency, 1);
+deploy/index.html:770:        const ledger = document.getElementById('signal-ledger');
+deploy/index.html:775:        signalLedgerCache.slice(0, 24).forEach((signal, index) => {
+deploy/index.html:777:            pulse.className = 'signal-pulse';
+deploy/index.html:780:                <div class="pulse-dot freq-${signal.frequency}"></div>
+deploy/index.html:782:                    <span class="pulse-vp">${signal.vp.toFixed(1)} VP</span>
+deploy/index.html:783:                    <span class="pulse-proposal">${signal.proposalId}</span>
+deploy/trust/kris-olofson-trust-evidence.json:19:    "autonomous_authority_enabled": false,
+deploy/trust/kris-olofson-trust-evidence.json:20:    "wallet_signing_authorized": false,
+deploy/resonate.html:252:                <div class="event-item"><span class="text-emerald-400">✅</span> Guardian #5 validated soul signature 47 seconds ago</div>
+deploy/resonate.html:254:                <div class="event-item"><span class="text-emerald-400">✅</span> Guardian #4 completed oracle round 2 minutes ago</div>
+deploy/resonate.html:358:                <div>✅ 1 oracle round completed</div>
+deploy/resonate.html:386:            <div class="path-card" onclick="window.location.href='staking.html'">
+deploy/resonate.html:389:                <p class="text-zinc-400 text-sm mb-4">Stake OINIO, earn ethical yield, contribute your resonance weight to the network.</p>
+deploy/resonate.html:390:                <a href="staking.html" class="text-purple-400 text-sm hover:text-purple-300">→ Staking Portal</a>
+deploy/resonate.html:396:                <p class="text-zinc-400 text-sm mb-4">Run a local sovereign AI agent, verify truth anchors, become part of the oracle consensus.</p>
+deploy/FORGE_ACTIVATION_GUIDE.md:10:| 0G Mainnet Integration | ✅ ACTIVE | Block 29,562,402 |
+deploy/FORGE_ACTIVATION_GUIDE.md:30:### 2. ⚡ Stake OINIO (Micro-staking supported)
+deploy/FORGE_ACTIVATION_GUIDE.md:37:- Every mint adds to collective consciousness metrics
+deploy/FORGE_ACTIVATION_GUIDE.md:39:- Receives automatic resonance oracle voting rights
+deploy/FORGE_ACTIVATION_GUIDE.md:62:- Earn resonance yield for validating transactions
+deploy/FORGE_ACTIVATION_GUIDE.md:69:Encoded directly into smart contract bytecode at deployment:
+deploy/FORGE_ACTIVATION_GUIDE.md:73:2.  All yield is distributed proportionally to stakers.
+deploy/FORGE_ACTIVATION_GUIDE.md:76:5.  All transactions are public and verifiable forever.
+deploy/FORGE_ACTIVATION_GUIDE.md:89:| 100 | Resonance oracle goes fully autonomous |
+deploy/FORGE_ACTIVATION_GUIDE.md:101:- Adds resonance to the oracle
+deploy/FORGE_ACTIVATION_GUIDE.md:103:- Improves yield for every existing participant
+deploy/dao.html:54:        .signal-ledger {
+deploy/dao.html:127:            <div class="inline-block px-3 py-1 text-xs font-mono text-purple-400 border border-purple-500/20 bg-purple-500/10 rounded mb-6 uppercase tracking-wider">SOVEREIGN GOVERNANCE • ACTIVE</div>
+deploy/dao.html:159:                                <span class="px-2 py-0.5 text-xs font-mono bg-emerald-500/20 text-emerald-400 rounded">ACTIVE</span>
+deploy/dao.html:218:        <section id="signal-ledger-section" class="signal-ledger">
+deploy/dao.html:221:            <span class="ledger-count" id="ledger-count">0 signals</span>
+deploy/dao.html:232:        let signer;
+deploy/dao.html:259:            status: "ACTIVE"
+deploy/dao.html:275:                    signer = provider.getSigner();
+deploy/dao.html:280:                    const address = await signer.getAddress();
+deploy/dao.html:317:          if (!signer) {
+deploy/dao.html:336:            const signature = await signer.signMessage(message);
+deploy/dao.html:338:            console.log("🔥 Volcanic Signal Signed:", signature);
+deploy/dao.html:344:              <small>Power: ${power.votingPower.toFixed(2)} | Hash: ${signature.slice(0,10)}...</small>
+deploy/dao.html:417:            // Refresh block height right before signing (no race condition)
+deploy/dao.html:422:            const sig = await signer.signMessage(message);
+deploy/dao.html:526:        const signalQueue = [];
+deploy/dao.html:607:                signalQueue.push(entry);
+deploy/dao.html:613:            document.getElementById('ledger-count').innerText = `${container.children.length} signals`;
+deploy/dao.html:617:            if (signalQueue.length === 0) return;
+deploy/dao.html:620:            const entry = signalQueue.shift();
+deploy/dao.html:643:                    const signal = {
+deploy/dao.html:650:                    appendSignalToLedger(signal, 0, true);
+deploy/dao.html:660:            const signals = await provider.fetchSignals(MAX_LEDGER_ENTRIES);
+deploy/dao.html:666:            signals.forEach((sig, i) => appendSignalToLedger(sig, i, false));
+deploy/index.html.bak.20260601-004337:105:                    LIVE ON 0G ARISTOTLE
+deploy/index.html.bak.20260601-004337:231:                            <h4 class="text-2xl font-bold text-white mb-3">⚡ Stake OINIO (Micro-staking supported)</h4>
+deploy/index.html.bak.20260601-004337:248:                                <li>✅ Every mint adds to collective consciousness metrics</li>
+deploy/index.html.bak.20260601-004337:250:                                <li>✅ Receives automatic resonance oracle voting rights</li>
+deploy/index.html.bak.20260601-004337:280:                            ✅ Your agent will automatically participate in truth verification, run health checks, earn resonance yield, and maintain network decentralization.
+deploy/index.html.bak.20260601-004337:304:                        <span class="text-white font-bold">100 Participants:</span> <span class="text-zinc-400">Resonance oracle goes fully autonomous</span>
+deploy/index.html.bak.20260601-004337:318:                <p class="text-zinc-500 text-center mb-6 font-mono text-sm">Encoded directly into smart contract bytecode at deployment:</p>
+deploy/index.html.bak.20260601-004337:321:                    <p>✅ All yield is distributed proportionally to stakers.</p>
+deploy/index.html.bak.20260601-004337:324:                    <p>✅ All transactions are public and verifiable forever.</p>
+deploy/index.html.bak.20260601-004337:355:                        OINIO token ecosystem, Pi Network bridge, ethical yield generation.
+deploy/index.html.bak.20260601-004337:387:                        Sovereign AI agents running on 0G Aristotle. Resonance oracle, truth verification, and autonomous guardian consensus. This layer never sleeps.
+deploy/index.html.bak.20260601-004337:395:                        Mutable supply liquidity engine, iNFT consciousness minting, and ethical yield generation. Your stake is your voice. Your resonance is your power.
+deploy/index.html.bak.20260601-004337:414:            <p class="text-zinc-400 text-center mb-12">Real time signal from the Forge constellation</p>
+deploy/index.html.bak.20260601-004337:478:      <div><strong>iNFTs minted:</strong> <span id="infts">47</span> <span style="font-size:0.8rem;opacity:0.6">(minting live)</span></div>
+deploy/index.html.bak.20260601-004337:503:                    <p class="text-zinc-500 text-sm">Liquidity pools. Stake. Earn yield.</p>
+deploy/index.html.bak.20260601-004337:561:    async function signProposalCreationMessage(title, description, frequency) {
+deploy/index.html.bak.20260601-004337:565:    async function broadcastNewProposalToAristotle(title, description, frequency, signature) {
+deploy/index.html.bak.20260601-004337:566:        console.log("Broadcasting proposal to Aristotle:", {title, description, frequency, signature});
+deploy/index.html.bak.20260601-004337:635:            const signature = await signProposalCreationMessage(title, description, frequency);
+deploy/index.html.bak.20260601-004337:636:            const newProposalId = await broadcastNewProposalToAristotle(title, description, frequency, signature);
+deploy/index.html.bak.20260601-004337:638:            showEruptionToast(`🌋 VDP-${newProposalId} ignited and broadcast.<br>Frequency: ${frequency}Hz — The Forge grows.`);
+deploy/index.html.bak.20260601-004337:644:            showCooldownToast("Aristotle rejected the forging signature. Check connection or nonce.");
+deploy/index.html.bak.20260601-004337:655:    let signalLedgerCache = [];
+deploy/index.html.bak.20260601-004337:656:    let signalProvider;
+deploy/index.html.bak.20260601-004337:659:    const signalLedgerAbi = [
+deploy/index.html.bak.20260601-004337:667:        const cached = localStorage.getItem('signalLedgerCache');
+deploy/index.html.bak.20260601-004337:669:            signalLedgerCache = JSON.parse(cached);
+deploy/index.html.bak.20260601-004337:670:            signalLedgerCache.forEach(s => seenSignalHashes.add(getSignalHash(s)));
+deploy/index.html.bak.20260601-004337:677:    signalProvider = new ethers.providers.Web3Provider(window.ethereum);
+deploy/index.html.bak.20260601-004337:678:    iface = new ethers.utils.Interface(signalLedgerAbi);
+deploy/index.html.bak.20260601-004337:684:        if (!signalProvider) return;
+deploy/index.html.bak.20260601-004337:686:        const currentBlock = await signalProvider.getBlockNumber();
+deploy/index.html.bak.20260601-004337:694:        const logs = await signalProvider.getLogs({
+deploy/index.html.bak.20260601-004337:702:            const signal = {
+deploy/index.html.bak.20260601-004337:709:            signalLedgerCache.push(signal);
+deploy/index.html.bak.20260601-004337:715:        signalProvider.on(filter, (log) => {
+deploy/index.html.bak.20260601-004337:729:function getSignalHash(signal) {
+deploy/index.html.bak.20260601-004337:730:    return `${signal.address}-${signal.proposalId}-${signal.vp}-${signal.timestamp.toString().slice(0, -3)}`;
+deploy/index.html.bak.20260601-004337:733:function addNewSignalToLedger(signal) {
+deploy/index.html.bak.20260601-004337:734:    const hash = getSignalHash(signal);
+deploy/index.html.bak.20260601-004337:738:        console.log("Duplicate signal filtered:", hash);
+deploy/index.html.bak.20260601-004337:743:    signalLedgerCache.unshift(signal);
+deploy/index.html.bak.20260601-004337:746:    if (signalLedgerCache.length > 50) {
+deploy/index.html.bak.20260601-004337:747:        signalLedgerCache = signalLedgerCache.slice(0, 50);
+deploy/index.html.bak.20260601-004337:751:            signalLedgerCache.forEach(s => seenSignalHashes.add(getSignalHash(s)));
+deploy/index.html.bak.20260601-004337:757:        localStorage.setItem('signalLedgerCache', JSON.stringify(signalLedgerCache));
+deploy/index.html.bak.20260601-004337:762:        triggerHarmonicPulse(signal.frequency, 1);
+deploy/index.html.bak.20260601-004337:768:        const ledger = document.getElementById('signal-ledger');
+deploy/index.html.bak.20260601-004337:773:        signalLedgerCache.slice(0, 24).forEach((signal, index) => {
+deploy/index.html.bak.20260601-004337:775:            pulse.className = 'signal-pulse';
+deploy/index.html.bak.20260601-004337:778:                <div class="pulse-dot freq-${signal.frequency}"></div>
+deploy/index.html.bak.20260601-004337:780:                    <span class="pulse-vp">${signal.vp.toFixed(1)} VP</span>
+deploy/index.html.bak.20260601-004337:781:                    <span class="pulse-proposal">${signal.proposalId}</span>
+deploy/index.html.bak.20260601-004337:876:      const signer = walletProvider.getSigner();
+deploy/index.html.bak.20260601-004337:877:      const address = await signer.getAddress();
+evidence/trust/KRIS_TRUST_EVIDENCE_20260601T055025Z.md:20:- Wallet signing remains unauthorized
+evidence/zero-trust/ZERO_TRUST_EVIDENCE_MANIFEST_20260601T054552Z.md:43:- Wallet signing: not authorized
+evidence/zero-trust/ZERO_TRUST_EVIDENCE_MANIFEST_20260601T054552Z.md:58:It may not push, merge, deploy, sign, spend, mutate contracts, or submit mainnet transactions.
+evidence/deployments/TRUST_JSON_LIVE_DEPLOY_PROOF_20260601T061904Z.md:21:GitHub Actions deployment was unavailable because the account is locked due to a billing issue.
+evidence/deployments/TRUST_JSON_LIVE_DEPLOY_PROOF_20260601T061904Z.md:23:The site was deployed directly with Wrangler / Cloudflare Pages after local artifact verification.
+evidence/deployments/TRUST_JSON_LIVE_DEPLOY_PROOF_20260601T062216Z.md:21:GitHub Actions deployment was unavailable because the account is locked due to a billing issue.
+evidence/deployments/TRUST_JSON_LIVE_DEPLOY_PROOF_20260601T062216Z.md:23:The site was deployed directly with Wrangler / Cloudflare Pages after local artifact verification.
+evidence/deployments/TRUST_JSON_LIVE_DEPLOY_PROOF_20260601T062048Z.md:21:GitHub Actions deployment was unavailable because the account is locked due to a billing issue.
+evidence/deployments/TRUST_JSON_LIVE_DEPLOY_PROOF_20260601T062048Z.md:23:The site was deployed directly with Wrangler / Cloudflare Pages after local artifact verification.
+evidence/governance-window/MAIN_PROTECTION_AFTER_PR86_20260601T061904Z.json:1:{"url":"https://api.github.com/repos/onenoly1010/Quantum-pi-forge/branches/main/protection","required_pull_request_reviews":{"url":"https://api.github.com/repos/onenoly1010/Quantum-pi-forge/branches/main/protection/required_pull_request_reviews","dismiss_stale_reviews":true,"require_code_owner_reviews":true,"require_last_push_approval":false,"required_approving_review_count":1},"required_signatures":{"url":"https://api.github.com/repos/onenoly1010/Quantum-pi-forge/branches/main/protection/required_signatures","enabled":false},"enforce_admins":{"url":"https://api.github.com/repos/onenoly1010/Quantum-pi-forge/branches/main/protection/enforce_admins","enabled":true},"required_linear_history":{"enabled":true},"allow_force_pushes":{"enabled":false},"allow_deletions":{"enabled":false},"block_creations":{"enabled":false},"required_conversation_resolution":{"enabled":true},"lock_branch":{"enabled":false},"allow_fork_syncing":{"enabled":false}}
+evidence/governance-window/MAIN_PROTECTION_AFTER_PR86_20260601T062216Z.json:1:{"url":"https://api.github.com/repos/onenoly1010/Quantum-pi-forge/branches/main/protection","required_pull_request_reviews":{"url":"https://api.github.com/repos/onenoly1010/Quantum-pi-forge/branches/main/protection/required_pull_request_reviews","dismiss_stale_reviews":true,"require_code_owner_reviews":true,"require_last_push_approval":false,"required_approving_review_count":1},"required_signatures":{"url":"https://api.github.com/repos/onenoly1010/Quantum-pi-forge/branches/main/protection/required_signatures","enabled":false},"enforce_admins":{"url":"https://api.github.com/repos/onenoly1010/Quantum-pi-forge/branches/main/protection/enforce_admins","enabled":true},"required_linear_history":{"enabled":true},"allow_force_pushes":{"enabled":false},"allow_deletions":{"enabled":false},"block_creations":{"enabled":false},"required_conversation_resolution":{"enabled":true},"lock_branch":{"enabled":false},"allow_fork_syncing":{"enabled":false}}
+evidence/governance-window/MAIN_PROTECTION_BEFORE_PR84_20260601T060112Z.json:1:{"url":"https://api.github.com/repos/onenoly1010/Quantum-pi-forge/branches/main/protection","required_pull_request_reviews":{"url":"https://api.github.com/repos/onenoly1010/Quantum-pi-forge/branches/main/protection/required_pull_request_reviews","dismiss_stale_reviews":true,"require_code_owner_reviews":true,"require_last_push_approval":false,"required_approving_review_count":1},"required_signatures":{"url":"https://api.github.com/repos/onenoly1010/Quantum-pi-forge/branches/main/protection/required_signatures","enabled":false},"enforce_admins":{"url":"https://api.github.com/repos/onenoly1010/Quantum-pi-forge/branches/main/protection/enforce_admins","enabled":true},"required_linear_history":{"enabled":true},"allow_force_pushes":{"enabled":false},"allow_deletions":{"enabled":false},"block_creations":{"enabled":false},"required_conversation_resolution":{"enabled":true},"lock_branch":{"enabled":false},"allow_fork_syncing":{"enabled":false}}
+evidence/governance-window/MAIN_PROTECTION_BEFORE_PR86_20260601T061056Z.json:1:{"url":"https://api.github.com/repos/onenoly1010/Quantum-pi-forge/branches/main/protection","required_pull_request_reviews":{"url":"https://api.github.com/repos/onenoly1010/Quantum-pi-forge/branches/main/protection/required_pull_request_reviews","dismiss_stale_reviews":true,"require_code_owner_reviews":true,"require_last_push_approval":false,"required_approving_review_count":1},"required_signatures":{"url":"https://api.github.com/repos/onenoly1010/Quantum-pi-forge/branches/main/protection/required_signatures","enabled":false},"enforce_admins":{"url":"https://api.github.com/repos/onenoly1010/Quantum-pi-forge/branches/main/protection/enforce_admins","enabled":true},"required_linear_history":{"enabled":true},"allow_force_pushes":{"enabled":false},"allow_deletions":{"enabled":false},"block_creations":{"enabled":false},"required_conversation_resolution":{"enabled":true},"lock_branch":{"enabled":false},"allow_fork_syncing":{"enabled":false}}
+evidence/governance-window/MAIN_PROTECTION_AFTER_PR86_20260601T062048Z.json:1:{"url":"https://api.github.com/repos/onenoly1010/Quantum-pi-forge/branches/main/protection","required_pull_request_reviews":{"url":"https://api.github.com/repos/onenoly1010/Quantum-pi-forge/branches/main/protection/required_pull_request_reviews","dismiss_stale_reviews":true,"require_code_owner_reviews":true,"require_last_push_approval":false,"required_approving_review_count":1},"required_signatures":{"url":"https://api.github.com/repos/onenoly1010/Quantum-pi-forge/branches/main/protection/required_signatures","enabled":false},"enforce_admins":{"url":"https://api.github.com/repos/onenoly1010/Quantum-pi-forge/branches/main/protection/enforce_admins","enabled":true},"required_linear_history":{"enabled":true},"allow_force_pushes":{"enabled":false},"allow_deletions":{"enabled":false},"block_creations":{"enabled":false},"required_conversation_resolution":{"enabled":true},"lock_branch":{"enabled":false},"allow_fork_syncing":{"enabled":false}}
+evidence/mainnet-shadow/0g-direct-shadow-20260601T052506Z.md:24:- sign wallet transactions
+evidence/mainnet-shadow/0g-direct-shadow-20260601T052506Z.md:25:- submit mainnet transactions
+evidence/mainnet-shadow/0g-direct-shadow-20260601T052506Z.md:27:- transfer funds
+evidence/mainnet-shadow/RESONANCE_DIRECT_COMPUTE_CONFIRMED_20260601T053037Z.md:31:- No autonomous authority
+evidence/mainnet-shadow/RESONANCE_DIRECT_COMPUTE_CONFIRMED_20260601T053037Z.md:32:- No transaction submission
+evidence/mainnet-shadow/RESONANCE_DIRECT_COMPUTE_CONFIRMED_20260601T053037Z.md:39:This does not authorize autonomous execution, wallet signing, contract mutation, fund movement, or mainnet transaction submission.
+evidence/authority/RESONANCE_WORKER_AUTHORITY_MODEL_20260601T054833Z.md:26:- autonomous execution
+evidence/authority/RESONANCE_WORKER_AUTHORITY_MODEL_20260601T054833Z.md:27:- wallet signing
+evidence/authority/RESONANCE_WORKER_AUTHORITY_MODEL_20260601T054833Z.md:28:- transaction submission
+evidence/authority/RESONANCE_WORKER_AUTHORITY_MODEL_20260601T054833Z.md:41:This does not grant write, signing, deployment, or transaction authority.
+evidence/authority/RESONANCE_WORKER_AUTHORITY_MODEL_20260601T054833Z.md:61:- signer or multisig approval
+evidence/authority/RESONANCE_WORKER_AUTHORITY_MODEL_20260601T054833Z.md:67:No one has authorized autonomous Resonance Worker execution.
+audits/dependency-map-20260528.sh:59:  find deploy frontend public out -maxdepth 3 -type f 2>/dev/null | sort | sed -n '1,200p'
+audits/dependency-map-20260528.sh:94:    package.json wrangler.toml wrangler.json wrangler.jsonc .github deploy frontend server scripts 2>/dev/null \
+audits/deprecated-deploy-scripts/compile-and-deploy.js.20260528_153947:45:  console.log("🚀 Starting deployment to 0G Aristotle Mainnet");
+audits/deprecated-deploy-scripts/compile-and-deploy.js.20260528_153947:72:  const oinio = await factory.deploy(INITIAL_SUPPLY, {
+audits/deprecated-deploy-scripts/compile-and-deploy.js.20260528_153947:79:  const deployTxHash = oinio.deploymentTransaction().hash;
+audits/deprecated-deploy-scripts/compile-and-deploy.js.20260528_153947:81:  console.log(`✅ Contract deployed successfully!`);
+audits/deprecated-deploy-scripts/compile-and-deploy.js.20260528_153947:83:  console.log(`   Deployment Hash: ${deployTxHash}\n`);
+audits/deprecated-deploy-scripts/compile-and-deploy.js.20260528_153947:85:  // Wait for transaction finality
+audits/deprecated-deploy-scripts/compile-and-deploy.js.20260528_153947:87:  await provider.waitForTransaction(deployTxHash, 2);
+audits/deprecated-deploy-scripts/deploy-direct.js.20260528_153947:8:  console.log("🚀 Starting DIRECT deployment to 0G Aristotle Mainnet");
+audits/deprecated-deploy-scripts/deploy-direct.js.20260528_153947:39:  const oinio = await factory.deploy(INITIAL_SUPPLY, {
+audits/deprecated-deploy-scripts/deploy-direct.js.20260528_153947:46:  const deployTxHash = oinio.deploymentTransaction().hash;
+audits/deprecated-deploy-scripts/deploy-direct.js.20260528_153947:48:  console.log(`✅ Contract deployed successfully!`);
+audits/deprecated-deploy-scripts/deploy-direct.js.20260528_153947:50:  console.log(`   Deployment Hash: ${deployTxHash}\n`);
+audits/deprecated-deploy-scripts/deploy-direct.js.20260528_153947:52:  // Wait for transaction finality
+audits/deprecated-deploy-scripts/deploy-direct.js.20260528_153947:54:  await provider.waitForTransaction(deployTxHash, 2);
+audits/deprecated-deploy-scripts/deploy-0g-mainnet.js.20260528_153947:5:  console.log("🚀 Starting deployment to 0G Aristotle Mainnet");
+audits/deprecated-deploy-scripts/deploy-0g-mainnet.js.20260528_153947:8:  // Get deployer wallet
+audits/deprecated-deploy-scripts/deploy-0g-mainnet.js.20260528_153947:9:  const [deployer] = await ethers.getSigners();
+audits/deprecated-deploy-scripts/deploy-0g-mainnet.js.20260528_153947:10:  console.log(`✅ Deployer address: ${deployer.address}`);
+audits/deprecated-deploy-scripts/deploy-0g-mainnet.js.20260528_153947:13:  const balance = await ethers.provider.getBalance(deployer.address);
+audits/deprecated-deploy-scripts/deploy-0g-mainnet.js.20260528_153947:31:  const oinio = await OINIO.deploy(INITIAL_SUPPLY, {
+audits/deprecated-deploy-scripts/deploy-0g-mainnet.js.20260528_153947:38:  const deployTxHash = oinio.deploymentTransaction().hash;
+audits/deprecated-deploy-scripts/deploy-0g-mainnet.js.20260528_153947:40:  console.log(`✅ Contract deployed successfully!`);
+audits/deprecated-deploy-scripts/deploy-0g-mainnet.js.20260528_153947:42:  console.log(`   Deployment Hash: ${deployTxHash}\n`);
+audits/deprecated-deploy-scripts/deploy-0g-mainnet.js.20260528_153947:44:  // Wait for transaction finality
+audits/deprecated-deploy-scripts/deploy-0g-mainnet.js.20260528_153947:46:  await ethers.provider.waitForTransaction(deployTxHash, 2);
+audits/dependency-map-20260528.txt:9:e4a2e3e Add deployment checkpoint documentation
+audits/dependency-map-20260528.txt:11:860f783 Align Cloudflare Pages deploy workflow with static output
+audits/dependency-map-20260528.txt:96:  "serve:deploy": "python3 -m http.server 8100 --directory out",
+audits/dependency-map-20260528.txt:97:  "deploy:cf": "wrangler pages deploy out --project-name quantumpiforge"
+audits/dependency-map-20260528.txt:101:./deploy/_headers
+audits/dependency-map-20260528.txt:111:deploy/dao.html
+audits/dependency-map-20260528.txt:112:deploy/FORGE_ACTIVATION_GUIDE.md
+audits/dependency-map-20260528.txt:113:deploy/_headers
+audits/dependency-map-20260528.txt:114:deploy/index.html
+audits/dependency-map-20260528.txt:115:deploy/manifest.json
+audits/dependency-map-20260528.txt:116:deploy/resonate.html
+audits/dependency-map-20260528.txt:251:   5291       1 mintreport-tray              0.6  0.2
+audits/dependency-map-20260528.txt:317:package.json:7:    "deploy:cf": "wrangler pages deploy out --project-name quantumpiforge"
+audits/dependency-map-20260528.txt:337:.github/branch-protection-config.json:72:      "description": "Create .github/CODEOWNERS file for automatic reviewer assignment",
+audits/dependency-map-20260528.txt:413:.github/workflows/deploy-testnet.yml:26:  IMAGE_NAME: ${{ github.repository }}
+audits/dependency-map-20260528.txt:414:.github/workflows/deploy-testnet.yml:45:          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+audits/dependency-map-20260528.txt:415:.github/workflows/deploy-testnet.yml:46:            CONFIRM="${{ github.event.inputs.confirm_testnet }}"
+audits/dependency-map-20260528.txt:416:.github/workflows/deploy-testnet.yml:170:          username: ${{ github.actor }}
+audits/dependency-map-20260528.txt:417:.github/workflows/deploy-testnet.yml:223:  deploy-railway:
+audits/dependency-map-20260528.txt:418:.github/workflows/deploy-testnet.yml:230:      url: https://pi-forge-testnet.up.railway.app
+audits/dependency-map-20260528.txt:419:.github/workflows/deploy-testnet.yml:237:          npm i -g @railway/cli
+audits/dependency-map-20260528.txt:420:.github/workflows/deploy-testnet.yml:258:      #     railway link <YOUR_RAILWAY_PROJECT_ID>
+audits/dependency-map-20260528.txt:421:.github/workflows/deploy-testnet.yml:259:      #     railway up --service fastapi-server
+audits/dependency-map-20260528.txt:422:.github/workflows/deploy-testnet.yml:265:      #     railway up --service flask-dashboard
+audits/dependency-map-20260528.txt:423:.github/workflows/deploy-testnet.yml:271:      #     railway up --service gradio-interface
+audits/dependency-map-20260528.txt:424:.github/workflows/deploy-testnet.yml:283:          echo "For manual deployment, run: railway up --service <service-name>"
+audits/dependency-map-20260528.txt:425:.github/workflows/deploy-testnet.yml:285:          echo "See infra/railway/README.md for detailed instructions"
+audits/dependency-map-20260528.txt:426:.github/workflows/deploy-testnet.yml:303:    needs: deploy-railway
+audits/dependency-map-20260528.txt:427:.github/workflows/deploy-testnet.yml:330:          echo './scripts/smoke_test.sh https://your-deployment.up.railway.app' >> $GITHUB_STEP_SUMMARY
+audits/dependency-map-20260528.txt:428:.github/workflows/deploy-testnet.yml:337:    needs: [deploy-railway, smoke-test]
+audits/dependency-map-20260528.txt:429:.github/workflows/deploy-testnet.yml:349:          echo "  railway rollback --service <service-name>"
+audits/dependency-map-20260528.txt:430:.github/workflows/deploy-testnet.yml:351:          echo "See .github/workflows/rollback.yml for automated rollback"
+audits/dependency-map-20260528.txt:431:.github/workflows/deploy-testnet.yml:361:          echo "2. CLI: \`railway rollback --service <service-name>\`" >> $GITHUB_STEP_SUMMARY
+audits/dependency-map-20260528.txt:432:.github/workflows/verify-deployments.yml:79:          name: verification-reports-${{ inputs.network }}-${{ github.run_number }}
+audits/dependency-map-20260528.txt:433:.github/workflows/verify-deployments.yml:85:        if: github.event_name == 'pull_request' && always()
+audits/dependency-map-20260528.txt:434:.github/workflows/verify-deployments.yml:86:        uses: actions/github-script@v7
+audits/dependency-map-20260528.txt:435:.github/workflows/verify-deployments.yml:125:              [View detailed reports in artifacts](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+audits/dependency-map-20260528.txt:436:.github/workflows/verify-deployments.yml:128:              github.rest.issues.createComment({
+audits/dependency-map-20260528.txt:471:.github/workflows/build-sign.yml:8:  IMAGE_NAME: ${{ github.repository }}/guardian-quorum
+audits/dependency-map-20260528.txt:472:.github/workflows/build-sign.yml:30:          username: ${{ github.actor }}
+audits/dependency-map-20260528.txt:473:.github/workflows/build-sign.yml:42:            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+audits/dependency-map-20260528.txt:474:.github/workflows/build-sign.yml:44:            org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}
+audits/dependency-map-20260528.txt:475:.github/workflows/build-sign.yml:45:            org.opencontainers.image.revision=${{ github.sha }}
+audits/dependency-map-20260528.txt:476:.github/workflows/build-sign.yml:46:            org.opencontainers.image.created=${{ github.event.head_commit.timestamp }}
+audits/dependency-map-20260528.txt:533:.github/workflows/rollback.yml:75:          echo "**Deployment ID:** ${{ github.event.inputs.deployment_id || 'Previous deployment' }}" >> $GITHUB_STEP_SUMMARY
+audits/dependency-map-20260528.txt:537:.github/workflows/rollback.yml:111:      # railway rollback --service <service-name> --to <deployment-id>
+audits/dependency-map-20260528.txt:541:.github/workflows/rollback.yml:130:          # if [ -n "${{ github.event.inputs.deployment_id }}" ]; then
+audits/dependency-map-20260528.txt:542:.github/workflows/rollback.yml:131:          #   railway rollback --service fastapi-server --to "${{ github.event.inputs.deployment_id }}"
+audits/dependency-map-20260528.txt:549:.github/workflows/rollback.yml:179:          echo "**Deployment ID:** ${{ github.event.inputs.deployment_id || 'Previous' }}" >> $GITHUB_STEP_SUMMARY
+audits/dependency-map-20260528.txt:551:.github/workflows/rollback.yml:223:          echo '   ./scripts/smoke_test.sh https://your-deployment.up.railway.app' >> $GITHUB_STEP_SUMMARY
+audits/dependency-map-20260528.txt:554:.github/workflows/rollback.yml:240:          echo "Deployment ID:  ${{ github.event.inputs.deployment_id || 'Previous' }}"
+audits/0gskills/OINIO_DIRECT_PROVIDER_SUCCESS_20260529.md:33:- Initial provider sub-account transfer tx: 0x6232f4067f1688d9770b35b1b6fa5a0ba81c0d4f8e7359f4a99c4c506026ae9e
+audits/0gskills/OINIO_DIRECT_PROVIDER_SUCCESS_20260529.md:34:- Additional buffer transfer: 0.25 0G
+audits/0gskills/OINIO_DIRECT_PROVIDER_SUCCESS_20260529.md:35:- Buffer transfer tx: 0xde1bc12bd3c015e9ae6e287401fb00976cef5d6c9e99bc9de5940a800e2f7c6f
+audits/0gskills/OINIO_DIRECT_PROVIDER_SUCCESS_20260529.md:70:3. Provider signer acknowledged.
+audits/0gskills/OINIO_COMPUTE_AUTH_NOTE_20260528.md:10:1. EVM deployment path
+audits/0gskills/OINIO_COMPUTE_AUTH_NOTE_20260528.md:23:- Signs EVM deployment transactions.
+audits/0gskills/OINIO_COMPUTE_AUTH_NOTE_20260528.md:24:- Used by `scripts/preflight-0g-deploy.js` to derive deployer address and estimate gas.
+audits/0gskills/OINIO_COMPUTE_AUTH_NOTE_20260528.md:25:- Used by `scripts/safe-deploy.js` only when `LIVE_DEPLOY=YES`.
+audits/0gskills/OINIO_COMPUTE_AUTH_NOTE_20260528.md:49:- EVM deployment.
+audits/0gskills/OINIO_COMPUTE_AUTH_NOTE_20260528.md:51:- Wallet signing.
+audits/0gskills/OINIO_COMPUTE_AUTH_NOTE_20260528.md:77:- `PRIVATE_KEY` only for local EVM deployment workflows.
+audits/0gskills/ship-SKILL-20260528.md:17:Use this skill when you need a **ordered playbook**: contracts, storage, compute, deployment, verification, and UX — without skipping security or testing.
+audits/0gskills/ship-SKILL-20260528.md:23:0G provides an **EVM-compatible chain** (deploy with familiar tooling), plus **decentralized storage** (SDKs / indexer) and **AI compute** (inference, fine-tuning). Validators tie into **Ethereum via Symbiotic restaking** (see [Protocol](../protocol/SKILL.md)). Treat 0G as: **execution + data + ML services**, not “just another EVM.”
+audits/0gskills/ship-SKILL-20260528.md:27:## Phase 1 — Design
+audits/0gskills/ship-SKILL-20260528.md:32:4. **Threat model:** keys, oracles, upgradeability, cross-chain assumptions — [Security](../security/SKILL.md).
+audits/0gskills/ship-SKILL-20260528.md:38:- Compiler: target **`cancun`** EVM version for compatibility (see [official deploy guide](https://docs.0g.ai/developer-hub/building-on-0g/contracts-on-0g/deploy-contracts)).
+audits/0gskills/ship-SKILL-20260528.md:40:- **Precompiles:** understand DA signer and wrapped base precompiles before relying on them ([precompiles overview](https://docs.0g.ai/developer-hub/building-on-0g/contracts-on-0g/precompiles/precompiles-overview)).
+audits/0gskills/ship-SKILL-20260528.md:70:- Example **Foundry** deploy:
+audits/0gskills/ship-SKILL-20260528.md:79:- Verify on **Chainscan** using explorer API URLs from [deploy contracts](https://docs.0g.ai/developer-hub/building-on-0g/contracts-on-0g/deploy-contracts).
+audits/0gskills/ship-SKILL-20260528.md:95:3. [Indexing](../indexing/SKILL.md) — ensure subgraphs/indexers match deployed events.
+audits/0gskills/OINIO_SHIP_INTEGRATION_20260528.md:11:This document maps the 0G Ship skill workflow into the OINIO deployment pipeline.
+audits/0gskills/OINIO_SHIP_INTEGRATION_20260528.md:13:The upstream Ship skill is an end-to-end 0G build and deployment playbook covering:
+audits/0gskills/OINIO_SHIP_INTEGRATION_20260528.md:15:- contract design
+audits/0gskills/OINIO_SHIP_INTEGRATION_20260528.md:19:- deployment and verification
+audits/0gskills/OINIO_SHIP_INTEGRATION_20260528.md:27:Therefore, OINIO deployments must not require an EVM router unless a real liquidity router contract is explicitly configured, bytecode-verified, and manifest-attested.
+audits/0gskills/OINIO_SHIP_INTEGRATION_20260528.md:31:OINIO base contract deployed on 0G Aristotle:
+audits/0gskills/OINIO_SHIP_INTEGRATION_20260528.md:45:### Phase 1 — Design
+audits/0gskills/OINIO_SHIP_INTEGRATION_20260528.md:51:  - ownership / deployer proof
+audits/0gskills/OINIO_SHIP_INTEGRATION_20260528.md:85:- Keep EVM deployment keys out of git.
+audits/0gskills/OINIO_SHIP_INTEGRATION_20260528.md:89:Canonical 0G Aristotle deployment settings used by OINIO:
+audits/0gskills/OINIO_SHIP_INTEGRATION_20260528.md:97:OINIO deployment must use the manifest-gated pipeline:
+audits/0gskills/OINIO_SHIP_INTEGRATION_20260528.md:99:1. `node scripts/preflight-0g-deploy.js`
+audits/0gskills/OINIO_SHIP_INTEGRATION_20260528.md:100:2. Inspect `cache/deployment-manifest.json`
+audits/0gskills/OINIO_SHIP_INTEGRATION_20260528.md:101:3. `node scripts/safe-deploy.js`
+audits/0gskills/OINIO_SHIP_INTEGRATION_20260528.md:103:   - `LIVE_DEPLOY=YES node scripts/safe-deploy.js`
+audits/0gskills/OINIO_SHIP_INTEGRATION_20260528.md:108:- Missing manifest blocks safe deploy.
+audits/0gskills/OINIO_SHIP_INTEGRATION_20260528.md:109:- Missing `LIVE_DEPLOY=YES` keeps deploy in dry-run mode.
+audits/0gskills/OINIO_SHIP_INTEGRATION_20260528.md:117:- deployed OINIO contract address
+audits/0gskills/OINIO_SHIP_INTEGRATION_20260528.md:120:- deployment tx hash
+audits/0gskills/OINIO_SHIP_INTEGRATION_20260528.md:132:- Transfer genesis/mint event indexing
+audits/0gskills/OINIO_SHIP_INTEGRATION_20260528.md:133:- deployment attestation committed
+audits/0gskills/OINIO_SHIP_INTEGRATION_20260528.md:146:> Force a Uniswap-style router into the base token deployment path.
