@@ -1,0 +1,17 @@
+TOKEN:  0xbEbC1A40A18632CeE19D220647E7aD296A1A5F37
+WALLET: 0x353663cd664bB3e034Dc0f308D8896C0a242e4cd
+RPC:    https://evmrpc.0g.ai
+
+=== chain/code ===
+chainId: 16661
+latest block: 35110834
+contract code exists: True
+
+=== common authority / metadata calls ===
+owner(): 0x353663cd664bb3e034dc0f308d8896c0a242e4cd
+pendingOwner(): unsupported or failed: {'code': 3, 'message': 'execution reverted', 'data': '0x'}
+paused(): unsupported or failed: {'code': 3, 'message': 'execution reverted', 'data': '0x'}
+totalSupply(): 1000000000000000000000000000
+name(): OINIO
+symbol(): OINIO
+decimals(): 18
