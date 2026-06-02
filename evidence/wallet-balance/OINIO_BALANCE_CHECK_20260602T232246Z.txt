@@ -1,0 +1,20 @@
+TOKEN:  0xbEbC1A40A18632CeE19D220647E7aD296A1A5F37
+WALLET: 0x353663cd664bB3e034Dc0f308D8896C0a242e4cd
+
+=== RPC: https://evmrpc.0g.ai ===
+chainId: 16661
+latest block: 35110616
+contract code exists: True
+name: OINIO
+symbol: OINIO
+decimals: 18
+totalSupply raw: 1000000000000000000000000000
+totalSupply formatted: 1000000000
+wallet balance raw: 962839002795980730000000000
+wallet balance formatted: 962839002.79598073
+
+=== RPC: https://0g-mainnet.drpc.org ===
+FAILED: HTTP Error 403: Forbidden
+
+=== RPC: https://16661.rpc.thirdweb.com ===
+FAILED: HTTP Error 403: Forbidden
