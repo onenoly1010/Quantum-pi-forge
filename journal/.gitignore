@@ -1,3 +1,6 @@
 *.sig
 state-root.cache
+intent.log
+sync-out/
+archive/
 !.gitignore
