@@ -1,0 +1,3 @@
+*.sig
+state-root.cache
+!.gitignore
