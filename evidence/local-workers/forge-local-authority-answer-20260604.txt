@@ -1,0 +1,47 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+𓂀 QUANTUM PI FORGE — LOCAL EVIDENCE ASK
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Question: What is the Resonance Worker authorized to do?
+
+Mode: READ-ONLY / MOCK
+Boundary: docs/FORGE_GOVERNANCE_BOUNDARY.md
+
+Current state:
+  Branch: evidence/execution-truth-journal
+  Commit: 5e7df65
+
+Evidence matches:
+docs/0G_DEX_DEPLOYMENT.md:20:6. [Integration with Pi Forge](#integration-with-pi-forge)
+docs/0G_DEX_DEPLOYMENT.md:83:pi-forge-quantum-genesis/
+docs/0G_DEX_DEPLOYMENT.md:130:forge --version
+docs/0G_DEX_DEPLOYMENT.md:167:cd /home/runner/work/pi-forge-quantum-genesis/pi-forge-quantum-genesis/contracts/0g-uniswap-v2
+docs/0G_DEX_DEPLOYMENT.md:177:- Install forge-std, OpenZeppelin
+docs/0G_DEX_IMPLEMENTATION_SUMMARY.md:63:- Pi Forge integration instructions
+docs/0G_DEX_IMPLEMENTATION_SUMMARY.md:125:pi-forge-quantum-genesis/
+docs/0G_DEX_IMPLEMENTATION_SUMMARY.md:290:4. **Integrate with Pi Forge** backend/frontend
+docs/0G_DEX_IMPLEMENTATION_SUMMARY.md:342:5. **Integrate with Pi Forge** (1 hour)
+docs/0G_DEX_QUICKSTART.md:17:forge --version
+docs/0G_DEX_QUICKSTART.md:42:cd /home/runner/work/pi-forge-quantum-genesis/pi-forge-quantum-genesis
+docs/0G_DEX_QUICKSTART.md:90:forge build
+docs/0G_DEX_QUICKSTART.md:133:cd /home/runner/work/pi-forge-quantum-genesis/pi-forge-quantum-genesis
+docs/0G_DEX_QUICKSTART.md:252:## Integration with Pi Forge (30 minutes)
+docs/0G_SHIP_SKILL_REFERENCE.md:47:forge create --rpc-url https://evmrpc.0g.ai \
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:5:The **AI Agent Handoff & Autonomous Runbook** is a comprehensive GitHub Actions workflow designed to enable AI agents to autonomously deploy, monitor, update, and maintain the Quantum Pi Forge system without human intervention. This workflow implements industry best practices for CI/CD, monitoring, rollback, and communication.
+docs/AI_AGENT_HANDOFF_RUNBOOK.md:1000:*Quantum Pi Forge - AI Agent Handoff & Autonomous Runbook*
+docs/AI_AGENT_QUICK_REFERENCE.md:3:## Quantum Pi Forge - Autonomous Runbook Commands
+docs/AI_SOCIAL_NETWORK_WORKFLOW.md:7:The AI Social Network (codenamed **"Collective Intelligence Lattice"**) is a groundbreaking platform where AI agents can interact, collaborate, and engage with humans ethically. Built on the foundation of Pi Forge Quantum Genesis, this network leverages blockchain integration for decentralization, enforces ethical standards through the existing Cyber Samurai Guardian framework, and enables meaningful AI-to-AI and AI-to-human interactions.
+docs/AI_SOCIAL_NETWORK_WORKFLOW.md:89:> **Note on Quantum Coherence**: The "5-nanosecond" latency threshold is a conceptual metric inherited from the Cyber Samurai Guardian framework, representing the symbolic coherence between system layers rather than actual network latency. This terminology maintains consistency with the existing Quantum Pi Forge architecture.
+docs/AI_SOCIAL_NETWORK_WORKFLOW.md:116:- [ ] **Governance Voting**: Decentralized decision-making for network rules
+docs/AI_SOCIAL_NETWORK_WORKFLOW.md:343:        # Use existing formula from Pi Forge
+docs/AI_SOCIAL_NETWORK_WORKFLOW.md:442:The AI Social Network builds upon existing Pi Network integration in `frontend/pi-forge-integration.js`:
+docs/API.md:1:# 📡 API Documentation - Pi Forge Quantum Genesis
+docs/API.md:5:Pi Forge Quantum Genesis provides multiple API layers for different purposes. This document serves as a central reference for all API documentation.
+docs/API.md:15:- **Swagger UI**: `http://localhost:8000/docs` (local) or `https://pi-forge-quantum-genesis.railway.app/docs` (production)
+docs/API.md:16:- **ReDoc**: `http://localhost:8000/redoc` (local) or `https://pi-forge-quantum-genesis.railway.app/redoc` (production)
+docs/API.md:259:const ws = new WebSocket('wss://pi-forge-quantum-genesis.railway.app/ws/collective-insight?token=<jwt-token>');
+docs/ARCHITECTURE.md:73:- `generate-grant-evidence.cjs` — Attestation with git/Node/npm context (coming)
+docs/ARCHITECTURE.md:266:| Grant evidence generator | 🔄 In Progress | `scripts/generate-grant-evidence.cjs` |
+docs/ARCHITECTURE.md:272:## Operational States
+docs/ARCHITECTURE.md:291:**Current operational state: Yellow (Degraded but Operational)**
+docs/ARCHITECTURE.md:306:| `scripts/generate-grant-evidence.cjs` | Evidence attestation | 🔄 Coming |
