@@ -1,0 +1,5 @@
+{
+  "error": "Topic not found",
+  "code": "UNKNOWN_TOPIC",
+  "deterministic_refusal": true
+}

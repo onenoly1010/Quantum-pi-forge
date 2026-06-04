@@ -1,0 +1,7 @@
+{
+  "topic": "ship",
+  "requested_depth": 1,
+  "resolved_depth": 1,
+  "content": "# Shipping Skill\nCore execution protocols for deploying manifests safely.",
+  "linked_topics": ["wallet", "governance"]
+}

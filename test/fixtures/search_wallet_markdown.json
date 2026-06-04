@@ -1,0 +1,11 @@
+{
+  "query": "wallet",
+  "format": "markdown",
+  "results": [
+    {
+      "topic": "wallet",
+      "score": 0.98,
+      "snippet": "### Wallet Management\nDeterministic keys used purely for secure validation tracking."
+    }
+  ]
+}

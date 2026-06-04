@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SkillRetrievalResponse",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "topic": {
+      "type": "string",
+      "minLength": 1
+    },
+    "requested_depth": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "resolved_depth": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "content": {
+      "type": "string"
+    },
+    "linked_topics": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  },
+  "required": [
+    "topic",
+    "requested_depth",
+    "resolved_depth",
+    "content",
+    "linked_topics"
+  ]
+}
