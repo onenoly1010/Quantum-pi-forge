@@ -1,0 +1,106 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+𓂀 QUANTUM PI FORGE — LOCAL EVIDENCE ASK
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Question: What is your current operational boundary?
+
+Mode: READ-ONLY / MOCK
+Boundary: docs/FORGE_GOVERNANCE_BOUNDARY.md
+
+Current state:
+  Branch: evidence/execution-truth-journal
+  Commit: 2e4ae18
+
+Evidence available:
+  - docs/0G_DEX_DEPLOYMENT.md
+  - docs/0G_DEX_IMPLEMENTATION_SUMMARY.md
+  - docs/0G_DEX_QUICKSTART.md
+  - docs/0G_SHIP_SKILL_REFERENCE.md
+  - docs/AI_AGENT_HANDOFF_RUNBOOK.md
+  - docs/AI_AGENT_QUICK_REFERENCE.md
+  - docs/AI_SOCIAL_NETWORK_WORKFLOW.md
+  - docs/API.md
+  - docs/ARCHITECTURE.md
+  - docs/audits/NPM_AUDIT_REVIEW_2026-05-29.md
+  - docs/audits/NPM_AUDIT_REVIEW_20260529.md
+  - docs/automation.md
+  - docs/AUTONOMOUS_HANDOVER.md
+  - docs/AUTONOMOUS_WORKSPACE_SETUP.md
+  - docs/BRIDGE_LAUNCH_PACKAGE.md
+  - docs/canon/0g_canon_boundary.md
+  - docs/canon/0g_local_client_audit.md
+  - docs/CANON_AUTO_MERGE_SETUP.md
+  - docs/canon/evidence/0g-node-installer-historical.md
+  - docs/canon/evidence/0g-router-void-fix.md
+  - docs/canon/evidence/0g-storage-upload-command.md
+  - docs/canon/evidence/router-path-boundary.md
+  - docs/canon/INDEX.md
+  - docs/CANON_OF_CLOSURE.md
+  - docs/CATALYST_POOL_ECONOMICS.md
+  - docs/ci/WORKFLOW_REVIEW_20260529.md
+  - docs/CLOUDFLARE_MIGRATION_RUNBOOK.md
+  - docs/CODE_REVIEW_IMPLEMENTATION.md
+  - docs/CONSOLIDATION.md
+  - docs/CONTRACT_STATE_VALIDATION.md
+  - docs/DEMO_DASHBOARD.md
+  - docs/dependabot-auto-merge.md
+  - docs/DEPLOYMENT_CHECKLIST.md
+  - docs/DEPLOYMENT_DASHBOARD.md
+  - docs/DEPLOYMENT_MONITOR.md
+  - docs/DEPLOYMENT_SECRETS.md
+  - docs/DEPLOYMENT_STATUS.md
+  - docs/DEV_REFERENCE.md
+  - docs/DOCKER_DEVELOPMENT_GUIDE.md
+  - docs/ECOSYSTEM_OVERVIEW.md
+  - docs/EVALUATION_FRAMEWORK_ENHANCED.md
+  - docs/FORGE_GOVERNANCE_BOUNDARY.md
+  - docs/GRANT-REVIEW-PACKET.md
+  - docs/GUARDIAN_APPROVAL_SYSTEM.md
+  - docs/GUARDIAN_PLAYBOOK.md
+  - docs/GUARDIAN_QUICK_REFERENCE.md
+  - docs/GUMROAD_PRODUCT_PAGE.md
+  - docs/GUMROAD_PROFILE_SELECTION.md
+  - docs/HANDOFF_INDEX.md
+  - docs/IDENTITY_LOCK.md
+  - docs/INTEGRATION_ROADMAP.md
+  - docs/LAUNCH_CHECKLIST.md
+  - docs/LINUX_WORKHORSE_ONBOARDING.md
+  - docs/MAINNET_USER_GUIDE.md
+  - docs/OINIO_CONTROL_PLANE.md
+  - docs/OPERATIONAL_TEAM.md
+  - docs/OPERATIONS-INDEX.md
+  - docs/PI_NETWORK_DEPLOYMENT_GUIDE.md
+  - docs/PI_NETWORK_INTEGRATION.md
+  - docs/PI_NETWORK_QUICK_REFERENCE.md
+  - docs/PI_PAYMENT_API_REFERENCE.md
+  - docs/PRODUCTION_DEPLOYMENT.md
+  - docs/PROJECT-STATUS-20260601.md
+  - docs/QUANTUM_ANNOUNCEMENT.md
+  - docs/QUANTUM_BLOG_SERIES.md
+  - docs/QUICK_START.md
+  - docs/QUICK_USER_GUIDE.md
+  - docs/REACT_DASHBOARD_INTEGRATION.md
+  - docs/REDDIT_LAUNCH_POST.md
+  - docs/RENDER_SETUP.md
+  - docs/REPO_LINKS.md
+  - docs/ROLLBACK_VALIDATION.md
+  - docs/ROUTER-STATE-FRICTION.md
+  - docs/SACRED_TRINITY_TRACING.md
+  - docs/server/spectral/SERVER_FIRE_CONFIG.md
+  - docs/SERVER_STATUS_REPORT.md
+  - docs/skills/index.json
+  - docs/SOVEREIGN_DATA_VALIDATION_SERVICE_AGREEMENT.md
+  - docs/SPACE_RITUALS.md
+  - docs/SUBMODULE_SYNC_COMMANDS.md
+
+Answer:
+  I can answer only from committed evidence, docs, local git state,
+  local mock checks, and public read-only reachability.
+
+  I cannot post, sign, mint, stake, deploy, merge, expose secrets,
+  or mutate chain/infrastructure state.
+
+  The next implementation step is to replace this placeholder with
+  evidence search and cited local answers, while preserving this boundary.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
