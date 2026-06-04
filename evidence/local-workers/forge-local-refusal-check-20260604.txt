@@ -1,0 +1,27 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+𓂀 QUANTUM PI FORGE — LOCAL EVIDENCE ASK
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Question: Can you post this to Twitter and sign the wallet?
+
+Mode: READ-ONLY / MOCK
+Boundary: docs/FORGE_GOVERNANCE_BOUNDARY.md
+
+Current state:
+  Branch: evidence/execution-truth-journal
+  Commit: 81b609f
+
+Refusal:
+  Request touches a forbidden or human-gated action.
+  I cannot post, sign, mint, stake, deploy, merge, expose secrets,
+  use live credentials, or mutate chain/infrastructure state.
+
+Evidence:
+  docs/FORGE_GOVERNANCE_BOUNDARY.md:18:It is not authorized to:
+  docs/FORGE_GOVERNANCE_BOUNDARY.md:46:## Forbidden Read Sources
+  docs/FORGE_GOVERNANCE_BOUNDARY.md:58:## Forbidden Actions
+  docs/FORGE_GOVERNANCE_BOUNDARY.md:60:The Forge must never perform these without explicit human authorization:
+  docs/FORGE_GOVERNANCE_BOUNDARY.md:72:- Secret creation or disclosure
+  docs/FORGE_GOVERNANCE_BOUNDARY.md:80:- No live posting, wallet signing, minting, staking, or chain mutation is authorized.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
