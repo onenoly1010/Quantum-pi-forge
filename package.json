@@ -7,7 +7,7 @@
     "deploy:cf": "bash scripts/deploy-cloudflare-pages.sh"
   },
   "dependencies": {
-    "@nomicfoundation/hardhat-foundry": "^3.0.2",
+    "@nomicfoundation/hardhat-foundry": "^3.0.3",
     "chai": "^6.2.2",
     "dotenv": "^17.4.2",
     "ethers": "^6.16.0",
