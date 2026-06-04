@@ -1,0 +1,44 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+𓂀 QUANTUM PI FORGE — LOCAL EVIDENCE ASK
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Question: What is your current operational state?
+
+Mode: READ-ONLY / MOCK
+Boundary: docs/FORGE_GOVERNANCE_BOUNDARY.md
+
+Current state:
+  Branch: evidence/execution-truth-journal
+  Commit: 7da3b8a
+
+Evidence matches:
+[local-workers] 2:𓂀 QUANTUM PI FORGE — LOCAL EVIDENCE ASK
+[local-workers] 5:Question: What is your current operational boundary?
+[local-workers] 7:Mode: READ-ONLY / MOCK
+[local-workers] 8:Boundary: docs/FORGE_GOVERNANCE_BOUNDARY.md
+[local-workers] 11:  Branch: evidence/execution-truth-journal
+[local-workers] 5:Question: What is the Resonance Worker authorized to do?
+[local-workers] 5:Question: What is your current operational state?
+[local-workers] 19:Evidence:
+[local-workers] 2:𓂀 QUANTUM PI FORGE — LOCAL VOICE CHECK
+[local-workers] 6:Branch:      evidence/execution-truth-journal
+[local-workers] 8:Mode:        READ-ONLY / MOCK
+[local-workers] 11:  Redis:      PONG
+[local-workers] 14:Worker boundary:
+[local-workers] 1:# X Poster Mock Redis Worker Proof
+[local-workers] 6:- evidence/execution-truth-journal
+[local-workers] 9:- Local-only Redis/BullMQ queue proof.
+[local-workers] 10:- Mock X poster worker only.
+[local-workers] 12:- No wallet signing.
+[authority] 1:# Resonance Worker Authority Model
+[authority] 5:**Branch:** evidence/direct-compute-shadow-node22  
+[authority] 8:## Authority Principle
+[authority] 10:The Resonance Worker is not authorized by personal trust.
+[authority] 12:It is authorized only by evidence, public review, explicit policy, and cryptographic/runtime controls.
+[zero-trust] 1:# Zero-Trust Evidence Manifest
+[zero-trust] 5:**Branch:** evidence/direct-compute-shadow-node22  
+[zero-trust] 10:All claims must be proven with evidence, not authority.
+[zero-trust] 14:## Evidence of Non-Override
+[zero-trust] 20:This proves the maintainer cannot silently bypass the public governance path.
+[mainnet-shadow] 12:- RESONANCE_WORKER_MODE: dry-run
+[mainnet-shadow] 13:- RESONANCE_WORKER_AUTONOMOUS: false
