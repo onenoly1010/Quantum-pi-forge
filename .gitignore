@@ -155,3 +155,5 @@ journal/sync-out/
 # Local verification runtime logs
 logs/verification.journal
 logs/local-workflow-*.log
+# Local Forge evidence runtime logs
+examples/bundles/*.sha256

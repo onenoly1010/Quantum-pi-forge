@@ -1,0 +1,35 @@
+name: Quantum Pi Forge - Evidence Audit
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+
+jobs:
+  forge-evidence:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Setup Forge Environment
+        run: |
+          chmod +x scripts/*.sh tests/*.sh 2>/dev/null || true
+          mkdir -p logs examples examples/bundles
+      - name: Set short SHA
+        run: echo "SHORT_SHA=${GITHUB_SHA::8}" >> "$GITHUB_ENV"
+      - name: Run Refusal Test
+        run: |
+          if [ -x ./tests/refusal-test.sh ]; then ./tests/refusal-test.sh; else echo "No refusal test present; skipping."; fi
+      - name: Run Full Repo Evidence Scan
+        run: ./scripts/forge-repo-scan.sh "ci-${SHORT_SHA}"
+      - name: Upload Evidence Bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: forge-evidence-bundle-${{ env.SHORT_SHA }}
+          path: |
+            examples/bundles/
+            examples/verification-packet-*.json
+            examples/verification-packet-*.md
+            logs/verification.journal
+          if-no-files-found: warn
