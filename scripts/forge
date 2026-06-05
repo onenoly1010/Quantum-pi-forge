@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+cmd="${1:-help}"
+shift || true
+
+case "$cmd" in
+  scan)
+    ./scripts/forge-repo-scan.sh "${1:-local-scan}"
+    ;;
+  serve)
+    ./scripts/forge-serve.sh "${1:-3000}"
+    ;;
+  packet)
+    ./scripts/forge-evidence-packet.sh "$@"
+    ;;
+  help|-h|--help)
+    echo "Usage:"
+    echo "  ./scripts/forge scan [bundle-id]"
+    echo "  ./scripts/forge serve [port]"
+    echo "  ./scripts/forge packet <claim_id> <file> <pattern> <description>"
+    ;;
+  *)
+    echo "ERROR: unknown command: $cmd" >&2
+    echo "Usage: ./scripts/forge [scan|serve|packet] ..." >&2
+    exit 2
+    ;;
+esac

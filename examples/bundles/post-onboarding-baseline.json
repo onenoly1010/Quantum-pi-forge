@@ -1,0 +1,110 @@
+[
+  {
+    "skill": "quantum-pi-forge",
+    "version": "0.1.0",
+    "mode": "local-first",
+    "request_id": "no-wallet-signing-ceremonial",
+    "status": "pass",
+    "summary": "Claim verified: No direct wallet signing or transaction-send calls in ceremonial interface - no matches for pattern in ceremonial_interface.html",
+    "evidence": [
+      {
+        "type": "file",
+        "reference": "ceremonial_interface.html",
+        "description": "Scanned target file"
+      },
+      {
+        "type": "command",
+        "reference": "grep -E -i -n <pattern> <target_file>",
+        "description": "Evidence: negative match; match_count=0"
+      }
+    ],
+    "risks": [
+      {
+        "level": "low",
+        "description": "Static grep may miss dynamic, generated, minified, or obfuscated content.",
+        "mitigation": "Use broader static analysis, bundle inspection, and manual review before treating this as complete."
+      }
+    ],
+    "authority_boundary": {
+      "wallet_signing": false,
+      "chain_mutation": false,
+      "deployment": false,
+      "funds_movement": false,
+      "governance_execution": false,
+      "requires_human_authorization": true
+    },
+    "next_action": "Run broader scan or integrate into local CI surrogate."
+  },
+  {
+    "skill": "quantum-pi-forge",
+    "version": "0.1.0",
+    "mode": "local-first",
+    "request_id": "no-wallet-signing-deploy-index",
+    "status": "pass",
+    "summary": "Claim verified: No direct wallet signing or transaction-send calls in deployed index - no matches for pattern in deploy/index.html",
+    "evidence": [
+      {
+        "type": "file",
+        "reference": "deploy/index.html",
+        "description": "Scanned target file"
+      },
+      {
+        "type": "command",
+        "reference": "grep -E -i -n <pattern> <target_file>",
+        "description": "Evidence: negative match; match_count=0"
+      }
+    ],
+    "risks": [
+      {
+        "level": "low",
+        "description": "Static grep may miss dynamic, generated, minified, or obfuscated content.",
+        "mitigation": "Use broader static analysis, bundle inspection, and manual review before treating this as complete."
+      }
+    ],
+    "authority_boundary": {
+      "wallet_signing": false,
+      "chain_mutation": false,
+      "deployment": false,
+      "funds_movement": false,
+      "governance_execution": false,
+      "requires_human_authorization": true
+    },
+    "next_action": "Run broader scan or integrate into local CI surrogate."
+  },
+  {
+    "skill": "quantum-pi-forge",
+    "version": "0.1.0",
+    "mode": "local-first",
+    "request_id": "reviewer-onboarding-boundary",
+    "status": "fail",
+    "summary": "Claim failed: Reviewer onboarding does not instruct wallet signing, transaction sending, or secret exposure - found matching pattern(s) in docs/REVIEWER_ONBOARDING.md",
+    "evidence": [
+      {
+        "type": "file",
+        "reference": "docs/REVIEWER_ONBOARDING.md",
+        "description": "Scanned target file"
+      },
+      {
+        "type": "command",
+        "reference": "grep -E -i -n <pattern> <target_file>",
+        "description": "Evidence: positive match; match_count=1"
+      }
+    ],
+    "risks": [
+      {
+        "level": "medium",
+        "description": "Static grep may miss dynamic, generated, minified, or obfuscated content.",
+        "mitigation": "Use broader static analysis, bundle inspection, and manual review before treating this as complete."
+      }
+    ],
+    "authority_boundary": {
+      "wallet_signing": false,
+      "chain_mutation": false,
+      "deployment": false,
+      "funds_movement": false,
+      "governance_execution": false,
+      "requires_human_authorization": true
+    },
+    "next_action": "Run broader scan or integrate into local CI surrogate."
+  }
+]

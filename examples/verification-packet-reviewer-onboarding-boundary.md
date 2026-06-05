@@ -1,12 +1,12 @@
 # Forge Verification Packet: reviewer-onboarding-boundary
-**Claim:** Reviewer onboarding does not instruct direct wallet signing or transaction-send calls
+**Claim:** Reviewer onboarding does not instruct wallet signing, transaction sending, or secret exposure
 
 **File:** docs/REVIEWER_ONBOARDING.md
 
 **Status:** fail
 
 ## Evidence
-Pattern `(personal_sign|eth_sign|eth_sendTransaction|sendTransaction|wallet_requestPermissions|wallet_addEthereumChain)` searched in `docs/REVIEWER_ONBOARDING.md`.
+Pattern `(personal_sign|eth_sign|eth_sendTransaction|sendTransaction|wallet_requestPermissions|private key|seed phrase)` searched in `docs/REVIEWER_ONBOARDING.md`.
 
 Result: Matches found.
 
@@ -22,5 +22,5 @@ Result: Matches found.
 
 ## Reproduce
 ```bash
-grep -E -i -n "(personal_sign|eth_sign|eth_sendTransaction|sendTransaction|wallet_requestPermissions|wallet_addEthereumChain)" "docs/REVIEWER_ONBOARDING.md"
+grep -E -i -n "(personal_sign|eth_sign|eth_sendTransaction|sendTransaction|wallet_requestPermissions|private key|seed phrase)" "docs/REVIEWER_ONBOARDING.md"
 ```
