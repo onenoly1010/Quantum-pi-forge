@@ -22,7 +22,23 @@ jobs:
         run: |
           if [ -x ./tests/refusal-test.sh ]; then ./tests/refusal-test.sh; else echo "No refusal test present; skipping."; fi
       - name: Run Full Repo Evidence Scan
-        run: ./scripts/forge-repo-scan.sh "ci-${SHORT_SHA}"
+        run: |
+          ./scripts/forge scan "ci-${SHORT_SHA}"
+
+          echo
+          echo "=== verify attestation manifest ==="
+          (
+            cd docs/attestations
+            sha256sum -c MANIFEST.sha256
+          )
+
+          echo
+          echo "=== verify generated claim bundle digest ==="
+          (
+            cd examples/bundles
+            sha256sum -c "ci-${SHORT_SHA}.json.sha256"
+          )
+
       - name: Upload Evidence Bundle
         uses: actions/upload-artifact@v4
         with:
