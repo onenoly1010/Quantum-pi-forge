@@ -7,3 +7,4 @@ npm-lockfile-present	must-contain	package-lock.json	lockfileVersion	Dependency l
 package-json-present	must-contain	package.json	scripts	Package manifest exists
 floating-npm-deps	advisory	package.json	\^|~|\*|>=	Reports floating dependency ranges without blocking CI
 coverage-script-defined	advisory	package.json	\"coverage\"	Reports whether coverage script is configured
+attestation-bundle-intact	must-contain	docs/attestations/MANIFEST.sha256	19TH_SOVEREIGN_ACT_SETTLEMENT_ATTESTATION.md	Attestation bundle manifest is present and lists available source documents
