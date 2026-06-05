@@ -1,0 +1,36 @@
+{
+  "agent": "Verifier",
+  "ts": "2026-06-05T01:40:06.817293+00:00",
+  "mission": {
+    "mission_id": "hermes-state-machine-verification-gaps-v0",
+    "title": "Critical gaps in code-generating LLMs for state-machine verification",
+    "mode": "multi_agent_grounded",
+    "date": "2026-06-05",
+    "boundary": [
+      "external facts must be sourced",
+      "unsupported claims must be marked as hypotheses",
+      "no invented URLs",
+      "no fake completeness",
+      "no key access",
+      "no signing"
+    ]
+  },
+  "artifacts": {
+    "/home/kris/forge/Quantum-pi-forge/hermes/artifacts/multi/planner.json": {
+      "sha256": "34fd3bfdb74eec881ec43405c7abee239ba5fddefcf08bce1161d1cc881950b4",
+      "bytes": 1158
+    },
+    "/home/kris/forge/Quantum-pi-forge/hermes/artifacts/multi/researcher.json": {
+      "sha256": "44d5a131ed51013fb7e2e121b83932aba68e7774b02f8c4600d612a2f8cd4f6d",
+      "bytes": 1285
+    },
+    "/home/kris/forge/Quantum-pi-forge/hermes/artifacts/multi/critic.json": {
+      "sha256": "465ab77cd0f1e3419f08c289168e5ce8995fcc92fe04f449a238ba55bad3858c",
+      "bytes": 1489
+    },
+    "/home/kris/forge/Quantum-pi-forge/hermes/artifacts/multi/state_machine_verification_gaps_digest.md": {
+      "sha256": "c6261766ffceece628fab3eaabbeedd9efc0abdaf9b63a95d22fd3553862cb25",
+      "bytes": 1174
+    }
+  }
+}

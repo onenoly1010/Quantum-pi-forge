@@ -1,0 +1,45 @@
+{
+  "agent": "Planner",
+  "ts": "2026-06-05T01:40:06.814203+00:00",
+  "plan": [
+    {
+      "step": 1,
+      "action": "define_scope",
+      "output": "State-machine verification gaps for code-generating LLMs"
+    },
+    {
+      "step": 2,
+      "action": "collect_sources",
+      "queries": [
+        "2026 LLM code generation formal verification state machines",
+        "LLM generated code proof generation benchmark Lean verification 2026",
+        "state machine guided LLM code generation verification smart contracts",
+        "LLM formal methods FSM invariants code generation gaps",
+        "LLM software engineering benchmarks formal verification 2026"
+      ]
+    },
+    {
+      "step": 3,
+      "action": "cluster_findings",
+      "clusters": [
+        "specification gap",
+        "proof generation gap",
+        "transition and edge-case hallucination",
+        "tool feedback loop immaturity",
+        "scalability and generalization"
+      ]
+    },
+    {
+      "step": 4,
+      "action": "write_digest"
+    },
+    {
+      "step": 5,
+      "action": "critic_review"
+    },
+    {
+      "step": 6,
+      "action": "verifier_manifest"
+    }
+  ]
+}

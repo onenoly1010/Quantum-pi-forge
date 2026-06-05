@@ -1,0 +1,39 @@
+{
+  "agent": "Researcher",
+  "ts": "2026-06-05T01:40:06.814228+00:00",
+  "mode": "seeded_until_live_search_enabled",
+  "facts": [
+    {
+      "claim": "Natural-language prompts are often too ambiguous to directly produce formal state-machine specifications without human clarification.",
+      "support": "general_formal_methods_constraint",
+      "status": "needs_live_source",
+      "tags": [
+        "specification",
+        "natural-language",
+        "FSM"
+      ]
+    },
+    {
+      "claim": "LLM-generated code can pass tests while still failing formal proof obligations or missing invariants.",
+      "support": "general_llm_verification_gap",
+      "status": "needs_live_source",
+      "tags": [
+        "proof",
+        "invariants",
+        "verification"
+      ]
+    },
+    {
+      "claim": "Tool feedback loops with provers, SMT solvers, model checkers, or static analyzers are promising but still require careful orchestration.",
+      "support": "general_tool_loop_pattern",
+      "status": "needs_live_source",
+      "tags": [
+        "Z3",
+        "Lean",
+        "model-checking",
+        "static-analysis"
+      ]
+    }
+  ],
+  "note": "Live search/fetch not wired in this v0.2 file. Facts are marked needs_live_source unless backed by sources.json in a later run."
+}

@@ -1,0 +1,45 @@
+{
+  "agent": "Critic",
+  "ts": "2026-06-05T01:40:06.814244+00:00",
+  "result": "warn",
+  "unsupported_claim_count": 3,
+  "unsupported_claims": [
+    {
+      "claim": "Natural-language prompts are often too ambiguous to directly produce formal state-machine specifications without human clarification.",
+      "support": "general_formal_methods_constraint",
+      "status": "needs_live_source",
+      "tags": [
+        "specification",
+        "natural-language",
+        "FSM"
+      ]
+    },
+    {
+      "claim": "LLM-generated code can pass tests while still failing formal proof obligations or missing invariants.",
+      "support": "general_llm_verification_gap",
+      "status": "needs_live_source",
+      "tags": [
+        "proof",
+        "invariants",
+        "verification"
+      ]
+    },
+    {
+      "claim": "Tool feedback loops with provers, SMT solvers, model checkers, or static analyzers are promising but still require careful orchestration.",
+      "support": "general_tool_loop_pattern",
+      "status": "needs_live_source",
+      "tags": [
+        "Z3",
+        "Lean",
+        "model-checking",
+        "static-analysis"
+      ]
+    }
+  ],
+  "required_next_step": "Wire live search_web/fetch_page and promote only source-backed facts to verified.",
+  "reflection": [
+    "The topic is strong and relevant to Hermes.",
+    "The current seeded artifact is useful as a mission scaffold.",
+    "It must not be represented as fully verified until sources are captured."
+  ]
+}
