@@ -1,0 +1,33 @@
+{
+  "mission_id": "hermes-code-llm-jan-jun-2026",
+  "agent": "Hermes",
+  "version": "0.1",
+  "title": "Recent advances in code-generating LLMs",
+  "time_window": {
+    "start": "2026-01-01",
+    "end_requested": "2026-06-30",
+    "end_available_at_launch": "2026-06-04"
+  },
+  "topic": "recent advances in code-generating LLMs, coding agents, software engineering benchmarks, tool use, and real-world implications",
+  "max_sources": 40,
+  "outputs": {
+    "digest": "hermes/artifacts/research_digest.md",
+    "sources": "hermes/artifacts/sources.json",
+    "reflection": "hermes/artifacts/reflection.json"
+  },
+  "required_coverage": [
+    "new base models for code",
+    "agentic coding systems",
+    "software engineering benchmarks",
+    "tool-use and terminal workflows",
+    "safety, robustness, contamination, and evaluation limits",
+    "real-world software engineering implications"
+  ],
+  "boundaries": [
+    "use tools for external facts",
+    "do not invent URLs, papers, models, or benchmark scores",
+    "separate verified facts from interpretation",
+    "cite sources in the digest",
+    "record uncertainty explicitly"
+  ]
+}
