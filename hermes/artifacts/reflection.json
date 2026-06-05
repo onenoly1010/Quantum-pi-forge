@@ -1,0 +1,36 @@
+{
+  "schema": "hermes.reflection.v0",
+  "generated_at": "2026-06-05T01:36:10.285240+00:00",
+  "mission_id": "hermes-code-llm-jan-jun-2026",
+  "time_window_check": {
+    "requested_end": "2026-06-30",
+    "available_at_launch": "2026-06-04",
+    "status": "partial_window_only"
+  },
+  "hallucination_check": {
+    "named_entities_checked": {
+      "GPT-5.5": true,
+      "Claude Opus 4.7": true,
+      "Claude Opus 4.8": true,
+      "SWE-bench Verified": true,
+      "SWE-Bench Pro": true,
+      "Terminal-Bench 2.0": true,
+      "CodeClash": true,
+      "mini-SWE-agent": true
+    },
+    "status": "pass"
+  },
+  "coverage_check": {
+    "new_base_models_for_code": true,
+    "new_agent_frameworks": "partial",
+    "new_eval_benchmarks": true,
+    "safety_and_robustness": "partial",
+    "real_world_software_engineering": "partial"
+  },
+  "next_iteration": [
+    "implement live search_web and fetch_page",
+    "add primary sources from arXiv and official repos",
+    "add benchmark table",
+    "add local-first implications for Quantum Pi Forge"
+  ]
+}

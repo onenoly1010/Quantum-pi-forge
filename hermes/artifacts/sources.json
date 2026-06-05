@@ -1,0 +1,81 @@
+{
+  "schema": "hermes.sources.v0",
+  "generated_at": "2026-06-05T01:36:10.283047+00:00",
+  "source_count": 5,
+  "sources": [
+    {
+      "id": "openai-swe-bench-verified-no-longer-measures-frontier",
+      "url": "https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/",
+      "title": "Why SWE-bench Verified no longer measures frontier coding capabilities",
+      "date": "2026-02-23",
+      "publisher": "OpenAI",
+      "cluster_id": "evals-contamination",
+      "tags": [
+        "SWE-bench Verified",
+        "SWE-Bench Pro",
+        "evaluation",
+        "contamination"
+      ],
+      "summary": "OpenAI argues SWE-bench Verified is increasingly contaminated and recommends SWE-Bench Pro for frontier coding evaluation."
+    },
+    {
+      "id": "openai-gpt-5-5",
+      "url": "https://openai.com/index/introducing-gpt-5-5/",
+      "title": "Introducing GPT-5.5",
+      "date": "2026-04-23",
+      "publisher": "OpenAI",
+      "cluster_id": "frontier-code-models",
+      "tags": [
+        "GPT-5.5",
+        "SWE-Bench Pro",
+        "Terminal-Bench 2.0",
+        "agentic coding"
+      ],
+      "summary": "OpenAI describes GPT-5.5 as its strongest agentic coding model to date, with reported SWE-Bench Pro and Terminal-Bench 2.0 results."
+    },
+    {
+      "id": "anthropic-claude-opus-4-7",
+      "url": "https://www.anthropic.com/news/claude-opus-4-7",
+      "title": "Introducing Claude Opus 4.7",
+      "date": "2026-04-16",
+      "publisher": "Anthropic",
+      "cluster_id": "frontier-code-models",
+      "tags": [
+        "Claude Opus 4.7",
+        "coding",
+        "agentic workflows"
+      ],
+      "summary": "Anthropic reports coding improvements for Claude Opus 4.7, including better resolution on internal coding tasks."
+    },
+    {
+      "id": "anthropic-claude-opus-4-8",
+      "url": "https://www.anthropic.com/news/claude-opus-4-8",
+      "title": "Introducing Claude Opus 4.8",
+      "date": "2026-05-27",
+      "publisher": "Anthropic",
+      "cluster_id": "frontier-code-models",
+      "tags": [
+        "Claude Opus 4.8",
+        "coding",
+        "agentic tasks",
+        "alignment"
+      ],
+      "summary": "Anthropic presents Claude Opus 4.8 as an upgrade with stronger coding and agentic-task performance plus alignment evaluation."
+    },
+    {
+      "id": "swe-bench-leaderboards",
+      "url": "https://www.swebench.com/",
+      "title": "SWE-bench Leaderboards",
+      "date": "2026-06-04",
+      "publisher": "SWE-bench",
+      "cluster_id": "benchmarks",
+      "tags": [
+        "SWE-bench",
+        "CodeClash",
+        "mini-SWE-agent",
+        "software engineering evals"
+      ],
+      "summary": "SWE-bench tracks software engineering agent benchmarks and highlights newer evaluations and agent scaffolds."
+    }
+  ]
+}

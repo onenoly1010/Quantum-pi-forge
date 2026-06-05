@@ -1,0 +1,47 @@
+{
+  "schema": "hermes.run_manifest.v0",
+  "generated_at": "2026-06-05T01:36:10.286074+00:00",
+  "mission": {
+    "mission_id": "hermes-code-llm-jan-jun-2026",
+    "agent": "Hermes",
+    "version": "0.1",
+    "title": "Recent advances in code-generating LLMs",
+    "time_window": {
+      "start": "2026-01-01",
+      "end_requested": "2026-06-30",
+      "end_available_at_launch": "2026-06-04"
+    },
+    "topic": "recent advances in code-generating LLMs, coding agents, software engineering benchmarks, tool use, and real-world implications",
+    "max_sources": 40,
+    "outputs": {
+      "digest": "hermes/artifacts/research_digest.md",
+      "sources": "hermes/artifacts/sources.json",
+      "reflection": "hermes/artifacts/reflection.json"
+    },
+    "required_coverage": [
+      "new base models for code",
+      "agentic coding systems",
+      "software engineering benchmarks",
+      "tool-use and terminal workflows",
+      "safety, robustness, contamination, and evaluation limits",
+      "real-world software engineering implications"
+    ],
+    "boundaries": [
+      "use tools for external facts",
+      "do not invent URLs, papers, models, or benchmark scores",
+      "separate verified facts from interpretation",
+      "cite sources in the digest",
+      "record uncertainty explicitly"
+    ]
+  },
+  "artifacts": {
+    "digest": "/home/kris/forge/Quantum-pi-forge/hermes/artifacts/research_digest.md",
+    "sources": "/home/kris/forge/Quantum-pi-forge/hermes/artifacts/sources.json",
+    "reflection": "/home/kris/forge/Quantum-pi-forge/hermes/artifacts/reflection.json"
+  },
+  "hashes": {
+    "digest_sha256": "d17493e0043f51e9f4133ad185625d67a1832a8151ba093dab69cd9073139ff7",
+    "sources_sha256": "bfeba0f2ef7ddf48800091079f483ff345dcfb67e4fd29e39886c0a8fcb8e98e",
+    "reflection_sha256": "649ada53c12ef23378476b0075f63e94fe07557beb9b15333069fbc2076f462f"
+  }
+}
