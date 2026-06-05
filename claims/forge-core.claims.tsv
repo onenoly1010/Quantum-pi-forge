@@ -1,0 +1,9 @@
+claim_id	mode	target	pattern	description
+no-wallet-signing-ceremonial	must-not-contain	ceremonial_interface.html	personal_sign|eth_sign|eth_sendTransaction|sendTransaction|wallet_requestPermissions	No direct wallet signing or transaction-send calls in ceremonial interface
+no-wallet-signing-deploy-index	must-not-contain	deploy/index.html	personal_sign|eth_sign|eth_sendTransaction|sendTransaction|wallet_requestPermissions	No direct wallet signing or transaction-send calls in deployed index
+reviewer-onboarding-exists	must-contain	docs/REVIEWER_ONBOARDING.md	Reviewer Onboarding	Reviewer onboarding packet exists
+skill-boundary-exists	must-contain	skills/quantum-pi-forge/SKILL.md	Authority Boundary|Refused Actions|wallet_signing	Forge skill declares authority boundaries
+npm-lockfile-present	must-contain	package-lock.json	lockfileVersion	Dependency lockfile exists
+package-json-present	must-contain	package.json	scripts	Package manifest exists
+floating-npm-deps	advisory	package.json	"\^|~|\*|>=	Reports floating dependency ranges without blocking CI
+coverage-script-defined	advisory	package.json	"coverage"	Reports whether coverage script is configured
