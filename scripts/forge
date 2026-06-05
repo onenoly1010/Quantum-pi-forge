@@ -6,7 +6,10 @@ shift || true
 
 case "$cmd" in
   scan)
-    ./scripts/forge-repo-scan.sh "${1:-local-scan}"
+    ./scripts/forge-scan-claims.py "${1:-local-scan}"
+    ;;
+  scan-v0.1)
+    ./scripts/forge-repo-scan.sh "${1:-local-scan-v0.1}"
     ;;
   serve)
     ./scripts/forge-serve.sh "${1:-3000}"
@@ -16,9 +19,10 @@ case "$cmd" in
     ;;
   help|-h|--help)
     echo "Usage:"
-    echo "  ./scripts/forge scan [bundle-id]"
+    echo "  ./scripts/forge scan [bundle-id]          # v0.2 mode-aware scanner"
     echo "  ./scripts/forge serve [port]"
     echo "  ./scripts/forge packet <claim_id> <file> <pattern> <description>"
+      echo "  ./scripts/forge scan-v0.1 [bundle-id]     # legacy negative-only scanner"
     ;;
   *)
     echo "ERROR: unknown command: $cmd" >&2
