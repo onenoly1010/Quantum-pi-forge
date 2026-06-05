@@ -152,3 +152,6 @@ keys/*.pem
 journal/
 journal/sync-out/
 *.pem
+# Local verification runtime logs
+logs/verification.journal
+logs/local-workflow-*.log
