@@ -1,6 +1,6 @@
 {
-  "name": "@quantum-pi/forge",
-  "version": "0.4.2",
+  "name": "@quantum-pi-forge/forge",
+  "version": "0.4.3",
   "description": "Quantum Pi Forge — local-first, evidence-bound verification engine",
   "bin": {
     "qpf": "./scripts/forge",
