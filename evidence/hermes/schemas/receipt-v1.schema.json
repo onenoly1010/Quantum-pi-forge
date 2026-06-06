@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://quantumpiforge.com/evidence/hermes/schemas/receipt-v1.schema.json",
+  "title": "Quantum Pi Forge Hermes Receipt v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "receiptId",
+    "evidenceId",
+    "mode",
+    "model",
+    "input",
+    "output",
+    "timestamp",
+    "authority"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "const": "hermes-receipt-v1"
+    },
+    "receiptId": {
+      "type": "string",
+      "pattern": "^QPF-HERMES-RECEIPT-[A-Za-z0-9._:-]+$"
+    },
+    "evidenceId": {
+      "type": "string",
+      "description": "Claim, evidence, or canonical index ID this receipt is bound to."
+    },
+    "mode": {
+      "type": "string",
+      "enum": [
+        "local-read-only",
+        "replay-verify"
+      ]
+    },
+    "model": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "provider",
+        "name"
+      ],
+      "properties": {
+        "provider": {
+          "type": "string",
+          "enum": [
+            "ollama"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "digest": {
+          "type": "string",
+          "description": "Optional Ollama model digest if available."
+        }
+      }
+    },
+    "input": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "sha256"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "prompt",
+            "evidence-reference",
+            "file"
+          ]
+        },
+        "path": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "localSignature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "present"
+      ],
+      "properties": {
+        "present": {
+          "type": "boolean"
+        },
+        "algorithm": {
+          "type": "string"
+        },
+        "publicKeyFingerprint": {
+          "type": "string"
+        },
+        "signatureSha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "readOnly",
+        "noPosting",
+        "noWalletSigning",
+        "noDeployment",
+        "noChainMutation"
+      ],
+      "properties": {
+        "readOnly": {
+          "type": "boolean",
+          "const": true
+        },
+        "noPosting": {
+          "type": "boolean",
+          "const": true
+        },
+        "noWalletSigning": {
+          "type": "boolean",
+          "const": true
+        },
+        "noDeployment": {
+          "type": "boolean",
+          "const": true
+        },
+        "noChainMutation": {
+          "type": "boolean",
+          "const": true
+        }
+      }
+    }
+  }
+}
