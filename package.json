@@ -1,28 +1,25 @@
 {
-  "type": "module",
+  "name": "@quantum-pi/forge",
+  "version": "0.4.2",
+  "description": "Quantum Pi Forge — Local-first, evidence-bound verification engine",
+  "bin": {
+    "forge": "./scripts/forge"
+  },
+  "files": [
+    "scripts/forge",
+    "scripts/forge-*.sh",
+    "skills/",
+    "docs/",
+    "claims/",
+    "examples/bundles/"
+  ],
   "scripts": {
     "build": "node scripts/build.js",
     "build:cf": "node scripts/build.js",
     "serve:deploy": "python3 -m http.server 8100 --directory out",
     "deploy:cf": "bash scripts/deploy-cloudflare-pages.sh"
   },
-  "dependencies": {
-    "@nomicfoundation/hardhat-foundry": "3.0.3",
-    "chai": "6.2.2",
-    "dotenv": "17.4.2",
-    "ethers": "6.16.0",
-    "hardhat": "3.7.0"
-  },
-  "devDependencies": {
-    "@storacha/client": "2.1.4",
-    "@uniswap/v2-core": "1.0.1",
-    "@uniswap/v2-periphery": "1.1.0-beta.0",
-    "solc": "0.8.35",
-    "wrangler": "4.97.0"
-  },
-  "overrides": {
-    "ws": "^8.21.0",
-    "tmp": "^0.2.4",
-    "uuid": "^11.1.1"
-  }
+  "keywords": ["audit", "verification", "evidence", "local-first", "refusal-bound"],
+  "author": "OINIO",
+  "license": "MIT"
 }

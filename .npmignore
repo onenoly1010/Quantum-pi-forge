@@ -1,48 +1,24 @@
-# deny everything by default
-*
-
-# allow package metadata
-!package.json
-!README.md
-!LICENSE
-!.npmignore
-
-# allow CLI entrypoint and shell helpers
-!scripts/
-!scripts/forge
-!scripts/forge-*.sh
-
-# allow minimal verification/docs surfaces
-!skills/
-!skills/**
-!docs/
-!docs/**
-!claims/
-!claims/**
-!examples/
-!examples/**
-!evidence/
-!evidence/bridge-review/
-!evidence/bridge-review/**
-
-# always exclude heavy/runtime/local/generated trees
-node_modules/
-out/
-cache/
-logs/
-journal/
-keys/
 server/
+pi-forge-quantum-genesis/
 contracts/
 lib/
-pi-forge-quantum-genesis/
-quantum-pi-forge-ignited/
+build/
+out/
+logs/
+keys/
+node_modules/
 press-agent/
-ledger-api/
-frontend/
-api/
-tests/
+soul-core/
+soul-ledger/
+quantum-pi-forge-ignited/
+src/
 test/
-.github/
+tests/
+workers/
+wiki/
+vercel-backup/
+wrangler*
+.env
+.railwayignore
+.vercelignore
 .vscode/
-.git/
