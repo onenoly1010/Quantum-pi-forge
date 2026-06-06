@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+ROOT="$(git rev-parse --show-toplevel)"
+cd "$ROOT"
+bash scripts/evidence-index-refresh.sh
+git add evidence/manifests/repo-evidence-index.sha256
+bash scripts/evidence-index-verify.sh
