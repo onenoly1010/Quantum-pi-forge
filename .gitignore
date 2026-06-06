@@ -183,3 +183,13 @@ reports/*.html
 .wrangler/
 cache/deployment-manifest.json
 cache/deployment-receipt.json
+
+# Local-only execution artifacts
+keys/
+journal/
+logs/
+examples/
+*.pem
+*.key
+.env
+.env.*
