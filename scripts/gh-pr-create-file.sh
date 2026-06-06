@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-# Usage:
-#   scripts/gh-pr-create-file.sh BASE HEAD TITLE BODY_FILE
-
 BASE="${1:?base branch required}"
 HEAD="${2:?head branch required}"
 TITLE="${3:?title required}"
@@ -14,8 +11,4 @@ if [[ ! -f "$BODY_FILE" ]]; then
   exit 1
 fi
 
-gh pr create \
-  --base "$BASE" \
-  --head "$HEAD" \
-  --title "$TITLE" \
-  --body-file "$BODY_FILE"
+gh pr create --base "$BASE" --head "$HEAD" --title "$TITLE" --body-file "$BODY_FILE"
