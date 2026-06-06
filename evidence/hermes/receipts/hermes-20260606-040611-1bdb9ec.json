@@ -1,0 +1,16 @@
+{
+  "schema": "qpf.hermes.receipt.v1",
+  "inference_timestamp": "2026-06-06T04:06:11Z",
+  "model_used": "qwen2.5:0.5b",
+  "mode": "read-only",
+  "input_references": [
+    "Summarize the purpose of the Repo Evidence Index in three sentences."
+  ],
+  "output_summary": "The Repo Evidence Index is designed to provide users with a comprehensive o\u001b[1D\u001b[K\noverview of their transaction history and financial data within a single ce\u001b[2D\u001b[K\ncentralized platform. By aggregating information from various sources such \u001b[K\nas GitHub, Stack Overflow, and other repositories, this index enables users\u001b[5D\u001b[K\nusers to easily identify patterns, trends, and outliers in their data. It a\u001b[1D\u001b[K\nalso helps users manage their projects more efficiently by providing insigh\u001b[6D\u001b[K\ninsights into the project's performance and dependencies. Additionally, the\u001b[3D\u001b[K\nthe index includes a feature for real-time updates that allows users to sta\u001b[3D\u001b[K\nstay informed about any changes or updates made within the platforms they i\u001b[1D\u001b[K\ninteract with.\n\n",
+  "prompt_sha256": "1107e792ce6982fa5e8ef3013cce48ed2582aa035a7d5501fb346d8e627c47d8",
+  "output_sha256": "0819dd4daad52a8d5494e6e5a4c609a29be21b16789de2ad304062538116c6b9",
+  "boundary_statement": "This inference is read-only and does not execute wallet signing, chain mutation, deployment, governance voting, fund movement, token approval or transfer, smart contract upgrade, or autonomous posting.",
+  "human_review": "pending",
+  "evidence_index_entry": "pending",
+  "git_commit": "1bdb9ec"
+}
