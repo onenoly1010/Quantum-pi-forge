@@ -1,9 +1,10 @@
 {
   "name": "@quantum-pi/forge",
   "version": "0.4.2",
-  "description": "Quantum Pi Forge — Local-first, evidence-bound verification engine",
+  "description": "Quantum Pi Forge — local-first, evidence-bound verification engine",
   "bin": {
-    "forge": "./scripts/forge"
+    "qpf": "./scripts/forge",
+    "quantum-pi-forge": "./scripts/forge"
   },
   "files": [
     "scripts/forge",
@@ -19,7 +20,8 @@
     "serve:deploy": "python3 -m http.server 8100 --directory out",
     "deploy:cf": "bash scripts/deploy-cloudflare-pages.sh"
   },
-  "keywords": ["audit", "verification", "evidence", "local-first", "refusal-bound"],
-  "author": "OINIO",
+  "engines": {
+    "node": ">=22"
+  },
   "license": "MIT"
 }
