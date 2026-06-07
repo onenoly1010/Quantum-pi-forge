@@ -156,3 +156,10 @@ This verifies the evidence index, receipt integrity, claim map, and claim-map dr
 
 Authority boundary: read-only local evidence verification only; no wallet signing, deployment, posting, governance execution, custody transfer, token minting, staking, or chain mutation.
 
+## Verifiable Proof Pipeline
+
+The repository state is tracked through a deterministic, local-first evidence verification bundle.
+
+
+
+For a human-readable explanation of what this command proves, the sealed V2 baseline coordinates, and the strict read-only authority boundary, see [Reviewer Onboarding Packet v2](docs/REVIEWER_ONBOARDING_V2.md).
