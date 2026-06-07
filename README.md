@@ -17,6 +17,12 @@ It links active proof lanes to their supporting files and verification commands.
 npm run verify:evidence-index
 ```
 
+The current evidence index snapshot receipt is stored at [`evidence/receipt.json`](evidence/receipt.json) and can be refreshed with:
+
+```bash
+npm run evidence:receipt
+```
+
 ## The Problem
 
 You finally escape cloud API costs… only to spend hours fixing broken configs, missing models, or drifting tools.

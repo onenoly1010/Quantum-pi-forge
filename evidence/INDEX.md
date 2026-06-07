@@ -33,6 +33,19 @@ These paths are not automatically retained:
 
 A Hermes receipt may become repository evidence only when it is claim-bound, verified, safe to publish, and indexed here.
 
+
+## Snapshot Receipt
+
+The current evidence index snapshot receipt is stored at `evidence/receipt.json`.
+
+Generate or refresh it with:
+
+```bash
+npm run evidence:receipt
+```
+
+The receipt records the SHA-256 hash of `evidence/INDEX.md`, the verifier result, the current git commit, and the read-only authority boundary.
+
 ## Authority Boundary
 
 All current evidence lanes are read-only and non-mutating.
