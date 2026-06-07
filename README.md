@@ -6,6 +6,17 @@ No API keys. No monthly bills. No cloud dependency.
 
 ---
 
+
+## Evidence Index
+
+The current repository evidence map is maintained at [`evidence/INDEX.md`](evidence/INDEX.md).
+
+It links active proof lanes to their supporting files and verification commands. Evidence index verification is available locally with:
+
+```bash
+npm run verify:evidence-index
+```
+
 ## The Problem
 
 You finally escape cloud API costs… only to spend hours fixing broken configs, missing models, or drifting tools.
