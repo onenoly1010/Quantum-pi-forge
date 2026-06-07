@@ -9,7 +9,8 @@
     "verify:evidence-index": "node scripts/verify-evidence-index.cjs",
     "evidence:receipt": "node scripts/generate-evidence-receipt.cjs",
     "evidence:receipt:check": "node scripts/check-evidence-receipt.cjs",
-    "verify:claim-map": "node scripts/verify-claim-map.cjs"
+    "verify:claim-map": "node scripts/verify-claim-map.cjs",
+    "claim-map:check": "node scripts/check-claim-map.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.3",
