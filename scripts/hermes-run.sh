@@ -30,11 +30,12 @@ TIMESTAMP="$(date -u +%Y%m%d-%H%M%S)"
 ISO_TIMESTAMP="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
 SHORT_SHA="$(git rev-parse --short HEAD 2>/dev/null || echo nogit)"
 OUTDIR="evidence/hermes/receipts"
-mkdir -p "$OUTDIR"
+INPUT_DIR="evidence/hermes/inputs"
+OUTPUT_DIR="evidence/hermes/outputs"
+mkdir -p "$OUTDIR" "$INPUT_DIR" "$OUTPUT_DIR"
 OUTFILE="$OUTDIR/hermes-${TIMESTAMP}-${SHORT_SHA}.json"
-TMP_PROMPT="$(mktemp)"
-TMP_OUTPUT="$(mktemp)"
-trap 'rm -f "$TMP_PROMPT" "$TMP_OUTPUT"' EXIT
+TMP_PROMPT="$INPUT_DIR/hermes-${TIMESTAMP}-${SHORT_SHA}.prompt.txt"
+TMP_OUTPUT="$OUTPUT_DIR/hermes-${TIMESTAMP}-${SHORT_SHA}.output.txt"
 
 BOUNDARY="This inference is read-only and does not execute wallet signing, chain mutation, deployment, governance voting, fund movement, token approval or transfer, smart contract upgrade, or autonomous posting."
 
@@ -51,16 +52,14 @@ OUTPUT_SHA256="$(sha256sum "$TMP_OUTPUT" | awk "{print \$1}")"
 
 env \
 HERMES_OUTFILE="$OUTFILE" \
+HERMES_RECEIPT_ID="QPF-HERMES-RECEIPT-${TIMESTAMP}-${SHORT_SHA}" \
 HERMES_TIMESTAMP="$ISO_TIMESTAMP" \
 HERMES_MODEL="$MODEL" \
-HERMES_QUERY="$QUERY" \
+HERMES_PROMPT_PATH="$TMP_PROMPT" \
+HERMES_OUTPUT_PATH="$TMP_OUTPUT" \
 HERMES_PROMPT_SHA="$PROMPT_SHA256" \
 HERMES_OUTPUT_SHA="$OUTPUT_SHA256" \
-HERMES_GIT_COMMIT="$SHORT_SHA" \
-HERMES_BOUNDARY="$BOUNDARY" \
-HERMES_OUTPUT_PATH="$TMP_OUTPUT" \
-python3 -c 'import json, os; from pathlib import Path; output = Path(os.environ["HERMES_OUTPUT_PATH"]).read_text(encoding="utf-8", errors="replace"); record = {"schema":"qpf.hermes.receipt.v1","inference_timestamp":os.environ["HERMES_TIMESTAMP"],"model_used":os.environ["HERMES_MODEL"],"mode":"read-only","input_references":[os.environ["HERMES_QUERY"]],"output_summary":output,"prompt_sha256":os.environ["HERMES_PROMPT_SHA"],"output_sha256":os.environ["HERMES_OUTPUT_SHA"],"boundary_statement":os.environ["HERMES_BOUNDARY"],"human_review":"pending","evidence_index_entry":"pending","git_commit":os.environ["HERMES_GIT_COMMIT"]}; Path(os.environ["HERMES_OUTFILE"]).write_text(json.dumps(record, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")'
-
+node scripts/hermes-write-receipt.cjs
 echo "Inference receipt written: $OUTFILE"
 
 if [ -x scripts/evidence-index-refresh.sh ]; then
