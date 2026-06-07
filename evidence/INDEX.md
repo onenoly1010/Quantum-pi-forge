@@ -139,3 +139,26 @@ npm run verify:evidence
 ```
 
 Authority boundary: read-only reviewer evidence verification only; no wallet signing, deployment, posting, governance execution, custody transfer, token minting, staking, or chain mutation.
+
+## Evidence Snapshot v1
+
+Machine-checkable checkpoint for the reviewer-proof canonical state.
+
+- `evidence/snapshot-v1.json`
+- `scripts/verify-snapshot.cjs`
+
+Verification:
+
+```bash
+npm run verify:snapshot
+npm run verify:evidence
+```
+
+Snapshot baseline:
+
+- Canonical commit: `7e6281d`
+- Baseline receipt hash: `b720d54e7a07b89edd4e7dd20ce6631d5d252bef273e8c59ab62cffa2fd27fb1`
+- Proof command: `npm run verify:evidence`
+
+Authority boundary: read-only evidence verification only; no wallet signing, deployment, posting, governance execution, custody transfer, token minting, staking, or chain mutation.
+
