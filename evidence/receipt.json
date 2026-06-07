@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "qpf-evidence-receipt-v1",
+  "generatedAt": "2026-06-07T16:48:20.935Z",
+  "gitCommit": "046e45b",
+  "gitBranch": "feat/evidence-snapshot-receipt",
+  "indexPath": "evidence/INDEX.md",
+  "indexSha256": "93ef790f856e4a59cd1270b5cdf9872f5ebab1f0a01b366d073c350c6a66de58",
+  "verifier": {
+    "command": "npm run verify:evidence-index",
+    "result": "pass",
+    "lanesChecked": 3,
+    "pathsChecked": 6
+  },
+  "authorityBoundary": {
+    "readOnly": true,
+    "noWalletSigning": true,
+    "noDeployment": true,
+    "noPosting": true,
+    "noGovernanceExecution": true,
+    "noCustodyTransfer": true,
+    "noTokenMinting": true,
+    "noStaking": true,
+    "noChainMutation": true
+  }
+}
