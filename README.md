@@ -143,3 +143,16 @@ Questions? Open an issue on the repo or check the logs first at `~/.offline-dev-
 
 **Quantum Pi Forge**
 *Self-sovereign developer tools.*
+
+## Reviewer Proof Command
+
+Run the full local evidence verification stack with one command:
+
+```bash
+npm run verify:evidence
+```
+
+This verifies the evidence index, receipt integrity, claim map, and claim-map drift guard.
+
+Authority boundary: read-only local evidence verification only; no wallet signing, deployment, posting, governance execution, custody transfer, token minting, staking, or chain mutation.
+

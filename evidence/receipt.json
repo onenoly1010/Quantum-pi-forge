@@ -1,8 +1,8 @@
 {
   "schemaVersion": "qpf-evidence-receipt-v1",
-  "generatedAt": "2026-06-07T19:01:47.232Z",
-  "gitCommit": "9b9bebb",
-  "gitBranch": "docs/readme-reviewer-proof-command",
+  "generatedAt": "2026-06-07T19:08:33.444Z",
+  "gitCommit": "d107764",
+  "gitBranch": "docs/fix-readme-proof-command",
   "indexPath": "evidence/INDEX.md",
   "indexSha256": "b720d54e7a07b89edd4e7dd20ce6631d5d252bef273e8c59ab62cffa2fd27fb1",
   "verifier": {
