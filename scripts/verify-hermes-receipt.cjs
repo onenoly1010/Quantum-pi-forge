@@ -26,10 +26,12 @@ if (receipt.schemaVersion !== "hermes-receipt-v1") {
   console.error(`Invalid schemaVersion: ${receipt.schemaVersion}`);
   process.exit(1);
 }
+
 if (receipt.mode !== "local-read-only" && receipt.mode !== "replay-verify") {
   console.error(`Invalid mode: ${receipt.mode}`);
   process.exit(1);
 }
+
 if (!receipt.model || receipt.model.provider !== "ollama") {
   console.error("Unsupported provider");
   process.exit(1);
@@ -39,23 +41,7 @@ if (!receipt.input || !receipt.input.path || !receipt.input.sha256) {
   console.error("Invalid input receipt block");
   process.exit(1);
 }
-if (!receipt.output || !receipt.output.path || !receipt.output.sha256) {
-  console.error("Invalid output receipt block");
-  process.exit(1);
-}
 
-const authority = receipt.authority || {};
-for (const key of ["readOnly", "noPosting", "noWalletSigning", "noDeployment", "noChainMutation"]) {
-  if (authority[key] !== true) {
-    console.error(`Invalid authority boundary: ${key}`);
-    process.exit(1);
-  }
-}
-
-if (!receipt.input || !receipt.input.path || !receipt.input.sha256) {
-  console.error("Invalid input receipt block");
-  process.exit(1);
-}
 if (!receipt.output || !receipt.output.path || !receipt.output.sha256) {
   console.error("Invalid output receipt block");
   process.exit(1);
