@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "qpf-claim-map-v1",
+  "lastUpdated": "2026-06-07T00:00:00.000Z",
+  "authorityBoundary": "read-only evidence verification; no wallet signing, no deployment, no posting, no governance execution, no custody transfer, no token minting, no staking, no chain mutation",
+  "claims": [
+    {
+      "id": "evidence-index-consistency",
+      "description": "The evidence index resolves mapped lanes to existing repository paths.",
+      "evidence": [
+        "evidence/INDEX.md"
+      ],
+      "status": "verified",
+      "verification": "npm run verify:evidence-index",
+      "authorityBoundary": "read-only file existence verification; no signing, no chain mutation"
+    },
+    {
+      "id": "evidence-receipt-drift-free",
+      "description": "The evidence receipt hash matches the current evidence index hash.",
+      "evidence": [
+        "evidence/INDEX.md",
+        "evidence/receipt.json",
+        "scripts/check-evidence-receipt.cjs"
+      ],
+      "status": "verified",
+      "verification": "npm run evidence:receipt:check",
+      "authorityBoundary": "read-only hash verification; no signing, no chain mutation"
+    },
+    {
+      "id": "claim-map-exists",
+      "description": "The repository exposes a machine-readable claim map.",
+      "evidence": [
+        "evidence/claim-map.json"
+      ],
+      "status": "verified",
+      "verification": "npm run verify:claim-map",
+      "authorityBoundary": "read-only JSON validation; no signing, no chain mutation"
+    }
+  ]
+}

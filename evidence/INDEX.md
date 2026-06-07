@@ -82,3 +82,18 @@ Every new evidence entry should include:
 ## Current Status
 
 This index establishes the current repository evidence map for the post-Hermes baseline.
+
+## Claim Map v1
+
+Machine-readable public claim map.
+
+- `evidence/claim-map.json`
+- `scripts/verify-claim-map.cjs`
+
+Verification:
+
+```bash
+npm run verify:claim-map
+```
+
+Authority boundary: read-only evidence verification only; no wallet signing, deployment, posting, governance execution, custody transfer, token minting, staking, or chain mutation.
