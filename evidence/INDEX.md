@@ -125,3 +125,17 @@ npm run verify:evidence
 ```
 
 Authority boundary: read-only local evidence verification only; no wallet signing, deployment, posting, governance execution, custody transfer, token minting, staking, or chain mutation.
+
+## README Reviewer Proof Command
+
+Repository front-door pointer to the canonical local evidence verifier.
+
+- `README.md`
+
+Verification:
+
+```bash
+npm run verify:evidence
+```
+
+Authority boundary: read-only reviewer evidence verification only; no wallet signing, deployment, posting, governance execution, custody transfer, token minting, staking, or chain mutation.

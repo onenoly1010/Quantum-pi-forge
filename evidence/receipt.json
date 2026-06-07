@@ -1,10 +1,10 @@
 {
   "schemaVersion": "qpf-evidence-receipt-v1",
-  "generatedAt": "2026-06-07T18:56:35.521Z",
-  "gitCommit": "92f0785",
-  "gitBranch": "chore/verification-bundle-v1",
+  "generatedAt": "2026-06-07T19:01:47.232Z",
+  "gitCommit": "9b9bebb",
+  "gitBranch": "docs/readme-reviewer-proof-command",
   "indexPath": "evidence/INDEX.md",
-  "indexSha256": "905d0a696a43b185cb0ed7b5262c490446c10caed33f48b184aeb72ade7902df",
+  "indexSha256": "b720d54e7a07b89edd4e7dd20ce6631d5d252bef273e8c59ab62cffa2fd27fb1",
   "verifier": {
     "command": "npm run verify:evidence-index",
     "result": "pass",
