@@ -162,3 +162,27 @@ Snapshot baseline:
 
 Authority boundary: read-only evidence verification only; no wallet signing, deployment, posting, governance execution, custody transfer, token minting, staking, or chain mutation.
 
+## Verification Bundle v2
+
+The front-door reviewer proof command includes the snapshot anchor check.
+
+- `scripts/verify-evidence.cjs`
+- `scripts/verify-snapshot.cjs`
+- `evidence/snapshot-v1.json`
+
+Verification:
+
+```bash
+npm run verify:evidence
+```
+
+Expected bundle steps:
+
+1. Evidence index
+2. Evidence receipt
+3. Claim map
+4. Claim-map drift guard
+5. Evidence snapshot
+
+Authority boundary: read-only local evidence verification only; no wallet signing, deployment, posting, governance execution, custody transfer, token minting, staking, or chain mutation.
+
