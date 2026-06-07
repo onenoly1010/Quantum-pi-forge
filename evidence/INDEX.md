@@ -97,3 +97,17 @@ npm run verify:claim-map
 ```
 
 Authority boundary: read-only evidence verification only; no wallet signing, deployment, posting, governance execution, custody transfer, token minting, staking, or chain mutation.
+
+## Claim Map Drift Guard
+
+Read-only drift guard for the machine-readable claim map.
+
+- `scripts/check-claim-map.cjs`
+
+Verification:
+
+```bash
+npm run claim-map:check
+```
+
+Authority boundary: read-only claim map drift verification only; no wallet signing, deployment, posting, governance execution, custody transfer, token minting, staking, or chain mutation.
