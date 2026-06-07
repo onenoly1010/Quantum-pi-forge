@@ -7,7 +7,8 @@
     "deploy:cf": "bash scripts/deploy-cloudflare-pages.sh",
     "verify:receipt": "node scripts/verify-hermes-receipt.cjs",
     "verify:evidence-index": "node scripts/verify-evidence-index.cjs",
-    "evidence:receipt": "node scripts/generate-evidence-receipt.cjs"
+    "evidence:receipt": "node scripts/generate-evidence-receipt.cjs",
+    "evidence:receipt:check": "node scripts/check-evidence-receipt.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.3",
