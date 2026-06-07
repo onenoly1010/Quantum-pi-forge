@@ -58,7 +58,11 @@ echo
 echo "=== lint / test / build ==="
 npm run lint --if-present
 npm test --if-present
-npm run build --if-present
+npm run build
+
+echo
+echo "=== evidence index verification ==="
+npm run verify:evidence-index --if-present
 
 echo
 echo "=== static deploy artifact check ==="
