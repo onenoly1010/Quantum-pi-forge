@@ -1,10 +1,10 @@
 {
   "schemaVersion": "qpf-evidence-receipt-v1",
-  "generatedAt": "2026-06-07T17:00:16.287Z",
-  "gitCommit": "a47cee3",
-  "gitBranch": "chore/evidence-receipt-drift-guard",
+  "generatedAt": "2026-06-07T18:44:37.456Z",
+  "gitCommit": "74e617c",
+  "gitBranch": "feat/claim-map-v1",
   "indexPath": "evidence/INDEX.md",
-  "indexSha256": "1ee8627a3cb8d5126cf3b01cc8472343d6a8c2e00994d3f28cfd1e4b6e76768a",
+  "indexSha256": "a26c401bc8c55035483e097402ff4a157e60fdf2f13e4da3d4d9a0b746f8e60a",
   "verifier": {
     "command": "npm run verify:evidence-index",
     "result": "pass",
