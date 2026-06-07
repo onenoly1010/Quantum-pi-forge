@@ -1,7 +1,7 @@
 {
   "schemaVersion": "qpf-evidence-receipt-v1",
-  "generatedAt": "2026-06-07T19:44:34.526Z",
-  "gitCommit": "e523403",
+  "generatedAt": "2026-06-07T19:46:35.068Z",
+  "gitCommit": "029b7a3",
   "gitBranch": "evidence/verification-bundle-v2",
   "indexPath": "evidence/INDEX.md",
   "indexSha256": "a63dc16e5f577c808fd495e5a18e87f25006980cf0d84d23b61f5beca57e58fa",
