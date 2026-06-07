@@ -8,9 +8,8 @@ if (!receiptPath) {
   process.exit(1);
 }
 
-function sha256File(path, trim) {
-  let data = fs.readFileSync(path);
-  if (trim) data = Buffer.from(data.toString("utf8").trim(), "utf8");
+function sha256File(path) {
+  const data = fs.readFileSync(path);
   return crypto.createHash("sha256").update(data).digest("hex");
 }
 
@@ -56,13 +55,13 @@ for (const key of ["readOnly", "noPosting", "noWalletSigning", "noDeployment", "
 }
 
 try {
-  const inputHash = sha256File(receipt.input.path, false);
+  const inputHash = sha256File(receipt.input.path);
   if (inputHash !== receipt.input.sha256) {
     console.error(`Input hash mismatch.\nExpected: ${receipt.input.sha256}\nGot:      ${inputHash}`);
     process.exit(1);
   }
 
-  const outputHash = sha256File(receipt.output.path, true);
+  const outputHash = sha256File(receipt.output.path);
   if (outputHash !== receipt.output.sha256) {
     console.error(`Output hash mismatch.\nExpected: ${receipt.output.sha256}\nGot:      ${outputHash}`);
     process.exit(1);
