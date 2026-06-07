@@ -46,6 +46,12 @@ npm run evidence:receipt
 
 The receipt records the SHA-256 hash of `evidence/INDEX.md`, the verifier result, the current git commit, and the read-only authority boundary.
 
+Check receipt drift without rewriting the receipt:
+
+```bash
+npm run evidence:receipt:check
+```
+
 ## Authority Boundary
 
 All current evidence lanes are read-only and non-mutating.
