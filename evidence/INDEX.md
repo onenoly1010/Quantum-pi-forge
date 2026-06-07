@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This index maps project evidence claims to their supporting files, verification commands, and authority boundaries.
+This index maps current repository evidence claims to their supporting files, verification commands, and authority boundaries.
 
 The index is not a runtime system. It does not grant wallet, deployment, posting, governance, or chain authority.
 
@@ -13,8 +13,13 @@ The index is not a runtime system. It does not grant wallet, deployment, posting
 | QPF-HERMES-RECEIPT-REPLAY-v1 | Local Hermes/Ollama inference receipt replay | Active | `scripts/hermes-run.sh`, `scripts/hermes-write-receipt.cjs`, `scripts/verify-hermes-receipt.cjs`, `evidence/hermes/schemas/receipt-v1.schema.json` | `npm run verify:receipt -- <receipt.json>` |
 | QPF-HERMES-RETENTION-POLICY-v1 | Receipt retention and commit eligibility policy | Active | `docs/evidence/HERMES_RECEIPT_RETENTION_POLICY.md` | Documentation review |
 | QPF-LOCAL-CI-SURROGATE-v1 | Local build and verification substitute while hosted checks are unavailable | Active | `scripts/local-ci-surrogate.sh` | `bash scripts/local-ci-surrogate.sh` |
-| QPF-CLAIM-MAP-v1 | Public claim-to-proof mapping | Active | `docs/EVIDENCE.md`, `PROOF-INDEX.md` | Documentation review |
-| QPF-ARCHITECTURE-MAP-v1 | Reviewer architecture map | Active | `docs/ARCHITECTURE_MAP.md` | Documentation review |
+
+## Deferred Evidence Lanes
+
+These lanes are intentionally excluded from current verifier enforcement until their files are restored or reintroduced:
+
+- QPF-CLAIM-MAP-v1
+- QPF-ARCHITECTURE-MAP-v1
 
 ## Hermes Evidence Rule
 
@@ -57,4 +62,4 @@ Every new evidence entry should include:
 
 ## Current Status
 
-This index establishes the repository evidence map for the current post-Hermes baseline.
+This index establishes the current repository evidence map for the post-Hermes baseline.

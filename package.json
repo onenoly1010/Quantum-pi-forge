@@ -5,7 +5,8 @@
     "build:cf": "node scripts/build.js",
     "serve:deploy": "python3 -m http.server 8100 --directory out",
     "deploy:cf": "bash scripts/deploy-cloudflare-pages.sh",
-    "verify:receipt": "node scripts/verify-hermes-receipt.cjs"
+    "verify:receipt": "node scripts/verify-hermes-receipt.cjs",
+    "verify:evidence-index": "node scripts/verify-evidence-index.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.3",
