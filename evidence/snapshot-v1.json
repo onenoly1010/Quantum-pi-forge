@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "snapshotVersion": "1.0.0",
+  "timestamp": "2026-06-07T13:15:00Z",
+  "state": {
+    "canonicalCommit": "7e6281d",
+    "receiptHash": "b720d54e7a07b89edd4e7dd20ce6631d5d252bef273e8c59ab62cffa2fd27fb1",
+    "proofCommand": "npm run verify:evidence",
+    "proofStatus": "passed"
+  },
+  "authorityBoundary": {
+    "type": "read-only verification only",
+    "restrictions": [
+      "no wallet signing",
+      "no deployment execution",
+      "no posting paths",
+      "no governance execution",
+      "no custody transfer",
+      "no token minting",
+      "no staking mutation",
+      "no chain mutation"
+    ]
+  }
+}

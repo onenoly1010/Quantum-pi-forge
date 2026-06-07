@@ -1,10 +1,10 @@
 {
   "schemaVersion": "qpf-evidence-receipt-v1",
-  "generatedAt": "2026-06-07T19:08:33.444Z",
-  "gitCommit": "d107764",
-  "gitBranch": "docs/fix-readme-proof-command",
+  "generatedAt": "2026-06-07T19:24:07.881Z",
+  "gitCommit": "7e6281d",
+  "gitBranch": "evidence/snapshot-v1",
   "indexPath": "evidence/INDEX.md",
-  "indexSha256": "b720d54e7a07b89edd4e7dd20ce6631d5d252bef273e8c59ab62cffa2fd27fb1",
+  "indexSha256": "ebe2ecf5deaddfcac0a38f55e2cb7633b433cf31fa8a1c38cd6f735c1da5458e",
   "verifier": {
     "command": "npm run verify:evidence-index",
     "result": "pass",
