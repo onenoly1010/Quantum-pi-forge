@@ -5,7 +5,8 @@ const steps = [
   ["verify:evidence-index", "Verify evidence index"],
   ["evidence:receipt:check", "Verify evidence receipt"],
   ["verify:claim-map", "Verify claim map"],
-  ["claim-map:check", "Verify claim map drift guard"]
+  ["claim-map:check", "Verify claim map drift guard"],
+  ["verify:snapshot", "Verify evidence snapshot"]
 ];
 
 function run(script, label) {
