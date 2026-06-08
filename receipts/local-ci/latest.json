@@ -1,11 +1,11 @@
 {
   "schema": "quantum-pi-forge.local-ci-receipt.v1",
-  "generated_at_utc": "2026-06-08T19:42:34.832Z",
+  "generated_at_utc": "2026-06-08T22:25:54.875Z",
   "repo": {
     "root": "/home/kris/forge/Quantum-pi-forge",
     "branch": "docs/local-ci-receipt-schema-v1",
-    "commit": "0670e48ee294fb13807f62953c6763e9159eb98b",
-    "status_short": "M package.json\n?? docs/review/\n?? receipts/\n?? scripts/local-ci-receipt-default.sh\n?? scripts/local-ci-receipt.cjs"
+    "commit": "c6b2244871fcdcc8db2944c08a27bb749e737a7f",
+    "status_short": ""
   },
   "command": {
     "argv": [
