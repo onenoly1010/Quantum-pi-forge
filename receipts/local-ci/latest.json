@@ -1,0 +1,53 @@
+{
+  "schema": "quantum-pi-forge.local-ci-receipt.v1",
+  "generated_at_utc": "2026-06-08T19:42:34.832Z",
+  "repo": {
+    "root": "/home/kris/forge/Quantum-pi-forge",
+    "branch": "docs/local-ci-receipt-schema-v1",
+    "commit": "0670e48ee294fb13807f62953c6763e9159eb98b",
+    "status_short": "M package.json\n?? docs/review/\n?? receipts/\n?? scripts/local-ci-receipt-default.sh\n?? scripts/local-ci-receipt.cjs"
+  },
+  "command": {
+    "argv": [
+      "bash",
+      "scripts/local-ci-receipt-default.sh"
+    ],
+    "exit_code": 0
+  },
+  "environment": {
+    "node": "v22.22.3",
+    "npm": "10.9.8",
+    "git": "git version 2.43.0",
+    "platform": "Linux 6.17.0-35-generic x64"
+  },
+  "evidence": {
+    "files": [
+      {
+        "path": "docs/review/LOCAL_CI_RECEIPT_SCHEMA.md",
+        "sha256": "3d93abf771847f557143b44aa244d75cf8f66c6b579ea0808563839ede898602"
+      },
+      {
+        "path": "scripts/local-ci-receipt-default.sh",
+        "sha256": "2939dc375e78cc58dfe6cc03b1f39d1d61aa2548687fa7dde5f3f94a53d97e95"
+      },
+      {
+        "path": "docs/ARCHITECTURE.md",
+        "sha256": "7de68a8411f120fd3049fb2446ffffe67c16b9cc21beda2a5885c59b36579f05"
+      },
+      {
+        "path": "package.json",
+        "sha256": "32fc82eb32a7f902feda18e8e6a07d4fdbfaa59aac417f2961a3dc449839ef0f"
+      },
+      {
+        "path": "package-lock.json",
+        "sha256": "196e3d4226a16544d3dff88530850c36bc6a484e1716a064cd61f09e4a21dbdb"
+      }
+    ]
+  },
+  "authority_boundary": {
+    "authenticity_equals_authority": false,
+    "hosted_ci_claimed": false,
+    "deployment_claimed": false,
+    "wallet_or_chain_authority_claimed": false
+  }
+}

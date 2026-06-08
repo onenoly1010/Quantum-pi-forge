@@ -12,7 +12,8 @@
     "verify:claim-map": "node scripts/verify-claim-map.cjs",
     "claim-map:check": "node scripts/check-claim-map.cjs",
     "verify:evidence": "node scripts/verify-evidence.cjs",
-    "verify:snapshot": "node scripts/verify-snapshot.cjs"
+    "verify:snapshot": "node scripts/verify-snapshot.cjs",
+    "local-ci:receipt": "node scripts/local-ci-receipt.cjs -- bash scripts/local-ci-receipt-default.sh"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.3",
