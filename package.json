@@ -13,7 +13,9 @@
     "claim-map:check": "node scripts/check-claim-map.cjs",
     "verify:evidence": "node scripts/verify-evidence.cjs",
     "verify:snapshot": "node scripts/verify-snapshot.cjs",
-    "protocol-interface:check": "node scripts/verify-protocol-interface-freeze.cjs"
+    "protocol-interface:check": "node scripts/verify-protocol-interface-freeze.cjs",
+    "evidence:verify": "node scripts/verify-evidence.cjs",
+    "verify:all": "npm run protocol-interface:check && npm run evidence:verify"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.3",
