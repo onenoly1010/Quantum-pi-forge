@@ -1,0 +1,61 @@
+name: Forgejo Local Proof
+
+on:
+  push:
+    branches:
+      - main
+      - ops/forgejo-actions-proof-v1
+      - docs/reviewer-proof-matrix-v1
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  local-proof:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: https://github.com/actions/checkout@v4
+
+      - name: Show environment
+        run: |
+          echo "=== forgejo local proof ==="
+          uname -a
+          pwd
+          node --version || true
+          npm --version || true
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static site
+        run: npm run build
+
+      - name: Verify reviewer canon files
+        run: |
+          test -s README.md
+          test -s REVIEWER_START_HERE.md
+          test -s docs/review/CLAIM_TO_PROOF_MATRIX.md
+          test -s contracts/DEPLOYED_ADDRESSES.md
+
+          grep -n "Reviewer Canon" README.md
+          grep -n "Claim-to-Proof Matrix" README.md
+          grep -n "Site Integration Note" docs/review/CLAIM_TO_PROOF_MATRIX.md
+          grep -n "does not claim deployment" contracts/DEPLOYED_ADDRESSES.md
+          grep -n "0G Aristotle Mainnet" contracts/DEPLOYED_ADDRESSES.md
+
+      - name: Emit proof receipt
+        run: |
+          mkdir -p receipts/forgejo
+          {
+            echo "{"
+            echo "  \"workflow\": \"Forgejo Local Proof\","
+            echo "  \"status\": \"completed\","
+            echo "  \"scope\": \"build-and-reviewer-canon-verification\","
+            echo "  \"runner\": \"forgejo-compatible\","
+            echo "  \"git_sha\": \"${GITHUB_SHA:-unknown}\","
+            echo "  \"branch\": \"${GITHUB_REF_NAME:-unknown}\","
+            echo "  \"timestamp_utc\": \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\""
+            echo "}"
+          } > receipts/forgejo/local-proof-receipt.json
+          cat receipts/forgejo/local-proof-receipt.json
