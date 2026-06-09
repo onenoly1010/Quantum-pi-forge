@@ -1,0 +1,24 @@
+Quantum Pi Forge GitHub Gate Receipt
+timestamp_utc=20260609T191302Z
+
+=== local branch ===
+## ops/active-resonance-worker-monitor-v1...origin/ops/active-resonance-worker-monitor-v1
+?? receipts/github-gate/
+?? scripts/vercel-api-preflight.sh
+?? scripts/verify-vercel-api-local.sh
+ops/active-resonance-worker-monitor-v1
+
+=== PR 171 status ===
+{"mergeable":"MERGEABLE","number":171,"reviewDecision":"REVIEW_REQUIRED","state":"OPEN","statusCheckRollup":[{"__typename":"CheckRun","completedAt":"2026-06-09T17:09:31Z","conclusion":"FAILURE","detailsUrl":"https://github.com/onenoly1010/Quantum-pi-forge/actions/runs/27222873739/job/80382081214","name":"healthcheck","startedAt":"2026-06-09T17:09:29Z","status":"COMPLETED","workflowName":"CI Healthcheck"},{"__typename":"CheckRun","completedAt":"2026-06-09T17:09:31Z","conclusion":"FAILURE","detailsUrl":"https://github.com/onenoly1010/Quantum-pi-forge/actions/runs/27222873742/job/80382081805","name":"cloudflare-pages-check","startedAt":"2026-06-09T17:09:30Z","status":"COMPLETED","workflowName":"Cloudflare Pages Build Check"},{"__typename":"CheckRun","completedAt":"2026-06-09T17:09:31Z","conclusion":"FAILURE","detailsUrl":"https://github.com/onenoly1010/Quantum-pi-forge/actions/runs/27222873744/job/80382081237","name":"prove-determinism","startedAt":"2026-06-09T17:09:29Z","status":"COMPLETED","workflowName":"EPI Determinism Proof"},{"__typename":"CheckRun","completedAt":"2026-06-09T17:09:32Z","conclusion":"FAILURE","detailsUrl":"https://github.com/onenoly1010/Quantum-pi-forge/actions/runs/27222873826/job/80382081155","name":"Lint and Test","startedAt":"2026-06-09T17:09:29Z","status":"COMPLETED","workflowName":"Test and Build"},{"__typename":"CheckRun","completedAt":"2026-06-09T17:09:31Z","conclusion":"FAILURE","detailsUrl":"https://github.com/onenoly1010/Quantum-pi-forge/actions/runs/27222873794/job/80382081215","name":"verify-determinism","startedAt":"2026-06-09T17:09:29Z","status":"COMPLETED","workflowName":"🛡️ EPI Hermetic Audit Pipeline"},{"__typename":"CheckRun","completedAt":"2026-06-09T17:09:32Z","conclusion":"SKIPPED","detailsUrl":"https://github.com/onenoly1010/Quantum-pi-forge/actions/runs/27222873826/job/80382089694","name":"Build and Package","startedAt":"2026-06-09T17:09:32Z","status":"COMPLETED","workflowName":"Test and Build"},{"__typename":"CheckRun","completedAt":"2026-06-09T17:09:32Z","conclusion":"SKIPPED","detailsUrl":"https://github.com/onenoly1010/Quantum-pi-forge/actions/runs/27222873826/job/80382089823","name":"API Health Check","startedAt":"2026-06-09T17:09:32Z","status":"COMPLETED","workflowName":"Test and Build"}],"title":"Add active resonance worker monitoring receipts","url":"https://github.com/onenoly1010/Quantum-pi-forge/pull/171"}
+
+=== PR 171 checks ===
+Lint and Test	fail	3s	https://github.com/onenoly1010/Quantum-pi-forge/actions/runs/27222873826/job/80382081155	
+cloudflare-pages-check	fail	1s	https://github.com/onenoly1010/Quantum-pi-forge/actions/runs/27222873742/job/80382081805	
+healthcheck	fail	2s	https://github.com/onenoly1010/Quantum-pi-forge/actions/runs/27222873739/job/80382081214	
+prove-determinism	fail	2s	https://github.com/onenoly1010/Quantum-pi-forge/actions/runs/27222873744/job/80382081237	
+verify-determinism	fail	2s	https://github.com/onenoly1010/Quantum-pi-forge/actions/runs/27222873794/job/80382081215	
+API Health Check	skipping	0	https://github.com/onenoly1010/Quantum-pi-forge/actions/runs/27222873826/job/80382089823	
+Build and Package	skipping	0	https://github.com/onenoly1010/Quantum-pi-forge/actions/runs/27222873826/job/80382089694	
+
+=== main branch protection ===
+{"enforce_admins":{"enabled":true,"url":"https://api.github.com/repos/onenoly1010/Quantum-pi-forge/branches/main/protection/enforce_admins"},"required_linear_history":{"enabled":true},"required_pull_request_reviews":{"dismiss_stale_reviews":true,"require_code_owner_reviews":true,"require_last_push_approval":false,"required_approving_review_count":1,"url":"https://api.github.com/repos/onenoly1010/Quantum-pi-forge/branches/main/protection/required_pull_request_reviews"},"required_status_checks":null}
