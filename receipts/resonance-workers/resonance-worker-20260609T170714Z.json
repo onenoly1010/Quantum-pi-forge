@@ -1,0 +1,30 @@
+{
+  "boundary": {
+    "claim": "This receipt records local observation only.",
+    "does_not_prove": [
+      "external funding",
+      "third-party review approval",
+      "wallet custody",
+      "mainnet authority",
+      "autonomous external execution"
+    ]
+  },
+  "branch": "ops/active-resonance-worker-monitor-v1",
+  "commit": "b3b653e34b6c16ae0f6a9e56fd4f07511b960f53",
+  "observations": {
+    "process_snapshot": "4 kworker/R-rcu_g [kworker/R-rcu_gp]\n      5 kworker/R-sync_ [kworker/R-sync_wq]\n      6 kworker/R-kvfre [kworker/R-kvfree_rcu_reclaim]\n      7 kworker/R-slub_ [kworker/R-slub_flushwq]\n      8 kworker/R-netns [kworker/R-netns]\n     11 kworker/0:0H-ev [kworker/0:0H-events_highpri]\n     13 kworker/R-mm_pe [kworker/R-mm_percpu_wq]\n     16 rcu_exp_par_gp_ [rcu_exp_par_gp_kthread_worker/0]\n     17 rcu_exp_gp_kthr [rcu_exp_gp_kthread_worker]\n     26 kworker/1:0H-ev [kworker/1:0H-events_highpri]\n     30 kworker/R-inet_ [kworker/R-inet_frag_wq]\n     38 kworker/R-write [kworker/R-writeback]\n     43 kworker/R-kbloc [kworker/R-kblockd]\n     44 kworker/R-blkcg [kworker/R-blkcg_punt_bio]\n     45 kworker/R-kinte [kworker/R-kintegrityd]\n     48 kworker/R-tpm_d [kworker/R-tpm_dev_wq]\n     49 kworker/R-ata_s [kworker/R-ata_sff]\n     50 kworker/R-md    [kworker/R-md]\n     51 kworker/R-md_bi [kworker/R-md_bitmap]\n     52 kworker/R-edac- [kworker/R-edac-poller]\n     53 kworker/R-devfr [kworker/R-devfreq_wq]\n     55 kworker/R-quota [kworker/R-quota_events_unbound]\n     56 kworker/0:1H-kb [kworker/0:1H-kblockd]\n     59 kworker/R-kthro [kworker/R-kthrotld]\n     60 kworker/u19:0-h [kworker/u19:0-hci0]\n     62 kworker/R-acpi_ [kworker/R-acpi_thermal_pm]\n     63 kworker/R-mld   [kworker/R-mld]\n     64 kworker/R-ipv6_ [kworker/R-ipv6_addrconf]\n     66 kworker/R-kstrp [kworker/R-kstrp]\n     84 kworker/R-charg [kworker/R-charger_manager]\n    109 kworker/1:1H-kb [kworker/1:1H-kblockd]\n    137 kworker/R-scsi_ [kworker/R-scsi_tmf_0]\n    140 kworker/R-scsi_ [kworker/R-scsi_tmf_1]\n    144 kworker/R-uas   [kworker/R-uas]\n    169 kworker/R-raid5 [kworker/R-raid5wq]\n    219 kworker/R-ext4- [kworker/R-ext4-rsv-conversion]\n    440 kworker/R-cfg80 [kworker/R-cfg80211]\n    449 kworker/R-ath10 [kworker/R-ath10k_wq]\n    450 kworker/R-ath10 [kworker/R-ath10k_aux_wq]\n    451 kworker/R-ath10 [kworker/R-ath10k_tx_complete_wq]"
+  },
+  "runtime": {
+    "node": "v22.22.3",
+    "npm": "10.9.8"
+  },
+  "schema": "qpf.resonance_worker_monitor.v1",
+  "sha256": "c57e34f2d9eaa36e46822313de269efa91f6eb0a156ff378e7b7a6e0608c0829",
+  "timestamp_utc": "20260609T170714Z",
+  "verification": {
+    "command": "npm run verify:evidence",
+    "exit": "0",
+    "result_tail": "> verify:evidence\n> node scripts/verify-evidence.cjs\n\n\n=== Verify evidence index ===\n\n> verify:evidence-index\n> node scripts/verify-evidence-index.cjs\n\nOK evidence index verified: 3 lanes, 6 paths checked.\n\n=== Verify evidence receipt ===\n\n> evidence:receipt:check\n> node scripts/check-evidence-receipt.cjs\n\nOK evidence receipt matches evidence index hash.\nindexSha256=a63dc16e5f577c808fd495e5a18e87f25006980cf0d84d23b61f5beca57e58fa\n\n=== Verify claim map ===\n\n> verify:claim-map\n> node scripts/verify-claim-map.cjs\n\n\n> verify:evidence-index\n> node scripts/verify-evidence-index.cjs\n\nOK evidence index verified: 3 lanes, 6 paths checked.\nOK claim map verified: 3 claims checked.\n\n=== Verify claim map drift guard ===\n\n> claim-map:check\n> node scripts/check-claim-map.cjs\n\n\n> verify:claim-map\n> node scripts/verify-claim-map.cjs\n\n\n> verify:evidence-index\n> node scripts/verify-evidence-index.cjs\n\nOK evidence index verified: 3 lanes, 6 paths checked.\nOK claim map verified: 3 claims checked.\nOK claim map drift check passed.\nclaims=3\n\n=== Verify evidence snapshot ===\n\n> verify:snapshot\n> node scripts/verify-snapshot.cjs\n\nOK evidence snapshot verified.\nsnapshotVersion=1.0.0\ncanonicalCommit=7e6281d\ncurrentHead=b3b653e\nbaselineReceiptHash=b720d54e7a07b89edd4e7dd20ce6631d5d252bef273e8c59ab62cffa2fd27fb1\ncurrentReceiptHash=a63dc16e5f577c808fd495e5a18e87f25006980cf0d84d23b61f5beca57e58fa\nproofCommand=npm run verify:evidence\n\nOK evidence verification bundle passed.\nsteps=5"
+  },
+  "working_tree_status_short": "M scripts/resonance-worker-monitor.sh\n?? scripts/resonance-worker-monitor.py"
+}
