@@ -1,26 +1,35 @@
-# Quantum Pi Forge: Reviewer Entrypoint
+# Reviewer Start Here
 
-Welcome to the Quantum Pi Forge repository. This document serves as a high-level navigation map for grant evaluators, security auditors, node operators, and ecosystem partners.
+Quantum Pi Forge is a sovereign AI/blockchain infrastructure prototype moving from narrative constellation to verifiable protocol surface.
 
-The runtime layer of this repository is intentionally **sealed and frozen** to ensure complete deterministic stability during external evaluation.
+This repository is the active public canon for reviewer orientation, claim classification, and proof routing.
 
-## Navigation Map
+## Review Standard
 
-Before inspecting raw source code, please review our core operational and security baselines in the following order:
+Do not rely on mythology first.
 
-1. **[Grant & Reviewer Packet](docs/GRANT-REVIEW-PACKET.md)**
-   - Executive summary of project status, current architecture claims, boundaries, and explicit non-claims.
-2. **[Verification Baseline](VERIFICATION.md)**
-   - Core cryptographic baselines and state confirmation proofs.
-3. **[Operations Index](docs/OPERATIONS-INDEX.md)**
-   - The single source of truth mapping official channels, local execution paths, and known upstream friction points.
-4. **[Branch Protection Status](docs/BRANCH-PROTECTION-STATUS.md)**
-   - Empirical confirmation of the human-gated governance perimeter securing `main`.
-5. **[Official Channels](OFFICIAL_CHANNELS.md)**
-   - Verified coordinates, authorized node endpoints, and official communication boundaries.
-6. **[CI Runner Failure Evidence](GITHUB_ACTIONS_RUNNER_FAILURE_EVIDENCE_20260531.md)**
-   - Forensic documentation isolating external/account-level infrastructure friction from core repository integrity.
+Run the evidence path first.
 
-## Current Sovereign Posture
+Every claim should be treated as one of:
 
-The active tracking branch is locked. All autonomous remediation loops are intentionally quarantined until external validation is complete.
+- **Verifiable** — executable proof exists
+- **Pending** — intended but not yet fully proven publicly
+- **Disabled** — intentionally inactive until verification is complete
+- **Archive** — historical context only
+- **Aspirational** — direction of travel, not current operational fact
+
+## Canonical Review Path
+
+1. Read `docs/review/CLAIM_TO_PROOF_MATRIX.md`
+2. Confirm which claims are verifiable, pending, disabled, archived, or aspirational
+3. Run available local verification scripts
+4. Compare public site claims against this matrix
+5. Treat disabled economic flows as safety boundaries, not failures
+
+## Current Position
+
+Quantum Pi Forge is a serious sovereign infrastructure prototype with real code, contracts, local tooling, and verification direction.
+
+It is not yet publicly proven as a fully autonomous, economically active network.
+
+That distinction is intentional and must remain visible.
