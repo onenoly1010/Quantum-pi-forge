@@ -1,0 +1,10 @@
+{
+  "schema": "oinio-soul-continuity-receipt-v1",
+  "subject": "oinio-soul-system",
+  "claim_type": "integration_boundary",
+  "human_authorized": true,
+  "forge_commit": "03a49fc47994fa09652c022228bac48dd215589b",
+  "source_receipt": "docs/oinio/OINIO_SOUL_SYSTEM_INTEGRATION_BOUNDARY.md",
+  "claim_sha256": "b63f8a46c08af9c0ff6b0aa990155c26239c406f286b37d96dbc6d500d8fd5e0",
+  "created_at_utc": "2026-06-09T20:03:00Z"
+}

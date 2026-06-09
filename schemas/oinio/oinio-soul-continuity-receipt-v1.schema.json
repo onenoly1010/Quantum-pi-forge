@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OINIOSoulContinuityReceiptV1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "subject",
+    "claim_type",
+    "human_authorized",
+    "forge_commit",
+    "source_receipt",
+    "claim_sha256",
+    "created_at_utc"
+  ],
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "oinio-soul-continuity-receipt-v1"
+    },
+    "subject": {
+      "type": "string",
+      "minLength": 1
+    },
+    "claim_type": {
+      "type": "string",
+      "enum": [
+        "identity_continuity",
+        "memory_continuity",
+        "agent_boundary",
+        "custody_boundary",
+        "integration_boundary"
+      ]
+    },
+    "human_authorized": {
+      "type": "boolean"
+    },
+    "forge_commit": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "source_receipt": {
+      "type": "string",
+      "minLength": 1
+    },
+    "claim_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "created_at_utc": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}
