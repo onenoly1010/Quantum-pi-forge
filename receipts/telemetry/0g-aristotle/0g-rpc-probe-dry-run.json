@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-06-09T01:19:36Z",
+  "lane": "telemetry/0g-aristotle-stability-v1",
+  "mode": "DRY_RUN",
+  "probe_metrics": {
+    "primary_rpc": "NOT_CONTACTED",
+    "status": "NOT_CONTACTED",
+    "latency_ms": null,
+    "observed_block_height": null
+  },
+  "fallback_executed": false,
+  "local_integrity_state": "UNCOMPROMISED",
+  "authority_boundary": {
+    "signed_transactions": false,
+    "wallet_access": false,
+    "contract_mutation": false,
+    "relayer_mutation": false,
+    "live_rpc_contacted": false
+  }
+}
