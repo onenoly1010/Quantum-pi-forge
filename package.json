@@ -15,7 +15,7 @@
     "verify:snapshot": "node scripts/verify-snapshot.cjs"
   },
   "dependencies": {
-    "@nomicfoundation/hardhat-foundry": "^3.0.3",
+    "@nomicfoundation/hardhat-foundry": "^3.0.4",
     "chai": "^6.2.2",
     "dotenv": "^17.4.2",
     "ethers": "^6.16.0",
