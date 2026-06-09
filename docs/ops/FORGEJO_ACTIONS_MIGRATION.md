@@ -44,6 +44,22 @@ Recommended Forgejo runner label:
 
 ubuntu-latest:docker://node:22-bookworm
 
+
+## Forgejo Compatibility Notes
+
+This proof workflow intentionally uses full action URLs such as:
+
+- `https://github.com/actions/checkout@v4`
+- `https://github.com/actions/setup-node@v4`
+
+Forgejo Actions is broadly compatible with GitHub Actions syntax, but runner labels and action resolution can differ by instance.
+
+The runner label `ubuntu-latest` must exist on the Forgejo or Codeberg runner. A recommended container-backed label is:
+
+ubuntu-latest:docker://node:22-bookworm
+
+The first goal is not to migrate every GitHub workflow. The first goal is to prove one external CI path can build the static site and verify reviewer-canon artifacts without depending on GitHub-hosted Actions.
+
 ## Migration Rule
 
 Only port additional workflows after this minimal proof workflow passes.

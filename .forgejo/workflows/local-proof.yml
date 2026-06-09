@@ -1,4 +1,4 @@
-name: Forgejo Local Proof
+name: Forgejo Local Proof & Build
 
 on:
   push:
@@ -7,29 +7,43 @@ on:
       - ops/forgejo-actions-proof-v1
       - docs/reviewer-proof-matrix-v1
   pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
-  local-proof:
+  proof:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: https://github.com/actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: https://github.com/actions/setup-node@v4
+        with:
+          node-version: 22
 
       - name: Show environment
         run: |
-          echo "=== forgejo local proof ==="
+          echo "=== Forgejo Local Proof & Build ==="
           uname -a
           pwd
-          node --version || true
-          npm --version || true
+          node --version
+          npm --version
+          git rev-parse HEAD
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --ignore-scripts
 
-      - name: Build static site
+      - name: Build static assets
         run: npm run build
+
+      - name: Run non-blocking verification scripts
+        run: |
+          npm run verify:evidence || true
+          npm run verify:receipt || true
+          npm run claim-map:check || true
 
       - name: Verify reviewer canon files
         run: |
@@ -44,18 +58,20 @@ jobs:
           grep -n "does not claim deployment" contracts/DEPLOYED_ADDRESSES.md
           grep -n "0G Aristotle Mainnet" contracts/DEPLOYED_ADDRESSES.md
 
-      - name: Emit proof receipt
+      - name: Emit Forgejo proof receipt
         run: |
           mkdir -p receipts/forgejo
           {
             echo "{"
-            echo "  \"workflow\": \"Forgejo Local Proof\","
+            echo "  \"workflow\": \"Forgejo Local Proof & Build\","
             echo "  \"status\": \"completed\","
-            echo "  \"scope\": \"build-and-reviewer-canon-verification\","
+            echo "  \"scope\": \"build-reviewer-canon-and-nonblocking-verification\","
             echo "  \"runner\": \"forgejo-compatible\","
-            echo "  \"git_sha\": \"${GITHUB_SHA:-unknown}\","
-            echo "  \"branch\": \"${GITHUB_REF_NAME:-unknown}\","
+            echo "  \"git_sha\": \"$(git rev-parse HEAD)\","
+            echo "  \"branch\": \"${GITHUB_HEAD_REF:-${GITHUB_REF_NAME:-unknown}}\","
             echo "  \"timestamp_utc\": \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\""
             echo "}"
           } > receipts/forgejo/local-proof-receipt.json
+
+          echo "=== Forgejo Local Proof Receipt ==="
           cat receipts/forgejo/local-proof-receipt.json
