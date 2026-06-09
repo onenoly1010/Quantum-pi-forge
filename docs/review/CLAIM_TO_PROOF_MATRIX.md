@@ -28,12 +28,17 @@
 | Staking is live and economically active | Disabled | Public site currently indicates staking execution is disabled pending verification |
 | Wallet signing / relayer execution is active | Disabled | Public site currently indicates these flows are disabled pending verification |
 | Liquidity pool is deployed and active | Pending / Disabled | Requires LP address, chain ID, tx hash, liquidity proof, and public verification |
-| iNFT minting is live | Pending verification | Requires contract address, tx hash, chain ID, explorer link, and reproducible mint proof |
+| iNFT minting is live | Partial / Pending verification | Requires contract address, tx hash, chain ID, explorer link, and reproducible mint proof |
 | 0G Aristotle integration exists | Partial / Pending | Requires RPC proof bundle, block reference, tx receipts, scripts, and reproducible verification output |
 | Public site accurately discloses pending/disabled economic state | Verifiable | Site review against current public disclosures |
 | Full autonomous network exists today | Aspirational | Requires independent multi-node operation, sustained runtime receipts, failure recovery proof, and governance/authority boundaries |
 | QPF leads in safe autonomous-network framing | Interpretive | Supported by evidence-first posture, disabled states, local replay, and claim classification discipline |
 | QPF is production-ready in every layer | Not current canon | Older architecture language must be bounded by current matrix and disabled-state disclosures |
+
+
+## Site Integration Note
+
+The live site should link to `REVIEWER_START_HERE.md` and this matrix from a visible trust, footer, or reviewer section during the next deploy.
 
 ## Reviewer Conclusion
 
