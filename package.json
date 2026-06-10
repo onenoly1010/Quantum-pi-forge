@@ -16,7 +16,8 @@
     "governance:post-merge:check": "node scripts/verify-post-merge-governance-receipt.cjs",
     "execution:autonomous:check": "node scripts/verify-autonomous-execution-receipt.cjs",
     "execution:external-runner:check": "node scripts/verify-external-runner-proof.cjs",
-    "execution:external-runner-live-log:check": "node scripts/verify-external-runner-live-log.cjs"
+    "execution:external-runner-live-log:check": "node scripts/verify-external-runner-live-log.cjs",
+    "execution:evidence-index:check": "node scripts/verify-consolidated-execution-evidence-index.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",
