@@ -1,0 +1,21 @@
+{
+  "receipt": "selfhosted-forgejo-runner-task-observation-v1",
+  "status": "observed_lifecycle_result_unproven",
+  "branch": "ops/selfhosted-forgejo-runner-target-v1",
+  "commit": "e9eb497",
+  "github_pr": 186,
+  "runner_name": "quantum-pi-selfhosted-01",
+  "runner_labels": [
+    "quantum-pi-selfhosted",
+    "node-22"
+  ],
+  "codeberg_task_id": 6284723,
+  "task_pickup_observed": true,
+  "job_network_cleanup_observed": true,
+  "job_name": "proof",
+  "local_journal_step_result_visible": false,
+  "codeberg_terminal_result_claimed": false,
+  "external_runner_pass_claimed": false,
+  "external_runner_failure_claimed": false,
+  "verifier_weakened": false
+}
