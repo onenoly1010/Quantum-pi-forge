@@ -32,7 +32,8 @@
     "execution:autonomous-network-readiness-v1:check": "node scripts/verify-autonomous-network-readiness-v1.cjs",
     "governance:pr-188-autonomous-readiness-merge-boundary:check": "node scripts/verify-pr-188-autonomous-readiness-merge-boundary.cjs",
     "autonomous:worker-monitor-attempt:v1": "node scripts/autonomous-worker-monitor-attempt-v1.cjs",
-    "autonomous:worker-monitor-attempt:v1:check": "node scripts/verify-autonomous-worker-monitor-attempt-v1.cjs"
+    "autonomous:worker-monitor-attempt:v1:check": "node scripts/verify-autonomous-worker-monitor-attempt-v1.cjs",
+    "autonomous:public-health:v1:check": "node scripts/verify-autonomous-public-health-surface-v1.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",
