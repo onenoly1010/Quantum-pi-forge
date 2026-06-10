@@ -1,0 +1,8 @@
+Codeberg main 3c32f91 observation
+observed_at_utc=2026-06-10T19:29:53Z
+commit=3c32f913cc72f50f6eabe9321bd7616cebfb4a6d
+commit_short=3c32f91
+classification=INACCESSIBLE
+job_id=
+note=3c32f91 pushed to Codeberg; no clear final run/log visible yet; classification should be treated as INACCESSIBLE pending recheck
+external_pass_claimed=false
