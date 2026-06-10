@@ -1,0 +1,21 @@
+{
+  "claims": {
+    "autonomous_network_ready_for_next_attempt": true,
+    "false_authority_claimed": false,
+    "full_autonomous_network_live": false,
+    "hosted_github_ci_authoritative": false,
+    "local_verification_required": true,
+    "operator_override_required": true,
+    "required_review_boundary_active": true
+  },
+  "governance": {
+    "no_false_autonomy_claim": true,
+    "no_ghost_reviewer": true,
+    "receipts_required": true,
+    "verifier_required": true
+  },
+  "required_next_lane": "ops/autonomous-worker-monitor-attempt-v1",
+  "schema": "autonomous-network-readiness-v1",
+  "sealed_at": "2026-06-10T23:10:41.230955+00:00",
+  "status": "sealed"
+}
