@@ -2,49 +2,64 @@
 
 ## Status
 
-Operational readiness lane.
+Readiness boundary sealed.
 
-This begins the transition from sealed governance proof into live autonomous network operation.
+This receipt does not claim that a full autonomous network is live.
 
-## Baseline Truth
+It records the present governance truth:
 
-- PR #186 merged.
-- PR #187 merged.
-- Self-hosted runner proof sealed.
-- Administrative override bounded and disclosed.
-- Branch protection restored.
-- False reviewer state not used.
+- autonomous execution is a target
+- operator override remains active
+- external hosted CI is non-authoritative under billing lock
+- local verification is authoritative for this lane
+- self-hosted runner proof exists as prior evidence
+- required review remains the merge boundary
+- no ghost reviewer or false approval may be claimed
 
-## Required Properties
+## Current Boundary
 
-- observe_without_false_claims == true
-- execute_with_bounded_authority == true
-- publish_verifiable_receipts == true
-- recover_from_failure_without_history_rewrite == true
-- operator_override_is_logged == true
+A full autonomous network requires more than scripts, CI receipts, or isolated runner proof.
 
-## Allowed Autonomous Actions
+It requires:
 
-- observe repository state
-- verify receipts
-- check published health endpoints
-- record local status
-- fail closed on ambiguity
+1. Deterministic local execution.
+2. Self-hosted execution proof.
+3. Persistent network worker lifecycle.
+4. Autonomous observation.
+5. Autonomous correction proposal.
+6. Human override logging.
+7. Public replayable receipts.
+8. Governance-safe merge boundaries.
 
-## Disallowed Autonomous Actions
+This lane seals the readiness posture before moving into persistent autonomous worker deployment.
 
-- bypass branch protection silently
-- spend funds
-- move tokens
-- deploy contracts
-- alter main without review or override receipt
-- claim external approval that does not exist
+## Non-Claims
 
-## Current Claim
+This lane does not claim:
 
-autonomous_network_readiness_lane_created == true
-full_autonomous_network_live == false
+- full autonomy is live
+- mainnet worker authority is active
+- human governance has been removed
+- external reviewers have approved
+- hosted GitHub CI is authoritative
+- funding, grant, or institutional authority has been granted
 
 ## Governance Rule
 
-This lane may prepare, observe, and verify. It must not claim full autonomous network status until recurring live execution evidence exists.
+The next valid move after this lane is a bounded autonomous worker monitor attempt.
+
+No autonomous system may mutate protected state without:
+
+- a receipt
+- a verifier
+- an operator override path
+- branch protection restored
+- merge history preserved
+
+## Sealed Position
+
+autonomous_network_ready_for_next_attempt == true  
+full_autonomous_network_live == false  
+operator_override_required == true  
+false_authority_claimed == false  
+local_verification_required == true  

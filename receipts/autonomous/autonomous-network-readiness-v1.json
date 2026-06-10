@@ -1,26 +1,21 @@
 {
-  "receipt_version": "autonomous-network-readiness-v1",
-  "status": "prepared",
-  "claim": {
-    "sealed_history_exists": true,
-    "pr_186_merged": true,
-    "pr_187_merged": true,
-    "selfhosted_runner_proof_exists": true,
-    "branch_protection_restored": true,
-    "autonomous_network_readiness_lane_created": true,
-    "full_autonomous_network_live": false
+  "claims": {
+    "autonomous_network_ready_for_next_attempt": true,
+    "false_authority_claimed": false,
+    "full_autonomous_network_live": false,
+    "hosted_github_ci_authoritative": false,
+    "local_verification_required": true,
+    "operator_override_required": true,
+    "required_review_boundary_active": true
   },
-  "next_required_evidence": [
-    "live recurring self-hosted runner observation",
-    "bounded autonomous action policy",
-    "public health/status surface",
-    "failure receipt discipline"
-  ],
-  "forbidden_claims": [
-    "full autonomous network is live",
-    "external approval exists",
-    "funds are secured",
-    "mainnet deployment completed",
-    "review gate was bypassed without disclosure"
-  ]
-}
+  "governance": {
+    "no_false_autonomy_claim": true,
+    "no_ghost_reviewer": true,
+    "receipts_required": true,
+    "verifier_required": true
+  },
+  "required_next_lane": "ops/autonomous-worker-monitor-attempt-v1",
+  "schema": "autonomous-network-readiness-v1",
+  "sealed_at": "2026-06-10T23:10:41.230955+00:00",
+  "status": "sealed"
+}\n
