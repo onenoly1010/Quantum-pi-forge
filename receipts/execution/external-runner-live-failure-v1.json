@@ -1,0 +1,23 @@
+{
+  "schema": "qpf.external_runner_live_failure.v1",
+  "status": "sealed",
+  "supersedes": "receipts/execution/external-runner-live-result-v1.json",
+  "previous_result": "ABSENT",
+  "corrected_result": "FAILURE",
+  "runner_target": "Codeberg Forgejo Actions",
+  "workflow": "local-proof.yml",
+  "job_id": "6249479",
+  "runner_host": "actions-tiny.aburayama.m.codeberg.org",
+  "runner_version": "v12.10.1",
+  "container_image": "ghcr.io/catthehacker/ubuntu:act-latest",
+  "node": "v22.22.3",
+  "npm": "10.9.8",
+  "external_runner_executed": true,
+  "external_runner_pass": false,
+  "failure_stage": "snapshot_verification",
+  "failure_reason": "canonicalCommit is not an ancestor of HEAD",
+  "log_path": "logs/external-runner/codeberg-live-failure-6249479-20260610.txt",
+  "truth_boundary": "local_verifier_pass != external_runner_pass",
+  "false_pass_claimed": false,
+  "next_repair_boundary": "Forgejo/Codeberg PR checkout ancestry handling"
+}
