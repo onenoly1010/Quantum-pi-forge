@@ -6,6 +6,7 @@ on:
       - main
       - ops/forgejo-actions-proof-v1
       - docs/reviewer-proof-matrix-v1
+      - ops/selfhosted-forgejo-runner-target-v1
   pull_request:
     branches:
       - main
@@ -13,7 +14,7 @@ on:
 
 jobs:
   proof:
-    runs-on: codeberg-medium-lazy
+    runs-on: quantum-pi-selfhosted
 
     steps:
       - name: Checkout code

@@ -1,0 +1,15 @@
+{
+  "receipt": "selfhosted-forgejo-runner-target-v1",
+  "status": "prepared",
+  "runner_name": "quantum-pi-selfhosted-01",
+  "runner_labels": [
+    "quantum-pi-selfhosted",
+    "node-22"
+  ],
+  "workflow_target": "quantum-pi-selfhosted",
+  "self_hosted_runner_target_configured": true,
+  "self_hosted_runner_online_precondition_observed": true,
+  "external_runner_pass_claimed": false,
+  "hosted_timeout_root_cause_claimed": false,
+  "verifier_weakened": false
+}
