@@ -1,0 +1,23 @@
+{
+  "schema": "qpf.external_runner_fixed_run_observation.v1",
+  "status": "sealed",
+  "fixed_commit": "fd8164fa2864e53b00a60a5823b837d9e928ef90",
+  "fixed_commit_short": "fd8164f",
+  "prior_failure": "canonicalCommit is not an ancestor of HEAD",
+  "applied_fix": "Forgejo checkout fetch-depth 0",
+  "runner_target": "Codeberg Forgejo Actions",
+  "classification": "INACCESSIBLE",
+  "observation_note": "run exists for fd8164f but is waiting; no final result or log available yet",
+  "trigger_log_path": "logs/external-runner/codeberg-fixed-main-trigger-20260610T190814Z.txt",
+  "observation_log_path": "logs/external-runner/codeberg-fixed-main-fd8164f-observation-20260610T191749Z.txt",
+  "external_runner_pass": false,
+  "external_pass_claimed": false,
+  "supersedes_external_runner_failure": false,
+  "truth_boundary": "fixed_run_visible_waiting != external_runner_pass",
+  "next_required_outcome": [
+    "PASS",
+    "FAILURE",
+    "INACCESSIBLE_FINAL",
+    "ABSENT_FINAL"
+  ]
+}

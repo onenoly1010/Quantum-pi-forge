@@ -1,0 +1,7 @@
+Codeberg fixed-run trigger
+triggered_at_utc=2026-06-10T19:08:14Z
+github_main=fd8164fa2864e53b00a60a5823b837d9e928ef90
+github_main_short=fd8164f
+codeberg_ref=refs/heads/main
+expected_fix=fetch-depth: 0
+external_pass_claimed=false
