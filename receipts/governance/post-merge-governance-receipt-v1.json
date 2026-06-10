@@ -1,0 +1,24 @@
+{
+  "schema": "qpf.post_merge_governance_receipt.v1",
+  "status": "sealed",
+  "event": {
+    "pull_request": 174,
+    "title": "Add Forgejo Actions proof workflow",
+    "merge_method": "squash",
+    "merged_into": "main",
+    "override_type": "temporary_admin_governance_unlock"
+  },
+  "boundary": {
+    "temporary_unlock": true,
+    "permanent_governance_removal": false,
+    "admin_override_normalized": false
+  },
+  "restored_controls": {
+    "required_pull_request_reviews": true,
+    "required_approving_review_count": 1,
+    "require_code_owner_reviews": true,
+    "enforce_admins": true
+  },
+  "invariant": "temporary_override != governance_removal",
+  "next_priority": "autonomous_execution_receipt_v1"
+}
