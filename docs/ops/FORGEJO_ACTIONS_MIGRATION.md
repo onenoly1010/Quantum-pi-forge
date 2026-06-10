@@ -60,6 +60,22 @@ ubuntu-latest:docker://node:22-bookworm
 
 The first goal is not to migrate every GitHub workflow. The first goal is to prove one external CI path can build the static site and verify reviewer-canon artifacts without depending on GitHub-hosted Actions.
 
+
+## Codeberg Hosted Runner Note
+
+The initial live Codeberg proof uses the visible hosted runner label:
+
+codeberg-medium
+
+The earlier `ubuntu-latest` label remains valid for a self-hosted Forgejo runner when registered with:
+
+ubuntu-latest:docker://node:22-bookworm
+
+This preserves both paths:
+
+- Codeberg hosted proof path now
+- Self-hosted sovereign runner path later
+
 ## Migration Rule
 
 Only port additional workflows after this minimal proof workflow passes.
