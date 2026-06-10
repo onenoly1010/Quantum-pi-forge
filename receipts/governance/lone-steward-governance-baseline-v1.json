@@ -1,0 +1,16 @@
+{
+  "schema": "lone-steward-governance-baseline-v1",
+  "status": "sealed",
+  "single_steward_mode": true,
+  "eligible_independent_reviewer_count": 0,
+  "required_review_gate_is_meaningful": false,
+  "fake_review_allowed": false,
+  "bounded_admin_override_previously_required": true,
+  "local_verifier_gate_required": true,
+  "receipt_gate_required": true,
+  "branch_protection_required": true,
+  "linear_history_required": true,
+  "pull_request_flow_required": true,
+  "full_autonomous_network_live": false,
+  "review_gate_restore_condition": "eligible_independent_reviewer_count >= 1"
+}
