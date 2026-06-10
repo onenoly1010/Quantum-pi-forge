@@ -55,3 +55,9 @@ Each deployed contract entry should eventually link to:
 6. Constructor arguments
 7. Local verification command output
 8. Matching entry in `docs/review/CLAIM_TO_PROOF_MATRIX.md`
+
+## Reviewer Canon Deployment Boundary
+
+This file does not claim deployment unless a specific address, chain, transaction, and verification artifact are listed together.
+
+0G Aristotle Mainnet references in this repository are review boundaries unless explicitly paired with executable deployment evidence.
