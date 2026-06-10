@@ -1,0 +1,17 @@
+{
+  "schema": "qpf.external_runner_live_log.v1",
+  "status": "live_log_absent",
+  "claim": "external runner live-log discovery completed without finding a live pass log",
+  "live_runner_pass_claimed": false,
+  "codeberg_remote_present": true,
+  "forgejo_or_codeberg_branch_observed": true,
+  "local_workflow_log_observed": true,
+  "external_runner_proof_receipt_status": "prepared",
+  "invariants": [
+    "live_log_absent != live_runner_pass",
+    "prepared_receipt != live_runner_pass",
+    "local_workflow_log != external_runner_pass",
+    "runner_receipt_required == true"
+  ],
+  "next_action": "attach real external runner log before updating status to sealed"
+}
