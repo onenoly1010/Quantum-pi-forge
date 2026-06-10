@@ -18,7 +18,8 @@
     "execution:external-runner:check": "node scripts/verify-external-runner-proof.cjs",
     "execution:external-runner-live-log:check": "node scripts/verify-external-runner-live-log.cjs",
     "execution:evidence-index:check": "node scripts/verify-consolidated-execution-evidence-index.cjs",
-    "execution:external-runner-live-attempt:check": "node scripts/verify-external-runner-live-attempt.cjs"
+    "execution:external-runner-live-attempt:check": "node scripts/verify-external-runner-live-attempt.cjs",
+    "execution:external-runner-live-result:check": "node scripts/verify-external-runner-live-result.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",
