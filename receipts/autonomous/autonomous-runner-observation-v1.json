@@ -1,0 +1,39 @@
+{
+  "receipt_version": "autonomous-runner-observation-v1",
+  "status": "observed",
+  "created_at_utc": "2026-06-10T23:01:17Z",
+  "host": "quantum-pi-forge",
+  "main_head": "541efa86c1e38cbb8c867960969204d0c44417f3",
+  "main_head_short": "541efa8",
+  "relationship": {
+    "readiness_pr": 188,
+    "readiness_pr_state": "OPEN",
+    "readiness_pr_mergeable": "MERGEABLE",
+    "readiness_pr_review_decision": "REVIEW_REQUIRED",
+    "readiness_pr_merged": false
+  },
+  "claim": {
+    "local_execution_observed": true,
+    "autonomous_readiness_exists": true,
+    "full_autonomous_network_live": false,
+    "external_review_claimed": false,
+    "github_hosted_ci_authoritative": false,
+    "protected_branch_mutated": false,
+    "funds_or_tokens_moved": false,
+    "contracts_deployed": false
+  },
+  "github_check_state_observed": {
+    "ci_healthcheck": "FAILURE",
+    "cloudflare_pages_build_check": "FAILURE",
+    "epi_determinism_proof": "FAILURE",
+    "test_and_build": "FAILURE",
+    "hermetic_audit_pipeline": "FAILURE",
+    "local_receipt_verifier": "PASS"
+  },
+  "next_required_evidence": [
+    "recurring scheduled self-hosted runner observation",
+    "machine-readable public health surface",
+    "failure receipts for each non-authoritative hosted check",
+    "bounded autonomous action policy enforced by script"
+  ]
+}
