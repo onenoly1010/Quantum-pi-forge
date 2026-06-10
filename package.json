@@ -25,7 +25,8 @@
     "execution:external-runner-fixed-run-observation:check": "node scripts/verify-external-runner-fixed-run-observation.cjs",
     "execution:external-runner-3c32f91-inaccessible:check": "node scripts/verify-external-runner-3c32f91-inaccessible.cjs",
     "execution:selfhosted-forgejo-runner-target:check": "node scripts/verify-selfhosted-forgejo-runner-target.cjs",
-    "execution:selfhosted-forgejo-runner-task-observation:check": "node scripts/verify-selfhosted-forgejo-runner-task-observation.cjs"
+    "execution:selfhosted-forgejo-runner-task-observation:check": "node scripts/verify-selfhosted-forgejo-runner-task-observation.cjs",
+    "execution:selfhosted-forgejo-runner-pass:check": "node scripts/verify-selfhosted-forgejo-runner-pass.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",
