@@ -1,0 +1,35 @@
+{
+  "schema": "qpf.external_runner_proof.v1",
+  "status": "prepared",
+  "claim": "external runner proof boundary prepared",
+  "invariants": [
+    "runner_log_missing != runner_pass",
+    "github_ci_blocked != execution_blocked",
+    "external_runner_receipt_required == true"
+  ],
+  "upstream_invariants": [
+    "external_runner_pass == autonomous_execution_evidence",
+    "local_replay_pass == deterministic_fallback_evidence"
+  ],
+  "acceptable_targets": [
+    "Forgejo Actions",
+    "Codeberg Actions",
+    "self-hosted runner",
+    "local isolated runner"
+  ],
+  "proof_required_fields": [
+    "runner_target",
+    "repository_remote",
+    "branch",
+    "commit_sha",
+    "workflow_or_command",
+    "utc_timestamp",
+    "result",
+    "log_path_or_url",
+    "local_replay_command",
+    "github_hosted_ci_required"
+  ],
+  "live_runner_pass_claimed": false,
+  "github_hosted_ci_required": false,
+  "next_action": "attach live external runner log and update status to sealed"
+}
