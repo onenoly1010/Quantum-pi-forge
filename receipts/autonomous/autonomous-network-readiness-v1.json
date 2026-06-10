@@ -1,0 +1,26 @@
+{
+  "receipt_version": "autonomous-network-readiness-v1",
+  "status": "prepared",
+  "claim": {
+    "sealed_history_exists": true,
+    "pr_186_merged": true,
+    "pr_187_merged": true,
+    "selfhosted_runner_proof_exists": true,
+    "branch_protection_restored": true,
+    "autonomous_network_readiness_lane_created": true,
+    "full_autonomous_network_live": false
+  },
+  "next_required_evidence": [
+    "live recurring self-hosted runner observation",
+    "bounded autonomous action policy",
+    "public health/status surface",
+    "failure receipt discipline"
+  ],
+  "forbidden_claims": [
+    "full autonomous network is live",
+    "external approval exists",
+    "funds are secured",
+    "mainnet deployment completed",
+    "review gate was bypassed without disclosure"
+  ]
+}
