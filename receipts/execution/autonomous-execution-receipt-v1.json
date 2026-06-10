@@ -1,0 +1,50 @@
+{
+  "schema": "qpf.autonomous_execution_receipt.v1",
+  "status": "sealed",
+  "trigger": {
+    "previous_receipt": "post-merge-governance-receipt-v1",
+    "previous_pull_request": 175,
+    "declared_next_priority": "autonomous_execution_receipt_v1"
+  },
+  "boundary": {
+    "github_hosted_ci_required_for_truth": false,
+    "github_repository_removed": false,
+    "external_execution_required_next": true,
+    "local_execution_required": true
+  },
+  "invariants": [
+    "github_ci_blocked != execution_blocked",
+    "external_runner_pass == autonomous_execution_evidence",
+    "local_replay_pass == deterministic_fallback_evidence"
+  ],
+  "execution_classes": {
+    "local_execution": {
+      "required": true,
+      "examples": [
+        "npm ci",
+        "npm run build",
+        "npm run governance:post-merge:check",
+        "npm run execution:autonomous:check"
+      ]
+    },
+    "external_runner_execution": {
+      "required_next": true,
+      "acceptable_targets": [
+        "Forgejo Actions",
+        "Codeberg Actions",
+        "self-hosted runner",
+        "local isolated runner"
+      ]
+    },
+    "deterministic_fallback_execution": {
+      "required": true,
+      "invariant": "local_replay_pass == deterministic_fallback_evidence"
+    }
+  },
+  "non_claims": {
+    "all_external_runners_production_hardened": false,
+    "github_removed": false,
+    "full_future_automation_completed": false
+  },
+  "next_target": "ops/external-runner-proof-v1"
+}
