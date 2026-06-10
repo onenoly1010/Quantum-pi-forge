@@ -1,0 +1,30 @@
+Codeberg / Forgejo external runner observation
+
+status: FAILURE
+runner_target: Codeberg Forgejo Actions
+job_id: 6249479
+workflow: local-proof.yml
+observed_date: 2026-06-10
+runner_host: actions-tiny.aburayama.m.codeberg.org
+runner_version: v12.10.1
+container_image: ghcr.io/catthehacker/ubuntu:act-latest
+node: v22.22.3
+npm: 10.9.8
+
+Observed facts:
+- Codeberg hosted runner received task 6249479.
+- Workflow prepared.
+- Checkout completed.
+- Node setup completed.
+- npm ci completed.
+- npm run build completed.
+- Evidence verification reached snapshot verification.
+- Job failed deterministically.
+
+Failure reason:
+snapshot verification failed: canonicalCommit is not an ancestor of HEAD
+
+Truth boundary:
+This is a real external runner execution.
+This is not an external runner pass.
+This supersedes the earlier ABSENT classification.
