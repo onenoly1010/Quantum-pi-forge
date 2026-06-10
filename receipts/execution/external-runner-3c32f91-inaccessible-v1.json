@@ -1,0 +1,24 @@
+{
+  "schema": "qpf.external_runner_3c32f91_inaccessible.v1",
+  "status": "sealed",
+  "commit": "3c32f913cc72f50f6eabe9321bd7616cebfb4a6d",
+  "commit_short": "3c32f91",
+  "runner_target": "Codeberg Forgejo Actions",
+  "classification": "INACCESSIBLE",
+  "observation_note": "3c32f91 pushed to Codeberg; no clear final run/log visible yet; classification should be treated as INACCESSIBLE pending recheck",
+  "trigger_log_path": "logs/external-runner/codeberg-sealed-observation-trigger-20260610T192602Z.txt",
+  "observation_log_path": "logs/external-runner/codeberg-main-3c32f91-observation-20260610T192953Z.txt",
+  "external_runner_pass": false,
+  "external_pass_claimed": false,
+  "supersedes_external_runner_failure": false,
+  "supersedes_fixed_run_observation": false,
+  "root_cause_claimed": false,
+  "timeout_theory_recorded_as_hypothesis": true,
+  "truth_boundary": "inaccessible_or_pending_codeberg_run != external_runner_pass",
+  "next_required_outcome": [
+    "PASS",
+    "FAILURE",
+    "INACCESSIBLE_FINAL",
+    "ABSENT_FINAL"
+  ]
+}

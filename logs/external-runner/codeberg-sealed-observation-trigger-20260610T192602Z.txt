@@ -1,0 +1,7 @@
+Codeberg sealed-observation trigger
+triggered_at_utc=2026-06-10T19:26:02Z
+github_main=3c32f913cc72f50f6eabe9321bd7616cebfb4a6d
+github_main_short=3c32f91
+codeberg_ref=refs/heads/main
+expected_commit=3c32f91
+external_pass_claimed=false
