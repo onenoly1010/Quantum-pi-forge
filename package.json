@@ -29,7 +29,7 @@
     "execution:selfhosted-forgejo-runner-pass:check": "node scripts/verify-selfhosted-forgejo-runner-pass.cjs",
     "governance:pr-186-selfhosted-merge-boundary:check": "node scripts/verify-pr-186-selfhosted-merge-boundary.cjs",
     "autonomous:readiness:v1:check": "node scripts/verify-autonomous-network-readiness-v1.cjs",
-    "execution:autonomous-network-readiness-v1:check": "node scripts/verify-autonomous-network-readiness-v1.js"
+    "execution:autonomous-network-readiness-v1:check": "node scripts/verify-autonomous-network-readiness-v1.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",
