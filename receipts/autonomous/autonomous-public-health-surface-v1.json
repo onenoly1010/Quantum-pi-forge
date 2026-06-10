@@ -1,0 +1,48 @@
+{
+  "status_version": "autonomous-public-health-surface-v1",
+  "updated_at_utc": "2026-06-10T23:05:52Z",
+  "latest_verified_main": "541efa86c1e38cbb8c867960969204d0c44417f3",
+  "latest_verified_main_short": "541efa8",
+  "full_autonomous_network_live": false,
+  "governance_boundary": {
+    "required_review": true,
+    "code_owner_review_required": true,
+    "enforce_admins": true,
+    "required_linear_history": true
+  },
+  "open_autonomous_prs": [
+    {
+      "number": 188,
+      "title": "Create autonomous network readiness lane",
+      "state": "OPEN",
+      "mergeable": "MERGEABLE",
+      "review_decision": "REVIEW_REQUIRED",
+      "local_verifier": "PASS",
+      "hosted_checks": "FAILURE"
+    },
+    {
+      "number": 189,
+      "title": "Record autonomous runner observation",
+      "state": "OPEN",
+      "mergeable": "MERGEABLE",
+      "review_decision": "REVIEW_REQUIRED",
+      "local_verifier": "PASS",
+      "hosted_checks": "FAILURE"
+    }
+  ],
+  "authority_limits": {
+    "may_observe": true,
+    "may_verify_locally": true,
+    "may_publish_status": true,
+    "may_bypass_review_silently": false,
+    "may_move_funds_or_tokens": false,
+    "may_deploy_contracts": false,
+    "may_claim_external_approval": false
+  },
+  "next_required_evidence": [
+    "recurring self-hosted runner schedule",
+    "machine-readable failure receipts for hosted CI",
+    "public status publication route",
+    "bounded autonomous action enforcement script"
+  ]
+}
