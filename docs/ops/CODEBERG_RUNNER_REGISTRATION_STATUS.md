@@ -47,3 +47,46 @@ The current valid proof path remains local deterministic workflow execution, Cod
 This document does not claim Codeberg Actions execution success.
 
 It records the exact attempted migration boundary and the observed external registration rejection.
+
+---
+
+## Hosted Actions Visibility Addendum
+
+After the self-hosted runner registration rejection was recorded, the Codeberg Actions tab became visible for the repository:
+
+```text
+https://codeberg.org/onenoly1010/Quantum-pi-forge/actions
+```
+
+The Forgejo workflow was discovered from:
+
+```text
+.forgejo/workflows/local-proof.yml
+```
+
+Observed hosted runs included timed executions around 55-58 seconds, indicating that Codeberg discovered the workflow and began attempting hosted execution.
+
+Later short runs around 0 seconds were observed after the runner-registration-boundary receipt commit.
+
+## Updated Interpretation
+
+The previous self-hosted runner receipt remains valid: self-hosted runner registration failed after a successful Codeberg instance ping with:
+
+```text
+invalid_argument: runner registration token not found
+```
+
+However, the hosted Codeberg Actions surface is no longer absent.
+
+The updated boundary is:
+
+- Codeberg Actions is visible.
+- The Forgejo workflow is discovered.
+- Hosted execution has partially triggered.
+- Local proof and build remain the reliable verification baseline.
+- Self-hosted runner registration remains externally blocked.
+- No claim is made that Codeberg hosted Actions is fully stable or authoritative.
+
+## Operational Position
+
+The proof lane is review-ready as a transparent migration receipt.
