@@ -1,0 +1,27 @@
+{
+  "branch": "ops/autonomous-network-readiness-v1",
+  "checks": [
+    "autonomous:readiness:v1:check",
+    "execution:autonomous-network-readiness-v1:check",
+    "npm run build"
+  ],
+  "claims": {
+    "bounded_admin_override_used": true,
+    "false_reviewer_claimed": false,
+    "full_autonomous_network_live": false,
+    "hosted_ci_authoritative": false,
+    "local_verification_passed": true,
+    "pr_188_merged": true,
+    "required_review_gate_restored": true
+  },
+  "merge_commit": "1f82aa466225d3ce5f0e22dc95abd2e122ef266a",
+  "merge_method": "squash",
+  "merged_at": "2026-06-10T23:21:01Z",
+  "next_lane": "ops/autonomous-worker-monitor-attempt-v1",
+  "pr": 188,
+  "schema": "pr-188-autonomous-readiness-merge-boundary-v1",
+  "sealed_at": "2026-06-10T23:21:54.207869+00:00",
+  "status": "sealed",
+  "target": "main",
+  "title": "Create autonomous network readiness lane"
+}
