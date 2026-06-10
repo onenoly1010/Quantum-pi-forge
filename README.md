@@ -1,5 +1,14 @@
 # Offline Dev Guardian
 
+## Reviewer Canon
+
+Start here for public review:
+
+- [Reviewer Start Here](REVIEWER_START_HERE.md)
+- [Claim-to-Proof Matrix](docs/review/CLAIM_TO_PROOF_MATRIX.md)
+
+The matrix classifies claims as verifiable, pending, disabled, archive, or aspirational so reviewers can inspect evidence before accepting narrative claims.
+
 > A local AI coding stack that installs cleanly and keeps working.
 
 No API keys. No monthly bills. No cloud dependency.
@@ -155,4 +164,3 @@ npm run verify:evidence
 This verifies the evidence index, receipt integrity, claim map, and claim-map drift guard.
 
 Authority boundary: read-only local evidence verification only; no wallet signing, deployment, posting, governance execution, custody transfer, token minting, staking, or chain mutation.
-
