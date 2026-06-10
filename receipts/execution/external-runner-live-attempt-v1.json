@@ -1,0 +1,23 @@
+{
+  "receipt_type": "external_runner_live_attempt_v1",
+  "status": "attempt_prepared",
+  "source_commit": "f2a5073",
+  "branch": "ops/external-runner-live-attempt-v1",
+  "truth_boundary": "local_verifier_pass != external_runner_pass",
+  "success_requires": [
+    "external_platform_run_identifier",
+    "external_run_url",
+    "commit_sha",
+    "workflow_name",
+    "observed_conclusion",
+    "captured_log_or_screenshot_reference",
+    "timestamp_of_observation"
+  ],
+  "valid_outcomes": [
+    "live_external_runner_pass",
+    "live_external_runner_failure",
+    "live_external_runner_absent",
+    "live_external_runner_log_inaccessible"
+  ],
+  "false_claims_forbidden": true
+}
