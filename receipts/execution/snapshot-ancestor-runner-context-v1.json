@@ -1,0 +1,13 @@
+{
+  "schema": "qpf.snapshot_ancestor_runner_context.v1",
+  "status": "sealed",
+  "problem": "Codeberg runner failed snapshot verification because canonicalCommit was not recognized as an ancestor of HEAD",
+  "failure_reason": "canonicalCommit is not an ancestor of HEAD",
+  "root_cause": "Forgejo workflow used shallow checkout without fetch-depth 0",
+  "repair": "Set actions checkout fetch-depth to 0 in .forgejo/workflows/local-proof.yml",
+  "verifier_weakened": false,
+  "workflow_history_depth_corrected": true,
+  "external_runner_pass_claimed": false,
+  "truth_boundary": "workflow_checkout_depth_fix != external_runner_pass",
+  "next_required_step": "trigger a new Codeberg run and record PASS or FAILURE"
+}
