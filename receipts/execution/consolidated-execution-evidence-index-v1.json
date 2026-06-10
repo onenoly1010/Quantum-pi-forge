@@ -1,0 +1,43 @@
+{
+  "schema": "qpf.consolidated_execution_evidence_index.v1",
+  "status": "sealed",
+  "claim": "consolidated execution evidence index sealed",
+  "main_commit_at_creation": "47fe515",
+  "receipt_chain": [
+    {
+      "pr": 175,
+      "receipt": "post-merge governance receipt",
+      "status": "sealed",
+      "commitment": "temporary override bounded and review protection restored"
+    },
+    {
+      "pr": 176,
+      "receipt": "autonomous execution receipt",
+      "status": "sealed",
+      "commitment": "GitHub-hosted CI is not the protocol; local deterministic fallback preserved"
+    },
+    {
+      "pr": 177,
+      "receipt": "external runner proof boundary",
+      "status": "sealed",
+      "commitment": "external runner pass may not be claimed without a real runner log"
+    },
+    {
+      "pr": 178,
+      "receipt": "external runner live-log absence",
+      "status": "sealed",
+      "commitment": "no live external runner pass log found; no false pass claimed"
+    }
+  ],
+  "invariants": [
+    "temporary_override != governance_removal",
+    "github_ci_blocked != execution_blocked",
+    "runner_log_missing != runner_pass",
+    "prepared_receipt != live_runner_pass",
+    "live_log_absent != live_runner_pass",
+    "local_workflow_log != external_runner_pass"
+  ],
+  "live_external_runner_pass_claimed": false,
+  "github_hosted_ci_required_for_truth": false,
+  "next_valid_step": "attach a real external runner log before claiming external runner success"
+}
