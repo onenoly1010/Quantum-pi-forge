@@ -1,0 +1,8 @@
+Codeberg fixed-main observation
+observed_at_utc=2026-06-10T19:17:49Z
+commit=fd8164fa2864e53b00a60a5823b837d9e928ef90
+commit_short=fd8164f
+classification=INACCESSIBLE
+job_id=
+note=run exists for fd8164f but is waiting; no final result or log available yet
+external_pass_claimed=false
