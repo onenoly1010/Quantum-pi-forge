@@ -1,0 +1,46 @@
+{
+  "schema": "qpf.governance.post_merge_receipt.v1",
+  "receipt_id": "pr-205-post-merge-governance-receipt-v1",
+  "status": "sealed",
+  "pr": {
+    "number": 205,
+    "title": "Prepare self-hosted runner live attempt v2",
+    "merge_method": "squash",
+    "merge_commit": "71e4d03",
+    "source_branch": "ops/selfhosted-runner-live-attempt-v2",
+    "branch_deleted": true
+  },
+  "protection": {
+    "required_approving_review_count": 0,
+    "required_status_checks": null,
+    "required_linear_history": true,
+    "required_conversation_resolution": true,
+    "enforce_admins": true,
+    "github_hosted_bypass_used": false
+  },
+  "mainline": {
+    "main_equals_origin_main": true,
+    "head_commit": "71e4d03",
+    "selfhosted_runner_live_attempt_v2_on_main": true,
+    "selfhosted_runner_live_pass_v2_on_main": true,
+    "verification_green_on_main": true
+  },
+  "checks": [
+    "npm run execution:selfhosted-runner-live-attempt-v2:check",
+    "npm run execution:selfhosted-runner-live-pass-v2:check",
+    "npm run build"
+  ],
+  "governance_boundary": {
+    "runner_code_changes_authorized": false,
+    "receipt_scope": "post-merge governance record only"
+  },
+  "invariants": {
+    "pr_205_merged_cleanly": true,
+    "github_hosted_bypass_used": false,
+    "branch_protection_respected": true,
+    "selfhosted_runner_live_pass_v2_on_main": true,
+    "local_main_synced": true,
+    "origin_main_synced": true,
+    "execution_truth_advanced": true
+  }
+}
