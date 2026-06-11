@@ -1,0 +1,41 @@
+{
+  "schema": "selfhosted-runner-live-pass-v2",
+  "status": "sealed",
+  "result": "PASS",
+  "provider": "Codeberg / Forgejo Actions",
+  "runner": {
+    "name": "quantum-pi-selfhosted-01",
+    "version": "v12.10.2",
+    "image": "node:22-bookworm",
+    "os": "Linux",
+    "arch": "X64"
+  },
+  "execution": {
+    "task_id": "6293717",
+    "workflow": "Selfhosted Runner Live Attempt v2",
+    "job": "selfhosted-runner-live-attempt-v2",
+    "event": "push",
+    "run_id": "4657637",
+    "run_number": "19",
+    "commit_sha": "c902c8b4942991969f74fd05f4829006abe8f3ee",
+    "ref": "refs/heads/ops/selfhosted-runner-live-attempt-v2",
+    "final_conclusion": "Job succeeded"
+  },
+  "runtime": {
+    "node": "v22.22.3",
+    "npm": "10.9.8"
+  },
+  "verifiers": {
+    "build": "PASS",
+    "autonomous_dry_run_output_hygiene_v1": "PASS",
+    "autonomous_supervised_dry_run_v1": "PASS",
+    "workflow_marker": "PASS selfhosted-runner-live-attempt-v2 workflow steps executed"
+  },
+  "boundary": {
+    "github_hosted_runner_repaired_claimed": false,
+    "full_autonomous_network_claimed": false,
+    "telegram_or_x_publishing_claimed": false,
+    "unsupervised_autonomous_posting_claimed": false,
+    "selfhosted_runner_live_pass_claimed": true
+  }
+}

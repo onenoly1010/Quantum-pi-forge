@@ -44,7 +44,8 @@
     "autonomous:supervised-dry-run:v1": "node scripts/supervised-autonomous-dry-run-v1.cjs",
     "autonomous:supervised-dry-run-script:v1:check": "node scripts/verify-supervised-autonomous-dry-run-script-v1.cjs",
     "autonomous:dry-run-output-hygiene:v1:check": "node scripts/verify-dry-run-output-hygiene-v1.cjs",
-    "execution:selfhosted-runner-live-attempt-v2:check": "node scripts/verify-selfhosted-runner-live-attempt-v2.cjs"
+    "execution:selfhosted-runner-live-attempt-v2:check": "node scripts/verify-selfhosted-runner-live-attempt-v2.cjs",
+    "execution:selfhosted-runner-live-pass-v2:check": "node scripts/verify-selfhosted-runner-live-pass-v2.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",
