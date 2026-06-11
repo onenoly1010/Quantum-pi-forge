@@ -1,0 +1,19 @@
+{
+  "receipt": "pr-251-post-merge-governance-receipt-v1",
+  "status": "sealed",
+  "pr": 251,
+  "title": "Seal audit hardening readiness boundary v1",
+  "merge_method": "squash_merge",
+  "merged_to": "main",
+  "post_merge_main_anchor": "181e214",
+  "audit_hardening_readiness_present": true,
+  "hosted_ci_opacity_boundary_present": true,
+  "hosted_ci_success_claimed": false,
+  "non_execution_boundary": true,
+  "mainnet_cutover_approval_granted": false,
+  "mainnet_cutover_executed": false,
+  "deployment_executed": false,
+  "broadcast_executed": false,
+  "state_changing_transaction_executed": false,
+  "allowed_outcome": "post_merge_governance_receipt_only"
+}
