@@ -1,0 +1,14 @@
+{
+  "receipt": "discord-only-proof-v1",
+  "status": "sealed",
+  "main_commit": "a7b4152",
+  "pr_196_merged": true,
+  "press_agent_governance_safe_template_on_main": true,
+  "discord_webhook_proof_succeeded": true,
+  "x_twitter_live_posting_enabled": false,
+  "telegram_posting_enabled": false,
+  "wallet_transaction_performed": false,
+  "protected_branch_mutation_performed": false,
+  "full_autonomous_network_claimed": false,
+  "operator_supervision_required": true
+}
