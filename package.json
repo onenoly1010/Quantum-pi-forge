@@ -74,7 +74,8 @@
     "press-agent:credential-completion-boundary:v1:check": "node scripts/verify-press-agent-credential-completion-boundary-v1.cjs",
     "governance:supervised-activation-dry-run-4-evidence:v1:check": "node scripts/verify-supervised-activation-dry-run-4-evidence-v1.cjs",
     "governance:pr-231-post-merge:v1:check": "node scripts/verify-pr-231-post-merge-governance-receipt-v1.cjs",
-    "autonomous:mainnet-cutover-readiness-boundary:v1:check": "node scripts/verify-mainnet-cutover-readiness-boundary-v1.cjs"
+    "autonomous:mainnet-cutover-readiness-boundary:v1:check": "node scripts/verify-mainnet-cutover-readiness-boundary-v1.cjs",
+    "autonomous:mainnet-cutover-preflight-boundary:v1:check": "node scripts/verify-mainnet-cutover-preflight-boundary-v1.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",
