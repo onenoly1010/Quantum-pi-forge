@@ -1,0 +1,39 @@
+{
+  "schema": "selfhosted-runner-reinforcement-v2",
+  "status": "prepared",
+  "purpose": "Prepare bounded self-hosted runner reinforcement after GitHub-hosted runner failures.",
+  "observed_boundary": {
+    "github_hosted_failure_authoritative": false,
+    "hosted_runner_name_empty": true,
+    "hosted_steps_count_zero": true,
+    "repository_steps_executed_on_hosted_runner": false,
+    "local_authority_remains_green": true
+  },
+  "reinforcement_target": {
+    "runner_accepts_queued_job": "required_for_future_pass",
+    "runner_executes_checkout": "required_for_future_pass",
+    "runner_executes_node_22": "required_for_future_pass",
+    "runner_executes_verifiers": "required_for_future_pass",
+    "runner_produces_visible_logs": "required_for_future_pass",
+    "runner_result_recorded": "required_for_future_pass"
+  },
+  "future_pass_requirements": {
+    "runner_provider": "required",
+    "runner_label": "required",
+    "run_identifier": "required",
+    "commit_sha": "required",
+    "workflow_name": "required",
+    "job_name": "required",
+    "visible_step_execution": "required",
+    "verifier_output": "required",
+    "final_conclusion": "required",
+    "timestamp": "required"
+  },
+  "boundary": {
+    "live_runner_pass_claimed": false,
+    "merge_override_claimed": false,
+    "github_hosted_checks_repaired_claimed": false,
+    "autonomous_execution_claimed": false
+  },
+  "result": "PREPARED"
+}
