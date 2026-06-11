@@ -1,0 +1,31 @@
+{
+  "schema": "qpf.autonomous.supervised_activation_readiness_index.v1",
+  "status": "prepared",
+  "mainline": {
+    "head_commit": "8653772",
+    "main_equals_origin_main": true
+  },
+  "covered_prs": [207, 208, 209, 210, 211, 212],
+  "safe_commands": [
+    "npm run autonomous:supervised-activation:v1"
+  ],
+  "verification_commands": [
+    "npm run autonomous:supervised-activation-refusal-tests:v1:check",
+    "npm run autonomous:supervised-activation-runtime-hygiene:v1:check",
+    "npm run autonomous:supervised-activation:v1:check",
+    "npm run autonomous:network-activation-readiness:v2:check",
+    "npm run governance:pr-209-211-post-merge:v1:check"
+  ],
+  "safety_state": {
+    "dry_run_default": true,
+    "runtime_receipts_ignored": true,
+    "live_mode_refused": true,
+    "private_key_context_refused": true,
+    "irreversible_network_action_executed": false,
+    "wallet_use_authorized": false,
+    "private_key_access_authorized": false,
+    "live_deployment_authorized": false,
+    "full_autonomy_claimed": false,
+    "runner_implementation_frozen": true
+  }
+}
