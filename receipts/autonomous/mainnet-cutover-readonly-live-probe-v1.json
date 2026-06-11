@@ -1,0 +1,40 @@
+{
+  "schema": "qpf.autonomous.mainnet_cutover_readonly_live_probe.v1",
+  "status": "SEALED_READONLY_LIVE_PROBE",
+  "branch": "autonomous/mainnet-cutover-readonly-live-probe-v1",
+  "base_main_commit": "b9568e0",
+  "runtime_receipt_committed": false,
+  "runtime_receipt_path": "runtime/autonomous/runs/mainnet-cutover-readonly-live-probe-v1-20260611T093347Z.json",
+  "runtime_receipt_sha256": "6799ffd23bad3592d21666f23ad48ee3dc75e4ed986dc3ed00ee2ed47cfd7445",
+  "cutover_executed": false,
+  "deployment_executed": false,
+  "broadcast_executed": false,
+  "state_changing_transaction_sent": false,
+  "secret_values_printed": false,
+  "probe_scope": [
+    "eth_chainId",
+    "eth_blockNumber"
+  ],
+  "baseline_verification": {
+    "autonomous:mainnet-cutover-secret-remediation-plan:v1:check": "PASS",
+    "autonomous:mainnet-cutover-secret-completion-gate:v1:check": "PASS",
+    "autonomous:mainnet-cutover-operator-approval-gate:v1:check": "PASS",
+    "autonomous:mainnet-cutover-rollback-plan:v1:check": "PASS",
+    "autonomous:mainnet-cutover-gate-definition:v1:check": "PASS",
+    "autonomous:mainnet-cutover-preflight-boundary:v1:check": "PASS",
+    "autonomous:mainnet-cutover-readiness-boundary:v1:check": "PASS",
+    "governance:pr-231-post-merge:v1:check": "PASS",
+    "autonomous:network-activation-readiness:v2:check": "PASS",
+    "build": "PASS"
+  },
+  "claim_boundary": {
+    "readonly_live_probe_defined": true,
+    "readonly_live_probe_executed": true,
+    "mainnet_cutover_ready_to_execute": false,
+    "mainnet_cutover_complete": false,
+    "deployment_complete": false,
+    "broadcast_complete": false,
+    "unsupervised_autonomy_active": false
+  },
+  "next_authorized_lane": "mainnet-cutover-command-hash-v1"
+}
