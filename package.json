@@ -79,7 +79,8 @@
     "autonomous:mainnet-cutover-gate-definition:v1:check": "node scripts/verify-mainnet-cutover-gate-definition-v1.cjs",
     "autonomous:mainnet-cutover-rollback-plan:v1:check": "node scripts/verify-mainnet-cutover-rollback-plan-v1.cjs",
     "autonomous:mainnet-cutover-operator-approval-gate:v1:check": "node scripts/verify-mainnet-cutover-operator-approval-gate-v1.cjs",
-    "autonomous:mainnet-cutover-secret-completion-gate:v1:check": "node scripts/verify-mainnet-cutover-secret-completion-gate-v1.cjs"
+    "autonomous:mainnet-cutover-secret-completion-gate:v1:check": "node scripts/verify-mainnet-cutover-secret-completion-gate-v1.cjs",
+    "autonomous:mainnet-cutover-secret-remediation-plan:v1:check": "node scripts/verify-mainnet-cutover-secret-remediation-plan-v1.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",
