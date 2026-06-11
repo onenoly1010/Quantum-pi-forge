@@ -1,0 +1,29 @@
+{
+  "schema": "qpf.autonomous.mainnet_cutover_final_operator_approval.v1",
+  "status": "SEALED_APPROVAL_NOT_GRANTED",
+  "branch": "autonomous/mainnet-cutover-final-operator-approval-v1",
+  "base_main_commit": "a98c652",
+  "referenced_command": "npm run autonomous:mainnet-cutover:execute:v1",
+  "referenced_command_sha256": "beebbd388ef5085101140ff888064b15e862ab53c05ba61090af2a85249e4dd9",
+  "required_approval_phrase": "I APPROVE MAINNET CUTOVER EXECUTION FOR THIS EXACT HASHED COMMAND",
+  "operator_approval_currently_granted": false,
+  "approval_receipt_present": false,
+  "approval_references_exact_command_hash": false,
+  "command_executed": false,
+  "cutover_executed": false,
+  "deployment_executed": false,
+  "broadcast_executed": false,
+  "state_changing_transaction_sent": false,
+  "secret_values_printed": false,
+  "mainnet_cutover_ready_to_execute": false,
+  "claim_boundary": {
+    "final_operator_approval_boundary_defined": true,
+    "operator_approval_currently_granted": false,
+    "mainnet_cutover_ready_to_execute": false,
+    "mainnet_cutover_complete": false,
+    "deployment_complete": false,
+    "broadcast_complete": false,
+    "unsupervised_autonomy_active": false
+  },
+  "next_authorized_lane": "mainnet-cutover-secret-remediation-execution-v1"
+}
