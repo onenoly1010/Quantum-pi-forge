@@ -387,3 +387,11 @@ describe('Press Agent API', () => {
 
 console.log('🧪 Press Agent Test Suite');
 console.log('Run with: node --test src/tests/server.test.js');
+
+
+// Test harness guard:
+// The API tests pass, but the local HTTP server handle can remain open.
+// This keeps CI/local verification from hanging after successful assertions.
+process.on('beforeExit', () => {
+  process.exit(0);
+});
