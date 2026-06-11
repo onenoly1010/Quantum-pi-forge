@@ -1,0 +1,47 @@
+{
+  "receipt": "supervised-autonomous-dry-run-script-v1",
+  "status": "completed",
+  "started_at": "2026-06-11T01:20:37.663Z",
+  "completed_at": "2026-06-11T01:20:37.872Z",
+  "branch": "autonomous/supervised-dry-run-script-v1",
+  "main_commit": "4b0c32af4b8e88290925ebac4ab21e8563984d5c",
+  "git_status_short": "M package.json\n?? receipts/autonomous/supervised-autonomous-dry-run-script-v1.json\n?? scripts/supervised-autonomous-dry-run-v1.cjs\n?? scripts/verify-supervised-autonomous-dry-run-script-v1.cjs",
+  "mode": "local-supervised-non-mutating-observation",
+  "network_write_performed": false,
+  "public_posting_performed": false,
+  "wallet_transaction_performed": false,
+  "protected_branch_mutation_performed": false,
+  "git_commit_performed_by_agent": false,
+  "git_push_performed_by_agent": false,
+  "credentials_used": false,
+  "systemd_service_installed": false,
+  "infinite_loop_enabled": false,
+  "full_autonomous_network_claimed": false,
+  "operator_supervision_required": true,
+  "observed_files": {
+    "docs/governance/CURRENT_SOVEREIGN_STATE_V1.md": {
+      "exists": true,
+      "sha256": "02256178f87935a19f27b32d20694935c39efe596e44eb1ecb933467b956d268"
+    },
+    "docs/autonomous/SUPERVISED_AUTONOMOUS_DRY_RUN_V1.md": {
+      "exists": true,
+      "sha256": "363e341e32c3910f39da59c7fdf0f4a5c5e834d273962e48773560fc7a3da5cb"
+    },
+    "docs/autonomous/AUTONOMOUS_AGENT_QUARANTINE_MANIFEST_V1.md": {
+      "exists": true,
+      "sha256": "d1df12a9ed1a41e3affdb54f889168688ce72be38b3db45a9a5532ba9f77bbb3"
+    },
+    "receipts/governance/current-sovereign-state-v1.json": {
+      "exists": true,
+      "sha256": "ebb47209ee1245d1765201c841ab11488ad62aabf56a6f5d6ce759b73d2b394b"
+    },
+    "receipts/autonomous/supervised-autonomous-dry-run-v1.json": {
+      "exists": true,
+      "sha256": "c570df6a620a403c222a80a441f9339c8c28d22a7eea37da38ce538765f057e5"
+    },
+    "receipts/autonomous/autonomous-agent-quarantine-manifest-v1.json": {
+      "exists": true,
+      "sha256": "8ccbd51f480f95624b572049a4d979a07bce6aec23b1339ff0c29fdc01571e1c"
+    }
+  }
+}
