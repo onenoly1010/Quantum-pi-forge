@@ -1,0 +1,15 @@
+{
+  "receipt": "supervised-activation-runbook-v1",
+  "status": "sealed",
+  "scope": "documentation-verifier-receipt-only",
+  "activation_mode": "dry-run-only",
+  "operator_intent_required": true,
+  "live_execution_authorized": false,
+  "wallet_mutation_authorized": false,
+  "network_mutation_authorized": false,
+  "unsupervised_execution_authorized": false,
+  "runtime_receipts_ignored_by_git": true,
+  "historical_receipts_preserved": true,
+  "refusal_cases_documented": true,
+  "no_new_autonomous_capability": true
+}
