@@ -51,3 +51,6 @@ Local deterministic verification, committed receipts, and verifier scripts remai
 ## Reviewer Conclusion
 
 The expected conclusion is not production readiness. The expected conclusion is that Quantum Pi Forge is parked, non-executing, locally verifiable, and ready for deeper external review.
+## Pre-Cutover Review Window
+
+A defensive pre-cutover review window is active until `2026-06-25T23:59:59Z`. This does not authorize execution. It preserves `mainnet_cutover_approval_granted = false` and requires future receipts for all exit criteria before any governed cutover approval can be considered.
