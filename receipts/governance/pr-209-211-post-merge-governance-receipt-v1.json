@@ -1,0 +1,69 @@
+{
+  "schema": "qpf.governance.combined_post_merge_receipt.v1",
+  "receipt_id": "pr-209-211-post-merge-governance-receipt-v1",
+  "status": "sealed",
+  "mainline": {
+    "head_commit": "a1c57db",
+    "main_equals_origin_main": true,
+    "verification_green_on_main": true
+  },
+  "covered_prs": [
+    {
+      "number": 209,
+      "title": "Define supervised autonomous activation command v1",
+      "merge_commit": "007448b",
+      "merge_method": "squash"
+    },
+    {
+      "number": 210,
+      "title": "Fix supervised activation runtime receipt hygiene v1",
+      "merge_commit": "293d70c",
+      "merge_method": "squash"
+    },
+    {
+      "number": 211,
+      "title": "Prove supervised activation refusal tests v1",
+      "merge_commit": "a1c57db",
+      "merge_method": "squash"
+    }
+  ],
+  "protection": {
+    "github_hosted_bypass_used": false,
+    "branch_protection_respected": true
+  },
+  "verified_safety": {
+    "supervised_activation_command_on_main": true,
+    "runtime_hygiene_on_main": true,
+    "refusal_tests_on_main": true,
+    "dry_run_default": true,
+    "runtime_receipts_ignored": true,
+    "main_remains_clean_after_dry_run": true,
+    "live_mode_refused": true,
+    "private_key_context_refused": true,
+    "irreversible_network_action_executed": false,
+    "full_autonomy_claimed": false,
+    "runner_implementation_frozen": true
+  },
+  "governance_boundary": {
+    "live_deployment_authorized": false,
+    "wallet_use_authorized": false,
+    "private_key_access_authorized": false,
+    "runner_implementation_changes_authorized": false
+  },
+  "invariants": {
+    "pr_209_merged_cleanly": true,
+    "pr_210_merged_cleanly": true,
+    "pr_211_merged_cleanly": true,
+    "github_hosted_bypass_used": false,
+    "supervised_activation_command_on_main": true,
+    "runtime_hygiene_on_main": true,
+    "refusal_tests_on_main": true,
+    "dry_run_default": true,
+    "live_mode_refused": true,
+    "private_key_context_refused": true,
+    "irreversible_network_action_executed": false,
+    "full_autonomy_claimed": false,
+    "runner_implementation_frozen": true,
+    "verification_green_on_main": true
+  }
+}
