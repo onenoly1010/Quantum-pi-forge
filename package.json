@@ -38,7 +38,8 @@
     "governance:lone-steward-baseline:v1:check": "node scripts/verify-lone-steward-governance-baseline-v1.cjs",
     "governance:apply-lone-steward-protection:v1:check": "node scripts/verify-apply-lone-steward-branch-protection-v1.cjs",
     "press-agent:discord-only-proof:v1:check": "node scripts/verify-discord-only-proof-v1.cjs",
-    "autonomous:agent-quarantine-manifest:v1:check": "node scripts/verify-autonomous-agent-quarantine-manifest-v1.cjs"
+    "autonomous:agent-quarantine-manifest:v1:check": "node scripts/verify-autonomous-agent-quarantine-manifest-v1.cjs",
+    "governance:current-sovereign-state:v1:check": "node scripts/verify-current-sovereign-state-v1.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",
