@@ -1,0 +1,36 @@
+{
+  "schema": "qpf.autonomous.mainnet_cutover_command_hash.v1",
+  "status": "SEALED_COMMAND_HASH",
+  "branch": "autonomous/mainnet-cutover-command-hash-v1",
+  "base_main_commit": "d4251bc",
+  "command": "npm run autonomous:mainnet-cutover:execute:v1",
+  "command_sha256": "beebbd388ef5085101140ff888064b15e862ab53c05ba61090af2a85249e4dd9",
+  "command_executed": false,
+  "cutover_executed": false,
+  "deployment_executed": false,
+  "broadcast_executed": false,
+  "state_changing_transaction_sent": false,
+  "secret_values_printed": false,
+  "exact_command_hash_required": true,
+  "operator_approval_currently_granted": false,
+  "approval_phrase_required": "I APPROVE MAINNET CUTOVER EXECUTION FOR THIS EXACT HASHED COMMAND",
+  "approval_must_reference_command_sha256": "beebbd388ef5085101140ff888064b15e862ab53c05ba61090af2a85249e4dd9",
+  "forbidden_without_later_approval": [
+    "mainnet cutover",
+    "contract deployment",
+    "state-changing transaction",
+    "external multichannel broadcast",
+    "automatic retry",
+    "secret printing"
+  ],
+  "claim_boundary": {
+    "command_hash_defined": true,
+    "command_executed": false,
+    "mainnet_cutover_ready_to_execute": false,
+    "mainnet_cutover_complete": false,
+    "deployment_complete": false,
+    "broadcast_complete": false,
+    "unsupervised_autonomy_active": false
+  },
+  "next_authorized_lane": "mainnet-cutover-final-operator-approval-v1"
+}
