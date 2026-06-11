@@ -1,6 +1,6 @@
 {
   "schema": "qpf.cross_platform_determinism_manifest.v1",
-  "generated_at_utc": "2026-06-11T22:06:18.333Z",
+  "generated_at_utc": "2026-06-11T22:25:06.890Z",
   "posture": {
     "phase": "PRE_CUTOVER_REVIEW_LOCK",
     "non_executing": true,
@@ -16,9 +16,9 @@
     "arch": "x64"
   },
   "git": {
-    "branch": "governance/reviewer-attestation-intake-v1",
-    "commit": "7f6db853a30a57ab4c795facd9903f6a394ca270",
-    "status_short": "M package.json\n M receipts/governance/cross-platform-determinism-manifest-v1.json\n M receipts/governance/cross-platform-determinism-v1.json\n M receipts/governance/pr-260-post-merge-governance-receipt-v1.json\n M receipts/governance/pre-cutover-exit-criterion-checkpoint-v1.json\n M scripts/verify-cross-platform-determinism-v1.cjs\n?? docs/governance/REVIEWER_ATTESTATION_INTAKE_V1.md\n?? docs/governance/templates/\n?? receipts/governance/reviewer-attestation-intake-v1.json\n?? scripts/verify-reviewer-attestation-intake-v1.cjs"
+    "branch": "governance/external-attestation-verifier-v1",
+    "commit": "02af3832551fc838742a5f63e4f4e0f0d23f07c0",
+    "status_short": "M package.json\n M scripts/verify-cross-platform-determinism-v1.cjs\n?? docs/governance/EXTERNAL_ATTESTATION_VERIFIER_V1.md\n?? receipts/governance/external-attestation-verifier-v1.json\n?? scripts/verify-external-attestation-v1.cjs"
   },
   "include_roots": [
     "package.json",
@@ -53,9 +53,9 @@
     "receipts/governance/cross-platform-determinism-manifest-v1.json",
     "receipts/governance/cross-platform-determinism-v1.json"
   ],
-  "file_count": 2228,
-  "deterministic_build_time": "2026-06-11T16:01:42-06:00",
-  "deterministic_commit": "7f6db853a30a57ab4c795facd9903f6a394ca270",
+  "file_count": 2229,
+  "deterministic_build_time": "2026-06-11T16:10:50-06:00",
+  "deterministic_commit": "02af3832551fc838742a5f63e4f4e0f0d23f07c0",
   "volatile_normalization_rules": [
     {
       "id": "out-build-time-field-v1",
@@ -69,7 +69,7 @@
     }
   ],
   "manifest_hash_algorithm": "sha256(JSON.stringify(entries,null,2)+newline) after declared volatile-field normalization",
-  "manifest_sha256": "6efdba02b5e2394d075674424adf464f0dd38cda4ff0bedcab2bbedb74545504",
+  "manifest_sha256": "79123b15b2bc5049019ebf7bf98ec83528c4288c80a36d22bba5fca5cc4e6fdd",
   "entries": [
     {
       "path": "app/globals.css",
@@ -14214,7 +14214,7 @@
     {
       "path": "out/version.json",
       "size_bytes": 159,
-      "sha256": "454445fb006eeb28ccbb59abf2824d75f5e14f854c2d1b3c758d8480d9489f52",
+      "sha256": "88e5d95fca5758d0caa4d1a1932d3297fc497d7af94f5ea0e975d2ddd0492ee2",
       "normalized": true,
       "normalization_ids": [
         "out-build-time-field-v1",
@@ -14230,8 +14230,8 @@
     },
     {
       "path": "package.json",
-      "size_bytes": 11824,
-      "sha256": "1f142fb74cfbf32f4440df4b5f0c1366df8f05f120a689bc7f105680c14eeeeb",
+      "size_bytes": 11923,
+      "sha256": "d54a9e4cae73f5f552fd21c6449f56d2b314244fad5bc4ee28260b9b80d6a65c",
       "normalized": false,
       "normalization_ids": []
     },
@@ -14252,7 +14252,7 @@
     {
       "path": "public/version.json",
       "size_bytes": 159,
-      "sha256": "454445fb006eeb28ccbb59abf2824d75f5e14f854c2d1b3c758d8480d9489f52",
+      "sha256": "88e5d95fca5758d0caa4d1a1932d3297fc497d7af94f5ea0e975d2ddd0492ee2",
       "normalized": true,
       "normalization_ids": [
         "out-build-time-field-v1",
@@ -14856,8 +14856,8 @@
     },
     {
       "path": "scripts/verify-cross-platform-determinism-v1.cjs",
-      "size_bytes": 6335,
-      "sha256": "d16661ced03d4a8ad13438f6c38b66fca10ec9f5e2bf4fb403780db9b569a2a3",
+      "size_bytes": 6492,
+      "sha256": "fd50a95e87ad6055167c5f0db668ea9028e9c6f6488669934392b447fb2a304f",
       "normalized": false,
       "normalization_ids": []
     },
@@ -14893,6 +14893,13 @@
       "path": "scripts/verify-evidence.cjs",
       "size_bytes": 823,
       "sha256": "1b9d0ae7e2d3fdd44f66f959c517b4dd98c03eea74d7047cc8990ed82181fe4a",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/verify-external-attestation-v1.cjs",
+      "size_bytes": 7283,
+      "sha256": "3c0c613b6c48626f9d0502bf232acf445b44362547602c14a710251d80a92466",
       "normalized": false,
       "normalization_ids": []
     },

@@ -47,8 +47,8 @@
   ],
   "submission_template_path": "docs/governance/templates/REVIEWER_ATTESTATION_V1.template.txt",
   "anchored_receipts": {
-    "cross_platform_determinism_receipt_sha256": "04a26527eae49cabd021aec0926df186c8e920cec69adb4f823ac7a336c075b5",
-    "pre_cutover_exit_criterion_checkpoint_sha256": "51ec0dc46fa08abaaed09347a46d0db02d486b1970bce1578f63857318511f3f"
+    "cross_platform_determinism_receipt_sha256": "eaffbe73ea109d596f0f694d4c038fe028f6c27ce8d2267dff32b15c88067a6d",
+    "pre_cutover_exit_criterion_checkpoint_sha256": "881f63fb9571f1315d551d6f3259b1f64d0d9ab237e2e5a7f66add1b606569ec"
   },
   "forbidden_outcomes": [
     "approval_flag_flip",
