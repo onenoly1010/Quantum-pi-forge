@@ -1,0 +1,37 @@
+{
+  "schema": "qpf.governance.post_merge_receipt.v1",
+  "receipt_id": "pr-207-post-merge-governance-receipt-v1",
+  "status": "sealed",
+  "pr": {
+    "number": 207,
+    "title": "Prepare autonomous network activation readiness v2",
+    "merge_method": "squash",
+    "merge_commit": "b072617",
+    "source_branch": "autonomous/network-activation-readiness-v2",
+    "branch_deleted": true
+  },
+  "protection": {
+    "github_hosted_bypass_used": false,
+    "branch_protection_respected": true
+  },
+  "mainline": {
+    "main_equals_origin_main": true,
+    "head_commit": "b072617",
+    "autonomous_network_activation_readiness_v2_on_main": true,
+    "verification_green_on_main": true
+  },
+  "governance_boundary": {
+    "runner_implementation_changes_authorized": false,
+    "unsupervised_autonomous_deployment_authorized": false,
+    "receipt_scope": "post-merge governance record only"
+  },
+  "invariants": {
+    "pr_207_merged_cleanly": true,
+    "github_hosted_bypass_used": false,
+    "branch_protection_respected": true,
+    "autonomous_network_activation_readiness_v2_on_main": true,
+    "runner_implementation_frozen": true,
+    "verification_green_on_main": true,
+    "execution_truth_advanced": true
+  }
+}
