@@ -1,0 +1,26 @@
+{
+  "schema": "qpf.pr_260_post_merge_governance_receipt.v1",
+  "pr": 260,
+  "title": "Seal cross-platform determinism receipt v1",
+  "merged_main_commit": "46c4292cc13faa76c2d35915cca236f5ff371bf3",
+  "merged_main_short_commit": "46c4292",
+  "phase": "PRE_CUTOVER_REVIEW_LOCK",
+  "verification_anchor": "canonical_local_surrogate_only",
+  "anchored_receipts": {
+    "cross_platform_determinism_receipt_sha256": "9495a22308c6dbb3ea7fd16b4b75b3d059722bae42fdb4d59cdd774d905e0684",
+    "cross_platform_determinism_manifest_file_sha256": "72761d022878051cafc15ff947d093c45db4f01a802db9efe9902900534bbbb9"
+  },
+  "posture": {
+    "non_executing": true,
+    "approval_granted": false,
+    "cutover_executed": false,
+    "deployment_executed": false,
+    "broadcast_executed": false,
+    "state_changing_transaction_executed": false
+  },
+  "verification": {
+    "cross_platform_determinism_v1_check": "PASS",
+    "audit_full_local": "PASS",
+    "post_merge_verified_on_main": true
+  }
+}
