@@ -1,0 +1,17 @@
+{
+  "schema": "apply-lone-steward-branch-protection-v1",
+  "status": "sealed",
+  "baseline_required": "lone-steward-governance-baseline-v1",
+  "single_steward_mode": true,
+  "eligible_independent_reviewer_count": 0,
+  "required_approving_review_count_target": 0,
+  "require_code_owner_reviews_target": false,
+  "pull_request_flow_required": true,
+  "linear_history_required": true,
+  "branch_protection_required": true,
+  "local_verifier_gate_required": true,
+  "receipt_gate_required": true,
+  "fake_review_allowed": false,
+  "full_autonomous_network_live": false,
+  "review_gate_restore_condition": "eligible_independent_reviewer_count >= 1"
+}
