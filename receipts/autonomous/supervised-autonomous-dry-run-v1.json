@@ -1,0 +1,18 @@
+{
+  "receipt": "supervised-autonomous-dry-run-v1",
+  "status": "sealed",
+  "starting_main_commit": "6e17116",
+  "quarantined_agent_bundle_activated": false,
+  "systemd_service_installed": false,
+  "infinite_loop_enabled": false,
+  "credentials_used": false,
+  "wallet_transaction_performed": false,
+  "protected_branch_mutation_performed": false,
+  "public_posting_performed": false,
+  "network_write_performed": false,
+  "git_commit_performed_by_agent": false,
+  "git_push_performed_by_agent": false,
+  "full_autonomous_network_claimed": false,
+  "operator_supervision_required": true,
+  "dry_run_scope": "local-supervised-non-mutating-observation"
+}
