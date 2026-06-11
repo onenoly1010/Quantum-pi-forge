@@ -92,7 +92,8 @@
     "governance:pr-251-hosted-ci-failure-opacity:v1:check": "node scripts/verify-pr-251-hosted-ci-failure-opacity-boundary-v1.cjs",
     "governance:pr-251-post-merge:v1:check": "node scripts/verify-pr-251-post-merge-governance-receipt-v1.cjs",
     "audit:full-local": "node scripts/audit-full-local.cjs",
-    "governance:root-audit-runbook:v1:check": "node scripts/verify-root-audit-runbook-v1.cjs"
+    "governance:root-audit-runbook:v1:check": "node scripts/verify-root-audit-runbook-v1.cjs",
+    "governance:pr-253-post-merge:v1:check": "node scripts/verify-pr-253-post-merge-governance-receipt-v1.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",
