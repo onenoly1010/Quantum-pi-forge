@@ -1,0 +1,12 @@
+{
+  "receipt": "pr-247-post-merge-governance-receipt-v1",
+  "status": "sealed",
+  "pr": 247,
+  "title": "docs: add mainnet cutover readiness index v1",
+  "merge_commit": "e9e32ac",
+  "mainnet_cutover_approval_granted": false,
+  "mainnet_cutover_executed": false,
+  "deployment_executed": false,
+  "broadcast_executed": false,
+  "state_changing_transaction_executed": false
+}
