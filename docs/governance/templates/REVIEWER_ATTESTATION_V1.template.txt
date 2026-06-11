@@ -1,0 +1,25 @@
+# Reviewer Attestation v1 — submission template
+# Copy this file, fill every field, and submit through the intake boundary.
+# Submission does NOT grant approval authority or cutover authority.
+
+reviewer_attestation_schema: qpf.reviewer_attestation_submission.v1
+phase: PRE_CUTOVER_REVIEW_LOCK
+Finding status: pass | fail | concern
+
+OS:
+Architecture:
+Node version:
+npm version:
+Commit tested:
+Commands run:
+Verifier output:
+Manifest SHA256:
+File count:
+Notes:
+
+# Authority denial (must remain true for every submission)
+approval_authority_implied: false
+cutover_authority_implied: false
+deployment_authority_implied: false
+broadcast_authority_implied: false
+state_changing_transaction_authority_implied: false

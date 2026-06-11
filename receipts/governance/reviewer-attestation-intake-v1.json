@@ -1,0 +1,63 @@
+{
+  "schema": "qpf.reviewer_attestation_intake.v1",
+  "receipt": "reviewer-attestation-intake-v1",
+  "status": "intake_boundary_sealed",
+  "phase": "PRE_CUTOVER_REVIEW_LOCK",
+  "verification_anchor": "canonical_local_surrogate_only",
+  "exit_criterion": "external_review_attestation_receipt",
+  "exit_criterion_index": 2,
+  "exit_criterion_closed": false,
+  "intake_boundary_sealed": true,
+  "posture": {
+    "non_executing": true,
+    "approval_granted": false,
+    "cutover_executed": false,
+    "deployment_executed": false,
+    "broadcast_executed": false,
+    "state_changing_transaction_executed": false
+  },
+  "authority_denied": {
+    "approval_authority": false,
+    "cutover_authority": false,
+    "deployment_authority": false,
+    "broadcast_authority": false,
+    "state_changing_transaction_authority": false
+  },
+  "required_fields": [
+    "os",
+    "architecture",
+    "node_version",
+    "npm_version",
+    "commit_tested",
+    "commands_run",
+    "verifier_output",
+    "manifest_sha256",
+    "file_count",
+    "finding_status",
+    "notes"
+  ],
+  "finding_status_values": [
+    "pass",
+    "fail",
+    "concern"
+  ],
+  "reference_verifiers": [
+    "governance:cross-platform-determinism:v1:check",
+    "governance:pre-cutover-exit-criterion-checkpoint-v1:check"
+  ],
+  "submission_template_path": "docs/governance/templates/REVIEWER_ATTESTATION_V1.template.txt",
+  "anchored_receipts": {
+    "cross_platform_determinism_receipt_sha256": "04a26527eae49cabd021aec0926df186c8e920cec69adb4f823ac7a336c075b5",
+    "pre_cutover_exit_criterion_checkpoint_sha256": "51ec0dc46fa08abaaed09347a46d0db02d486b1970bce1578f63857318511f3f"
+  },
+  "forbidden_outcomes": [
+    "approval_flag_flip",
+    "cutover_execution",
+    "deployment",
+    "broadcast",
+    "state_changing_transaction",
+    "implicit_approval_from_pass_finding",
+    "exit_criterion_2_closure_without_attestation_collection"
+  ],
+  "governance_note": "Defines external reviewer attestation intake for the remaining review window. Structured, comparable, non-authoritative. Does not close exit criterion #2."
+}
