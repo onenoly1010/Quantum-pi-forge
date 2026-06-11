@@ -1,0 +1,27 @@
+{
+  "schema": "press-agent-live-discord-proof-v1",
+  "status": "sealed",
+  "commit_observed": "cbf8207",
+  "proof_type": "bounded_live_outbound_discord_smoke",
+  "claims": {
+    "press_agent_local_health": "pass",
+    "discord_send_module": "pass",
+    "live_discord_webhook_call": "pass",
+    "telegram_used": false,
+    "twitter_x_used": false,
+    "article_generation_used": false,
+    "article_publish_used": false,
+    "autonomous_posting_enabled": false,
+    "runtime_mutation": false,
+    "git_state_clean_after_smoke": true,
+    "github_actions_workflow_present": true,
+    "github_actions_runner_failure_authoritative": false
+  },
+  "boundary": {
+    "autonomous_publishing_claimed": false,
+    "telegram_readiness_claimed": false,
+    "twitter_x_readiness_claimed": false,
+    "github_hosted_success_claimed": false
+  },
+  "result": "PASS"
+}
