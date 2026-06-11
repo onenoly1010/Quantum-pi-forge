@@ -1,0 +1,29 @@
+{
+  "schema": "qpf.governance.pr_228_post_merge_receipt.v1",
+  "status": "SEALED",
+  "pr": 228,
+  "title": "Seal supervised activation v1 milestone snapshot",
+  "merge_method": "squash",
+  "bypass_used": false,
+  "source_branch_deleted": true,
+  "main_commit_after_merge": "9e7bc06",
+  "previous_main_commit": "b0faa80",
+  "sealed_tag": {
+    "name": "supervised-activation-v1",
+    "target_commit": "b0faa80",
+    "tag_object_sha": "9e922cf9eaa9166872d8b816823273c482ca81c8"
+  },
+  "post_merge_verification": {
+    "governance:supervised-activation-v1-milestone-snapshot:check": "PASS",
+    "governance:pr-226-post-merge:v1:check": "PASS",
+    "autonomous:network-activation-readiness:v2:check": "PASS",
+    "build": "PASS"
+  },
+  "claim_boundary": {
+    "supervised_activation_v1_tag_sealed": true,
+    "milestone_snapshot_landed_on_main": true,
+    "press_agent_fully_configured": false,
+    "mainnet_cutover_complete": false,
+    "unsupervised_autonomy_active": false
+  }
+}
