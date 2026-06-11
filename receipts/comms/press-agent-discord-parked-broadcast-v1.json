@@ -1,0 +1,22 @@
+{
+  "id": "press-agent-discord-parked-broadcast-v1",
+  "status": "sealed",
+  "created_at": "2026-06-11T16:02:26.237Z",
+  "channel": "discord",
+  "broadcast_result": "ok",
+  "webhook_secret_exposed": false,
+  "x_twitter_live_post_enabled": false,
+  "x_twitter_live_post_value": "0",
+  "telegram_enabled": false,
+  "wordpress_enabled": false,
+  "mainnet_execution_touched": false,
+  "deployment_executed": false,
+  "broadcast_executed_onchain": false,
+  "state_changing_transaction_executed": false,
+  "canonical_commit": "be97933",
+  "canonical_tag": "parked-mainnet-cutover-boundary-v1",
+  "article_id": "37ec7ddc-b941-41de-9d6e-39171079f960",
+  "message_sha256": "9e6178143a58bf84d0333755587fcbfd901307c35315cb6f59dcb7cc65ce409d",
+  "article_markdown_sha256": "445f39281e36d7aacba2dd482554f24bf5ff6a21128f623dbb18aa7cca04e5ed",
+  "summary": "Discord-only parked-status announcement sent successfully through the Press Agent while X/Twitter remained dry-run and no execution path was touched."
+}
