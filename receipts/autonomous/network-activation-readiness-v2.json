@@ -1,0 +1,37 @@
+{
+  "schema": "qpf.autonomous.network_activation_readiness.v2",
+  "receipt_id": "autonomous-network-activation-readiness-v2",
+  "status": "prepared",
+  "baseline": {
+    "main_head_at_lane_creation": "e943a12",
+    "pr_205_selfhosted_runner_live_execution_on_main": true,
+    "pr_206_post_merge_governance_receipt_on_main": true,
+    "runner_implementation_frozen": true
+  },
+  "activation_boundary": {
+    "operator_override_required": true,
+    "dry_run_supported": true,
+    "private_key_exposure_allowed": false,
+    "irreversible_network_action_without_confirmation_allowed": false,
+    "full_autonomy_claim_allowed_without_evidence": false
+  },
+  "allowed_scope": [
+    "define activation gates",
+    "define activation receipts",
+    "define supervised commands"
+  ],
+  "forbidden_scope": [
+    "change self-hosted runner workflows",
+    "remove operator override",
+    "execute unsupervised deployment",
+    "claim full autonomy before evidence exists"
+  ],
+  "invariants": {
+    "autonomous_activation_prepared": true,
+    "runner_implementation_frozen": true,
+    "operator_override_required": true,
+    "dry_run_supported": true,
+    "irreversible_actions_blocked_without_confirmation": true,
+    "evidence_required_before_full_autonomy_claim": true
+  }
+}
