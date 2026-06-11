@@ -42,9 +42,9 @@
   "anchored_receipts": {
     "pre_cutover_review_window_sha256": "6d4c24f9c3e61cc9142c49a945c5e39ccb5b40f0833ba2d6c2b35a2f37145347",
     "pr_258_post_merge_receipt_sha256": "eac0172b718be0ee6147fa7e30f4f039520f9a373cf6ca276884214a59409e2d",
-    "cross_platform_determinism_receipt_sha256": "d49c6ef7b4dca2bcf4d8344a9c1325bc644af82c74de105aa47fecca2162e0a1",
-    "cross_platform_determinism_manifest_file_sha256": "9b5a6d6b836e24312fb7c08de65fa81484fb9979fb19a992f1d887d11acd64f0",
-    "pr_260_post_merge_receipt_sha256": "e00f1dba6cd53422bfb57efa3a820084f490103a8a78704f7567a2e24403dccf",
+    "cross_platform_determinism_receipt_sha256": "04a26527eae49cabd021aec0926df186c8e920cec69adb4f823ac7a336c075b5",
+    "cross_platform_determinism_manifest_file_sha256": "176950b7d5ded69955e7c81671cae1914be6a2a05ed099d01432b666267ddeea",
+    "pr_260_post_merge_receipt_sha256": "6b535cf24154b3fde78156f37c8eacf3c1d8a10a2fa8d85f337dd4fa41c29a89",
     "pr_260_post_merge_verifier_sha256": "38127bf0b1863d4c20ca6a89c38e2978c483e962763598e602f134bfdfc28c43"
   },
   "exit_criteria_status": {

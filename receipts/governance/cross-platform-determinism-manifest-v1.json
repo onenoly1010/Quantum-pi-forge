@@ -1,6 +1,6 @@
 {
   "schema": "qpf.cross_platform_determinism_manifest.v1",
-  "generated_at_utc": "2026-06-11T21:57:14.214Z",
+  "generated_at_utc": "2026-06-11T22:06:18.333Z",
   "posture": {
     "phase": "PRE_CUTOVER_REVIEW_LOCK",
     "non_executing": true,
@@ -16,9 +16,9 @@
     "arch": "x64"
   },
   "git": {
-    "branch": "governance/pre-cutover-exit-criterion-checkpoint-v1",
-    "commit": "a04b5ffbe02d8f7e32d526737202ba511226e4d5",
-    "status_short": "M package.json\n M receipts/governance/cross-platform-determinism-manifest-v1.json\n M receipts/governance/cross-platform-determinism-v1.json\n M receipts/governance/pr-260-post-merge-governance-receipt-v1.json\n M scripts/verify-cross-platform-determinism-v1.cjs\n?? docs/governance/PRE_CUTOVER_EXIT_CRITERION_CHECKPOINT_V1.md\n?? receipts/governance/pre-cutover-exit-criterion-checkpoint-v1.json\n?? scripts/verify-pre-cutover-exit-criterion-checkpoint-v1.cjs"
+    "branch": "governance/reviewer-attestation-intake-v1",
+    "commit": "7f6db853a30a57ab4c795facd9903f6a394ca270",
+    "status_short": "M package.json\n M receipts/governance/cross-platform-determinism-manifest-v1.json\n M receipts/governance/cross-platform-determinism-v1.json\n M receipts/governance/pr-260-post-merge-governance-receipt-v1.json\n M receipts/governance/pre-cutover-exit-criterion-checkpoint-v1.json\n M scripts/verify-cross-platform-determinism-v1.cjs\n?? docs/governance/REVIEWER_ATTESTATION_INTAKE_V1.md\n?? docs/governance/templates/\n?? receipts/governance/reviewer-attestation-intake-v1.json\n?? scripts/verify-reviewer-attestation-intake-v1.cjs"
   },
   "include_roots": [
     "package.json",
@@ -53,9 +53,9 @@
     "receipts/governance/cross-platform-determinism-manifest-v1.json",
     "receipts/governance/cross-platform-determinism-v1.json"
   ],
-  "file_count": 2227,
-  "deterministic_build_time": "2026-06-11T15:50:49-06:00",
-  "deterministic_commit": "a04b5ffbe02d8f7e32d526737202ba511226e4d5",
+  "file_count": 2228,
+  "deterministic_build_time": "2026-06-11T16:01:42-06:00",
+  "deterministic_commit": "7f6db853a30a57ab4c795facd9903f6a394ca270",
   "volatile_normalization_rules": [
     {
       "id": "out-build-time-field-v1",
@@ -69,7 +69,7 @@
     }
   ],
   "manifest_hash_algorithm": "sha256(JSON.stringify(entries,null,2)+newline) after declared volatile-field normalization",
-  "manifest_sha256": "48eeded9ca3ecf2ca5c404383297c87fe0d4a081ab965df6c5d87ad2a814f6aa",
+  "manifest_sha256": "6efdba02b5e2394d075674424adf464f0dd38cda4ff0bedcab2bbedb74545504",
   "entries": [
     {
       "path": "app/globals.css",
@@ -14214,7 +14214,7 @@
     {
       "path": "out/version.json",
       "size_bytes": 159,
-      "sha256": "bc74b1a4b24372bec0039d0ae66ec9ea2e6827e532967396b5beda7997ece49f",
+      "sha256": "454445fb006eeb28ccbb59abf2824d75f5e14f854c2d1b3c758d8480d9489f52",
       "normalized": true,
       "normalization_ids": [
         "out-build-time-field-v1",
@@ -14230,8 +14230,8 @@
     },
     {
       "path": "package.json",
-      "size_bytes": 11711,
-      "sha256": "c7a2dfedf9d343a1a91bd4b5f1a1246a958ac1d3df8d60f90d036a3338fa7c64",
+      "size_bytes": 11824,
+      "sha256": "1f142fb74cfbf32f4440df4b5f0c1366df8f05f120a689bc7f105680c14eeeeb",
       "normalized": false,
       "normalization_ids": []
     },
@@ -14252,7 +14252,7 @@
     {
       "path": "public/version.json",
       "size_bytes": 159,
-      "sha256": "bc74b1a4b24372bec0039d0ae66ec9ea2e6827e532967396b5beda7997ece49f",
+      "sha256": "454445fb006eeb28ccbb59abf2824d75f5e14f854c2d1b3c758d8480d9489f52",
       "normalized": true,
       "normalization_ids": [
         "out-build-time-field-v1",
@@ -14856,8 +14856,8 @@
     },
     {
       "path": "scripts/verify-cross-platform-determinism-v1.cjs",
-      "size_bytes": 6066,
-      "sha256": "db4a9831ce3f1cec5da56087f863ad91f4fb4359f791f5d1a5bd8e25a9619c7e",
+      "size_bytes": 6335,
+      "sha256": "d16661ced03d4a8ad13438f6c38b66fca10ec9f5e2bf4fb403780db9b569a2a3",
       "normalized": false,
       "normalization_ids": []
     },
@@ -15243,6 +15243,13 @@
       "path": "scripts/verify-readme-audit-entrypoint-v1.cjs",
       "size_bytes": 695,
       "sha256": "502cec80aa80ace8c83addf694830775e78264f519d50160d5fca2afecb05c7a",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/verify-reviewer-attestation-intake-v1.cjs",
+      "size_bytes": 4882,
+      "sha256": "71334ac62ef606a5f6f5eb8b5b8e03c37ed3c0878a915f599bd193252592c4de",
       "normalized": false,
       "normalization_ids": []
     },

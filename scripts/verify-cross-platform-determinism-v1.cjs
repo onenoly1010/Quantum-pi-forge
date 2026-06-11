@@ -117,15 +117,21 @@ const ALLOWED_DIRTY_PATTERNS = [
   "cross-platform-determinism",
   "pr-260-post-merge",
   "pre-cutover-exit-criterion-checkpoint",
+  "reviewer-attestation-intake",
+  "REVIEWER_ATTESTATION",
   "package.json",
   "scripts/generate-determinism-manifest.cjs",
   "scripts/verify-cross-platform-determinism-v1.cjs",
   "scripts/verify-pr-260-post-merge-governance-receipt-v1.cjs",
   "scripts/verify-pre-cutover-exit-criterion-checkpoint-v1.cjs",
+  "scripts/verify-reviewer-attestation-intake-v1.cjs",
   "scripts/audit-full-local.cjs",
   "docs/governance/CROSS_PLATFORM_DETERMINISM_V1.md",
   "docs/governance/PR_260_POST_MERGE_GOVERNANCE_RECEIPT_V1.md",
-  "docs/governance/PRE_CUTOVER_EXIT_CRITERION_CHECKPOINT_V1.md"
+  "docs/governance/PRE_CUTOVER_EXIT_CRITERION_CHECKPOINT_V1.md",
+  "docs/governance/REVIEWER_ATTESTATION_INTAKE_V1.md",
+  "docs/governance/templates/REVIEWER_ATTESTATION_V1.template.txt",
+  "docs/governance/templates/"
 ];
 
 const status = git("git status --short");
