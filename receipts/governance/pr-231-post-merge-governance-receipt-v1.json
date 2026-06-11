@@ -1,0 +1,32 @@
+{
+  "schema": "qpf.governance.pr_231_post_merge_receipt.v1",
+  "status": "SEALED",
+  "pr": 231,
+  "title": "Seal supervised activation dry-run 4 evidence v1",
+  "merge_method": "squash",
+  "bypass_used": false,
+  "source_branch_deleted": true,
+  "main_commit_after_merge": "e79e82a",
+  "previous_main_commit": "5a57a4c",
+  "dry_run_4_evidence": {
+    "runtime_receipt_path": "runtime/autonomous/runs/supervised-activation-v1-2026-06-11T07-14-10-215Z.json",
+    "runtime_receipt_committed": false,
+    "runtime_receipt_sha256": "8bace7a932b3d488f4d783264954d243173bdb89191dc5f9a9596d8265b2d2bf"
+  },
+  "post_merge_verification": {
+    "governance:supervised-activation-dry-run-4-evidence:v1:check": "PASS",
+    "press-agent:credential-completion-boundary:v1:check": "PASS",
+    "governance:pr-228-post-merge:v1:check": "PASS",
+    "autonomous:supervised-activation:v1:check": "PASS",
+    "autonomous:network-activation-readiness:v2:check": "PASS",
+    "build": "PASS"
+  },
+  "claim_boundary": {
+    "supervised_dry_run_4_landed_on_main": true,
+    "mainnet_cutover_complete": false,
+    "unsupervised_autonomy_active": false,
+    "external_multichannel_broadcast_proven": false,
+    "press_agent_discord_only_boundary_preserved": true
+  },
+  "next_authorized_lane": "mainnet-cutover-readiness-v1"
+}
