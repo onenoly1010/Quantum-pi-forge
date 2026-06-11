@@ -1,0 +1,52 @@
+{
+  "schema": "qpf.autonomous.mainnet_cutover_operator_approval_gate.v1",
+  "status": "SEALED_OPERATOR_APPROVAL_GATE",
+  "branch": "autonomous/mainnet-cutover-operator-approval-gate-v1",
+  "base_main_commit": "b7f90f2",
+  "cutover_executed": false,
+  "deployment_executed": false,
+  "broadcast_executed": false,
+  "operator_approval_currently_granted": false,
+  "approval_required_before_cutover": true,
+  "baseline_verification": {
+    "autonomous:mainnet-cutover-rollback-plan:v1:check": "PASS",
+    "autonomous:mainnet-cutover-gate-definition:v1:check": "PASS",
+    "autonomous:mainnet-cutover-preflight-boundary:v1:check": "PASS",
+    "autonomous:mainnet-cutover-readiness-boundary:v1:check": "PASS",
+    "governance:pr-231-post-merge:v1:check": "PASS",
+    "governance:supervised-activation-dry-run-4-evidence:v1:check": "PASS",
+    "press-agent:credential-completion-boundary:v1:check": "PASS",
+    "autonomous:supervised-activation:v1:check": "PASS",
+    "autonomous:network-activation-readiness:v2:check": "PASS",
+    "build": "PASS"
+  },
+  "approval_requirements": {
+    "explicit_operator_phrase_required": true,
+    "required_phrase": "I APPROVE MAINNET CUTOVER EXECUTION FOR THIS EXACT HASHED COMMAND",
+    "exact_command_hash_required": true,
+    "receipt_required": true,
+    "approval_must_be_single_use": true,
+    "approval_expires_on_any_command_change": true,
+    "approval_expires_on_any_mainline_change": true,
+    "approval_expires_on_any_failed_verifier": true
+  },
+  "forbidden_without_approval": [
+    "mainnet cutover",
+    "contract deployment",
+    "state-changing transaction",
+    "external multichannel broadcast",
+    "automatic retry",
+    "secret printing",
+    "runtime receipt commit"
+  ],
+  "claim_boundary": {
+    "operator_approval_gate_defined": true,
+    "operator_approval_granted": false,
+    "mainnet_cutover_ready_to_execute": false,
+    "mainnet_cutover_complete": false,
+    "deployment_complete": false,
+    "broadcast_complete": false,
+    "unsupervised_autonomy_active": false
+  },
+  "next_authorized_lane": "mainnet-cutover-secret-completion-gate-v1"
+}
