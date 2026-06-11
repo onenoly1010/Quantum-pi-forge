@@ -1,0 +1,19 @@
+{
+  "receipt": "dry-run-output-hygiene-v1",
+  "status": "sealed",
+  "script": "scripts/supervised-autonomous-dry-run-v1.cjs",
+  "sealed_sample_report": "reports/autonomous/supervised-autonomous-dry-run-v1.report.json",
+  "runtime_report": ".qpf-runtime/autonomous/supervised-autonomous-dry-run-v1.latest.json",
+  "runtime_directory_gitignored": true,
+  "tracked_report_mutated_by_runtime": false,
+  "network_write_performed": false,
+  "public_posting_performed": false,
+  "wallet_transaction_performed": false,
+  "protected_branch_mutation_performed": false,
+  "git_commit_performed_by_agent": false,
+  "git_push_performed_by_agent": false,
+  "credentials_used": false,
+  "systemd_service_installed": false,
+  "infinite_loop_enabled": false,
+  "full_autonomous_network_claimed": false
+}

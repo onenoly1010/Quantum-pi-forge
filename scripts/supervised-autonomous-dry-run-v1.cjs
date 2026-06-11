@@ -60,15 +60,17 @@ const report = {
   observed_files: observedFiles
 };
 
-fs.mkdirSync("reports/autonomous", { recursive: true });
+const runtimeReportPath = ".qpf-runtime/autonomous/supervised-autonomous-dry-run-v1.latest.json";
+
+fs.mkdirSync(".qpf-runtime/autonomous", { recursive: true });
 fs.writeFileSync(
-  "reports/autonomous/supervised-autonomous-dry-run-v1.report.json",
+  runtimeReportPath,
   JSON.stringify(report, null, 2) + "\n"
 );
 
 console.log("PASS supervised-autonomous-dry-run-script-v1");
 console.log(JSON.stringify({
-  report: "reports/autonomous/supervised-autonomous-dry-run-v1.report.json",
+  report: runtimeReportPath,
   main_commit: mainCommit,
   mode: report.mode
 }, null, 2));
