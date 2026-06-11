@@ -1,0 +1,43 @@
+{
+  "schema": "qpf.autonomous.mainnet_cutover_readiness_boundary.v1",
+  "status": "SEALED_BOUNDARY",
+  "branch": "autonomous/mainnet-cutover-readiness-v1",
+  "base_main_commit": "373a3db",
+  "readiness_mode": "discovery_only",
+  "cutover_executed": false,
+  "deployment_executed": false,
+  "broadcast_executed": false,
+  "baseline_verification": {
+    "governance:pr-231-post-merge:v1:check": "PASS",
+    "governance:supervised-activation-dry-run-4-evidence:v1:check": "PASS",
+    "press-agent:credential-completion-boundary:v1:check": "PASS",
+    "autonomous:supervised-activation:v1:check": "PASS",
+    "autonomous:network-activation-readiness:v2:check": "PASS",
+    "build": "PASS"
+  },
+  "discovery": {
+    "dedicated_mainnet_cutover_script_found": false,
+    "dedicated_mainnet_cutover_package_script_found": false,
+    "site_deploy_surface_found": true,
+    "press_agent_workflow_found": true,
+    "deployment_verification_workflow_found": true,
+    "active_cloudflare_pages_workflow_found": true,
+    "manual_workflows_present": true
+  },
+  "known_boundaries": {
+    "press_agent_discord_only": true,
+    "telegram_ready": false,
+    "twitter_ready": false,
+    "mainnet_verification_secrets_required": true,
+    "operator_approval_required": true,
+    "runtime_receipts_must_remain_uncommitted": true
+  },
+  "claim_boundary": {
+    "mainnet_cutover_readiness_discovered": true,
+    "mainnet_cutover_ready_to_execute": false,
+    "mainnet_cutover_complete": false,
+    "unsupervised_autonomy_active": false,
+    "external_multichannel_broadcast_proven": false
+  },
+  "next_authorized_lane": "mainnet-cutover-preflight-v1"
+}
