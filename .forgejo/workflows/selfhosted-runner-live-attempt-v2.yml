@@ -1,0 +1,51 @@
+name: Selfhosted Runner Live Attempt v2
+
+on:
+  push:
+    branches:
+      - ops/selfhosted-runner-live-attempt-v2
+  workflow_dispatch:
+
+jobs:
+  selfhosted-runner-live-attempt-v2:
+    runs-on:
+      - quantum-pi-selfhosted
+      - node-22
+
+    steps:
+      - name: Runner identity
+        run: |
+          echo "=== runner identity ==="
+          echo "runner_name=${{ runner.name }}"
+          echo "runner_os=${{ runner.os }}"
+          echo "runner_arch=${{ runner.arch }}"
+          echo "workflow=${{ github.workflow }}"
+          echo "job=${{ github.job }}"
+          echo "run_id=${{ github.run_id }}"
+          echo "run_number=${{ github.run_number }}"
+          echo "sha=${{ github.sha }}"
+          echo "ref=${{ github.ref }}"
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Node version
+        run: |
+          echo "=== node/npm ==="
+          node --version
+          npm --version
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run local verifiers
+        run: |
+          echo "=== self-hosted verifier surface ==="
+          npm run build
+          npm run autonomous:dry-run-output-hygiene:v1:check
+          npm run autonomous:supervised-dry-run:v1:check
+
+      - name: Emit live attempt marker
+        run: |
+          echo "PASS selfhosted-runner-live-attempt-v2 workflow steps executed"
+          echo "NOTE: repository PASS receipt must only be sealed after operator records visible runner logs, run id, commit sha, and verifier output."
