@@ -1,0 +1,56 @@
+{
+  "schema": "qpf.governance.supervised_activation_v1_milestone_snapshot.v1",
+  "status": "SEALED",
+  "milestone": "supervised-activation-v1",
+  "sealed_main_commit": "b0faa80",
+  "annotated_tag": "supervised-activation-v1",
+  "tag_object_sha": "9e922cf9eaa9166872d8b816823273c482ca81c8",
+  "tag_target_commit": "b0faa80",
+  "merge_boundary": {
+    "pr": 227,
+    "title": "Seal PR 226 post-merge governance receipt v1",
+    "merge_method": "squash",
+    "bypass_used": false,
+    "branch_deleted": true
+  },
+  "verification_chain": {
+    "governance:pr-226-post-merge:v1:check": "PASS",
+    "autonomous:supervised-activation-receipt-hash-semantics:v1:check": "PASS",
+    "governance:pr-224-post-merge:v1:check": "PASS",
+    "governance:supervised-activation-dry-run-3-evidence:v1:check": "PASS",
+    "governance:pr-222-post-merge:v1:check": "PASS",
+    "autonomous:supervised-activation-dry-run-evidence-summary:v1:check": "PASS",
+    "governance:pr-220-post-merge:v1:check": "PASS",
+    "governance:supervised-activation-dry-run-2-evidence:v1:check": "PASS",
+    "governance:pr-218-post-merge:v1:check": "PASS",
+    "autonomous:supervised-activation-operations-index:v1:check": "PASS",
+    "governance:supervised-activation-dry-run-1-evidence:v1:check": "PASS",
+    "governance:pr-215-post-merge:v1:check": "PASS",
+    "autonomous:supervised-activation-runbook:v1:check": "PASS",
+    "autonomous:supervised-activation-readiness-index:v1:check": "PASS",
+    "autonomous:supervised-activation-refusal-tests:v1:check": "PASS",
+    "autonomous:supervised-activation-runtime-hygiene:v1:check": "PASS",
+    "autonomous:supervised-activation:v1:check": "PASS",
+    "autonomous:network-activation-readiness:v2:check": "PASS",
+    "build": "PASS"
+  },
+  "remaining_known_gap": {
+    "press_agent_scaffolding": "present",
+    "discord_webhook": "configured",
+    "telegram_credentials": "missing_or_empty",
+    "twitter_credentials": "missing_or_empty",
+    "status": "non_blocking_for_supervised_activation_v1"
+  },
+  "authorized_next_transitions": [
+    "press-agent-credential-completion",
+    "supervised-activation-dry-run-4",
+    "mainnet-cutover-readiness-lane",
+    "ceremonial-interface-update"
+  ],
+  "forbidden_claims": [
+    "fully autonomous unsupervised operation",
+    "mainnet cutover complete",
+    "press agent fully configured",
+    "external bot broadcast live"
+  ]
+}
