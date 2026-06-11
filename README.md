@@ -16,6 +16,7 @@ Start here for public review:
 
 - [Reviewer Start Here](REVIEWER_START_HERE.md)
 - [Claim-to-Proof Matrix](docs/review/CLAIM_TO_PROOF_MATRIX.md)
+- [Public Status](STATUS.md)
 
 The matrix classifies claims as verifiable, pending, disabled, archive, or aspirational so reviewers can inspect evidence before accepting narrative claims.
 
