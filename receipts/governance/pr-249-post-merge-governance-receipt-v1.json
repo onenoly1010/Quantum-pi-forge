@@ -1,0 +1,13 @@
+{
+  "receipt": "pr-249-post-merge-governance-receipt-v1",
+  "status": "sealed",
+  "pr": 249,
+  "type": "docs-only-readiness-legibility",
+  "readiness_index": "docs/review/READINESS_INDEX_V1.md",
+  "mainnet_cutover_approval_granted": false,
+  "mainnet_cutover_executed": false,
+  "deployment_executed": false,
+  "broadcast_executed": false,
+  "state_changing_transaction_executed": false,
+  "boundary": "public readiness index merged without changing execution state"
+}

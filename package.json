@@ -86,7 +86,8 @@
     "autonomous:mainnet-cutover-final-operator-approval:v1:check": "node scripts/verify-mainnet-cutover-final-operator-approval-v1.cjs",
     "governance:pr-243-post-merge:v1:check": "node scripts/verify-pr-243-post-merge-governance-receipt-v1.cjs",
     "comms:press-agent-discord-parked-broadcast:v1:check": "node scripts/verify-press-agent-discord-parked-broadcast-v1.cjs",
-    "governance:pr-247-post-merge:v1:check": "node scripts/verify-pr-247-post-merge-governance-receipt-v1.cjs"
+    "governance:pr-247-post-merge:v1:check": "node scripts/verify-pr-247-post-merge-governance-receipt-v1.cjs",
+    "governance:pr-249-post-merge:v1:check": "node scripts/verify-pr-249-post-merge-governance-receipt-v1.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",
