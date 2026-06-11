@@ -3,7 +3,7 @@ const path = require("path");
 const crypto = require("crypto");
 
 const now = new Date().toISOString();
-const outDir = path.join("receipts", "autonomous", "runs");
+const outDir = process.env.QPF_AUTONOMOUS_RECEIPT_DIR || path.join("runtime", "autonomous", "runs");
 fs.mkdirSync(outDir, { recursive: true });
 
 const args = process.argv.slice(2);
