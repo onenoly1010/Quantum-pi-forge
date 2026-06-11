@@ -1,0 +1,80 @@
+{
+  "schema": "qpf.autonomous.mainnet_cutover_gate_definition.v1",
+  "status": "SEALED_GATE_DEFINITION",
+  "branch": "autonomous/mainnet-cutover-gate-definition-v1",
+  "base_main_commit": "939f0b5",
+  "cutover_executed": false,
+  "deployment_executed": false,
+  "broadcast_executed": false,
+  "baseline_verification": {
+    "autonomous:mainnet-cutover-preflight-boundary:v1:check": "PASS",
+    "autonomous:mainnet-cutover-readiness-boundary:v1:check": "PASS",
+    "governance:pr-231-post-merge:v1:check": "PASS",
+    "governance:supervised-activation-dry-run-4-evidence:v1:check": "PASS",
+    "press-agent:credential-completion-boundary:v1:check": "PASS",
+    "autonomous:supervised-activation:v1:check": "PASS",
+    "autonomous:network-activation-readiness:v2:check": "PASS",
+    "build": "PASS"
+  },
+  "go_no_go_gates": {
+    "gate_0_mainline_clean": {
+      "required": true,
+      "go_when": "main equals origin/main and working tree clean"
+    },
+    "gate_1_local_verifiers_green": {
+      "required": true,
+      "go_when": "all required local verifiers pass"
+    },
+    "gate_2_secret_completion": {
+      "required": true,
+      "go_when": "Telegram, Twitter, Cloudflare, 0G, Pi verification, and signing inputs are present"
+    },
+    "gate_3_operator_approval": {
+      "required": true,
+      "go_when": "explicit operator approval receipt is sealed"
+    },
+    "gate_4_rollback_plan": {
+      "required": true,
+      "go_when": "rollback plan is sealed and verified"
+    },
+    "gate_5_dry_run_replay": {
+      "required": true,
+      "go_when": "supervised dry-run evidence chain remains reproducible"
+    },
+    "gate_6_live_surface_probe": {
+      "required": true,
+      "go_when": "read-only live probes succeed without state mutation"
+    },
+    "gate_7_cutover_command_hash": {
+      "required": true,
+      "go_when": "exact cutover command is documented and hash-sealed before execution"
+    }
+  },
+  "rollback_requirements": {
+    "required_before_cutover": true,
+    "must_define": [
+      "stop condition",
+      "revert command or disable path",
+      "post-rollback verification",
+      "operator notification",
+      "receipt path",
+      "no-secret logging policy"
+    ]
+  },
+  "blocked_until": [
+    "secret completion receipt",
+    "operator approval receipt",
+    "rollback plan receipt",
+    "read-only live surface probe receipt",
+    "cutover command hash receipt"
+  ],
+  "claim_boundary": {
+    "gate_definition_complete": true,
+    "mainnet_cutover_ready_to_execute": false,
+    "mainnet_cutover_complete": false,
+    "deployment_complete": false,
+    "broadcast_complete": false,
+    "unsupervised_autonomy_active": false
+  },
+  "next_authorized_lane": "mainnet-cutover-rollback-plan-v1"
+}
