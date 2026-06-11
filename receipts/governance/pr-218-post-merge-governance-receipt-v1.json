@@ -1,0 +1,21 @@
+{
+  "receipt": "pr-218-post-merge-governance-receipt-v1",
+  "status": "sealed",
+  "subject_pr": 218,
+  "subject_title": "Add supervised activation operations index v1",
+  "main_commit": "fae969c",
+  "merge_method": "squash",
+  "github_hosted_bypass_used": false,
+  "branch_protection_respected": true,
+  "branch_deleted_after_merge": true,
+  "supervised_activation_operations_index_v1_on_main": true,
+  "prs_209_to_217_indexed": true,
+  "dry_run_1_evidence_referenced": true,
+  "reviewer_facing_operations_index": true,
+  "no_new_autonomous_capability": true,
+  "live_execution_authorized": false,
+  "wallet_mutation_authorized": false,
+  "network_mutation_authorized": false,
+  "unsupervised_execution_authorized": false,
+  "authority_expanded": false
+}
