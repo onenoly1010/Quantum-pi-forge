@@ -1,0 +1,27 @@
+{
+  "receipt": "pr-251-hosted-ci-failure-opacity-boundary-v1",
+  "status": "sealed",
+  "pr": 251,
+  "branch": "governance/audit-hardening-readiness-v1",
+  "commit": "7f58941",
+  "local_verifier_passed": true,
+  "local_build_passed": true,
+  "working_tree_clean": true,
+  "hosted_ci_success_claimed": false,
+  "hosted_ci_failure_observed": true,
+  "failed_log_output_actionable": false,
+  "non_execution_boundary": true,
+  "mainnet_cutover_approval_granted": false,
+  "mainnet_cutover_executed": false,
+  "deployment_executed": false,
+  "broadcast_executed": false,
+  "state_changing_transaction_executed": false,
+  "allowed_outcome": "governance_observation_only",
+  "forbidden_outcomes": [
+    "deployment",
+    "broadcast",
+    "state_changing_transaction",
+    "approval_flag_flip",
+    "false_hosted_ci_pass_claim"
+  ]
+}

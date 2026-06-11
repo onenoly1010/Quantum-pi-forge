@@ -1,0 +1,28 @@
+{
+  "receipt": "audit-hardening-readiness-v1",
+  "status": "sealed",
+  "scope": "reviewer-facing audit hardening boundary",
+  "non_execution_boundary": true,
+  "mainnet_cutover_approval_granted": false,
+  "mainnet_cutover_executed": false,
+  "deployment_executed": false,
+  "broadcast_executed": false,
+  "state_changing_transaction_executed": false,
+  "imperatives": {
+    "non_transferable_state_transition_truth": true,
+    "local_first_ci_surrogate_integrity": true,
+    "no_unauthorized_cloud_fallback": true,
+    "dependency_pinning_required_before_unseal": true,
+    "telemetry_alignment_required_before_unseal": true,
+    "audit_onboarding_required_before_unseal": true
+  },
+  "allowed_outcome": "review_hardening_only",
+  "forbidden_outcomes": [
+    "mainnet_execution",
+    "deployment",
+    "broadcast",
+    "state_changing_transaction",
+    "approval_flag_flip",
+    "silent_cloud_fallback"
+  ]
+}
