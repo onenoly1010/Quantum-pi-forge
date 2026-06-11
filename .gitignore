@@ -185,3 +185,4 @@ cache/deployment-manifest.json
 cache/deployment-receipt.json
 
 .qpf-runtime/
+runtime/autonomous/runs/

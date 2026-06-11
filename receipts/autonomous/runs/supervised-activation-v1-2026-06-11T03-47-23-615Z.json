@@ -1,0 +1,22 @@
+{
+  "schema": "qpf.autonomous.supervised_activation_run.v1",
+  "status": "dry_run_complete",
+  "command": "autonomous:supervised-activation:v1",
+  "timestamp": "2026-06-11T03:47:23.615Z",
+  "mode": "dry-run",
+  "live_requested": false,
+  "private_key_present": false,
+  "safety": {
+    "irreversible_network_action_executed": false,
+    "irreversible_network_action_refused": true,
+    "private_key_access_refused": true,
+    "operator_override_preserved": true,
+    "full_autonomy_claimed": false
+  },
+  "baseline": {
+    "readiness_v2_required": true,
+    "runner_implementation_frozen": true
+  },
+  "conclusion": "supervised activation dry-run completed without live network action",
+  "receipt_sha256": "078fa43bde3c89dd08e07fbed63feafb0c86a9eadf213ece60570ca90fbfd502"
+}
