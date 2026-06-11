@@ -1,0 +1,33 @@
+{
+  "schema": "selfhosted-runner-live-attempt-v2",
+  "status": "prepared",
+  "target": {
+    "provider": "Codeberg / Forgejo Actions",
+    "runner": "quantum-pi-selfhosted-01",
+    "labels": [
+      "quantum-pi-selfhosted",
+      "node-22"
+    ],
+    "branch": "ops/selfhosted-runner-live-attempt-v2",
+    "workflow": ".forgejo/workflows/selfhosted-runner-live-attempt-v2.yml"
+  },
+  "claims": {
+    "selfhosted_runner_targeted": true,
+    "live_attempt_started": false,
+    "live_runner_pass_claimed": false,
+    "github_hosted_authoritative": false,
+    "full_autonomous_execution": false
+  },
+  "required_for_future_pass": {
+    "runner_identity": "required",
+    "run_id_or_task_id": "required",
+    "commit_sha": "required",
+    "visible_steps": "required",
+    "node_version_output": "required",
+    "verifier_output": "required",
+    "final_conclusion": "required",
+    "timestamp": "required",
+    "log_excerpt_or_link": "required"
+  },
+  "result": "PREPARED"
+}
