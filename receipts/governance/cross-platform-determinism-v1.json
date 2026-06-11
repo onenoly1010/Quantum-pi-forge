@@ -1,0 +1,26 @@
+{
+  "schema": "qpf.cross_platform_determinism_receipt.v1",
+  "phase": "PRE_CUTOVER_REVIEW_LOCK",
+  "verification_anchor": "canonical_local_surrogate_only",
+  "review_window": {
+    "opened_at_utc": "2026-06-11T17:33:46Z",
+    "hard_deadline_utc": "2026-06-25T23:59:59Z",
+    "chained_extension_required": true
+  },
+  "posture": {
+    "non_executing": true,
+    "approval_granted": false,
+    "cutover_executed": false,
+    "deployment_executed": false,
+    "broadcast_executed": false,
+    "state_changing_transaction_executed": false
+  },
+  "manifest_path": "receipts/governance/cross-platform-determinism-manifest-v1.json",
+  "manifest_sha256": "5d9e9b9b98690b1634b7aa1699afd55591943c35f9bbc508373e5709965f9060",
+  "manifest_file_count": 2225,
+  "reviewer_policy": {
+    "goal": "detect cross-platform determinism drift before cutover",
+    "acceptable_result": "clean verifier pass on independently reproduced artifact manifest",
+    "failure_result": "any hash drift, missing artifact, unexpected dirty tree, or expired review window"
+  }
+}

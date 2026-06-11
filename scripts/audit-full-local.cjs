@@ -7,7 +7,8 @@ const commands = [
   ["npm", ["run", "governance:pr-251-post-merge:v1:check"]],
   ["npm", ["run", "autonomous:mainnet-cutover-command-hash:v1:check"]],
   ["npm", ["run", "autonomous:mainnet-cutover-final-operator-approval:v1:check"]],
-  ["npm", ["run", "governance:pr-243-post-merge:v1:check"]]
+  ["npm", ["run", "governance:pr-243-post-merge:v1:check"]],
+  ["npm", ["run", "governance:pre-cutover-review-window:v1:check"]]
 ];
 
 for (const [cmd, args] of commands) {
@@ -20,5 +21,3 @@ for (const [cmd, args] of commands) {
 }
 
 console.log("\nPASS audit:full-local");
-
-run("npm run governance:pre-cutover-review-window:v1:check");
