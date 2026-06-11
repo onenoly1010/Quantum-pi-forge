@@ -1,0 +1,28 @@
+{
+  "receipt": "rcpt-pre-cutover-review-window-v1",
+  "status": "active_review_window",
+  "anchored_to_tag": "public-review-status-sealed-v1",
+  "anchored_to_main": "9de40c3",
+  "window_opened_at": "2026-06-11T17:15:16Z",
+  "window_closes_at": "2026-06-25T23:59:59Z",
+  "mainnet_cutover_approval_granted": false,
+  "mainnet_cutover_executed": false,
+  "deployment_executed": false,
+  "broadcast_executed": false,
+  "state_changing_transaction_executed": false,
+  "state_matrix": {
+    "public_interface_live": true,
+    "public_review_anchor_sealed": true,
+    "governed_mainnet_cutover_parked": true,
+    "operator_approval_required": true,
+    "extension_requires_receipt": true
+  },
+  "exit_criteria": [
+    "cross_platform_determinism_receipt",
+    "external_review_attestation_receipt",
+    "contract_audit_prep_receipt",
+    "final_operator_approval_receipt",
+    "no_unresolved_public_status_or_audit_regressions"
+  ],
+  "governance_note": "No state-changing transactions, deployments, broadcasts, wallet-funded actions, or mainnet cutover execution are authorized until all exit criteria are receipted and a future explicit approval receipt flips the approval state."
+}

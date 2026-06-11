@@ -20,3 +20,5 @@ for (const [cmd, args] of commands) {
 }
 
 console.log("\nPASS audit:full-local");
+
+run("npm run governance:pre-cutover-review-window:v1:check");
