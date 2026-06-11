@@ -59,3 +59,8 @@ This lane does not claim:
 That lane may define the future exact cutover command hash.
 
 It must not perform mainnet cutover.
+
+## Verified Probe Methods
+
+- `eth_chainId`
+- `eth_blockNumber`
