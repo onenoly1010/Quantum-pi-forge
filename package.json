@@ -64,7 +64,8 @@
     "governance:supervised-activation-dry-run-2-evidence:v1:check": "node scripts/verify-supervised-activation-dry-run-2-evidence-v1.cjs",
     "governance:pr-220-post-merge:v1:check": "node scripts/verify-pr-220-post-merge-governance-receipt-v1.cjs",
     "autonomous:supervised-activation-dry-run-evidence-summary:v1:check": "node scripts/verify-supervised-activation-dry-run-evidence-summary-v1.cjs",
-    "governance:pr-222-post-merge:v1:check": "node scripts/verify-pr-222-post-merge-governance-receipt-v1.cjs"
+    "governance:pr-222-post-merge:v1:check": "node scripts/verify-pr-222-post-merge-governance-receipt-v1.cjs",
+    "governance:supervised-activation-dry-run-3-evidence:v1:check": "node scripts/verify-supervised-activation-dry-run-3-evidence-v1.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",
