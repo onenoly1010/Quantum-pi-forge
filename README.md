@@ -1,5 +1,15 @@
 # Offline Dev Guardian
 
+## For Auditors and Reviewers
+
+Start with [`AUDIT.md`](./AUDIT.md) for the canonical non-executing reviewer onboarding runbook and one-command local audit path:
+
+```bash
+npm run audit:full-local
+```
+
+This project remains parked and does not authorize deployment, broadcast, mainnet approval, wallet-funded actions, or state-changing transactions through the audit path.
+
 ## Reviewer Canon
 
 Start here for public review:
