@@ -81,7 +81,8 @@
     "autonomous:mainnet-cutover-operator-approval-gate:v1:check": "node scripts/verify-mainnet-cutover-operator-approval-gate-v1.cjs",
     "autonomous:mainnet-cutover-secret-completion-gate:v1:check": "node scripts/verify-mainnet-cutover-secret-completion-gate-v1.cjs",
     "autonomous:mainnet-cutover-secret-remediation-plan:v1:check": "node scripts/verify-mainnet-cutover-secret-remediation-plan-v1.cjs",
-    "autonomous:mainnet-cutover-readonly-live-probe:v1:check": "node scripts/verify-mainnet-cutover-readonly-live-probe-v1.cjs"
+    "autonomous:mainnet-cutover-readonly-live-probe:v1:check": "node scripts/verify-mainnet-cutover-readonly-live-probe-v1.cjs",
+    "autonomous:mainnet-cutover-command-hash:v1:check": "node scripts/verify-mainnet-cutover-command-hash-v1.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",
