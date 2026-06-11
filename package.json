@@ -91,14 +91,16 @@
     "governance:audit-hardening-readiness:v1:check": "node scripts/verify-audit-hardening-readiness-v1.cjs",
     "governance:pr-251-hosted-ci-failure-opacity:v1:check": "node scripts/verify-pr-251-hosted-ci-failure-opacity-boundary-v1.cjs",
     "governance:pr-251-post-merge:v1:check": "node scripts/verify-pr-251-post-merge-governance-receipt-v1.cjs",
-    "audit:full-local": "node scripts/audit-full-local.cjs",
+    "audit:full-local": "node scripts/audit-full-local.cjs && npm run governance:cross-platform-determinism:v1:check",
     "governance:root-audit-runbook:v1:check": "node scripts/verify-root-audit-runbook-v1.cjs",
     "governance:pr-253-post-merge:v1:check": "node scripts/verify-pr-253-post-merge-governance-receipt-v1.cjs",
     "governance:readme-audit-entrypoint:v1:check": "node scripts/verify-readme-audit-entrypoint-v1.cjs",
     "governance:public-status:v1:check": "node scripts/verify-public-status-v1.cjs",
     "governance:pr-256-post-merge:v1:check": "node scripts/verify-pr-256-post-merge-governance-receipt-v1.cjs",
     "governance:pre-cutover-review-window:v1:check": "node scripts/verify-pre-cutover-review-window-v1.cjs",
-    "governance:pr-258-post-merge:v1:check": "node scripts/verify-pr-258-post-merge-governance-receipt-v1.cjs"
+    "governance:pr-258-post-merge:v1:check": "node scripts/verify-pr-258-post-merge-governance-receipt-v1.cjs",
+    "governance:cross-platform-determinism:v1:manifest": "node scripts/generate-determinism-manifest.cjs",
+    "governance:cross-platform-determinism:v1:check": "node scripts/verify-cross-platform-determinism-v1.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",
