@@ -1,6 +1,6 @@
 {
   "schema": "qpf.cross_platform_determinism_manifest.v1",
-  "generated_at_utc": "2026-06-11T20:48:33.004Z",
+  "generated_at_utc": "2026-06-11T20:53:41.606Z",
   "posture": {
     "phase": "PRE_CUTOVER_REVIEW_LOCK",
     "non_executing": true,
@@ -17,8 +17,8 @@
   },
   "git": {
     "branch": "governance/rcpt-cross-platform-determinism-v1",
-    "commit": "8645fb568ace1cda69c2f3d79553996c5e8495c7",
-    "status_short": ""
+    "commit": "66854f7694c64e78074418b3689012acf7bc1dbe",
+    "status_short": "M receipts/governance/cross-platform-determinism-manifest-v1.json\n M receipts/governance/cross-platform-determinism-v1.json"
   },
   "include_roots": [
     "package.json",
@@ -55,7 +55,7 @@
   ],
   "file_count": 2225,
   "manifest_hash_algorithm": "sha256(JSON.stringify(entries,null,2)+newline)",
-  "manifest_sha256": "5d9e9b9b98690b1634b7aa1699afd55591943c35f9bbc508373e5709965f9060",
+  "manifest_sha256": "bc48b0aed19a240d3e87510c28f4f8be72f618712eaa8eb15ed9db1101f77a8a",
   "entries": [
     {
       "path": "app/globals.css",
@@ -10160,7 +10160,7 @@
     {
       "path": "out/version.json",
       "size_bytes": 159,
-      "sha256": "3e744687979d221d8582a610b7f2b62c3a6729644aad42adebe7ee80ba641956"
+      "sha256": "ff55ff3bc2dd9a89dbe03fc72be628f3a78868d2662c97d523fa1ec7b0aff44b"
     },
     {
       "path": "package-lock.json",
@@ -10185,7 +10185,7 @@
     {
       "path": "public/version.json",
       "size_bytes": 159,
-      "sha256": "3e744687979d221d8582a610b7f2b62c3a6729644aad42adebe7ee80ba641956"
+      "sha256": "ff55ff3bc2dd9a89dbe03fc72be628f3a78868d2662c97d523fa1ec7b0aff44b"
     },
     {
       "path": "scripts/__pycache__/forge-scan-claims.cpython-312.pyc",
