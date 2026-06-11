@@ -1,0 +1,22 @@
+{
+  "schema": "qpf.governance.pr_243_post_merge_receipt.v1",
+  "status": "SEALED",
+  "pr": 243,
+  "merged_commit": "301daf2",
+  "merged_title": "Seal mainnet cutover final operator approval boundary v1",
+  "mainnet_cutover_approval_granted": false,
+  "mainnet_cutover_executed": false,
+  "deployment_executed": false,
+  "broadcast_executed": false,
+  "state_changing_transaction_executed": false,
+  "post_merge_checks_required": [
+    "autonomous:mainnet-cutover-final-operator-approval:v1:check",
+    "autonomous:mainnet-cutover-command-hash:v1:check",
+    "autonomous:mainnet-cutover-readonly-live-probe:v1:check",
+    "autonomous:mainnet-cutover-secret-completion-gate:v1:check",
+    "autonomous:mainnet-cutover-operator-approval-gate:v1:check",
+    "build"
+  ],
+  "post_merge_checks_observed_pass": true,
+  "governance_conclusion": "PR 243 sealed the final operator approval boundary only. It did not grant approval and did not execute mainnet cutover."
+}
