@@ -54,7 +54,8 @@
     "autonomous:supervised-activation-runtime-hygiene:v1:check": "node scripts/verify-supervised-activation-runtime-hygiene-v1.cjs",
     "autonomous:supervised-activation-refusal-tests:v1:check": "node scripts/verify-supervised-activation-refusal-tests-v1.cjs",
     "governance:pr-209-211-post-merge:v1:check": "node scripts/verify-pr-209-211-post-merge-governance-receipt-v1.cjs",
-    "autonomous:supervised-activation-readiness-index:v1:check": "node scripts/verify-supervised-activation-readiness-index-v1.cjs"
+    "autonomous:supervised-activation-readiness-index:v1:check": "node scripts/verify-supervised-activation-readiness-index-v1.cjs",
+    "governance:pr-213-post-merge:v1:check": "node scripts/verify-pr-213-post-merge-governance-receipt-v1.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",

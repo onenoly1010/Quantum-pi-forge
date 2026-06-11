@@ -1,0 +1,38 @@
+{
+  "schema": "qpf.governance.post_merge_receipt.v1",
+  "receipt_id": "pr-213-post-merge-governance-receipt-v1",
+  "status": "sealed",
+  "covered_pr": {
+    "number": 213,
+    "title": "Add supervised activation readiness index v1",
+    "merge_commit": "d6a3c28",
+    "merge_method": "squash",
+    "branch_deleted": true
+  },
+  "mainline": {
+    "head_commit": "d6a3c28",
+    "main_equals_origin_main": true,
+    "verification_green_on_main": true
+  },
+  "protection": {
+    "github_hosted_bypass_used": false,
+    "branch_protection_respected": true
+  },
+  "verified_state": {
+    "supervised_activation_readiness_index_on_main": true,
+    "operator_reviewer_activation_map_on_main": true,
+    "dry_run_default": true,
+    "live_mode_refused": true,
+    "private_key_context_refused": true,
+    "irreversible_network_action_executed": false,
+    "full_autonomy_claimed": false,
+    "runner_implementation_frozen": true
+  },
+  "governance_boundary": {
+    "live_deployment_authorized": false,
+    "wallet_use_authorized": false,
+    "private_key_access_authorized": false,
+    "full_autonomy_claimed": false,
+    "runner_implementation_changes_authorized": false
+  }
+}
