@@ -7,8 +7,8 @@
   "phase": "PRE_CUTOVER_REVIEW_LOCK",
   "verification_anchor": "canonical_local_surrogate_only",
   "anchored_receipts": {
-    "cross_platform_determinism_receipt_sha256": "04a26527eae49cabd021aec0926df186c8e920cec69adb4f823ac7a336c075b5",
-    "cross_platform_determinism_manifest_file_sha256": "176950b7d5ded69955e7c81671cae1914be6a2a05ed099d01432b666267ddeea"
+    "cross_platform_determinism_receipt_sha256": "eaffbe73ea109d596f0f694d4c038fe028f6c27ce8d2267dff32b15c88067a6d",
+    "cross_platform_determinism_manifest_file_sha256": "921fbc5c47a63145fe7ad7f535b83935e5c871d1fba28732b70a91da805d7b9f"
   },
   "posture": {
     "non_executing": true,

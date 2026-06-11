@@ -1,0 +1,46 @@
+{
+  "schema": "qpf.external_attestation_verifier.v1",
+  "receipt": "external-attestation-verifier-v1",
+  "status": "blocking_control_active",
+  "phase": "PRE_CUTOVER_REVIEW_LOCK",
+  "verification_anchor": "canonical_local_surrogate_only",
+  "exit_criterion": "external_review_attestation_receipt",
+  "exit_criterion_index": 2,
+  "exit_criterion_closed": false,
+  "blocking_control_only": true,
+  "github_issue": 264,
+  "github_repository": "onenoly1010/Quantum-pi-forge",
+  "independent_author_associations_allowed": [
+    "NONE",
+    "CONTRIBUTOR",
+    "COLLABORATOR"
+  ],
+  "independent_author_associations_rejected": [
+    "OWNER",
+    "MEMBER"
+  ],
+  "posture": {
+    "non_executing": true,
+    "approval_granted": false,
+    "cutover_executed": false,
+    "deployment_executed": false,
+    "broadcast_executed": false,
+    "state_changing_transaction_executed": false
+  },
+  "anchored_receipts": {
+    "reviewer_attestation_intake_sha256": "411fd9c3111b35915495274a2d01871f0abfc5c717ad9daa2bff1b4468372fce",
+    "cross_platform_determinism_receipt_sha256": "eaffbe73ea109d596f0f694d4c038fe028f6c27ce8d2267dff32b15c88067a6d"
+  },
+  "expected_manifest_sha256": "79123b15b2bc5049019ebf7bf98ec83528c4288c80a36d22bba5fca5cc4e6fdd",
+  "expected_file_count": 2229,
+  "forbidden_submission_markers": [
+    "simulated",
+    "conceptual",
+    "would match",
+    "public repo surface",
+    "full local hash would match",
+    "verified clean clone hash",
+    "consistent with documented structure"
+  ],
+  "governance_note": "Blocking control for criterion #2. Validates independent Issue #264 comments against intake schema and determinism baseline. Does not close exit criterion #2."
+}
