@@ -1,6 +1,6 @@
 {
   "schema": "qpf.cross_platform_determinism_manifest.v1",
-  "generated_at_utc": "2026-06-11T21:50:06.639Z",
+  "generated_at_utc": "2026-06-11T21:57:14.214Z",
   "posture": {
     "phase": "PRE_CUTOVER_REVIEW_LOCK",
     "non_executing": true,
@@ -16,9 +16,9 @@
     "arch": "x64"
   },
   "git": {
-    "branch": "governance/pr-260-post-merge-receipt-v1",
-    "commit": "5d63964fe60be06f4db9ba117c6047a60a041d09",
-    "status_short": "M scripts/verify-pr-260-post-merge-governance-receipt-v1.cjs"
+    "branch": "governance/pre-cutover-exit-criterion-checkpoint-v1",
+    "commit": "a04b5ffbe02d8f7e32d526737202ba511226e4d5",
+    "status_short": "M package.json\n M receipts/governance/cross-platform-determinism-manifest-v1.json\n M receipts/governance/cross-platform-determinism-v1.json\n M receipts/governance/pr-260-post-merge-governance-receipt-v1.json\n M scripts/verify-cross-platform-determinism-v1.cjs\n?? docs/governance/PRE_CUTOVER_EXIT_CRITERION_CHECKPOINT_V1.md\n?? receipts/governance/pre-cutover-exit-criterion-checkpoint-v1.json\n?? scripts/verify-pre-cutover-exit-criterion-checkpoint-v1.cjs"
   },
   "include_roots": [
     "package.json",
@@ -53,9 +53,9 @@
     "receipts/governance/cross-platform-determinism-manifest-v1.json",
     "receipts/governance/cross-platform-determinism-v1.json"
   ],
-  "file_count": 2226,
-  "deterministic_build_time": "2026-06-11T15:40:25-06:00",
-  "deterministic_commit": "5d63964fe60be06f4db9ba117c6047a60a041d09",
+  "file_count": 2227,
+  "deterministic_build_time": "2026-06-11T15:50:49-06:00",
+  "deterministic_commit": "a04b5ffbe02d8f7e32d526737202ba511226e4d5",
   "volatile_normalization_rules": [
     {
       "id": "out-build-time-field-v1",
@@ -69,7 +69,7 @@
     }
   ],
   "manifest_hash_algorithm": "sha256(JSON.stringify(entries,null,2)+newline) after declared volatile-field normalization",
-  "manifest_sha256": "ea9bbd5bd70f8b2668e56b0222f25f801521ac3a14afb540fcbd2c8789be61f9",
+  "manifest_sha256": "48eeded9ca3ecf2ca5c404383297c87fe0d4a081ab965df6c5d87ad2a814f6aa",
   "entries": [
     {
       "path": "app/globals.css",
@@ -14214,7 +14214,7 @@
     {
       "path": "out/version.json",
       "size_bytes": 159,
-      "sha256": "a19242ee64b79c246cf347988c0c85084330bb64173e2e7b863813413321ddab",
+      "sha256": "bc74b1a4b24372bec0039d0ae66ec9ea2e6827e532967396b5beda7997ece49f",
       "normalized": true,
       "normalization_ids": [
         "out-build-time-field-v1",
@@ -14230,8 +14230,8 @@
     },
     {
       "path": "package.json",
-      "size_bytes": 11578,
-      "sha256": "7e3b4c7bd2959b380b7f45d4b9684a34440679c9cacffa9d22a700305c287c48",
+      "size_bytes": 11711,
+      "sha256": "c7a2dfedf9d343a1a91bd4b5f1a1246a958ac1d3df8d60f90d036a3338fa7c64",
       "normalized": false,
       "normalization_ids": []
     },
@@ -14252,7 +14252,7 @@
     {
       "path": "public/version.json",
       "size_bytes": 159,
-      "sha256": "a19242ee64b79c246cf347988c0c85084330bb64173e2e7b863813413321ddab",
+      "sha256": "bc74b1a4b24372bec0039d0ae66ec9ea2e6827e532967396b5beda7997ece49f",
       "normalized": true,
       "normalization_ids": [
         "out-build-time-field-v1",
@@ -14856,8 +14856,8 @@
     },
     {
       "path": "scripts/verify-cross-platform-determinism-v1.cjs",
-      "size_bytes": 5893,
-      "sha256": "35681d4687a1d45745cb759127ef23e0bb261ac63e4cbdc34d5f543a59bb3e48",
+      "size_bytes": 6066,
+      "sha256": "db4a9831ce3f1cec5da56087f863ad91f4fb4359f791f5d1a5bd8e25a9619c7e",
       "normalized": false,
       "normalization_ids": []
     },
@@ -15194,6 +15194,13 @@
       "path": "scripts/verify-pr-260-post-merge-governance-receipt-v1.cjs",
       "size_bytes": 1914,
       "sha256": "38127bf0b1863d4c20ca6a89c38e2978c483e962763598e602f134bfdfc28c43",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/verify-pre-cutover-exit-criterion-checkpoint-v1.cjs",
+      "size_bytes": 3917,
+      "sha256": "c573de04dbae13f21da0c74d43de891241847ac63907559901304375f0ffc3f3",
       "normalized": false,
       "normalization_ids": []
     },

@@ -1,0 +1,66 @@
+{
+  "schema": "qpf.pre_cutover_exit_criterion_checkpoint.v1",
+  "checkpoint": "pre-cutover-exit-criterion-checkpoint-v1",
+  "exit_criterion_closed": "cross_platform_determinism_receipt",
+  "exit_criterion_index": 1,
+  "phase": "PRE_CUTOVER_REVIEW_LOCK",
+  "verification_anchor": "canonical_local_surrogate_only",
+  "canonical_chain": [
+    {
+      "pr": 258,
+      "commit": "f03eeaf928b5ec7fc87cac067b6c76e17c8490e0",
+      "short_commit": "f03eeaf",
+      "title": "Seal pre-cutover review window v1"
+    },
+    {
+      "pr": 259,
+      "commit": "79f3649ed9e56ceefe234b65fc6069b7139e4670",
+      "short_commit": "79f3649",
+      "title": "Seal PR 258 post-merge governance receipt v1"
+    },
+    {
+      "pr": 260,
+      "commit": "46c4292cc13faa76c2d35915cca236f5ff371bf3",
+      "short_commit": "46c4292",
+      "title": "Seal cross-platform determinism receipt v1"
+    },
+    {
+      "pr": 261,
+      "commit": "a04b5ffbe02d8f7e32d526737202ba511226e4d5",
+      "short_commit": "a04b5ff",
+      "title": "Seal PR 260 post-merge governance receipt v1"
+    }
+  ],
+  "anchored_at_commit": "a04b5ffbe02d8f7e32d526737202ba511226e4d5",
+  "anchored_at_short_commit": "a04b5ff",
+  "review_window_active": true,
+  "historical_anchor_verifier": {
+    "lane": "pr-260-post-merge-governance-receipt-v1",
+    "strategy": "ancestor_check_not_head_equality",
+    "corrected_in_pr": 261
+  },
+  "anchored_receipts": {
+    "pre_cutover_review_window_sha256": "6d4c24f9c3e61cc9142c49a945c5e39ccb5b40f0833ba2d6c2b35a2f37145347",
+    "pr_258_post_merge_receipt_sha256": "eac0172b718be0ee6147fa7e30f4f039520f9a373cf6ca276884214a59409e2d",
+    "cross_platform_determinism_receipt_sha256": "d49c6ef7b4dca2bcf4d8344a9c1325bc644af82c74de105aa47fecca2162e0a1",
+    "cross_platform_determinism_manifest_file_sha256": "9b5a6d6b836e24312fb7c08de65fa81484fb9979fb19a992f1d887d11acd64f0",
+    "pr_260_post_merge_receipt_sha256": "e00f1dba6cd53422bfb57efa3a820084f490103a8a78704f7567a2e24403dccf",
+    "pr_260_post_merge_verifier_sha256": "38127bf0b1863d4c20ca6a89c38e2978c483e962763598e602f134bfdfc28c43"
+  },
+  "exit_criteria_status": {
+    "cross_platform_determinism_receipt": "closed",
+    "external_review_attestation_receipt": "open",
+    "contract_audit_prep_receipt": "open",
+    "final_operator_approval_receipt": "open",
+    "no_unresolved_public_status_or_audit_regressions": "open"
+  },
+  "posture": {
+    "non_executing": true,
+    "approval_granted": false,
+    "cutover_executed": false,
+    "deployment_executed": false,
+    "broadcast_executed": false,
+    "state_changing_transaction_executed": false
+  },
+  "governance_note": "Compact chain checkpoint for PRs 258-261. Closes exit criterion #1 (cross_platform_determinism_receipt) without per-PR #261 post-merge receipt recursion."
+}
