@@ -6,6 +6,43 @@
  */
 
 const templates = {
+  'governance-safety-gate': {
+    id: 'governance-safety-gate',
+    name: 'Governance Safety Gate',
+    description: 'Governance-safe update for bounded autonomy, branch protection, and communications gates',
+    category: 'Governance Update',
+    tags: ['governance', 'safety', 'autonomous-readiness', 'press-agent'],
+    title: '{{featureName}}: Governance Safety Gate Sealed',
+    excerpt: '{{summary}}',
+    content: `<h2>{{featureName}}</h2>
+
+<p><strong>{{location}}, {{date}}</strong> — {{summary}}</p>
+
+<h3>What Was Verified</h3>
+
+<ul>
+  <li>{{verifiedItem1}}</li>
+  <li>{{verifiedItem2}}</li>
+  <li>{{verifiedItem3}}</li>
+</ul>
+
+<h3>Safety Boundary</h3>
+
+<p>{{safetyBoundary}}</p>
+
+<h3>Current Status</h3>
+
+<p>{{currentStatus}}</p>
+
+<h3>Contact</h3>
+
+<p>{{contactName}}<br>
+{{contactTitle}}<br>
+Email: {{contactEmail}}</p>
+
+<p><em>###</em></p>`
+  },
+
     'launch-announcement': {
         id: 'launch-announcement',
         name: 'Launch Announcement',
