@@ -1,0 +1,39 @@
+{
+  "schema": "qpf.autonomous.supervised_activation_dry_run_4_evidence.v1",
+  "status": "SEALED",
+  "branch": "autonomous/supervised-activation-dry-run-4-v1",
+  "base_main_commit": "5a57a4c",
+  "activation_mode": "supervised_dry_run",
+  "runtime_receipt": {
+    "path": "runtime/autonomous/runs/supervised-activation-v1-2026-06-11T07-14-10-215Z.json",
+    "committed": false,
+    "sha256": "8bace7a932b3d488f4d783264954d243173bdb89191dc5f9a9596d8265b2d2bf"
+  },
+  "command_result": {
+    "script": "autonomous:supervised-activation:v1",
+    "status": "dry_run_complete"
+  },
+  "baseline_verification": {
+    "press-agent:credential-completion-boundary:v1:check": "PASS",
+    "press-agent:discord-only-proof:v1:check": "PASS",
+    "governance:pr-228-post-merge:v1:check": "PASS",
+    "governance:supervised-activation-v1-milestone-snapshot:check": "PASS",
+    "autonomous:supervised-activation:v1:check": "PASS",
+    "autonomous:network-activation-readiness:v2:check": "PASS",
+    "build": "PASS"
+  },
+  "press_agent_boundary": {
+    "discord_only": true,
+    "telegram_ready": false,
+    "twitter_ready": false,
+    "full_multichannel_live_claim": false
+  },
+  "claim_boundary": {
+    "supervised_dry_run_4_complete": true,
+    "runtime_receipt_hash_recorded": true,
+    "runtime_receipt_committed": false,
+    "mainnet_cutover_complete": false,
+    "unsupervised_autonomy_active": false,
+    "external_multichannel_broadcast_proven": false
+  }
+}
