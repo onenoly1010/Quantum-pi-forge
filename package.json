@@ -97,7 +97,8 @@
     "governance:readme-audit-entrypoint:v1:check": "node scripts/verify-readme-audit-entrypoint-v1.cjs",
     "governance:public-status:v1:check": "node scripts/verify-public-status-v1.cjs",
     "governance:pr-256-post-merge:v1:check": "node scripts/verify-pr-256-post-merge-governance-receipt-v1.cjs",
-    "governance:pre-cutover-review-window:v1:check": "node scripts/verify-pre-cutover-review-window-v1.cjs"
+    "governance:pre-cutover-review-window:v1:check": "node scripts/verify-pre-cutover-review-window-v1.cjs",
+    "governance:pr-258-post-merge:v1:check": "node scripts/verify-pr-258-post-merge-governance-receipt-v1.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",
