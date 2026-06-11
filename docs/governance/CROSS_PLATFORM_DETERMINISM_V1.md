@@ -64,3 +64,29 @@ cutover_executed: false
 deployment_executed: false  
 broadcast_executed: false  
 state_changing_transaction_executed: false
+
+
+## Surfaced Drift: build_time
+
+During local sealing, the determinism verifier surfaced drift in generated static build metadata.
+
+The affected class is wall-clock build metadata such as build_time, buildTime, built_at, or generated_at inside text artifacts under out/ and public/ (including public/version.json written by the static build).
+
+This field is now declared as a volatile review-boundary field and normalized to the current commit timestamp for manifest hashing.
+
+This does not approve deployment, grant cutover authority, or hide executable drift. It only prevents local clock time from corrupting cross-platform reproducibility review.
+
+If any reviewer finds drift outside the declared volatile normalization rule, that is a blocking review finding.
+
+
+## Surfaced Drift: version.json commit metadata
+
+The full local audit surfaced a second deterministic drift class in generated version.json metadata.
+
+The affected class is commit metadata fields such as commit, commit_sha, commitSha, git_sha, or gitSha inside version.json files under out/ or public/.
+
+This field is now declared as a volatile review-boundary field and normalized to the currently checked-out commit SHA for manifest hashing.
+
+This does not approve deployment, grant cutover authority, or hide executable drift. It only prevents generated version metadata from corrupting cross-platform reproducibility review when it is scoped to version.json.
+
+If any reviewer finds commit drift outside the declared version.json normalization rule, that is a blocking review finding.

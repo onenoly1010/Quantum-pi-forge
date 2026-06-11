@@ -15,6 +15,39 @@ function sha256(buf) {
   return crypto.createHash("sha256").update(buf).digest("hex");
 }
 
+function normalizeForDeterminism(file, bytes, deterministicBuildTime, deterministicCommit) {
+  const textLike = /\.(json|html|js|mjs|css|txt|xml|svg|map)$/i.test(file);
+  if (!textLike || !(file.startsWith("out/") || file.startsWith("public/"))) {
+    return { bytes, normalization_ids: [] };
+  }
+
+  let text = bytes.toString("utf8");
+  const applied = [];
+
+  const beforeTime = text;
+  text = text
+    .replace(/("build_time"\s*:\s*")([^"]*)(")/g, "$1" + deterministicBuildTime + "$3")
+    .replace(/("buildTime"\s*:\s*")([^"]*)(")/g, "$1" + deterministicBuildTime + "$3")
+    .replace(/("built_at"\s*:\s*")([^"]*)(")/g, "$1" + deterministicBuildTime + "$3")
+    .replace(/("generated_at"\s*:\s*")([^"]*)(")/g, "$1" + deterministicBuildTime + "$3");
+  if (text !== beforeTime) applied.push("out-build-time-field-v1");
+
+  if ((file === "out/version.json" || file.endsWith("/version.json")) && (file.startsWith("out/") || file.startsWith("public/"))) {
+    text = text
+      .replace(/("commit"\s*:\s*")([^"]*)(")/g, "$1" + deterministicCommit + "$3")
+      .replace(/("commit_sha"\s*:\s*")([^"]*)(")/g, "$1" + deterministicCommit + "$3")
+      .replace(/("commitSha"\s*:\s*")([^"]*)(")/g, "$1" + deterministicCommit + "$3")
+      .replace(/("git_sha"\s*:\s*")([^"]*)(")/g, "$1" + deterministicCommit + "$3")
+      .replace(/("gitSha"\s*:\s*")([^"]*)(")/g, "$1" + deterministicCommit + "$3");
+    applied.push("version-json-commit-field-v1");
+  }
+
+  return {
+    bytes: Buffer.from(text, "utf8"),
+    normalization_ids: applied
+  };
+}
+
 function git(cmd) {
   try {
     return cp.execSync(cmd, { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] }).trim();
@@ -30,6 +63,9 @@ const manifest = JSON.parse(fs.readFileSync(MANIFEST, "utf8"));
 const receipt = JSON.parse(fs.readFileSync(RECEIPT, "utf8"));
 
 if (manifest.schema !== "qpf.cross_platform_determinism_manifest.v1") fail("bad manifest schema");
+if (!manifest.deterministic_build_time) fail("missing deterministic build time");
+if (!manifest.deterministic_commit) fail("missing deterministic commit");
+if (!Array.isArray(manifest.volatile_normalization_rules)) fail("missing volatile normalization rules");
 if (receipt.schema !== "qpf.cross_platform_determinism_receipt.v1") fail("bad receipt schema");
 
 for (const key of [
@@ -62,7 +98,11 @@ for (const entry of entries) {
   if (!fs.existsSync(entry.path)) fail("missing tracked artifact: " + entry.path);
   const bytes = fs.readFileSync(entry.path);
   if (bytes.length !== entry.size_bytes) fail("size mismatch: " + entry.path);
-  if (sha256(bytes) !== entry.sha256) fail("sha256 mismatch: " + entry.path);
+  const normalized = normalizeForDeterminism(entry.path, bytes, manifest.deterministic_build_time, manifest.deterministic_commit);
+  if (sha256(normalized.bytes) !== entry.sha256) fail("sha256 mismatch: " + entry.path);
+  const expectedIds = JSON.stringify(entry.normalization_ids || []);
+  const actualIds = JSON.stringify(normalized.normalization_ids || []);
+  if (expectedIds !== actualIds) fail("normalization mismatch: " + entry.path);
 }
 
 if (receipt.manifest_sha256 !== manifest.manifest_sha256) fail("receipt manifest hash mismatch");

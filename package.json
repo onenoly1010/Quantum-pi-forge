@@ -91,7 +91,7 @@
     "governance:audit-hardening-readiness:v1:check": "node scripts/verify-audit-hardening-readiness-v1.cjs",
     "governance:pr-251-hosted-ci-failure-opacity:v1:check": "node scripts/verify-pr-251-hosted-ci-failure-opacity-boundary-v1.cjs",
     "governance:pr-251-post-merge:v1:check": "node scripts/verify-pr-251-post-merge-governance-receipt-v1.cjs",
-    "audit:full-local": "node scripts/audit-full-local.cjs && npm run governance:cross-platform-determinism:v1:manifest && npm run governance:cross-platform-determinism:v1:check",
+    "audit:full-local": "node scripts/audit-full-local.cjs && npm run governance:cross-platform-determinism:v1:check",
     "governance:root-audit-runbook:v1:check": "node scripts/verify-root-audit-runbook-v1.cjs",
     "governance:pr-253-post-merge:v1:check": "node scripts/verify-pr-253-post-merge-governance-receipt-v1.cjs",
     "governance:readme-audit-entrypoint:v1:check": "node scripts/verify-readme-audit-entrypoint-v1.cjs",

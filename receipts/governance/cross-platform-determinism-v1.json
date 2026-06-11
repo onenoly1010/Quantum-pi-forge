@@ -16,7 +16,7 @@
     "state_changing_transaction_executed": false
   },
   "manifest_path": "receipts/governance/cross-platform-determinism-manifest-v1.json",
-  "manifest_sha256": "bc48b0aed19a240d3e87510c28f4f8be72f618712eaa8eb15ed9db1101f77a8a",
+  "manifest_sha256": "92184bbb9d7cd4d0076ef499710dbe8f7d8a9ba3f3c3ad55a3d14c898d5e233c",
   "manifest_file_count": 2225,
   "reviewer_policy": {
     "goal": "detect cross-platform determinism drift before cutover",
@@ -29,5 +29,21 @@
     "receipt_json_literal_newline_fixed": true,
     "verifier_dirty_tree_allowance_scoped_to_lane_artifacts": true,
     "audit_full_local_preexisting_bug_fixed": true
+  },
+  "surfaced_drift": {
+    "build_time": {
+      "status": "declared_volatile_field_normalized",
+      "rule": "out-build-time-field-v1",
+      "deterministic_value": "2026-06-11T15:27:43-06:00",
+      "scope": "out/** and public/** text artifacts only",
+      "blocking_if_found_elsewhere": true
+    },
+    "version_json_commit": {
+      "status": "declared_volatile_field_normalized",
+      "rule": "version-json-commit-field-v1",
+      "deterministic_value": "7060a1ea71bee53e30da0eba3295ebc5f580ffab",
+      "scope": "out/**/version.json and public/**/version.json only",
+      "blocking_if_found_elsewhere": true
+    }
   }
 }
