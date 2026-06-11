@@ -70,7 +70,8 @@
     "autonomous:supervised-activation-receipt-hash-semantics:v1:check": "node scripts/verify-supervised-activation-receipt-hash-semantics-v1.cjs",
     "governance:pr-226-post-merge:v1:check": "node scripts/verify-pr-226-post-merge-governance-receipt-v1.cjs",
     "governance:supervised-activation-v1-milestone-snapshot:check": "node scripts/verify-supervised-activation-v1-milestone-snapshot.cjs",
-    "governance:pr-228-post-merge:v1:check": "node scripts/verify-pr-228-post-merge-governance-receipt-v1.cjs"
+    "governance:pr-228-post-merge:v1:check": "node scripts/verify-pr-228-post-merge-governance-receipt-v1.cjs",
+    "press-agent:credential-completion-boundary:v1:check": "node scripts/verify-press-agent-credential-completion-boundary-v1.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",
