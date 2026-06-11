@@ -1,0 +1,17 @@
+{
+  "receipt": "pr-258-post-merge-governance-receipt-v1",
+  "pr": 258,
+  "status": "sealed",
+  "merged_commit": "f03eeaf",
+  "merged_at": "2026-06-11T17:46:52Z",
+  "sealed_subject": "pre-cutover-review-window-v1",
+  "mainnet_cutover_approval_granted": false,
+  "mainnet_cutover_executed": false,
+  "deployment_executed": false,
+  "broadcast_executed": false,
+  "state_changing_transaction_executed": false,
+  "pre_cutover_review_window_active": true,
+  "window_closes_at": "2026-06-25T23:59:59Z",
+  "anchored_receipt_sha256": "6d4c24f9c3e61cc9142c49a945c5e39ccb5b40f0833ba2d6c2b35a2f37145347",
+  "governance_note": "PR 258 merged a defensive pre-cutover review window. This receipt seals the post-merge state and preserves all non-execution flags."
+}
