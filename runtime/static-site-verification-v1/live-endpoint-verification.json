@@ -1,0 +1,5 @@
+{
+  "live_check_attempted": false,
+  "note": "Set PUBLIC_SITE_ORIGIN=https://example.com to verify live public endpoints.",
+  "reason": "PUBLIC_SITE_ORIGIN not set"
+}

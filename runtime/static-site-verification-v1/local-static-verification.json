@@ -1,0 +1,26 @@
+{
+  "artifacts": {
+    "public/status-dashboard-v1.json": {
+      "exists": true,
+      "sha256": "64b54ff4ad70e59ba248706082b77ecb1c15ab76cb281efd691851018a240c5b",
+      "size_bytes": 1729
+    },
+    "public/status/index.html": {
+      "exists": true,
+      "sha256": "af1ff2e862e7cea0fefed551cebb765de68015e1a89481a29e1000795e50a1bc",
+      "size_bytes": 814
+    },
+    "public/status/index.json": {
+      "exists": true,
+      "sha256": "64b54ff4ad70e59ba248706082b77ecb1c15ab76cb281efd691851018a240c5b",
+      "size_bytes": 1729
+    }
+  },
+  "json_files_parse": true,
+  "local_static_artifacts_present": true,
+  "read_only_assertions": {
+    "execution_authorized_by_this_dashboard": false,
+    "live_mainnet_mutation_authorized": false
+  },
+  "status_json_matches_index_json": true
+}
