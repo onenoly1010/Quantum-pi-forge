@@ -1,0 +1,18 @@
+{
+  "receipt": "pr-292-post-merge-governance-receipt-v1",
+  "pr": 292,
+  "status": "sealed",
+  "merged_commit": "4fd0df0",
+  "merged_commit_full": "4fd0df040225daeece4e5109b613e64e255ba174",
+  "merged_at": "2026-06-12T06:04:17Z",
+  "merged_title": "Seal PR 291 post-merge governance receipt v1",
+  "mainnet_cutover_approval_granted": false,
+  "mainnet_cutover_executed": false,
+  "deployment_executed": false,
+  "broadcast_executed": false,
+  "state_changing_transaction_executed": false,
+  "pre_cutover_review_window_active": true,
+  "final_operator_unpark_approval_created": false,
+  "final_operator_unpark_approval_granted": false,
+  "governance_note": "PR 292 was merged normally. This post-merge receipt seals the canonical state before any final operator unpark approval lane is created. It does not authorize execution."
+}
