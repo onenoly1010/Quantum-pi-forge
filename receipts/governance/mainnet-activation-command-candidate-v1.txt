@@ -1,0 +1,24 @@
+# Mainnet Activation Command Candidate v1
+
+STATUS: HASHED_FOR_READINESS_ONLY
+EXECUTION_AUTHORIZED: false
+BROADCAST_AUTHORIZED: false
+STATE_CHANGING_TRANSACTION_AUTHORIZED: false
+
+This file seals the command-candidate boundary.
+
+No command in this file is authorized for execution by this receipt.
+
+The final executable command must be selected and approved in a later explicit operator approval receipt.
+
+CANDIDATE_COMMAND_NAME:
+mainnet_activation_execution_command_v1
+
+CANDIDATE_COMMAND_TEXT:
+PENDING_FINAL_OPERATOR_SELECTION
+
+CANDIDATE_COMMAND_ALLOWED_NOW:
+false
+
+REASON:
+The system is ready to prepare command hashing, but the final command must not be selected, approved, or executed in the same lane as readiness packaging.

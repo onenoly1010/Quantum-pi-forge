@@ -1,0 +1,51 @@
+{
+  "authorization": {
+    "broadcast_authorized": false,
+    "deployment_authorized": false,
+    "mainnet_cutover_authorized": false,
+    "state_changing_transaction_authorized": false
+  },
+  "baseline": {
+    "main_commit": "fb8c921e5292a75c34f44afd687e44fc9a2c9fb8",
+    "main_subject": "Define mainnet activation preflight v1 (#269)"
+  },
+  "command_candidate": {
+    "candidate_command_allowed_now": false,
+    "candidate_command_text": "PENDING_FINAL_OPERATOR_SELECTION",
+    "file": "receipts/governance/mainnet-activation-command-candidate-v1.txt",
+    "sha256": "795d6849299e251e1e141e7678ce0f54e8a64c1d24dea3d842946b266961e14f",
+    "status": "HASHED_FOR_READINESS_ONLY"
+  },
+  "created_at_utc": "2026-06-12T02:28:24Z",
+  "execution_state": {
+    "broadcast_executed": false,
+    "deployment_executed": false,
+    "mainnet_cutover_approval_granted": false,
+    "mainnet_cutover_executed": false,
+    "state_changing_transaction_executed": false
+  },
+  "governance_model": {
+    "open_verification_required": true,
+    "operator_approval_required_for_mainnet": true,
+    "outside_review_welcome": true,
+    "outside_reviewer_required": false
+  },
+  "governance_version": "v1",
+  "next_valid_boundary": "mainnet-operator-approval-preparation-v1",
+  "non_authorization_statement": "This receipt seals command-hash readiness only. It does not authorize deployment, broadcast, mainnet cutover, signing, or state-changing transactions.",
+  "readiness": {
+    "activation_preflight_ready": true,
+    "command_candidate_hashed": true,
+    "command_hash_readiness_ready": true,
+    "final_operator_command_approved": false,
+    "final_operator_command_selected": false
+  },
+  "receipt": "mainnet-activation-command-hash-readiness-v1",
+  "sealed_artifacts": {
+    "docs/governance/MAINNET_ACTIVATION_COMMAND_HASH_READINESS_V1.md": "83087dfc9d2af05f5531ff8d6062def84861b414993c26f66b0fec1277fe092a",
+    "docs/governance/MAINNET_ACTIVATION_PREFLIGHT_V1.md": "b9b0c2730cf0ec9f69b2f884e8a76a7d280a06ed7acd5f5a9cc30c43feba8c33",
+    "receipts/governance/mainnet-activation-command-candidate-v1.txt": "795d6849299e251e1e141e7678ce0f54e8a64c1d24dea3d842946b266961e14f",
+    "receipts/governance/mainnet-activation-preflight-v1.json": "cf3387892986b560dbb49a187827a451377a7aa87cdac925fec3dfed0cee0b79",
+    "scripts/verify-mainnet-activation-preflight-v1.cjs": "c8f85be0d63310ef41e8ec266d0329a1380cff2282a21d777cd2225befc648ff"
+  }
+}
