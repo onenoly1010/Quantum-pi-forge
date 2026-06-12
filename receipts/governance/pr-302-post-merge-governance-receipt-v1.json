@@ -1,0 +1,29 @@
+{
+  "schema": "qpf.governance.pr-302-post-merge-receipt.v1",
+  "posture": "post_merge_receipt_only",
+  "pr": 302,
+  "merged": true,
+  "merged_at": "2026-06-12T08:23:10Z",
+  "merge_commit": "55756602cc74a88c5f3d1f7a99268b72ac90ac94",
+  "canonical_main_head_after_merge": "55756602cc74a88c5f3d1f7a99268b72ac90ac94",
+  "canonical_main_subject_after_merge": "Add execution wrapper readiness corrective review v1 (#302)",
+  "corrective_receipt": "receipts/governance/execution-wrapper-readiness-corrective-v1.json",
+  "corrective_receipt_sha256": "3535e32f9fc162c360ea306ba7c7d06e71cae03976fc68308330c16b17ac2e41",
+  "prior_300_post_merge_receipt": "receipts/governance/pr-300-post-merge-governance-receipt-v1.json",
+  "prior_300_post_merge_receipt_sha256": "288567dd1ca298021d1bed549ce17d2be7903a04c72f06b37fafd7ca12739c59",
+  "prior_298_failed_attempt_review_receipt": "receipts/governance/pr-298-execution-wrapper-failed-attempt-review-v1.json",
+  "prior_298_failed_attempt_review_receipt_sha256": "4c0dfba97906cb38993cb4979bab34e16829f7fbbe5522fe54d9c9fbac28c072",
+  "corrective_posture": "corrective_readiness_only",
+  "prior_wrapper_status": "failed_or_missing",
+  "prior_exit_code": 1,
+  "successful_exit_artifact_present": false,
+  "stash_applied": false,
+  "wrapper_executed_during_receipt": false,
+  "deployment_executed": false,
+  "broadcast_executed": false,
+  "state_changing_transaction_executed": false,
+  "evidence": {
+    "post_merge_document": "docs/governance/PR_302_POST_MERGE_GOVERNANCE_RECEIPT_V1.md",
+    "post_merge_document_sha256": "0514d0e3fa161abd5a39b7d9113992fb3252b871e2767aaeced12074d971b794"
+  }
+}
