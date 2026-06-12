@@ -1,0 +1,28 @@
+{
+  "schema": "qpf.governance.execution-wrapper-readiness-triage.v1",
+  "posture": "triage_only",
+  "canonical_head": "b75c9f695024a4b3fd19941a21a89f1fc49a48ab",
+  "canonical_subject": "Seal PR 302 post-merge governance receipt v1 (#303)",
+  "prior_302_post_merge_receipt": "receipts/governance/pr-302-post-merge-governance-receipt-v1.json",
+  "prior_302_post_merge_receipt_sha256": "a6a3c1e12c8819095eca29bd76afbde814a7fccb63b6cb7e8c2f3b2e178a4428",
+  "prior_corrective_receipt": "receipts/governance/execution-wrapper-readiness-corrective-v1.json",
+  "prior_corrective_receipt_sha256": "3535e32f9fc162c360ea306ba7c7d06e71cae03976fc68308330c16b17ac2e41",
+  "prior_300_post_merge_receipt": "receipts/governance/pr-300-post-merge-governance-receipt-v1.json",
+  "prior_300_post_merge_receipt_sha256": "288567dd1ca298021d1bed549ce17d2be7903a04c72f06b37fafd7ca12739c59",
+  "prior_298_failed_attempt_review_receipt": "receipts/governance/pr-298-execution-wrapper-failed-attempt-review-v1.json",
+  "prior_298_failed_attempt_review_receipt_sha256": "4c0dfba97906cb38993cb4979bab34e16829f7fbbe5522fe54d9c9fbac28c072",
+  "prior_wrapper_status": "failed_or_missing",
+  "prior_exit_code": 1,
+  "successful_exit_artifact_present": false,
+  "stash_applied": false,
+  "wrapper_executed": false,
+  "deployment_executed": false,
+  "broadcast_executed": false,
+  "state_changing_transaction_executed": false,
+  "triage_helper": "scripts/triage-execution-wrapper-readiness-v1.cjs",
+  "evidence": {
+    "document": "docs/governance/EXECUTION_WRAPPER_READINESS_TRIAGE_V1.md",
+    "document_sha256": "d732879d9213efc6677ec69c48069cd34a68a7c86f5a9e991a58379ac94eeea4",
+    "helper_sha256": "dbbc157490ad63a2f7b5e1ce95da86b67f4c0e285d49a92bf20b345c47345ff4"
+  }
+}
