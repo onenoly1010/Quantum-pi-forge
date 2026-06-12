@@ -118,7 +118,8 @@
     "governance:mainnet-final-state-seal:v1:check": "node scripts/verify-mainnet-final-state-seal-v1.cjs",
     "governance:ultimate-baseline:v1:check": "npm run governance:open-verification-gate:v1:check && npm run governance:open-verification-gate-post-merge:v1:check && npm run governance:current-state:v1:check && npm run governance:mainnet-activation-preflight:v1:check && npm run governance:mainnet-activation-command-hash-readiness:v1:check && npm run governance:mainnet-operator-approval-preparation:v1:check && npm run governance:mainnet-final-command-selection:v1:check && npm run governance:mainnet-operator-approval:v1:check && npm run governance:mainnet-execution-window:v1:check && npm run governance:mainnet-execution-result:v1:check && npm run governance:mainnet-final-state-seal:v1:check && node scripts/verify-v2-scope-definition.cjs",
     "governance:v2-scope-definition:check": "node scripts/verify-v2-scope-definition.cjs",
-    "governance:v2-read-only-status-dashboard:v1:check": "node scripts/verify-v2-read-only-status-dashboard-v1.cjs"
+    "governance:v2-read-only-status-dashboard:v1:check": "node scripts/verify-v2-read-only-status-dashboard-v1.cjs",
+    "governance:v2-public-status-endpoint:v1:check": "node scripts/verify-v2-public-status-endpoint-v1.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",
