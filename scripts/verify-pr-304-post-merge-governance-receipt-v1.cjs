@@ -1,0 +1,34 @@
+const fs = require("fs");
+const crypto = require("crypto");
+function fail(msg) { console.error("FAIL pr-304-post-merge-governance-receipt-v1: " + msg); process.exit(1); }
+function sha256(s) { return crypto.createHash("sha256").update(s).digest("hex"); }
+const receiptPath = "receipts/governance/pr-304-post-merge-governance-receipt-v1.json";
+const receipt = JSON.parse(fs.readFileSync(receiptPath, "utf8"));
+if (receipt.schema !== "qpf.governance.pr-304-post-merge-receipt.v1") fail("bad schema");
+if (receipt.posture !== "post_merge_receipt_only") fail("bad posture");
+if (receipt.pr !== 304) fail("bad pr");
+if (receipt.merged !== true) fail("merged must be true");
+if (receipt.triage_posture !== "triage_only") fail("bad triage posture");
+if (receipt.prior_wrapper_status !== "failed_or_missing") fail("prior_wrapper_status must remain failed_or_missing");
+if (receipt.prior_exit_code !== 1) fail("prior_exit_code must remain 1");
+if (receipt.successful_exit_artifact_present !== false) fail("successful artifact must remain false");
+if (receipt.stash_applied !== false) fail("stash_applied must be false");
+if (receipt.wrapper_executed_during_receipt !== false) fail("wrapper_executed_during_receipt must be false");
+if (receipt.deployment_executed !== false) fail("deployment_executed must be false");
+if (receipt.broadcast_executed !== false) fail("broadcast_executed must be false");
+if (receipt.state_changing_transaction_executed !== false) fail("state_changing_transaction_executed must be false");
+const triageRaw = fs.readFileSync(receipt.triage_receipt, "utf8");
+if (sha256(triageRaw) !== receipt.triage_receipt_sha256) fail("triage receipt hash mismatch");
+const prior302Raw = fs.readFileSync(receipt.prior_302_post_merge_receipt, "utf8");
+if (sha256(prior302Raw) !== receipt.prior_302_post_merge_receipt_sha256) fail("prior #302 receipt hash mismatch");
+const correctiveRaw = fs.readFileSync(receipt.prior_corrective_receipt, "utf8");
+if (sha256(correctiveRaw) !== receipt.prior_corrective_receipt_sha256) fail("corrective receipt hash mismatch");
+const prior300Raw = fs.readFileSync(receipt.prior_300_post_merge_receipt, "utf8");
+if (sha256(prior300Raw) !== receipt.prior_300_post_merge_receipt_sha256) fail("prior #300 receipt hash mismatch");
+const prior298Raw = fs.readFileSync(receipt.prior_298_failed_attempt_review_receipt, "utf8");
+if (sha256(prior298Raw) !== receipt.prior_298_failed_attempt_review_receipt_sha256) fail("prior #298 receipt hash mismatch");
+const postDocRaw = fs.readFileSync(receipt.evidence.post_merge_document, "utf8");
+if (sha256(postDocRaw) !== receipt.evidence.post_merge_document_sha256) fail("post-merge document hash mismatch");
+if (!postDocRaw.includes("No execution wrapper was run.")) fail("missing non-execution statement");
+if (!postDocRaw.includes("wrapper_executed: false")) fail("missing wrapper false evidence");
+console.log("PASS pr-304-post-merge-governance-receipt-v1");
