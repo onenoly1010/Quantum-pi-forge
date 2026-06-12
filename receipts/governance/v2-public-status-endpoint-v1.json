@@ -1,0 +1,44 @@
+{
+  "baseline": {
+    "main_commit": "1fce65fe6e719717c7008059dd9d515c982f4b9e",
+    "main_subject": "Add v2 read-only status dashboard v1 (#279)"
+  },
+  "created_at_utc": "2026-06-12T03:46:23Z",
+  "endpoint_artifacts": {
+    "docs/public/PUBLIC_STATUS_ENDPOINT_V1.md": "9c1bea5968167e99490a4bc1fab689f79172da034162c1f0e24f2d517fcb4c7c",
+    "public/status-dashboard-v1.json": "64b54ff4ad70e59ba248706082b77ecb1c15ab76cb281efd691851018a240c5b",
+    "public/status/index.html": "af1ff2e862e7cea0fefed551cebb765de68015e1a89481a29e1000795e50a1bc",
+    "public/status/index.json": "64b54ff4ad70e59ba248706082b77ecb1c15ab76cb281efd691851018a240c5b"
+  },
+  "governance_version": "v2",
+  "next_valid_boundary": "v2-reviewer-evidence-index-v1",
+  "non_authorization_statement": "This receipt creates a public read-only status endpoint only. It does not authorize deployment, broadcast, signing, fund movement, mainnet cutover, or state-changing transactions.",
+  "public_paths": {
+    "status_dashboard_json": "/status-dashboard-v1.json",
+    "status_html": "/status/",
+    "status_index_json": "/status/index.json"
+  },
+  "receipt": "v2-public-status-endpoint-v1",
+  "scope": {
+    "execution_authorized": false,
+    "fund_movement_authorized": false,
+    "mainnet_mutation_authorized": false,
+    "public_review_support": true,
+    "public_status_endpoint": true,
+    "read_only_endpoint": true,
+    "visibility_layer": true
+  },
+  "sealed_artifacts": {
+    "docs/public/READ_ONLY_STATUS_DASHBOARD_V1.md": "4a86c5f161254cecf7b837bec93b850f5dcea498d065b71bab3999f83295aa2b",
+    "docs/public/status-dashboard-v1.json": "64b54ff4ad70e59ba248706082b77ecb1c15ab76cb281efd691851018a240c5b",
+    "receipts/governance/v2-read-only-status-dashboard-v1.json": "47ae4de77644eb820b625a3d78d2cb753f2b6382d34ac5b8b97170416a746511",
+    "scripts/verify-v2-read-only-status-dashboard-v1.cjs": "d6561df2242017cde09fd7336d5a8f111145234bbf5997044218dd1e93f60294"
+  },
+  "v1_lifecycle_reference": {
+    "cycle_completed": true,
+    "execution_result_sealed": true,
+    "execution_window_consumed": true,
+    "next_allowed_state_action": "none_under_v1_cycle",
+    "single_use_execution_window_replay_allowed": false
+  }
+}
