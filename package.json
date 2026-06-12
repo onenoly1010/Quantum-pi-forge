@@ -130,7 +130,8 @@
     "governance:pr-287-post-merge:v1:check": "node scripts/verify-pr-287-post-merge-governance-receipt-v1.cjs",
     "governance:v2-pre-unpark-readiness-gate:v1:check": "node scripts/verify-v2-pre-unpark-readiness-gate-v1.cjs",
     "governance:pr-289-post-merge:v1:check": "node scripts/verify-pr-289-post-merge-governance-receipt-v1.cjs",
-    "governance:v2-operator-unpark-approval-candidate:v1:check": "node scripts/verify-v2-operator-unpark-approval-candidate-v1.cjs"
+    "governance:v2-operator-unpark-approval-candidate:v1:check": "node scripts/verify-v2-operator-unpark-approval-candidate-v1.cjs",
+    "governance:pr-291-post-merge:v1:check": "node scripts/verify-pr-291-post-merge-governance-receipt-v1.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",
