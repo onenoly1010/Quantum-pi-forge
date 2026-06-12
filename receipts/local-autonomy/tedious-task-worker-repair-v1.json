@@ -1,0 +1,32 @@
+{
+  "schema": "qpf.local_autonomy.tedious_task_worker_repair.v1",
+  "created_at": "2026-06-12T22:49:06Z",
+  "mode": "PARKED_NON_EXECUTING",
+  "branch": "local-autonomy/pre-unpark-loop-v2",
+  "worker_path": "local-autonomy/tedious-task-worker-v1.cjs",
+  "latest_report_path": "local-autonomy/state/latest-tedious-task-report.md",
+  "worker_sha256": "efa625999600b5edaa8d463b269b3ad0501bb30a40dea65c59153fb4d3bdf4b8",
+  "latest_report_sha256": "efb4a1d29edb6279f5bcd7152f82ad53f33769c9e513a0348345719d551c654f",
+  "repaired": [
+    "ollama_model_default_uses_llama3_2_1b_fallback",
+    "ollama_timeout_env_supported",
+    "compact_prompt_added",
+    "deterministic_pr_verdict_added",
+    "bash_history_expansion_failure_repaired",
+    "literal_newline_syntax_error_repaired"
+  ],
+  "deterministic_truth": [
+    "MERGEABLE becomes SAFE CANDIDATE only as a non-executing candidate",
+    "CONFLICTING becomes HOLD / BLOCKED",
+    "AI classification is advisory only",
+    "deterministic PR verdict controls merge classification"
+  ],
+  "non_execution_boundary": true,
+  "activation": false,
+  "unpark": false,
+  "deploy": false,
+  "broadcast": false,
+  "keys": false,
+  "zero_g_actions": false,
+  "evidence_verifier": "npm run verify:evidence"
+}
