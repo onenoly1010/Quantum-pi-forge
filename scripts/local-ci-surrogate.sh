@@ -123,3 +123,6 @@ git status --short
 
 echo
 echo "✅ local CI surrogate completed"
+
+echo "=== open verification gate v1 ==="
+npm run governance:open-verification-gate:v1:check
