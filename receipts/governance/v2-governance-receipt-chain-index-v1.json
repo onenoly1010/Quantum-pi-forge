@@ -1,0 +1,9 @@
+{
+  "schema": "qpf.governance.v2-receipt-chain-index.v1",
+  "posture": "pre_activation_index",
+  "chain_start": 298,
+  "chain_end": 306,
+  "execution_posture": "non-executing",
+  "all_flags_false": true,
+  "stash_applied": false
+}
