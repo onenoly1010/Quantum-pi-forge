@@ -1,0 +1,44 @@
+{
+  "authorization": {
+    "broadcast_authorized": false,
+    "deployment_authorized": false,
+    "mainnet_cutover_authorized": false,
+    "state_changing_transaction_authorized": false
+  },
+  "created_at_utc": "2026-06-12T02:14:44Z",
+  "current_execution_state": {
+    "broadcast_executed": false,
+    "deployment_executed": false,
+    "mainnet_cutover_approval_granted": false,
+    "mainnet_cutover_executed": false,
+    "state_changing_transaction_executed": false
+  },
+  "current_governance_model": {
+    "open_verification_required": true,
+    "operator_approval_required_for_mainnet": true,
+    "outside_review_welcome": true,
+    "outside_reviewer_required": false
+  },
+  "governance_version": "v1",
+  "main": {
+    "commit": "40baa383bedba42f3cdbb95b948668d037db94ef",
+    "subject": "Seal open verification gate v1 post-merge receipt (#267)"
+  },
+  "next_valid_boundaries": [
+    "additional_verification_hardening",
+    "public_proof_packaging",
+    "explicit_operator_approval_preparation",
+    "mainnet_cutover_approval_receipt"
+  ],
+  "non_authorization_statement": "This receipt does not authorize deployment, broadcast, mainnet cutover, or state-changing transactions.",
+  "receipt": "current-governance-state-v1",
+  "sealed_artifacts": {
+    "docs/governance/CURRENT_GOVERNANCE_STATE_V1.md": "00b41a39d5a09bcf175ea55420d2e43fd879c5acee0506fbfe9b47bab537db90",
+    "docs/governance/OPEN_VERIFICATION_GATE_V1.md": "9a3ec56591a23646876f7888c5a5abcb1974a205644172d5f1ef094c9c975fb6",
+    "docs/governance/OPEN_VERIFICATION_GATE_V1_POST_MERGE.md": "190f7f7cd2091d49774a753f7d324ff5d938f1ec7b2e71afea028dbc1dba1f3f",
+    "receipts/governance/open-verification-gate-v1-post-merge.json": "699745d05b5aa00fdd56c072e38b085c6409805b7faf513a20d701ef80e870dd",
+    "receipts/governance/open-verification-gate-v1.json": "b6ffd0e6c9ee156a2cecf3b0fdd7d29e792565ed99e810c66d9b41e0a9ef8056",
+    "scripts/verify-open-verification-gate-v1-post-merge.cjs": "2f73f7007dca6c1f8951513529908b35bd643a4b78273f082666554e3a4d6e80",
+    "scripts/verify-open-verification-gate-v1.cjs": "72053de0670eb6a3a6f8a304b2caf39f08549019c5261f0b3043bbb03df0386c"
+  }
+}

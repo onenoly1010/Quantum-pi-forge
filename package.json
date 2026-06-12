@@ -106,7 +106,8 @@
     "governance:reviewer-attestation-intake:v1:check": "node scripts/verify-reviewer-attestation-intake-v1.cjs",
     "governance:external-attestation:v1:check": "node scripts/verify-external-attestation-v1.cjs",
     "governance:open-verification-gate:v1:check": "node scripts/verify-open-verification-gate-v1.cjs",
-    "governance:open-verification-gate-post-merge:v1:check": "node scripts/verify-open-verification-gate-v1-post-merge.cjs"
+    "governance:open-verification-gate-post-merge:v1:check": "node scripts/verify-open-verification-gate-v1-post-merge.cjs",
+    "governance:current-state:v1:check": "node scripts/verify-current-governance-state-v1.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",
