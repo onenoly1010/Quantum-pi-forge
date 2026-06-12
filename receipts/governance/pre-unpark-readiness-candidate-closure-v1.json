@@ -1,6 +1,6 @@
 {
   "schema": "pre-unpark-readiness-candidate-closure-v1",
-  "created_at": "2026-06-12T17:36:39.660Z",
+  "created_at": "2026-06-12T18:01:02.643Z",
   "observed_state": {
     "READY_TO_UNPARK_CANDIDATE": true,
     "UNPARK_EXECUTED": false,
