@@ -127,7 +127,8 @@
     "governance:v2-funder-outreach-manifest:v1:check": "node scripts/verify-v2-funder-outreach-manifest-v1.cjs",
     "governance:pr-285-post-merge:v1:check": "node scripts/verify-pr-285-post-merge-governance-receipt-v1.cjs",
     "governance:v2-public-funder-packet-index:v1:check": "node scripts/verify-v2-public-funder-packet-index-v1.cjs",
-    "governance:pr-287-post-merge:v1:check": "node scripts/verify-pr-287-post-merge-governance-receipt-v1.cjs"
+    "governance:pr-287-post-merge:v1:check": "node scripts/verify-pr-287-post-merge-governance-receipt-v1.cjs",
+    "governance:v2-pre-unpark-readiness-gate:v1:check": "node scripts/verify-v2-pre-unpark-readiness-gate-v1.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",
