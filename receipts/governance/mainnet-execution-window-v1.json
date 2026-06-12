@@ -1,0 +1,51 @@
+{
+  "approval": {
+    "final_operator_command_approved": true,
+    "mainnet_cutover_approval_granted": true,
+    "operator_approval_granted": true
+  },
+  "approved_final_command": {
+    "file": "receipts/governance/mainnet-final-command-text-v1.txt",
+    "sha256": "93528ad84f5fb4e4b5bbc469f526f7d2b41d467c18b3c2cb3a71fe5fb85447ed"
+  },
+  "authorization": {
+    "broadcast_authorized": true,
+    "deployment_authorized": true,
+    "mainnet_cutover_authorized": true,
+    "state_changing_transaction_authorized": true
+  },
+  "baseline": {
+    "main_commit": "71778b142788f89fcbd9f14b71f91a4e451b17c4",
+    "main_subject": "Grant mainnet operator approval v1 (#273)"
+  },
+  "created_at_utc": "2026-06-12T02:54:42Z",
+  "execution_state_before_run": {
+    "broadcast_executed": false,
+    "deployment_executed": false,
+    "mainnet_cutover_executed": false,
+    "state_changing_transaction_executed": false
+  },
+  "execution_statement": "This receipt opens a single-use execution window only. It does not execute deployment, broadcast, mainnet cutover, signing, or state-changing transactions.",
+  "execution_window": {
+    "automatic_execution_performed_by_this_receipt": false,
+    "execution_window_open": true,
+    "post_execution_receipt_required": true,
+    "single_use_execution_window": true
+  },
+  "governance_version": "v1",
+  "next_valid_boundary": "mainnet-execution-result-v1",
+  "operator_approval_receipt": {
+    "file": "receipts/governance/mainnet-operator-approval-v1.json",
+    "sha256": "62f34719127030db5e6b4b9e3d3babb326799f019bbe06d803ede28d5cb71a18"
+  },
+  "receipt": "mainnet-execution-window-v1",
+  "sealed_artifacts": {
+    "docs/governance/MAINNET_EXECUTION_WINDOW_V1.md": "fb55b6335ec233d068332d62ed061166d97d24b6df56868939635e7027b2cb9c",
+    "docs/governance/MAINNET_OPERATOR_APPROVAL_V1.md": "a1ea8e25ff858a75cb811a9fab1e4bf0a52d3287bf4015972848903914d2355c",
+    "receipts/governance/mainnet-execution-window-notice-v1.txt": "a0cb683cd157c85c617b7b974ba13cdd21ee0cad464bea80107cb3858d59aeef",
+    "receipts/governance/mainnet-final-command-text-v1.txt": "93528ad84f5fb4e4b5bbc469f526f7d2b41d467c18b3c2cb3a71fe5fb85447ed",
+    "receipts/governance/mainnet-operator-approval-statement-v1.txt": "2e59dff4e27d81b2ffcf853f9243e0a737e8da864e000daf279b806110a65f51",
+    "receipts/governance/mainnet-operator-approval-v1.json": "62f34719127030db5e6b4b9e3d3babb326799f019bbe06d803ede28d5cb71a18",
+    "scripts/verify-mainnet-operator-approval-v1.cjs": "3593ba57fd3ab99c685b67ffa8fb916c31e7144793615bf79cad3078d223f8dd"
+  }
+}
