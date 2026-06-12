@@ -1,0 +1,29 @@
+{
+  "artifact": "pr-287-post-merge-governance-receipt-v1",
+  "pr": 287,
+  "merged_artifact": "v2-public-funder-packet-index-v1",
+  "generated_at": "2026-06-12T04:51:20.216Z",
+  "canonical_branch": "main",
+  "post_merge_commit": "c88b903f72512621e1774f26cdfbf4c655cf53b2",
+  "post_merge_short_commit": "c88b903",
+  "post_merge_subject": "Seal PR 285 post-merge governance receipt v1 (#286)",
+  "post_merge_commit_date": "2026-06-11T22:41:25-06:00",
+  "document_path": "docs/governance/PR_287_POST_MERGE_GOVERNANCE_RECEIPT_V1.md",
+  "document_sha256": "a848a2e44b0afbbcf7e596bf763534f2c42a3cc094c84f3b42f7491a81a8144d",
+  "posture": {
+    "mainnet_cutover_approval_granted": false,
+    "mainnet_cutover_executed": false,
+    "deployment_executed": false,
+    "broadcast_executed": false,
+    "state_changing_transaction_executed": false,
+    "investment_offer_created": false,
+    "token_sale_created": false,
+    "guaranteed_return_promised": false,
+    "funder_execution_authority_granted": false,
+    "public_funder_packet_index_created": true,
+    "public_funder_packet_index_merged": true,
+    "post_merge_receipt_created": true,
+    "local_governance_verifiers_green": true,
+    "local_build_green": true
+  }
+}
