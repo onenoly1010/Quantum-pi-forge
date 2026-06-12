@@ -108,7 +108,8 @@
     "governance:open-verification-gate:v1:check": "node scripts/verify-open-verification-gate-v1.cjs",
     "governance:open-verification-gate-post-merge:v1:check": "node scripts/verify-open-verification-gate-v1-post-merge.cjs",
     "governance:current-state:v1:check": "node scripts/verify-current-governance-state-v1.cjs",
-    "governance:mainnet-activation-preflight:v1:check": "node scripts/verify-mainnet-activation-preflight-v1.cjs"
+    "governance:mainnet-activation-preflight:v1:check": "node scripts/verify-mainnet-activation-preflight-v1.cjs",
+    "governance:mainnet-activation-command-hash-readiness:v1:check": "node scripts/verify-mainnet-activation-command-hash-readiness-v1.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",
