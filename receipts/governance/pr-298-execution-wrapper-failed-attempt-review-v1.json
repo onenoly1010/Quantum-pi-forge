@@ -1,0 +1,19 @@
+{
+  "schema": "qpf.governance.pr-298-execution-wrapper-failed-attempt-review.v1",
+  "posture": "failed_attempt_review_only",
+  "pr_under_review": 298,
+  "post_merge_receipt_pr": 299,
+  "stash_ref_reviewed": "stash@{1}",
+  "wrapper_status": "failed_or_missing",
+  "exit_code": 1,
+  "successful_exit_artifact_present": false,
+  "stash_applied": false,
+  "wrapper_executed_during_review": false,
+  "deployment_executed": false,
+  "broadcast_executed": false,
+  "state_changing_transaction_executed": false,
+  "evidence": {
+    "review_document": "docs/governance/PR_298_EXECUTION_WRAPPER_FAILED_ATTEMPT_REVIEW_V1.md",
+    "review_document_sha256": "9338d7798f9c8e89c6731a2a9381aea2893824ee6d46dd95741d7302fd3af244"
+  }
+}
