@@ -1,0 +1,29 @@
+{
+  "artifact": "pr-285-post-merge-governance-receipt-v1",
+  "pr": 285,
+  "merged_artifact": "v2-funder-outreach-manifest-v1",
+  "generated_at": "2026-06-12T04:38:17.191Z",
+  "canonical_branch": "main",
+  "post_merge_commit": "72aa780d0ce5547c6e8c5c5126319a60e75ecce0",
+  "post_merge_short_commit": "72aa780",
+  "post_merge_subject": "Add v2 funder outreach manifest v1 (#285)",
+  "post_merge_commit_date": "2026-06-11T22:37:34-06:00",
+  "document_path": "docs/governance/PR_285_POST_MERGE_GOVERNANCE_RECEIPT_V1.md",
+  "document_sha256": "67383490f9dc505c999f45f9e6b34f30f4962b2e880c6cc8269d10db1900b9e7",
+  "posture": {
+    "mainnet_cutover_approval_granted": false,
+    "mainnet_cutover_executed": false,
+    "deployment_executed": false,
+    "broadcast_executed": false,
+    "state_changing_transaction_executed": false,
+    "investment_offer_created": false,
+    "token_sale_created": false,
+    "guaranteed_return_promised": false,
+    "funder_execution_authority_granted": false,
+    "outreach_manifest_created": true,
+    "outreach_manifest_merged": true,
+    "post_merge_receipt_created": true,
+    "local_governance_verifiers_green": true,
+    "local_build_green": true
+  }
+}
