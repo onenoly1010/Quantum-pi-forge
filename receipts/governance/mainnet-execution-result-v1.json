@@ -4,7 +4,7 @@
     "main_subject": "Open mainnet execution window v1 (#274)"
   },
   "caution": "On-chain success must be confirmed from captured logs or independent chain evidence. This receipt records the local command result.",
-  "created_at_utc": "2026-06-12T03:02:02Z",
+  "created_at_utc": "2026-06-12T03:03:41Z",
   "evidence": {
     "exit_code_file": "runtime/mainnet-execution-v1/exit-code.txt",
     "stderr_log": "runtime/mainnet-execution-v1/stderr.log",
