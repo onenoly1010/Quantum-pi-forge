@@ -1,0 +1,35 @@
+{
+  "baseline": {
+    "main_commit": "9f25d146e5cf4fb5fcccb6a427ad43c51e8bfd0b",
+    "main_subject": "Establish clean v2 scope definition baseline (#278)"
+  },
+  "created_at_utc": "2026-06-12T03:39:33Z",
+  "dashboard_artifacts": {
+    "docs/public/READ_ONLY_STATUS_DASHBOARD_V1.md": "4a86c5f161254cecf7b837bec93b850f5dcea498d065b71bab3999f83295aa2b",
+    "docs/public/status-dashboard-v1.json": "64b54ff4ad70e59ba248706082b77ecb1c15ab76cb281efd691851018a240c5b"
+  },
+  "governance_version": "v2",
+  "next_valid_boundary": "v2-public-status-endpoint-v1",
+  "non_authorization_statement": "This receipt creates a read-only status dashboard only. It does not authorize deployment, broadcast, mainnet cutover, signing, fund movement, or state-changing transactions.",
+  "receipt": "v2-read-only-status-dashboard-v1",
+  "scope": {
+    "execution_authorized": false,
+    "mainnet_mutation_authorized": false,
+    "public_review_support": true,
+    "read_only_dashboard": true,
+    "visibility_layer": true
+  },
+  "sealed_artifacts": {
+    "receipts/governance/mainnet-execution-result-v1.json": "9e563937d6a5ec40760941a41ff13a57e4b10a1684892b68d40fe87c7e19f911",
+    "receipts/governance/mainnet-final-state-seal-v1.json": "bb022bddef1f080c332b8c3f8e85946448fa4311783789b389da5ca1b44a72c5",
+    "receipts/governance/v2-scope-definition.json": "819b8b3898df7363a74d4edde82a19c18118958ad7c7372dea48ee7314a9bb93",
+    "scripts/verify-v2-scope-definition.cjs": "a2cc178c2602ca20047544beb8e4864078f27cbfcf2e1beaaff636bd590c8d9b"
+  },
+  "v1_lifecycle_reference": {
+    "cycle_completed": true,
+    "execution_result_sealed": true,
+    "execution_window_consumed": true,
+    "next_allowed_state_action": "none_under_v1_cycle",
+    "single_use_execution_window_replay_allowed": false
+  }
+}
