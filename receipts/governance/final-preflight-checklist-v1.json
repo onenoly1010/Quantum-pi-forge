@@ -1,0 +1,8 @@
+{
+  "schema": "qpf.governance.final-preflight-checklist.v1",
+  "posture": "final_preflight",
+  "ready_to_unpark_candidate": true,
+  "unpark_executed": false,
+  "all_flags_false": true,
+  "head": "ce3581269e4c164f76705e73b0515f29e0f9e020"
+}
