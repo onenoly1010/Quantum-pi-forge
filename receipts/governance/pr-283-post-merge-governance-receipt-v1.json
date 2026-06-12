@@ -1,0 +1,25 @@
+{
+  "artifact": "pr-283-post-merge-governance-receipt-v1",
+  "pr": 283,
+  "merged_artifact": "v2-funder-review-packet-v1",
+  "generated_at": "2026-06-12T04:17:34.804Z",
+  "canonical_branch": "main",
+  "post_merge_commit": "58d900df90bcb1d078913a574458892fa1c5a135",
+  "post_merge_short_commit": "58d900d",
+  "post_merge_subject": "Add v2 funder review packet v1 (#283)",
+  "post_merge_commit_date": "2026-06-11T22:12:24-06:00",
+  "document_path": "docs/governance/PR_283_POST_MERGE_GOVERNANCE_RECEIPT_V1.md",
+  "document_sha256": "4682558f5239930b36cf037e2f8eeb351b149c0d1a869e5e8a239cc3af250271",
+  "posture": {
+    "mainnet_cutover_approval_granted": false,
+    "mainnet_cutover_executed": false,
+    "deployment_executed": false,
+    "broadcast_executed": false,
+    "state_changing_transaction_executed": false,
+    "funder_review_packet_created": true,
+    "funder_review_packet_merged": true,
+    "post_merge_receipt_created": true,
+    "local_governance_verifiers_green": true,
+    "local_build_green": true
+  }
+}
