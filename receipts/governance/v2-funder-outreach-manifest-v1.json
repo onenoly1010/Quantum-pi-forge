@@ -1,0 +1,29 @@
+{
+  "artifact": "v2-funder-outreach-manifest-v1",
+  "generated_at": "2026-06-12T04:33:58.209Z",
+  "canonical_branch": "main",
+  "canonical_commit": "c2a4ba51bedc7ce65487f683058a47bfb9f9a1a6",
+  "canonical_short_commit": "c2a4ba5",
+  "canonical_subject": "Seal PR 283 post-merge governance receipt v1 (#284)",
+  "canonical_commit_date": "2026-06-11T22:23:10-06:00",
+  "manifest_path": "docs/governance/V2_FUNDER_OUTREACH_MANIFEST_V1.md",
+  "manifest_sha256": "ecfcf06eebca0029bc596f4b22e41f1f1ee1889d3bafd702b643d365e366dcf1",
+  "source_artifacts": [
+    "docs/governance/V2_FUNDER_REVIEW_PACKET_V1.md",
+    "receipts/governance/v2-funder-review-packet-v1.json",
+    "docs/governance/PR_283_POST_MERGE_GOVERNANCE_RECEIPT_V1.md",
+    "receipts/governance/pr-283-post-merge-governance-receipt-v1.json"
+  ],
+  "posture": {
+    "mainnet_cutover_approval_granted": false,
+    "mainnet_cutover_executed": false,
+    "deployment_executed": false,
+    "broadcast_executed": false,
+    "state_changing_transaction_executed": false,
+    "investment_offer_created": false,
+    "token_sale_created": false,
+    "guaranteed_return_promised": false,
+    "funder_execution_authority_granted": false,
+    "outreach_manifest_created": true
+  }
+}
