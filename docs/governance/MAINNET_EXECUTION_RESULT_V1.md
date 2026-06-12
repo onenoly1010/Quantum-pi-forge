@@ -11,18 +11,18 @@ It records what happened after the sealed final command was run.
 ## Canonical Baseline
 
 ```txt
-main_commit = '"$MAIN_SHA"'
-main_subject = '"$MAIN_SUBJECT"'
+main_commit = ee7f5167dd00ff5159cc1db4b631ebd4fbc8c0ab
+main_subject = Open mainnet execution window v1 (#274)
 ```
 
 ## Execution Attempt
 
 ```txt
 execution_attempted = true
-result_status = '"$RESULT_STATUS"'
-exit_code = '"$EXIT_CODE"'
-started_at_utc = '"$STARTED_AT"'
-ended_at_utc = '"$ENDED_AT"'
+result_status = EXECUTION_COMMAND_FAILED
+exit_code = 1
+started_at_utc = 2026-06-12T03:01:24Z
+ended_at_utc = 2026-06-12T03:01:25Z
 ```
 
 ## Captured Runtime Evidence
