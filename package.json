@@ -105,7 +105,8 @@
     "governance:pre-cutover-exit-criterion-checkpoint-v1:check": "node scripts/verify-pre-cutover-exit-criterion-checkpoint-v1.cjs",
     "governance:reviewer-attestation-intake:v1:check": "node scripts/verify-reviewer-attestation-intake-v1.cjs",
     "governance:external-attestation:v1:check": "node scripts/verify-external-attestation-v1.cjs",
-    "governance:open-verification-gate:v1:check": "node scripts/verify-open-verification-gate-v1.cjs"
+    "governance:open-verification-gate:v1:check": "node scripts/verify-open-verification-gate-v1.cjs",
+    "governance:open-verification-gate-post-merge:v1:check": "node scripts/verify-open-verification-gate-v1-post-merge.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",
