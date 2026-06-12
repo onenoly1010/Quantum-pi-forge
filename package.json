@@ -122,7 +122,8 @@
     "governance:v2-public-status-endpoint:v1:check": "node scripts/verify-v2-public-status-endpoint-v1.cjs",
     "governance:v2-reviewer-evidence-index:v1:check": "node scripts/verify-v2-reviewer-evidence-index-v1.cjs",
     "governance:v2-static-site-public-verification:v1:check": "node scripts/verify-v2-static-site-public-verification-v1.cjs",
-    "governance:v2-funder-review-packet:v1:check": "node scripts/verify-v2-funder-review-packet-v1.cjs"
+    "governance:v2-funder-review-packet:v1:check": "node scripts/verify-v2-funder-review-packet-v1.cjs",
+    "governance:pr-283-post-merge:v1:check": "node scripts/verify-pr-283-post-merge-governance-receipt-v1.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",
