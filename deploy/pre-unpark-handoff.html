@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Quantum Pi Forge - Pre-Unpark Readiness Handoff</title>
+<style>body { font-family: sans-serif; max-width: 800px; margin: 40px auto; line-height: 1.6; } a { color: #0066cc; } pre { background: #f4f4f4; padding: 10px; overflow-x: auto; }</style>
+</head>
+<body>
+<h1>Quantum Pi Forge - Pre-Unpark Readiness Handoff</h1>
+<p><strong>Status:</strong> Non-executing pre-activation candidate. All execution flags false. READY_TO_UNPARK_CANDIDATE=true, UNPARK_EXECUTED=false, ACTIVATION_BOUNDARY_REACHED=true.</p>
+<p>This public static handoff routes reviewers, funders, and observers to the sealed evidence chain. No activation, unpark, deployment, broadcast, or state change has occurred. Stashes untouched. No private keys or 0G actions performed.</p>
+<h2>Sealed Artifacts</h2>
+<ul>
+<li><a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/governance/STEWARD_PROOF_DECLARATION_V1.md">Steward Proof Declaration v1</a> - Lone steward + AI support; external review optional; proof since day one.</li>
+<li><a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/governance/PRE_UNPARK_READINESS_CANDIDATE_CLOSURE_V1.md">Pre-Unpark Readiness Candidate Closure v1</a> - Seals READY_TO_UNPARK_CANDIDATE=true / UNPARK_EXECUTED=false.</li>
+<li><a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/governance/V2_GOVERNANCE_RECEIPT_CHAIN_INDEX_V1.md">V2 Governance Receipt Chain Index v1</a> - Consolidated #298-#307 chain.</li>
+<li><a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/governance/AI_OUTSIDE_REVIEW_ATTESTATION_V1.md">AI Outside Review Attestation v1</a></li>
+<li><a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/governance/FINAL_PREFLIGHT_CHECKLIST_V1.md">Final Preflight Checklist v1</a></li>
+<li><a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/governance/FINAL_OPERATOR_UNPARK_APPROVAL_DRAFT_V1.md">Final Operator Unpark Approval Draft v1</a> (flags false)</li>
+<li><a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/governance/COMMAND_HASH_DRAFT_SCAFFOLD_V1.md">Command Hash Draft Scaffold v1</a> (authorization false)</li>
+<li><a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/governance/READ_ONLY_PROBE_SCAFFOLD_V1.md">Read-Only Probe Scaffold v1</a> (no live change)</li>
+</ul>
+<h2>Public Funder / Reviewer Routes</h2>
+<ul>
+<li><a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/governance/v2-public-funder-packet-index-v1.md">V2 Public Funder Packet Index</a></li>
+<li><a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/governance/v2-reviewer-evidence-index-v1.md">V2 Reviewer Evidence Index</a></li>
+<li><a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/governance/v2-public-status-endpoint-v1.md">V2 Public Status Endpoint</a></li>
+<li><a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/governance/v2-read-only-status-dashboard-v1.md">V2 Read-Only Status Dashboard</a></li>
+<li><a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/governance/v2-static-site-public-verification-v1.md">V2 Static Site Public Verification</a></li>
+</ul>
+<h2>Verification Commands (local)</h2>
+<pre>
+npm run governance:pre-unpark-readiness-candidate-closure:v1:check
+npm run governance:final-preflight-checklist:v1:check
+npm run governance:ai-outside-review-attestation:v1:check
+npm run build
+</pre>
+<h2>Boundary</h2>
+<p>No activation. No unpark. No deployment. No broadcast. No state-changing transaction. No keys accessed. No 0G action. Stashes untouched.</p>
+<p><strong>This is a non-executing public handoff route. The project remains parked until explicit operator approval is granted and sealed outside this pre-activation process.</strong></p>
+</body>
+</html>
