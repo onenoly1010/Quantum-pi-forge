@@ -1,0 +1,25 @@
+{
+  "artifact": "v2-funder-review-packet-v1",
+  "generated_at": "2026-06-12T04:05:55.574Z",
+  "base_commit": "cf391977e19d925a46a25691ced171bb4fdb78e9",
+  "base_short_commit": "cf39197",
+  "document_path": "docs/governance/V2_FUNDER_REVIEW_PACKET_V1.md",
+  "document_sha256": "7ff4f45bef3a5d23e08fceabdb9f615eeffeaa5549e8e140c6690216923b103d",
+  "posture": {
+    "mainnet_cutover_approval_granted": false,
+    "mainnet_cutover_executed": false,
+    "deployment_executed": false,
+    "broadcast_executed": false,
+    "state_changing_transaction_executed": false,
+    "reviewer_evidence_index_created": true,
+    "static_site_public_verification_created": true,
+    "funder_review_packet_created": true
+  },
+  "review_scope": [
+    "funder-facing evidence summary",
+    "normal merge lineage",
+    "static site public verification",
+    "reviewer evidence index",
+    "non-executing governance posture"
+  ]
+}
