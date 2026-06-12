@@ -1,58 +1,57 @@
-# Current Reviewer / Funder Handoff v1
+# Steward Proof Declaration v1
 
-This handoff summarizes the current Quantum Pi Forge governance and execution-readiness state for external reviewers, funders, and technical observers.
+Trust was not requested. Trust was built through proof since day one.
 
-It intentionally avoids asking reviewers to inspect the entire historical PR chain. The relevant recent chain is PR #298 through PR #305.
+Quantum Pi Forge is built by a lone steward with AI support. External human review is not required for legitimacy, continuation, operation, or deployment authority.
+
+External review is optional. It may help with scrutiny, funding confidence, technical feedback, or public understanding, but it is not a gate.
+
+## Authority posture
+
+- builder: lone steward with AI support
+- external_review_required: false
+- external_review_optional: true
+- permission_requested: false
+- permission_required: false
+- trust_basis: deterministic proof, receipts, verifiers, and honest failure handling
 
 ## Current canonical state
 
-- canonical_head: 2af34d5c4562cbf46805a49df3619fe77f60d84c
-- canonical_subject: Seal PR 304 post-merge governance receipt v1 (#305)
-- execution_posture: non-executing
-- deployment_executed: false
-- broadcast_executed: false
-- state_changing_transaction_executed: false
+- canonical_head: 876166a19da6ce54689861f294a3bf36148c8455
+- canonical_subject: Add current reviewer funder handoff v1
+- execution_posture: non-executing at this checkpoint
+- deployment_executed_by_recent_wrapper_chain: false
+- broadcast_executed_by_recent_wrapper_chain: false
+- state_changing_transaction_executed_by_recent_wrapper_chain: false
 - stash_applied: false
 - wrapper_success_claimed: false
 
-## What QPF currently proves
+## What the recent chain proves
 
-1. The project can preserve a failed execution attempt without overstating success.
-2. The failed wrapper attempt was recorded as exit_code=1 / failed_or_missing.
-3. The repository now contains deterministic verifiers for the recent governance chain.
-4. Corrective wrapper-readiness and read-only triage surfaces exist.
-5. The team intentionally stopped receipt recursion after PR #305.
+1. The project did not hide a failed wrapper attempt.
+2. The PR #298 attempt was sealed as exit_code=1 / failed_or_missing.
+3. No successful runtime artifact was falsely claimed.
+4. Corrective readiness and read-only triage were added.
+5. Receipt recursion was stopped after PR #305.
+6. The next useful step is functional deployment or root-cause repair, not more permission language.
 
 ## What failed
-
-The PR #298 execution wrapper attempt did not produce a successful runtime artifact. The sealed status is:
 
 - wrapper_status: failed_or_missing
 - exit_code: 1
 - successful_exit_artifact_present: false
 
-This is not presented as a successful execution.
+This failure is preserved as proof discipline, not as a blocker to authority.
 
-## What is intentionally parked
+## What remains parked by this declaration
 
-- No wrapper rerun is authorized by this handoff.
-- No stash application is authorized by this handoff.
-- No deployment or broadcast is authorized by this handoff.
-- No mainnet state-changing transaction is authorized by this handoff.
+- This document does not run the wrapper.
+- This document does not apply stash.
+- This document does not deploy.
+- This document does not broadcast.
+- This document does not perform a state-changing transaction.
 
-## What is safe to review now
-
-- The sealed failed-attempt evidence from PR #298.
-- The post-merge closure around PR #300 and PR #301.
-- The corrective wrapper-readiness lane from PR #302.
-- The triage/read-only inspection lane from PR #304.
-- The final merge-only closure at PR #305.
-
-## What still needs work
-
-The actual wrapper root cause still needs to be fixed before any future execution attempt. The next functional lane should identify the exact wrapper entrypoint, required environment, missing condition, and expected success receipt format.
-
-## Reviewer verification commands
+## Verification commands
 
 ```bash
 npm run governance:pr-304-post-merge:v1:check
@@ -81,7 +80,8 @@ governance:pr-304-post-merge:v1:check=node scripts/verify-pr-304-post-merge-gove
 ## Recent canonical log
 
 ```text
-2af34d5 (HEAD -> governance/current-reviewer-funder-handoff-v1, origin/main, origin/HEAD, main) Seal PR 304 post-merge governance receipt v1 (#305)
+876166a (HEAD -> governance/current-reviewer-funder-handoff-v1, origin/governance/current-reviewer-funder-handoff-v1) Add current reviewer funder handoff v1
+2af34d5 (origin/main, origin/HEAD, main) Seal PR 304 post-merge governance receipt v1 (#305)
 8b7b62f Add execution wrapper readiness triage v1 (#304)
 b75c9f6 Seal PR 302 post-merge governance receipt v1 (#303)
 5575660 Add execution wrapper readiness corrective review v1 (#302)
@@ -98,12 +98,11 @@ af391d8 Seal v2 cutover execution command hash v1 (#296)
 4e50e1c Add v2 operator unpark approval candidate v1 (#291)
 15ebcd9 Seal PR 289 post-merge governance receipt v1 (#290)
 0684ed9 Add v2 pre-unpark readiness gate v1 (#289)
-6a54010 Add v2 public funder packet index v1 (#287)
 ```
 
 ## Stash posture
 
-The stash inventory is not applied by this lane. It remains available only for later explicit salvage or discard decisions.
+The stash inventory remains untouched. Stashes are not authority. They are only possible evidence or recovery material if explicitly selected later.
 
 ```text
 stash@{0}: On main: temp stash of cross verifier patch for clean tree in failed-attempt review lane
@@ -111,6 +110,6 @@ stash@{1}: On main: temporary stash of workspace verifier patches and runtime ev
 stash@{2}: On docs/claim-posture-cleanup: park stewardship continuity draft files
 ```
 
-## Plain-language reviewer summary
+## Plain-language declaration
 
-Quantum Pi Forge is currently in a non-executing, evidence-preserving state. A wrapper execution attempt failed or produced no successful artifact, and the project deliberately recorded that failure instead of claiming success. The next useful work is not more receipts; it is either reviewer/funder evaluation of the evidence chain or a focused root-cause fix for the wrapper readiness path.
+Quantum Pi Forge does not ask permission to exist, continue, or deploy. It proceeds by steward authority, deterministic evidence, and honest boundary control. Trust has been built through proof since day one.
