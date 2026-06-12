@@ -1,0 +1,27 @@
+{
+  "schema": "qpf.governance.execution-wrapper-readiness-corrective.v1",
+  "posture": "corrective_readiness_only",
+  "prior_failed_attempt_pr": 298,
+  "prior_failed_attempt_review_pr": 300,
+  "prior_post_merge_receipt_pr": 301,
+  "canonical_head": "4dc6344edd81b3952abb976af1119f082315d5a9",
+  "canonical_subject": "Seal PR 300 post-merge governance receipt v1 (#301)",
+  "prior_298_review_receipt": "receipts/governance/pr-298-execution-wrapper-failed-attempt-review-v1.json",
+  "prior_298_review_receipt_sha256": "4c0dfba97906cb38993cb4979bab34e16829f7fbbe5522fe54d9c9fbac28c072",
+  "prior_300_post_merge_receipt": "receipts/governance/pr-300-post-merge-governance-receipt-v1.json",
+  "prior_300_post_merge_receipt_sha256": "288567dd1ca298021d1bed549ce17d2be7903a04c72f06b37fafd7ca12739c59",
+  "prior_wrapper_status": "failed_or_missing",
+  "prior_exit_code": 1,
+  "successful_exit_artifact_present": false,
+  "stash_applied": false,
+  "wrapper_executed": false,
+  "deployment_executed": false,
+  "broadcast_executed": false,
+  "state_changing_transaction_executed": false,
+  "corrective_helper": "scripts/inspect-execution-wrapper-readiness-v1.cjs",
+  "evidence": {
+    "document": "docs/governance/EXECUTION_WRAPPER_READINESS_CORRECTIVE_V1.md",
+    "document_sha256": "e9bd28ceec1b5a25d3afb5aa1e374367acf871a58693373f8816d472b28fe730",
+    "helper_sha256": "bd6c4e278d715966e2fb6065eb958479ea64593a55e7b28f248d67d8750ad680"
+  }
+}
