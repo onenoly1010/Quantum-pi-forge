@@ -139,7 +139,8 @@
     "governance:pr-296-post-merge:v1:check": "node scripts/verify-pr-296-post-merge-governance-receipt-v1.cjs",
     "governance:v2-mainnet-cutover-execution:v1:check": "node scripts/verify-v2-mainnet-cutover-execution-v1.cjs",
     "governance:pr-298-post-merge:v1:check": "node scripts/verify-pr-298-post-merge-governance-receipt-v1.cjs",
-    "governance:pr-298-execution-wrapper-failed-attempt-review:v1:check": "node scripts/verify-pr-298-execution-wrapper-failed-attempt-review-v1.cjs"
+    "governance:pr-298-execution-wrapper-failed-attempt-review:v1:check": "node scripts/verify-pr-298-execution-wrapper-failed-attempt-review-v1.cjs",
+    "governance:pr-300-post-merge:v1:check": "node scripts/verify-pr-300-post-merge-governance-receipt-v1.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",
