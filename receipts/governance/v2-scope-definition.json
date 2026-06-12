@@ -1,0 +1,34 @@
+{
+  "ancestry": {
+    "v1_terminal_commit": "0052e64ae81f55197cbd9467c398e1f6547b13ea"
+  },
+  "boundaries": {
+    "allowed_work": [
+      "public-proof-packaging",
+      "dashboard-cleanup",
+      "evidence-packaging",
+      "read-only-telemetry",
+      "token-planning",
+      "network-expansion-planning",
+      "funding-readiness",
+      "post-execution-analysis"
+    ],
+    "disallowed_work": [
+      "new-deployment",
+      "new-broadcast",
+      "mainnet-mutation",
+      "token-migration",
+      "contract-upgrade",
+      "fund-movement"
+    ]
+  },
+  "created_at_utc": "2026-06-12T03:27:37Z",
+  "governance_version": "v2",
+  "posture": {
+    "v1_cycle_closed": true,
+    "v2_cycle_opened": true,
+    "v2_execution_authorized": false,
+    "v2_mainnet_mutation_authorized": false
+  },
+  "receipt": "v2-scope-definition"
+}
