@@ -1,0 +1,44 @@
+{
+  "authorization": {
+    "broadcast_authorized": false,
+    "deployment_authorized": false,
+    "mainnet_cutover_authorized": false,
+    "state_changing_transaction_authorized": false
+  },
+  "baseline": {
+    "main_commit": "7c23eeb647377ec21ccc7a3bec376218205efc2d",
+    "main_subject": "Seal current governance state v1 (#268)"
+  },
+  "created_at_utc": "2026-06-12T02:21:40Z",
+  "execution_state": {
+    "broadcast_executed": false,
+    "deployment_executed": false,
+    "mainnet_cutover_approval_granted": false,
+    "mainnet_cutover_executed": false,
+    "state_changing_transaction_executed": false
+  },
+  "governance_model": {
+    "open_verification_required": true,
+    "operator_approval_required_for_mainnet": true,
+    "outside_review_welcome": true,
+    "outside_reviewer_required": false
+  },
+  "governance_version": "v1",
+  "next_valid_boundary": "mainnet-activation-command-hash-readiness-v1",
+  "non_authorization_statement": "This receipt authorizes preparation only. It does not authorize deployment, broadcast, mainnet cutover, or state-changing transactions.",
+  "preflight": {
+    "activation_preflight_ready": true,
+    "command_hash_preparation_allowed": true,
+    "dry_run_simulation_allowed": true,
+    "network_readiness_inspection_allowed": true,
+    "proof_packaging_allowed": true,
+    "wallet_readiness_inspection_allowed": true
+  },
+  "receipt": "mainnet-activation-preflight-v1",
+  "sealed_artifacts": {
+    "docs/governance/CURRENT_GOVERNANCE_STATE_V1.md": "00b41a39d5a09bcf175ea55420d2e43fd879c5acee0506fbfe9b47bab537db90",
+    "docs/governance/MAINNET_ACTIVATION_PREFLIGHT_V1.md": "b9b0c2730cf0ec9f69b2f884e8a76a7d280a06ed7acd5f5a9cc30c43feba8c33",
+    "receipts/governance/current-governance-state-v1.json": "6a0f53ac820e2916f4615891e1eb326d7a630aaf9bd0a737b9f06fad1be09888",
+    "scripts/verify-current-governance-state-v1.cjs": "59813fa613644b1fcf39c4eeb3506a6789c6061c4ecc2bb7df65f6cbcf9bc760"
+  }
+}
