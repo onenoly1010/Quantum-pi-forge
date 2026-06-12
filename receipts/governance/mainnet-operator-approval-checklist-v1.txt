@@ -1,0 +1,34 @@
+# Mainnet Operator Approval Checklist v1
+
+STATUS: PREPARATION_ONLY
+OPERATOR_APPROVAL_GRANTED: false
+EXECUTION_AUTHORIZED: false
+DEPLOYMENT_AUTHORIZED: false
+BROADCAST_AUTHORIZED: false
+STATE_CHANGING_TRANSACTION_AUTHORIZED: false
+
+This checklist prepares the future approval boundary.
+
+It does not grant approval.
+
+Before any later approval receipt may flip authorization flags, the operator must verify:
+
+[ ] Open Verification Gate v1 passes.
+[ ] Current Governance State v1 passes.
+[ ] Mainnet Activation Preflight v1 passes.
+[ ] Command Hash Readiness v1 passes.
+[ ] Final command text has been selected.
+[ ] Final command hash has been sealed.
+[ ] Funding wallet is confirmed.
+[ ] Wallet address is confirmed.
+[ ] 0G Aristotle Mainnet RPC is confirmed.
+[ ] Chain ID is confirmed.
+[ ] Gas/funding sufficiency is confirmed.
+[ ] Dry-run or non-broadcast simulation is confirmed.
+[ ] Operator understands that approval may enable irreversible mainnet state changes.
+
+PREPARED_APPROVAL_TEXT:
+
+I, the operator, explicitly approve the next mainnet activation boundary only after the final command text, command hash, wallet readiness, network readiness, and non-broadcast validation are sealed in a separate receipt.
+
+This preparation checklist does not itself authorize execution.
