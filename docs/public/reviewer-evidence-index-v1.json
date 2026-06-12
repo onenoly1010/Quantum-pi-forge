@@ -1,0 +1,96 @@
+{
+  "claims": [
+    {
+      "claim": "v1 lifecycle is closed",
+      "evidence": [
+        "receipts/governance/mainnet-final-state-seal-v1.json",
+        "docs/governance/MAINNET_FINAL_STATE_SEAL_V1.md"
+      ],
+      "public_surface": [
+        "docs/public/READ_ONLY_STATUS_DASHBOARD_V1.md",
+        "/status-dashboard-v1.json",
+        "/status/"
+      ],
+      "verifier": "npm run governance:ultimate-baseline:v1:check"
+    },
+    {
+      "claim": "Open Verification replaced outside reviewer bottleneck",
+      "evidence": [
+        "receipts/governance/open-verification-gate-v1.json",
+        "docs/governance/OPEN_VERIFICATION_GATE_V1.md"
+      ],
+      "public_surface": [
+        "docs/public/READ_ONLY_STATUS_DASHBOARD_V1.md",
+        "/status-dashboard-v1.json"
+      ],
+      "verifier": "npm run governance:open-verification-gate:v1:check"
+    },
+    {
+      "claim": "Current governance state is sealed",
+      "evidence": [
+        "receipts/governance/v2-scope-definition.json",
+        "docs/governance/V2_SCOPE_DEFINITION.md"
+      ],
+      "public_surface": [
+        "docs/public/READ_ONLY_STATUS_DASHBOARD_V1.md",
+        "/status-dashboard-v1.json"
+      ],
+      "verifier": "npm run governance:v2-scope-definition:check"
+    },
+    {
+      "claim": "Execution window was single-use",
+      "evidence": [
+        "receipts/governance/mainnet-execution-window-v1.json",
+        "docs/governance/MAINNET_EXECUTION_WINDOW_V1.md"
+      ],
+      "public_surface": [
+        "docs/public/READ_ONLY_STATUS_DASHBOARD_V1.md"
+      ],
+      "verifier": "npm run governance:mainnet-execution-window:v1:check"
+    },
+    {
+      "claim": "Execution result was recorded",
+      "evidence": [
+        "receipts/governance/mainnet-execution-result-v1.json",
+        "docs/governance/MAINNET_EXECUTION_RESULT_V1.md"
+      ],
+      "public_surface": [
+        "docs/public/READ_ONLY_STATUS_DASHBOARD_V1.md"
+      ],
+      "verifier": "npm run governance:mainnet-execution-result:v1:check"
+    },
+    {
+      "claim": "v2 visibility layer is read-only",
+      "evidence": [
+        "receipts/governance/v2-read-only-status-dashboard-v1.json",
+        "docs/public/READ_ONLY_STATUS_DASHBOARD_V1.md"
+      ],
+      "public_surface": [
+        "docs/public/READ_ONLY_STATUS_DASHBOARD_V1.md",
+        "/status-dashboard-v1.json",
+        "/status/"
+      ],
+      "verifier": "npm run governance:v2-read-only-status-dashboard:v1:check"
+    },
+    {
+      "claim": "No live mutation is authorized by v2 artifacts",
+      "evidence": [
+        "receipts/governance/v2-scope-definition.json",
+        "receipts/governance/v2-read-only-status-dashboard-v1.json",
+        "receipts/governance/v2-public-status-endpoint-v1.json"
+      ],
+      "public_surface": [
+        "docs/public/READ_ONLY_STATUS_DASHBOARD_V1.md",
+        "docs/public/PUBLIC_STATUS_ENDPOINT_V1.md",
+        "/status-dashboard-v1.json",
+        "/status/"
+      ],
+      "verifier": "npm run governance:v2-scope-definition:check && npm run governance:v2-read-only-status-dashboard:v1:check && npm run governance:v2-public-status-endpoint:v1:check"
+    }
+  ],
+  "for_main_commit": "1fce65fe6e719717c7008059dd9d515c982f4b9e",
+  "generated_at_utc": "2026-06-12T03:50:36Z",
+  "index": "v2-reviewer-evidence-index-v1",
+  "index_version": "v1",
+  "verification_command": "npm run governance:ultimate-baseline:v1:check && npm run governance:v2-scope-definition:check && npm run governance:v2-read-only-status-dashboard:v1:check && npm run governance:v2-public-status-endpoint:v1:check && npm run governance:v2-reviewer-evidence-index:v1:check"
+}

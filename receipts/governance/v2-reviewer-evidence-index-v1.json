@@ -1,0 +1,30 @@
+{
+  "baseline": {
+    "main_commit": "1fce65fe6e719717c7008059dd9d515c982f4b9e",
+    "main_subject": "Add v2 read-only status dashboard v1 (#279)"
+  },
+  "created_at_utc": "2026-06-12T03:50:36Z",
+  "governance_version": "v2",
+  "index_artifacts": {
+    "docs/public/REVIEWER_EVIDENCE_INDEX_V1.md": "a7e44af2a6fd3b1075eb1f904daf32ad862984928690cb692b17f7234656efa3",
+    "docs/public/reviewer-evidence-index-v1.json": "c856bc0d431bc1bab5b36ec0f932740603d3ac9a70140571bfd13aaf6c88df67"
+  },
+  "next_valid_boundary": "v2-funder-review-packet-v1",
+  "non_authorization_statement": "This receipt creates a reviewer evidence index only. It does not authorize deployment, broadcast, signing, fund movement, mainnet cutover, or state-changing transactions.",
+  "receipt": "v2-reviewer-evidence-index-v1",
+  "scope": {
+    "execution_authorized": false,
+    "mainnet_mutation_authorized": false,
+    "public_review_support": true,
+    "reviewer_evidence_index": true,
+    "visibility_layer": true
+  },
+  "sealed_artifacts": {
+    "docs/governance/MAINNET_FINAL_STATE_SEAL_V1.md": "3c2d07a21b8ff37f59e35d0d5395cdcea90b3ae7597e71dc2c3862e9b5efbd93",
+    "docs/public/READ_ONLY_STATUS_DASHBOARD_V1.md": "4a86c5f161254cecf7b837bec93b850f5dcea498d065b71bab3999f83295aa2b",
+    "docs/public/status-dashboard-v1.json": "64b54ff4ad70e59ba248706082b77ecb1c15ab76cb281efd691851018a240c5b",
+    "receipts/governance/mainnet-final-state-seal-v1.json": "bb022bddef1f080c332b8c3f8e85946448fa4311783789b389da5ca1b44a72c5",
+    "receipts/governance/v2-read-only-status-dashboard-v1.json": "47ae4de77644eb820b625a3d78d2cb753f2b6382d34ac5b8b97170416a746511",
+    "scripts/verify-v2-read-only-status-dashboard-v1.cjs": "d6561df2242017cde09fd7336d5a8f111145234bbf5997044218dd1e93f60294"
+  }
+}
