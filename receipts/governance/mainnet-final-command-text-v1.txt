@@ -1,0 +1,31 @@
+# Mainnet Final Command Text v1
+
+STATUS: SELECTED_NOT_APPROVED
+OPERATOR_APPROVAL_GRANTED: false
+FINAL_OPERATOR_COMMAND_SELECTED: true
+FINAL_OPERATOR_COMMAND_APPROVED: false
+EXECUTION_AUTHORIZED: false
+DEPLOYMENT_AUTHORIZED: false
+BROADCAST_AUTHORIZED: false
+STATE_CHANGING_TRANSACTION_AUTHORIZED: false
+
+This file seals the exact final command text for a possible later mainnet activation boundary.
+
+This file does not authorize execution.
+
+The command below must not be run unless a later separate operator approval receipt explicitly flips approval and authorization flags.
+
+FINAL_COMMAND_NAME:
+mainnet_activation_execution_command_v1
+
+FINAL_COMMAND_TEXT:
+npm run autonomous:mainnet-cutover:execute:v1 -- --require-operator-approval-receipt receipts/governance/mainnet-operator-approval-v1.json --require-final-command-hash receipts/governance/mainnet-final-command-selection-v1.json --network 0g-aristotle-mainnet --chain-id 16661 --broadcast
+
+FINAL_COMMAND_ALLOWED_NOW:
+false
+
+FINAL_COMMAND_APPROVAL_STATUS:
+not_approved
+
+REASON:
+Final command text may be selected and hashed in this lane, but execution approval must remain separate from command selection.

@@ -1,0 +1,51 @@
+{
+  "authorization": {
+    "broadcast_authorized": false,
+    "deployment_authorized": false,
+    "mainnet_cutover_authorized": false,
+    "state_changing_transaction_authorized": false
+  },
+  "baseline": {
+    "main_commit": "18cdbceb749331cd170c0db28eaa91ad389e56c9",
+    "main_subject": "Prepare mainnet operator approval v1 (#271)"
+  },
+  "created_at_utc": "2026-06-12T02:43:21Z",
+  "execution_state": {
+    "broadcast_executed": false,
+    "deployment_executed": false,
+    "mainnet_cutover_approval_granted": false,
+    "mainnet_cutover_executed": false,
+    "state_changing_transaction_executed": false
+  },
+  "final_command": {
+    "allowed_now": false,
+    "approval_status": "not_approved",
+    "file": "receipts/governance/mainnet-final-command-text-v1.txt",
+    "sha256": "93528ad84f5fb4e4b5bbc469f526f7d2b41d467c18b3c2cb3a71fe5fb85447ed",
+    "status": "SELECTED_NOT_APPROVED"
+  },
+  "governance_model": {
+    "open_verification_required": true,
+    "operator_approval_required_for_mainnet": true,
+    "outside_review_welcome": true,
+    "outside_reviewer_required": false
+  },
+  "governance_version": "v1",
+  "next_valid_boundary": "mainnet-operator-approval-v1",
+  "non_authorization_statement": "This receipt selects and hashes the final command only. It does not grant approval or authorize deployment, broadcast, mainnet cutover, signing, or state-changing transactions.",
+  "receipt": "mainnet-final-command-selection-v1",
+  "sealed_artifacts": {
+    "docs/governance/MAINNET_FINAL_COMMAND_SELECTION_V1.md": "07368a8325ec174b9744eb02d1a4bb3b9aca3d8b73a8d522bfdc9a4b03baf4f0",
+    "docs/governance/MAINNET_OPERATOR_APPROVAL_PREPARATION_V1.md": "b3c630cfc17e6b04a51d332546dc5d79dd76db16421f7c95c986ea0d243c6cd6",
+    "receipts/governance/mainnet-final-command-text-v1.txt": "93528ad84f5fb4e4b5bbc469f526f7d2b41d467c18b3c2cb3a71fe5fb85447ed",
+    "receipts/governance/mainnet-operator-approval-checklist-v1.txt": "8197f254fc61e2feb39e76641465a703d47317c79a65bc35f8a63bd9d9de863f",
+    "receipts/governance/mainnet-operator-approval-preparation-v1.json": "b28f5a538c1b1150b3bb45a0b4c44bb336f66f6ec36e5a76c4edf0b69da7057c",
+    "scripts/verify-mainnet-operator-approval-preparation-v1.cjs": "9cb4f32b9c66b7c95fad53a68d84234ce9919ff70e8406e7b6ecfc855dd9916f"
+  },
+  "selection": {
+    "final_operator_command_approved": false,
+    "final_operator_command_hash_sealed": true,
+    "final_operator_command_selected": true,
+    "operator_approval_granted": false
+  }
+}
