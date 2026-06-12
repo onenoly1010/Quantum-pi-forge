@@ -114,7 +114,9 @@
     "governance:mainnet-final-command-selection:v1:check": "node scripts/verify-mainnet-final-command-selection-v1.cjs",
     "governance:mainnet-operator-approval:v1:check": "node scripts/verify-mainnet-operator-approval-v1.cjs",
     "governance:mainnet-execution-window:v1:check": "node scripts/verify-mainnet-execution-window-v1.cjs",
-    "governance:mainnet-execution-result:v1:check": "node scripts/verify-mainnet-execution-result-v1.cjs"
+    "governance:mainnet-execution-result:v1:check": "node scripts/verify-mainnet-execution-result-v1.cjs",
+    "governance:mainnet-final-state-seal:v1:check": "node scripts/verify-mainnet-final-state-seal-v1.cjs",
+    "governance:ultimate-baseline:v1:check": "npm run governance:open-verification-gate:v1:check && npm run governance:open-verification-gate-post-merge:v1:check && npm run governance:current-state:v1:check && npm run governance:mainnet-activation-preflight:v1:check && npm run governance:mainnet-activation-command-hash-readiness:v1:check && npm run governance:mainnet-operator-approval-preparation:v1:check && npm run governance:mainnet-final-command-selection:v1:check && npm run governance:mainnet-operator-approval:v1:check && npm run governance:mainnet-execution-window:v1:check && npm run governance:mainnet-execution-result:v1:check && npm run governance:mainnet-final-state-seal:v1:check"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",

@@ -1,0 +1,23 @@
+{
+  "created_at_utc": "2026-06-12T03:12:16Z",
+  "finality_statement": "The v1 lifecycle is closed. The single-use execution window has been consumed and the execution result is sealed. No further state action is authorized under this v1 cycle.",
+  "governance_version": "v1",
+  "lifecycle": {
+    "cycle_completed": true,
+    "execution_result_sealed": true,
+    "execution_window_consumed": true,
+    "next_allowed_state_action": "none_under_v1_cycle",
+    "single_use_execution_window_replay_allowed": false
+  },
+  "receipt": "mainnet-final-state-seal-v1",
+  "sealed_artifacts": {
+    "docs/governance/MAINNET_EXECUTION_RESULT_V1.md": "87a37a7ced95cea325c8b1f49caaa6bbd52dd065b1fc9658dcc06c77c99f6eec",
+    "docs/governance/MAINNET_FINAL_STATE_SEAL_V1.md": "3c2d07a21b8ff37f59e35d0d5395cdcea90b3ae7597e71dc2c3862e9b5efbd93",
+    "receipts/governance/mainnet-execution-result-v1.json": "9e563937d6a5ec40760941a41ff13a57e4b10a1684892b68d40fe87c7e19f911",
+    "scripts/verify-mainnet-execution-result-v1.cjs": "48dd6ac9e61bb85069e3ce8aa2ae59ef63a01f13b2d64917e34f43a3272f76ec"
+  },
+  "terminal_baseline": {
+    "consolidated_main_commit": "254c59b3953a64996a5e8ba5c1289b9d9e051acf",
+    "consolidated_main_subject": "Seal mainnet execution result v1 (#275)"
+  }
+}
