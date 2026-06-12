@@ -113,7 +113,8 @@
     "governance:mainnet-operator-approval-preparation:v1:check": "node scripts/verify-mainnet-operator-approval-preparation-v1.cjs",
     "governance:mainnet-final-command-selection:v1:check": "node scripts/verify-mainnet-final-command-selection-v1.cjs",
     "governance:mainnet-operator-approval:v1:check": "node scripts/verify-mainnet-operator-approval-v1.cjs",
-    "governance:mainnet-execution-window:v1:check": "node scripts/verify-mainnet-execution-window-v1.cjs"
+    "governance:mainnet-execution-window:v1:check": "node scripts/verify-mainnet-execution-window-v1.cjs",
+    "governance:mainnet-execution-result:v1:check": "node scripts/verify-mainnet-execution-result-v1.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",
