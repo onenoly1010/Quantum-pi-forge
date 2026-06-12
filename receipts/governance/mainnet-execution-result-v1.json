@@ -1,38 +1,38 @@
 {
+  "governance_version": "v1",
+  "receipt": "mainnet-execution-result-v1",
+  "created_at_utc": "2026-06-12T03:01:25Z",
   "baseline": {
-    "main_commit": "ee7f5167dd00ff5159cc1db4b631ebd4fbc8c0ab",
-    "main_subject": "Open mainnet execution window v1 (#274)"
-  },
-  "caution": "On-chain success must be confirmed from captured logs or independent chain evidence. This receipt records the local command result.",
-  "created_at_utc": "2026-06-12T03:03:41Z",
-  "evidence": {
-    "exit_code_file": "runtime/mainnet-execution-v1/exit-code.txt",
-    "stderr_log": "runtime/mainnet-execution-v1/stderr.log",
-    "stderr_sha256": "e447c83df8903a81e212fc40ac9a1602f43d903df433d035127fc776b81dbab1",
-    "stdout_log": "runtime/mainnet-execution-v1/stdout.log",
-    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    "main_commit": "'"$MAIN_SHA"'",
+    "main_subject": "'"$MAIN_SUBJECT"'"
   },
   "execution_attempt": {
-    "ended_at_utc": "2026-06-12T03:01:25Z",
     "execution_attempted": true,
-    "exit_code": 1,
-    "result_status": "EXECUTION_COMMAND_FAILED",
-    "started_at_utc": "2026-06-12T03:01:24Z"
+    "result_status": "'"$RESULT_STATUS"'",
+    "exit_code": '"$EXIT_CODE"',
+    "started_at_utc": "'"$STARTED_AT"'",
+    "ended_at_utc": "'"$ENDED_AT"'"
   },
   "execution_state": {
-    "broadcast_executed": false,
     "command_executed": true,
     "command_exit_zero": false,
     "deployment_executed": false,
+    "broadcast_executed": false,
     "mainnet_cutover_executed": false,
     "state_changing_transaction_executed": false
   },
-  "governance_version": "v1",
-  "receipt": "mainnet-execution-result-v1",
+  "evidence": {
+    "stdout_log": "runtime/mainnet-execution-v1/stdout.log",
+    "stdout_sha256": "'"$STDOUT_SHA"'",
+    "stderr_log": "runtime/mainnet-execution-v1/stderr.log",
+    "stderr_sha256": "'"$STDERR_SHA"'",
+    "exit_code_file": "runtime/mainnet-execution-v1/exit-code.txt"
+  },
   "sealed_artifacts": {
-    "docs/governance/MAINNET_EXECUTION_WINDOW_V1.md": "fb55b6335ec233d068332d62ed061166d97d24b6df56868939635e7027b2cb9c",
-    "receipts/governance/mainnet-execution-window-v1.json": "94ba9759ade5eff51a2888b233b2911c83403d10050938af4cfa3a4b3a4d513f",
-    "receipts/governance/mainnet-final-command-text-v1.txt": "93528ad84f5fb4e4b5bbc469f526f7d2b41d467c18b3c2cb3a71fe5fb85447ed",
-    "scripts/verify-mainnet-execution-window-v1.cjs": "57bc0a82b8a0945a324bef3c0b180b5410a679c665af47519c7ecdf1e4600b27"
-  }
+    "docs/governance/MAINNET_EXECUTION_WINDOW_V1.md": "'"$EXECUTION_WINDOW_DOC_SHA"'",
+    "receipts/governance/mainnet-execution-window-v1.json": "'"$EXECUTION_WINDOW_RECEIPT_SHA"'",
+    "scripts/verify-mainnet-execution-window-v1.cjs": "'"$EXECUTION_WINDOW_VERIFY_SHA"'",
+    "receipts/governance/mainnet-final-command-text-v1.txt": "'"$FINAL_COMMAND_TEXT_SHA"'"
+  },
+  "caution": "On-chain success must be confirmed from captured logs or independent chain evidence. This receipt records the local command result."
 }

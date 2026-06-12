@@ -10,15 +10,28 @@ It records what happened after the sealed final command was run.
 
 ## Canonical Baseline
 
-
+```txt
+main_commit = '"$MAIN_SHA"'
+main_subject = '"$MAIN_SUBJECT"'
+```
 
 ## Execution Attempt
 
-
+```txt
+execution_attempted = true
+result_status = '"$RESULT_STATUS"'
+exit_code = '"$EXIT_CODE"'
+started_at_utc = '"$STARTED_AT"'
+ended_at_utc = '"$ENDED_AT"'
+```
 
 ## Captured Runtime Evidence
 
-
+```txt
+stdout_log = runtime/mainnet-execution-v1/stdout.log
+stderr_log = runtime/mainnet-execution-v1/stderr.log
+exit_code_file = runtime/mainnet-execution-v1/exit-code.txt
+```
 
 ## Important Boundary
 
