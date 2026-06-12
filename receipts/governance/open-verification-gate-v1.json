@@ -1,0 +1,21 @@
+{
+  "created_at_utc": "2026-06-12T01:52:32Z",
+  "gate": "open-verification-gate-v1",
+  "governance_version": "v1",
+  "open_verification_required": true,
+  "outside_review_welcome": true,
+  "outside_reviewer_required": false,
+  "status": {
+    "broadcast_executed": false,
+    "deployment_executed": false,
+    "mainnet_cutover_approval_granted": false,
+    "mainnet_cutover_executed": false,
+    "state_changing_transaction_executed": false
+  },
+  "verification_metadata": {
+    "mainnet_authorization": "not_granted",
+    "open_verification_document": "docs/governance/OPEN_VERIFICATION_GATE_V1.md",
+    "open_verification_document_sha256": "9a3ec56591a23646876f7888c5a5abcb1974a205644172d5f1ef094c9c975fb6",
+    "operator_signature": "pending"
+  }
+}
