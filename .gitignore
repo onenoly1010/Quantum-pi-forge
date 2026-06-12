@@ -186,3 +186,9 @@ cache/deployment-receipt.json
 
 .qpf-runtime/
 runtime/autonomous/runs/
+
+# Local autonomy runtime residue
+local-autonomy/state/*.pid
+local-autonomy/state/latest-report.txt
+local-autonomy/state/boundary-reached.txt
+runtime/autonomous/

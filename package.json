@@ -151,7 +151,8 @@
     "governance:final-preflight-checklist:v1:check": "node scripts/verify-final-preflight-checklist-v1.cjs",
     "governance:pre-unpark-readiness-candidate-closure:v1:check": "node scripts/verify-pre-unpark-readiness-candidate-closure-v1.cjs",
     "governance:v2-public-handoff-route:v1:check": "node scripts/verify-v2-public-handoff-route-v1.cjs",
-    "local-autonomy:tedious-worker-repair:v1:check": "node scripts/verify-tedious-task-worker-repair-v1.cjs"
+    "local-autonomy:tedious-worker-repair:v1:check": "node scripts/verify-tedious-task-worker-repair-v1.cjs",
+    "local-autonomy:runtime-evidence-index:v1:check": "node scripts/verify-runtime-evidence-index-v1.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",
