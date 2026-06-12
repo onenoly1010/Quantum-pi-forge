@@ -1,0 +1,26 @@
+{
+  "schema": "qpf.governance.pr-300-post-merge-receipt.v1",
+  "posture": "post_merge_receipt_only",
+  "pr": 300,
+  "merged": true,
+  "merged_at": "2026-06-12T06:51:34Z",
+  "merge_commit": "d81c94f935c8a269759c0f84232f702c9d78cc73",
+  "canonical_main_head_after_merge": "d81c94f935c8a269759c0f84232f702c9d78cc73",
+  "canonical_main_subject_after_merge": "Seal PR 298 execution wrapper failed-attempt review v1 (#300)",
+  "sealed_review_receipt": "receipts/governance/pr-298-execution-wrapper-failed-attempt-review-v1.json",
+  "sealed_review_receipt_sha256": "4c0dfba97906cb38993cb4979bab34e16829f7fbbe5522fe54d9c9fbac28c072",
+  "sealed_review_document": "docs/governance/PR_298_EXECUTION_WRAPPER_FAILED_ATTEMPT_REVIEW_V1.md",
+  "sealed_review_document_sha256": "9338d7798f9c8e89c6731a2a9381aea2893824ee6d46dd95741d7302fd3af244",
+  "wrapper_status": "failed_or_missing",
+  "exit_code": 1,
+  "successful_exit_artifact_present": false,
+  "stash_applied": false,
+  "wrapper_executed_during_receipt": false,
+  "deployment_executed": false,
+  "broadcast_executed": false,
+  "state_changing_transaction_executed": false,
+  "evidence": {
+    "post_merge_document": "docs/governance/PR_300_POST_MERGE_GOVERNANCE_RECEIPT_V1.md",
+    "post_merge_document_sha256": "0da359e9bc8df3096d17a7a100b46dbfac3c08313131a7e4cdab75c5ec7447d5"
+  }
+}
