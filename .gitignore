@@ -192,3 +192,6 @@ local-autonomy/state/*.pid
 local-autonomy/state/latest-report.txt
 local-autonomy/state/boundary-reached.txt
 runtime/autonomous/
+
+# Local autonomy generated reports
+local-autonomy/reports/
