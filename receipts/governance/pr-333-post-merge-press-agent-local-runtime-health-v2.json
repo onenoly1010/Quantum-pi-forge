@@ -1,0 +1,27 @@
+{
+  "schema": "qpf.governance.pr_333_post_merge_press_agent_local_runtime_health_v2",
+  "sealed_at_utc": "20260613T182336Z",
+  "pr": 333,
+  "canonical_branch": "main",
+  "merged_head_commit": "4488195869f7ce87a19d0031a7f04ba632a72053",
+  "merged_head_commit_short": "4488195",
+  "merged_lane": "press-agent local runtime health v2",
+  "evidence": {
+    "runtime_health_receipt": "receipts/press-agent/local-runtime-health-v2.json",
+    "runtime_health_doc": "docs/press-agent/LOCAL_RUNTIME_HEALTH_V2.md",
+    "runtime_health_verifier": "scripts/verify-press-agent-local-runtime-health-v2.cjs"
+  },
+  "verified_checks": {
+    "press_agent_local_runtime_health_v2": "PASS",
+    "cross_platform_determinism_v1": "PASS",
+    "press_agent_readonly_readiness_v1": "PASS"
+  },
+  "posture": {
+    "evidence_only": true,
+    "execution_receipt_present": false,
+    "deployments": false,
+    "chain_actions": false,
+    "keys_used": false,
+    "runtime_send_authorized": false
+  }
+}
