@@ -155,7 +155,8 @@
     "local-autonomy:runtime-evidence-index:v1:check": "node scripts/verify-runtime-evidence-index-v1.cjs",
     "governance:pr-312-post-merge-observer-repair:v1:check": "node scripts/verify-pr-312-post-merge-observer-repair-receipt-v1.cjs",
     "autonomous:v2-mainnet-cutover:execute": "node scripts/v2-mainnet-cutover-execute.cjs",
-    "governance:v2-sealed-cutover-command-implementation-repair:v1:check": "node scripts/verify-v2-sealed-cutover-command-implementation-repair-v1.cjs"
+    "governance:v2-sealed-cutover-command-implementation-repair:v1:check": "node scripts/verify-v2-sealed-cutover-command-implementation-repair-v1.cjs",
+    "governance:post-pr-318-observer-readiness:v1:check": "node scripts/verify-post-pr-318-observer-readiness-receipt-v1.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",
