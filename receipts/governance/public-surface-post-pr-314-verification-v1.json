@@ -1,0 +1,41 @@
+{
+  "schema": "qpf.governance.public_surface_post_pr_314_verification.v1",
+  "receipt_id": "public-surface-post-pr-314-verification-v1",
+  "base_commit_short": "94c4b9a",
+  "base_commit": "94c4b9aca3a5605396b27c37721220cccfc7ac01",
+  "base_subject": "Refresh v2 governance receipt chain index for PR 312 and 313 (#314)",
+  "posture": {
+    "parked": true,
+    "report_only": true,
+    "non_executing": true,
+    "unpark_executed": false,
+    "activation_executed": false,
+    "deployment_executed": false,
+    "broadcast_executed": false,
+    "state_changing_transaction_executed": false,
+    "key_access_performed": false,
+    "zero_g_action_performed": false
+  },
+  "verified_surfaces": {
+    "governance:v2-public-status-endpoint:v1:check": "PASS",
+    "governance:v2-read-only-status-dashboard:v1:check": "PASS",
+    "governance:v2-reviewer-evidence-index:v1:check": "PASS",
+    "governance:v2-public-funder-packet-index:v1:check": "PASS",
+    "governance:v2-public-handoff-route:v1:check": "PASS",
+    "governance:v2-governance-receipt-chain-index:v1:check": "PASS",
+    "governance:cross-platform-determinism:v1:check": "PASS",
+    "verify:evidence": "PASS"
+  },
+  "determinism": {
+    "manifest_sha256": "6ee182fe41a26f0aa3930c78a39350b59db2c755757903b68a7fa7de7d3d1e36",
+    "file_count": 2281
+  },
+  "evidence": {
+    "lanes": 3,
+    "paths": 6,
+    "claims": 3,
+    "evidence_receipt_hash": "a63dc16e5f577c808fd495e5a18e87f25006980cf0d84d23b61f5beca57e58fa"
+  },
+  "next_allowed_lane": "public_status_or_reviewer_funder_packet_refresh_only_before_any_execution_boundary",
+  "note": "This receipt confirms public, reviewer, and funder verification surfaces after PR #314. It does not authorize unpark, activation, deployment, broadcast, key access, 0G action, or any state-changing transaction."
+}
