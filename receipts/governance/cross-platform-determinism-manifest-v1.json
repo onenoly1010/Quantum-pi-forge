@@ -1,6 +1,6 @@
 {
   "schema": "qpf.cross_platform_determinism_manifest.v1",
-  "generated_at_utc": "2026-06-13T01:30:10.434Z",
+  "generated_at_utc": "2026-06-13T02:09:23.348Z",
   "posture": {
     "phase": "PRE_CUTOVER_REVIEW_LOCK",
     "non_executing": true,
@@ -16,9 +16,9 @@
     "arch": "x64"
   },
   "git": {
-    "branch": "governance/final-current-state-reconciliation-post-pr-315-v1",
-    "commit": "f8e44b087e6641040c1555977982c34e378ab67d",
-    "status_short": "?? docs/governance/FINAL_CURRENT_STATE_RECONCILIATION_POST_PR_315_V1.md\n?? receipts/governance/final-current-state-reconciliation-post-pr-315-v1.json\n?? scripts/verify-final-current-state-reconciliation-post-pr-315-v1.cjs"
+    "branch": "governance/pr-317-post-merge-determinism-refresh-v1",
+    "commit": "76660cb414ed3fc3e73cc04822dc532f193fb23f",
+    "status_short": ""
   },
   "include_roots": [
     "package.json",
@@ -53,9 +53,9 @@
     "receipts/governance/cross-platform-determinism-manifest-v1.json",
     "receipts/governance/cross-platform-determinism-v1.json"
   ],
-  "file_count": 2283,
-  "deterministic_build_time": "2026-06-12T19:22:46-06:00",
-  "deterministic_commit": "f8e44b087e6641040c1555977982c34e378ab67d",
+  "file_count": 2285,
+  "deterministic_build_time": "2026-06-12T20:02:52-06:00",
+  "deterministic_commit": "76660cb414ed3fc3e73cc04822dc532f193fb23f",
   "volatile_normalization_rules": [
     {
       "id": "out-build-time-field-v1",
@@ -69,7 +69,7 @@
     }
   ],
   "manifest_hash_algorithm": "sha256(JSON.stringify(entries,null,2)+newline) after declared volatile-field normalization",
-  "manifest_sha256": "0e4d2d4c0e45187dd56f5d9c59162dd0233a8499c7fa79460b2c463769427cae",
+  "manifest_sha256": "01bc2fb023bd250f0c9faff08d20453a39349c99e714912e8e0e17b9d05a0ce6",
   "entries": [
     {
       "path": "app/globals.css",
@@ -14214,7 +14214,7 @@
     {
       "path": "out/version.json",
       "size_bytes": 159,
-      "sha256": "9dd442fecd935b4fc69fdcc61a050e5365d1a67b70b3b2f7a90796746e8ecadf",
+      "sha256": "fe5b1dfffec467e53b2889df1aae20f4f25e075a007ac60be7bcc1a5015fcffa",
       "normalized": true,
       "normalization_ids": [
         "out-build-time-field-v1",
@@ -14230,8 +14230,8 @@
     },
     {
       "path": "package.json",
-      "size_bytes": 18263,
-      "sha256": "231935095f8bed88daa4e036c4268e2a3d15d087c9a3e7b98d377f016ce1fc86",
+      "size_bytes": 18508,
+      "sha256": "c8f223540c1a79ea1784b82c94fb787c04459da7fce536846bd773598fa92351",
       "normalized": false,
       "normalization_ids": []
     },
@@ -14273,7 +14273,7 @@
     {
       "path": "public/version.json",
       "size_bytes": 159,
-      "sha256": "9dd442fecd935b4fc69fdcc61a050e5365d1a67b70b3b2f7a90796746e8ecadf",
+      "sha256": "fe5b1dfffec467e53b2889df1aae20f4f25e075a007ac60be7bcc1a5015fcffa",
       "normalized": true,
       "normalization_ids": [
         "out-build-time-field-v1",
@@ -14746,6 +14746,13 @@
       "path": "scripts/update-liquidity-signals.cjs",
       "size_bytes": 1193,
       "sha256": "671724921f7ebbfdc602a08b4b6dd6715285d1a8922e9bfe8c7a7e8ccb2f92fd",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/v2-mainnet-cutover-execute.cjs",
+      "size_bytes": 1317,
+      "sha256": "677202d535e37ced8f753d6c5c7ad4f9fdd651f2cc823d2811d8ea738eafd93a",
       "normalized": false,
       "normalization_ids": []
     },
@@ -15789,6 +15796,13 @@
       "path": "scripts/verify-v2-scope-definition.cjs",
       "size_bytes": 784,
       "sha256": "a2cc178c2602ca20047544beb8e4864078f27cbfcf2e1beaaff636bd590c8d9b",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/verify-v2-sealed-cutover-command-implementation-repair-v1.cjs",
+      "size_bytes": 1496,
+      "sha256": "3e7bb77aeec680017987823646f86c1f09e75e55aa61d40ebfd8905d0e17c2ae",
       "normalized": false,
       "normalization_ids": []
     },
