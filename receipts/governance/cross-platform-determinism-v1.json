@@ -16,8 +16,8 @@
     "state_changing_transaction_executed": false
   },
   "manifest_path": "receipts/governance/cross-platform-determinism-manifest-v1.json",
-  "manifest_sha256": "0424c0ea79ec945f27a25b4088f0558897314f95e6f63714f4b4c30a19aa8cdd",
-  "manifest_file_count": 2291,
+  "manifest_sha256": "c909b22dc277e9885f6a4781455835b53c5381097f730673da0b56adb83c3ded",
+  "manifest_file_count": 2292,
   "reviewer_policy": {
     "goal": "detect cross-platform determinism drift before cutover",
     "acceptable_result": "clean verifier pass on independently reproduced artifact manifest",
@@ -64,6 +64,6 @@
   "no_unpark": true,
   "no_broadcast": true,
   "no_keys": true,
-  "manifestSha256": "0424c0ea79ec945f27a25b4088f0558897314f95e6f63714f4b4c30a19aa8cdd",
-  "manifestFileCount": 2291
+  "manifestSha256": "c909b22dc277e9885f6a4781455835b53c5381097f730673da0b56adb83c3ded",
+  "manifestFileCount": 2292
 }
