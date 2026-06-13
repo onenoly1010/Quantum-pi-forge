@@ -1,0 +1,30 @@
+{
+  "schema": "qpf.press-agent.discord-webhook-diagnostic.v1",
+  "created_utc": "2026-06-13T18:00:46.096Z",
+  "head_commit": "e3e42f49293faaa18a0c48d3aaadee788e711ba7",
+  "short_head_commit": "e3e42f4",
+  "webhook_name": "QPF_BOT",
+  "webhook_metadata_check": {
+    "get_status": 200,
+    "webhook_valid": true
+  },
+  "webhook_send_test": {
+    "message_received": true,
+    "expected_post_status": "204_or_200",
+    "content_posture": "diagnostic_only"
+  },
+  "proof": {
+    "governance_cross_platform_determinism_v1_check": "PASS",
+    "press_agent_readonly_readiness_v1_check": "PASS",
+    "verify_evidence": "PASS"
+  },
+  "posture": {
+    "diagnostic_only": true,
+    "deployments": false,
+    "chain_actions": false,
+    "publishes": false,
+    "keys_used": false,
+    "webhook_url_logged": false,
+    "execution_receipt_present": false
+  }
+}
