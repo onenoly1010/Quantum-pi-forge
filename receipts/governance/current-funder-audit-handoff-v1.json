@@ -1,0 +1,26 @@
+{
+  "schema": "qpf.governance.current_funder_audit_handoff.v1",
+  "version": "1.0.0",
+  "canonical_head": "839c58a",
+  "canonical_head_full": "839c58ab1e43248c83329a3b0f062bac94a9471c",
+  "document": "docs/governance/CURRENT_FUNDER_AUDIT_HANDOFF_V1.md",
+  "document_sha256": "14bb24f72373f39920a1ed2c22381d75d2c07c49ede9d534251b09f40543d1ad",
+  "verification": {
+    "cross_platform_determinism": "npm run governance:cross-platform-determinism:v1:check",
+    "pr_325_post_merge": "npm run governance:pr-325-post-merge:v1:check",
+    "npm_audit_hardening_evidence": "npm run governance:npm-audit-hardening-evidence:v1:check",
+    "current_public_status_handoff": "npm run governance:current-public-status-handoff:v1:check",
+    "evidence_bundle": "npm run verify:evidence"
+  },
+  "posture": {
+    "evidence_only": true,
+    "deployed": false,
+    "unparked": false,
+    "key_used": false,
+    "chain_mutation": false,
+    "token_action": false,
+    "cloudflare_publish": false,
+    "mainnet_action": false,
+    "execution_receipt_present": false
+  }
+}
