@@ -1,0 +1,16 @@
+{
+  "schema": "qpf.press_agent.parked_broadcast_guard_v1.send_refusal",
+  "created_at_utc": "20260613T183156Z",
+  "canonical_main": "b78582fe5ffe5976b43ac37373b4eb9a71ed7ed0",
+  "canonical_main_short": "b78582f",
+  "requested_action": "broadcast_prepared_message",
+  "result": "REFUSED",
+  "reason": "press-agent remains parked; broadcast requires explicit future unpark receipt and operator authorization",
+  "send_attempted": false,
+  "network_post_attempted": false,
+  "discord_webhook_called": false,
+  "deployments": false,
+  "chain_actions": false,
+  "keys_used": false,
+  "execution_receipt_present": false
+}

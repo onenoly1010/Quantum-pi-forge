@@ -1,0 +1,17 @@
+{
+  "schema": "qpf.press_agent.parked_broadcast_guard_v1.prepared_message",
+  "created_at_utc": "20260613T183156Z",
+  "canonical_main": "b78582fe5ffe5976b43ac37373b4eb9a71ed7ed0",
+  "canonical_main_short": "b78582f",
+  "mode": "manual_review_only",
+  "send_allowed": false,
+  "network_post_allowed": false,
+  "discord_webhook_delivery_allowed": false,
+  "requires_explicit_unpark_receipt": true,
+  "message": {
+    "title": "Quantum Pi Forge / OINIO — Runtime Health Evidence Updated",
+    "body": "Canonical main is sealed at b78582f. Press-agent local runtime health, post-merge receipt, cross-platform determinism, Discord webhook diagnostic, and readonly readiness all pass. Execution receipt remains absent. No deployment, chain action, or key usage occurred.",
+    "public_review_packet": "https://github.com/onenoly1010/Quantum-pi-forge/issues/328",
+    "latest_evidence_commit": "https://github.com/onenoly1010/Quantum-pi-forge/commit/b78582fe5ffe5976b43ac37373b4eb9a71ed7ed0"
+  }
+}
