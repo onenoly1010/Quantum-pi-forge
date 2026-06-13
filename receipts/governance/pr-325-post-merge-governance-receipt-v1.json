@@ -1,0 +1,39 @@
+{
+  "schema": "qpf.governance.pr_post_merge_receipt.v1",
+  "version": "1.0.0",
+  "pr": 325,
+  "title": "Add npm audit hardening evidence v1",
+  "branch": "main",
+  "merged_pr_url": "https://github.com/onenoly1010/Quantum-pi-forge/pull/325",
+  "merged_main_head_short": "b741edf",
+  "merged_main_head_full": "b741edf8e7bd3810eda8b0a78c5bb9ec1c8cb919",
+  "merged_files": [
+    "docs/governance/NPM_AUDIT_HARDENING_EVIDENCE_V1.md",
+    "receipts/governance/npm-audit-hardening-evidence-v1.json",
+    "scripts/verify-npm-audit-hardening-evidence-v1.cjs",
+    "package.json"
+  ],
+  "verification": {
+    "cross_platform_determinism": "npm run governance:cross-platform-determinism:v1:check",
+    "npm_audit_hardening_evidence": "npm run governance:npm-audit-hardening-evidence:v1:check",
+    "current_public_status_handoff": "npm run governance:current-public-status-handoff:v1:check",
+    "evidence_bundle": "npm run verify:evidence"
+  },
+  "hashes": {
+    "npm_audit_hardening_document_sha256": "2bb837e14b46299e88b0cb82eeef4a3a1557b5ab1cfd052c409116884c08e5c0",
+    "npm_audit_hardening_receipt_sha256": "f9d2c6b4d2e0717fecfa51cc9a3897738becae7215934ec49fef60934885f8fb"
+  },
+  "posture": {
+    "evidence_only": true,
+    "dependency_downgrade_committed": false,
+    "unsafe_audit_fix_committed": false,
+    "deployed": false,
+    "unparked": false,
+    "key_used": false,
+    "chain_mutation": false,
+    "token_action": false,
+    "cloudflare_publish": false,
+    "mainnet_action": false,
+    "execution_receipt_present": false
+  }
+}
