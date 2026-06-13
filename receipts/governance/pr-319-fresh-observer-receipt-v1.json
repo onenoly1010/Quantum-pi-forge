@@ -1,0 +1,27 @@
+{
+  "schema": "qpf.governance.fresh_observer_receipt.v1",
+  "receipt": "pr-319-fresh-observer-receipt-v1",
+  "created_utc": "2026-06-13T03:02:52.603Z",
+  "branch": "governance/pr-319-fresh-observer-receipt-v1",
+  "observer_report_path": "local-autonomy/state/latest-pre-unpark-observer-report.md",
+  "observer_report_sha256": "4b9876bdaea2a81aaa015ed77075b31986b6ee84b585c9f2d055051a8c56b986",
+  "observer_timestamp_utc": "20260613T023953Z",
+  "observer_head": "290b216",
+  "observer_branch": "main",
+  "observer_posture": "REPORT_ONLY_NO_UNPARK_NO_DEPLOY_NO_BROADCAST_NO_KEYS",
+  "execution_flags": {
+    "unpark_executed": false,
+    "activation_executed": false,
+    "deployment_executed": false,
+    "broadcast_executed": false,
+    "state_changing_transaction_executed": false,
+    "key_access_performed": false
+  },
+  "checks_required": [
+    "local-autonomy:runtime-evidence-index:v1:check",
+    "local-autonomy:tedious-worker-repair:v1:check",
+    "governance:cross-platform-determinism:v1:check",
+    "verify:evidence"
+  ],
+  "note": "Fresh post-merge observer receipt. This seals the latest report-only observer state and does not authorize unpark, activation, deployment, broadcast, key access, 0G action, or any state-changing transaction."
+}
