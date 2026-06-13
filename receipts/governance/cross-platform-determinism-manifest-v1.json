@@ -1,6 +1,6 @@
 {
   "schema": "qpf.cross_platform_determinism_manifest.v1",
-  "generated_at_utc": "2026-06-13T01:07:56.743Z",
+  "generated_at_utc": "2026-06-13T01:30:10.434Z",
   "posture": {
     "phase": "PRE_CUTOVER_REVIEW_LOCK",
     "non_executing": true,
@@ -16,9 +16,9 @@
     "arch": "x64"
   },
   "git": {
-    "branch": "governance/public-surface-post-pr-314-verification-v1",
-    "commit": "94c4b9aca3a5605396b27c37721220cccfc7ac01",
-    "status_short": "?? docs/governance/PUBLIC_SURFACE_POST_PR_314_VERIFICATION_V1.md\n?? receipts/governance/public-surface-post-pr-314-verification-v1.json\n?? scripts/verify-public-surface-post-pr-314-verification-v1.cjs"
+    "branch": "governance/final-current-state-reconciliation-post-pr-315-v1",
+    "commit": "f8e44b087e6641040c1555977982c34e378ab67d",
+    "status_short": "?? docs/governance/FINAL_CURRENT_STATE_RECONCILIATION_POST_PR_315_V1.md\n?? receipts/governance/final-current-state-reconciliation-post-pr-315-v1.json\n?? scripts/verify-final-current-state-reconciliation-post-pr-315-v1.cjs"
   },
   "include_roots": [
     "package.json",
@@ -53,9 +53,9 @@
     "receipts/governance/cross-platform-determinism-manifest-v1.json",
     "receipts/governance/cross-platform-determinism-v1.json"
   ],
-  "file_count": 2282,
-  "deterministic_build_time": "2026-06-12T19:04:59-06:00",
-  "deterministic_commit": "94c4b9aca3a5605396b27c37721220cccfc7ac01",
+  "file_count": 2283,
+  "deterministic_build_time": "2026-06-12T19:22:46-06:00",
+  "deterministic_commit": "f8e44b087e6641040c1555977982c34e378ab67d",
   "volatile_normalization_rules": [
     {
       "id": "out-build-time-field-v1",
@@ -69,7 +69,7 @@
     }
   ],
   "manifest_hash_algorithm": "sha256(JSON.stringify(entries,null,2)+newline) after declared volatile-field normalization",
-  "manifest_sha256": "87b75a71ad33a058c547d9b5c0c72a53221950c70c3d8ebc25037e1d2e5de34e",
+  "manifest_sha256": "0e4d2d4c0e45187dd56f5d9c59162dd0233a8499c7fa79460b2c463769427cae",
   "entries": [
     {
       "path": "app/globals.css",
@@ -14214,7 +14214,7 @@
     {
       "path": "out/version.json",
       "size_bytes": 159,
-      "sha256": "a9b0544cd695307e2e4398be46b8cf5dbe4e668085b09adcecb94ff5f13a1aaf",
+      "sha256": "9dd442fecd935b4fc69fdcc61a050e5365d1a67b70b3b2f7a90796746e8ecadf",
       "normalized": true,
       "normalization_ids": [
         "out-build-time-field-v1",
@@ -14273,7 +14273,7 @@
     {
       "path": "public/version.json",
       "size_bytes": 159,
-      "sha256": "a9b0544cd695307e2e4398be46b8cf5dbe4e668085b09adcecb94ff5f13a1aaf",
+      "sha256": "9dd442fecd935b4fc69fdcc61a050e5365d1a67b70b3b2f7a90796746e8ecadf",
       "normalized": true,
       "normalization_ids": [
         "out-build-time-field-v1",
@@ -15012,6 +15012,13 @@
       "path": "scripts/verify-external-runner-proof.cjs",
       "size_bytes": 1147,
       "sha256": "640a49ffa76d8a4242657ee8220e1a626d0e947af9b102beb3d7ee1de4894b33",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/verify-final-current-state-reconciliation-post-pr-315-v1.cjs",
+      "size_bytes": 1423,
+      "sha256": "f3007900b24608c739b9361b3373bd4347033f4f51a4d6012e4cf1c26d5dba12",
       "normalized": false,
       "normalization_ids": []
     },
