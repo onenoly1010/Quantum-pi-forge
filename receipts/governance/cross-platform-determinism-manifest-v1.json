@@ -1,6 +1,6 @@
 {
   "schema": "qpf.cross_platform_determinism_manifest.v1",
-  "generated_at_utc": "2026-06-13T05:53:28.647Z",
+  "generated_at_utc": "2026-06-13T06:02:05.971Z",
   "posture": {
     "phase": "PRE_CUTOVER_REVIEW_LOCK",
     "non_executing": true,
@@ -16,8 +16,8 @@
     "arch": "x64"
   },
   "git": {
-    "branch": "main",
-    "commit": "2ffdff1a11fb27a2721ec47eabe24209728b0a30",
+    "branch": "governance/current-funder-audit-handoff-v1",
+    "commit": "7533589085b917c6f3096f91593cb6c4b71c41b8",
     "status_short": "M receipts/governance/cross-platform-determinism-manifest-v1.json\n M receipts/governance/cross-platform-determinism-v1.json"
   },
   "include_roots": [
@@ -53,9 +53,9 @@
     "receipts/governance/cross-platform-determinism-manifest-v1.json",
     "receipts/governance/cross-platform-determinism-v1.json"
   ],
-  "file_count": 2290,
-  "deterministic_build_time": "2026-06-12T23:53:20-06:00",
-  "deterministic_commit": "2ffdff1a11fb27a2721ec47eabe24209728b0a30",
+  "file_count": 2291,
+  "deterministic_build_time": "2026-06-13T00:01:58-06:00",
+  "deterministic_commit": "7533589085b917c6f3096f91593cb6c4b71c41b8",
   "volatile_normalization_rules": [
     {
       "id": "out-build-time-field-v1",
@@ -69,7 +69,7 @@
     }
   ],
   "manifest_hash_algorithm": "sha256(JSON.stringify(entries,null,2)+newline) after declared volatile-field normalization",
-  "manifest_sha256": "b28047428a38666ca0a3605b1574e6979fc86cd2d478e59e2c99c1babde3f1be",
+  "manifest_sha256": "0424c0ea79ec945f27a25b4088f0558897314f95e6f63714f4b4c30a19aa8cdd",
   "entries": [
     {
       "path": "app/globals.css",
@@ -14214,7 +14214,7 @@
     {
       "path": "out/version.json",
       "size_bytes": 159,
-      "sha256": "78edd0fadf3b4cd7c5a848e855f82accb8399e7447c46d337a2e46af9caf2eb6",
+      "sha256": "56775865c77c9557b3681474957968b70ea321171bcf9ffb815c07e01a5309d8",
       "normalized": true,
       "normalization_ids": [
         "out-build-time-field-v1",
@@ -14230,8 +14230,8 @@
     },
     {
       "path": "package.json",
-      "size_bytes": 19096,
-      "sha256": "aa69e44bd800ce581fc1e747afd7d6f3de72c3393aa60440ee2841c923655cc4",
+      "size_bytes": 19211,
+      "sha256": "6eb20e7b1675bad9763d914a39f25d3fccd5b1ff032175d071acaf557be45965",
       "normalized": false,
       "normalization_ids": []
     },
@@ -14273,7 +14273,7 @@
     {
       "path": "public/version.json",
       "size_bytes": 159,
-      "sha256": "78edd0fadf3b4cd7c5a848e855f82accb8399e7447c46d337a2e46af9caf2eb6",
+      "sha256": "56775865c77c9557b3681474957968b70ea321171bcf9ffb815c07e01a5309d8",
       "normalized": true,
       "normalization_ids": [
         "out-build-time-field-v1",
@@ -14907,6 +14907,13 @@
       "path": "scripts/verify-cross-platform-determinism-v1.cjs",
       "size_bytes": 6492,
       "sha256": "fd50a95e87ad6055167c5f0db668ea9028e9c6f6488669934392b447fb2a304f",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/verify-current-funder-audit-handoff-v1.cjs",
+      "size_bytes": 1736,
+      "sha256": "2b0dff84a4a3555314df62a237d239d2eb7cd60d24053abb4abbe5f9170b241e",
       "normalized": false,
       "normalization_ids": []
     },
