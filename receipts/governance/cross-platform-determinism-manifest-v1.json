@@ -1,6 +1,6 @@
 {
   "schema": "qpf.cross_platform_determinism_manifest.v1",
-  "generated_at_utc": "2026-06-13T01:00:31.825Z",
+  "generated_at_utc": "2026-06-13T01:07:56.743Z",
   "posture": {
     "phase": "PRE_CUTOVER_REVIEW_LOCK",
     "non_executing": true,
@@ -16,9 +16,9 @@
     "arch": "x64"
   },
   "git": {
-    "branch": "governance/v2-receipt-chain-index-refresh-pr-312-313-v1",
-    "commit": "301504bb4369d6985a62eb48d5adebb65722f7f8",
-    "status_short": "M receipts/governance/v2-governance-receipt-chain-index-v1.json"
+    "branch": "governance/public-surface-post-pr-314-verification-v1",
+    "commit": "94c4b9aca3a5605396b27c37721220cccfc7ac01",
+    "status_short": "?? docs/governance/PUBLIC_SURFACE_POST_PR_314_VERIFICATION_V1.md\n?? receipts/governance/public-surface-post-pr-314-verification-v1.json\n?? scripts/verify-public-surface-post-pr-314-verification-v1.cjs"
   },
   "include_roots": [
     "package.json",
@@ -53,9 +53,9 @@
     "receipts/governance/cross-platform-determinism-manifest-v1.json",
     "receipts/governance/cross-platform-determinism-v1.json"
   ],
-  "file_count": 2281,
-  "deterministic_build_time": "2026-06-12T18:54:20-06:00",
-  "deterministic_commit": "301504bb4369d6985a62eb48d5adebb65722f7f8",
+  "file_count": 2282,
+  "deterministic_build_time": "2026-06-12T19:04:59-06:00",
+  "deterministic_commit": "94c4b9aca3a5605396b27c37721220cccfc7ac01",
   "volatile_normalization_rules": [
     {
       "id": "out-build-time-field-v1",
@@ -69,7 +69,7 @@
     }
   ],
   "manifest_hash_algorithm": "sha256(JSON.stringify(entries,null,2)+newline) after declared volatile-field normalization",
-  "manifest_sha256": "6ee182fe41a26f0aa3930c78a39350b59db2c755757903b68a7fa7de7d3d1e36",
+  "manifest_sha256": "87b75a71ad33a058c547d9b5c0c72a53221950c70c3d8ebc25037e1d2e5de34e",
   "entries": [
     {
       "path": "app/globals.css",
@@ -14214,7 +14214,7 @@
     {
       "path": "out/version.json",
       "size_bytes": 159,
-      "sha256": "9ef3c8fed7c04bdbaac8aa030b802d7cdaf9f32bc5b1cebd931a6b3bfb6e7481",
+      "sha256": "a9b0544cd695307e2e4398be46b8cf5dbe4e668085b09adcecb94ff5f13a1aaf",
       "normalized": true,
       "normalization_ids": [
         "out-build-time-field-v1",
@@ -14273,7 +14273,7 @@
     {
       "path": "public/version.json",
       "size_bytes": 159,
-      "sha256": "9ef3c8fed7c04bdbaac8aa030b802d7cdaf9f32bc5b1cebd931a6b3bfb6e7481",
+      "sha256": "a9b0544cd695307e2e4398be46b8cf5dbe4e668085b09adcecb94ff5f13a1aaf",
       "normalized": true,
       "normalization_ids": [
         "out-build-time-field-v1",
@@ -15488,6 +15488,13 @@
       "path": "scripts/verify-public-status-v1.cjs",
       "size_bytes": 928,
       "sha256": "59d6a342b55f3eb18c127247aa4716e95a8b163823d96e2394b21e7e98bef13b",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/verify-public-surface-post-pr-314-verification-v1.cjs",
+      "size_bytes": 1243,
+      "sha256": "e48144dbf444fed97db78eaaf05bca1b687199e47bd782ba105d8eab6ebba162",
       "normalized": false,
       "normalization_ids": []
     },
