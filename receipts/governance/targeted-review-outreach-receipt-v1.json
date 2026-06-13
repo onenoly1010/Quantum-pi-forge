@@ -1,0 +1,36 @@
+{
+  "schema": "targeted-review-outreach-receipt-v1",
+  "created_at_utc": "2026-06-13T17:28:24Z",
+  "source_canonical_main": "243882c",
+  "determinism_manifest_sha256": "c909b22dc277e9885f6a4781455835b53c5381097f730673da0b56adb83c3ded",
+  "packet_dir": "/tmp/qpf-targeted-review-outreach-v1",
+  "outreach_log": "/tmp/qpf-targeted-review-outreach-v1/outreach-log.tsv",
+  "outreach_log_sha256": "dc07910f6a97a7081ab767b76bb34cc939db2c9fcdc08c406c29197693c1d058",
+  "real_outreach_rows": 1,
+  "message_files": {
+    "short_dm": {
+      "path": "/tmp/qpf-targeted-review-outreach-v1/short-dm-message.md",
+      "sha256": "1f52b02cbc2ed3bdf1ed635de12de565c14c7c2f33bfff1601757fbb88c077b1"
+    },
+    "discord_forum": {
+      "path": "/tmp/qpf-targeted-review-outreach-v1/discord-forum-message.md",
+      "sha256": "71f6f0ac29eef638e2858af8cdd381a0413cf26aa2cc09dc28b6cb82ac52a2b7"
+    },
+    "email": {
+      "path": "/tmp/qpf-targeted-review-outreach-v1/email-message.md",
+      "sha256": "6e06d243f214fb780919750fb04c9f62b01be0e87404d387ec9d3e895d439f71"
+    },
+    "readme": {
+      "path": "/tmp/qpf-targeted-review-outreach-v1/README.md",
+      "sha256": "7bf67908e1d5b5533ddfd4092965eeb15c7740e5cf9e69325dffeeb5bc8ea00b"
+    }
+  },
+  "posture": {
+    "mode": "evidence_only_manual_outreach",
+    "deployments": false,
+    "chain_actions": false,
+    "publishes": false,
+    "keys_used": false,
+    "execution_receipt_present": false
+  }
+}
