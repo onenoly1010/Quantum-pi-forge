@@ -1,0 +1,28 @@
+{
+  "schema": "qpf.press_agent.readonly_readiness.v1",
+  "version": "1.0.0",
+  "canonical_head": "3d01baa",
+  "canonical_head_full": "3d01baa640e030e88a13f9dbbfaa84f7dc1d9cb7",
+  "document": "docs/press-agent/PRESS_AGENT_READONLY_READINESS_V1.md",
+  "document_sha256": "a4ba302332b4ca245e0f4ca70c961f6f59e27125916d2c55f00773a2785904af",
+  "posture": {
+    "read_only": true,
+    "sent_discord": false,
+    "sent_telegram": false,
+    "posted_twitter_x": false,
+    "published_wordpress": false,
+    "deployed": false,
+    "unparked": false,
+    "key_value_disclosed": false,
+    "chain_mutation": false,
+    "token_action": false,
+    "cloudflare_publish": false,
+    "mainnet_action": false,
+    "execution_receipt_present": false
+  },
+  "required_checks": [
+    "npm run governance:cross-platform-determinism:v1:check",
+    "npm run governance:current-funder-audit-handoff:v1:check",
+    "npm run verify:evidence"
+  ]
+}
