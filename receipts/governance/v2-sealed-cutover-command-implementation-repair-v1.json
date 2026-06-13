@@ -1,0 +1,15 @@
+{
+  "receipt": "v2-sealed-cutover-command-implementation-repair-v1",
+  "posture": "implementation_presence_repair_only",
+  "sealed_command": "npm run autonomous:v2-mainnet-cutover:execute -- --require-command-hash --receipt receipts/execution/v2-mainnet-cutover-execution-v1.json",
+  "sealed_command_sha256": "37f8940d93130365e0bf395912b4eef134fa558db92c82c254b1f0af838a20a8",
+  "package_script_restored": "autonomous:v2-mainnet-cutover:execute",
+  "wrapper_path": "scripts/v2-mainnet-cutover-execute.cjs",
+  "deployment_executed": false,
+  "broadcast_executed": false,
+  "wallet_signing_executed": false,
+  "key_access_performed": false,
+  "state_changing_transaction_executed": false,
+  "execution_receipt_created": false,
+  "self_sha256": "808e101c728cfafa162a49ada7b20a20cc343687fdf5958373c6d502d05f9193"
+}
