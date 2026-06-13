@@ -1,0 +1,40 @@
+{
+  "schema": "qpf.governance.pr_312_post_merge_observer_repair_receipt.v1",
+  "receipt_id": "pr-312-post-merge-observer-repair-receipt-v1",
+  "pr_number": 312,
+  "merged_commit_short": "251becf",
+  "merged_commit": "251becf05bfdb5a6a6615e4272a44053ed6aac86",
+  "merged_subject": "Repair pre-unpark observer loop determinism v1 (#312)",
+  "posture": {
+    "parked": true,
+    "report_only": true,
+    "non_executing": true,
+    "activation_executed": false,
+    "unpark_executed": false,
+    "deployment_executed": false,
+    "broadcast_executed": false,
+    "state_changing_transaction_executed": false,
+    "key_access_performed": false,
+    "zero_g_action_performed": false
+  },
+  "observer_result": {
+    "repaired_observer_ran_on_canonical_main": true,
+    "boundary_scan_completed_without_shell_quoting_failure": true,
+    "generated_report_path": "local-autonomy/state/latest-pre-unpark-observer-report.md",
+    "generated_log_prefix": "logs/pre-unpark-observer-",
+    "generated_outputs_ignored": true
+  },
+  "verification": {
+    "local-autonomy:runtime-evidence-index:v1:check": "PASS",
+    "local-autonomy:tedious-worker-repair:v1:check": "PASS",
+    "governance:cross-platform-determinism:v1:check": "PASS",
+    "verify:evidence": "PASS",
+    "cross_platform_manifest_sha256": "fef934b2f411dab581b0e03a5b21efa496eaef6f2d81098f67605704fbbc8a44",
+    "cross_platform_file_count": 2229,
+    "evidence_lanes": 3,
+    "evidence_paths": 6,
+    "claim_count": 3
+  },
+  "next_allowed_lane": "governance/v2-final-operator-unpark-approval-receipt-v1",
+  "note": "This receipt seals the successful post-merge observer repair validation only. It does not authorize or perform unpark, activation, deployment, broadcast, key access, 0G action, or any state-changing transaction."
+}
