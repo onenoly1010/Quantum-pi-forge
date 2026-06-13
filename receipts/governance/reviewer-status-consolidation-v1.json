@@ -1,0 +1,48 @@
+{
+  "schema": "qpf.governance.reviewer_status_consolidation_v1",
+  "sealed_at_utc": "20260613T191600Z",
+  "canonical_branch": "main",
+  "canonical_main": "d524eb49583d93dee4892e8d924758c0a23fd45c",
+  "canonical_main_short": "d524eb4",
+  "document": {
+    "path": "docs/governance/REVIEWER_STATUS_CONSOLIDATION_V1.md",
+    "sha256": "ad8b8090c5459083782dd5908119abb32f8495fb98c2fff3b185cc3b4224d0d2"
+  },
+  "public_entrypoints": {
+    "review_packet_issue": "https://github.com/onenoly1010/Quantum-pi-forge/issues/328",
+    "latest_canonical_commit": "https://github.com/onenoly1010/Quantum-pi-forge/commit/d524eb49583d93dee4892e8d924758c0a23fd45c"
+  },
+  "verified_checks": {
+    "cross_platform_determinism_v1": "PASS",
+    "current_public_status_handoff_v1": "PASS",
+    "current_funder_audit_handoff_v1": "PASS",
+    "targeted_review_outreach_receipt_v1": "PASS",
+    "press_agent_local_runtime_health_v2": "PASS",
+    "pr_333_post_merge_press_agent_local_runtime_health_v2": "PASS",
+    "press_agent_parked_broadcast_guard_v1": "PASS",
+    "pr_335_post_merge_parked_broadcast_guard_v1": "PASS",
+    "press_agent_readonly_readiness_v1": "PASS",
+    "discord_webhook_diagnostic_v1": "PASS",
+    "v2_sealed_cutover_command_implementation_repair_v1": "PASS",
+    "v2_final_operator_unpark_approval_v1": "PASS",
+    "v2_cutover_execution_command_hash_v1": "PASS",
+    "v2_mainnet_cutover_execution_v1": "PASS"
+  },
+  "evidence_paths": {
+    "press_agent_runtime_health_receipt": "receipts/press-agent/local-runtime-health-v2.json",
+    "press_agent_runtime_health_post_merge_receipt": "receipts/governance/pr-333-post-merge-press-agent-local-runtime-health-v2.json",
+    "parked_broadcast_guard_receipt": "receipts/press-agent/parked-broadcast-guard-v1.json",
+    "parked_broadcast_guard_post_merge_receipt": "receipts/governance/pr-335-post-merge-parked-broadcast-guard-v1.json"
+  },
+  "posture": {
+    "evidence_only": true,
+    "execution_receipt_present": false,
+    "send_authorized": false,
+    "network_post_attempted": false,
+    "discord_send_attempted": false,
+    "deployments": false,
+    "chain_actions": false,
+    "keys_used": false,
+    "unparked": false
+  }
+}
