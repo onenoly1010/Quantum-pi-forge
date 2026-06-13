@@ -163,7 +163,8 @@
     "governance:pr-325-post-merge:v1:check": "node scripts/verify-pr-325-post-merge-governance-receipt-v1.cjs",
     "governance:current-funder-audit-handoff:v1:check": "node scripts/verify-current-funder-audit-handoff-v1.cjs",
     "press-agent:readonly-readiness:v1:check": "node scripts/verify-press-agent-readonly-readiness-v1.cjs",
-    "governance:targeted-review-outreach-receipt:v1:check": "node scripts/verify-targeted-review-outreach-receipt-v1.cjs"
+    "governance:targeted-review-outreach-receipt:v1:check": "node scripts/verify-targeted-review-outreach-receipt-v1.cjs",
+    "press-agent:discord-webhook-diagnostic:v1:check": "node scripts/verify-discord-webhook-diagnostic-v1.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",
