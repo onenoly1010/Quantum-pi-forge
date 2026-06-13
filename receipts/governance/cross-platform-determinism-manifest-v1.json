@@ -1,6 +1,6 @@
 {
   "schema": "qpf.cross_platform_determinism_manifest.v1",
-  "generated_at_utc": "2026-06-13T17:42:35.769Z",
+  "generated_at_utc": "2026-06-13T18:12:02.513Z",
   "posture": {
     "phase": "PRE_CUTOVER_REVIEW_LOCK",
     "non_executing": true,
@@ -16,9 +16,9 @@
     "arch": "x64"
   },
   "git": {
-    "branch": "governance/pr-329-determinism-refresh-v1",
-    "commit": "83816cda40bdab2003776f32bbdb8502604ce381",
-    "status_short": "M receipts/governance/cross-platform-determinism-manifest-v1.json\n M receipts/governance/cross-platform-determinism-v1.json"
+    "branch": "governance/pr-331-determinism-refresh-v1",
+    "commit": "67a057a3a848377f463a323157475a145a141729",
+    "status_short": ""
   },
   "include_roots": [
     "package.json",
@@ -53,9 +53,9 @@
     "receipts/governance/cross-platform-determinism-manifest-v1.json",
     "receipts/governance/cross-platform-determinism-v1.json"
   ],
-  "file_count": 2293,
-  "deterministic_build_time": "2026-06-13T11:32:25-06:00",
-  "deterministic_commit": "83816cda40bdab2003776f32bbdb8502604ce381",
+  "file_count": 2294,
+  "deterministic_build_time": "2026-06-13T12:08:42-06:00",
+  "deterministic_commit": "67a057a3a848377f463a323157475a145a141729",
   "volatile_normalization_rules": [
     {
       "id": "out-build-time-field-v1",
@@ -69,7 +69,7 @@
     }
   ],
   "manifest_hash_algorithm": "sha256(JSON.stringify(entries,null,2)+newline) after declared volatile-field normalization",
-  "manifest_sha256": "db5f4bc7f92de0de95ae4a5c595a0235b0587f4e88b8c4ecd2aa16d2d1fb687c",
+  "manifest_sha256": "0171cfdbeef716bf06efac1a64c3c72f3cc6b91ef3db6a5e1813eb4266111008",
   "entries": [
     {
       "path": "app/globals.css",
@@ -14214,7 +14214,7 @@
     {
       "path": "out/version.json",
       "size_bytes": 159,
-      "sha256": "22668891407d28e5f7db360c4ed87fe1d284de2f2c0b60edd94060beb1a44e90",
+      "sha256": "03e13ac4616cfc65f0097a2a0f1644252b81ea4f32a408c70ec6471fda92865c",
       "normalized": true,
       "normalization_ids": [
         "out-build-time-field-v1",
@@ -14230,8 +14230,8 @@
     },
     {
       "path": "package.json",
-      "size_bytes": 19442,
-      "sha256": "c65239bbb32a57769f0aa3afb072e7a9f4db5ebe67c6f5dd41bac986c07ddfe5",
+      "size_bytes": 19554,
+      "sha256": "1a47884fa99fbd948621d62039e8a817a5734f62414cc7cb1bf98b6be5214298",
       "normalized": false,
       "normalization_ids": []
     },
@@ -14273,7 +14273,7 @@
     {
       "path": "public/version.json",
       "size_bytes": 159,
-      "sha256": "22668891407d28e5f7db360c4ed87fe1d284de2f2c0b60edd94060beb1a44e90",
+      "sha256": "03e13ac4616cfc65f0097a2a0f1644252b81ea4f32a408c70ec6471fda92865c",
       "normalized": true,
       "normalization_ids": [
         "out-build-time-field-v1",
@@ -14942,6 +14942,13 @@
       "path": "scripts/verify-discord-only-proof-v1.cjs",
       "size_bytes": 896,
       "sha256": "52388ae77cf67a6e86a70fe85b9c4f44da9a849219ff0bc02cd7662e13bd3e6c",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/verify-discord-webhook-diagnostic-v1.cjs",
+      "size_bytes": 1188,
+      "sha256": "b474123f596d2170cae11504cc3ba42876fbc1901b0217ee17762b3b9c52a9ac",
       "normalized": false,
       "normalization_ids": []
     },
