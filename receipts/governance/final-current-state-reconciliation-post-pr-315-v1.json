@@ -1,0 +1,56 @@
+{
+  "schema": "qpf.governance.final_current_state_reconciliation_post_pr_315.v1",
+  "receipt_id": "final-current-state-reconciliation-post-pr-315-v1",
+  "canonical_head_short": "f8e44b0",
+  "canonical_head": "f8e44b087e6641040c1555977982c34e378ab67d",
+  "canonical_subject": "Seal public surface post PR 314 verification v1 (#315)",
+  "posture": "approval_granted_command_hash_sealed_execution_not_performed",
+  "approval_state": {
+    "final_operator_unpark_approval_created": true,
+    "final_operator_unpark_approval_granted": true,
+    "mainnet_cutover_approval_granted": true
+  },
+  "command_hash_state": {
+    "command_hash_sealed": true,
+    "cutover_command_sha256": "37f8940d93130365e0bf395912b4eef134fa558db92c82c254b1f0af838a20a8"
+  },
+  "execution_state": {
+    "execution_receipt_present": false,
+    "execution_command_executed": false,
+    "mainnet_cutover_executed": false,
+    "unpark_executed": false,
+    "deployment_executed": false,
+    "broadcast_executed": false,
+    "state_changing_transaction_executed": false,
+    "wallet_signing_executed": false,
+    "liquidity_action_executed": false,
+    "staking_action_executed": false,
+    "relayer_action_executed": false,
+    "key_access_performed": false,
+    "zero_g_action_performed": false
+  },
+  "canonical_checks": {
+    "governance:current-state:v1:check": "PASS",
+    "governance:v2-pre-unpark-readiness-gate:v1:check": "PASS",
+    "governance:v2-operator-unpark-approval-candidate:v1:check": "PASS",
+    "governance:v2-final-operator-unpark-approval:v1:check": "PASS",
+    "governance:v2-cutover-execution-command-hash:v1:check": "PASS",
+    "governance:v2-mainnet-cutover-execution:v1:check": "PASS",
+    "governance:v2-governance-receipt-chain-index:v1:check": "PASS",
+    "public-surface-post-pr-314-verification-v1": "PASS",
+    "governance:cross-platform-determinism:v1:check": "PASS",
+    "verify:evidence": "PASS"
+  },
+  "determinism": {
+    "manifest_sha256": "87b75a71ad33a058c547d9b5c0c72a53221950c70c3d8ebc25037e1d2e5de34e",
+    "file_count": 2282
+  },
+  "evidence": {
+    "lanes": 3,
+    "paths": 6,
+    "claims": 3,
+    "evidence_receipt_hash": "a63dc16e5f577c808fd495e5a18e87f25006980cf0d84d23b61f5beca57e58fa"
+  },
+  "next_allowed_lane": "operator_may_choose_explicit_execution_lane_or_continue_read_only_observer_reconciliation",
+  "boundary_note": "This reconciliation records current truth only. It does not execute unpark, activation, deployment, broadcast, wallet signing, key access, 0G action, liquidity action, staking action, relayer action, or any state-changing transaction."
+}
