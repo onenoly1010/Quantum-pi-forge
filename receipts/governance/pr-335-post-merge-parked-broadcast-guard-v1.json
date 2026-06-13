@@ -1,0 +1,36 @@
+{
+  "schema": "qpf.governance.pr_335_post_merge_parked_broadcast_guard_v1",
+  "sealed_at_utc": "20260613T190927Z",
+  "pr": 335,
+  "canonical_branch": "main",
+  "merged_head_commit": "289909dbd43c3246fc174a7cc3a5e96f58d17023",
+  "merged_head_commit_short": "289909d",
+  "merged_lane": "press-agent parked broadcast guard v1",
+  "evidence": {
+    "guard_receipt": "receipts/press-agent/parked-broadcast-guard-v1.json",
+    "prepared_message": "receipts/press-agent/parked-broadcast-guard-v1-prepared-message.json",
+    "send_refusal": "receipts/press-agent/parked-broadcast-guard-v1-send-refusal.json",
+    "guard_doc": "docs/press-agent/PARKED_BROADCAST_GUARD_V1.md",
+    "guard_verifier": "scripts/verify-press-agent-parked-broadcast-guard-v1.cjs"
+  },
+  "verified_checks": {
+    "press_agent_parked_broadcast_guard_v1": "PASS",
+    "press_agent_local_runtime_health_v2": "PASS",
+    "pr_333_post_merge_press_agent_local_runtime_health_v2": "PASS",
+    "press_agent_readonly_readiness_v1": "PASS",
+    "discord_webhook_diagnostic_v1": "PASS",
+    "cross_platform_determinism_v1": "PASS"
+  },
+  "posture": {
+    "evidence_only": true,
+    "parked": true,
+    "runtime_send_authorized": false,
+    "discord_send_attempted": false,
+    "network_post_attempted": false,
+    "deployments": false,
+    "chain_actions": false,
+    "keys_used": false,
+    "execution_receipt_present": false,
+    "requires_explicit_unpark_receipt": true
+  }
+}
