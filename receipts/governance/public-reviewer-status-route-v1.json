@@ -1,0 +1,30 @@
+{
+  "schema": "qpf.governance.public_reviewer_status_route_v1",
+  "sealed_at_utc": "20260613T202316Z",
+  "canonical_branch": "main",
+  "canonical_main": "ce2065516d195af15d40e393160fccbe559e87c8",
+  "canonical_main_short": "ce20655",
+  "route": {
+    "source_path": "deploy/trust/reviewer-status.html",
+    "public_path": "/trust/reviewer-status.html",
+    "sha256": "4a386b6c1d5caf5938ab3981c2394e6281437d08277b5fd229a9014b46c28599"
+  },
+  "documentation": {
+    "path": "docs/governance/PUBLIC_REVIEWER_STATUS_ROUTE_V1.md",
+    "sha256": "b4a64a81a24b431030f56ee9f46f19582004f477b7d5eb5b7143cbc8fc6524ba"
+  },
+  "anchors": {
+    "public_review_packet": "https://github.com/onenoly1010/Quantum-pi-forge/issues/328",
+    "latest_canonical_evidence": "https://github.com/onenoly1010/Quantum-pi-forge/commit/ce2065516d195af15d40e393160fccbe559e87c8",
+    "reviewer_status_consolidation": "docs/governance/REVIEWER_STATUS_CONSOLIDATION_V1.md"
+  },
+  "posture": {
+    "readonly_public_route": true,
+    "send_authorized": false,
+    "network_post_attempted": false,
+    "deployments": false,
+    "chain_actions": false,
+    "keys_used": false,
+    "execution_receipt_present": false
+  }
+}
