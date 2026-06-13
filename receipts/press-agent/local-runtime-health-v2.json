@@ -1,0 +1,31 @@
+{
+  "schema": "qpf.press_agent.local_runtime_health.v2",
+  "sealed_at_utc": "20260613T181931Z",
+  "canonical_branch": "main",
+  "head_commit": "35feb2eaa371ca2b52a779418698af1a97a0c68c",
+  "head_commit_short": "35feb2e",
+  "source_log_path": "/tmp/qpf-press-agent-local-runtime-health-v2.log",
+  "source_log_sha256": "0cf2335e4bba0ed00989a3f541ec75b1f0860202f679f7e393f7d4f94ad43f4f",
+  "runtime": {
+    "service": "Quantum Pi Forge Press Agent",
+    "port": 3001,
+    "health_http_status": 200,
+    "health_pass": true,
+    "server_started_by_script": true,
+    "server_stopped_by_script": true
+  },
+  "sealed_checks": {
+    "cross_platform_determinism_v1": "PASS",
+    "press_agent_discord_webhook_diagnostic_v1": "PASS",
+    "press_agent_readonly_readiness_v1": "PASS"
+  },
+  "posture": {
+    "mode": "local_runtime_health_only",
+    "discord_send_attempted_by_runtime_probe": false,
+    "network_post_attempted_by_runtime_probe": false,
+    "deployments": false,
+    "chain_actions": false,
+    "keys_used": false,
+    "execution_receipt_present": false
+  }
+}
