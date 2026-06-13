@@ -5,5 +5,56 @@
   "chain_end": 306,
   "execution_posture": "non-executing",
   "all_flags_false": true,
-  "stash_applied": false
+  "stash_applied": false,
+  "receipt_chain": [
+    {
+      "pr": 312,
+      "commit": "251becf",
+      "title": "Repair pre-unpark observer loop determinism v1",
+      "receipt": "cross-platform-determinism-v1",
+      "artifact_paths": [
+        "scripts/run-local-ai-pre-unpark-loop.sh",
+        "receipts/governance/cross-platform-determinism-manifest-v1.json",
+        "receipts/governance/cross-platform-determinism-v1.json"
+      ],
+      "posture": "parked_report_only_non_executing",
+      "checks": [
+        "local-autonomy:runtime-evidence-index:v1:check",
+        "local-autonomy:tedious-worker-repair:v1:check",
+        "governance:cross-platform-determinism:v1:check",
+        "verify:evidence"
+      ]
+    },
+    {
+      "pr": 313,
+      "commit": "301504b",
+      "title": "Seal PR 312 post-merge observer repair receipt v1",
+      "receipt": "pr-312-post-merge-observer-repair-receipt-v1",
+      "artifact_paths": [
+        "docs/governance/PR_312_POST_MERGE_OBSERVER_REPAIR_RECEIPT_V1.md",
+        "receipts/governance/pr-312-post-merge-observer-repair-receipt-v1.json",
+        "scripts/verify-pr-312-post-merge-observer-repair-receipt-v1.cjs"
+      ],
+      "posture": "parked_report_only_non_executing",
+      "checks": [
+        "governance:pr-312-post-merge-observer-repair:v1:check",
+        "governance:cross-platform-determinism:v1:check",
+        "verify:evidence"
+      ]
+    }
+  ],
+  "latest_canonical_commit": "301504b",
+  "latest_canonical_subject": "Seal PR 312 post-merge observer repair receipt v1 (#313)",
+  "last_refreshed_for": [
+    "PR #312",
+    "PR #313"
+  ],
+  "execution_boundary": {
+    "deployment_executed": false,
+    "broadcast_executed": false,
+    "state_changing_transaction_executed": false,
+    "unpark_executed": false,
+    "key_access_performed": false,
+    "zero_g_action_performed": false
+  }
 }
