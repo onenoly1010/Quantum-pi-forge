@@ -157,7 +157,8 @@
     "autonomous:v2-mainnet-cutover:execute": "node scripts/v2-mainnet-cutover-execute.cjs",
     "governance:v2-sealed-cutover-command-implementation-repair:v1:check": "node scripts/verify-v2-sealed-cutover-command-implementation-repair-v1.cjs",
     "governance:post-pr-318-observer-readiness:v1:check": "node scripts/verify-post-pr-318-observer-readiness-receipt-v1.cjs",
-    "governance:pr-319-fresh-observer-receipt:v1:check": "node scripts/verify-pr-319-fresh-observer-receipt-v1.cjs"
+    "governance:pr-319-fresh-observer-receipt:v1:check": "node scripts/verify-pr-319-fresh-observer-receipt-v1.cjs",
+    "governance:current-public-status-handoff:v1:check": "node scripts/verify-current-public-status-handoff-v1.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",

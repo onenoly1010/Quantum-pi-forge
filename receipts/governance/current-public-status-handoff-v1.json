@@ -1,0 +1,28 @@
+{
+  "schema": "qpf.governance.current-public-status-handoff.v1",
+  "generated_utc": "2026-06-13T03:26:13Z",
+  "canonical_head": "d607162",
+  "canonical_commit": "d607162cf5e0145d23cdb98816d00401d6582810",
+  "posture": "PARKED_PUBLIC_STATUS_HANDOFF_NO_UNPARK_NO_DEPLOY_NO_BROADCAST_NO_KEYS",
+  "document": "docs/governance/CURRENT_PUBLIC_STATUS_HANDOFF_V1.md",
+  "proof_commands": [
+    "npm run governance:cross-platform-determinism:v1:check",
+    "npm run governance:v2-sealed-cutover-command-implementation-repair:v1:check",
+    "npm run governance:v2-final-operator-unpark-approval:v1:check",
+    "npm run governance:v2-cutover-execution-command-hash:v1:check",
+    "npm run governance:v2-mainnet-cutover-execution:v1:check",
+    "npm run governance:pr-319-fresh-observer-receipt:v1:check",
+    "npm run local-autonomy:runtime-evidence-index:v1:check",
+    "npm run local-autonomy:tedious-worker-repair:v1:check",
+    "npm run verify:evidence"
+  ],
+  "boundary": {
+    "unpark_executed": false,
+    "activation_executed": false,
+    "deployment_executed": false,
+    "broadcast_executed": false,
+    "key_access_performed": false,
+    "state_changing_transaction_executed": false,
+    "execution_receipt_present": false
+  }
+}
