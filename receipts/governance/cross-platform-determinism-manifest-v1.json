@@ -1,6 +1,6 @@
 {
   "schema": "qpf.cross_platform_determinism_manifest.v1",
-  "generated_at_utc": "2026-06-13T00:48:34.378Z",
+  "generated_at_utc": "2026-06-13T01:00:31.825Z",
   "posture": {
     "phase": "PRE_CUTOVER_REVIEW_LOCK",
     "non_executing": true,
@@ -16,9 +16,9 @@
     "arch": "x64"
   },
   "git": {
-    "branch": "governance/pr-312-post-merge-observer-repair-receipt-v1",
-    "commit": "251becf05bfdb5a6a6615e4272a44053ed6aac86",
-    "status_short": "M package.json\n?? docs/governance/PR_312_POST_MERGE_OBSERVER_REPAIR_RECEIPT_V1.md\n?? receipts/governance/pr-312-post-merge-observer-repair-receipt-v1.json\n?? scripts/verify-pr-312-post-merge-observer-repair-receipt-v1.cjs"
+    "branch": "governance/v2-receipt-chain-index-refresh-pr-312-313-v1",
+    "commit": "301504bb4369d6985a62eb48d5adebb65722f7f8",
+    "status_short": "M receipts/governance/v2-governance-receipt-chain-index-v1.json"
   },
   "include_roots": [
     "package.json",
@@ -54,8 +54,8 @@
     "receipts/governance/cross-platform-determinism-v1.json"
   ],
   "file_count": 2281,
-  "deterministic_build_time": "2026-06-12T18:35:08-06:00",
-  "deterministic_commit": "251becf05bfdb5a6a6615e4272a44053ed6aac86",
+  "deterministic_build_time": "2026-06-12T18:54:20-06:00",
+  "deterministic_commit": "301504bb4369d6985a62eb48d5adebb65722f7f8",
   "volatile_normalization_rules": [
     {
       "id": "out-build-time-field-v1",
@@ -69,7 +69,7 @@
     }
   ],
   "manifest_hash_algorithm": "sha256(JSON.stringify(entries,null,2)+newline) after declared volatile-field normalization",
-  "manifest_sha256": "74a5efbfecd4c57bdeb6e239068d1f264a1999bd46443cf05d6ded63d8d9c611",
+  "manifest_sha256": "6ee182fe41a26f0aa3930c78a39350b59db2c755757903b68a7fa7de7d3d1e36",
   "entries": [
     {
       "path": "app/globals.css",
@@ -14214,7 +14214,7 @@
     {
       "path": "out/version.json",
       "size_bytes": 159,
-      "sha256": "bbc0e0b109c62bc3388da7e954064a80c295e5b9cf6818a2d7099f33c3447fb7",
+      "sha256": "9ef3c8fed7c04bdbaac8aa030b802d7cdaf9f32bc5b1cebd931a6b3bfb6e7481",
       "normalized": true,
       "normalization_ids": [
         "out-build-time-field-v1",
@@ -14273,7 +14273,7 @@
     {
       "path": "public/version.json",
       "size_bytes": 159,
-      "sha256": "bbc0e0b109c62bc3388da7e954064a80c295e5b9cf6818a2d7099f33c3447fb7",
+      "sha256": "9ef3c8fed7c04bdbaac8aa030b802d7cdaf9f32bc5b1cebd931a6b3bfb6e7481",
       "normalized": true,
       "normalization_ids": [
         "out-build-time-field-v1",
