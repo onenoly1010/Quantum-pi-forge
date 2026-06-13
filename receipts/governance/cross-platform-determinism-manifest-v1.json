@@ -1,6 +1,6 @@
 {
   "schema": "qpf.cross_platform_determinism_manifest.v1",
-  "generated_at_utc": "2026-06-13T02:09:23.348Z",
+  "generated_at_utc": "2026-06-13T02:36:15.616Z",
   "posture": {
     "phase": "PRE_CUTOVER_REVIEW_LOCK",
     "non_executing": true,
@@ -16,8 +16,8 @@
     "arch": "x64"
   },
   "git": {
-    "branch": "governance/pr-317-post-merge-determinism-refresh-v1",
-    "commit": "76660cb414ed3fc3e73cc04822dc532f193fb23f",
+    "branch": "governance/pr-319-post-merge-determinism-refresh-v1",
+    "commit": "de5ff60afcd33edce2c38d1cdc4e2aef8b751a3b",
     "status_short": ""
   },
   "include_roots": [
@@ -53,9 +53,9 @@
     "receipts/governance/cross-platform-determinism-manifest-v1.json",
     "receipts/governance/cross-platform-determinism-v1.json"
   ],
-  "file_count": 2285,
-  "deterministic_build_time": "2026-06-12T20:02:52-06:00",
-  "deterministic_commit": "76660cb414ed3fc3e73cc04822dc532f193fb23f",
+  "file_count": 2286,
+  "deterministic_build_time": "2026-06-12T20:32:27-06:00",
+  "deterministic_commit": "de5ff60afcd33edce2c38d1cdc4e2aef8b751a3b",
   "volatile_normalization_rules": [
     {
       "id": "out-build-time-field-v1",
@@ -69,7 +69,7 @@
     }
   ],
   "manifest_hash_algorithm": "sha256(JSON.stringify(entries,null,2)+newline) after declared volatile-field normalization",
-  "manifest_sha256": "01bc2fb023bd250f0c9faff08d20453a39349c99e714912e8e0e17b9d05a0ce6",
+  "manifest_sha256": "c0f8ad1ffab3921eb62dab51f28b3e275161ff84a0edb22ce2b35faecf1d7d97",
   "entries": [
     {
       "path": "app/globals.css",
@@ -14214,7 +14214,7 @@
     {
       "path": "out/version.json",
       "size_bytes": 159,
-      "sha256": "fe5b1dfffec467e53b2889df1aae20f4f25e075a007ac60be7bcc1a5015fcffa",
+      "sha256": "3b6e01b6ea709f28907b817e10f527d313b53987205aa0f096f58ac87ef331b0",
       "normalized": true,
       "normalization_ids": [
         "out-build-time-field-v1",
@@ -14230,8 +14230,8 @@
     },
     {
       "path": "package.json",
-      "size_bytes": 18508,
-      "sha256": "c8f223540c1a79ea1784b82c94fb787c04459da7fce536846bd773598fa92351",
+      "size_bytes": 18635,
+      "sha256": "9c4f2dd289f3c0fdd776987f735ef0eed644b9094f7233df3c5af18f9d844135",
       "normalized": false,
       "normalization_ids": []
     },
@@ -14273,7 +14273,7 @@
     {
       "path": "public/version.json",
       "size_bytes": 159,
-      "sha256": "fe5b1dfffec467e53b2889df1aae20f4f25e075a007ac60be7bcc1a5015fcffa",
+      "sha256": "3b6e01b6ea709f28907b817e10f527d313b53987205aa0f096f58ac87ef331b0",
       "normalized": true,
       "normalization_ids": [
         "out-build-time-field-v1",
@@ -15194,6 +15194,13 @@
       "path": "scripts/verify-post-merge-governance-receipt.cjs",
       "size_bytes": 1801,
       "sha256": "c3c35b41d675291ea0c447d748deb9444b058812315dd9c874e56aac4bd4eacc",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/verify-post-pr-318-observer-readiness-receipt-v1.cjs",
+      "size_bytes": 2440,
+      "sha256": "e45354b0620159de16aeaff4609dda9dd52c686c1ae77c04bed920410753e9ce",
       "normalized": false,
       "normalization_ids": []
     },
