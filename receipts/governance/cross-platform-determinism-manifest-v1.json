@@ -1,6 +1,6 @@
 {
   "schema": "qpf.cross_platform_determinism_manifest.v1",
-  "generated_at_utc": "2026-06-13T03:15:21.384Z",
+  "generated_at_utc": "2026-06-13T03:30:56.449Z",
   "posture": {
     "phase": "PRE_CUTOVER_REVIEW_LOCK",
     "non_executing": true,
@@ -16,9 +16,9 @@
     "arch": "x64"
   },
   "git": {
-    "branch": "governance/pr-322-post-pr321-determinism-refresh-v1",
-    "commit": "b0f4d44d2ec5d9a27bfc92131ef23fbb25f609af",
-    "status_short": "M receipts/governance/cross-platform-determinism-manifest-v1.json\n M receipts/governance/cross-platform-determinism-v1.json"
+    "branch": "governance/pr-324-post-pr323-determinism-refresh-v1",
+    "commit": "8fa11f666b66eeb95ea72120996eaf0b3b25a742",
+    "status_short": ""
   },
   "include_roots": [
     "package.json",
@@ -53,9 +53,9 @@
     "receipts/governance/cross-platform-determinism-manifest-v1.json",
     "receipts/governance/cross-platform-determinism-v1.json"
   ],
-  "file_count": 2287,
-  "deterministic_build_time": "2026-06-12T21:09:25-06:00",
-  "deterministic_commit": "b0f4d44d2ec5d9a27bfc92131ef23fbb25f609af",
+  "file_count": 2288,
+  "deterministic_build_time": "2026-06-12T21:28:33-06:00",
+  "deterministic_commit": "8fa11f666b66eeb95ea72120996eaf0b3b25a742",
   "volatile_normalization_rules": [
     {
       "id": "out-build-time-field-v1",
@@ -69,7 +69,7 @@
     }
   ],
   "manifest_hash_algorithm": "sha256(JSON.stringify(entries,null,2)+newline) after declared volatile-field normalization",
-  "manifest_sha256": "7e6d91981bea35455ba58201ada9d8ebe416724134b566a48c8eb1df4aa3adbc",
+  "manifest_sha256": "95718dc109002c399e6f138303dbcf96a997d2dec00b87733435d6e1c241a27b",
   "entries": [
     {
       "path": "app/globals.css",
@@ -14214,7 +14214,7 @@
     {
       "path": "out/version.json",
       "size_bytes": 159,
-      "sha256": "5e1c6f3bd3b49371371f11874ea0964df2f5e191f11e98ebd8087a45424783ee",
+      "sha256": "019b41159bdd77512d1377dd2413e9f033bce9345f2791756545ec0d73649f59",
       "normalized": true,
       "normalization_ids": [
         "out-build-time-field-v1",
@@ -14230,8 +14230,8 @@
     },
     {
       "path": "package.json",
-      "size_bytes": 18752,
-      "sha256": "8009aefc5509a90e09eb8289a18ace89e5de78eb9082191b322352f3e3a8f832",
+      "size_bytes": 18869,
+      "sha256": "8755c2634403693a13851bf1f02721dfb612af091ecb7a6be0cf42a4246db1d3",
       "normalized": false,
       "normalization_ids": []
     },
@@ -14273,7 +14273,7 @@
     {
       "path": "public/version.json",
       "size_bytes": 159,
-      "sha256": "5e1c6f3bd3b49371371f11874ea0964df2f5e191f11e98ebd8087a45424783ee",
+      "sha256": "019b41159bdd77512d1377dd2413e9f033bce9345f2791756545ec0d73649f59",
       "normalized": true,
       "normalization_ids": [
         "out-build-time-field-v1",
@@ -14914,6 +14914,13 @@
       "path": "scripts/verify-current-governance-state-v1.cjs",
       "size_bytes": 2607,
       "sha256": "59813fa613644b1fcf39c4eeb3506a6789c6061c4ecc2bb7df65f6cbcf9bc760",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/verify-current-public-status-handoff-v1.cjs",
+      "size_bytes": 1890,
+      "sha256": "22846b9fcbd5ae2fd735212cc106d349a4e3520007c787124a996ed8ca44c0b6",
       "normalized": false,
       "normalization_ids": []
     },
