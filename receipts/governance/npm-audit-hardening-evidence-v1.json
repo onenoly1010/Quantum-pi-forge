@@ -1,0 +1,58 @@
+{
+  "schema": "qpf.governance.npm_audit_hardening_evidence.v1",
+  "generated_utc": "2026-06-13T05:36:05Z",
+  "canonical_head": "a6738ce75f7d2d9f6a0279b1852500fca3e2a6f2",
+  "canonical_head_short": "a6738ce",
+  "document_path": "docs/governance/NPM_AUDIT_HARDENING_EVIDENCE_V1.md",
+  "document_sha256": "2bb837e14b46299e88b0cb82eeef4a3a1557b5ab1cfd052c409116884c08e5c0",
+  "audit_json_external_path": "/tmp/qpf-security-logs-preserve/npm-audit-full-detail-20260613T053149Z.json",
+  "audit_json_sha256": "eeba4e0bbfe979ef38c6848385dca1bf95c7a9d92b7f841e824b30cf707fc263",
+  "audit_text_external_path": "/tmp/qpf-security-logs-preserve/npm-audit-full-detail-20260613T053149Z.txt",
+  "audit_text_sha256": "70874da9b505ce4b51471dfedc28df9de426e2423104f058e3292d67741e9205",
+  "audit_summary": {
+    "total": 3,
+    "high": 3,
+    "moderate": 0,
+    "low": 0,
+    "critical": 0
+  },
+  "affected_packages": [
+    {
+      "name": "esbuild",
+      "severity": "high",
+      "direct": false,
+      "range": ">=0.17.0 <0.28.1",
+      "observed_paths": [
+        "hardhat@3.9.0 -> tsx@4.21.0 -> esbuild@0.27.7",
+        "wrangler@4.98.0 -> esbuild@0.27.3"
+      ]
+    },
+    {
+      "name": "tsx",
+      "severity": "high",
+      "direct": false,
+      "observed_version": "4.21.0"
+    },
+    {
+      "name": "wrangler",
+      "severity": "high",
+      "direct": true,
+      "observed_version": "4.98.0"
+    }
+  ],
+  "remediation_attempts": [
+    {
+      "attempt": "wrangler@3.6.0",
+      "result": "rejected",
+      "reason": "npm suggested downgrade/major path failed under Node 22 native dependency build through better-sqlite3"
+    },
+    {
+      "attempt": "wrangler@4.100.0",
+      "result": "reverted",
+      "reason": "installed and built, but npm audit still reported 3 high vulnerabilities"
+    }
+  ],
+  "committed_dependency_mutation": false,
+  "execution_receipt_present": false,
+  "posture": "EVIDENCE_ONLY_NO_DEPLOY_NO_UNPARK_NO_BROADCAST_NO_KEYS_NO_EXECUTION"
+}
