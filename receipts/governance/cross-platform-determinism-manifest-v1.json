@@ -1,6 +1,6 @@
 {
   "schema": "qpf.cross_platform_determinism_manifest.v1",
-  "generated_at_utc": "2026-06-13T06:02:05.971Z",
+  "generated_at_utc": "2026-06-13T06:14:36.979Z",
   "posture": {
     "phase": "PRE_CUTOVER_REVIEW_LOCK",
     "non_executing": true,
@@ -16,8 +16,8 @@
     "arch": "x64"
   },
   "git": {
-    "branch": "governance/current-funder-audit-handoff-v1",
-    "commit": "7533589085b917c6f3096f91593cb6c4b71c41b8",
+    "branch": "governance/press-agent-readonly-readiness-v1",
+    "commit": "d296f9fe7557f2b38344f9116dd386e88cccfd82",
     "status_short": "M receipts/governance/cross-platform-determinism-manifest-v1.json\n M receipts/governance/cross-platform-determinism-v1.json"
   },
   "include_roots": [
@@ -53,9 +53,9 @@
     "receipts/governance/cross-platform-determinism-manifest-v1.json",
     "receipts/governance/cross-platform-determinism-v1.json"
   ],
-  "file_count": 2291,
-  "deterministic_build_time": "2026-06-13T00:01:58-06:00",
-  "deterministic_commit": "7533589085b917c6f3096f91593cb6c4b71c41b8",
+  "file_count": 2292,
+  "deterministic_build_time": "2026-06-13T00:14:29-06:00",
+  "deterministic_commit": "d296f9fe7557f2b38344f9116dd386e88cccfd82",
   "volatile_normalization_rules": [
     {
       "id": "out-build-time-field-v1",
@@ -69,7 +69,7 @@
     }
   ],
   "manifest_hash_algorithm": "sha256(JSON.stringify(entries,null,2)+newline) after declared volatile-field normalization",
-  "manifest_sha256": "0424c0ea79ec945f27a25b4088f0558897314f95e6f63714f4b4c30a19aa8cdd",
+  "manifest_sha256": "c909b22dc277e9885f6a4781455835b53c5381097f730673da0b56adb83c3ded",
   "entries": [
     {
       "path": "app/globals.css",
@@ -14214,7 +14214,7 @@
     {
       "path": "out/version.json",
       "size_bytes": 159,
-      "sha256": "56775865c77c9557b3681474957968b70ea321171bcf9ffb815c07e01a5309d8",
+      "sha256": "94e5c80c90686558724f7cb99eedcfbfb74e7394ce5d382919f54e14002bcaff",
       "normalized": true,
       "normalization_ids": [
         "out-build-time-field-v1",
@@ -14230,8 +14230,8 @@
     },
     {
       "path": "package.json",
-      "size_bytes": 19211,
-      "sha256": "6eb20e7b1675bad9763d914a39f25d3fccd5b1ff032175d071acaf557be45965",
+      "size_bytes": 19319,
+      "sha256": "25bb57a2ebb1248dc1842acbe73c705071beaed59701ec5930c0f91338c462c5",
       "normalized": false,
       "normalization_ids": []
     },
@@ -14273,7 +14273,7 @@
     {
       "path": "public/version.json",
       "size_bytes": 159,
-      "sha256": "56775865c77c9557b3681474957968b70ea321171bcf9ffb815c07e01a5309d8",
+      "sha256": "94e5c80c90686558724f7cb99eedcfbfb74e7394ce5d382919f54e14002bcaff",
       "normalized": true,
       "normalization_ids": [
         "out-build-time-field-v1",
@@ -15530,6 +15530,13 @@
       "path": "scripts/verify-press-agent-discord-parked-broadcast-v1.cjs",
       "size_bytes": 1391,
       "sha256": "f7de413c05a873b0745bb50e89e8ce070c2e1d7b7c15aff51458fe2783cd0634",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/verify-press-agent-readonly-readiness-v1.cjs",
+      "size_bytes": 1679,
+      "sha256": "90265802cbf3e89ec5ae65fddd65392df00c4c61d30bd05fa75ca1c9eb489f52",
       "normalized": false,
       "normalization_ids": []
     },
