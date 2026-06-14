@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>What Quantum Pi Forge Does</title>
+  <meta name="description" content="A plain-language doorway explaining Quantum Pi Forge as a public proof engine for digital launches." />
+  <style>
+    body{margin:0;min-height:100vh;background:linear-gradient(180deg,#050816,#0b1020 55%,#111827);color:#f8fafc;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    main{padding:48px 20px}
+    section{max-width:980px;margin:0 auto}
+    .hero{text-align:center}
+    .eyebrow{color:#93c5fd;font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.82rem}
+    h1{font-size:clamp(2.2rem,6vw,5rem);line-height:1;margin:18px 0;letter-spacing:-.05em}
+    .sub{max-width:760px;margin:0 auto;color:#cbd5e1;font-size:clamp(1.1rem,2vw,1.35rem);line-height:1.55}
+    .buttons{margin:42px auto 0;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+    a.btn{display:inline-block;padding:13px 18px;border-radius:999px;font-weight:800;text-decoration:none}
+    .primary{background:#f8fafc;color:#020617}
+    .secondary{background:transparent;color:#f8fafc;border:1px solid rgba(248,250,252,.35)}
+    .panel{margin-top:64px;background:rgba(15,23,42,.82);border:1px solid rgba(148,163,184,.25);border-radius:28px;padding:28px;box-shadow:0 24px 80px rgba(0,0,0,.35)}
+    h2{font-size:clamp(1.7rem,4vw,2.7rem);margin:0 0 12px;letter-spacing:-.04em}
+    p{color:#cbd5e1;line-height:1.6}
+    .flow{display:flex;align-items:stretch;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .step{flex:1 1 150px;min-width:150px;background:rgba(2,6,23,.85);border:1px solid rgba(96,165,250,.35);border-radius:20px;padding:18px;text-align:center}
+    .step h3{margin:0 0 8px;color:#bfdbfe}
+    .step p{margin:0;font-size:.95rem;line-height:1.45}
+    .arrow{display:flex;align-items:center;justify-content:center;color:#60a5fa;font-size:1.8rem;font-weight:800}
+    .cards{margin-top:34px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+    .card{padding:22px;border-radius:22px;background:rgba(15,23,42,.8);border:1px solid rgba(148,163,184,.2)}
+    .card h3{margin-top:0;color:#e0f2fe}
+    .explain{margin-top:34px;padding:26px;border-radius:24px;background:rgba(30,41,59,.72);border:1px solid rgba(148,163,184,.22)}
+  </style>
+</head>
+<body>
+<main>
+  <section class="hero">
+    <p class="eyebrow">Plain-English Doorway</p>
+    <h1>Quantum Pi Forge is a public proof engine for digital launches.</h1>
+    <p class="sub">It shows what was built, what was verified, what is locked, and what still requires approval before anything goes live.</p>
+    <div class="buttons">
+      <a class="btn primary" href="#live-proof">See the simple proof flow</a>
+      <a class="btn secondary" href="https://github.com/onenoly1010/Quantum-pi-forge">Open the evidence repo</a>
+    </div>
+  </section>
+
+  <section class="panel" id="live-proof">
+    <h2>Think of it like a black box flight recorder for a launch.</h2>
+    <p>Digital projects can change files quietly, make unproven claims, or launch with hidden steps. Quantum Pi Forge creates a visible proof trail first, so people can inspect the state before activation.</p>
+    <div class="flow">
+      <div class="step"><h3>Builder</h3><p>Creates the system and commits the work.</p></div>
+      <div class="arrow">→</div>
+      <div class="step"><h3>Proof Receipts</h3><p>Records what was checked and what the result was.</p></div>
+      <div class="arrow">→</div>
+      <div class="step"><h3>Public Review</h3><p>Lets outside people inspect the evidence.</p></div>
+      <div class="arrow">→</div>
+      <div class="step"><h3>Operator Approval</h3><p>Requires explicit human approval for the next move.</p></div>
+      <div class="arrow">→</div>
+      <div class="step"><h3>Activation</h3><p>Only happens after proofs and approval are clear.</p></div>
+    </div>
+  </section>
+
+  <section class="cards">
+    <article class="card"><h3>What problem does it solve?</h3><p>It makes it harder for a project to claim it is ready when the evidence is missing, changed, or hidden.</p></article>
+    <article class="card"><h3>What can someone check?</h3><p>They can check the repo state, verification commands, receipts, locked status, and whether execution has happened.</p></article>
+    <article class="card"><h3>Why does it matter?</h3><p>Because trust should not depend only on promises. It should be backed by public, repeatable proof.</p></article>
+  </section>
+
+  <section class="explain">
+    <h2>One-minute explanation</h2>
+    <p>Quantum Pi Forge is for people who want to prove a digital system was built, checked, and held in a locked state before launch. Instead of saying “trust me,” it creates a public trail showing what happened, what passed, what is still blocked, and who must approve the next step.</p>
+  </section>
+</main>
+</body>
+</html>
