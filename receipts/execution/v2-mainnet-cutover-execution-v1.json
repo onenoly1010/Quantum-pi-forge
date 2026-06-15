@@ -1,0 +1,14 @@
+{
+  "receipt": "v2-mainnet-cutover-execution-v1",
+  "status": "success",
+  "executed_body": "contracts/script/BirthGenesisHeartbeat.s.sol",
+  "chain_id_required": 16661,
+  "rpc_url": "https://evmrpc.0g.ai",
+  "cutover_command_sha256": "37f8940d93130365e0bf395912b4eef134fa558db92c82c254b1f0af838a20a8",
+  "timestamp_utc": "2026-06-15T19:12:39.773Z",
+  "git_head": "89f3b904276055091e1651b13c371c0396880d91",
+  "stdout_log": "runtime/execution/v2-mainnet-cutover-20260615T191222Z.stdout.log",
+  "stderr_log": "runtime/execution/v2-mainnet-cutover-20260615T191222Z.stderr.log",
+  "stdout_sha256": "02fcfc7736bd443abc62674b27407d155a86c0ebefbbd606d7413f97f91ff005",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}
