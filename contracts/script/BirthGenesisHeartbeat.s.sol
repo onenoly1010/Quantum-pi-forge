@@ -8,15 +8,17 @@ import "../heartbeat/HeartbeatMonitor.sol";
 
 contract BirthGenesisHeartbeat is Script {
     function run() external {
+        require(block.chainid == 16661, "QPF: must run on 0G Aristotle Mainnet chain 16661");
         uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
+        address deployer = vm.addr(deployerPrivateKey);
         vm.startBroadcast(deployerPrivateKey);
 
         // Step 1: Deploy Token
-        OINIOToken token = new OINIOToken(msg.sender);
+        OINIOToken token = new OINIOToken(deployer);
         console.log(unicode"✅ OINIO Token Deployed at:", address(token));
 
         // Step 2: Deploy Registry
-        OINIOModelRegistry registry = new OINIOModelRegistry(address(token), msg.sender);
+        OINIOModelRegistry registry = new OINIOModelRegistry(address(token), deployer);
         console.log(unicode"✅ Model Registry Deployed at:", address(registry));
 
         // Step 3: Approve stake
@@ -30,7 +32,7 @@ contract BirthGenesisHeartbeat is Script {
         );
 
         // Step 5: Deploy Monitor contract
-        HeartbeatMonitor monitor = new HeartbeatMonitor(address(registry), msg.sender);
+        HeartbeatMonitor monitor = new HeartbeatMonitor(address(registry), deployer);
         console.log(unicode"✅ Heartbeat Monitor Deployed at:", address(monitor));
 
         // Step 6: Register first heartbeat
