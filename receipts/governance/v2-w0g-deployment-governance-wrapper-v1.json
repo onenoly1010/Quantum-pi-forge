@@ -1,0 +1,16 @@
+{
+  "receipt": "v2-w0g-deployment-governance-wrapper-v1",
+  "command": "npm run autonomous:v2-w0g-deployment:execute -- --require-command-hash --receipt receipts/execution/v2-w0g-deployment-execution-v1.json",
+  "command_sha256": "a2115f9e65809e37141526fb2b0883b0a1e93e0eb0690140e740853bc837ed21",
+  "execution_command_executed": true,
+  "execution_command_exit_code": 0,
+  "execution_log_file": "runtime/execution/v2-w0g-deployment-20260615T204830Z.stdout.log",
+  "execution_log_sha256": "0e41b538a82eba94caf055ee95371572a243112ca2da15b9eca6255344fb3cf7",
+  "stderr_log_file": "runtime/execution/v2-w0g-deployment-20260615T204830Z.stderr.log",
+  "stderr_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "execution_receipt_path": "receipts/execution/v2-w0g-deployment-execution-v1.json",
+  "execution_receipt_exists": true,
+  "deployment_scope": "W0G_ONLY",
+  "full_dex_deployment": false,
+  "timestamp_utc": "2026-06-15T20:48:47.941Z"
+}
