@@ -1,0 +1,20 @@
+{
+  "status": "PENDING_NO_BROADCAST",
+  "network": "0G Aristotle Mainnet",
+  "chainId": 16661,
+  "factory": "0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8",
+  "router": "0x2c70129E50BF88eCD59b89d63af2e8920aCF3951",
+  "w0g": "0xD1De4F87C8b195f21254b7163dDA9370D8Df593d",
+  "pair": {
+    "status": "NOT_SELECTED",
+    "tokenA": "TBD",
+    "tokenB": "TBD",
+    "pairAddress": "TBD"
+  },
+  "execution": {
+    "broadcast": false,
+    "txHash": "TBD",
+    "blockNumber": "TBD"
+  },
+  "boundary": "No pair creation, liquidity provisioning, approvals, transfers, feeTo changes, or broadcast in scaffold lane."
+}

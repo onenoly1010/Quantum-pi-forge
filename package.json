@@ -169,7 +169,8 @@
     "governance:v2-w0g-deployment-execution:v1:check": "node scripts/verify-v2-w0g-deployment-execution-v1.cjs",
     "autonomous:v2-full-dex-deployment:execute": "node scripts/v2-full-dex-deployment-execute.cjs",
     "governance:v2-full-dex-deployment-execution:v1:check": "node scripts/verify-v2-full-dex-deployment-execution-v1.cjs",
-    "governance:v2-pair-init-readiness:v1:check": "node scripts/verify-v2-pair-init-readiness-v1.cjs"
+    "governance:v2-pair-init-readiness:v1:check": "node scripts/verify-v2-pair-init-readiness-v1.cjs",
+    "governance:v2-pair-init-execution:v1:check": "node scripts/verify-v2-pair-init-execution-v1.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",
