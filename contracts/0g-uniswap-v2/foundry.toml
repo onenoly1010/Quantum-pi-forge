@@ -24,10 +24,10 @@ zero_g = "https://evmrpc.0g.ai"
 zero_g = { key = "${ETHERSCAN_API_KEY}", url = "https://chainscan.0g.ai/api" }
 
 # Build settings
-[build]
+[profile.build]
 cache = true
 force = false
 
 # Test settings
-[test]
+[profile.test]
 verbosity = 3
