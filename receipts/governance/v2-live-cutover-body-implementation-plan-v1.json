@@ -1,0 +1,10 @@
+{
+  "schema": "qpf.governance.v2_live_cutover_body_implementation_plan_v1",
+  "status": "LIVE_BODY_NOT_IMPLEMENTED_PATCH_PLAN_CREATED",
+  "generated_utc": "2026-06-15T18:32:41.658Z",
+  "git_head": "de7ab5d6341e6eae39c438dd869c50422b8ba61e",
+  "plan_path": "docs/governance/V2_LIVE_CUTOVER_BODY_IMPLEMENTATION_PLAN_V1.md",
+  "plan_sha256": "01db0423943bf58d2b8667385418b57384d15db6c59616663ebb567f053f47fe",
+  "execution_receipt_present": false,
+  "live_activation_complete": false
+}
