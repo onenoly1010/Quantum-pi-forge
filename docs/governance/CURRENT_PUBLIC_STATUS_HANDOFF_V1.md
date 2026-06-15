@@ -1,26 +1,39 @@
 # Current Public Status Handoff v1
 
-Generated: 2026-06-13T03:26:13Z  
-Canonical head: d607162  
-Full commit: d607162cf5e0145d23cdb98816d00401d6582810
+Generated: 2026-06-15T00:11:07Z  
+Canonical head: 134044b  
+Full commit: 134044b561707bef7b9e5824b72adc30a833992b
 
 ## Status
 
 Quantum Pi Forge / OINIO is currently in a sealed parked posture.
 
-The canonical repository state is green under local verification. There are no open pull requests remaining after closure of obsolete live-runner and live-comms lanes.
+The canonical repository state is green under local public/readiness verification after the Human Doorway public explanation lane. PR #339 added and deployed a plain-language entry point at `/what-it-does` so non-technical reviewers, funders, family, and public observers can understand the project before entering the deeper evidence chain.
+
+## Current public surface
+
+- Human Doorway live route: `https://50655cd7.quantumpiforge.pages.dev/what-it-does`
+- Legacy HTML route redirects cleanly: `/what-it-does.html` -> `/what-it-does`
+- Homepage contains the Human Doorway link.
+- Live proof log: `logs/live-human-doorway-proof-fixed-20260615T000510Z.log`
+- Public proof comment posted to the reviewer/release thread.
 
 ## What is verified
 
-- Cross-platform determinism verifier passes.
-- v2 sealed cutover command implementation repair verifier passes.
-- v2 final operator unpark approval receipt verifier passes.
-- v2 cutover execution command hash verifier passes.
-- v2 mainnet cutover execution verifier passes.
-- Fresh observer receipt verifier passes.
-- Runtime evidence index verifier passes.
-- Tedious worker repair verifier passes.
-- Evidence bundle verifier passes.
+- Human Doorway live proof passes with redirect following.
+- Current public status handoff verifier passes.
+- v2 public status endpoint verifier passes.
+- v2 public handoff route verifier passes.
+- v2 reviewer evidence index verifier passes.
+- Cross-platform determinism verifier remains part of the sealed proof surface.
+- v2 sealed cutover command implementation repair verifier remains part of the sealed proof surface.
+- v2 final operator unpark approval receipt verifier remains part of the sealed proof surface.
+- v2 cutover execution command hash verifier remains part of the sealed proof surface.
+- v2 mainnet cutover execution verifier remains part of the sealed proof surface.
+- Fresh observer receipt verifier remains part of the sealed proof surface.
+- Runtime evidence index verifier remains part of the sealed proof surface.
+- Tedious worker repair verifier remains part of the sealed proof surface.
+- Evidence bundle verifier remains part of the sealed proof surface.
 
 ## Boundary
 
@@ -44,11 +57,8 @@ receipts/execution/v2-mainnet-cutover-execution-v1.json
 
 ## Open PR posture
 
-At the time of this handoff, stale live-runner and live-comms pull requests were closed without merge.
-
-Future runner, broadcast, activation, or execution work must be opened as a new lane from the sealed canonical baseline with an explicit boundary proof.
+The Human Doorway lane has been merged and deployed as a public comprehension layer only. Future runner, broadcast, activation, or execution work must be opened as a new lane from the sealed canonical baseline with an explicit boundary proof.
 
 ## Intended audience
 
-This document is for reviewers, funders, maintainers, and public observers who need one current entry point showing the repository posture after PR #322 and the v1 lifecycle closure notice.
-
+This document is for reviewers, funders, maintainers, family, and public observers who need one current entry point showing the repository posture after PR #339 and the Human Doorway live proof.

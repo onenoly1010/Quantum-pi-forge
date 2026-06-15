@@ -1,20 +1,16 @@
 {
   "schema": "qpf.governance.current-public-status-handoff.v1",
-  "generated_utc": "2026-06-13T03:26:13Z",
-  "canonical_head": "d607162",
-  "canonical_commit": "d607162cf5e0145d23cdb98816d00401d6582810",
+  "generated_utc": "2026-06-15T00:11:07Z",
+  "canonical_head": "134044b",
+  "canonical_commit": "134044b561707bef7b9e5824b72adc30a833992b",
   "posture": "PARKED_PUBLIC_STATUS_HANDOFF_NO_UNPARK_NO_DEPLOY_NO_BROADCAST_NO_KEYS",
   "document": "docs/governance/CURRENT_PUBLIC_STATUS_HANDOFF_V1.md",
   "proof_commands": [
-    "npm run governance:cross-platform-determinism:v1:check",
-    "npm run governance:v2-sealed-cutover-command-implementation-repair:v1:check",
-    "npm run governance:v2-final-operator-unpark-approval:v1:check",
-    "npm run governance:v2-cutover-execution-command-hash:v1:check",
-    "npm run governance:v2-mainnet-cutover-execution:v1:check",
-    "npm run governance:pr-319-fresh-observer-receipt:v1:check",
-    "npm run local-autonomy:runtime-evidence-index:v1:check",
-    "npm run local-autonomy:tedious-worker-repair:v1:check",
-    "npm run verify:evidence"
+    "npm run governance:current-public-status-handoff:v1:check",
+    "npm run governance:v2-public-status-endpoint:v1:check",
+    "npm run governance:v2-public-handoff-route:v1:check",
+    "npm run governance:v2-reviewer-evidence-index:v1:check",
+    "curl -LfsS https://50655cd7.quantumpiforge.pages.dev/what-it-does | grep -q public proof engine for digital launches"
   ],
   "boundary": {
     "unpark_executed": false,
