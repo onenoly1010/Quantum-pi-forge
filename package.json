@@ -171,7 +171,8 @@
     "governance:v2-full-dex-deployment-execution:v1:check": "node scripts/verify-v2-full-dex-deployment-execution-v1.cjs",
     "governance:v2-pair-init-readiness:v1:check": "node scripts/verify-v2-pair-init-readiness-v1.cjs",
     "governance:v2-pair-init-execution:v1:check": "node scripts/verify-v2-pair-init-execution-v1.cjs",
-    "governance:v2-first-pair-selection:v1:check": "node scripts/verify-v2-first-pair-selection-v1.cjs"
+    "governance:v2-first-pair-selection:v1:check": "node scripts/verify-v2-first-pair-selection-v1.cjs",
+    "governance:0g-ship-skill-ingest:v1:check": "node scripts/verify-0g-ship-skill-ingest-v1.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",
