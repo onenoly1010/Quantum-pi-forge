@@ -14,7 +14,14 @@ if (!fs.existsSync(receiptPath)) fail("missing execution receipt");
 
 const r = JSON.parse(fs.readFileSync(receiptPath, "utf8"));
 if (r.receipt !== "v2-w0g-deployment-execution-v1") fail("bad receipt id");
-if (r.status !== "success") fail("status is not success");
+if (!["success", "dry_run"].includes(r.status)) fail("status must be success or dry_run");
+if (r.status === "dry_run") {
+  if (r.dry_run !== true) fail("dry_run receipt missing dry_run=true");
+  if (r.no_broadcast !== true) fail("dry_run receipt missing no_broadcast=true");
+  if (r.no_wallet_signing !== true) fail("dry_run receipt missing no_wallet_signing=true");
+  if (r.no_state_change !== true) fail("dry_run receipt missing no_state_change=true");
+  if (!r.would_run || !r.would_run.includes("deployW0GOnly()")) fail("dry_run receipt missing sealed would_run body");
+}
 if (r.chain_id_required !== 16661) fail("bad chain id");
 if (r.deployment_scope !== "W0G_ONLY") fail("deployment scope must be W0G_ONLY");
 if (r.full_dex_deployment !== false) fail("full_dex_deployment must be false");
