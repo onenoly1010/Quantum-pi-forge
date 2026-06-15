@@ -1,10 +1,11 @@
 {
   "receipt": "v2-full-dex-deployment-execution-v1",
-  "status": "dry_run",
-  "dry_run": true,
-  "no_broadcast": true,
-  "no_wallet_signing": true,
-  "no_state_change": true,
+  "status": "success",
+  "dry_run": false,
+  "no_broadcast": false,
+  "no_wallet_signing": false,
+  "no_state_change": false,
+  "state_change": true,
   "chain_id_required": 16661,
   "chain_id_observed": 16661,
   "rpc_url": "https://evmrpc.0g.ai",
@@ -23,7 +24,13 @@
   "predicted_factory": "0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8",
   "predicted_router": "0x2c70129E50BF88eCD59b89d63af2e8920aCF3951",
   "pair_init_code_hash": "0x0ee982e687af41950da5a27ca2e6e2dd7817c9186efbe5fc30f1f40f72d39853",
-  "command": "npm run autonomous:v2-full-dex-deployment:execute -- --dry-run --require-command-hash --receipt receipts/execution/v2-full-dex-deployment-execution-v1.json",
-  "command_sha256": "c97c6d0ae1b3686d3b168aa3862a94e52c39068a1ad715b9053b6bb70e4607b6",
-  "timestamp_utc": "2026-06-15T21:09:15.167Z"
+  "command": "npm run autonomous:v2-full-dex-deployment:execute -- --require-command-hash --receipt receipts/execution/v2-full-dex-deployment-execution-v1.json",
+  "command_sha256": "935f55942bdd614332a29d10afae74f825df2dada953fbc66ac7869277eed2f9",
+  "factory_deployment_tx_hash": "0xde4534d39d625dbf19bc9fe5b8f8d2190a10fa38b07a505434f2151e1a51a531",
+  "router_deployment_tx_hash": "0x18db81bf5707aa966311c76526750a6b15f42d142f463bae05582bf268e3fb7e",
+  "factory_deployment_block": 36225254,
+  "router_deployment_block": 36225268,
+  "factory_code_size_bytes": 18951,
+  "router_code_size_bytes": 18953,
+  "timestamp_utc": "2026-06-15T22:28:50.784Z"
 }
