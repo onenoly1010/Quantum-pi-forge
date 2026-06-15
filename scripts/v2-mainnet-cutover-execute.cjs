@@ -46,6 +46,11 @@ if (dryRun) {
 }
 
 if (!process.env.PRIVATE_KEY) block(6, "PRIVATE_KEY env not present");
+const privateKey = String(process.env.PRIVATE_KEY).trim();
+const normalizedPrivateKey = privateKey.startsWith("0x") ? privateKey.slice(2) : privateKey;
+if (!/^[0-9a-fA-F]{64}$/.test(normalizedPrivateKey)) block(6, "PRIVATE_KEY env is not a valid 32-byte hex key");
+if (/^0+$/.test(normalizedPrivateKey)) block(6, "PRIVATE_KEY env cannot be zero");
+process.env.PRIVATE_KEY = "0x" + normalizedPrivateKey;
 fs.mkdirSync("runtime/execution", { recursive: true });
 fs.mkdirSync("receipts/execution", { recursive: true });
 fs.mkdirSync("receipts/governance", { recursive: true });
