@@ -39,10 +39,56 @@ console.log("receipt_path=" + EXPECTED_RECEIPT);
 console.log("scope=W0G_ONLY");
 console.log("full_dex_deployment=false");
 
+fs.mkdirSync("runtime/execution", { recursive: true });
+fs.mkdirSync("receipts/execution", { recursive: true });
+fs.mkdirSync("receipts/governance", { recursive: true });
+
+const stamp = new Date().toISOString().replace(/[-:.]/g, "").replace("T", "T").slice(0, 15) + "Z";
+const stdoutLog = `runtime/execution/v2-w0g-deployment-${stamp}.stdout.log`;
+const stderrLog = `runtime/execution/v2-w0g-deployment-${stamp}.stderr.log`;
+
 if (dryRun) {
   console.log("DRY_RUN=true");
   console.log("No W0G deployment executed. No broadcast executed. No wallet signing executed. No state-changing transaction executed.");
   console.log("Would run: cd contracts/0g-uniswap-v2 && forge " + forgeArgs.join(" "));
+
+  const dryStdout = [
+    "DRY_RUN=true",
+    "No W0G deployment executed.",
+    "No broadcast executed.",
+    "No wallet signing executed.",
+    "No state-changing transaction executed.",
+    "Would run: cd contracts/0g-uniswap-v2 && forge " + forgeArgs.join(" ")
+  ].join("\n") + "\n";
+
+  fs.writeFileSync(stdoutLog, dryStdout);
+  fs.writeFileSync(stderrLog, "");
+
+  const dryRunReceipt = {
+    receipt: "v2-w0g-deployment-execution-v1",
+    status: "dry_run",
+    dry_run: true,
+    no_broadcast: true,
+    no_wallet_signing: true,
+    no_state_change: true,
+    executed_body: "contracts/0g-uniswap-v2/script/Deploy.s.sol:Deploy.deployW0GOnly()",
+    would_run: "cd contracts/0g-uniswap-v2 && forge " + forgeArgs.join(" "),
+    chain_id_required: 16661,
+    rpc_url: rpcUrl,
+    deployment_scope: "W0G_ONLY",
+    full_dex_deployment: false,
+    command_sha256: EXPECTED_HASH,
+    timestamp_utc: new Date().toISOString(),
+    git_head: spawnSync("git", ["rev-parse", "HEAD"], { encoding: "utf8" }).stdout.trim(),
+    stdout_log: stdoutLog,
+    stderr_log: stderrLog,
+    stdout_sha256: sha256File(stdoutLog),
+    stderr_sha256: sha256File(stderrLog)
+  };
+
+  fs.writeFileSync(EXPECTED_RECEIPT, JSON.stringify(dryRunReceipt, null, 2) + "\n");
+  console.log("PASS v2-w0g-deployment-execute dry-run");
+  console.log("W0G_DRY_RUN_RECEIPT_PRESENT=true");
   process.exit(0);
 }
 
@@ -52,14 +98,6 @@ const normalizedPrivateKey = privateKey.startsWith("0x") ? privateKey.slice(2) :
 if (!/^[0-9a-fA-F]{64}$/.test(normalizedPrivateKey)) block(6, "PRIVATE_KEY env is not a valid 32-byte hex key");
 if (/^0+$/.test(normalizedPrivateKey)) block(6, "PRIVATE_KEY env cannot be zero");
 process.env.PRIVATE_KEY = "0x" + normalizedPrivateKey;
-
-fs.mkdirSync("runtime/execution", { recursive: true });
-fs.mkdirSync("receipts/execution", { recursive: true });
-fs.mkdirSync("receipts/governance", { recursive: true });
-
-const stamp = new Date().toISOString().replace(/[-:.]/g, "").replace("T", "T").slice(0, 15) + "Z";
-const stdoutLog = `runtime/execution/v2-w0g-deployment-${stamp}.stdout.log`;
-const stderrLog = `runtime/execution/v2-w0g-deployment-${stamp}.stderr.log`;
 
 console.log("Executing: cd contracts/0g-uniswap-v2 && forge " + forgeArgs.join(" "));
 const result = spawnSync("forge", forgeArgs, {

@@ -1,0 +1,21 @@
+{
+  "receipt": "v2-w0g-deployment-execution-v1",
+  "status": "dry_run",
+  "dry_run": true,
+  "no_broadcast": true,
+  "no_wallet_signing": true,
+  "no_state_change": true,
+  "executed_body": "contracts/0g-uniswap-v2/script/Deploy.s.sol:Deploy.deployW0GOnly()",
+  "would_run": "cd contracts/0g-uniswap-v2 && forge script script/Deploy.s.sol:Deploy --sig deployW0GOnly() --rpc-url https://evmrpc.0g.ai --broadcast",
+  "chain_id_required": 16661,
+  "rpc_url": "https://evmrpc.0g.ai",
+  "deployment_scope": "W0G_ONLY",
+  "full_dex_deployment": false,
+  "command_sha256": "a2115f9e65809e37141526fb2b0883b0a1e93e0eb0690140e740853bc837ed21",
+  "timestamp_utc": "2026-06-15T20:01:04.691Z",
+  "git_head": "1a06e81e3324fa30c50458ed6c2771ddeaa7173d",
+  "stdout_log": "runtime/execution/v2-w0g-deployment-20260615T200104Z.stdout.log",
+  "stderr_log": "runtime/execution/v2-w0g-deployment-20260615T200104Z.stderr.log",
+  "stdout_sha256": "81968dde6f1e294bc5a35cf66ccc0bc4c6b283d730d779350f242518cd711688",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}
