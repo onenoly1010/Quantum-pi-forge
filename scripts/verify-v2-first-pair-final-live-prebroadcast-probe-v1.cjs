@@ -1,0 +1,22 @@
+const fs = require("fs");
+const selectionPath = "receipts/execution/v2-first-pair-final-execution-command-selection-v1.json";
+const probePath = "receipts/execution/v2-first-pair-final-live-prebroadcast-probe-v1.json";
+function fail(m){ console.error("FAIL v2-first-pair-final-live-prebroadcast-probe-v1:", m); process.exit(1); }
+if (fs.existsSync(selectionPath) === false) fail("missing final command selection receipt");
+if (fs.existsSync(probePath) === false) fail("missing final live prebroadcast probe receipt");
+const selection = JSON.parse(fs.readFileSync(selectionPath, "utf8"));
+const probe = JSON.parse(fs.readFileSync(probePath, "utf8"));
+if (selection.status !== "FINAL_EXECUTION_COMMAND_SELECTED_NO_BROADCAST") fail("final command not selected");
+if (probe.schema !== "qpf.v2.first-pair-final-live-prebroadcast-probe.v1") fail("bad schema");
+if (probe.status !== "FINAL_LIVE_PREFLIGHT_READY_NO_BROADCAST") fail("bad status");
+if (probe.chainId !== 16661) fail("bad chainId");
+if (probe.selectedCommandHash !== selection.selectedTransaction.commandHash) fail("command hash mismatch");
+if (probe.selectionHash !== selection.selectionHash) fail("selection hash mismatch");
+if (probe.factory !== "0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8") fail("bad factory");
+if (probe.tokenA !== "0xD1De4F87C8b195f21254b7163dDA9370D8Df593d") fail("bad tokenA");
+if (probe.tokenB !== "0x1f3aa82227281ca364bfb3d253b0f1af1da6473e") fail("bad tokenB");
+if (probe.liveFactoryGetPair !== "0x0000000000000000000000000000000000000000") fail("live getPair nonzero");
+if (probe.pairExists !== false) fail("pairExists must be false");
+for (const k of ["factory","tokenA","tokenB"]) if (probe.codePresent[k] !== true) fail("missing code for " + k);
+for (const k of ["privateKeyUsed","broadcast","approvals","transfers","liquidityAdded","createPairCalled","feeToMutation"]) if (probe.boundaries[k] !== false) fail("boundary not false: " + k);
+console.log("PASS v2-first-pair-final-live-prebroadcast-probe-v1");
