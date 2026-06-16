@@ -177,7 +177,9 @@
     "probe:v2-first-pair-metadata:v1": "node scripts/probe-v2-first-pair-metadata-v1.cjs",
     "governance:v2-first-pair-metadata-probe:v1:check": "node scripts/verify-v2-first-pair-metadata-probe-v1.cjs",
     "governance:v2-first-pair-tokenb-candidate-discovery:v1:check": "node scripts/verify-v2-first-pair-tokenb-candidate-discovery-v1.cjs",
-    "governance:v2-first-pair-init-preflight-audit:v1:check": "node scripts/verify-v2-first-pair-init-preflight-audit-v1.cjs"
+    "governance:v2-first-pair-init-preflight-audit:v1:check": "node scripts/verify-v2-first-pair-init-preflight-audit-v1.cjs",
+    "governance:v2-first-pair-init-command-hash:v1:check": "node scripts/verify-v2-first-pair-init-command-hash-v1.cjs",
+    "governance:v2-first-pair-init-command-hash:v1:generate": "node scripts/generate-v2-first-pair-init-command-hash-v1.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",

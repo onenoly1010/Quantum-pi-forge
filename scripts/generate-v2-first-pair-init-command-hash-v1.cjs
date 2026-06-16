@@ -1,0 +1,13 @@
+const fs = require("fs");
+const ethers = require("ethers");
+const OUT = "receipts/execution/v2-first-pair-init-command-hash-v1.json";
+const tokenA = "0xD1De4F87C8b195f21254b7163dDA9370D8Df593d";
+const tokenB = "0x1f3aa82227281ca364bfb3d253b0f1af1da6473e";
+const factory = "0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8";
+const iface = new ethers.Interface(["function createPair(address tokenA,address tokenB) returns (address pair)"]);
+const calldata = iface.encodeFunctionData("createPair", [tokenA, tokenB]);
+const command = { chainId:16661, network:"0G Aristotle Mainnet", target:factory, action:"FACTORY_CREATE_PAIR", functionSignature:"createPair(address,address)", tokenA, tokenB, calldata };
+const commandHash = ethers.keccak256(ethers.toUtf8Bytes(JSON.stringify(command)));
+const receipt = { schema:"qpf.v2.first-pair-init-command-hash.v1", status:"COMMAND_HASH_SEALED_NO_BROADCAST", commandHash, command, boundaries:{ privateKeyUsed:false, broadcast:false, approvals:false, transfers:false, liquidityAdded:false, createPairCalled:false, feeToMutation:false }, generatedAt:new Date().toISOString() };
+fs.writeFileSync(OUT, JSON.stringify(receipt, null, 2) + "\n");
+console.log(JSON.stringify(receipt, null, 2));

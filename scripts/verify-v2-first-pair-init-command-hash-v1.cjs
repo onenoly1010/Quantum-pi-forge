@@ -1,0 +1,26 @@
+const fs = require("fs");
+const ethers = require("ethers");
+const receiptPath = "receipts/execution/v2-first-pair-metadata-probe-v1.json";
+const hashPath = "receipts/execution/v2-first-pair-init-command-hash-v1.json";
+function fail(m){ console.error("FAIL v2-first-pair-init-command-hash-v1:", m); process.exit(1); }
+if (fs.existsSync(receiptPath) === false) fail("missing metadata probe receipt");
+if (fs.existsSync(hashPath) === false) fail("missing command hash receipt");
+const probe = JSON.parse(fs.readFileSync(receiptPath, "utf8"));
+const h = JSON.parse(fs.readFileSync(hashPath, "utf8"));
+if (probe.status !== "READ_ONLY_PROBE_COMPLETE_NO_BROADCAST") fail("metadata probe not sealed");
+if (probe.pairExists !== false) fail("pair already exists");
+if (probe.factoryGetPair !== "0x0000000000000000000000000000000000000000") fail("factory getPair is nonzero");
+if (h.schema !== "qpf.v2.first-pair-init-command-hash.v1") fail("bad schema");
+if (h.status !== "COMMAND_HASH_SEALED_NO_BROADCAST") fail("bad status");
+if (h.command.chainId !== 16661) fail("bad chainId");
+if (h.command.target !== "0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8") fail("bad factory target");
+if (h.command.tokenA !== "0xD1De4F87C8b195f21254b7163dDA9370D8Df593d") fail("bad tokenA");
+if (h.command.tokenB !== "0x1f3aa82227281ca364bfb3d253b0f1af1da6473e") fail("bad tokenB");
+if (h.command.functionSignature !== "createPair(address,address)") fail("bad function signature");
+const iface = new ethers.Interface(["function createPair(address tokenA,address tokenB) returns (address pair)"]);
+const expectedCalldata = iface.encodeFunctionData("createPair", [h.command.tokenA, h.command.tokenB]);
+if (h.command.calldata !== expectedCalldata) fail("bad calldata");
+const expectedHash = ethers.keccak256(ethers.toUtf8Bytes(JSON.stringify(h.command)));
+if (h.commandHash !== expectedHash) fail("bad command hash");
+for (const k of ["privateKeyUsed","broadcast","approvals","transfers","liquidityAdded","createPairCalled","feeToMutation"]) if (h.boundaries[k] !== false) fail("boundary not false: " + k);
+console.log("PASS v2-first-pair-init-command-hash-v1");
