@@ -1,0 +1,139 @@
+{
+  "auditReportVersion": 2,
+  "vulnerabilities": {
+    "esbuild": {
+      "name": "esbuild",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1120679,
+          "name": "esbuild",
+          "dependency": "esbuild",
+          "title": "esbuild: Missing binary integrity verification in Deno module enables remote code execution via NPM_CONFIG_REGISTRY",
+          "url": "https://github.com/advisories/GHSA-gv7w-rqvm-qjhr",
+          "severity": "high",
+          "cwe": [
+            "CWE-426",
+            "CWE-494"
+          ],
+          "cvss": {
+            "score": 8.1,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H"
+          },
+          "range": ">=0.17.0 <0.28.1"
+        },
+        {
+          "source": 1120680,
+          "name": "esbuild",
+          "dependency": "esbuild",
+          "title": "esbuild allows arbitrary file read when running the development server on Windows",
+          "url": "https://github.com/advisories/GHSA-g7r4-m6w7-qqqr",
+          "severity": "low",
+          "cwe": [
+            "CWE-22"
+          ],
+          "cvss": {
+            "score": 2.5,
+            "vectorString": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N"
+          },
+          "range": ">=0.27.3 <0.28.1"
+        }
+      ],
+      "effects": [
+        "tsx",
+        "wrangler"
+      ],
+      "range": "0.17.0 - 0.28.0",
+      "nodes": [
+        "node_modules/esbuild",
+        "node_modules/wrangler/node_modules/esbuild"
+      ],
+      "fixAvailable": {
+        "name": "wrangler",
+        "version": "3.6.0",
+        "isSemVerMajor": true
+      }
+    },
+    "protobufjs": {
+      "name": "protobufjs",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1120742,
+          "name": "protobufjs",
+          "dependency": "protobufjs",
+          "title": "protobufjs : Schema-derived names can shadow runtime-significant properties",
+          "url": "https://github.com/advisories/GHSA-f38q-mgvj-vph7",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-674",
+            "CWE-754"
+          ],
+          "cvss": {
+            "score": 5.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+          },
+          "range": "<=7.6.2"
+        }
+      ],
+      "effects": [],
+      "range": "<=7.6.2",
+      "nodes": [
+        "node_modules/protobufjs"
+      ],
+      "fixAvailable": true
+    },
+    "tsx": {
+      "name": "tsx",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "esbuild"
+      ],
+      "effects": [],
+      "range": "3.13.0 - 4.21.1",
+      "nodes": [
+        "node_modules/tsx"
+      ],
+      "fixAvailable": true
+    },
+    "wrangler": {
+      "name": "wrangler",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "esbuild"
+      ],
+      "effects": [],
+      "range": "<=0.0.0-kickoff-demo || >=3.7.0",
+      "nodes": [
+        "node_modules/wrangler"
+      ],
+      "fixAvailable": {
+        "name": "wrangler",
+        "version": "3.6.0",
+        "isSemVerMajor": true
+      }
+    }
+  },
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 1,
+      "high": 3,
+      "critical": 0,
+      "total": 4
+    },
+    "dependencies": {
+      "prod": 64,
+      "dev": 225,
+      "optional": 90,
+      "peer": 0,
+      "peerOptional": 0,
+      "total": 322
+    }
+  }
+}

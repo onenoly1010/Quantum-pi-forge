@@ -1,0 +1,30 @@
+# npm audit report
+
+esbuild  0.17.0 - 0.28.0
+Severity: high
+esbuild: Missing binary integrity verification in Deno module enables remote code execution via NPM_CONFIG_REGISTRY - https://github.com/advisories/GHSA-gv7w-rqvm-qjhr
+esbuild allows arbitrary file read when running the development server on Windows - https://github.com/advisories/GHSA-g7r4-m6w7-qqqr
+fix available via `npm audit fix --force`
+Will install wrangler@3.6.0, which is a breaking change
+node_modules/esbuild
+node_modules/wrangler/node_modules/esbuild
+  tsx  3.13.0 - 4.21.1
+  Depends on vulnerable versions of esbuild
+  node_modules/tsx
+  wrangler  <=0.0.0-kickoff-demo || >=3.7.0
+  Depends on vulnerable versions of esbuild
+  node_modules/wrangler
+
+protobufjs  <=7.6.2
+Severity: moderate
+protobufjs : Schema-derived names can shadow runtime-significant properties - https://github.com/advisories/GHSA-f38q-mgvj-vph7
+fix available via `npm audit fix`
+node_modules/protobufjs
+
+4 vulnerabilities (1 moderate, 3 high)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
