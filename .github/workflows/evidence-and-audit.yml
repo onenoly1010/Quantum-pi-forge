@@ -1,0 +1,29 @@
+name: Evidence and Dependency Audit
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  verify-evidence-and-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify evidence bundle
+        run: npm run verify:evidence
+
+      - name: Enforce high-severity audit gate
+        run: npm audit --audit-level=high
