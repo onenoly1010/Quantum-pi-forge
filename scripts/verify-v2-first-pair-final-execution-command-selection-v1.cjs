@@ -1,0 +1,24 @@
+const fs = require("fs");
+const ethers = require("ethers");
+const hashPath = "receipts/execution/v2-first-pair-init-command-hash-v1.json";
+const selectionPath = "receipts/execution/v2-first-pair-final-execution-command-selection-v1.json";
+function fail(m){ console.error("FAIL v2-first-pair-final-execution-command-selection-v1:", m); process.exit(1); }
+if (fs.existsSync(hashPath) === false) fail("missing command hash receipt");
+if (fs.existsSync(selectionPath) === false) fail("missing final command selection receipt");
+const h = JSON.parse(fs.readFileSync(hashPath, "utf8"));
+const s = JSON.parse(fs.readFileSync(selectionPath, "utf8"));
+if (h.status !== "COMMAND_HASH_SEALED_NO_BROADCAST") fail("command hash not sealed");
+if (s.schema !== "qpf.v2.first-pair-final-execution-command-selection.v1") fail("bad schema");
+if (s.status !== "FINAL_EXECUTION_COMMAND_SELECTED_NO_BROADCAST") fail("bad status");
+if (s.selectedTransaction.commandHash !== h.commandHash) fail("command hash mismatch");
+if (s.selectedTransaction.chainId !== 16661) fail("bad chainId");
+if (s.selectedTransaction.target !== "0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8") fail("bad factory target");
+if (s.selectedTransaction.valueWei !== "0") fail("nonzero value");
+if (s.selectedTransaction.calldata !== h.command.calldata) fail("calldata mismatch");
+if (s.selectedTransaction.futureCommandTemplate.includes("cast send") === false) fail("missing cast send template");
+if (s.selectedTransaction.futureCommandTemplate.includes("$PRIVATE_KEY") === false) fail("template must require runtime private key");
+if (s.selectedTransaction.requiredFinalLiveChecks.includes("factory.getPair(W0G, USDC.e) is zero address immediately before broadcast") === false) fail("missing final getPair check");
+const expectedSelectionHash = ethers.keccak256(ethers.toUtf8Bytes(JSON.stringify(s.selectedTransaction)));
+if (s.selectionHash !== expectedSelectionHash) fail("bad selection hash");
+for (const k of ["privateKeyUsed","broadcast","approvals","transfers","liquidityAdded","createPairCalled","feeToMutation"]) if (s.boundaries[k] !== false) fail("boundary not false: " + k);
+console.log("PASS v2-first-pair-final-execution-command-selection-v1");
