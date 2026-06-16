@@ -1,0 +1,53 @@
+{
+  "schema": "qpf.governance.liquidity-approval-command-hash-blocked.v1",
+  "status": "APPROVAL_COMMAND_HASH_BLOCKED_UNTIL_FUNDED",
+  "generatedAt": "2026-06-16T03:43:54.137Z",
+  "sourceFundingPlan": "receipts/governance/liquidity-funding-plan-v1.json",
+  "owner": "0x335651BD160fDA89C9E7A095dF9Dc1BB9f3cF4DC",
+  "pair": "0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE",
+  "router": "0x2c70129E50BF88eCD59b89d63af2e8920aCF3951",
+  "tokenA": {
+    "address": "0xD1De4F87C8b195f21254b7163dDA9370D8Df593d",
+    "symbol": "W0G",
+    "decimals": 18,
+    "currentBalance": "0.0",
+    "currentAllowanceToRouter": "0.0"
+  },
+  "tokenB": {
+    "address": "0x1f3aa82227281ca364bfb3d253b0f1af1da6473e",
+    "symbol": "USDC.e",
+    "decimals": 6,
+    "currentBalance": "0.0",
+    "currentAllowanceToRouter": "0.0"
+  },
+  "blockingReasons": [
+    "Owner W0G balance is zero",
+    "Owner USDC.e balance is zero",
+    "Exact intended approval amounts are not known",
+    "Approval command hash must not be generated from zero balances or guessed amounts"
+  ],
+  "nextAllowedActions": [
+    "Fund owner with nonzero W0G",
+    "Fund owner with nonzero USDC.e",
+    "Re-run read-only liquidity readiness preflight",
+    "Generate approval command hash only after balances and intended amounts are known"
+  ],
+  "boundary": {
+    "privateKeyUsed": false,
+    "broadcast": false,
+    "approvals": false,
+    "transfers": false,
+    "liquidityAdded": false,
+    "routerMutation": false,
+    "factoryMutation": false
+  },
+  "explicitNonGoals": [
+    "No private key use",
+    "No broadcast",
+    "No approvals",
+    "No transfers",
+    "No liquidity added",
+    "No router mutation",
+    "No factory mutation"
+  ]
+}
