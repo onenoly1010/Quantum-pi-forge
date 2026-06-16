@@ -1,0 +1,31 @@
+{
+  "schema": "qpf.v2.first-pair-final-execution-command-selection.v1",
+  "status": "FINAL_EXECUTION_COMMAND_SELECTED_NO_BROADCAST",
+  "selectionHash": "0x428d21299bbc299bccda2f6362009718244a90ef7f1af78738d71849168f5691",
+  "selectedTransaction": {
+    "chainId": 16661,
+    "network": "0G Aristotle Mainnet",
+    "target": "0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8",
+    "valueWei": "0",
+    "calldata": "0xc9c65396000000000000000000000000d1de4f87c8b195f21254b7163dda9370d8df593d0000000000000000000000001f3aa82227281ca364bfb3d253b0f1af1da6473e",
+    "commandHash": "0x8fd440c3e5304c456986b3cb435dd674d4118b73b4f0e5266d4452bc270948bf",
+    "futureCommandTemplate": "cast send --rpc-url https://evmrpc.0g.ai --chain 16661 0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8 \"createPair(address,address)\" 0xD1De4F87C8b195f21254b7163dDA9370D8Df593d 0x1f3aa82227281ca364bfb3d253b0f1af1da6473e --private-key \"$PRIVATE_KEY\"",
+    "requiredFinalLiveChecks": [
+      "chainId is 16661 immediately before broadcast",
+      "factory.getPair(W0G, USDC.e) is zero address immediately before broadcast",
+      "operator private key is supplied only at execution time",
+      "operator explicitly confirms live broadcast",
+      "no approvals, transfers, liquidity, or feeTo mutation are bundled"
+    ]
+  },
+  "boundaries": {
+    "privateKeyUsed": false,
+    "broadcast": false,
+    "approvals": false,
+    "transfers": false,
+    "liquidityAdded": false,
+    "createPairCalled": false,
+    "feeToMutation": false
+  },
+  "generatedAt": "2026-06-16T00:50:01.185Z"
+}

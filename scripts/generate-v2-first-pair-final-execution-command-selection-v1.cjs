@@ -1,0 +1,10 @@
+const fs = require("fs");
+const ethers = require("ethers");
+const IN = "receipts/execution/v2-first-pair-init-command-hash-v1.json";
+const OUT = "receipts/execution/v2-first-pair-final-execution-command-selection-v1.json";
+const h = JSON.parse(fs.readFileSync(IN, "utf8"));
+const selectedTransaction = { chainId:h.command.chainId, network:h.command.network, target:h.command.target, valueWei:"0", calldata:h.command.calldata, commandHash:h.commandHash, futureCommandTemplate:`cast send --rpc-url https://evmrpc.0g.ai --chain 16661 ${h.command.target} "createPair(address,address)" ${h.command.tokenA} ${h.command.tokenB} --private-key "$PRIVATE_KEY"`, requiredFinalLiveChecks:["chainId is 16661 immediately before broadcast", "factory.getPair(W0G, USDC.e) is zero address immediately before broadcast", "operator private key is supplied only at execution time", "operator explicitly confirms live broadcast", "no approvals, transfers, liquidity, or feeTo mutation are bundled"] };
+const selectionHash = ethers.keccak256(ethers.toUtf8Bytes(JSON.stringify(selectedTransaction)));
+const receipt = { schema:"qpf.v2.first-pair-final-execution-command-selection.v1", status:"FINAL_EXECUTION_COMMAND_SELECTED_NO_BROADCAST", selectionHash, selectedTransaction, boundaries:{ privateKeyUsed:false, broadcast:false, approvals:false, transfers:false, liquidityAdded:false, createPairCalled:false, feeToMutation:false }, generatedAt:new Date().toISOString() };
+fs.writeFileSync(OUT, JSON.stringify(receipt, null, 2) + "\n");
+console.log(JSON.stringify(receipt, null, 2));
