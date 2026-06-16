@@ -1,0 +1,33 @@
+{
+  "schema": "qpf.v2.first-pair-metadata-probe.v1",
+  "status": "READ_ONLY_PROBE_COMPLETE_NO_BROADCAST",
+  "network": "0G Aristotle Mainnet",
+  "chainId": 16661,
+  "rpcUrl": "https://evmrpc.0g.ai",
+  "factory": "0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8",
+  "router": "0x2c70129E50BF88eCD59b89d63af2e8920aCF3951",
+  "tokenA": {
+    "address": "0xD1De4F87C8b195f21254b7163dDA9370D8Df593d",
+    "name": "Wrapped 0G",
+    "symbol": "W0G",
+    "decimals": 18
+  },
+  "tokenB": {
+    "address": "0x1f3aa82227281ca364bfb3d253b0f1af1da6473e",
+    "name": "Bridged USDC",
+    "symbol": "USDC.e",
+    "decimals": 6
+  },
+  "factoryGetPair": "0x0000000000000000000000000000000000000000",
+  "pairExists": false,
+  "boundaries": {
+    "privateKeyUsed": false,
+    "broadcast": false,
+    "approvals": false,
+    "transfers": false,
+    "liquidityAdded": false,
+    "createPairCalled": false,
+    "feeToMutation": false
+  },
+  "generatedAt": "2026-06-16T00:21:21.625Z"
+}

@@ -24,7 +24,6 @@ async function readToken(contract){ const [name, symbol, decimals] = await Promi
   const [tokenAInfo, tokenBInfo, pair] = await Promise.all([readToken(w0g), readToken(tokenB), factory.getPair(W0G, TOKEN_B)]);
   const receipt = { schema: 'qpf.v2.first-pair-metadata-probe.v1', status: 'READ_ONLY_PROBE_COMPLETE_NO_BROADCAST', network: '0G Aristotle Mainnet', chainId: CHAIN_ID, rpcUrl: RPC_URL, factory: FACTORY, router: ROUTER, tokenA: tokenAInfo, tokenB: tokenBInfo, factoryGetPair: pair, pairExists: pair !== ethers.ZeroAddress, boundaries: { privateKeyUsed: false, broadcast: false, approvals: false, transfers: false, liquidityAdded: false, createPairCalled: false, feeToMutation: false }, generatedAt: new Date().toISOString() };
   fs.mkdirSync('receipts/execution', { recursive: true });
-  fs.writeFileSync(OUT, JSON.stringify(receipt, null, 2) + '
-');
+  fs.writeFileSync(OUT, JSON.stringify(receipt, null, 2) + '\n');
   console.log(JSON.stringify(receipt, null, 2));
 })().catch(e => fail(e && e.message ? e.message : String(e)));
