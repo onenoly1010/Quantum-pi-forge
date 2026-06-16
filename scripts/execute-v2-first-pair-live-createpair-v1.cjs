@@ -1,0 +1,45 @@
+const fs = require("fs");
+const ethers = require("ethers");
+const SELECTION = "receipts/execution/v2-first-pair-final-execution-command-selection-v1.json";
+const OUT = "receipts/execution/v2-first-pair-live-createpair-execution-v1.json";
+const RPC = "https://evmrpc.0g.ai";
+const CONFIRM = "CREATEPAIR_LIVE_ON_0G";
+const zero = "0x0000000000000000000000000000000000000000";
+const factoryAbi = ["function getPair(address,address) view returns (address)", "function createPair(address,address) returns (address)"];
+function need(ok, msg) { if (!ok) throw new Error(msg); }
+async function main() {
+  need(process.env.QPF_LIVE_CONFIRM === CONFIRM, "missing local live confirmation gate");
+  const rawKey = String(process.env.PRIVATE_KEY || "").trim();
+  need(rawKey.length >= 32, "PRIVATE_KEY env var missing or too short");
+  const privateKey = rawKey.startsWith("0x") ? rawKey : "0x" + rawKey;
+  const selection = JSON.parse(fs.readFileSync(SELECTION, "utf8"));
+  const provider = new ethers.JsonRpcProvider(RPC);
+  const network = await provider.getNetwork();
+  need(Number(network.chainId) === 16661, "wrong chainId: " + network.chainId.toString());
+  const wallet = new ethers.Wallet(privateKey, provider);
+  const factoryAddress = selection.selectedTransaction.target;
+  const tokenA = "0xD1De4F87C8b195f21254b7163dDA9370D8Df593d";
+  const tokenB = "0x1f3aa82227281ca364bfb3d253b0f1af1da6473e";
+  const factoryRead = new ethers.Contract(factoryAddress, factoryAbi, provider);
+  const factoryWrite = new ethers.Contract(factoryAddress, factoryAbi, wallet);
+  const beforeBlock = await provider.getBlockNumber();
+  const beforePair = await factoryRead.getPair(tokenA, tokenB);
+  need(beforePair === zero, "pair already exists before broadcast: " + beforePair);
+  const populated = await factoryWrite.createPair.populateTransaction(tokenA, tokenB);
+  need(String(populated.data).toLowerCase() === String(selection.selectedTransaction.calldata).toLowerCase(), "calldata mismatch against selected command");
+  const balanceWei = await provider.getBalance(wallet.address);
+  need(balanceWei > 0n, "operator wallet has zero 0G balance");
+  const gasEstimate = await provider.estimateGas({ from: wallet.address, to: factoryAddress, data: populated.data, value: 0n });
+  const gasLimit = gasEstimate * 120n / 100n;
+  console.log(JSON.stringify({ status:"ABOUT_TO_BROADCAST_CREATEPAIR", operatorAddress:wallet.address, beforeBlock, beforePair, gasEstimate:gasEstimate.toString(), gasLimit:gasLimit.toString(), balanceWei:balanceWei.toString() }, null, 2));
+  const tx = await wallet.sendTransaction({ to: factoryAddress, data: populated.data, value: 0n, gasLimit });
+  console.log(JSON.stringify({ status:"BROADCAST_SENT", txHash:tx.hash }, null, 2));
+  const mined = await tx.wait(1);
+  need(Number(mined.status) === 1, "transaction failed: " + tx.hash);
+  const afterPair = await factoryRead.getPair(tokenA, tokenB);
+  need(afterPair !== zero, "pair still zero after successful tx");
+  const receipt = { schema:"qpf.v2.first-pair-live-createpair-execution.v1", status:"LIVE_CREATEPAIR_EXECUTED", network:"0G Aristotle Mainnet", chainId:16661, rpcUrl:RPC, operatorAddress:wallet.address, factory:factoryAddress, tokenA, tokenB, selectedCommandHash:selection.selectedTransaction.commandHash, selectionHash:selection.selectionHash, beforeBlockNumber:beforeBlock, beforeFactoryGetPair:beforePair, txHash:tx.hash, txBlockNumber:Number(mined.blockNumber), txStatus:Number(mined.status), gasUsed:mined.gasUsed.toString(), pairAddress:afterPair, boundaries:{ privateKeyUsed:true, broadcast:true, approvals:false, transfers:false, liquidityAdded:false, createPairCalled:true, feeToMutation:false }, generatedAt:new Date().toISOString() };
+  fs.writeFileSync(OUT, JSON.stringify(receipt, null, 2) + "\n");
+  console.log(JSON.stringify(receipt, null, 2));
+}
+main().catch((e) => { console.error("LIVE_CREATEPAIR_EXECUTION_FAILED", e.message); process.exit(1); });

@@ -1,0 +1,30 @@
+{
+  "schema": "qpf.v2.first-pair-live-createpair-execution.v1",
+  "status": "LIVE_CREATEPAIR_EXECUTED",
+  "network": "0G Aristotle Mainnet",
+  "chainId": 16661,
+  "rpcUrl": "https://evmrpc.0g.ai",
+  "operatorAddress": "0x335651BD160fDA89C9E7A095dF9Dc1BB9f3cF4DC",
+  "factory": "0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8",
+  "tokenA": "0xD1De4F87C8b195f21254b7163dDA9370D8Df593d",
+  "tokenB": "0x1f3aa82227281ca364bfb3d253b0f1af1da6473e",
+  "selectedCommandHash": "0x8fd440c3e5304c456986b3cb435dd674d4118b73b4f0e5266d4452bc270948bf",
+  "selectionHash": "0x428d21299bbc299bccda2f6362009718244a90ef7f1af78738d71849168f5691",
+  "beforeBlockNumber": 36238877,
+  "beforeFactoryGetPair": "0x0000000000000000000000000000000000000000",
+  "txHash": "0x4f887876313a5085337ce22eac9418725558a91225096191057dd6d7d2e2f6a2",
+  "txBlockNumber": 36238884,
+  "txStatus": 1,
+  "gasUsed": "3259845",
+  "pairAddress": "0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE",
+  "boundaries": {
+    "privateKeyUsed": true,
+    "broadcast": true,
+    "approvals": false,
+    "transfers": false,
+    "liquidityAdded": false,
+    "createPairCalled": true,
+    "feeToMutation": false
+  },
+  "generatedAt": "2026-06-16T02:03:12.950Z"
+}
