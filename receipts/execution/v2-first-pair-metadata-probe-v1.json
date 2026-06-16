@@ -18,8 +18,8 @@
     "symbol": "USDC.e",
     "decimals": 6
   },
-  "factoryGetPair": "0x0000000000000000000000000000000000000000",
-  "pairExists": false,
+  "factoryGetPair": "0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE",
+  "pairExists": true,
   "boundaries": {
     "privateKeyUsed": false,
     "broadcast": false,
@@ -29,5 +29,5 @@
     "createPairCalled": false,
     "feeToMutation": false
   },
-  "generatedAt": "2026-06-16T00:21:21.625Z"
+  "generatedAt": "2026-06-16T03:27:49.699Z"
 }
