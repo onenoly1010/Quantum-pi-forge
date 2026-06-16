@@ -175,3 +175,22 @@ npm run verify:evidence
 This verifies the evidence index, receipt integrity, claim map, and claim-map drift guard.
 
 Authority boundary: read-only local evidence verification only; no wallet signing, deployment, posting, governance execution, custody transfer, token minting, staking, or chain mutation.
+
+## Public Verification & Evidence
+
+Quantum Pi Forge maintains a transparent, reproducible evidence bundle for key state transitions and claims.
+
+### Reproduce v2 Mainnet Activation Verification
+
+```bash
+git clone https://github.com/onenoly1010/Quantum-pi-forge
+cd Quantum-pi-forge
+git checkout 4c9c392
+npm ci
+npm run verify:evidence
+```
+
+Full details: [docs/verification/PUBLIC_VERIFICATION_REPRODUCTION_V1.md](docs/verification/PUBLIC_VERIFICATION_REPRODUCTION_V1.md)
+
+Note: `npm audit` warnings are non-blocking for evidence verification and are tracked separately.
+
