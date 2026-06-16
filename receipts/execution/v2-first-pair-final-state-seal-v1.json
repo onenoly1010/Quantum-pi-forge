@@ -1,0 +1,26 @@
+{
+  "schema": "qpf.v2.first-pair-final-state-seal.v1",
+  "status": "FIRST_PAIR_FINAL_STATE_SEALED",
+  "network": "0G Aristotle Mainnet",
+  "chainId": 16661,
+  "rpcUrl": "https://evmrpc.0g.ai",
+  "observedBlockNumber": 36239555,
+  "factory": "0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8",
+  "tokenA": "0xD1De4F87C8b195f21254b7163dDA9370D8Df593d",
+  "tokenB": "0x1f3aa82227281ca364bfb3d253b0f1af1da6473e",
+  "txHash": "0x4f887876313a5085337ce22eac9418725558a91225096191057dd6d7d2e2f6a2",
+  "txBlockNumber": 36238884,
+  "pairAddress": "0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE",
+  "liveFactoryGetPair": "0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE",
+  "pairConfirmed": true,
+  "boundaries": {
+    "privateKeyUsed": false,
+    "broadcast": false,
+    "approvals": false,
+    "transfers": false,
+    "liquidityAdded": false,
+    "createPairCalled": false,
+    "feeToMutation": false
+  },
+  "generatedAt": "2026-06-16T02:14:13.587Z"
+}
