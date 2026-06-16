@@ -1,0 +1,52 @@
+{
+  "schema": "qpf.governance.liquidity-funding-plan.v1",
+  "status": "LIQUIDITY_FUNDING_PLAN_REQUIRED_NO_EXECUTION",
+  "generatedAt": "2026-06-16T03:38:06.619Z",
+  "sourcePreflight": "receipts/governance/liquidity-readiness-preflight-v1.json",
+  "owner": "0x335651BD160fDA89C9E7A095dF9Dc1BB9f3cF4DC",
+  "pair": "0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE",
+  "factory": "0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8",
+  "router": "0x2c70129E50BF88eCD59b89d63af2e8920aCF3951",
+  "tokenA": {
+    "address": "0xD1De4F87C8b195f21254b7163dDA9370D8Df593d",
+    "symbol": "W0G",
+    "decimals": 18,
+    "currentBalance": "0.0",
+    "currentAllowanceToRouter": "0.0"
+  },
+  "tokenB": {
+    "address": "0x1f3aa82227281ca364bfb3d253b0f1af1da6473e",
+    "symbol": "USDC.e",
+    "decimals": 6,
+    "currentBalance": "0.0",
+    "currentAllowanceToRouter": "0.0"
+  },
+  "currentPairState": {
+    "reserve0Raw": "0",
+    "reserve1Raw": "0",
+    "totalSupplyRaw": "0"
+  },
+  "requiredBeforeLiquidityExecution": [
+    "Fund owner with nonzero W0G",
+    "Fund owner with nonzero USDC.e",
+    "Generate approval command hash only after exact funding amounts are known",
+    "Run approval preflight before any approval transaction",
+    "Run addLiquidity command hash gate before any liquidity transaction"
+  ],
+  "explicitNonGoals": [
+    "No private key use",
+    "No broadcast",
+    "No approvals",
+    "No transfers",
+    "No liquidity added"
+  ],
+  "boundary": {
+    "privateKeyUsed": false,
+    "broadcast": false,
+    "approvals": false,
+    "transfers": false,
+    "liquidityAdded": false,
+    "routerMutation": false,
+    "factoryMutation": false
+  }
+}
