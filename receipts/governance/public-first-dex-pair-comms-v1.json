@@ -1,0 +1,28 @@
+{
+  "schema": "qpf.governance.public-first-dex-pair-comms.v1",
+  "status": "PUBLIC_FIRST_DEX_PAIR_COMMS_GITHUB_POSTED",
+  "generatedAt": "2026-06-16T03:23:31Z",
+  "mainHead": "7aa8c1e4a37bd6405e0861630dd26d6b9d556633",
+  "shortHead": "7aa8c1e",
+  "liveProof": "https://bdde187c.quantumpiforge.pages.dev",
+  "github": {
+    "status": "posted",
+    "url": "https://github.com/onenoly1010/Quantum-pi-forge/pull/328#issuecomment-4714539964"
+  },
+  "discord": {
+    "status": "not_sealed",
+    "reason": "prior attempt failed because POST env var was not exported to node"
+  },
+  "pair": "0x2067319DC61CCdCDc13ABe0c72Ea3D7318AaeE",
+  "factory": "0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8",
+  "statusValue": "FIRST_PAIR_FINAL_STATE_SEALED",
+  "boundary": {
+    "privateKeyUsed": false,
+    "broadcast": false,
+    "approvals": false,
+    "transfers": false,
+    "liquidityAdded": false,
+    "factoryMutation": false
+  },
+  "post": "Quantum Pi Forge has published the public handoff for the first sealed 0G DEX pair proof on 0G Aristotle Mainnet.\n\nLive proof:\nhttps://bdde187c.quantumpiforge.pages.dev\n\nPair:\n0x2067319DC61CCdCDc13ABe0c72Ea3D7318AaeE\n\nFactory:\n0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8\n\nStatus:\nFIRST_PAIR_FINAL_STATE_SEALED\n\nBoundary preserved:\nNo private key use. No broadcast. No approvals. No transfers. No liquidity added. No factory mutation.\n\nIndependent 0G Aristotle ecosystem verification work through Quantum Pi Forge. Full credit to 0G Labs, the 0G team, and ecosystem partners for the underlying network."
+}
