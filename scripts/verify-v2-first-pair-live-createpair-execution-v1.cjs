@@ -1,0 +1,22 @@
+const fs = require("fs");
+const receiptPath = "receipts/execution/v2-first-pair-live-createpair-execution-v1.json";
+function fail(m) { console.error("FAIL v2-first-pair-live-createpair-execution-v1:", m); process.exit(1); }
+if (fs.existsSync(receiptPath) === false) fail("missing live execution receipt");
+const r = JSON.parse(fs.readFileSync(receiptPath, "utf8"));
+const zero = "0x0000000000000000000000000000000000000000";
+if (r.schema !== "qpf.v2.first-pair-live-createpair-execution.v1") fail("bad schema");
+if (r.status !== "LIVE_CREATEPAIR_EXECUTED") fail("bad status");
+if (r.chainId !== 16661) fail("bad chainId");
+if (r.factory !== "0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8") fail("bad factory");
+if (r.tokenA !== "0xD1De4F87C8b195f21254b7163dDA9370D8Df593d") fail("bad tokenA");
+if (r.tokenB !== "0x1f3aa82227281ca364bfb3d253b0f1af1da6473e") fail("bad tokenB");
+if (r.beforeFactoryGetPair !== zero) fail("before getPair was nonzero");
+if (String(r.txHash || "").startsWith("0x") === false || String(r.txHash).length !== 66) fail("bad tx hash");
+if (r.txStatus !== 1) fail("tx status not successful");
+if (String(r.pairAddress || "") === zero) fail("pair address zero");
+if (String(r.pairAddress || "").startsWith("0x") === false || String(r.pairAddress).length !== 42) fail("bad pair address");
+if (r.boundaries.privateKeyUsed !== true) fail("privateKeyUsed must be true");
+if (r.boundaries.broadcast !== true) fail("broadcast must be true");
+if (r.boundaries.createPairCalled !== true) fail("createPairCalled must be true");
+for (const k of ["approvals","transfers","liquidityAdded","feeToMutation"]) if (r.boundaries[k] !== false) fail("boundary not false: " + k);
+console.log("PASS v2-first-pair-live-createpair-execution-v1");

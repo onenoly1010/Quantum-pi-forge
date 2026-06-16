@@ -183,7 +183,10 @@
     "governance:v2-first-pair-final-execution-command-selection:v1:check": "node scripts/verify-v2-first-pair-final-execution-command-selection-v1.cjs",
     "governance:v2-first-pair-final-execution-command-selection:v1:generate": "node scripts/generate-v2-first-pair-final-execution-command-selection-v1.cjs",
     "probe:v2-first-pair-final-live-prebroadcast:v1": "node scripts/probe-v2-first-pair-final-live-prebroadcast-v1.cjs",
-    "governance:v2-first-pair-final-live-prebroadcast-probe:v1:check": "node scripts/verify-v2-first-pair-final-live-prebroadcast-probe-v1.cjs"
+    "governance:v2-first-pair-final-live-prebroadcast-probe:v1:check": "node scripts/verify-v2-first-pair-final-live-prebroadcast-probe-v1.cjs",
+    "execute:v2-first-pair-live-createpair:v1": "node scripts/execute-v2-first-pair-live-createpair-v1.cjs",
+    "governance:v2-first-pair-live-createpair-execution:v1:check": "node scripts/verify-v2-first-pair-live-createpair-execution-v1.cjs",
+    "docs:v2-first-pair-live-createpair-execution:v1": "node scripts/generate-v2-first-pair-live-createpair-doc-v1.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",
