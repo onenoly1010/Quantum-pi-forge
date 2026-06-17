@@ -1,0 +1,42 @@
+{
+  "id": "0g-wallet-access-control-mapping-v1",
+  "created_at_utc": "2026-06-17T17:30:21Z",
+  "source": {
+    "wallets_skill_path": "/tmp/0gskills-checks/wallets.SKILL.md",
+    "wallets_skill_sha256": "14065bb61a36157855b8a3edb671d0363f561eb1b669602386e330149647e1c0",
+    "audit_wallets_skill_path": "/tmp/0gskills-checks/audit-wallets.SKILL.md",
+    "audit_wallets_skill_sha256": "379f50132204dd4bad24f33981116cef7c71af5d717517733ba0f50228e2e44c"
+  },
+  "network": {
+    "aristotle_chain_id": 16661,
+    "aristotle_rpc": "https://evmrpc.0g.ai",
+    "galileo_chain_id": 16602,
+    "galileo_rpc": "https://evmrpc-testnet.0g.ai"
+  },
+  "access_control_requirements": [
+    "Use correct 0G chain ID and RPC before wallet operations",
+    "Never embed production private keys in frontend bundles or agent logs",
+    "Use environment variables and secret managers for CI deploy keys",
+    "Prefer hardware wallets or multisig for production admin roles",
+    "Separate deployer, treasury, agent, and validator keys",
+    "Use unique capped-fund keys per agent",
+    "Keep validator priv_validator_key.json separate from deployment keys",
+    "Verify EIP-712 domain separators bind the correct 0G chain ID and verifying contract",
+    "Prevent replay across Galileo and Aristotle",
+    "Validate transaction to/value/data before signing",
+    "Handle gas estimation failures without recursive signing loops",
+    "Rate-limit wallet handlers to prevent rapid agent-driven wallet drain",
+    "Avoid leaking sensitive transaction/private state through debug logs or CI traces"
+  ],
+  "posture": "non_executing_requirements_mapping",
+  "protocol_interface_freeze_preserved": true,
+  "network_execution_attempted": false,
+  "wallet_connection_attempted": false,
+  "private_key_used": false,
+  "transaction_signed": false,
+  "transaction_broadcast": false,
+  "funding_attempted": false,
+  "approval_attempted": false,
+  "liquidity_attempted": false,
+  "result": "PASS"
+}
