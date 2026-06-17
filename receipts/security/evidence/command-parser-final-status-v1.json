@@ -1,0 +1,41 @@
+{
+  "id": "command-parser-final-status-v1",
+  "result": "PASS",
+  "lane": "command-parser-final-status-v1",
+  "status": "SEALED_VERIFIED_NON_EXECUTION",
+  "posture": "COMMAND_PARSER_FINAL_STATUS_SEALED",
+  "purpose": "Seal the command parser lane after contract, negative-test, and dry-run proofs are canonical.",
+  "canonical_checkpoints": {
+    "contract": {
+      "path": "receipts/security/evidence/command-parser-contract-v1.json",
+      "required_result": "PASS",
+      "required_posture": "COMMAND_PARSER_CONTRACT_ONLY_NO_EXECUTION",
+      "verified": true
+    },
+    "negative_test": {
+      "path": "receipts/security/evidence/command-parser-negative-test-v1.json",
+      "required_result": "PASS",
+      "required_posture": "COMMAND_PARSER_NEGATIVE_TEST_FAIL_CLOSED_NO_RUNTIME",
+      "verified": true
+    },
+    "dry_run": {
+      "path": "receipts/security/evidence/command-parser-dry-run-v1.json",
+      "required_result": "PASS",
+      "required_posture": "COMMAND_PARSER_DRY_RUN_INERT_INTENT_ONLY",
+      "verified": true
+    }
+  },
+  "parser_lane_sealed": true,
+  "final_lane_status": "SEALED_VERIFIED_NON_EXECUTION",
+  "runtime_parser_executes_commands": false,
+  "orchestrator_runtime_connected": false,
+  "real_execution_enabled": false,
+  "operational_mode_enabled": false,
+  "private_key_used": false,
+  "transaction_signed": false,
+  "transaction_broadcast": false,
+  "storage_write_attempted": false,
+  "chain_state_mutated": false,
+  "future_bridge_required_before_orchestrator_connection": true,
+  "final_status": "COMMAND_PARSER_FINAL_STATUS_SEALED"
+}
