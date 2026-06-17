@@ -1,0 +1,48 @@
+{
+  "id": "operational-ship-boundary-policy-v1",
+  "result": "PASS",
+  "policy": "ship-boundary-policy-v1",
+  "status": "POLICY_ONLY_NO_ORCHESTRATION",
+  "posture": "non_executing_orchestration_boundary",
+  "purpose": "Define what the future ship capability may and may not do before any orchestrator implementation exists.",
+  "prerequisites": {
+    "security_evidence_walkthrough": {"path": "receipts/security/evidence/security-evidence-walkthrough-v1.json", "sha256": "09f3963f49169beb2c2bc6f93c3621609c5d73561d27b2b223ee7ea1a777e42b", "status": "VALIDATED"},
+    "storage_da_lane_status": {"path": "receipts/security/evidence/0g-storage-da-lane-status-v1.json", "sha256": "a7510cc1d933074d72e4d686ad88a19b19e8189f2949cd2b19ff86eba799e904", "status": "SEALED"}
+  },
+  "allowed_actions": [
+    "read_security_docs",
+    "read_machine_receipts",
+    "run_local_verifiers",
+    "run_dry_run_only_commands",
+    "emit_non_executing_receipts",
+    "fail_closed_on_missing_or_invalid_evidence"
+  ],
+  "forbidden_actions": [
+    "read_or_use_private_keys",
+    "sign_transactions",
+    "broadcast_transactions",
+    "submit_storage_writes",
+    "mutate_chain_state",
+    "fund_wallets",
+    "approve_tokens",
+    "create_liquidity",
+    "bypass_wallet_preflight_gate",
+    "bypass_payload_hash_verification",
+    "bypass_negative_tests"
+  ],
+  "required_gates_before_future_orchestration": [
+    "security-evidence-walkthrough-v1 PASS",
+    "wallet/preflight receipts discoverable",
+    "0g-storage-da-lane-status-v1 SEALED",
+    "npm run verify:evidence PASS",
+    "dry-run before execution",
+    "negative-test before final status"
+  ],
+  "private_key_used": false,
+  "transaction_signed": false,
+  "transaction_broadcast": false,
+  "storage_write_attempted": false,
+  "chain_state_mutated": false,
+  "orchestrator_implemented": false,
+  "final_policy_status": "BOUNDARY_DEFINED"
+}
