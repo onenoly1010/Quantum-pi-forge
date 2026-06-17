@@ -1,0 +1,46 @@
+{
+  "id": "parser-orchestrator-bridge-dry-run-v1",
+  "result": "PASS",
+  "lane": "parser-orchestrator-bridge-dry-run-v1",
+  "status": "BRIDGE_DRY_RUN_INERT_ONLY",
+  "posture": "PARSER_ORCHESTRATOR_BRIDGE_DRY_RUN_INERT_ONLY",
+  "purpose": "Prove the sealed parser READ_STATUS inert intent can be presented to the sealed orchestrator dry-run boundary without runtime execution.",
+  "parser_final_status": {
+    "path": "receipts/security/evidence/command-parser-final-status-v1.json",
+    "required_posture": "COMMAND_PARSER_FINAL_STATUS_SEALED",
+    "verified": true
+  },
+  "orchestrator_final_status": {
+    "path_hint": "receipts/security/evidence/*orchestrator*final*status*.json",
+    "required_final_lane_status": "SEALED_VERIFIED_NON_EXECUTION",
+    "verified": true
+  },
+  "bridge_input": {
+    "source": "command-parser-dry-run-v1",
+    "input": "READ_STATUS",
+    "accepted": true,
+    "command_class": "READ_STATUS",
+    "intent_type": "INERT_READ_ONLY_STATUS_QUERY",
+    "execution_authorized": false,
+    "side_effects_authorized": false
+  },
+  "bridge_output": {
+    "accepted_by_bridge": true,
+    "accepted_as_inert_orchestrator_input": true,
+    "execution_authorized": false,
+    "side_effects_authorized": false,
+    "runtime_connection_created": false
+  },
+  "parser_runtime_execution": false,
+  "orchestrator_runtime_execution": false,
+  "orchestrator_runtime_connected": false,
+  "real_execution_enabled": false,
+  "operational_mode_enabled": false,
+  "private_key_used": false,
+  "transaction_signed": false,
+  "transaction_broadcast": false,
+  "storage_write_attempted": false,
+  "chain_state_mutated": false,
+  "future_runtime_gate_required": true,
+  "final_bridge_status": "PARSER_ORCHESTRATOR_BRIDGE_DRY_RUN_INERT_ONLY"
+}
