@@ -1,0 +1,25 @@
+{
+  "id": "orchestrator-final-status-v1",
+  "result": "PASS",
+  "lane": "gated-command-orchestrator-lane-v1",
+  "status": "DRY_RUN_COMPLETE_FAIL_CLOSED_VERIFIED",
+  "posture": "verified_non_execution",
+  "purpose": "Seal the orchestrator lane after boundary policy, dry-run scaffold, and fail-closed negative tests pass.",
+  "receipts": {
+    "operational_ship_boundary_policy_v1": {"path": "receipts/security/evidence/operational-ship-boundary-policy-v1.json", "sha256": "879dff79facf9611e59d67e64989c7fe53b67873ba8bd2e4b4dd7bf8fa0a2073", "status": "BOUNDARY_DEFINED"},
+    "gated_command_orchestrator_dry_run_v1": {"path": "receipts/security/evidence/gated-command-orchestrator-dry-run-v1.json", "sha256": "309043bf1a792686d38fd8e122fafc93463af850eb0df3b92e420f1952f32cf2", "status": "DRY_RUN_PASS"},
+    "orchestrator_negative_test_v1": {"path": "receipts/security/evidence/orchestrator-negative-test-v1.json", "sha256": "934520031987f3e96d319b431402c7c722dec3a442b994c1a8ec0490c11004c0", "status": "FAIL_CLOSED_CONFIRMED"}
+  },
+  "evidence_verification": "npm run verify:evidence PASS",
+  "dry_run_complete": true,
+  "fail_closed_verified": true,
+  "command_parser_implemented": false,
+  "real_execution_enabled": false,
+  "operational_mode_enabled": false,
+  "private_key_used": false,
+  "transaction_signed": false,
+  "transaction_broadcast": false,
+  "storage_write_attempted": false,
+  "chain_state_mutated": false,
+  "final_lane_status": "SEALED_VERIFIED_NON_EXECUTION"
+}
