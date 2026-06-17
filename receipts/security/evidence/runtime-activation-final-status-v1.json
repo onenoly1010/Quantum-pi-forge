@@ -1,0 +1,40 @@
+{
+  "id": "runtime-activation-final-status-v1",
+  "result": "PASS",
+  "lane": "runtime-activation-final-status-v1",
+  "status": "RUNTIME_ACTIVATION_BLOCKED_UNTIL_EXPLICIT_FUTURE_GATE",
+  "posture": "RUNTIME_ACTIVATION_FINAL_STATUS_SEALED",
+  "runtime_activation_gate_policy": {
+    "path": "receipts/security/evidence/runtime-activation-gate-policy-v1.json",
+    "required_posture": "RUNTIME_ACTIVATION_GATE_POLICY_SEALED",
+    "required_status": "SEALED_POLICY_ONLY",
+    "verified": true
+  },
+  "runtime_activation_dry_run_plan": {
+    "path": "receipts/security/evidence/runtime-activation-dry-run-plan-v1.json",
+    "required_posture": "RUNTIME_ACTIVATION_DRY_RUN_PLAN_SEALED",
+    "required_status": "DRY_RUN_PLAN_ONLY",
+    "verified": true
+  },
+  "runtime_activation_negative_test_plan": {
+    "path": "receipts/security/evidence/runtime-activation-negative-test-plan-v1.json",
+    "required_posture": "RUNTIME_ACTIVATION_NEGATIVE_TEST_PLAN_SEALED",
+    "required_status": "NEGATIVE_TEST_PLAN_ONLY",
+    "verified": true
+  },
+  "runtime_activation_enabled": false,
+  "runtime_execution_authorized": false,
+  "parser_runtime_execution": false,
+  "orchestrator_runtime_execution": false,
+  "orchestrator_runtime_connected": false,
+  "real_execution_enabled": false,
+  "operational_mode_enabled": false,
+  "private_key_loaded": false,
+  "private_key_used": false,
+  "transaction_signed": false,
+  "transaction_broadcast": false,
+  "storage_write_attempted": false,
+  "chain_state_mutated": false,
+  "future_explicit_activation_gate_required": true,
+  "final_status": "RUNTIME_ACTIVATION_FINAL_STATUS_SEALED"
+}
