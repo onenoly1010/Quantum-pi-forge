@@ -1,0 +1,26 @@
+{
+  "id": "orchestrator-negative-test-v1",
+  "result": "PASS",
+  "posture": "fail_closed_orchestrator_negative_test",
+  "purpose": "Prove the gated command orchestrator rejects operational mode and missing policy evidence before command parsing or live execution exists.",
+  "tested_subject": {"path": "scripts/security/gated-command-orchestrator-dry-run-v1.sh", "receipt": "receipts/security/evidence/gated-command-orchestrator-dry-run-v1.json", "sha256": "309043bf1a792686d38fd8e122fafc93463af850eb0df3b92e420f1952f32cf2"},
+  "prerequisites": {
+    "policy": {"path": "receipts/security/evidence/operational-ship-boundary-policy-v1.json", "sha256": "879dff79facf9611e59d67e64989c7fe53b67873ba8bd2e4b4dd7bf8fa0a2073", "status": "VALIDATED"},
+    "security_evidence_walkthrough": {"path": "receipts/security/evidence/security-evidence-walkthrough-v1.json", "sha256": "09f3963f49169beb2c2bc6f93c3621609c5d73561d27b2b223ee7ea1a777e42b", "status": "VALIDATED"}
+  },
+  "negative_cases": [
+    {"case": "OPERATIONAL_mode_rejected", "input_mode": "OPERATIONAL", "expected_result": "reject", "actual_result": "rejected"},
+    {"case": "missing_policy_context_rejected", "input_mode": "DRY_RUN", "expected_result": "reject", "actual_result": "rejected"}
+  ],
+  "dry_run_mode_still_required": true,
+  "operational_mode_accepted": false,
+  "missing_policy_accepted": false,
+  "command_parser_implemented": false,
+  "real_execution_enabled": false,
+  "private_key_used": false,
+  "transaction_signed": false,
+  "transaction_broadcast": false,
+  "storage_write_attempted": false,
+  "chain_state_mutated": false,
+  "final_negative_test_status": "FAIL_CLOSED_CONFIRMED"
+}
