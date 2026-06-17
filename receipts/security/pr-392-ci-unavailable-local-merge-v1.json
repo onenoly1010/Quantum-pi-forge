@@ -1,0 +1,22 @@
+{
+  "id": "pr-392-ci-unavailable-local-merge-v1",
+  "created_at_utc": "2026-06-17T17:26:07Z",
+  "pr": 392,
+  "head_sha": "d2c49832aa1104d3140bb5d22d0294dbaf6098b2",
+  "status": "GITHUB_ACTIONS_UNAVAILABLE",
+  "reason": "GitHub Actions jobs did not start because the account is locked due to a billing issue, and billing will not be restored.",
+  "code_failure_detected": false,
+  "local_verification": {
+    "ledger_api_pip_install": "PASS",
+    "ledger_api_pip_audit": "PASS",
+    "ledger_api_vulnerabilities_after": 0,
+    "requirements_sha256": "574754239d392c192b28d40783c56bb285aba0f5f04c146a97120c20e344f8d4",
+    "pip_audit_json_sha256": "7464187b5aed56093d011b496fbe36fd04c465248b46646f6ae62787ad155561"
+  },
+  "merge_posture": "LOCAL_VERIFICATION_ACCEPTED_AS_GATE",
+  "protocol_interface_freeze_preserved": true,
+  "network_execution_attempted": false,
+  "funding_attempted": false,
+  "approval_attempted": false,
+  "liquidity_attempted": false
+}
