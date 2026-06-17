@@ -1,0 +1,23 @@
+{
+  "id": "wallet-preflight-verifier-v1",
+  "result": "PASS",
+  "posture": "non_executing_wallet_preflight",
+  "source_mapping_receipt": "receipts/security/0g-wallet-access-control-mapping-v1.json",
+  "expected_chain_id": 16661,
+  "expected_rpc": "https://evmrpc.0g.ai",
+  "forbidden_env_checked": [
+    "PRIVATE_KEY",
+    "DEPLOYER_PRIVATE_KEY",
+    "FEE_TO_SETTER_PRIVATE_KEY",
+    "MNEMONIC",
+    "SEED",
+    "PI_PRIVATE_KEY",
+    "AI_PRIVATE_KEY"
+  ],
+  "private_key_used": false,
+  "transaction_signed": false,
+  "transaction_broadcast": false,
+  "failures": [],
+  "script_sha256": "956dd019eb60f2a7575e62ff38ac40b61124bce463a9e7fda9f4c8b7bbcf7c23",
+  "created_at_utc": "2026-06-17T17:42:23Z"
+}
