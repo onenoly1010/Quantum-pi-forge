@@ -1,0 +1,36 @@
+{
+  "id": "parser-orchestrator-bridge-final-status-v1",
+  "result": "PASS",
+  "lane": "parser-orchestrator-bridge-final-status-v1",
+  "status": "SEALED_VERIFIED_NON_EXECUTION",
+  "posture": "PARSER_ORCHESTRATOR_BRIDGE_FINAL_STATUS_SEALED",
+  "purpose": "Seal the parser-orchestrator bridge lane after dry-run and negative-test proofs are canonical.",
+  "canonical_checkpoints": {
+    "bridge_dry_run": {
+      "path": "receipts/security/evidence/parser-orchestrator-bridge-dry-run-v1.json",
+      "required_result": "PASS",
+      "required_posture": "PARSER_ORCHESTRATOR_BRIDGE_DRY_RUN_INERT_ONLY",
+      "verified": true
+    },
+    "bridge_negative_test": {
+      "path": "receipts/security/evidence/parser-orchestrator-bridge-negative-test-v1.json",
+      "required_result": "PASS",
+      "required_posture": "PARSER_ORCHESTRATOR_BRIDGE_NEGATIVE_TEST_FAIL_CLOSED",
+      "verified": true
+    }
+  },
+  "bridge_lane_sealed": true,
+  "final_lane_status": "SEALED_VERIFIED_NON_EXECUTION",
+  "parser_runtime_execution": false,
+  "orchestrator_runtime_execution": false,
+  "orchestrator_runtime_connected": false,
+  "real_execution_enabled": false,
+  "operational_mode_enabled": false,
+  "private_key_used": false,
+  "transaction_signed": false,
+  "transaction_broadcast": false,
+  "storage_write_attempted": false,
+  "chain_state_mutated": false,
+  "future_runtime_gate_required": true,
+  "final_status": "PARSER_ORCHESTRATOR_BRIDGE_FINAL_STATUS_SEALED"
+}
