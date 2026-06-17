@@ -1,0 +1,21 @@
+{
+  "id": "gated-command-orchestrator-dry-run-v1",
+  "result": "PASS",
+  "mode": "DRY_RUN",
+  "posture": "non_executing_orchestrator_scaffold",
+  "policy": "ship-boundary-policy-v1",
+  "policy_receipt": {"path": "receipts/security/evidence/operational-ship-boundary-policy-v1.json", "sha256": "879dff79facf9611e59d67e64989c7fe53b67873ba8bd2e4b4dd7bf8fa0a2073", "status": "VALIDATED"},
+  "security_evidence_walkthrough": {"path": "receipts/security/evidence/security-evidence-walkthrough-v1.json", "sha256": "09f3963f49169beb2c2bc6f93c3621609c5d73561d27b2b223ee7ea1a777e42b", "status": "VALIDATED"},
+  "policy_read": true,
+  "walkthrough_read": true,
+  "evidence_verified": true,
+  "dry_run_signal": true,
+  "operational_signal": false,
+  "orchestrator_implemented": true,
+  "real_execution_enabled": false,
+  "private_key_used": false,
+  "transaction_signed": false,
+  "transaction_broadcast": false,
+  "storage_write_attempted": false,
+  "chain_state_mutated": false
+}
