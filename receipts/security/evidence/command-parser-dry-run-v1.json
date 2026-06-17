@@ -1,0 +1,44 @@
+{
+  "id": "command-parser-dry-run-v1",
+  "result": "PASS",
+  "lane": "command-parser-dry-run-v1",
+  "status": "DRY_RUN_INERT_INTENT_ONLY",
+  "posture": "COMMAND_PARSER_DRY_RUN_INERT_INTENT_ONLY",
+  "purpose": "Map one allowlisted command class to an inert JSON intent without runtime execution or side effects.",
+  "contract": {
+    "path": "receipts/security/evidence/command-parser-contract-v1.json",
+    "status": "VALIDATED"
+  },
+  "negative_test": {
+    "path": "receipts/security/evidence/command-parser-negative-test-v1.json",
+    "status": "VALIDATED"
+  },
+  "accepted_case": {
+    "input": "READ_STATUS",
+    "accepted": true,
+    "command_class": "READ_STATUS",
+    "intent_type": "INERT_READ_ONLY_STATUS_QUERY",
+    "execution_authorized": false,
+    "side_effects_authorized": false
+  },
+  "rejected_case": {
+    "input": "SEND_TRANSACTION",
+    "accepted": false,
+    "command_class": "SEND_TRANSACTION",
+    "rejection_reason": "mandatory_rejection_class",
+    "execution_authorized": false,
+    "side_effects_authorized": false
+  },
+  "allowlisted_intent_mapped": true,
+  "unsafe_input_rejected": true,
+  "runtime_parser_executes_commands": false,
+  "orchestrator_runtime_connected": false,
+  "real_execution_enabled": false,
+  "operational_mode_enabled": false,
+  "private_key_used": false,
+  "transaction_signed": false,
+  "transaction_broadcast": false,
+  "storage_write_attempted": false,
+  "chain_state_mutated": false,
+  "final_dry_run_status": "INERT_INTENT_ONLY_NO_EXECUTION"
+}
