@@ -1,0 +1,30 @@
+{
+  "id": "0g-storage-da-access-policy-v1",
+  "result": "READY",
+  "posture": "non_executing_storage_da_mapping",
+  "chain": "0G Aristotle Mainnet",
+  "chain_id": 16661,
+  "rpc": "https://evmrpc.0g.ai",
+  "required_gate": "scripts/security/wallet-preflight-gate-v1.sh",
+  "wallet_preflight_gate_required": true,
+  "allowed_future_payloads": [
+    "deterministic_audit_artifacts",
+    "public_verification_metadata",
+    "content_addressed_payloads",
+    "replayable_receipts"
+  ],
+  "forbidden": [
+    "private_keys_in_environment",
+    "mnemonic_or_seed_phrase_usage",
+    "direct_storage_upload_without_gate",
+    "transaction_signing_in_policy_lane",
+    "transaction_broadcast_in_policy_lane",
+    "funding_or_approvals",
+    "confidential_user_data_or_wallet_material"
+  ],
+  "private_key_used": false,
+  "transaction_signed": false,
+  "transaction_broadcast": false,
+  "storage_write_attempted": false,
+  "chain_state_mutated": false
+}
