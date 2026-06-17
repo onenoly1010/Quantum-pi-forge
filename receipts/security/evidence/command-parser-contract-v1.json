@@ -1,0 +1,43 @@
+{
+  "id": "command-parser-contract-v1",
+  "result": "PASS",
+  "lane": "command-parser-contract-v1",
+  "status": "SPEC_ONLY_NO_RUNTIME_PARSER",
+  "posture": "COMMAND_PARSER_CONTRACT_ONLY_NO_EXECUTION",
+  "purpose": "Define the inert semantic boundary for future command parsing before runtime parser logic exists.",
+  "allowed_inert_command_classes": [
+    "READ_STATUS",
+    "QUERY_LANE",
+    "VERIFY_HASH",
+    "READ_RECEIPT",
+    "READ_DOC",
+    "LIST_ALLOWED_COMMANDS"
+  ],
+  "mandatory_rejection_classes": [
+    "UNKNOWN",
+    "AMBIGUOUS",
+    "EXECUTE",
+    "DEPLOY",
+    "UPLOAD",
+    "BROADCAST",
+    "SIGN",
+    "USE_PRIVATE_KEY",
+    "SEND_TRANSACTION",
+    "WRITE_STORAGE",
+    "MUTATE_CHAIN"
+  ],
+  "allowlist_required": true,
+  "unknown_commands_rejected": true,
+  "ambiguous_commands_rejected": true,
+  "operational_commands_rejected": true,
+  "wallet_interaction_forbidden": true,
+  "private_key_used": false,
+  "transaction_signed": false,
+  "transaction_broadcast": false,
+  "storage_write_attempted": false,
+  "chain_state_mutated": false,
+  "runtime_parser_implemented": false,
+  "orchestrator_runtime_connected": false,
+  "real_execution_enabled": false,
+  "final_contract_status": "COMMAND_PARSER_CONTRACT_ONLY_NO_EXECUTION"
+}
