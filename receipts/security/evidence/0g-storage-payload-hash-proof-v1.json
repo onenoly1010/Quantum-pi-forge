@@ -1,0 +1,16 @@
+{
+  "id": "0g-storage-payload-hash-proof-v1",
+  "result": "PASS",
+  "policy": "0g-storage-da-access-policy-v1",
+  "payload_path": "payloads/storage-da/sample-audit-payload-v1.json",
+  "payload_kind": "deterministic_audit_artifact",
+  "payload_bytes": 391,
+  "payload_sha256": "67085bcdbbe36946fe19cea7b288e8bd4b4c1cf0199653a8189238c924b0f7c2",
+  "content_address_expected": "sha256:67085bcdbbe36946fe19cea7b288e8bd4b4c1cf0199653a8189238c924b0f7c2",
+  "wallet_preflight_gate_required": true,
+  "private_key_used": false,
+  "transaction_signed": false,
+  "transaction_broadcast": false,
+  "storage_write_attempted": false,
+  "chain_state_mutated": false
+}

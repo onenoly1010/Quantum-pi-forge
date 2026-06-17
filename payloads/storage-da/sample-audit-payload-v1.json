@@ -1,0 +1,12 @@
+{
+  "id": "0g-storage-sample-audit-payload-v1",
+  "purpose": "non-executing storage payload hash proof",
+  "chain": "0G Aristotle Mainnet",
+  "chain_id": 16661,
+  "policy": "0g-storage-da-access-policy-v1",
+  "payload_kind": "deterministic_audit_artifact",
+  "storage_write_attempted": false,
+  "transaction_signed": false,
+  "transaction_broadcast": false,
+  "chain_state_mutated": false
+}
