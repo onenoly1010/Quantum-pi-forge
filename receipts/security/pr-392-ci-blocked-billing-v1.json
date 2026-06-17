@@ -1,0 +1,21 @@
+{
+  "id": "pr-392-ci-blocked-billing-v1",
+  "created_at_utc": "2026-06-17T17:22:03Z",
+  "pr": 392,
+  "head_sha": "9fabab98c002677cb6b55ba36c55801b0a9d1ec0",
+  "status": "CI_BLOCKED_INFRASTRUCTURE",
+  "code_failure_detected": false,
+  "github_actions_result": "jobs_not_started",
+  "blocking_reason": "GitHub account locked due to billing issue",
+  "local_security_verification": {
+    "pip_install": "PASS",
+    "pip_audit": "PASS",
+    "ledger_api_vulnerabilities_after": 0
+  },
+  "merge_recommendation": "DO_NOT_MERGE_UNTIL_CI_CAN_RUN_OR_OPERATOR_EXPLICITLY_ACCEPTS_BYPASS",
+  "protocol_interface_freeze_preserved": true,
+  "network_execution_attempted": false,
+  "funding_attempted": false,
+  "approval_attempted": false,
+  "liquidity_attempted": false
+}
