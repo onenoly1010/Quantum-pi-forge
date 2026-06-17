@@ -1,0 +1,13 @@
+{
+  "id": "wallet-preflight-gate-v1",
+  "result": "READY",
+  "posture": "non_executing_pre_command_gate",
+  "wraps": "wallet-preflight-verifier-v1",
+  "evidence_index_check": "npm run verify:evidence-index",
+  "receipt_restore": true,
+  "private_key_used": false,
+  "transaction_signed": false,
+  "transaction_broadcast": false,
+  "chain_state_mutated": false,
+  "created_at_utc": "2026-06-17T17:52:31Z"
+}
