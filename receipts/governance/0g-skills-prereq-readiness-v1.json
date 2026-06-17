@@ -1,0 +1,32 @@
+{
+  "id": "0g-skills-prereq-readiness-v1",
+  "created_at_utc": "2026-06-17T16:31:25Z",
+  "posture": "governance_gated_non_executing",
+  "protocol_interface_freeze_preserved": true,
+  "forge_repo_mutation_before_receipt": false,
+  "network_execution_attempted": false,
+  "funding_attempted": false,
+  "approval_attempted": false,
+  "liquidity_attempted": false,
+  "sources_checked": {
+    "ship_skill_api_markdown_depth2": {
+      "path": "/tmp/0gskills-checks/api.skill.ship.depth2.md",
+      "bytes": 4486,
+      "sha256": "c95025a44c599700081bafc861bdfba7525176ed6a4d8e4a3d8682dcea0a028d"
+    },
+    "wallet_search_api_json": {
+      "path": "/tmp/0gskills-checks/api.search.wallet.json",
+      "bytes": 617,
+      "sha256": "1b72ec9fcc380b6c2022f82256d71ed979d9e9672b28cf3e76e6f4c49d419bfe"
+    }
+  },
+  "requirements_observed": [
+    "Read ship skill before ordered 0G development work",
+    "Choose onchain state, storage data, compute jobs, and threat model boundaries before build",
+    "Target cancun EVM version for contract compatibility",
+    "Use Foundry, Hardhat, or Remix tooling",
+    "Understand DA signer and wrapped base precompiles before relying on them",
+    "Review wallet and audit-wallet related skills before wallet-facing implementation"
+  ],
+  "result": "PASS"
+}
