@@ -1,0 +1,15 @@
+{
+  "schema": "qpf.eth_mainnet_old_wallet_untrusted.v1",
+  "timestamp": "2026-06-17T15:37:39Z",
+  "old_wallet": "0x335651BD160fDA89C9E7A095dF9Dc1BB9f3cF4DC",
+  "status": "COMPROMISED_OR_UNTRUSTED",
+  "do_not_fund": true,
+  "do_not_approve": true,
+  "do_not_use_for_liquidity": true,
+  "readonly_historical_reference_only": true,
+  "observed_outgoing_address": "0x541B9034C82D7Fb564F12cA07037947ff5b4eF2f",
+  "observed_outgoing_tx": "0x1fec3b41314e5066a2771ea608f6ed09580e10f45605838016f970394f40e7fd",
+  "private_key_used": false,
+  "broadcast_attempted": false,
+  "repo_mutation_security_docs_only": true
+}
