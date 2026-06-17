@@ -1,0 +1,11 @@
+{
+  "id": "wallet-preflight-gated-command-proof-v1",
+  "result": "PASS",
+  "gate": "wallet-preflight-gate-v1",
+  "downstream_command": "scripts/security/gated-noop-command-proof-v1.sh",
+  "gated_command_received": true,
+  "private_key_used": false,
+  "transaction_signed": false,
+  "transaction_broadcast": false,
+  "chain_state_mutated": false
+}
