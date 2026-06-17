@@ -1,3 +1,16 @@
+# Public Validation Status
+
+**Quantum Pi Forge Public Validation Status v1 is open.**
+
+Quantum Pi Forge has completed verified genesis activation on 0G Aristotle Mainnet. Liquidity, approvals, staking, relayer flows, funding, and growth loops remain intentionally blocked until validation and funding conditions are satisfied.
+
+- Status doc: [`docs/governance/PUBLIC_VALIDATION_STATUS_V1.md`](docs/governance/PUBLIC_VALIDATION_STATUS_V1.md)
+- Review anchor: [Issue / thread #328](https://github.com/onenoly1010/Quantum-pi-forge/pull/328)
+
+**Review the proof. Verify the gates. Confirm the boundary.**
+
+---
+
 # Offline Dev Guardian
 
 ## For Auditors and Reviewers
