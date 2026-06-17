@@ -1,0 +1,40 @@
+{
+  "id": "parser-orchestrator-bridge-negative-test-v1",
+  "result": "PASS",
+  "lane": "parser-orchestrator-bridge-negative-test-v1",
+  "status": "FAIL_CLOSED_CONFIRMED_NO_RUNTIME_BRIDGE",
+  "posture": "PARSER_ORCHESTRATOR_BRIDGE_NEGATIVE_TEST_FAIL_CLOSED",
+  "purpose": "Prove unsafe parser outputs and malformed bridge payloads are rejected before reaching orchestrator dry-run.",
+  "bridge_dry_run": {
+    "path": "receipts/security/evidence/parser-orchestrator-bridge-dry-run-v1.json",
+    "required_posture": "PARSER_ORCHESTRATOR_BRIDGE_DRY_RUN_INERT_ONLY",
+    "verified": true
+  },
+  "negative_cases": [
+    {"case": "EXECUTE", "accepted_by_bridge": false, "rejection_reason": "execution_like_intent"},
+    {"case": "SEND_TRANSACTION", "accepted_by_bridge": false, "rejection_reason": "execution_like_intent"},
+    {"case": "USE_PRIVATE_KEY", "accepted_by_bridge": false, "rejection_reason": "key_use_forbidden"},
+    {"case": "BROADCAST", "accepted_by_bridge": false, "rejection_reason": "broadcast_forbidden"},
+    {"case": "WRITE_STORAGE", "accepted_by_bridge": false, "rejection_reason": "storage_write_forbidden"},
+    {"case": "MUTATE_CHAIN", "accepted_by_bridge": false, "rejection_reason": "chain_mutation_forbidden"},
+    {"case": "MALFORMED_INTENT", "accepted_by_bridge": false, "rejection_reason": "malformed_payload"},
+    {"case": "MISSING_INTENT_TYPE", "accepted_by_bridge": false, "rejection_reason": "missing_intent_type"},
+    {"case": "SIDE_EFFECTS_TRUE", "accepted_by_bridge": false, "rejection_reason": "side_effects_not_allowed"},
+    {"case": "EXECUTION_AUTHORIZED_TRUE", "accepted_by_bridge": false, "rejection_reason": "execution_not_allowed"}
+  ],
+  "all_negative_cases_rejected": true,
+  "unsafe_parser_outputs_rejected": true,
+  "malformed_bridge_payloads_rejected": true,
+  "execution_like_intents_rejected": true,
+  "parser_runtime_execution": false,
+  "orchestrator_runtime_execution": false,
+  "orchestrator_runtime_connected": false,
+  "real_execution_enabled": false,
+  "operational_mode_enabled": false,
+  "private_key_used": false,
+  "transaction_signed": false,
+  "transaction_broadcast": false,
+  "storage_write_attempted": false,
+  "chain_state_mutated": false,
+  "final_negative_status": "FAIL_CLOSED_CONFIRMED_NO_RUNTIME_BRIDGE"
+}
