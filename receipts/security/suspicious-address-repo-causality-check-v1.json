@@ -1,0 +1,18 @@
+{
+  "schema": "qpf.security.suspicious-address-repo-causality-check.v1",
+  "checked_at": "2026-06-17T16:01:54Z",
+  "suspicious_address": "0x541B9034C82D7Fb564F12cA07037947ff5b4eF2f",
+  "repo_exact_reference_found": false,
+  "repo_inventory_match_found": false,
+  "known_address_count": 104,
+  "git_clean": true,
+  "repo_causal_link_found": false,
+  "operator_conclusion": "No evidence that this suspicious address originated from Quantum Pi Forge repository code, receipts, scripts, examples, or committed configuration.",
+  "safety_status": "OLD_ETH_WALLET_REMAINS_COMPROMISED_OR_UNTRUSTED",
+  "required_action": [
+    "Do not fund the old wallet.",
+    "Do not approve from the old wallet.",
+    "Do not use the old wallet for liquidity.",
+    "Continue investigation outside the repo: wallet UI, clipboard, browser extensions, exchange withdrawal history, and transaction trace."
+  ]
+}
