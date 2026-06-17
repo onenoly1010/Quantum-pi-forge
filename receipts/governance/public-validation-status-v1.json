@@ -1,0 +1,19 @@
+{
+  "schema": "qpf.public_validation_status.v1",
+  "timestamp": "2026-06-17T16:30:00Z",
+  "status": "PUBLIC_VALIDATION_OPEN",
+  "review_issue": 328,
+  "genesis_activation_completed": true,
+  "chain": "0G Aristotle Mainnet",
+  "liquidity_active": false,
+  "approvals_active": false,
+  "staking_active": false,
+  "relayer_active": false,
+  "growth_loops_active": false,
+  "old_wallet_status": "COMPROMISED_OR_UNTRUSTED",
+  "old_wallet": "0x335651BD160fDA89C9E7A095dF9Dc1BB9f3cF4DC",
+  "old_wallet_must_not_be_funded": true,
+  "old_wallet_must_not_be_used_for_approvals": true,
+  "old_wallet_must_not_be_used_for_liquidity": true,
+  "review_posture": "Review the proof. Verify the gates. Confirm the boundary."
+}

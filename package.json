@@ -191,7 +191,8 @@
     "governance:v2-first-pair-final-state-seal:v1:check": "node scripts/verify-v2-first-pair-final-state-seal-v1.cjs",
     "governance:v2-public-first-pair-status:v1:check": "node scripts/verify-v2-public-first-pair-status-v1.cjs",
     "governance:v2-public-visible-first-pair-proof:v1:check": "node scripts/verify-v2-public-visible-first-pair-proof-v1.cjs",
-    "governance:public-first-dex-pair-handoff:v1:check": "node scripts/verify-public-first-dex-pair-handoff-v1.cjs"
+    "governance:public-first-dex-pair-handoff:v1:check": "node scripts/verify-public-first-dex-pair-handoff-v1.cjs",
+    "governance:public-validation-status:v1:check": "node scripts/check-public-validation-status-v1.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",
