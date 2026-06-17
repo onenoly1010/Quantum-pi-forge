@@ -1,0 +1,44 @@
+{
+  "id": "operator-command-boundary-status-v1",
+  "result": "PASS",
+  "lane": "operator-command-boundary-status-v1",
+  "status": "SEALED_VERIFIED_NON_EXECUTION",
+  "posture": "OPERATOR_COMMAND_BOUNDARY_STATUS_SEALED",
+  "purpose": "Provide the operator-facing command boundary after parser, orchestrator, and bridge lanes are sealed.",
+  "canonical_checkpoints": {
+    "command_parser_final_status": {
+      "path": "receipts/security/evidence/command-parser-final-status-v1.json",
+      "required_posture": "COMMAND_PARSER_FINAL_STATUS_SEALED",
+      "verified": true
+    },
+    "command_orchestrator_final_status": {
+      "path_hint": "receipts/security/evidence/*orchestrator*final*status*.json",
+      "required_final_lane_status": "SEALED_VERIFIED_NON_EXECUTION",
+      "verified": true
+    },
+    "parser_orchestrator_bridge_final_status": {
+      "path": "receipts/security/evidence/parser-orchestrator-bridge-final-status-v1.json",
+      "required_posture": "PARSER_ORCHESTRATOR_BRIDGE_FINAL_STATUS_SEALED",
+      "verified": true
+    }
+  },
+  "command_parser_sealed": true,
+  "command_orchestrator_sealed": true,
+  "parser_orchestrator_bridge_sealed": true,
+  "runtime_execution_gated": true,
+  "operator_status_read_allowed": true,
+  "operator_receipt_verification_allowed": true,
+  "operator_runtime_execution_authorized": false,
+  "parser_runtime_execution": false,
+  "orchestrator_runtime_execution": false,
+  "orchestrator_runtime_connected": false,
+  "real_execution_enabled": false,
+  "operational_mode_enabled": false,
+  "private_key_used": false,
+  "transaction_signed": false,
+  "transaction_broadcast": false,
+  "storage_write_attempted": false,
+  "chain_state_mutated": false,
+  "future_runtime_gate_required": true,
+  "final_boundary_status": "OPERATOR_COMMAND_BOUNDARY_STATUS_SEALED"
+}
