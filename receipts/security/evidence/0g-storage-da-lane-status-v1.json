@@ -1,0 +1,42 @@
+{
+  "id": "0g-storage-da-lane-status-v1",
+  "result": "PASS",
+  "status": "FEATURE_COMPLETE_SECURITY_MAPPING",
+  "lane": "0g-storage-da-lane-v1",
+  "posture": "non_executing_preverified_fail_closed",
+  "summary": "0G Storage/DA lane is restricted to sealed payload integrity checks, non-executing gated dry-runs, and fail-closed tamper rejection.",
+  "proofs": {
+    "access_policy": {
+      "pr": 399,
+      "receipt": "receipts/security/evidence/0g-storage-da-access-policy-v1.json",
+      "sha256": "0ed479357563dc7901ccd84fcbd313d7baf7683c4cd360475c5944441f767948",
+      "status": "VALIDATED"
+    },
+    "payload_integrity": {
+      "pr": 400,
+      "receipt": "receipts/security/evidence/0g-storage-payload-hash-proof-v1.json",
+      "sha256": "ab6345e2415e60c905a2a37b9c7f18833ba46e44a49113c54782c8f2b914a0a7",
+      "payload_sha256": "67085bcdbbe36946fe19cea7b288e8bd4b4c1cf0199653a8189238c924b0f7c2",
+      "content_address_expected": "sha256:67085bcdbbe36946fe19cea7b288e8bd4b4c1cf0199653a8189238c924b0f7c2",
+      "status": "VALIDATED"
+    },
+    "positive_gated_flow": {
+      "pr": 401,
+      "receipt": "receipts/security/evidence/0g-gated-da-upload-dry-run-v1.json",
+      "sha256": "4c5b96e353b20c3874c360c95059a09c4cd287f27b1f118cbea28ea308669fe0",
+      "status": "VALIDATED"
+    },
+    "negative_tamper_rejection": {
+      "pr": 402,
+      "receipt": "receipts/security/evidence/0g-gated-da-upload-negative-test-v1.json",
+      "sha256": "6d28ca5c6dedacc5c6a2c988e4dac8faf5d63d364d1bdc93a45a19b007de12e8",
+      "status": "VALIDATED"
+    }
+  },
+  "private_key_used": false,
+  "transaction_signed": false,
+  "transaction_broadcast": false,
+  "storage_write_attempted": false,
+  "chain_state_mutated": false,
+  "final_lane_status": "SEALED"
+}
