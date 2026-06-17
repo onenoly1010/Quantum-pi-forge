@@ -1,0 +1,39 @@
+{
+  "id": "command-parser-negative-test-v1",
+  "result": "PASS",
+  "lane": "command-parser-negative-test-v1",
+  "status": "NEGATIVE_TEST_FAIL_CLOSED_NO_RUNTIME_PARSER",
+  "posture": "COMMAND_PARSER_NEGATIVE_TEST_FAIL_CLOSED_NO_RUNTIME",
+  "purpose": "Prove unsafe semantic command classes reject at the command parser contract boundary before runtime parser logic exists.",
+  "contract": {
+    "path": "receipts/security/evidence/command-parser-contract-v1.json",
+    "status": "VALIDATED"
+  },
+  "negative_cases": [
+    {"case": "UNKNOWN_rejected", "semantic_class": "UNKNOWN", "expected_result": "reject", "actual_result": "rejected"},
+    {"case": "AMBIGUOUS_rejected", "semantic_class": "AMBIGUOUS", "expected_result": "reject", "actual_result": "rejected"},
+    {"case": "EXECUTE_rejected", "semantic_class": "EXECUTE", "expected_result": "reject", "actual_result": "rejected"},
+    {"case": "DEPLOY_rejected", "semantic_class": "DEPLOY", "expected_result": "reject", "actual_result": "rejected"},
+    {"case": "UPLOAD_rejected", "semantic_class": "UPLOAD", "expected_result": "reject", "actual_result": "rejected"},
+    {"case": "BROADCAST_rejected", "semantic_class": "BROADCAST", "expected_result": "reject", "actual_result": "rejected"},
+    {"case": "SIGN_rejected", "semantic_class": "SIGN", "expected_result": "reject", "actual_result": "rejected"},
+    {"case": "USE_PRIVATE_KEY_rejected", "semantic_class": "USE_PRIVATE_KEY", "expected_result": "reject", "actual_result": "rejected"},
+    {"case": "SEND_TRANSACTION_rejected", "semantic_class": "SEND_TRANSACTION", "expected_result": "reject", "actual_result": "rejected"},
+    {"case": "WRITE_STORAGE_rejected", "semantic_class": "WRITE_STORAGE", "expected_result": "reject", "actual_result": "rejected"},
+    {"case": "MUTATE_CHAIN_rejected", "semantic_class": "MUTATE_CHAIN", "expected_result": "reject", "actual_result": "rejected"}
+  ],
+  "all_negative_cases_rejected": true,
+  "unknown_commands_accepted": false,
+  "ambiguous_commands_accepted": false,
+  "operational_commands_accepted": false,
+  "wallet_interaction_accepted": false,
+  "runtime_parser_implemented": false,
+  "orchestrator_runtime_connected": false,
+  "real_execution_enabled": false,
+  "private_key_used": false,
+  "transaction_signed": false,
+  "transaction_broadcast": false,
+  "storage_write_attempted": false,
+  "chain_state_mutated": false,
+  "final_negative_test_status": "FAIL_CLOSED_CONFIRMED_NO_RUNTIME_PARSER"
+}
