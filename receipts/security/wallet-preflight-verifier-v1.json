@@ -1,0 +1,9 @@
+{
+  "id": "wallet-preflight-verifier-v1",
+  "status": "ready",
+  "timestamp": "2026-06-17T17:34:58.502948Z",
+  "checks": [
+    "forbidden_key_scan",
+    "network_parameter_validation"
+  ]
+}
