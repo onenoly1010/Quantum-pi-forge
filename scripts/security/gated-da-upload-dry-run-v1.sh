@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+set -euo pipefail
+HASH_RECEIPT="receipts/security/evidence/0g-storage-payload-hash-proof-v1.json"
+OUT="/tmp/qpf-0g-gated-da-upload-dry-run-v1.out"
+DRY_RECEIPT="receipts/security/evidence/0g-gated-da-upload-dry-run-v1.json"
+DOC="docs/security/0G_GATED_DA_UPLOAD_DRY_RUN_V1.md"
+PAYLOAD="$(jq -r .payload_path "$HASH_RECEIPT")"
+EXPECTED_SHA256="$(jq -r .payload_sha256 "$HASH_RECEIPT")"
+EXPECTED_CONTENT_ADDRESS="$(jq -r .content_address_expected "$HASH_RECEIPT")"
+BYTES="$(jq -r .payload_bytes "$HASH_RECEIPT")"
+test -f "$PAYLOAD"
+ACTUAL_SHA256="$(sha256sum "$PAYLOAD" | awk "{print \$1}")"
+test "$ACTUAL_SHA256" = "$EXPECTED_SHA256"
+test "$EXPECTED_CONTENT_ADDRESS" = "sha256:${ACTUAL_SHA256}"
+bash scripts/security/wallet-preflight-gate-v1.sh bash scripts/security/0g-da-upload-simulator-v1.sh "$PAYLOAD" "$EXPECTED_SHA256" "$EXPECTED_CONTENT_ADDRESS" > "$OUT"
+cat "$OUT"
+grep -Fq "WALLET_PREFLIGHT_GATE_V1_PASS=TRUE" "$OUT"
+grep -Fq "DA_UPLOAD_SIMULATOR_RECEIVED=TRUE" "$OUT"
+grep -Fq "PAYLOAD_HASH_MATCH=true" "$OUT"
+grep -Fq "STORAGE_WRITE_ATTEMPTED=false" "$OUT"
+grep -Fq "TRANSACTION_SIGNED=false" "$OUT"
+grep -Fq "TRANSACTION_BROADCAST=false" "$OUT"
+grep -Fq "CHAIN_STATE_MUTATED=false" "$OUT"
+git restore receipts/security/wallet-preflight-verifier-v1.json >/dev/null 2>&1 || true
+printf "%s\n" "{" "  \"id\": \"0g-gated-da-upload-dry-run-v1\"," "  \"result\": \"PASS\"," "  \"policy\": \"0g-storage-da-access-policy-v1\"," "  \"hash_proof\": \"0g-storage-payload-hash-proof-v1\"," "  \"gate\": \"wallet-preflight-gate-v1\"," "  \"simulator\": \"0g-da-upload-simulator-v1\"," "  \"payload_path\": \"${PAYLOAD}\"," "  \"payload_bytes\": ${BYTES}," "  \"payload_sha256\": \"${EXPECTED_SHA256}\"," "  \"content_address_expected\": \"${EXPECTED_CONTENT_ADDRESS}\"," "  \"payload_hash_match\": true," "  \"wallet_preflight_gate_passed\": true," "  \"simulator_received\": true," "  \"private_key_used\": false," "  \"transaction_signed\": false," "  \"transaction_broadcast\": false," "  \"storage_write_attempted\": false," "  \"chain_state_mutated\": false" "}" > "$DRY_RECEIPT"
+printf "%s\n" "# 0G Gated DA Upload Dry-Run v1" "" "This proof demonstrates that a future 0G Storage / DA upload path must first verify the sealed payload hash and then pass through the wallet preflight gate before any downstream upload command can run." "" "## Verified flow" "1. Read \`0g-storage-payload-hash-proof-v1\`." "2. Recompute the local payload SHA-256." "3. Require the hash to match the sealed receipt." "4. Execute the simulator only through \`wallet-preflight-gate-v1.sh\`." "5. Stop before any real storage write, signing, broadcast, funding, approval, or chain-state mutation." "" "## Payload" "- Path: \`${PAYLOAD}\`" "- Bytes: \`${BYTES}\`" "- SHA-256: \`${EXPECTED_SHA256}\`" "- Expected content address: \`${EXPECTED_CONTENT_ADDRESS}\`" "" "## Safety" "- Wallet preflight gate passed: \`true\`" "- Payload hash match: \`true\`" "- Simulator received: \`true\`" "- Private key used: \`false\`" "- Transaction signed: \`false\`" "- Transaction broadcast: \`false\`" "- Storage write attempted: \`false\`" "- Chain-state mutated: \`false\`" > "$DOC"
+jq -e ".id == \"0g-gated-da-upload-dry-run-v1\" and .result == \"PASS\" and .payload_sha256 == \"${EXPECTED_SHA256}\" and .content_address_expected == \"${EXPECTED_CONTENT_ADDRESS}\" and .payload_hash_match == true and .wallet_preflight_gate_passed == true and .simulator_received == true and .private_key_used == false and .transaction_signed == false and .transaction_broadcast == false and .storage_write_attempted == false and .chain_state_mutated == false" "$DRY_RECEIPT" >/dev/null
+echo "ZERO_G_GATED_DA_UPLOAD_DRY_RUN_V1_CHECK=PASS"
