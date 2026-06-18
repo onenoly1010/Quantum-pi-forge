@@ -1,0 +1,25 @@
+{
+  "schema": "qpf.0g_compute_inference_evidence_dry_run_gate.v1",
+  "status": "sealed",
+  "generated_at_utc": "2026-06-18T16:09:14.167Z",
+  "generated_by": "audit:full-local post-fix verification cycle",
+  "network": "0G Aristotle Mainnet",
+  "chain_id_expected": 16661,
+  "compute_path_reviewed": true,
+  "router_recommended_for_qpf": true,
+  "direct_requires_wallet_signing": true,
+  "private_key_requested": false,
+  "wallet_signature_requested": false,
+  "funding_attempted": false,
+  "provider_transfer_attempted": false,
+  "inference_request_attempted": false,
+  "live_execution": false,
+  "tee_verification_path_identified": true,
+  "blocked_commands": [
+    "0g-compute-cli login",
+    "0g-compute-cli deposit --amount <N>",
+    "0g-compute-cli transfer-fund --provider <ADDRESS> --amount <N>"
+  ],
+  "reviewed_documentation": "https://docs.0g.ai/developer-hub/building-on-0g/compute-network/inference",
+  "next_lane": "operator-approved compute inference execution v1"
+}
