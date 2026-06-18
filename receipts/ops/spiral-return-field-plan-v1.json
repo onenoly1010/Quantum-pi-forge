@@ -1,0 +1,22 @@
+{
+  "receipt": "spiral-return-field-plan-v1",
+  "status": "SEALED_OPERATIONAL_PLAN",
+  "mode": "MOBILE_FIELD_TEST",
+  "gate": "ECONOMIC_SOVEREIGNTY_GATE_V1",
+  "canonical_baseline": "7f989f9",
+  "document": "docs/ops/SPIRAL_RETURN_FIELD_PLAN_V1.md",
+  "document_sha256": "a7769845748ecefe180cf3933bd32b730be79277fe39fe465fa095dd0ea9090d",
+  "live_execution_authorized": false,
+  "wallet_actions_authorized": false,
+  "live_transaction_signing_authorized": false,
+  "liquidity_authorized": false,
+  "deployments_authorized": false,
+  "automated_fees_authorized": false,
+  "treasury_routing_authorized": false,
+  "live_revenue_claim": false,
+  "mobile_node_demo_authorized": true,
+  "minimum_mobile_attestations": 3,
+  "geo_precision_required": false,
+  "human_reconciliation_required": true,
+  "created_at_utc": "2026-06-18T03:20:39Z"
+}
