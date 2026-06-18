@@ -1,0 +1,21 @@
+{
+  "gate": "PUBLIC_VERIFICATION_DEMO_GATE_V1",
+  "status": "PASS",
+  "mode": "DRY_RUN_ONLY",
+  "network": "0G Aristotle Mainnet",
+  "chain_id": 16661,
+  "network_checked": true,
+  "artifact_replay_verified": true,
+  "upload_attempted": false,
+  "transaction_broadcast": false,
+  "private_key_present": false,
+  "live_execution": false,
+  "reviewer_safe": true,
+  "wallet_use_authorized": false,
+  "funding_authorized": false,
+  "staking_authorized": false,
+  "approval_authorized": false,
+  "liquidity_authorized": false,
+  "deployment_authorized": false,
+  "operational_activation_authorized": false
+}
