@@ -1,0 +1,19 @@
+{
+  "receipt": "spiral-return-field-kit-v1",
+  "status": "SEALED_FIELD_UTILITY",
+  "mode": "LOCAL_ONLY_OFFLINE",
+  "gate": "ECONOMIC_SOVEREIGNTY_GATE_V1 + SPIRAL_RETURN_FIELD_PLAN_V1",
+  "canonical_baseline": "6c1057f",
+  "document": "docs/ops/SPIRAL_RETURN_FIELD_KIT_V1.md",
+  "document_sha256": "05a89049fe62fb28972ae6ebe6aae61037ce0b9895d2610c3bd5201047355815",
+  "kit": "scripts/field/spiral-return-field-kit-v1.cjs",
+  "kit_sha256": "f9cab9f2f3ebea6655450a158011a1e1a930408f5e389ea7128b2336fe9d6c8b",
+  "live_execution_authorized": false,
+  "wallet_actions_authorized": false,
+  "live_transaction_signing_authorized": false,
+  "outbound_network_sync_authorized": false,
+  "uploads_authorized": false,
+  "live_revenue_claim": false,
+  "pending_human_reconciliation": true,
+  "created_at_utc": "2026-06-18T03:31:56Z"
+}
