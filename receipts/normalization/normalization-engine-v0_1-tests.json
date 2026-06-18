@@ -1,0 +1,85 @@
+{
+  "receipt": "normalization-engine-v0.1-tests",
+  "mode": "LOCAL_DRY_RUN_ONLY",
+  "total_cases": 9,
+  "accepted_cases": 5,
+  "quarantined_cases": 4,
+  "rpc_mutation_attempted": false,
+  "signing_attempted": false,
+  "deployment_attempted": false,
+  "funding_attempted": false,
+  "liquidity_attempted": false,
+  "results": [
+    {
+      "name": "accept-sovereign-claim",
+      "accepted": true,
+      "quarantine": false,
+      "reasons": [],
+      "canonical_hash": "f4f871d11fda03cee22921e9180187362c298b7f3643673e56dd610867fccd16"
+    },
+    {
+      "name": "accept-resonance-oracle-io",
+      "accepted": true,
+      "quarantine": false,
+      "reasons": [],
+      "canonical_hash": "d3029a88aa6ebcc4a19bc5ecb6d179fd8b072d834c8d29105f1ad537e06e06db"
+    },
+    {
+      "name": "accept-evidence-receipt",
+      "accepted": true,
+      "quarantine": false,
+      "reasons": [],
+      "canonical_hash": "23b9fdd2e0cb2de276909d1b8f9c548315a6c93f234b807df4ca9bdc707a823e"
+    },
+    {
+      "name": "accept-gate-state-transition",
+      "accepted": true,
+      "quarantine": false,
+      "reasons": [],
+      "canonical_hash": "d7e09722e424f4787d0ede8547f6ae9408f1a5ed7de79ac4cf4d3dae7fe5a5b1"
+    },
+    {
+      "name": "accept-qualia-fragment-minimal",
+      "accepted": true,
+      "quarantine": false,
+      "reasons": [],
+      "canonical_hash": "193bc54291a5032f5df85a45debb4efabafd3b32f02106e1ef29fc5ced98d520"
+    },
+    {
+      "name": "reject-unsupported-kind",
+      "accepted": false,
+      "quarantine": true,
+      "reasons": [
+        "unsupported_kind"
+      ],
+      "canonical_hash": null
+    },
+    {
+      "name": "reject-version-mismatch",
+      "accepted": false,
+      "quarantine": true,
+      "reasons": [
+        "version_mismatch"
+      ],
+      "canonical_hash": null
+    },
+    {
+      "name": "reject-unsafe-signing",
+      "accepted": false,
+      "quarantine": true,
+      "reasons": [
+        "unsafe_fields:payload.signing_requested"
+      ],
+      "canonical_hash": null
+    },
+    {
+      "name": "reject-private-key",
+      "accepted": false,
+      "quarantine": true,
+      "reasons": [
+        "unsafe_fields:payload.private_key"
+      ],
+      "canonical_hash": null
+    }
+  ]
+}
