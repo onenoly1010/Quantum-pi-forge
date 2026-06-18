@@ -138,7 +138,10 @@ const ALLOWED_DIRTY_PATTERNS = [
   "docs/governance/templates/",
   "0G_COMPUTE_INFERENCE_EVIDENCE_DRY_RUN_GATE_V1",
   "receipts/runtime/",
-  "verify-0g-compute-inference-evidence-dry-run-gate-v1"
+  "verify-0g-compute-inference-evidence-dry-run-gate-v1",
+  "LIVE_CANARY_GATE_V1",
+  "live-canary-gate-v1",
+  "verify-live-canary-gate-v1"
 ];
 
 const status = git("git status --short");
