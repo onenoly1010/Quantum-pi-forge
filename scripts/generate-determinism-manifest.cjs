@@ -39,7 +39,9 @@ const EXCLUDE = [
   "coverage",
   "runtime",
   "receipts/governance/cross-platform-determinism-manifest-v1.json",
-  "receipts/governance/cross-platform-determinism-v1.json"
+  "receipts/governance/cross-platform-determinism-v1.json",
+  ".env",
+  ".env.*"
 ];
 
 function exists(p) {
