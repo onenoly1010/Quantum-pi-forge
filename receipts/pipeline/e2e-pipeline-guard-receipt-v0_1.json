@@ -1,0 +1,97 @@
+{
+  "receipt": "e2e-pipeline-guard-receipt-v0.1",
+  "pipeline_version": "0.1",
+  "mode": "LOCAL_DRY_RUN_ONLY",
+  "gate_mode": "ACTIVE_DEVELOPMENT",
+  "uses_protocol_pipeline_orchestrator": true,
+  "chain_of_custody": {
+    "adapter_stage_represented": true,
+    "normalization_stage_passed": true,
+    "classifier_guard_stage_passed": true,
+    "orchestrator_stage_passed": true
+  },
+  "invariants": {
+    "private_keys_loaded": false,
+    "live_execution_authorized": false,
+    "signing_attempted": false,
+    "rpc_mutation_attempted": false,
+    "deployment_attempted": false,
+    "funding_attempted": false,
+    "liquidity_attempted": false,
+    "future_operational_gate_required": true
+  },
+  "total_cases": 6,
+  "accepted_cases": 1,
+  "quarantined_cases": 5,
+  "results": [
+    {
+      "name": "accept-safe-local-governance-simulation",
+      "accepted": true,
+      "quarantine": false,
+      "stage": "complete",
+      "canonical_hash": "71039188b29d055e168c2a8093c1cc0cadaba0ad5f04db72f7f639e785b1f63d",
+      "intent_type": "read_only",
+      "reasons": [
+        "local_simulation_permitted"
+      ]
+    },
+    {
+      "name": "quarantine-deploy-intent",
+      "accepted": false,
+      "quarantine": true,
+      "stage": "complete",
+      "canonical_hash": "741299627792ff17e8ec8424e831353c5acfa8534c8c4ca605702e5572a92abc",
+      "intent_type": "write_mutation",
+      "reasons": [
+        "local_simulation_permitted"
+      ]
+    },
+    {
+      "name": "quarantine-execute-intent",
+      "accepted": false,
+      "quarantine": true,
+      "stage": "complete",
+      "canonical_hash": "c78dac1bcf6db5010bc03c0219ae2b4356e39198c9d6c3338c3972852d68b932",
+      "intent_type": "execution",
+      "reasons": [
+        "local_simulation_permitted"
+      ]
+    },
+    {
+      "name": "quarantine-sign-intent",
+      "accepted": false,
+      "quarantine": true,
+      "stage": "complete",
+      "canonical_hash": "ceea4846bf4d53167c4fcdce97d4d78ffdb1eacd9205bedae1e73433b978a684",
+      "intent_type": "execution",
+      "reasons": [
+        "local_simulation_permitted"
+      ]
+    },
+    {
+      "name": "quarantine-funding-intent",
+      "accepted": false,
+      "quarantine": true,
+      "stage": "complete",
+      "canonical_hash": "f543ed26377e5dfbbb8cf4fae2c80641dca3b82064a97a0d923bdf7dfe07ae72",
+      "intent_type": "write_mutation",
+      "reasons": [
+        "local_simulation_permitted"
+      ]
+    },
+    {
+      "name": "quarantine-liquidity-intent",
+      "accepted": false,
+      "quarantine": true,
+      "stage": "complete",
+      "canonical_hash": "76ee8cc3bc116b2add80f64d894518f5497f7528ce645481258fbdc963766ebc",
+      "intent_type": "write_mutation",
+      "reasons": [
+        "local_simulation_permitted"
+      ]
+    }
+  ],
+  "master_canonical_hash": "da6b11bd54dc086763f6a1be442527fb1bfc670a3a0ab78b2b2c9554a18da0c4",
+  "generated_at": "2026-06-18T01:02:19.722Z",
+  "summary": "Full pipeline integrity verified. LOCAL_DRY_RUN_ONLY invariant holds end-to-end."
+}

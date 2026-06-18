@@ -1,0 +1,46 @@
+{
+  "receipt": "protocol-adapter-normalization-pipeline-v0.1",
+  "mode": "LOCAL_DRY_RUN_ONLY",
+  "composed_protocol_adapter": true,
+  "composed_normalization_engine": true,
+  "adapter_output_accepted": true,
+  "normalized": true,
+  "canonical_hash": "31a8c2d4414fa7e6c8e30b74e42be52f03768e8ccffec1c64003297aa7924593",
+  "rpc_mutation_attempted": false,
+  "signing_attempted": false,
+  "deployment_attempted": false,
+  "funding_attempted": false,
+  "liquidity_attempted": false,
+  "live_execution_authorized": false,
+  "future_operational_gate_required": true,
+  "normalized_object": {
+    "kind": "evidence_receipt",
+    "version": "v0.1",
+    "payload": {
+      "action": "normalize-and-classify",
+      "adapter": "protocol-adapter-layer-v1",
+      "chain": "0G_ARISTOTLE_MAINNET",
+      "deployment_attempted": false,
+      "dry_run": true,
+      "funding_attempted": false,
+      "future_operational_gate_required": true,
+      "liquidity_attempted": false,
+      "live_execution_authorized": false,
+      "mode": "DRY_RUN_ONLY",
+      "normalized": true,
+      "private_key_loaded": false,
+      "rpc_mutation_attempted": false,
+      "signing_attempted": false,
+      "target": "protocol-interface"
+    },
+    "normalization": {
+      "engine": "normalization-engine-v0.1",
+      "mode": "LOCAL_DRY_RUN_ONLY",
+      "rpc_mutation_attempted": false,
+      "signing_attempted": false,
+      "deployment_attempted": false,
+      "funding_attempted": false,
+      "liquidity_attempted": false
+    }
+  }
+}
