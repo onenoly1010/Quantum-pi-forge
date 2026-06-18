@@ -1,0 +1,22 @@
+{
+  "receipt": "activation-runtime-v1",
+  "status": "SEALED_SAFE_AUTONOMY_RUNTIME",
+  "baseline": "4a9faf4",
+  "document": "docs/runtime/ACTIVATION_RUNTIME_V1.md",
+  "script": "scripts/runtime/activation-runtime-v1.cjs",
+  "document_sha256": "302e648345dfb4e14c674bc17d196f520f46fe1863d7fc5ad6bf862f1b5d10a7",
+  "script_sha256": "b5424f2bcfb5c4f0c4c0c93b429617743ec146b7eacd32f96c930fc7664e8089",
+  "live_execution_authorized": false,
+  "private_key_access_authorized": false,
+  "wallet_actions_authorized": false,
+  "transaction_signing_authorized": false,
+  "deployments_authorized": false,
+  "liquidity_authorized": false,
+  "treasury_routing_authorized": false,
+  "live_revenue_claim": false,
+  "autonomous_local_orchestration_authorized": true,
+  "read_only_checks_authorized": true,
+  "local_receipt_sealing_authorized": true,
+  "halt_on_boundary_violation": true,
+  "created_at_utc": "2026-06-18T03:54:22Z"
+}

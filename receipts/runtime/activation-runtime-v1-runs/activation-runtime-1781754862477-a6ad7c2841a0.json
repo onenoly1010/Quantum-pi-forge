@@ -1,0 +1,18 @@
+{
+  "canonical_head": "4a9faf46aedbac2152669654e736f10deb5b8d81",
+  "deployments_authorized": false,
+  "git_status": "?? docs/runtime/\n?? receipts/runtime/\n?? scripts/ops/verify-activation-runtime-v1.sh\n?? scripts/runtime/",
+  "halt_on_boundary_violation": true,
+  "liquidity_authorized": false,
+  "live_execution_authorized": false,
+  "live_revenue_claim": false,
+  "local_receipt_sealing": true,
+  "mode": "AUTONOMOUS_LOCAL_ORCHESTRATION",
+  "private_key_access_authorized": false,
+  "read_only_checks": true,
+  "receipt": "activation-runtime-v1-cycle",
+  "timestamp_utc": "2026-06-18T03:54:22.339Z",
+  "transaction_signing_authorized": false,
+  "treasury_routing_authorized": false,
+  "wallet_actions_authorized": false
+}
