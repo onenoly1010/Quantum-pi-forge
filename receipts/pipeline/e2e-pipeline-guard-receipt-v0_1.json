@@ -92,6 +92,6 @@
     }
   ],
   "master_canonical_hash": "da6b11bd54dc086763f6a1be442527fb1bfc670a3a0ab78b2b2c9554a18da0c4",
-  "generated_at": "2026-06-18T00:56:37.600Z",
+  "generated_at": "2026-06-18T01:02:19.722Z",
   "summary": "Full pipeline integrity verified. LOCAL_DRY_RUN_ONLY invariant holds end-to-end."
 }
