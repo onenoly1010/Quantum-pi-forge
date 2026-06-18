@@ -1,0 +1,23 @@
+{
+  "receipt": "local-autonomous-worker-loop-v1",
+  "mode": "BOUNDED_LOCAL_AUTONOMY",
+  "objectives_completed_locally": [
+    "A",
+    "C",
+    "D",
+    "E"
+  ],
+  "objective_b_pr_426_existing": true,
+  "local_artifacts_written": true,
+  "verifier_required": true,
+  "seed_phrase_access_authorized": false,
+  "private_key_access_authorized": false,
+  "wallet_signing_authorized": false,
+  "funds_movement_authorized": false,
+  "token_approval_authorized": false,
+  "bridge_authorized": false,
+  "deployment_authorized": false,
+  "liquidity_authorized": false,
+  "mainnet_mutation_authorized": false,
+  "canonical_hash": "55c586fe649faaa4b817fb2a1363cfc2ea68f1bd69e4a287b3c36945541fbc56"
+}
