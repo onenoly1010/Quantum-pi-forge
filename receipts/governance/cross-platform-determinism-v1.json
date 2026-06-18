@@ -16,8 +16,8 @@
     "state_changing_transaction_executed": false
   },
   "manifest_path": "receipts/governance/cross-platform-determinism-manifest-v1.json",
-  "manifest_sha256": "e40bade2911b7a1023c326159cd79018c711d6964955937643ed7d042614d64a",
-  "manifest_file_count": 455,
+  "manifest_sha256": "d62187db96175468f5e41a58260fd168612f9164545709502ab0bf3654d89c1b",
+  "manifest_file_count": 3333,
   "reviewer_policy": {
     "goal": "detect cross-platform determinism drift before cutover",
     "acceptable_result": "clean verifier pass on independently reproduced artifact manifest",
@@ -34,20 +34,20 @@
     "build_time": {
       "status": "declared_volatile_field_normalized",
       "rule": "out-build-time-field-v1",
-      "deterministic_value": "2026-06-11T15:27:43-06:00",
+      "deterministic_value": "2026-06-15T21:54:34-06:00",
       "scope": "out/** and public/** text artifacts only",
       "blocking_if_found_elsewhere": true
     },
     "version_json_commit": {
       "status": "declared_volatile_field_normalized",
       "rule": "version-json-commit-field-v1",
-      "deterministic_value": "7060a1ea71bee53e30da0eba3295ebc5f580ffab",
+      "deterministic_value": "bfdc8a9bc4c31fbac62e1faea6e8419b10a75c85",
       "scope": "out/**/version.json and public/**/version.json only",
       "blocking_if_found_elsewhere": true
     }
   },
-  "updated_for_commit": "96bf3f3",
-  "updated_utc": "2026-06-13T05:36:32.632Z",
+  "updated_for_commit": "bfdc8a9",
+  "updated_utc": "2026-06-18T17:00:44.000Z",
   "post_pr_321_refresh": true,
   "execution_flags": {
     "unpark_executed": false,
@@ -64,7 +64,6 @@
   "no_unpark": true,
   "no_broadcast": true,
   "no_keys": true,
-  "manifestSha256": "e40bade2911b7a1023c326159cd79018c711d6964955937643ed7d042614d64a",
-  "manifestFileCount": 455,
-  "post_pr_438_refresh": true
+  "manifestSha256": "d62187db96175468f5e41a58260fd168612f9164545709502ab0bf3654d89c1b",
+  "manifestFileCount": 3333
 }

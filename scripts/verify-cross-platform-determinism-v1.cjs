@@ -135,7 +135,10 @@ const ALLOWED_DIRTY_PATTERNS = [
   "docs/governance/REVIEWER_ATTESTATION_INTAKE_V1.md",
   "docs/governance/EXTERNAL_ATTESTATION_VERIFIER_V1.md",
   "docs/governance/templates/REVIEWER_ATTESTATION_V1.template.txt",
-  "docs/governance/templates/"
+  "docs/governance/templates/",
+  "0G_COMPUTE_INFERENCE_EVIDENCE_DRY_RUN_GATE_V1",
+  "receipts/runtime/",
+  "verify-0g-compute-inference-evidence-dry-run-gate-v1"
 ];
 
 const status = git("git status --short");
