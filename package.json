@@ -194,7 +194,9 @@
     "governance:public-first-dex-pair-handoff:v1:check": "node scripts/verify-public-first-dex-pair-handoff-v1.cjs",
     "governance:public-validation-status:v1:check": "node scripts/check-public-validation-status-v1.cjs",
     "governance:readme-public-validation-pin:v1:check": "node scripts/check-readme-public-validation-pin-v1.cjs",
-    "security:wallet-preflight-gate:v1:check": "bash scripts/security/wallet-preflight-gate-v1.sh"
+    "security:wallet-preflight-gate:v1:check": "bash scripts/security/wallet-preflight-gate-v1.sh",
+    "integration:0g-storage-evidence-dry-run:v1": "node scripts/0g-storage-evidence-dry-run-gate-v1.cjs",
+    "verify:0g-storage-evidence-dry-run:v1": "node scripts/verify-0g-storage-evidence-dry-run-gate-v1.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",

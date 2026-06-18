@@ -1,0 +1,13 @@
+{
+  "qpf_artifact": "0g-storage-evidence-dry-run-test-artifact-v1",
+  "mode": "DRY_RUN_ONLY",
+  "network": "0G Aristotle Mainnet",
+  "chain_id": 16661,
+  "rpc_url": "https://evmrpc.0g.ai",
+  "storage_indexer_url": "https://indexer-storage-turbo.0g.ai",
+  "latest_block_observed": 36427695,
+  "live_upload_authorized": false,
+  "private_key_required": false,
+  "private_key_present": false,
+  "generated_at": "2026-06-18T06:39:12.702Z"
+}
