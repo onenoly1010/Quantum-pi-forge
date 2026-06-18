@@ -1,0 +1,17 @@
+{
+  "run": "local-autonomous-workflow-supervisor-v1",
+  "mode": "BOUNDED_LOCAL_AUTONOMY",
+  "queue_total": 5,
+  "assigned_objectives": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "blocked_live_actions": true,
+  "local_ai_workflow_ready": true,
+  "findings": [],
+  "next_safe_action": "Run objective-specific local artifact generation for A-E under the blocked live-action policy.",
+  "updated_at": "2026-06-18T01:39:11.777Z"
+}

@@ -1,0 +1,9 @@
+{
+  "queue": [
+    {"id":"A","title":"Complete Funding Constraint Resilience Mode v1","allowed":["docs","receipts","verifiers","local_commit","pr_body"],"blocked":["wallet","funds","signing","deployment","liquidity","mainnet_mutation"]},
+    {"id":"B","title":"Complete Cold Storage Custody Gate v1","allowed":["docs","receipts","verifiers","local_commit","pr_body"],"blocked":["seed_phrase","private_key","wallet","funds","signing","deployment","liquidity","mainnet_mutation"]},
+    {"id":"C","title":"Create Public Evidence Mirror / Offline Review Packet","allowed":["static_docs","screenshots_manifest","receipt_index","reviewer_guide"],"blocked":["paid_hosting_required","wallet","funds","signing","deployment","mainnet_mutation"]},
+    {"id":"D","title":"Create Sustainability Readiness Gate v1","allowed":["funding_map","unlock_map","risk_boundaries","future_gate_doc"],"blocked":["funds_movement","wallet_signing","token_approval","liquidity","deployment","mainnet_mutation"]},
+    {"id":"E","title":"Create Reviewer/Funder Packet","allowed":["plain_language_summary","verified_state","boundaries","funding_unlocks"],"blocked":["investment_promises","guaranteed_returns","wallet_actions","mainnet_mutation"]}
+  ]
+}
