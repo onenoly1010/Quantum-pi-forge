@@ -1,0 +1,22 @@
+{
+  "receipt": "live-activation-gate-v1",
+  "status": "PROPOSED_ACTIVATION_GATE",
+  "baseline": "38fe142",
+  "document": "docs/governance/LIVE_ACTIVATION_GATE_V1.md",
+  "document_sha256": "613ae79d8da7d310db53ad1450d6a56a08cff17c76e6a1ce13e99c605e128b79",
+  "staged_live_activation": true,
+  "autonomous_local_orchestration_authorized": true,
+  "read_only_network_checks_authorized": true,
+  "local_receipt_sealing_authorized": true,
+  "field_attestation_reconciliation_authorized": true,
+  "live_execution_authorized": false,
+  "private_key_access_authorized": false,
+  "autonomous_wallet_actions_authorized": false,
+  "autonomous_transaction_signing_authorized": false,
+  "liquidity_authorized": false,
+  "deployments_authorized": false,
+  "treasury_routing_authorized": false,
+  "live_revenue_claim": false,
+  "human_approval_required_for_mutation": true,
+  "created_at_utc": "2026-06-18T03:47:31Z"
+}
