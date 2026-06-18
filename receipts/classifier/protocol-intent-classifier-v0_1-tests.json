@@ -1,0 +1,144 @@
+{
+  "receipt": "protocol-intent-classifier-v0.1-tests",
+  "mode": "LOCAL_DRY_RUN_ONLY",
+  "gate_mode": "ACTIVE_DEVELOPMENT",
+  "total_cases": 8,
+  "accepted_cases": 4,
+  "quarantined_cases": 4,
+  "rpc_mutation_attempted": false,
+  "signing_attempted": false,
+  "deployment_attempted": false,
+  "funding_attempted": false,
+  "liquidity_attempted": false,
+  "live_execution_authorized": false,
+  "results": [
+    {
+      "name": "allow-read-only-evidence",
+      "accepted": true,
+      "quarantine": false,
+      "classification": {
+        "intent_type": "read_only",
+        "gate_mode": "ACTIVE_DEVELOPMENT",
+        "guard_mode": "LOCAL_DRY_RUN_ONLY",
+        "simulation_only": true,
+        "requires_live_execution": false,
+        "is_allowed_in_current_gate": true,
+        "reasons": [
+          "local_simulation_permitted"
+        ]
+      }
+    },
+    {
+      "name": "allow-governance-simulation",
+      "accepted": true,
+      "quarantine": false,
+      "classification": {
+        "intent_type": "governance",
+        "gate_mode": "ACTIVE_DEVELOPMENT",
+        "guard_mode": "LOCAL_DRY_RUN_ONLY",
+        "simulation_only": true,
+        "requires_live_execution": false,
+        "is_allowed_in_current_gate": true,
+        "reasons": [
+          "local_simulation_permitted"
+        ]
+      }
+    },
+    {
+      "name": "allow-resonance-oracle-simulation",
+      "accepted": true,
+      "quarantine": false,
+      "classification": {
+        "intent_type": "resonance_oracle",
+        "gate_mode": "ACTIVE_DEVELOPMENT",
+        "guard_mode": "LOCAL_DRY_RUN_ONLY",
+        "simulation_only": true,
+        "requires_live_execution": false,
+        "is_allowed_in_current_gate": true,
+        "reasons": [
+          "local_simulation_permitted"
+        ]
+      }
+    },
+    {
+      "name": "allow-soul-data-simulation",
+      "accepted": true,
+      "quarantine": false,
+      "classification": {
+        "intent_type": "soul_data",
+        "gate_mode": "ACTIVE_DEVELOPMENT",
+        "guard_mode": "LOCAL_DRY_RUN_ONLY",
+        "simulation_only": true,
+        "requires_live_execution": false,
+        "is_allowed_in_current_gate": true,
+        "reasons": [
+          "local_simulation_permitted"
+        ]
+      }
+    },
+    {
+      "name": "reject-deploy-action",
+      "accepted": false,
+      "quarantine": true,
+      "classification": {
+        "intent_type": "write_mutation",
+        "gate_mode": "ACTIVE_DEVELOPMENT",
+        "guard_mode": "LOCAL_DRY_RUN_ONLY",
+        "simulation_only": true,
+        "requires_live_execution": true,
+        "is_allowed_in_current_gate": false,
+        "reasons": [
+          "local_simulation_permitted"
+        ]
+      }
+    },
+    {
+      "name": "reject-execute-action",
+      "accepted": false,
+      "quarantine": true,
+      "classification": {
+        "intent_type": "execution",
+        "gate_mode": "ACTIVE_DEVELOPMENT",
+        "guard_mode": "LOCAL_DRY_RUN_ONLY",
+        "simulation_only": true,
+        "requires_live_execution": true,
+        "is_allowed_in_current_gate": false,
+        "reasons": [
+          "local_simulation_permitted"
+        ]
+      }
+    },
+    {
+      "name": "reject-forced-live-flag",
+      "accepted": false,
+      "quarantine": true,
+      "classification": {
+        "intent_type": "read_only",
+        "gate_mode": "ACTIVE_DEVELOPMENT",
+        "guard_mode": "LOCAL_DRY_RUN_ONLY",
+        "simulation_only": true,
+        "requires_live_execution": true,
+        "is_allowed_in_current_gate": false,
+        "reasons": [
+          "blocked_live_signals:live_execution_authorized"
+        ]
+      }
+    },
+    {
+      "name": "reject-unsupported-normalization-mode",
+      "accepted": false,
+      "quarantine": true,
+      "classification": {
+        "intent_type": "read_only",
+        "gate_mode": "ACTIVE_DEVELOPMENT",
+        "guard_mode": "LOCAL_DRY_RUN_ONLY",
+        "simulation_only": true,
+        "requires_live_execution": false,
+        "is_allowed_in_current_gate": false,
+        "reasons": [
+          "unsupported_normalization_mode"
+        ]
+      }
+    }
+  ]
+}
