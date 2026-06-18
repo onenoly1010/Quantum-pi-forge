@@ -1,0 +1,17 @@
+{
+  "receipt": "sustainability-readiness-gate-v1",
+  "funding_readiness_prepared": true,
+  "revenue_path_review_required": true,
+  "no_investment_promises": true,
+  "no_guaranteed_returns": true,
+  "seed_phrase_access_authorized": false,
+  "private_key_access_authorized": false,
+  "wallet_signing_authorized": false,
+  "funds_movement_authorized": false,
+  "token_approval_authorized": false,
+  "bridge_authorized": false,
+  "deployment_authorized": false,
+  "liquidity_authorized": false,
+  "mainnet_mutation_authorized": false,
+  "future_funding_gate_required": true
+}

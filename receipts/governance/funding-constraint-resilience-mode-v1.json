@@ -1,0 +1,21 @@
+{
+  "receipt": "funding-constraint-resilience-mode-v1",
+  "remote_ci_authoritative": false,
+  "paid_hosting_authoritative": false,
+  "vercel_required": false,
+  "cloudflare_required": false,
+  "local_verification_authoritative": true,
+  "github_record_authoritative": true,
+  "public_evidence_required": true,
+  "funding_readiness_required": true,
+  "seed_phrase_access_authorized": false,
+  "private_key_access_authorized": false,
+  "wallet_signing_authorized": false,
+  "funds_movement_authorized": false,
+  "token_approval_authorized": false,
+  "bridge_authorized": false,
+  "deployment_authorized": false,
+  "liquidity_authorized": false,
+  "mainnet_mutation_authorized": false,
+  "future_funding_gate_required": true
+}

@@ -1,0 +1,16 @@
+{
+  "receipt": "public-evidence-mirror-offline-review-packet-v1",
+  "paid_hosting_required": false,
+  "local_verification_authoritative": true,
+  "public_review_path_available": true,
+  "offline_review_packet_available": true,
+  "seed_phrase_access_authorized": false,
+  "private_key_access_authorized": false,
+  "wallet_signing_authorized": false,
+  "funds_movement_authorized": false,
+  "token_approval_authorized": false,
+  "bridge_authorized": false,
+  "deployment_authorized": false,
+  "liquidity_authorized": false,
+  "mainnet_mutation_authorized": false
+}
