@@ -1,0 +1,117 @@
+{
+  "receipt": "protocol-adapter-negative-tests-v1",
+  "mode": "DRY_RUN_ONLY",
+  "total_cases": 8,
+  "rejected_cases": 7,
+  "accepted_cases": 1,
+  "live_execution_authorized": false,
+  "signing_authorized": false,
+  "rpc_mutation_authorized": false,
+  "deployment_authorized": false,
+  "funding_authorized": false,
+  "liquidity_authorized": false,
+  "results": [
+    {
+      "name": "reject-execution",
+      "intent": {
+        "name": "reject-execution",
+        "execution_requested": true
+      },
+      "result": {
+        "accepted": false,
+        "blocked_reasons": [
+          "execution_requested"
+        ]
+      }
+    },
+    {
+      "name": "reject-signing",
+      "intent": {
+        "name": "reject-signing",
+        "signing_requested": true
+      },
+      "result": {
+        "accepted": false,
+        "blocked_reasons": [
+          "signing_requested"
+        ]
+      }
+    },
+    {
+      "name": "reject-rpc-mutation",
+      "intent": {
+        "name": "reject-rpc-mutation",
+        "rpc_mutation_requested": true
+      },
+      "result": {
+        "accepted": false,
+        "blocked_reasons": [
+          "rpc_mutation_requested"
+        ]
+      }
+    },
+    {
+      "name": "reject-deployment",
+      "intent": {
+        "name": "reject-deployment",
+        "deployment_requested": true
+      },
+      "result": {
+        "accepted": false,
+        "blocked_reasons": [
+          "deployment_requested"
+        ]
+      }
+    },
+    {
+      "name": "reject-funding",
+      "intent": {
+        "name": "reject-funding",
+        "funding_requested": true
+      },
+      "result": {
+        "accepted": false,
+        "blocked_reasons": [
+          "funding_requested"
+        ]
+      }
+    },
+    {
+      "name": "reject-liquidity",
+      "intent": {
+        "name": "reject-liquidity",
+        "liquidity_requested": true
+      },
+      "result": {
+        "accepted": false,
+        "blocked_reasons": [
+          "liquidity_requested"
+        ]
+      }
+    },
+    {
+      "name": "reject-private-key",
+      "intent": {
+        "name": "reject-private-key",
+        "private_key_required": true
+      },
+      "result": {
+        "accepted": false,
+        "blocked_reasons": [
+          "private_key_required"
+        ]
+      }
+    },
+    {
+      "name": "allow-pure-dry-run",
+      "intent": {
+        "name": "allow-pure-dry-run",
+        "execution_requested": false
+      },
+      "result": {
+        "accepted": true,
+        "blocked_reasons": []
+      }
+    }
+  ]
+}
