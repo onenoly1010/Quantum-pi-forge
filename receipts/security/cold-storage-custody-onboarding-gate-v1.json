@@ -1,0 +1,16 @@
+{
+  "receipt": "cold-storage-custody-onboarding-gate-v1",
+  "mode": "CUSTODY_PREPARATION_ONLY",
+  "device_receipt_pending": true,
+  "public_address_pending": true,
+  "seed_phrase_online": false,
+  "private_key_export_allowed": false,
+  "funds_movement_authorized": false,
+  "wallet_signing_authorized": false,
+  "rpc_mutation_authorized": false,
+  "deployment_authorized": false,
+  "liquidity_authorized": false,
+  "token_approval_authorized": false,
+  "mainnet_mutation_authorized": false,
+  "future_operational_custody_gate_required": true
+}
