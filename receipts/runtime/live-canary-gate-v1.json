@@ -1,0 +1,24 @@
+{
+  "schema": "qpf.live_canary_gate.v1",
+  "live_scope": "read_only_chain_canary",
+  "chain_id_expected": 16661,
+  "rpc_checked": true,
+  "wallet_required": false,
+  "private_key_required": false,
+  "funding_required": false,
+  "transaction_broadcast_allowed": false,
+  "storage_upload_allowed": false,
+  "compute_inference_allowed": false,
+  "operator_approval_required_for_next_gate": true,
+  "status": "SEALED",
+  "sealed_at": "2026-06-18T13:46:05.000Z",
+  "next_live_lanes": [
+    "LIVE_READ_ONLY_CANARY_V1",
+    "COMPUTE_ROUTER_HEALTH_CANARY_V1",
+    "WALLET_FUNDING_BOUNDARY_V1",
+    "STORAGE_TINY_UPLOAD_CANARY_V1",
+    "COMPUTE_ROUTER_INFERENCE_CANARY_V1",
+    "PUBLIC_OPERATIONAL_STATUS_V1",
+    "SCALE_PLAN_V1"
+  ]
+}

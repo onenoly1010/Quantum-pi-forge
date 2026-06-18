@@ -1,6 +1,6 @@
 {
   "schema": "qpf.cross_platform_determinism_manifest.v1",
-  "generated_at_utc": "2026-06-18T18:48:17.983Z",
+  "generated_at_utc": "2026-06-18T20:01:23.879Z",
   "posture": {
     "phase": "PRE_CUTOVER_REVIEW_LOCK",
     "non_executing": true,
@@ -17,8 +17,8 @@
   },
   "git": {
     "branch": "main",
-    "commit": "f99432c9d7435b7da7f4e9bdd7c0580fdabbf6a8",
-    "status_short": "M receipts/governance/cross-platform-determinism-manifest-v1.json\n M receipts/governance/cross-platform-determinism-v1.json\n M scripts/generate-determinism-manifest.cjs"
+    "commit": "19fd59005ba7cf6ef4e541e95ada210ebda38eed",
+    "status_short": "M package.json\n M receipts/governance/cross-platform-determinism-manifest-v1.json\n M receipts/governance/cross-platform-determinism-v1.json\n M scripts/verify-cross-platform-determinism-v1.cjs\n?? docs/governance/LIVE_CANARY_GATE_V1.md\n?? receipts/runtime/live-canary-gate-v1.json\n?? scripts/verify-live-canary-gate-v1.cjs"
   },
   "include_roots": [
     "package.json",
@@ -55,9 +55,9 @@
     ".env",
     ".env.*"
   ],
-  "file_count": 3390,
-  "deterministic_build_time": "2026-06-18T11:59:32-06:00",
-  "deterministic_commit": "f99432c9d7435b7da7f4e9bdd7c0580fdabbf6a8",
+  "file_count": 3391,
+  "deterministic_build_time": "2026-06-18T12:55:09-06:00",
+  "deterministic_commit": "19fd59005ba7cf6ef4e541e95ada210ebda38eed",
   "volatile_normalization_rules": [
     {
       "id": "out-build-time-field-v1",
@@ -71,7 +71,7 @@
     }
   ],
   "manifest_hash_algorithm": "sha256(JSON.stringify(entries,null,2)+newline) after declared volatile-field normalization",
-  "manifest_sha256": "8ef5150abebab0d09a66ad91c67da69042e4c65161c04bfc4f7966e30a759e57",
+  "manifest_sha256": "b93303f7c431991eed477a0f303f160364dbd079a6fbbcfee7784b713162dca9",
   "entries": [
     {
       "path": "app/globals.css",
@@ -21202,7 +21202,7 @@
     {
       "path": "out/version.json",
       "size_bytes": 159,
-      "sha256": "304f173b47fbe09ebd96b17c1eaf7c57c3505d1b74a1ecbcc17c742b44b3a659",
+      "sha256": "869afed9fa7cc74e66b5d12a4a6823fcdc3060c67da108d5fc6f9d0bdca46399",
       "normalized": true,
       "normalization_ids": [
         "out-build-time-field-v1",
@@ -21225,8 +21225,8 @@
     },
     {
       "path": "package.json",
-      "size_bytes": 23550,
-      "sha256": "a0995f9a48c0ba74a19a8e9efa2852e64eecdb05daf070c32f57db7c63402142",
+      "size_bytes": 23641,
+      "sha256": "efba85fbf4c5b986ef3bd19e38a2b2057647bfc132d14c00be5821c8955b04ed",
       "normalized": false,
       "normalization_ids": []
     },
@@ -21268,7 +21268,7 @@
     {
       "path": "public/version.json",
       "size_bytes": 159,
-      "sha256": "304f173b47fbe09ebd96b17c1eaf7c57c3505d1b74a1ecbcc17c742b44b3a659",
+      "sha256": "869afed9fa7cc74e66b5d12a4a6823fcdc3060c67da108d5fc6f9d0bdca46399",
       "normalized": true,
       "normalization_ids": [
         "out-build-time-field-v1",
@@ -22334,8 +22334,8 @@
     },
     {
       "path": "scripts/verify-cross-platform-determinism-v1.cjs",
-      "size_bytes": 6624,
-      "sha256": "752d010b2a1b869f986cc1230fde577c9117c9d9282756a42acb2ba2009a0ae2",
+      "size_bytes": 6706,
+      "sha256": "6ea3f0bbd088a26f29f5feb625220722c17dbd2d9a46df79605068b2ba3438d2",
       "normalized": false,
       "normalization_ids": []
     },
@@ -22518,6 +22518,13 @@
       "path": "scripts/verify-liquidity-readiness-preflight-v1.cjs",
       "size_bytes": 1090,
       "sha256": "6c2e4a58e0252cdee0bbc5767457360a455d9335755fca086067d24c54eac991",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/verify-live-canary-gate-v1.cjs",
+      "size_bytes": 1817,
+      "sha256": "5e1a203b6464206a03fa7cdea835f0374b286e6724b06c8a7dbf4d7dc405292c",
       "normalized": false,
       "normalization_ids": []
     },
