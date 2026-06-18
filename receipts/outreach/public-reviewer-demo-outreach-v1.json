@@ -1,0 +1,28 @@
+{
+  "receipt": "PUBLIC_REVIEWER_DEMO_OUTREACH_V1",
+  "status": "POSTED",
+  "canonical_head": "f4ef1d4",
+  "public_demo": "npm run public:verification-demo:v1",
+  "readme_entrypoint": true,
+  "repo": "https://github.com/onenoly1010/Quantum-pi-forge",
+  "upload_attempted": false,
+  "transaction_broadcast": false,
+  "private_key_present": false,
+  "live_execution": false,
+  "wallet_use_authorized": false,
+  "operational_activation_authorized": false,
+  "posted": true,
+  "posted_at": "2026-06-18T07:14:32.784Z",
+  "local_verification": [
+    "npm run public:verification-demo:v1",
+    "npm run verify:evidence"
+  ],
+  "boundaries": {
+    "upload_attempted": false,
+    "transaction_broadcast": false,
+    "private_key_present": false,
+    "live_execution": false,
+    "wallet_use_authorized": false,
+    "operational_activation_authorized": false
+  }
+}
