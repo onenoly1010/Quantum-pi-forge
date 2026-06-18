@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+"use strict";
+const fs=require("fs"),crypto=require("crypto"),cp=require("child_process");
+const MODE=process.env.QPF_ACTIVATION_RUNTIME_MODE||"ONCE";
+const INTERVAL_MS=Number(process.env.QPF_ACTIVATION_RUNTIME_INTERVAL_MS||60000);
+const STOP_FILE=process.env.QPF_ACTIVATION_RUNTIME_STOP_FILE||"runtime/.stop-activation-runtime-v1";
+const LOCK_FILE=process.env.QPF_ACTIVATION_RUNTIME_LOCK_FILE||"runtime/.activation-runtime-v1.lock";
+const blocked=["PRIVATE_KEY","DEPLOYER_PRIVATE_KEY","WALLET_PRIVATE_KEY","MNEMONIC","SEED_PHRASE","QPF_LIVE_SIGNING","QPF_DEPLOY","QPF_LIQUIDITY","QPF_TREASURY_ROUTING","QPF_REVENUE_CLAIM"];
+function sha(x){return crypto.createHash("sha256").update(x).digest("hex");}
+function run(c){try{return cp.execSync(c,{encoding:"utf8",stdio:["ignore","pipe","pipe"]}).trim()}catch(e){return "ERROR:"+e.message}}
+function sleep(ms){return new Promise(r=>setTimeout(r,ms));}
+function checkBoundary(){const present=blocked.filter(k=>process.env[k]&&String(process.env[k]).trim()!=="");if(present.length){throw new Error("BOUNDARY_VIOLATION_BLOCKED_ENV="+present.join(","));}}
+function cycle(){checkBoundary();fs.mkdirSync("logs/runtime",{recursive:true});fs.mkdirSync("receipts/runtime/activation-runtime-v1-runs",{recursive:true});const payload={receipt:"activation-runtime-v1-cycle",timestamp_utc:new Date().toISOString(),mode:"AUTONOMOUS_LOCAL_ORCHESTRATION",runtime_mode:MODE,canonical_head:run("git rev-parse HEAD"),git_status:run("git status --short"),local_receipt_sealing:true,read_only_checks:true,live_execution_authorized:false,private_key_access_authorized:false,wallet_actions_authorized:false,transaction_signing_authorized:false,deployments_authorized:false,liquidity_authorized:false,treasury_routing_authorized:false,live_revenue_claim:false,halt_on_boundary_violation:true,stop_file_supported:true,lock_file_supported:true};const body=JSON.stringify(payload,Object.keys(payload).sort(),2)+"\n";const digest=sha(body);const file="receipts/runtime/activation-runtime-v1-runs/activation-runtime-"+Date.now()+"-"+digest.slice(0,12)+".json";fs.writeFileSync(file,body);fs.appendFileSync("logs/runtime/activation-runtime-v1.log",payload.timestamp_utc+","+payload.canonical_head+","+digest+","+file+"\n");console.log("ACTIVATION_RUNTIME_V1_CYCLE_SEALED");console.log("file="+file);console.log("receipt_sha256="+digest);console.log("LIVE_EXECUTION=false");console.log("PRIVATE_KEY_ACCESS=false");console.log("WALLET_ACTIONS=false");}
+async function main(){fs.mkdirSync("runtime",{recursive:true});if(fs.existsSync(LOCK_FILE)){throw new Error("RUNTIME_LOCK_EXISTS="+LOCK_FILE);}fs.writeFileSync(LOCK_FILE,String(process.pid)+"\n");process.on("exit",()=>{try{fs.unlinkSync(LOCK_FILE)}catch{}});process.on("SIGINT",()=>process.exit(0));process.on("SIGTERM",()=>process.exit(0));if(MODE==="FOREVER"){while(!fs.existsSync(STOP_FILE)){cycle();await sleep(INTERVAL_MS);}console.log("ACTIVATION_RUNTIME_V1_STOP_FILE_OBSERVED");console.log("STOP_FILE="+STOP_FILE);return;}cycle();}
+main().catch(e=>{console.error("ACTIVATION_RUNTIME_V1_HALTED");console.error(e.message);process.exit(1);});

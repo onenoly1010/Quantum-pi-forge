@@ -1,0 +1,19 @@
+{
+  "receipt": "0g-storage-evidence-dry-run-gate-v1",
+  "status": "PASS",
+  "mode": "DRY_RUN_ONLY",
+  "chain_id_expected": 16661,
+  "chain_id_observed": 16661,
+  "rpc_url": "https://evmrpc.0g.ai",
+  "storage_indexer_url": "https://indexer-storage-turbo.0g.ai",
+  "storage_indexer_http_status": 404,
+  "latest_block_observed": 36427695,
+  "artifact_path": "receipts/integration/0g-storage-evidence-dry-run-v1/artifact.json",
+  "artifact_sha256": "627d04bcae6df6fa13973f45529cf0236563556ba0dce55381b3d32f625b7e1d",
+  "merkle_root_placeholder_sha256": "db051bb16150f475d9d27b23ce44eae56668c73fd8d1d9dd1fa5de3c9026f95a",
+  "upload_attempted": false,
+  "transaction_broadcast": false,
+  "private_key_present": false,
+  "live_execution": false,
+  "generated_at": "2026-06-18T06:39:12.707Z"
+}
