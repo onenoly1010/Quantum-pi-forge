@@ -1,5 +1,29 @@
 # Public Validation Status
 
+
+## 10-Minute Public Reviewer Demo
+
+Quantum Pi Forge includes a bounded public verification demo for reviewers who want a quick, safe entrypoint.
+
+Run:
+
+```bash
+npm run public:verification-demo:v1
+```
+
+This demo proves:
+
+- 0G Aristotle context is declared
+- sealed artifact replay is verified
+- no upload is attempted
+- no transaction is broadcast
+- no private key is present
+- no wallet use is authorized
+- no funding, staking, approvals, liquidity, deployment, or operational activation is authorized
+- reviewer-safe dry-run posture is preserved
+
+Public gate document: `docs/public/PUBLIC_VERIFICATION_DEMO_GATE_V1.md`
+
 **Quantum Pi Forge Public Validation Status v1 is open.**
 
 Quantum Pi Forge has completed verified genesis activation on 0G Aristotle Mainnet. Liquidity, approvals, staking, relayer flows, funding, and growth loops remain intentionally blocked until validation and funding conditions are satisfied.
