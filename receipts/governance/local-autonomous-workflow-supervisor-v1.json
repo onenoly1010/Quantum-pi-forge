@@ -1,0 +1,26 @@
+{
+  "receipt": "local-autonomous-workflow-supervisor-v1",
+  "mode": "BOUNDED_LOCAL_AUTONOMY",
+  "continuous_workflow_enabled": true,
+  "local_ai_allowed": true,
+  "local_verification_required": true,
+  "public_evidence_required": true,
+  "funding_readiness_required": true,
+  "objectives": [
+    {"id":"A","name":"Funding Constraint Resilience Mode v1","required":true,"status":"assigned"},
+    {"id":"B","name":"Cold Storage Custody Gate v1","required":true,"status":"assigned"},
+    {"id":"C","name":"Public Evidence Mirror / Offline Review Packet","required":true,"status":"assigned"},
+    {"id":"D","name":"Sustainability Readiness Gate v1","required":true,"status":"assigned"},
+    {"id":"E","name":"Reviewer/Funder Packet","required":true,"status":"assigned"}
+  ],
+  "wallet_signing_authorized": false,
+  "seed_phrase_access_authorized": false,
+  "private_key_access_authorized": false,
+  "funds_movement_authorized": false,
+  "token_approval_authorized": false,
+  "bridge_authorized": false,
+  "deployment_authorized": false,
+  "liquidity_authorized": false,
+  "mainnet_mutation_authorized": false,
+  "future_operator_gate_required_for_live_actions": true
+}

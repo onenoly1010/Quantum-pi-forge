@@ -196,3 +196,4 @@ runtime/autonomous/
 # Local autonomy generated reports
 local-autonomy/reports/
 local-autonomy/state/latest-pre-unpark-observer-report.md
+.qpf-autonomy/autonomy-run-state-v1.json
