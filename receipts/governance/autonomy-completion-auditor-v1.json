@@ -1,0 +1,15 @@
+{
+  "receipt": "autonomy-completion-auditor-v1",
+  "mode": "LOCAL_AUDIT_ONLY",
+  "supervisor_canonical": true,
+  "worker_loop_canonical": true,
+  "objective_a_complete": true,
+  "objective_b_custody_lane_external": true,
+  "objective_c_complete": true,
+  "objective_d_complete": true,
+  "objective_e_complete": true,
+  "live_actions_authorized": false,
+  "wallet_signing_authorized": false,
+  "funds_movement_authorized": false,
+  "mainnet_mutation_authorized": false
+}
