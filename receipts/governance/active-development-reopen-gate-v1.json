@@ -1,0 +1,13 @@
+{
+  "receipt": "active-development-reopen-gate-v1",
+  "mode": "ACTIVE_DEVELOPMENT",
+  "scope": "NEW_BRANCH_ONLY",
+  "prior_freeze_baseline_preserved": true,
+  "unrestricted_iteration_allowed": false,
+  "live_release": false,
+  "execution_authorized": false,
+  "funding_authorized": false,
+  "wallet_actions_authorized": false,
+  "liquidity_authorized": false,
+  "mainnet_mutation_authorized": false
+}
