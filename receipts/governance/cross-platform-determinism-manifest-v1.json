@@ -1,6 +1,6 @@
 {
   "schema": "qpf.cross_platform_determinism_manifest.v1",
-  "generated_at_utc": "2026-06-18T17:00:38.060Z",
+  "generated_at_utc": "2026-06-18T17:47:53.856Z",
   "posture": {
     "phase": "PRE_CUTOVER_REVIEW_LOCK",
     "non_executing": true,
@@ -17,8 +17,8 @@
   },
   "git": {
     "branch": "main",
-    "commit": "bfdc8a9bc4c31fbac62e1faea6e8419b10a75c85",
-    "status_short": "M package.json\n M receipts/governance/cross-platform-determinism-manifest-v1.json\n M receipts/governance/cross-platform-determinism-v1.json\n M scripts/verify-cross-platform-determinism-v1.cjs\n?? docs/governance/0G_COMPUTE_INFERENCE_EVIDENCE_DRY_RUN_GATE_V1.md\n?? receipts/runtime/\n?? scripts/verify-0g-compute-inference-evidence-dry-run-gate-v1.cjs"
+    "commit": "ba173deb7d81747399ba3bee9b831970ac8aeffc",
+    "status_short": ""
   },
   "include_roots": [
     "package.json",
@@ -53,9 +53,9 @@
     "receipts/governance/cross-platform-determinism-manifest-v1.json",
     "receipts/governance/cross-platform-determinism-v1.json"
   ],
-  "file_count": 3333,
-  "deterministic_build_time": "2026-06-15T21:54:34-06:00",
-  "deterministic_commit": "bfdc8a9bc4c31fbac62e1faea6e8419b10a75c85",
+  "file_count": 3390,
+  "deterministic_build_time": "2026-06-18T11:45:59-06:00",
+  "deterministic_commit": "ba173deb7d81747399ba3bee9b831970ac8aeffc",
   "volatile_normalization_rules": [
     {
       "id": "out-build-time-field-v1",
@@ -69,7 +69,7 @@
     }
   ],
   "manifest_hash_algorithm": "sha256(JSON.stringify(entries,null,2)+newline) after declared volatile-field normalization",
-  "manifest_sha256": "d62187db96175468f5e41a58260fd168612f9164545709502ab0bf3654d89c1b",
+  "manifest_sha256": "be89beddb0807a5941913b19ede6cf1b05721dd37886051e2e73db29fc91d6d9",
   "entries": [
     {
       "path": "app/globals.css",
@@ -21200,7 +21200,7 @@
     {
       "path": "out/version.json",
       "size_bytes": 159,
-      "sha256": "db0997f212ab30042dbe0a2d843d4c045067b21f62941fd867d0b12237172455",
+      "sha256": "c0aa3017981ef9aa63bcc81d5ace8763ecec29847f77fb41f05f151f0f4dbef2",
       "normalized": true,
       "normalization_ids": [
         "out-build-time-field-v1",
@@ -21216,15 +21216,15 @@
     },
     {
       "path": "package-lock.json",
-      "size_bytes": 153732,
-      "sha256": "7503f4adcb23e62969875566391ee5d82d74aa24b03f3bb10a7f0ce7eaffa30e",
+      "size_bytes": 137670,
+      "sha256": "f0611e7981a945c0208de65755be7d665a3d6dfbec74a8e2d6088c8272103a3a",
       "normalized": false,
       "normalization_ids": []
     },
     {
       "path": "package.json",
-      "size_bytes": 22889,
-      "sha256": "592b3e0f8bf557595eae4baa609d3b62383ab1dd2850148a56b3a4fae9ce1784",
+      "size_bytes": 23550,
+      "sha256": "a0995f9a48c0ba74a19a8e9efa2852e64eecdb05daf070c32f57db7c63402142",
       "normalized": false,
       "normalization_ids": []
     },
@@ -21266,7 +21266,7 @@
     {
       "path": "public/version.json",
       "size_bytes": 159,
-      "sha256": "db0997f212ab30042dbe0a2d843d4c045067b21f62941fd867d0b12237172455",
+      "sha256": "c0aa3017981ef9aa63bcc81d5ace8763ecec29847f77fb41f05f151f0f4dbef2",
       "normalized": true,
       "normalization_ids": [
         "out-build-time-field-v1",
@@ -21277,6 +21277,13 @@
       "path": "public/what-it-does/index.html",
       "size_bytes": 5005,
       "sha256": "7595d741f63a045eea2ce7bf8f643d74614fe9b45cab892b2f37416de6d93c29",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/0g-storage-evidence-dry-run-gate-v1.cjs",
+      "size_bytes": 3706,
+      "sha256": "240680f174525bd051a33b6b8b18f2a77677233b7dee7e8f937a5c7031304172",
       "normalized": false,
       "normalization_ids": []
     },
@@ -21319,6 +21326,27 @@
       "path": "scripts/autonomous-worker-monitor-attempt-v1.cjs",
       "size_bytes": 1951,
       "sha256": "42ff1f8d764306b5bb0a4dfcc4d234eae1d12068e3ff16a7615341ee75674fe2",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/autonomy/autonomy-completion-auditor-v1.cjs",
+      "size_bytes": 2429,
+      "sha256": "a3d6da401970f67dd5b3c7b61268f32877da7910bf42af24abbda0fc3f5fe1ca",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/autonomy/local-autonomous-worker-loop-v1.cjs",
+      "size_bytes": 7111,
+      "sha256": "fbffc12032053f7b535080dd76a2f64f4903a3e195499da49e97805c1e68f404",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/autonomy/local-autonomous-workflow-supervisor-v1.cjs",
+      "size_bytes": 2046,
+      "sha256": "8974a667a16b52fe69826900ee7874828d97172696ed2c68020e1bf207517d7f",
       "normalized": false,
       "normalization_ids": []
     },
@@ -21372,9 +21400,30 @@
       "normalization_ids": []
     },
     {
+      "path": "scripts/check-public-validation-status-v1.cjs",
+      "size_bytes": 2462,
+      "sha256": "7c9add343f348c7948b8cd3952d2e6e05c8e10110a1b7196440af0d4125b5a5b",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/check-readme-public-validation-pin-v1.cjs",
+      "size_bytes": 606,
+      "sha256": "f1560f0e2e9a636a5b338f6e6abecdcacc6e002187fee66198dcfcf22ef83512",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
       "path": "scripts/ci-preflight-diagnose.sh",
       "size_bytes": 1564,
       "sha256": "eba423a88303a689909100eef46e68f3ffda0d45007f89f96f94e0620ff30ac1",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/classifier/protocol-intent-classifier-v0_1.cjs",
+      "size_bytes": 4767,
+      "sha256": "d1ecf8c4f116d404ccd5df34d4f385746d4ee2367964d566d86afdf38b9a380e",
       "normalized": false,
       "normalization_ids": []
     },
@@ -21494,6 +21543,13 @@
       "path": "scripts/execute-v2-first-pair-live-createpair-v1.cjs",
       "size_bytes": 3946,
       "sha256": "7e337b0e58493e9a0adf5a4f7380c8bf887c36f9a97e90ea6d3a9041411be539",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/field/spiral-return-field-kit-v1.cjs",
+      "size_bytes": 5704,
+      "sha256": "f9cab9f2f3ebea6655450a158011a1e1a930408f5e389ea7128b2336fe9d6c8b",
       "normalized": false,
       "normalization_ids": []
     },
@@ -21638,6 +21694,55 @@
       "normalization_ids": []
     },
     {
+      "path": "scripts/normalization/normalization-engine-v0_1.cjs",
+      "size_bytes": 3026,
+      "sha256": "c01e178b2d287cb5a402ab31034dd1bbfb426e5b88aeec69385ba48d93b2d028",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/ops/verify-activation-runtime-v1.sh",
+      "size_bytes": 1056,
+      "sha256": "85a49bb720a5e8fcf6b01f0b9447e1018470c016b19e58723860faa7c6ffe777",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/ops/verify-spiral-return-field-kit-v1.sh",
+      "size_bytes": 883,
+      "sha256": "244234c15ba1479aa8bdc9edc0a54da4520977d9dc0832514bbabcf77903e82f",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/ops/verify-spiral-return-field-plan-v1.sh",
+      "size_bytes": 898,
+      "sha256": "40da20ac729701b32fecf90428011009c09a4e361003534ede1c9d9fccb388c9",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/orchestrator/protocol-pipeline-orchestrator-v0_1.cjs",
+      "size_bytes": 2574,
+      "sha256": "21a772120ceb042f7bedc696a35d4210e0657c4783894836d4d8290526b1d3a8",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/pipeline/e2e-pipeline-guard-receipt-v0_1.cjs",
+      "size_bytes": 4327,
+      "sha256": "4ca3b6c477de75aaa95ed952b57037ed7b6de50a4b5b03f106c9731bae2d06f1",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/pipeline/protocol-adapter-normalization-pipeline-v0_1.cjs",
+      "size_bytes": 1844,
+      "sha256": "2a0bd3735eae865f5fab86f4ef579a101a5718c4b55c8862fb43e362790030fd",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
       "path": "scripts/preflight-0g-deploy.js",
       "size_bytes": 4601,
       "sha256": "d5ee73888badef1c2d5f756d238ccf5e45d9255ae541a4ebc41abfaaf2dd955e",
@@ -21662,6 +21767,20 @@
       "path": "scripts/probe-v2-first-pair-metadata-v1.cjs",
       "size_bytes": 2487,
       "sha256": "60135b49655132e3732cb9fb162fff9b765f5450d4aab6d56427806b9df05dd5",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/protocol/protocol-adapter-dry-run-v1.cjs",
+      "size_bytes": 1370,
+      "sha256": "0de6d1cb92a22ac285fb48a6b0b005601ce0d59866971c419b73cc0adf94c023",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/public/verify-public-verification-demo-gate-v1.cjs",
+      "size_bytes": 2387,
+      "sha256": "a561641add15e425913dd2b855077f1a6a985d90f980aae95ed31c57d77f46c2",
       "normalized": false,
       "normalization_ids": []
     },
@@ -21722,6 +21841,13 @@
       "normalization_ids": []
     },
     {
+      "path": "scripts/runtime/activation-runtime-v1.cjs",
+      "size_bytes": 3133,
+      "sha256": "754205987c6f7de9e62601a95995a31d7a3fdfe2955e48c2bc96c2b7533f30fe",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
       "path": "scripts/safe-deploy.js",
       "size_bytes": 5115,
       "sha256": "ce1ea34beb7ed1757992c28ebe20bd08d9fceeae141c8e5b8ed118e83065e874",
@@ -21732,6 +21858,188 @@
       "path": "scripts/scaffold-hermes-receipt-replay.cjs",
       "size_bytes": 7707,
       "sha256": "63a57369002fc2b9e1f05ec1d7ce4a07cedf5ac1e80b53e8cc2a18b65e1d9739",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/security/0g-da-upload-simulator-v1.sh",
+      "size_bytes": 744,
+      "sha256": "be1aa68a0734afd6641c93da9a00f1e5d41af4e2ad7b4d2be2d5cd6e5f520d94",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/security/0g-storage-da-lane-status-v1.sh",
+      "size_bytes": 5120,
+      "sha256": "6323e2280b35bb9479f7fe1b7406766af2aa36c8fe18c74ec3ad1e5bd6e114f5",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/security/command-parser-contract-v1.sh",
+      "size_bytes": 3042,
+      "sha256": "d1cb41db53276ed54c126ac1d6676ee6a2052182dce0ece8c7868dcb382d2a87",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/security/command-parser-dry-run-v1.sh",
+      "size_bytes": 3276,
+      "sha256": "0a22042ae70d18f2e1415288e0c35cc1a2cdf91ae16b2ca3eaa2447482175d35",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/security/command-parser-final-status-v1.sh",
+      "size_bytes": 3107,
+      "sha256": "287280630ef594280908c863e5ab35ae999ddc3bb5e7c3bca90eea6b003ff810",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/security/command-parser-negative-test-v1.sh",
+      "size_bytes": 3513,
+      "sha256": "ca7b1afca4252cc078f4467c1f4aa567fff1fd7e45281662aea105f2042f11c7",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/security/gated-command-orchestrator-dry-run-v1.sh",
+      "size_bytes": 3292,
+      "sha256": "3688ad4676c649e16c6bfe8fde40583b53be37f587c1b0846d67a4c763e601e2",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/security/gated-da-upload-dry-run-v1.sh",
+      "size_bytes": 3712,
+      "sha256": "254f4c81399683a46181058808598fe6b0c9b876d49f61a6be3e52ca92de1666",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/security/gated-da-upload-negative-test-v1.sh",
+      "size_bytes": 4097,
+      "sha256": "927c631efbbf23235608988bc7ae24cbff6dbd8b43d6f54942fa96c45bdf4299",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/security/gated-noop-command-proof-v1.sh",
+      "size_bytes": 246,
+      "sha256": "32fd2ef703cd0dbf9c5b6035988d4b72fb7364f01b6c480f553381312bb4e714",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/security/generate-storage-payload-hash-v1.sh",
+      "size_bytes": 2265,
+      "sha256": "9484d45661f206b0f9396964cb6ca8485ea1f36eb97b61b1fb2a8223f0bc1f1e",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/security/operational-ship-boundary-policy-v1.sh",
+      "size_bytes": 5718,
+      "sha256": "47b57962b70bebc595b0db983162db8909ea68b4ec8786a99563b2c4dc660ae3",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/security/operator-command-boundary-status-v1.sh",
+      "size_bytes": 3354,
+      "sha256": "894bd13b549dca675970b5e8ea3e411628d98819b8b8d53d0588868ed68f463e",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/security/orchestrator-final-status-v1.sh",
+      "size_bytes": 4594,
+      "sha256": "7df3d65ce8ac7dce1083a74e9d553c7f498489f060a97ec1acd46e72f10a4428",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/security/orchestrator-negative-test-v1.sh",
+      "size_bytes": 5049,
+      "sha256": "0bc40e4c84cf80805d5487e68a92d859d72a6f78a1af5e036ef40839a655a840",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/security/parser-orchestrator-bridge-dry-run-v1.sh",
+      "size_bytes": 3761,
+      "sha256": "4486ca299ab2b01f4c5a0638740081536f0f0483a4b205fa5d5293fbb1f5ce4e",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/security/parser-orchestrator-bridge-final-status-v1.sh",
+      "size_bytes": 2752,
+      "sha256": "6498e7cfd3892c854afc1dc8aba3b29af40afd445f77c3d0271f24e7c8971df8",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/security/parser-orchestrator-bridge-negative-test-v1.sh",
+      "size_bytes": 3536,
+      "sha256": "e9f64340e677ee81f345b114f0afb2d0c94e6ee18d89821d4790ff274a0cd64b",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/security/runtime-activation-dry-run-plan-v1.sh",
+      "size_bytes": 3274,
+      "sha256": "5798116aa76a2d720355cd50d9fefcf4b88e23eddcd41912139ac204b063317e",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/security/runtime-activation-final-status-v1.sh",
+      "size_bytes": 2230,
+      "sha256": "806f43904b83fe2950b1b2d7fa4cc0498152482b4ab7e37003eac77f8e5ea164",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/security/runtime-activation-gate-policy-v1.sh",
+      "size_bytes": 3208,
+      "sha256": "b9ddf96e7b7fa10845c04dbbc5e71eaececfae8af2d798755b313d086c7c53b8",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/security/runtime-activation-negative-test-plan-v1.sh",
+      "size_bytes": 3610,
+      "sha256": "dd135910e3d676f655d26e30202c2a81bb89e8ef8719c74b19c5fdd7e733e4b7",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/security/security-evidence-walkthrough-v1.sh",
+      "size_bytes": 1031,
+      "sha256": "82cbd19a2930d873f8f9e23c2ac8336991201c91278cc952e5dd5b1dc2ccd886",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/security/verify-0g-storage-da-access-policy-v1.sh",
+      "size_bytes": 739,
+      "sha256": "76fa0c03f57f79b7f89ef9640385c032b7669073b8a2bc992bafddfcf3c20e26",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/security/wallet-preflight-gate-v1.sh",
+      "size_bytes": 794,
+      "sha256": "e59db04162705d7ca7419d12555adc1ca7bc93f8d42b0b7ac7f9ebfb28e0071b",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/security/wallet-preflight-verifier-v1.cjs",
+      "size_bytes": 2643,
+      "sha256": "956dd019eb60f2a7575e62ff38ac40b61124bce463a9e7fda9f4c8b7bbcf7c23",
       "normalized": false,
       "normalization_ids": []
     },
@@ -21918,6 +22226,20 @@
       "normalization_ids": []
     },
     {
+      "path": "scripts/verify-0g-storage-evidence-dry-run-gate-v1.cjs",
+      "size_bytes": 1098,
+      "sha256": "7ebf281c4b86bc703d189f5c855b04af5567ffeb9ca662a76082759c5688b85e",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/verify-active-development-reopen-gate-v1.cjs",
+      "size_bytes": 1734,
+      "sha256": "cad63bde2f80a5ad8f03daa2f3b7e85a255b85f22d853c07312290991322bd5d",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
       "path": "scripts/verify-apply-lone-steward-branch-protection-v1.cjs",
       "size_bytes": 1873,
       "sha256": "f4922e9a307fb6b77a2246cfcaf1a1663864c5a364bc8af0b7f11dd8ddcb3464",
@@ -21981,9 +22303,23 @@
       "normalization_ids": []
     },
     {
+      "path": "scripts/verify-autonomy-completion-auditor-v1.cjs",
+      "size_bytes": 1335,
+      "sha256": "ce2ef2f74ec3b7e7d1d2061d034235833ac3eae48b9cd363bf9a065852694a3d",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
       "path": "scripts/verify-claim-map.cjs",
       "size_bytes": 2140,
       "sha256": "a4583898d6b5f50cb8653cd73a001c93b368fd1960a1090471a93afeaf72e881",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/verify-cold-storage-custody-onboarding-gate-v1.cjs",
+      "size_bytes": 2660,
+      "sha256": "f5df1dcc4c375982d127d953b908e417aaeab5514c5664c48fc0b4ad674c25f1",
       "normalized": false,
       "normalization_ids": []
     },
@@ -22047,6 +22383,13 @@
       "path": "scripts/verify-dry-run-output-hygiene-v1.cjs",
       "size_bytes": 2327,
       "sha256": "a6e817a4fa3fe0f712049019808d6d159d895e3f008bf27865b0f57f0116b9c9",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/verify-e2e-pipeline-guard-v0_1.cjs",
+      "size_bytes": 3399,
+      "sha256": "3d39c25e31daf30cb48b18ad15859c75a1f8be33766ae35267a62f919536d578",
       "normalized": false,
       "normalization_ids": []
     },
@@ -22173,6 +22516,20 @@
       "path": "scripts/verify-liquidity-readiness-preflight-v1.cjs",
       "size_bytes": 1090,
       "sha256": "6c2e4a58e0252cdee0bbc5767457360a455d9335755fca086067d24c54eac991",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/verify-local-autonomous-worker-loop-v1.cjs",
+      "size_bytes": 1518,
+      "sha256": "ab95cf1875a09a40528126ae5b9dbc50b045be8ce084ceb56fe97f2b8661768b",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/verify-local-autonomous-workflow-supervisor-v1.cjs",
+      "size_bytes": 2911,
+      "sha256": "7f3b191887db6a050d3a442d78910f472fa0b54e32c741efe25d0d928e12995d",
       "normalized": false,
       "normalization_ids": []
     },
@@ -22306,6 +22663,13 @@
       "path": "scripts/verify-mainnet-operator-approval-v1.cjs",
       "size_bytes": 3703,
       "sha256": "3593ba57fd3ab99c685b67ffa8fb916c31e7144793615bf79cad3078d223f8dd",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/verify-normalization-engine-v0_1.cjs",
+      "size_bytes": 1727,
+      "sha256": "d669ebba25e998620de3c6844db60cbec9fa393046048bb79734fb46d16aba94",
       "normalized": false,
       "normalization_ids": []
     },
@@ -22691,6 +23055,41 @@
       "path": "scripts/verify-prod-frontend.sh",
       "size_bytes": 1797,
       "sha256": "84ebf6566bf365660c012583e8cc678a91f60c2434f28119b99a1a9e5793c7b0",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/verify-protocol-adapter-layer-v1.cjs",
+      "size_bytes": 2399,
+      "sha256": "433c6317a16676ee9f30f9264725af4c96eccc82ad11e12f9939ded9101c5338",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/verify-protocol-adapter-negative-tests-v1.cjs",
+      "size_bytes": 1732,
+      "sha256": "acaa2962f003bf0221265825a31c78ee05d7a2b6498ce8550d8de586d240bc9c",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/verify-protocol-adapter-normalization-pipeline-v0_1.cjs",
+      "size_bytes": 2466,
+      "sha256": "a2a7a9293514e9dabced771d94179f2c0878caed81511ed4f0b0eda26426b494",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/verify-protocol-intent-classifier-v0_1.cjs",
+      "size_bytes": 2436,
+      "sha256": "77dae53a96a5c92945a9c1d28a3644f9dee2314d02aebf5e56f0d2e73568b4c1",
+      "normalized": false,
+      "normalization_ids": []
+    },
+    {
+      "path": "scripts/verify-protocol-pipeline-orchestrator-v0_1.cjs",
+      "size_bytes": 2875,
+      "sha256": "57dab9820db3acc3d78f890f5fba5d751d92bde4f734fd9cd5429f5acfd124c6",
       "normalized": false,
       "normalization_ids": []
     },
