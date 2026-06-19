@@ -198,7 +198,9 @@
     "integration:0g-storage-evidence-dry-run:v1": "node scripts/0g-storage-evidence-dry-run-gate-v1.cjs",
     "verify:0g-storage-evidence-dry-run:v1": "node scripts/verify-0g-storage-evidence-dry-run-gate-v1.cjs",
     "public:verification-demo:v1": "node scripts/public/verify-public-verification-demo-gate-v1.cjs",
-    "integration:0g-compute-inference-evidence-dry-run-gate:v1": "node scripts/verify-0g-compute-inference-evidence-dry-run-gate-v1.cjs"
+    "integration:0g-compute-inference-evidence-dry-run-gate:v1": "npm run verify:0g-compute-inference-evidence-dry-run-gate:v1",
+    "governance:live-canary-gate:v1:check": "node scripts/verify-live-canary-gate-v1.cjs",
+    "verify:0g-compute-inference-evidence-dry-run-gate:v1": "node scripts/verify-0g-compute-inference-evidence-dry-run-gate-v1.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",
