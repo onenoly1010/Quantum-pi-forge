@@ -1,0 +1,19 @@
+{
+  "plan": "SPIRAL_RETURN_FUNDING_ACTION_PLAN_V1",
+  "status": "OPEN",
+  "mode": "HUMAN_LED_REAL_WORLD_ACTION_PLAN",
+  "currency": "CAD",
+  "estimated_minimum_need": 4550,
+  "confirmed_secured_total": 0,
+  "remaining_gap": 4550,
+  "travel_ready": false,
+  "wallet_actions": false,
+  "private_key_access": false,
+  "funding_movement": false,
+  "debt_pressure": false,
+  "blocked_lanes": [
+    "crypto_wallet_funds_without_separate_safety_review",
+    "pressure_based_borrowing_or_debt"
+  ],
+  "next_required_step": "Create or update the secured-source ledger with real confirmed amounts."
+}
