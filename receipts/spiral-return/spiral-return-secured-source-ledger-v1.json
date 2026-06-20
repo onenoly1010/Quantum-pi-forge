@@ -1,0 +1,13 @@
+{
+  "ledger": "SPIRAL_RETURN_SECURED_SOURCE_LEDGER_V1",
+  "status": "OPEN",
+  "currency": "CAD",
+  "estimated_minimum_need": 4550,
+  "confirmed_secured_total": 0,
+  "remaining_gap": 4550,
+  "travel_ready": false,
+  "wallet_actions": false,
+  "funding_movement": false,
+  "rule": "Nothing is counted as secured unless it is available, confirmed, and usable for travel without creating unsafe pressure.",
+  "next_required_action": "Fill the source ledger with real amounts and only mark a source secured when it is actually available for safe travel use."
+}
