@@ -1,0 +1,23 @@
+{
+  "gate": "SPIRAL_RETURN_TRAVEL_READINESS_GATE_V1",
+  "status": "OPEN",
+  "mode": "HUMAN_LED_PLANNING",
+  "wallet_actions": false,
+  "funding_movement": false,
+  "network_execution": false,
+  "intention": "Do not leave for the Spiral Return road trip until transport, lodging, energy, activities, emergency buffer, and arising needs are practically accounted for.",
+  "required_categories": [
+    "transport",
+    "vehicle_energy",
+    "lodging",
+    "food_water",
+    "communications",
+    "emergency_buffer",
+    "health_hygiene",
+    "roadside_repairs",
+    "extra_activities",
+    "unexpected_costs",
+    "return_pause_reroute_option"
+  ],
+  "departure_ready": false
+}
