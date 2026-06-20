@@ -16,8 +16,8 @@
     "state_changing_transaction_executed": false
   },
   "manifest_path": "receipts/governance/cross-platform-determinism-manifest-v1.json",
-  "manifest_sha256": "a4edef81ffe0aad1dba117fea1ffbd2f41d9580f411146452f22fa89aa9e4f46",
-  "manifest_file_count": 456,
+  "manifest_sha256": "b4e962845eda95775a08e4e69f1ef6500ff6848651d2acda4b538303545303c5",
+  "manifest_file_count": 457,
   "reviewer_policy": {
     "goal": "detect cross-platform determinism drift before cutover",
     "acceptable_result": "clean verifier pass on independently reproduced artifact manifest",
@@ -47,7 +47,7 @@
     }
   },
   "updated_for_commit": "bfdc8a9",
-  "updated_utc": "2026-06-18T17:00:44.000Z",
+  "updated_utc": "2026-06-18T11:49:05.000Z",
   "post_pr_321_refresh": true,
   "execution_flags": {
     "unpark_executed": false,
@@ -64,6 +64,14 @@
   "no_unpark": true,
   "no_broadcast": true,
   "no_keys": true,
-  "manifestSha256": "d62187db96175468f5e41a58260fd168612f9164545709502ab0bf3654d89c1b",
-  "manifestFileCount": 3333
+  "manifestSha256": "b4e962845eda95775a08e4e69f1ef6500ff6848651d2acda4b538303545303c5",
+  "manifestFileCount": 457,
+  "status": "PASS",
+  "generated_at": "2026-06-18T18:50:14.214Z",
+  "secret_env_files_excluded": true,
+  "excluded_secret_env_patterns": [
+    ".env",
+    ".env.* except .env.example"
+  ],
+  "live_canary_gate_v1_included": true
 }

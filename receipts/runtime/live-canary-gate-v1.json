@@ -1,0 +1,21 @@
+{
+  "gate": "LIVE_CANARY_GATE_V1",
+  "status": "SEALED",
+  "live_scope": "read_only_chain_canary",
+  "network": "0G Aristotle Mainnet",
+  "chain_id_expected": 16661,
+  "rpc_check_allowed": true,
+  "contract_code_check_allowed": true,
+  "wallet_required": false,
+  "private_key_required": false,
+  "funding_required": false,
+  "transaction_broadcast_allowed": false,
+  "storage_upload_allowed": false,
+  "compute_inference_allowed": false,
+  "liquidity_action_allowed": false,
+  "staking_action_allowed": false,
+  "approval_action_allowed": false,
+  "deployment_allowed": false,
+  "operator_approval_required_for_next_gate": true,
+  "live_execution": false
+}
