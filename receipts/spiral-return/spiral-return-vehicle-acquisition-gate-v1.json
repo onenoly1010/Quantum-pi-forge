@@ -1,0 +1,23 @@
+{
+  "gate": "SPIRAL_RETURN_VEHICLE_ACQUISITION_GATE_V1",
+  "status": "OPEN",
+  "mode": "HUMAN_LED_VEHICLE_READINESS_GATE",
+  "vehicle_ready": false,
+  "vehicle_purchase_authorized": false,
+  "wallet_actions": false,
+  "private_key_access": false,
+  "automatic_spending": false,
+  "debt_pressure": false,
+  "required_categories": [
+    "reliable_used_vehicle_purchase",
+    "insurance",
+    "registration_plates",
+    "taxes_transfer_fees",
+    "inspection_mechanic_check",
+    "tires_fluids_oil",
+    "roadside_kit_safety_gear",
+    "repair_contingency"
+  ],
+  "reason": "Vehicle acquisition needs are recognized, but no specific vehicle, price, insurance quote, or readiness total has been confirmed.",
+  "next_required_step": "Create a vehicle acquisition budget with realistic CAD estimates."
+}

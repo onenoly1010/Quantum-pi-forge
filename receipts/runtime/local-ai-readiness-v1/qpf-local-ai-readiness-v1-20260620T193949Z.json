@@ -1,0 +1,22 @@
+{
+  "protocol": "QPF_LOCAL_AI_READINESS_V1",
+  "status": "PASS",
+  "created_at_utc": "2026-06-20T19:39:49Z",
+  "ollama_server": "127.0.0.1:11434",
+  "probe_model": "qwen2.5-coder:1.5b",
+  "expected_response": "QPF_LOCAL_AI_READY",
+  "actual_response": "QPF_LOCAL_AI_READY",
+  "local_ai_server_active": true,
+  "local_ai_response_verified": true,
+  "autonomous_terminal_control": false,
+  "tmux_agent_loop_required_for_autonomy": true,
+  "wallet_actions": false,
+  "private_key_access": false,
+  "signing_authorized": false,
+  "broadcast_authorized": false,
+  "funding_authorized": false,
+  "funds_moved": false,
+  "network_broadcast": false,
+  "receipt_body_sha256": "ed30790cf022527cb5e2dd2acee1bb403f5d986f1134acf00471db90bac7e4ce",
+  "final_file_sha256": "c7f940856856fd7fddf3c02c706faeb06e522a9108de124dac442cfe195af411"
+}

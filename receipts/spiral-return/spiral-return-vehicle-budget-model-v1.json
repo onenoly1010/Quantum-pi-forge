@@ -1,0 +1,14 @@
+{
+  "model": "SPIRAL_RETURN_VEHICLE_BUDGET_MODEL_V1",
+  "status": "INITIAL_ESTIMATE",
+  "currency": "CAD",
+  "estimated_vehicle_readiness_need": 10000,
+  "secured": 0,
+  "missing": 10000,
+  "vehicle_ready": false,
+  "vehicle_purchase_authorized": false,
+  "wallet_actions": false,
+  "private_key_access": false,
+  "automatic_spending": false,
+  "reason": "A vehicle budget model exists, but no specific vehicle, quote, or secured funding source has been confirmed."
+}

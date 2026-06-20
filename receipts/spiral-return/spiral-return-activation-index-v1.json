@@ -1,0 +1,23 @@
+{
+  "index": "SPIRAL_RETURN_ACTIVATION_INDEX_V1",
+  "status": "OPEN",
+  "mode": "HUMAN_LED_REAL_WORLD_READINESS_ACTIVATION",
+  "readiness_lane_active": true,
+  "travel_ready": false,
+  "departure_authorized": false,
+  "wallet_actions": false,
+  "private_key_access": false,
+  "funding_movement": false,
+  "network_execution": false,
+  "estimated_minimum_need_cad": 4550,
+  "confirmed_secured_total_cad": 0,
+  "remaining_gap_cad": 4550,
+  "required_artifacts": [
+    "SPIRAL_RETURN_TRAVEL_READINESS_GATE_V1",
+    "SPIRAL_RETURN_TRAVEL_LEDGER_V1",
+    "SPIRAL_RETURN_TRAVEL_BUDGET_MODEL_V1",
+    "SPIRAL_RETURN_SECURED_SOURCE_LEDGER_V1",
+    "SPIRAL_RETURN_FUNDING_ACTION_PLAN_V1"
+  ],
+  "next_required_human_action": "Fill confirmed secured sources with real amounts."
+}

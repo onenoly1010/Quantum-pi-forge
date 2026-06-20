@@ -1,0 +1,10 @@
+{
+  "ledger": "SPIRAL_RETURN_TRAVEL_LEDGER_V1",
+  "status": "DRAFT",
+  "purpose": "Convert Spiral Return travel intention into real-world readiness numbers.",
+  "wallet_actions": false,
+  "funding_movement": false,
+  "travel_ready": false,
+  "reason": "Readiness gate exists, but category numbers are not filled yet.",
+  "required_next_step": "Fill needed, secured, and missing amounts for each travel category."
+}

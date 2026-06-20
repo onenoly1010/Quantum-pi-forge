@@ -1,0 +1,29 @@
+{
+  "protocol": "QPF_MOBILE_NODE_FIELD_POSTURE_V1",
+  "status": "ACTIVE",
+  "operating_mode": "OBSERVATIONAL",
+  "clean_lane": true,
+  "sovereignty": "SELF_CONDITIONED",
+  "authority": "HUMAN_ROOTED",
+  "operator": "KRIS",
+  "field_mode": "OBSERVE_ONLY",
+  "mutation_state": "LOCKED",
+  "network_actions": "REVIEW_ONLY",
+  "wallet_actions": false,
+  "private_key_access": false,
+  "live_execution": false,
+  "evidence_required": true,
+  "signing_requires_explicit_operator_command": true,
+  "filter_protocol": [
+    "observe",
+    "classify",
+    "preserve_evidence",
+    "assess_risk_cost_signal",
+    "recommend_bounded_action",
+    "require_explicit_gate_before_mutation_signing_or_posting"
+  ],
+  "deployment_note": "FIELD_READY_OBSERVATIONAL_NODE_NOT_UNBOUNDED_EXECUTION_ENGINE",
+  "activated_at_utc": "2026-06-20T16:03:00Z",
+  "receipt_sha256": "2fe5a7591928a400072afe48de4f598c2e0740126b7a27d2191d75daad83d20d",
+  "final_file_sha256": "6d57b07224aaa21ca47ab70636377c00e0db7f84eda3817ffd3aeb988e2d3be9"
+}

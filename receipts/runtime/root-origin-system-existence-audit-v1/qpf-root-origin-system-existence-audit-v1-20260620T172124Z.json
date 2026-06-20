@@ -1,0 +1,109 @@
+{
+  "protocol": "QPF_ROOT_ORIGIN_SYSTEM_EXISTENCE_AUDIT_V1",
+  "status": "SEALED",
+  "created_at_utc": "2026-06-20T17:21:24Z",
+  "audit_question": "Ensure the system has not already been created starting from root file.",
+  "root_origin_files_checked": [
+    {
+      "file": "package.json",
+      "sha256": "64206440a5b05e8b54d300d684650cba624af922a0e37bf7236087ad234482b1",
+      "contains_target_terms": []
+    },
+    {
+      "file": "README.md",
+      "sha256": "3d9cf3cf6af7a0078925e247781431d12df3da15c736c09c45a918b2bce92173",
+      "contains_target_terms": []
+    },
+    {
+      "file": "AUDIT.md",
+      "sha256": "8f6a2992c640b7e36f8d1d44f593892552d80957f1194561bda64b9de510ce52",
+      "contains_target_terms": []
+    },
+    {
+      "file": "STATUS.md",
+      "sha256": "13cff2e0864f8ad2704a15e3772088cb4d7cb10c5d97306093e37021d7192ced",
+      "contains_target_terms": []
+    },
+    {
+      "file": "docs/activation/ACTIVATION_COMMAND_DOCTRINE_V1.md",
+      "sha256": "aaaaf1b8edd912825f58863abebf20dc9045ea364d0606c547abbc91057fd02c",
+      "contains_target_terms": [
+        "unsigned transaction",
+        "transaction preparation"
+      ]
+    },
+    {
+      "file": "docs/security/TREZOR_SAFE3_READINESS_V1.md",
+      "sha256": "fc2b263b4d82b485ad3eb3a9266f4162952fde1417fb4e44b003de808cbf4b8d",
+      "contains_target_terms": [
+        "unsigned transaction",
+        "prepare unsigned",
+        "transaction preparation"
+      ]
+    },
+    {
+      "file": "docs/treasury/QPF_AI_TREASURY_POLICY_V1.md",
+      "sha256": "b64231b1de38f3a999937671e2d8c7a284c42b130a623050903e7e24930c46c7",
+      "contains_target_terms": [
+        "unsigned transaction",
+        "transaction preparation"
+      ]
+    }
+  ],
+  "target_system": "QPF_UNSIGNED_TRANSACTION_PREPARATION_V1",
+  "package_script_total": 200,
+  "unsigned_transaction_related_scripts": [],
+  "live_execution_named_scripts": [
+    "autonomous:v2-full-dex-deployment:execute",
+    "autonomous:v2-mainnet-cutover:execute",
+    "autonomous:v2-w0g-deployment:execute",
+    "comms:press-agent-discord-parked-broadcast:v1:check",
+    "deploy:cf",
+    "execute:v2-first-pair-live-createpair:v1",
+    "governance:current-funder-audit-handoff:v1:check",
+    "governance:v2-first-pair-final-live-prebroadcast-probe:v1:check",
+    "governance:v2-full-dex-deployment-execution:v1:check",
+    "governance:v2-funder-outreach-manifest:v1:check",
+    "governance:v2-funder-review-packet:v1:check",
+    "governance:v2-public-funder-packet-index:v1:check",
+    "governance:v2-w0g-deployment-execution:v1:check",
+    "probe:v2-first-pair-final-live-prebroadcast:v1",
+    "serve:deploy"
+  ],
+  "matched_files": [
+    "docs/treasury/QPF_AI_TREASURY_POLICY_V1.md",
+    "docs/activation/ACTIVATION_COMMAND_DOCTRINE_V1.md",
+    "docs/security/0G_STORAGE_DA_ACCESS_POLICY_V1.md",
+    "docs/security/TREZOR_SAFE3_READINESS_V1.md",
+    "receipts/runtime/ai-agent-discovery-v1/qpf-ai-agent-discovery-v1-20260620T171102Z.json",
+    "receipts/runtime/pre-activation-gap-v1/qpf-pre-activation-gap-v1-20260620T171240Z.json",
+    "receipts/runtime/activation-command-doctrine-v1/qpf-activation-command-doctrine-v1-20260620T171947Z.json",
+    "receipts/security/trezor-safe3-readiness-v1/trezor-safe3-readiness-v1-20260620T171856Z.json"
+  ],
+  "likely_created_files": [
+    "docs/treasury/QPF_AI_TREASURY_POLICY_V1.md",
+    "receipts/runtime/pre-activation-gap-v1/qpf-pre-activation-gap-v1-20260620T171240Z.json",
+    "receipts/runtime/activation-command-doctrine-v1/qpf-activation-command-doctrine-v1-20260620T171947Z.json",
+    "receipts/security/trezor-safe3-readiness-v1/trezor-safe3-readiness-v1-20260620T171856Z.json"
+  ],
+  "direct_unsigned_transaction_system_files": [],
+  "latest_receipts": {
+    "mobile_node": "receipts/runtime/mobile-node-field-posture-v1/qpf-mobile-node-field-posture-v1-20260620T160300Z.json",
+    "treasury_policy": "receipts/treasury/qpf-ai-treasury-policy-v1.json",
+    "pre_activation_gap": "receipts/runtime/pre-activation-gap-v1/qpf-pre-activation-gap-v1-20260620T171240Z.json",
+    "trezor_safe3": "receipts/security/trezor-safe3-readiness-v1/trezor-safe3-readiness-v1-20260620T171856Z.json",
+    "activation_doctrine": "receipts/runtime/activation-command-doctrine-v1/qpf-activation-command-doctrine-v1-20260620T171947Z.json",
+    "unsigned_tx_prep": null
+  },
+  "conclusion": "NO_ROOT_TRACED_UNSIGNED_TRANSACTION_PREPARATION_SYSTEM_FOUND_YET",
+  "activation_intent": true,
+  "live_execution": false,
+  "wallet_actions": false,
+  "private_key_access": false,
+  "network_broadcast": false,
+  "funds_moved": false,
+  "signing_authorized": false,
+  "note": "This audit is local read-only except for writing this receipt. It does not create, fund, sign, approve, deploy, swap, bridge, or broadcast.",
+  "receipt_body_sha256": "f50b9eed62b5b6dc05e0ed71ffcc69cfbf563fb78bd7a5f90f807e84621b80c0",
+  "final_file_sha256": "d8cdcf668a2d48f7c1fd42d00e33cd9d25b5bc50c32ba8fa223fc92aedfedde6"
+}

@@ -1,0 +1,14 @@
+{
+  "gate": "MAINNET_WORKER_EARNINGS_READINESS_GATE_V1",
+  "status": "OPEN",
+  "mode": "HUMAN_APPROVED_MAINNET_EARNING_READINESS",
+  "mainnet_worker_earnings_lane_active": true,
+  "mainnet_live_earning_authorized": false,
+  "wallet_actions": false,
+  "private_key_access": false,
+  "automatic_spending": false,
+  "automatic_staking": false,
+  "automatic_transfers": false,
+  "purpose": "Identify, check, and prepare available workers for safe human-approved mainnet earning.",
+  "next_required_action": "Create a worker inventory report from repository scripts, npm aliases, gates, blocked live actions, candidate earning lanes, and required approvals."
+}

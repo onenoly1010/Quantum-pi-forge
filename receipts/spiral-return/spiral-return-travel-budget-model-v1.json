@@ -1,0 +1,13 @@
+{
+  "model": "SPIRAL_RETURN_TRAVEL_BUDGET_MODEL_V1",
+  "status": "INITIAL_ESTIMATE",
+  "currency": "CAD",
+  "estimated_minimum_need": 4550,
+  "secured": 0,
+  "missing": 4550,
+  "travel_ready": false,
+  "wallet_actions": false,
+  "funding_movement": false,
+  "reason": "A first budget exists, but secured funding has not yet been confirmed.",
+  "next_required_step": "Replace secured amounts with actual confirmed available amounts."
+}
