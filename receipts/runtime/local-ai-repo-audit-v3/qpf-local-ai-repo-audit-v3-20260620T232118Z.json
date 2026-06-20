@@ -1,0 +1,23 @@
+{
+  "protocol": "QPF_LOCAL_AI_REPO_AUDIT_V3",
+  "status": "PASS_SEALED",
+  "created_at_utc": "2026-06-20T23:21:18Z",
+  "mode": "READ_ONLY_LOCAL_AI_REPO_AUDIT_VALIDATED_RESPONSE",
+  "model": "qwen2.5-coder:3b",
+  "report": "reports/local-ai/qpf-local-ai-repo-audit-v3-20260620T232118Z.md",
+  "report_sha256": "cb1895fa52399053a417b5037afc0aadc3ef0fd3d550c98a096e88cf35f0968f",
+  "raw_response": "reports/local-ai/qpf-local-ai-repo-audit-v3-20260620T232118Z.raw.json",
+  "raw_response_sha256": "33b3e0877d45e5811f26457cd3c0adc4f21a256551629947fde25b44a43dee6a",
+  "validated_non_null_response": true,
+  "repo_mutation": false,
+  "git_commit": false,
+  "wallet_actions": false,
+  "private_key_access": false,
+  "signing_authorized": false,
+  "broadcast_authorized": false,
+  "funding_authorized": false,
+  "funds_moved": false,
+  "network_broadcast": false,
+  "receipt_body_sha256": "ef8527fbab9a10cdd8d7c4b2f15f6a24116ba6c861ad97952f8a6cde3b979908",
+  "final_file_sha256": "5f0025d0115a92f06ee6eebcf29076fc65e86ce7518a1289f2b0fca79218d0fb"
+}
