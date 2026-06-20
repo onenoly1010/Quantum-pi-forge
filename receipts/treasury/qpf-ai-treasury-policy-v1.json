@@ -1,0 +1,22 @@
+{
+  "protocol": "QPF_AI_TREASURY_POLICY_V1",
+  "status": "SEALED",
+  "created_at_utc": "2026-06-20T16:04:48Z",
+  "policy_file": "docs/treasury/QPF_AI_TREASURY_POLICY_V1.md",
+  "policy_sha256": "b64231b1de38f3a999937671e2d8c7a284c42b130a623050903e7e24930c46c7",
+  "ai_private_key_access": false,
+  "ai_seed_phrase_access": false,
+  "ai_signing_authority": false,
+  "ai_unilateral_fund_movement": false,
+  "human_approval_required": true,
+  "cold_treasury_ai_access": false,
+  "operations_wallet_human_controlled": true,
+  "ai_allowance_wallet_human_controlled": true,
+  "unlimited_approvals": false,
+  "live_execution": false,
+  "wallet_created": false,
+  "funds_moved": false,
+  "network_broadcast": false,
+  "receipt_body_sha256": "b8e1aa90e4c6abcd1488b60b02119d068136672a350af3b4a0f2b4ee1d081687",
+  "final_file_sha256": "e7aedaca2bc7b880326cc1426929a26d0e6381b8048ef79af95492bc4ec347f4"
+}

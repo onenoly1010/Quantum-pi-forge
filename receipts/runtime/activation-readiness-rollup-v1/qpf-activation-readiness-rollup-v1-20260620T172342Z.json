@@ -1,0 +1,58 @@
+{
+  "protocol": "QPF_ACTIVATION_READINESS_ROLLUP_V1",
+  "status": "SEALED",
+  "created_at_utc": "2026-06-20T17:23:42Z",
+  "sources": {
+    "root_origin_audit": "receipts/runtime/root-origin-system-existence-audit-v1/qpf-root-origin-system-existence-audit-v1-20260620T172124Z.json",
+    "unsigned_transaction_preparation": "receipts/runtime/unsigned-transaction-preparation-v1/qpf-unsigned-transaction-preparation-v1-20260620T172221Z.json",
+    "transaction_plan_template": "receipts/runtime/transaction-plan-template-v1/qpf-transaction-plan-template-v1-20260620T172304Z.json",
+    "trezor_safe3_readiness": "receipts/security/trezor-safe3-readiness-v1/trezor-safe3-readiness-v1-20260620T171856Z.json",
+    "activation_command_doctrine": "receipts/runtime/activation-command-doctrine-v1/qpf-activation-command-doctrine-v1-20260620T171947Z.json"
+  },
+  "chain_of_custody": {
+    "root_conclusion": "NO_ROOT_TRACED_UNSIGNED_TRANSACTION_PREPARATION_SYSTEM_FOUND_YET",
+    "unsigned_tx_system_created": true,
+    "transaction_template_created": true,
+    "trezor_ready": "OPERATOR_ATTESTED",
+    "activation_model": "GATED_ACTIVATION"
+  },
+  "readiness_state": "READY_FOR_OPERATOR_DEFINED_UNSIGNED_TRANSACTION_PLAN",
+  "authorized_now": [
+    "operator_defined_transaction_plan",
+    "risk_notes",
+    "gas_cap",
+    "amount_cap",
+    "trezor_screen_checklist",
+    "evidence_receipt"
+  ],
+  "not_authorized": [
+    "wallet_creation",
+    "funding",
+    "signing",
+    "broadcast",
+    "approval",
+    "swap",
+    "bridge",
+    "deployment",
+    "fund_movement",
+    "private_key_access",
+    "seed_access",
+    "AI_signing"
+  ],
+  "live_execution": false,
+  "wallet_actions": false,
+  "private_key_access": false,
+  "ai_seed_access": false,
+  "ai_private_key_access": false,
+  "ai_signing_authority": false,
+  "signing_authorized": false,
+  "broadcast_authorized": false,
+  "funding_authorized": false,
+  "funds_moved": false,
+  "network_broadcast": false,
+  "no_blind_signing": true,
+  "trezor_final_truth": true,
+  "human_approval_required": true,
+  "receipt_body_sha256": "df330405c46788faa82042f90e13d4eaa08347f852b1a1dc25fac50fd1bb2858",
+  "final_file_sha256": "054ee0679299020172eeb73f0508fc20971daa6e957907a4e7f948dd5505cfac"
+}

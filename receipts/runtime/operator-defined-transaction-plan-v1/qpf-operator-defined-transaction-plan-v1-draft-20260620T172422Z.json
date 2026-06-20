@@ -1,0 +1,48 @@
+{
+  "protocol": "QPF_OPERATOR_DEFINED_TRANSACTION_PLAN_V1_DRAFT",
+  "status": "DRAFT_SEALED",
+  "created_at_utc": "2026-06-20T17:24:22Z",
+  "plan_document": "docs/treasury/plans/OPERATOR_DEFINED_TRANSACTION_PLAN_V1_DRAFT.md",
+  "plan_document_sha256": "500320a1fb0caf0580a9b9c8b18f755130f1af4255f5166fd1efbed91031fd2d",
+  "source_activation_readiness_rollup": "receipts/runtime/activation-readiness-rollup-v1/qpf-activation-readiness-rollup-v1-20260620T172342Z.json",
+  "operator_fields": {
+    "purpose": "TBD_BY_KRIS",
+    "chain_id": "TBD_BY_KRIS",
+    "network_name": "TBD_BY_KRIS",
+    "from_wallet_label": "TBD_BY_KRIS",
+    "destination_address_or_contract": "TBD_BY_KRIS",
+    "asset": "TBD_BY_KRIS",
+    "amount_cap": "TBD_BY_KRIS",
+    "gas_cap": "TBD_BY_KRIS",
+    "method_or_action": "TBD_BY_KRIS"
+  },
+  "ai_prepared_fields": {
+    "risk_notes": "PENDING_OPERATOR_FIELDS",
+    "expected_trezor_screen_checks": [
+      "confirm_chain_network",
+      "confirm_receiving_or_contract_address",
+      "confirm_asset_or_token",
+      "confirm_amount",
+      "confirm_method_or_action",
+      "confirm_gas_or_fee",
+      "reject_if_anything_differs"
+    ]
+  },
+  "operator_approval_required": true,
+  "trezor_final_truth": true,
+  "no_blind_signing": true,
+  "live_execution": false,
+  "wallet_creation": false,
+  "wallet_actions": false,
+  "private_key_access": false,
+  "ai_seed_access": false,
+  "ai_private_key_access": false,
+  "ai_signing_authority": false,
+  "signing_authorized": false,
+  "broadcast_authorized": false,
+  "funding_authorized": false,
+  "funds_moved": false,
+  "network_broadcast": false,
+  "receipt_body_sha256": "2ad267e3bf19905d84d96e0ce32afebabeda8aba1a9d61b338ef08170c433418",
+  "final_file_sha256": "5364d5302fdfa0ecdcd2a1f9bca593dfe5e9591623d2f9a754e9820f88defd09"
+}

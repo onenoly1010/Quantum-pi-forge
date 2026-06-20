@@ -1,0 +1,66 @@
+{
+  "protocol": "QPF_PRE_ACTIVATION_GAP_V1",
+  "status": "SEALED",
+  "created_at_utc": "2026-06-20T17:12:40Z",
+  "source_discovery_receipt": "receipts/runtime/ai-agent-discovery-v1/qpf-ai-agent-discovery-v1-20260620T171102Z.json",
+  "discovery_readiness": {
+    "score_percent": 100,
+    "passed": 16,
+    "checks_total": 16,
+    "checks": {
+      "mobile_node_active": true,
+      "mobile_observe_only": true,
+      "mutations_locked": true,
+      "wallet_actions_false": true,
+      "private_key_access_false": true,
+      "live_execution_false": true,
+      "treasury_policy_sealed": true,
+      "ai_no_private_key_access": true,
+      "ai_no_seed_access": true,
+      "ai_no_signing_authority": true,
+      "human_approval_required": true,
+      "wallet_not_created_by_policy": true,
+      "funds_not_moved_by_policy": true,
+      "network_not_broadcast_by_policy": true,
+      "has_verify_scripts": true,
+      "has_governance_scripts": true
+    },
+    "blockers": [],
+    "interpretation": "FIELD_READY_OBSERVATIONAL__NOT_FULLY_LIVE_ACTIVATION"
+  },
+  "operational_conclusion": "FIELD_READY_OBSERVATIONAL_NOT_FULLY_LIVE_ACTIVATION",
+  "ready_now": [
+    "local observation",
+    "receipt generation",
+    "dry-run orchestration",
+    "governance verification",
+    "proposal generation",
+    "unsigned transaction planning"
+  ],
+  "not_yet_authorized": [
+    "wallet creation by AI",
+    "fund movement",
+    "private key access",
+    "AI signing",
+    "network broadcast",
+    "live mutation",
+    "unbounded autonomous execution"
+  ],
+  "remaining_activation_requirements": [
+    "explicit operator activation gate",
+    "funding source chosen manually",
+    "cold treasury separated from operations wallet",
+    "AI allowance wallet capped and human controlled",
+    "unsigned transaction preparation tested",
+    "independent verification passes",
+    "no private keys in repo/env/history",
+    "final human approval before any signing or broadcast"
+  ],
+  "live_execution": false,
+  "wallet_actions": false,
+  "private_key_access": false,
+  "network_broadcast": false,
+  "human_approval_required": true,
+  "receipt_body_sha256": "2cf42418162eda310130b217b02b60bf734641a937bfe04199098558d0ca64ba",
+  "final_file_sha256": "57d61dbfa8a600abda4edc6e5e913984dd73de382980ae6387dc5ab7e2b968e5"
+}
