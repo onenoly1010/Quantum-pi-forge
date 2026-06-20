@@ -1,0 +1,29 @@
+{
+  "protocol": "QPF_POST_MERGE_CLOSURE_V1",
+  "status": "SEALED",
+  "created_at_utc": "2026-06-20T23:49:17Z",
+  "main_head": "facc60e",
+  "main_head_full": "facc60e02a527ba546ad0e0d0d418b44514b17bc",
+  "merged_pr": 447,
+  "merge_commit": "facc60e",
+  "local_main_synced_to_origin_main": true,
+  "backup_branch": "backup/local-main-before-sync-20260620T234826Z",
+  "verification": {
+    "verify_evidence": "PASS",
+    "cross_platform_determinism": "PASS",
+    "live_canary_gate": "PASS"
+  },
+  "git_status_short": "",
+  "recent_log": "facc60e Seal unsigned transaction preparation readiness artifacts v1 (#447)\nafc08d0 Add live canary gate v1\n5b176d9 Regenerate determinism manifest after env exclusion patch (#443)\ncf138f5 Exclude secret env files from determinism manifest (#442)\n0e774f2 Add 0G compute inference evidence dry-run gate v1 (#440)",
+  "local_ai_evidence_calibrated": true,
+  "local_ai_final_authority": false,
+  "wallet_actions": false,
+  "private_key_access": false,
+  "signing_authorized": false,
+  "broadcast_authorized": false,
+  "funding_authorized": false,
+  "funds_moved": false,
+  "network_broadcast": false,
+  "receipt_body_sha256": "172f5efbda8bd82d4cae00056b7be860df785d9c3d3099d6c47330d644157944",
+  "final_file_sha256": "2c50b1f3f854b717dc07dc71b1d451ede2b74a1baa490ab38c4800d3a2c786f5"
+}
