@@ -1,0 +1,74 @@
+{
+  "schema": "qpf.named_activation_action_plan.v1",
+  "name": "Named Activation Action Plan v1",
+  "action_name": "supervised-mainnet-activation-execution-v1",
+  "purpose": "Declare the exact named action, scope, in-scope items, and out-of-scope boundaries required before any supervised activation execution can be separately reviewed.",
+  "classification_only": true,
+  "authorizes_execution": false,
+  "authorizes_wallet_actions": false,
+  "authorizes_private_key_access": false,
+  "authorizes_signing": false,
+  "authorizes_transaction_broadcast": false,
+  "authorizes_deploy": false,
+  "authorizes_stake": false,
+  "authorizes_mint": false,
+  "authorizes_participant_growth": false,
+  "chain": {
+    "name": "0G Aristotle Mainnet",
+    "chain_id": 16661,
+    "rpc_required": true
+  },
+  "named_action_scope": {
+    "action_class": "combined_supervised_activation_readiness",
+    "execution_lane_required": true,
+    "single_use_only": true,
+    "requires_later_human_approval": true,
+    "requires_later_dry_run_or_simulation": true,
+    "requires_later_irreversible_zone_review": true,
+    "requires_later_gas_funding_quantity_limits": true
+  },
+  "in_scope": [
+    "Define supervised activation execution as a named future action",
+    "Bind future activation review to chain_id 16661",
+    "Identify deploy, stake, mint, and participant actions as possible action classes requiring separate approval",
+    "Require dry-run or simulation receipt before readiness can become ready",
+    "Require explicit gas, funding, quantity, and participant limits before readiness can become ready",
+    "Require irreversible-zone review before readiness can become ready",
+    "Require explicit human operator approval before any execution lane may run"
+  ],
+  "out_of_scope": [
+    "No live execution",
+    "No deploy",
+    "No stake",
+    "No mint",
+    "No participant growth",
+    "No wallet action",
+    "No private key access",
+    "No signing",
+    "No transaction broadcast",
+    "No automatic growth loop",
+    "No liquidity action",
+    "No ownership transfer",
+    "No approval transaction",
+    "No repeated or autonomous execution loop"
+  ],
+  "target_contracts_or_action_scope": {
+    "deploy": "Target contracts must be named in a later action-specific execution plan before readiness can become ready.",
+    "stake": "Staking contract and amount limit must be named in a later action-specific execution plan before readiness can become ready.",
+    "mint": "Asset contract, recipient scope, and quantity limit must be named in a later action-specific execution plan before readiness can become ready.",
+    "participant_action": "Participant scope, manual review boundary, and pause condition must be named in a later action-specific execution plan before readiness can become ready."
+  },
+  "readiness_conditions_satisfied_by_this_plan": [
+    "named_action_plan_exists",
+    "named_action_scope_declared",
+    "target_contracts_named_or_action_specific_scope_declared"
+  ],
+  "readiness_conditions_not_satisfied_by_this_plan": [
+    "explicit_human_operator_approval_exists",
+    "execution_lane_separate_from_classification_lane",
+    "irreversible_zone_review_completed",
+    "dry_run_or_simulation_receipt_present_for_named_action",
+    "gas_funding_or_quantity_limits_declared_for_named_action"
+  ]
+}
+

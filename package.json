@@ -202,7 +202,9 @@
     "governance:live-canary-gate:v1:check": "node scripts/verify-live-canary-gate-v1.cjs",
     "verify:0g-compute-inference-evidence-dry-run-gate:v1": "node scripts/verify-0g-compute-inference-evidence-dry-run-gate-v1.cjs",
     "governance:bounded-activation-readiness-gate:v1": "node scripts/create-bounded-activation-readiness-gate-v1.cjs",
-    "verify:bounded-activation-readiness-gate:v1": "node scripts/verify-bounded-activation-readiness-gate-v1.cjs"
+    "verify:bounded-activation-readiness-gate:v1": "node scripts/verify-bounded-activation-readiness-gate-v1.cjs",
+    "governance:named-activation-action-plan:v1": "node scripts/create-named-activation-action-plan-v1.cjs",
+    "verify:named-activation-action-plan:v1": "node scripts/verify-named-activation-action-plan-v1.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",
