@@ -1,0 +1,20 @@
+{
+  "schema": "qpf.pr_451_post_merge_closure.v1",
+  "created_at": "2026-06-21T17:28:00.795Z",
+  "head": "0cce076",
+  "branch": "main",
+  "status": "sealed",
+  "pr": 451,
+  "merged": true,
+  "local_main_synced": true,
+  "evidence_verification": "passed",
+  "mainnet_finalization_gate": "passed",
+  "wallet_actions": false,
+  "private_key_requested": false,
+  "deploy_attempted": false,
+  "stake_attempted": false,
+  "mint_attempted": false,
+  "transaction_broadcast": false,
+  "participant_growth_loop_started": false,
+  "sha256": "0843d0d20698ad0aac421447876e6b43c4d967a2b87d44858af24cb2c46849ad"
+}
