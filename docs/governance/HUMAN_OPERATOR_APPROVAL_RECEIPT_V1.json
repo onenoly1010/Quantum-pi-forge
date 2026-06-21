@@ -1,0 +1,33 @@
+{
+  "schema": "qpf.human_operator_approval.v1",
+  "name": "Human Operator Approval Receipt v1",
+  "named_action": "supervised-mainnet-activation-execution-v1",
+  "operator": "Kris Olofson",
+  "approval_scope": "approval to complete readiness classification and prepare a future supervised execution gate only",
+  "classification_only": true,
+  "authorizes_execution": false,
+  "authorizes_wallet_actions": false,
+  "authorizes_private_key_access": false,
+  "authorizes_signing": false,
+  "authorizes_transaction_broadcast": false,
+  "authorizes_deploy": false,
+  "authorizes_stake": false,
+  "authorizes_mint": false,
+  "authorizes_participant_growth": false,
+  "chain": {
+    "name": "0G Aristotle Mainnet",
+    "chain_id": 16661
+  },
+  "approval_conditions": [
+    "future live execution still requires separate final preflight",
+    "future live execution still requires exact command hash",
+    "future live execution still requires exact commit hash",
+    "future live execution still requires exact wallet or deployer confirmation",
+    "future live execution still requires one-shot execution guard",
+    "future live execution still requires post-execution receipt"
+  ],
+  "readiness_conditions_satisfied_by_this_gate": [
+    "explicit_human_operator_approval_exists"
+  ],
+  "readiness_conditions_not_satisfied_by_this_gate": []
+}

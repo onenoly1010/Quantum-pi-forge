@@ -1,0 +1,57 @@
+{
+  "schema": "qpf.execution_lane_separation_gate.v1",
+  "name": "Execution Lane Separation Gate v1",
+  "purpose": "Prove that supervised execution is separated from classification, planning, readiness, and review gates. This gate does not authorize execution; it only defines the separation boundary.",
+  "named_action": "supervised-mainnet-activation-execution-v1",
+  "classification_only": true,
+  "authorizes_execution": false,
+  "authorizes_wallet_actions": false,
+  "authorizes_private_key_access": false,
+  "authorizes_signing": false,
+  "authorizes_transaction_broadcast": false,
+  "authorizes_deploy": false,
+  "authorizes_stake": false,
+  "authorizes_mint": false,
+  "authorizes_participant_growth": false,
+  "separation_contract": {
+    "classification_lane_allowed": [
+      "readiness classification",
+      "scope declaration",
+      "risk review",
+      "limits declaration",
+      "dry-run evidence",
+      "human approval receipt preparation",
+      "non-executing verification"
+    ],
+    "classification_lane_forbidden": [
+      "private key access",
+      "wallet action",
+      "signing",
+      "transaction broadcast",
+      "deploy",
+      "stake",
+      "mint",
+      "participant growth",
+      "live execution"
+    ],
+    "future_execution_lane_required_controls": [
+      "separate supervised execution gate",
+      "exact command hash",
+      "exact commit hash",
+      "exact chain id",
+      "exact wallet/deployer",
+      "one-shot execution guard",
+      "post-execution receipt"
+    ]
+  },
+  "readiness_conditions_satisfied_by_this_gate": [
+    "execution_lane_separate_from_classification_lane"
+  ],
+  "readiness_conditions_not_satisfied_by_this_gate": [
+    "explicit_human_operator_approval_exists",
+    "irreversible_zone_review_completed",
+    "dry_run_or_simulation_receipt_present_for_named_action",
+    "gas_funding_or_quantity_limits_declared_for_named_action"
+  ]
+}
+

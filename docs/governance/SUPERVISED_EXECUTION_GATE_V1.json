@@ -1,0 +1,40 @@
+{
+  "schema": "qpf.supervised_execution_gate.v1",
+  "name": "Supervised Execution Gate v1",
+  "named_action": "supervised-mainnet-activation-execution-v1",
+  "purpose": "Validate the sealed readiness stack and define future supervised execution controls without authorizing live execution.",
+  "classification_only": true,
+  "authorizes_execution": false,
+  "authorizes_wallet_actions": false,
+  "authorizes_private_key_access": false,
+  "authorizes_signing": false,
+  "authorizes_transaction_broadcast": false,
+  "authorizes_deploy": false,
+  "authorizes_stake": false,
+  "authorizes_mint": false,
+  "authorizes_participant_growth": false,
+  "chain": {
+    "name": "0G Aristotle Mainnet",
+    "chain_id": 16661
+  },
+  "required_env_flag": "QPF_SUPERVISED_MAINNET_EXECUTION=YES",
+  "one_shot_execution_guard": true,
+  "defines_future_execution_controls": true,
+  "future_execution_still_requires": [
+    "separate final preflight",
+    "exact command hash",
+    "exact commit hash",
+    "exact chain id 16661",
+    "exact wallet or deployer confirmation",
+    "operator confirmation immediately before live command",
+    "post-execution receipt"
+  ],
+  "readiness_stack_required": [
+    "receipts/governance/bounded-activation-readiness-gate-v1.json",
+    "receipts/governance/human-operator-approval-v1.json",
+    "receipts/governance/execution-lane-separation-gate-v1.json",
+    "receipts/governance/irreversible-zone-review-v1.json",
+    "receipts/governance/dry-run-simulation-v1.json",
+    "receipts/governance/gas-funding-quantity-limits-v1.json"
+  ]
+}

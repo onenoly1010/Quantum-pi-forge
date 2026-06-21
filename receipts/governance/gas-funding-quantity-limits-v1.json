@@ -1,0 +1,47 @@
+{
+  "schema": "qpf.gas_funding_quantity_limits.receipt.v1",
+  "created_at": "2026-06-21T22:49:42.383Z",
+  "status": "sealed",
+  "named_action": "supervised-mainnet-activation-execution-v1",
+  "checks": {
+    "schema_valid": true,
+    "named_action_valid": true,
+    "chain_id_valid": true,
+    "classification_only": true,
+    "execution_not_authorized": true,
+    "wallet_actions_not_authorized": true,
+    "private_key_access_not_authorized": true,
+    "signing_not_authorized": true,
+    "broadcast_not_authorized": true,
+    "stake_mint_growth_zero": true,
+    "liquidity_approval_admin_zero": true,
+    "prerequisites_present": true
+  },
+  "missing_conditions": [],
+  "readiness_conditions_satisfied_by_this_gate": [
+    "gas_funding_or_quantity_limits_declared_for_named_action"
+  ],
+  "readiness_conditions_not_satisfied_by_this_gate": [
+    "explicit_human_operator_approval_exists",
+    "dry_run_or_simulation_receipt_present_for_named_action"
+  ],
+  "classification_only": true,
+  "authorizes_execution": false,
+  "authorizes_wallet_actions": false,
+  "authorizes_private_key_access": false,
+  "authorizes_signing": false,
+  "authorizes_transaction_broadcast": false,
+  "authorizes_deploy": false,
+  "authorizes_stake": false,
+  "authorizes_mint": false,
+  "authorizes_participant_growth": false,
+  "private_key_present": false,
+  "wallet_actions": false,
+  "signing_attempted": false,
+  "transaction_broadcast": false,
+  "live_execution": false,
+  "doc_path": "docs/governance/GAS_FUNDING_QUANTITY_LIMITS_V1.json",
+  "doc_sha256": "420bc135b9e4051c83177e83601b2891ff1e92241076eada7531414829bf1e62",
+  "git_head": "17db75f0a371b1ccba7576e90918dc91c2fd7c24",
+  "git_status_short": "?? docs/governance/GAS_FUNDING_QUANTITY_LIMITS_V1.json"
+}

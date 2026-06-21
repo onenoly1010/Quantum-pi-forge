@@ -204,7 +204,19 @@
     "governance:bounded-activation-readiness-gate:v1": "node scripts/create-bounded-activation-readiness-gate-v1.cjs",
     "verify:bounded-activation-readiness-gate:v1": "node scripts/verify-bounded-activation-readiness-gate-v1.cjs",
     "governance:named-activation-action-plan:v1": "node scripts/create-named-activation-action-plan-v1.cjs",
-    "verify:named-activation-action-plan:v1": "node scripts/verify-named-activation-action-plan-v1.cjs"
+    "verify:named-activation-action-plan:v1": "node scripts/verify-named-activation-action-plan-v1.cjs",
+    "governance:execution-lane-separation-gate:v1": "node scripts/create-execution-lane-separation-gate-v1.cjs",
+    "verify:execution-lane-separation-gate:v1": "node scripts/verify-execution-lane-separation-gate-v1.cjs",
+    "governance:irreversible-zone-review:v1": "node scripts/create-irreversible-zone-review-v1.cjs",
+    "verify:irreversible-zone-review:v1": "node scripts/verify-irreversible-zone-review-v1.cjs",
+    "governance:gas-funding-limits:v1": "node scripts/create-gas-funding-limits-v1.cjs",
+    "verify:gas-funding-limits:v1": "node scripts/verify-gas-funding-limits-v1.cjs",
+    "governance:dry-run-simulation:v1": "node scripts/create-dry-run-simulation-v1.cjs",
+    "verify:dry-run-simulation:v1": "node scripts/verify-dry-run-simulation-v1.cjs",
+    "governance:human-operator-approval:v1": "node scripts/create-human-operator-approval-v1.cjs",
+    "verify:human-operator-approval:v1": "node scripts/verify-human-operator-approval-v1.cjs",
+    "governance:supervised-execution-gate:v1": "node scripts/create-supervised-execution-gate-v1.cjs",
+    "verify:supervised-execution-gate:v1": "node scripts/verify-supervised-execution-gate-v1.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",

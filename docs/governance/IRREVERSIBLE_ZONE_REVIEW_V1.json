@@ -1,0 +1,63 @@
+{
+  "schema": "qpf.irreversible_zone_review.v1",
+  "name": "Irreversible Zone Review v1",
+  "purpose": "Review irreversible action classes for supervised mainnet activation without authorizing execution.",
+  "named_action": "supervised-mainnet-activation-execution-v1",
+  "classification_only": true,
+  "authorizes_execution": false,
+  "authorizes_wallet_actions": false,
+  "authorizes_private_key_access": false,
+  "authorizes_signing": false,
+  "authorizes_transaction_broadcast": false,
+  "authorizes_deploy": false,
+  "authorizes_stake": false,
+  "authorizes_mint": false,
+  "authorizes_participant_growth": false,
+  "chain": {
+    "name": "0G Aristotle Mainnet",
+    "chain_id": 16661
+  },
+  "irreversible_actions_reviewed": [
+    "private_key_access",
+    "wallet_connection",
+    "signing",
+    "transaction_broadcast",
+    "deploy",
+    "stake",
+    "mint",
+    "participant_growth",
+    "approval_or_allowance",
+    "ownership_or_admin_change",
+    "liquidity_or_funds_movement"
+  ],
+  "required_future_controls": [
+    "exact commit hash",
+    "exact command hash",
+    "exact chain id 16661",
+    "exact deployer or wallet address",
+    "dry-run or simulation receipt",
+    "gas funding quantity limits",
+    "explicit human operator approval",
+    "one-shot execution guard",
+    "post-execution receipt"
+  ],
+  "stop_conditions": [
+    "abort if chain_id is not 16661",
+    "abort if wallet or deployer differs from later approval receipt",
+    "abort if commit differs from later approval receipt",
+    "abort if command hash differs from later approval receipt",
+    "abort if any transaction payload is unreviewed",
+    "abort if any action repeats loops or auto-grows",
+    "abort if private key access occurs outside a future supervised execution wrapper",
+    "abort if live execution occurs before readiness returns ready=true"
+  ],
+  "readiness_conditions_satisfied_by_this_review": [
+    "irreversible_zone_review_completed"
+  ],
+  "readiness_conditions_not_satisfied_by_this_review": [
+    "explicit_human_operator_approval_exists",
+    "dry_run_or_simulation_receipt_present_for_named_action",
+    "gas_funding_or_quantity_limits_declared_for_named_action"
+  ]
+}
+

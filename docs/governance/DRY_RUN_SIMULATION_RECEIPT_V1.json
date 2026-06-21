@@ -1,0 +1,40 @@
+{
+  "schema": "qpf.dry_run_simulation.v1",
+  "name": "Dry Run Simulation Receipt v1",
+  "named_action": "supervised-mainnet-activation-execution-v1",
+  "classification_only": true,
+  "authorizes_execution": false,
+  "authorizes_wallet_actions": false,
+  "authorizes_private_key_access": false,
+  "authorizes_signing": false,
+  "authorizes_transaction_broadcast": false,
+  "authorizes_deploy": false,
+  "authorizes_stake": false,
+  "authorizes_mint": false,
+  "authorizes_participant_growth": false,
+  "chain": {
+    "name": "0G Aristotle Mainnet",
+    "chain_id": 16661
+  },
+  "simulation": {
+    "mode": "non-executing dry-run",
+    "steps": [
+      "load named action",
+      "confirm chain id 16661",
+      "confirm execution lane separation",
+      "confirm irreversible zone review",
+      "confirm gas funding quantity limits"
+    ],
+    "transaction_broadcast": false,
+    "signing_attempted": false,
+    "wallet_actions": false,
+    "private_key_present": false,
+    "live_execution": false
+  },
+  "readiness_conditions_satisfied_by_this_gate": [
+    "dry_run_or_simulation_receipt_present_for_named_action"
+  ],
+  "readiness_conditions_not_satisfied_by_this_gate": [
+    "explicit_human_operator_approval_exists"
+  ]
+}
