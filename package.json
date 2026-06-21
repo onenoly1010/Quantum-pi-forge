@@ -210,7 +210,9 @@
     "governance:irreversible-zone-review:v1": "node scripts/create-irreversible-zone-review-v1.cjs",
     "verify:irreversible-zone-review:v1": "node scripts/verify-irreversible-zone-review-v1.cjs",
     "governance:gas-funding-limits:v1": "node scripts/create-gas-funding-limits-v1.cjs",
-    "verify:gas-funding-limits:v1": "node scripts/verify-gas-funding-limits-v1.cjs"
+    "verify:gas-funding-limits:v1": "node scripts/verify-gas-funding-limits-v1.cjs",
+    "governance:dry-run-simulation:v1": "node scripts/create-dry-run-simulation-v1.cjs",
+    "verify:dry-run-simulation:v1": "node scripts/verify-dry-run-simulation-v1.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",
