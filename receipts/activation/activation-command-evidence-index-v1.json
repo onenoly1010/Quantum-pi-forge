@@ -1,0 +1,16 @@
+{
+  "index": "ACTIVATION_COMMAND_EVIDENCE_INDEX_V1",
+  "status": "VERIFIED",
+  "mode": "REPO_SAFE_EVIDENCE_INDEX",
+  "activation_command_open_receipt": "activation-command-open-20260621T012604Z.json",
+  "activation_command_open_sha256": "eed09d77899d277ec8b4efb1c59f945d553c6c68314310e00302b973d0658c6e",
+  "activation_readiness_verifier_receipt": "activation-readiness-verifier-20260621T012617Z.json",
+  "activation_readiness_verifier_sha256": "3dbc727a05a9e31a8c28158f529e091457b2d615b77f602b23a19cf9f3697984",
+  "all_irreversible_flags_locked_false": true,
+  "live_execution": false,
+  "private_key_present": false,
+  "wallet_actions": false,
+  "signing_attempted": false,
+  "transaction_broadcast": false,
+  "repo_mutation_by_activation_command": false
+}
