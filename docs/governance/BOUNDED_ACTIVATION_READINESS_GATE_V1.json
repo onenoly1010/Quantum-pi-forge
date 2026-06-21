@@ -1,0 +1,82 @@
+{
+  "schema": "qpf.bounded_activation_readiness_gate.v1",
+  "name": "Bounded Activation Readiness Gate v1",
+  "purpose": "Defines the deterministic readiness contract required before any deploy, stake, mint, participant, wallet, private-key, signing, broadcast, or live execution action may be separately authorized.",
+  "classification_only": true,
+  "authorizes_execution": false,
+  "authorizes_wallet_actions": false,
+  "authorizes_private_key_access": false,
+  "authorizes_signing": false,
+  "authorizes_transaction_broadcast": false,
+  "authorizes_deploy": false,
+  "authorizes_stake": false,
+  "authorizes_mint": false,
+  "authorizes_participant_growth": false,
+  "covered_action_classes": [
+    "deploy",
+    "stake",
+    "mint",
+    "participant_action",
+    "wallet_action",
+    "private_key_access",
+    "signing",
+    "transaction_broadcast",
+    "live_execution"
+  ],
+  "required_preconditions": {
+    "global": [
+      "mainnet_finalization_gate_v1_passed",
+      "bounded_activation_readiness_gate_v1_verified",
+      "named_action_plan_exists",
+      "named_action_scope_declared",
+      "explicit_human_operator_approval_exists",
+      "execution_lane_separate_from_classification_lane",
+      "irreversible_zone_review_completed"
+    ],
+    "evidence": [
+      "npm_verify_evidence_passes",
+      "governance_receipt_sealed",
+      "git_head_recorded",
+      "git_status_recorded",
+      "missing_conditions_reported_when_not_ready"
+    ],
+    "safety": [
+      "classification_only_boundary_preserved",
+      "no_private_key_access_by_this_gate",
+      "no_wallet_action_by_this_gate",
+      "no_signing_by_this_gate",
+      "no_transaction_broadcast_by_this_gate",
+      "no_live_execution_by_this_gate"
+    ],
+    "deploy": [
+      "target_contracts_named",
+      "chain_id_confirmed",
+      "rpc_endpoint_confirmed",
+      "deployer_address_declared",
+      "dry_run_or_simulation_receipt_present",
+      "gas_and_funding_limits_declared"
+    ],
+    "stake": [
+      "staking_contract_named",
+      "stake_amount_limit_declared",
+      "lockup_or_slashing_risk_acknowledged",
+      "unstake_or_exit_conditions_documented"
+    ],
+    "mint": [
+      "asset_contract_named",
+      "recipient_scope_declared",
+      "supply_or_quantity_limit_declared",
+      "metadata_or_uri_integrity_checked"
+    ],
+    "participant_action": [
+      "participant_scope_declared",
+      "manual_review_boundary_declared",
+      "no_auto_growth_loop_enabled",
+      "pause_or_rollback_condition_declared"
+    ]
+  },
+  "status_rules": {
+    "ready": "All global, evidence, safety, and applicable action-specific preconditions are explicitly true.",
+    "not_ready": "Any required precondition is false, absent, unverifiable, or not yet explicitly evidenced."
+  }
+}
