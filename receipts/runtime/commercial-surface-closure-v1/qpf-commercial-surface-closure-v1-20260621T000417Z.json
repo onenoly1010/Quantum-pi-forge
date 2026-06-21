@@ -1,0 +1,28 @@
+{
+  "protocol": "QPF_COMMERCIAL_SURFACE_CLOSURE_V1",
+  "status": "SEALED",
+  "created_at_utc": "2026-06-21T00:04:17Z",
+  "main_head": "0391367",
+  "main_head_full": "0391367412f8327ec928a7db8526fdb638e067dd",
+  "merged_pr": 449,
+  "page": "for-builders.html",
+  "conversion_surface_created": true,
+  "builder_offer_surface": true,
+  "homepage_link_updated": true,
+  "verification": {
+    "verify_evidence": "PASS",
+    "cross_platform_determinism": "PASS",
+    "live_canary_gate": "PASS"
+  },
+  "page_check": "28:  <p class=\"lead\"><strong>Quantum Pi Forge is a public proof engine for digital launches.</strong></p>\n108:      <li>No private-key access</li>\n68:      <li><code>npm run verify:evidence</code>: PASS</li>\n121:    <pre><code>npm run verify:evidence</code></pre>",
+  "git_status_short": "",
+  "wallet_actions": false,
+  "private_key_access": false,
+  "signing_authorized": false,
+  "broadcast_authorized": false,
+  "funding_authorized": false,
+  "funds_moved": false,
+  "network_broadcast": false,
+  "receipt_body_sha256": "ae9b2371535bb336be1534ca180028ec9d09e6209e529669d60bf5beefaae254",
+  "final_file_sha256": "7eff4bfa5022e7ec91221669ef9fd0923ddc77a22509628e9b5e36c4fabd3ef2"
+}
