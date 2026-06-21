@@ -1,0 +1,19 @@
+{
+  "index": "OINIO_LOCAL_OBSERVER_EVIDENCE_INDEX_V1",
+  "status": "VERIFIED",
+  "mode": "REPO_SAFE_EVIDENCE_INDEX",
+  "local_observer_design_plan_receipt": "oinio-local-observer-design-plan-20260621T042854Z.json",
+  "local_observer_design_plan_sha256": "510a58d0a92bef7833a381162217eddd2b49d4082a206a0ec2653163edc7548b",
+  "local_observer_spec_receipt": "oinio-local-observer-spec-20260621T122536Z.json",
+  "local_observer_spec_sha256": "2e9bd5400caf86038f7de53466b0e8d286c6df96098b60cc0d949c918a1f379b",
+  "old_resonance_worker_reuse": false,
+  "owned_qpf_source_only": true,
+  "network_send": false,
+  "all_irreversible_flags_locked_false": true,
+  "live_execution": false,
+  "private_key_present": false,
+  "wallet_actions": false,
+  "signing_attempted": false,
+  "transaction_broadcast": false,
+  "repo_mutation_by_observer": false
+}
