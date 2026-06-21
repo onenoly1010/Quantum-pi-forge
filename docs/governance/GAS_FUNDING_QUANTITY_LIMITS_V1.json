@@ -1,0 +1,51 @@
+{
+  "schema": "qpf.gas_funding_quantity_limits.v1",
+  "name": "Gas Funding Quantity Limits v1",
+  "named_action": "supervised-mainnet-activation-execution-v1",
+  "classification_only": true,
+  "authorizes_execution": false,
+  "authorizes_wallet_actions": false,
+  "authorizes_private_key_access": false,
+  "authorizes_signing": false,
+  "authorizes_transaction_broadcast": false,
+  "authorizes_deploy": false,
+  "authorizes_stake": false,
+  "authorizes_mint": false,
+  "authorizes_participant_growth": false,
+  "chain": {
+    "name": "0G Aristotle Mainnet",
+    "chain_id": 16661
+  },
+  "future_execution_limits": {
+    "max_execution_invocations": 1,
+    "max_transaction_broadcasts": 1,
+    "max_wallets_or_deployers": 1,
+    "max_private_key_sources": 1,
+    "max_distinct_transaction_payloads": 1,
+    "max_deploy_operations": 1,
+    "max_stake_operations": 0,
+    "max_mint_operations": 0,
+    "max_participant_growth_operations": 0,
+    "max_liquidity_operations": 0,
+    "max_approval_or_allowance_operations": 0,
+    "max_admin_or_ownership_change_operations": 0,
+    "requires_exact_chain_id": 16661,
+    "requires_exact_command_hash": true,
+    "requires_exact_commit_hash": true,
+    "requires_exact_deployer_or_wallet": true,
+    "requires_post_execution_receipt": true
+  },
+  "funding_policy": {
+    "this_gate_moves_funds": false,
+    "this_gate_checks_balance": false,
+    "this_gate_requests_private_key": false,
+    "this_gate_connects_wallet": false
+  },
+  "readiness_conditions_satisfied_by_this_gate": [
+    "gas_funding_or_quantity_limits_declared_for_named_action"
+  ],
+  "readiness_conditions_not_satisfied_by_this_gate": [
+    "explicit_human_operator_approval_exists",
+    "dry_run_or_simulation_receipt_present_for_named_action"
+  ]
+}
