@@ -206,7 +206,9 @@
     "governance:named-activation-action-plan:v1": "node scripts/create-named-activation-action-plan-v1.cjs",
     "verify:named-activation-action-plan:v1": "node scripts/verify-named-activation-action-plan-v1.cjs",
     "governance:execution-lane-separation-gate:v1": "node scripts/create-execution-lane-separation-gate-v1.cjs",
-    "verify:execution-lane-separation-gate:v1": "node scripts/verify-execution-lane-separation-gate-v1.cjs"
+    "verify:execution-lane-separation-gate:v1": "node scripts/verify-execution-lane-separation-gate-v1.cjs",
+    "governance:irreversible-zone-review:v1": "node scripts/create-irreversible-zone-review-v1.cjs",
+    "verify:irreversible-zone-review:v1": "node scripts/verify-irreversible-zone-review-v1.cjs"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",
