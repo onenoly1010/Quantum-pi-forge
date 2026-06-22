@@ -1,0 +1,72 @@
+{
+  "governance_version": "v2",
+  "receipt": "post-pr-480-main-state-closure-v1",
+  "created_at": "2026-06-22T16:19:52Z",
+  "main_commit": "684a338e4a8c4bd12e13909929b3337561e2c5d7",
+  "merged_pr": 480,
+  "merged_commit": "684a338",
+  "intent": "seal clean main state after v2 public reviewer start here entrypoint merge",
+  "repo_state": {
+    "branch": "main",
+    "status_short": "",
+    "clean": true
+  },
+  "verification": {
+    "verify_evidence": {
+      "command": "npm run verify:evidence",
+      "result": "PASS"
+    },
+    "v2_read_only_status_dashboard_v1": {
+      "command": "npm run governance:v2-read-only-status-dashboard:v1:check",
+      "result": "PASS"
+    },
+    "v2_public_status_endpoint_v1": {
+      "command": "npm run governance:v2-public-status-endpoint:v1:check",
+      "result": "PASS"
+    },
+    "v2_public_funder_packet_index_v1": {
+      "command": "npm run governance:v2-public-funder-packet-index:v1:check",
+      "result": "PASS"
+    },
+    "v2_funder_review_packet_v1": {
+      "command": "npm run governance:v2-funder-review-packet:v1:check",
+      "result": "PASS"
+    },
+    "v2_reviewer_evidence_index_v1": {
+      "command": "npm run governance:v2-reviewer-evidence-index:v1:check",
+      "result": "PASS"
+    },
+    "v2_pre_unpark_readiness_gate_v1": {
+      "command": "npm run governance:v2-pre-unpark-readiness-gate:v1:check",
+      "result": "PASS"
+    },
+    "mainnet_finalization_gate_v1": {
+      "command": "node scripts/check-mainnet-finalization-gate-v1.cjs",
+      "result": "PASS"
+    }
+  },
+  "sealed_artifacts": {
+    "docs/public/V2_PUBLIC_REVIEWER_START_HERE_V1.md": "a25b037a91be1213e103b5ff53d65257810891f16cffdd78d74861a442c8f35c",
+    "receipts/governance/v2-public-reviewer-start-here-v1.json": "c7c3daf43279140f71b1e35e06bc1459cadacab4494d4bd20f6b02aff418ae37",
+    "reports/governance/v2-public-packet-human-readability-audit-v1.md": "12ca97c2c3f473764550864f9df8e32e48cd73566a5d50c52cf845576f3b17e8",
+    "receipts/governance/v2-public-packet-human-readability-audit-v1.json": "ebe7cc85ca0c1bed2139abb3d8e3ed23098d32e24ddd4867f45838a890e07485",
+    "docs/public/READ_ONLY_STATUS_DASHBOARD_V1.md": "4a86c5f161254cecf7b837bec93b850f5dcea498d065b71bab3999f83295aa2b",
+    "docs/public/status-dashboard-v1.json": "64b54ff4ad70e59ba248706082b77ecb1c15ab76cb281efd691851018a240c5b",
+    "receipts/governance/v2-public-status-endpoint-v1.json": "3ac93ade12cad7d41a9a605995bf79e5dfc506d110fdbe8eca6dca7038d6fa08",
+    "receipts/governance/v2-public-funder-packet-index-v1.json": "a426067de6b7fd854271e5cfc6b1113230a99017d2d525620558b2b9e6f6f9d8",
+    "receipts/governance/v2-funder-review-packet-v1.json": "a9fb073628cfd4ddcad6f36e681c1d4d406dcf3996f64c9564cefa2233015fe0",
+    "receipts/governance/v2-reviewer-evidence-index-v1.json": "1cc7f7ea468c9c37649278ff81ea05028e1d98a5b9ce8e1e19f352f8bc112d0b",
+    "receipts/governance/v2-pre-unpark-readiness-gate-v1.json": "081648ae2d54eca570450c877233cc0025c2af6d63f0796e9e076bfa719753d4"
+  },
+  "safety": {
+    "live_execution": false,
+    "private_key_access": false,
+    "wallet_actions": false,
+    "signing_attempted": false,
+    "transaction_broadcast": false,
+    "deploy": false,
+    "staking": false,
+    "minting": false
+  },
+  "status": "sealed"
+}
