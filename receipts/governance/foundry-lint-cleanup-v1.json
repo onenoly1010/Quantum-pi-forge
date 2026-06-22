@@ -1,0 +1,39 @@
+{
+  "governance_version": "v1",
+  "receipt": "foundry-lint-cleanup-v1",
+  "created_at": "2026-06-22T02:01:03.032Z",
+  "git_head": "3c0161db02538dc741e0b9024fecef819b75fec1",
+  "scope": {
+    "lint_cleanup_only": true,
+    "files_changed": [
+      "contracts/src/OINIOToken.sol",
+      "contracts/src/OINIOModelRegistry.sol",
+      "contracts/script/Deploy.s.sol",
+      "contracts/script/BirthGenesisHeartbeat.s.sol",
+      "contracts/script/RegisterGenesisAgent.s.sol"
+    ]
+  },
+  "verification": {
+    "forge_lint": "pass",
+    "forge_build": "pass",
+    "mainnet_execution_result_check": "pass",
+    "v2_mainnet_cutover_execution_check": "pass",
+    "verify_evidence": "pass"
+  },
+  "boundary": {
+    "wallet_actions": false,
+    "private_key_access": false,
+    "signing_attempted": false,
+    "transaction_broadcast": false,
+    "deploy_attempted": false,
+    "live_execution": false
+  },
+  "sealed_artifacts": {
+    "docs/governance/FOUNDRY_LINT_CLEANUP_V1.md": "3eb00190faf9c7dcf130e277f3b279f06ef07b55ea34e2656f61b11c2beabb39",
+    "contracts/src/OINIOToken.sol": "5dc8b4573160ea4ecfabd1806b71a0ea0b03dd2d351a3935a615519f14a60e30",
+    "contracts/src/OINIOModelRegistry.sol": "3e4f5552badb85b47a6d8e19a1293e81ee3666e44c1b8d5dfd6005e28eacd1a6",
+    "contracts/script/Deploy.s.sol": "5b88e1261f7ba22aed870ce66501d663ac9ad2420853a0275345c565373db406",
+    "contracts/script/BirthGenesisHeartbeat.s.sol": "bb1f83a0a5a5194419084ca08b8ba542389c02e4e26cc4dfeb43c74dac46fe24",
+    "contracts/script/RegisterGenesisAgent.s.sol": "d3d0ec78d100b1bf75631949879ee3e2a7cb9ef1a2726d367b94653a2e7b8c40"
+  }
+}
