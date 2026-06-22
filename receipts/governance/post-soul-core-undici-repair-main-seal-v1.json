@@ -1,0 +1,38 @@
+{
+  "governance_version": "v1",
+  "receipt": "post-soul-core-undici-repair-main-seal-v1",
+  "created_at": "2026-06-22T15:49:26.422Z",
+  "git_head": "c38bf2b372506da386f200d108bcd0267da09ccd",
+  "expected_head_prefix": "c38bf2b",
+  "git_status_short": "",
+  "completed": [
+    "PR #475 merged",
+    "soul-core undici advisory chain repaired",
+    "root npm audit high threshold passed with zero vulnerabilities",
+    "soul-core npm audit high threshold passed with zero vulnerabilities",
+    "verify:evidence passed",
+    "mainnet execution result check passed",
+    "v2 cutover execution check passed",
+    "mainnet finalization gate passed",
+    "forge lint clean",
+    "forge build passed"
+  ],
+  "verification": {
+    "root_npm_audit_high": "pass_zero_vulnerabilities",
+    "soul_core_npm_audit_high": "pass_zero_vulnerabilities",
+    "verify_evidence": "pass",
+    "mainnet_execution_result_v1": "pass",
+    "v2_mainnet_cutover_execution_v1": "pass",
+    "mainnet_finalization_gate_v1": "pass",
+    "forge_lint": "pass_clean",
+    "forge_build": "pass"
+  },
+  "boundary": {
+    "wallet_actions": false,
+    "private_key_access": false,
+    "signing_attempted": false,
+    "transaction_broadcast": false,
+    "deploy_attempted": false,
+    "live_execution": false
+  }
+}
