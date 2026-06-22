@@ -1,0 +1,28 @@
+{
+  "governance_version": "v1",
+  "receipt": "foundry-dependency-layout-repair-v1",
+  "created_at": "2026-06-22T01:15:50.229Z",
+  "git_head": "94c460f26322d4bffbe0da603aac1a60bfb8160c",
+  "repair": {
+    "scope": "foundry_dependency_layout_and_openzeppelin_v5_repair_only",
+    "openzeppelin_source": "OpenZeppelin/openzeppelin-contracts v5.0.2",
+    "forge_build_exit_code": 0,
+    "required_paths": {
+      "contracts/lib/forge-std/src/Script.sol": true,
+      "contracts/lib/openzeppelin-contracts/contracts/access/Ownable.sol": true,
+      "contracts/lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol": true,
+      "contracts/lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol": true,
+      "contracts/lib/openzeppelin-contracts/contracts/utils/ReentrancyGuard.sol": true
+    },
+    "wallet_actions": false,
+    "private_key_access": false,
+    "signing_attempted": false,
+    "transaction_broadcast": false,
+    "deploy_attempted": false,
+    "live_execution": false
+  },
+  "git_status_after_repair": "M  .gitmodules\nM  contracts/foundry.lock\n M contracts/lib/openzeppelin-contracts\nMM contracts/src/OINIOModelRegistry.sol\nMM docs/governance/FOUNDRY_DEPENDENCY_LAYOUT_REPAIR_V1.md\nM  receipts/governance/foundry-dependency-layout-repair-v1.json",
+  "sealed_artifacts": {
+    "docs/governance/FOUNDRY_DEPENDENCY_LAYOUT_REPAIR_V1.md": "b4a5eab31e36a102eb68940c68df6b8c3ba097b47643b37ce4e4bd5c7c8878ce"
+  }
+}
