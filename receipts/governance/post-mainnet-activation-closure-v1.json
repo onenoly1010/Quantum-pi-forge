@@ -1,0 +1,39 @@
+{
+  "governance_version": "v2",
+  "receipt": "post-mainnet-activation-closure-v1",
+  "created_at": "2026-06-22T22:39:15.283Z",
+  "git_head_before_commit": "9dfeeda0510cb15f2f3d5e051dcdf0e8be1509ac",
+  "branch": "main",
+  "activation_result": "ONCHAIN_EXECUTION_COMPLETE_SUCCESSFUL",
+  "chain_id": 16661,
+  "deployed_contracts": {
+    "oinio_token": "0x709f23C7A7172E137427576abB5Eb8959E2A57c1",
+    "model_registry": "0x25A9C5A244EAf688E078C387616e2380A0589562",
+    "heartbeat_monitor": "0xd1d5147f38E74855a133Cd75cE7b040eBE6324a0"
+  },
+  "first_soul_born": {
+    "block": 36824369,
+    "model_id": 1
+  },
+  "updated_receipts": [
+    {
+      "file": "receipts/execution/v2-mainnet-cutover-execution-v1.json",
+      "sha256": "0cc7d4d9b238b7988effafb6b66cc5de7ee78f7000a01342a106fa139f752fd8"
+    },
+    {
+      "file": "receipts/governance/v2-mainnet-cutover-execution-governance-wrapper-v1.json",
+      "sha256": "8fbe41558dd76e4656959540896be22032487601d332f7c2c37e2eeb4e1c90e8"
+    }
+  ],
+  "verification_required": [
+    "npm run verify:evidence",
+    "npm run governance:v2-mainnet-cutover-execution:v1:check",
+    "node scripts/check-mainnet-finalization-gate-v1.cjs"
+  ],
+  "safety": {
+    "private_key_stored": false,
+    "private_key_printed": false,
+    "seed_phrase_used": false
+  },
+  "status": "READY_TO_COMMIT"
+}
