@@ -1,0 +1,30 @@
+{
+  "governance_version": "v1",
+  "receipt": "activation-completion-status-f83c652-v1",
+  "created_at": "2026-06-22T15:11:21.259Z",
+  "git_head": "f83c652004d73df7211393749d5b7220ea855031",
+  "expected_head_prefix": "f83c652",
+  "git_status_short": "",
+  "completed": [
+    "PR #466 Foundry lint cleanup merged",
+    "PR #467 stale OpenZeppelin root submodule repair merged",
+    "PR #468 post PR467 main seal merged",
+    "submodule stale root path removed",
+    "verify:evidence passed at current main head"
+  ],
+  "known_external_blockers": [
+    "GitHub account billing lock prevents CI jobs from starting",
+    "Cloudflare/healthcheck failures are platform/billing state"
+  ],
+  "known_nonblocking_notes": [
+    "forge lint emits style notes but build and evidence verification pass"
+  ],
+  "boundary": {
+    "wallet_actions": false,
+    "private_key_access": false,
+    "signing_attempted": false,
+    "transaction_broadcast": false,
+    "deploy_attempted": false,
+    "live_execution": false
+  }
+}
