@@ -1,0 +1,32 @@
+{
+  "governance_version": "v1",
+  "receipt": "ci-billing-lock-exception-pr467-v1",
+  "created_at": "2026-06-22T15:03:12.811Z",
+  "git_head": "a41b433b897c52215545df7de0e0f05ce40d3546",
+  "pr": 467,
+  "observed_annotation": "The job was not started because your account is locked due to a billing issue.",
+  "affected_checks": [
+    "Lint and Test",
+    "verify-evidence-and-audit",
+    "cloudflare-pages-check",
+    "healthcheck"
+  ],
+  "interpretation": {
+    "failure_source": "platform_billing_lock",
+    "repo_command_failure": false,
+    "workflow_steps_executed": false,
+    "patch_required": false,
+    "mergeability": "MERGEABLE"
+  },
+  "boundary": {
+    "wallet_actions": false,
+    "private_key_access": false,
+    "signing_attempted": false,
+    "transaction_broadcast": false,
+    "deploy_attempted": false,
+    "live_execution": false
+  },
+  "sealed_artifacts": {
+    "docs/governance/CI_BILLING_LOCK_EXCEPTION_PR467_V1.md": "e4a81e31605f52553ca34cd8739be353f6a7cbdc78012e4e35eb60d92d5d1226"
+  }
+}
