@@ -1,38 +1,30 @@
 {
-  "baseline": {
-    "main_commit": "ee7f5167dd00ff5159cc1db4b631ebd4fbc8c0ab",
-    "main_subject": "Open mainnet execution window v1 (#274)"
-  },
-  "caution": "On-chain success must be confirmed from captured logs or independent chain evidence. This receipt records the local command result.",
-  "created_at_utc": "2026-06-12T03:01:25Z",
-  "evidence": {
-    "exit_code_file": "runtime/mainnet-execution-v1/exit-code.txt",
-    "stderr_log": "runtime/mainnet-execution-v1/stderr.log",
-    "stderr_sha256": "e447c83df8903a81e212fc40ac9a1602f43d903df433d035127fc776b81dbab1",
-    "stdout_log": "runtime/mainnet-execution-v1/stdout.log",
-    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-  },
-  "execution_attempt": {
-    "ended_at_utc": "2026-06-12T03:01:25Z",
-    "execution_attempted": true,
-    "exit_code": 1,
-    "result_status": "EXECUTION_COMMAND_FAILED",
-    "started_at_utc": "2026-06-12T03:01:24Z"
-  },
-  "execution_state": {
-    "broadcast_executed": false,
-    "command_executed": true,
-    "command_exit_zero": false,
-    "deployment_executed": false,
-    "mainnet_cutover_executed": false,
-    "state_changing_transaction_executed": false
-  },
   "governance_version": "v1",
   "receipt": "mainnet-execution-result-v1",
+  "created_at": "2026-06-22T00:34:43.895Z",
+  "git_head": "47790a533f39858f0f8cfe4d3a87254e97836249",
+  "execution_attempt": {
+    "execution_attempted": true,
+    "approved_command": "npm run autonomous:v2-mainnet-cutover:execute -- --require-command-hash --receipt receipts/execution/v2-mainnet-cutover-execution-v1.json",
+    "exit_code": 1
+  },
+  "execution_state": {
+    "command_executed": true,
+    "wrapper_receipt_exists": true,
+    "execution_receipt_exists": true,
+    "success": false
+  },
+  "evidence": {
+    "stdout_log": "runtime/execution/mainnet-execution-attempt-20260622T003436Z.stdout.log",
+    "stderr_log": "runtime/execution/mainnet-execution-attempt-20260622T003436Z.stderr.log",
+    "stdout_sha256": "e8ba7b5a976a864a0fa1616b7dadd4e3ea574ce58e5588d68d4f0315006ecba4",
+    "stderr_sha256": "bf2582caeea1173acac7ede66459adf75095f198aecece18dfdc29c132ad5baf"
+  },
   "sealed_artifacts": {
-    "docs/governance/MAINNET_EXECUTION_WINDOW_V1.md": "fb55b6335ec233d068332d62ed061166d97d24b6df56868939635e7027b2cb9c",
-    "receipts/governance/mainnet-execution-window-v1.json": "94ba9759ade5eff51a2888b233b2911c83403d10050938af4cfa3a4b3a4d513f",
-    "receipts/governance/mainnet-final-command-text-v1.txt": "93528ad84f5fb4e4b5bbc469f526f7d2b41d467c18b3c2cb3a71fe5fb85447ed",
-    "scripts/verify-mainnet-execution-window-v1.cjs": "57bc0a82b8a0945a324bef3c0b180b5410a679c665af47519c7ecdf1e4600b27"
+    "docs/governance/MAINNET_EXECUTION_RESULT_V1.md": "8beec0fbed8dd7b6ad670d5dbc1a9eb2254352a20507c16d4b845c8bdb136708",
+    "runtime/execution/mainnet-execution-attempt-20260622T003436Z.stdout.log": "e8ba7b5a976a864a0fa1616b7dadd4e3ea574ce58e5588d68d4f0315006ecba4",
+    "runtime/execution/mainnet-execution-attempt-20260622T003436Z.stderr.log": "bf2582caeea1173acac7ede66459adf75095f198aecece18dfdc29c132ad5baf",
+    "receipts/governance/v2-mainnet-cutover-execution-governance-wrapper-v1.json": "18e57126dd31bb914a9fbcfa40f18c4eb68b0e5358915d274fa15d04dfd32a8a",
+    "receipts/execution/v2-mainnet-cutover-execution-v1.json": "381b1a0add7243330a379c96f3315eee57b0e22e5bf2096bbf63415e3d80516d"
   }
 }
