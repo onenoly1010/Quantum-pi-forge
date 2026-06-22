@@ -1,0 +1,32 @@
+{
+  "governance_version": "v1",
+  "receipt": "wrangler-security-update-v1",
+  "created_at": "2026-06-22T15:17:19.346Z",
+  "git_head_before_commit": "b7caf152d9ef34aebad9e7c15f7993fc71c56f83",
+  "base": "b7caf15",
+  "intent": "targeted dependency security update for wrangler/miniflare/undici audit findings",
+  "audit_before": {
+    "high": 3,
+    "packages": [
+      "wrangler",
+      "miniflare",
+      "undici"
+    ]
+  },
+  "audit_after": {
+    "high": 0
+  },
+  "verification": {
+    "npm_audit_high": "pass",
+    "verify_evidence": "pass"
+  },
+  "git_status_short": "M package-lock.json\n M package.json",
+  "boundary": {
+    "wallet_actions": false,
+    "private_key_access": false,
+    "signing_attempted": false,
+    "transaction_broadcast": false,
+    "deploy_attempted": false,
+    "live_execution": false
+  }
+}
