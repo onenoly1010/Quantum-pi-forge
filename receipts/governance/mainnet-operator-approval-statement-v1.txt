@@ -1,37 +1,7 @@
-# Mainnet Operator Approval Statement v1
+I, Kris Olofson, approve mainnet-operator-approval-v1 for the selected final command:
 
-STATUS: APPROVED_FOR_NEXT_EXECUTION_BOUNDARY
-OPERATOR_APPROVAL_GRANTED: true
-FINAL_OPERATOR_COMMAND_APPROVED: true
+npm run autonomous:v2-mainnet-cutover:execute -- --require-command-hash --receipt receipts/execution/v2-mainnet-cutover-execution-v1.json
 
-This statement grants explicit operator approval for the sealed final command.
+I understand this approval authorizes the next execution boundary for mainnet cutover, including deployment authorization, broadcast authorization, mainnet cutover authorization, and state-changing transaction authorization.
 
-This statement does not execute the command.
-
-This statement does not deploy a contract.
-
-This statement does not broadcast a transaction.
-
-This statement does not perform a mainnet cutover.
-
-This statement does not perform a state-changing transaction.
-
-APPROVAL_TEXT:
-
-I, the operator, explicitly approve the sealed final command hash for the next mainnet execution boundary.
-
-I understand that a later execution lane may use this approval receipt as authority to perform irreversible mainnet operations, subject to verifier checks, exact command hash matching, and final execution controls.
-
-I understand that this approval receipt is not itself an execution event.
-
-APPROVED_COMMAND_FILE:
-receipts/governance/mainnet-final-command-text-v1.txt
-
-APPROVED_COMMAND_RECEIPT:
-receipts/governance/mainnet-final-command-selection-v1.json
-
-DIRECT_EXECUTION_FROM_THIS_RECEIPT_ALLOWED:
-false
-
-NEXT_EXECUTION_BOUNDARY_REQUIRED:
-true
+This approval does not itself execute the command. Direct execution from this approval receipt remains false. A separate execution boundary is still required.
