@@ -1,9 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-import "forge-std/Script.sol";
-import "../src/OINIOToken.sol";
-import "../src/OINIOModelRegistry.sol";
+import {Script} from "forge-std/Script.sol";
+import {console} from "forge-std/console.sol";
+import {OINIOToken} from "../src/OINIOToken.sol";
+import {OINIOModelRegistry} from "../src/OINIOModelRegistry.sol";
 
 contract RegisterGenesisAgent is Script {
     function run() external {

@@ -1,12 +1,12 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
-import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
-import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Burnable.sol";
-import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
+import {ERC721} from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import {ERC721URIStorage} from "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+import {ERC721Burnable} from "@openzeppelin/contracts/token/ERC721/extensions/ERC721Burnable.sol";
+import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
+import {ReentrancyGuard} from "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 
 /**
  * @title OINIOModelRegistry
@@ -21,7 +21,7 @@ import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
  */
 contract OINIOModelRegistry is ERC721, ERC721URIStorage, ERC721Burnable, Ownable, ReentrancyGuard {
     /// @dev Structure representing an AI model
-    struct AIModel {
+    struct AiModel {
         uint256 modelId;
         address creator;
         string name;
@@ -32,13 +32,13 @@ contract OINIOModelRegistry is ERC721, ERC721URIStorage, ERC721Burnable, Ownable
     }
 
     /// @dev OINIO token contract reference
-    IERC20 public immutable oinioToken;
+    IERC20 public immutable OINIO_TOKEN;
 
     /// @dev Counter for model IDs
     uint256 private _nextModelId;
 
     /// @dev Mapping from model ID to AI model data
-    mapping(uint256 => AIModel) private _models;
+    mapping(uint256 => AiModel) private _models;
 
     /// @dev Mapping from creator address to their model IDs
     mapping(address => uint256[]) private _modelsByCreator;
@@ -77,7 +77,7 @@ contract OINIOModelRegistry is ERC721, ERC721URIStorage, ERC721Burnable, Ownable
         Ownable(initialOwner) 
     {
         require(_oinioToken != address(0), "Invalid token address");
-        oinioToken = IERC20(_oinioToken);
+        OINIO_TOKEN = IERC20(_oinioToken);
         _nextModelId = 1; // Start from 1
     }
 
@@ -101,7 +101,7 @@ contract OINIOModelRegistry is ERC721, ERC721URIStorage, ERC721Burnable, Ownable
 
         // Transfer OINIO tokens from sender to this contract
         require(
-            oinioToken.transferFrom(msg.sender, address(this), stakeAmount),
+            OINIO_TOKEN.transferFrom(msg.sender, address(this), stakeAmount),
             "Token transfer failed"
         );
 
@@ -110,7 +110,7 @@ contract OINIOModelRegistry is ERC721, ERC721URIStorage, ERC721Burnable, Ownable
         _setTokenURI(modelId, metadataURI);
 
         // Store model data
-        _models[modelId] = AIModel({
+        _models[modelId] = AiModel({
             modelId: modelId,
             creator: msg.sender,
             name: name,
@@ -160,9 +160,9 @@ contract OINIOModelRegistry is ERC721, ERC721URIStorage, ERC721Burnable, Ownable
     /**
      * @dev Get model data by ID
      * @param modelId ID of the model
-     * @return AIModel struct containing all model data
+     * @return AiModel struct containing all model data
      */
-    function getModel(uint256 modelId) external view returns (AIModel memory) {
+    function getModel(uint256 modelId) external view returns (AiModel memory) {
         require(_ownerOf(modelId) != address(0), "Model does not exist");
         return _models[modelId];
     }
@@ -262,7 +262,7 @@ contract OINIOModelRegistry is ERC721, ERC721URIStorage, ERC721Burnable, Ownable
         _models[modelId].stakeAmount = 0;
         
         // Transfer tokens back to owner
-        require(oinioToken.transfer(msg.sender, stakeAmount), "Stake withdrawal failed");
+        require(OINIO_TOKEN.transfer(msg.sender, stakeAmount), "Stake withdrawal failed");
         
         emit ModelDeactivated(modelId);
     }
@@ -272,5 +272,5 @@ contract OINIOModelRegistry is ERC721, ERC721URIStorage, ERC721Burnable, Ownable
      * @param amount Amount of tokens to recover
      */
     function emergencyWithdraw(uint256 amount) external onlyOwner {
-        require(oinioToken.transfer(owner(), amount), "Emergency withdrawal failed");
+        require(OINIO_TOKEN.transfer(owner(), amount), "Emergency withdrawal failed");
     }}

@@ -1,0 +1,31 @@
+{
+  "governance_version": "v2",
+  "receipt": "foundry-lint-note-cleanup-v2",
+  "created_at": "2026-06-22T15:30:29.609Z",
+  "base_head": "05099675af5a4c81ff14ddbd742dbcc8fa4f6498",
+  "branch": "repair/foundry-lint-note-cleanup-v2",
+  "intent": "clean Foundry style notes for named imports, PascalCase struct naming, and immutable naming",
+  "modified_files": [
+    "M contracts/script/BirthGenesisHeartbeat.s.sol",
+    "M contracts/script/Deploy.s.sol",
+    "M contracts/script/RegisterGenesisAgent.s.sol",
+    "M contracts/src/OINIOModelRegistry.sol",
+    "M contracts/src/OINIOToken.sol"
+  ],
+  "verification": {
+    "forge_build": "pass",
+    "npm_audit_high": "pass_zero_vulnerabilities",
+    "verify_evidence": "pass",
+    "mainnet_execution_result_v1": "pass",
+    "v2_mainnet_cutover_execution_v1": "pass",
+    "mainnet_finalization_gate_v1": "pass"
+  },
+  "boundary": {
+    "wallet_actions": false,
+    "private_key_access": false,
+    "signing_attempted": false,
+    "transaction_broadcast": false,
+    "deploy_attempted": false,
+    "live_execution": false
+  }
+}

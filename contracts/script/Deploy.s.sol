@@ -1,9 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import "forge-std/Script.sol";
-import "../src/OINIOToken.sol";
-import "../src/OINIOModelRegistry.sol";
+import {Script} from "forge-std/Script.sol";
+import {console} from "forge-std/console.sol";
+import {OINIOToken} from "../src/OINIOToken.sol";
+import {OINIOModelRegistry} from "../src/OINIOModelRegistry.sol";
 
 /**
  * @title Deploy
@@ -44,7 +45,7 @@ contract Deploy is Script {
         console.log("OINIOModelRegistry deployed to:", address(registry));
         console.log("Registry Name:", registry.name());
         console.log("Registry Symbol:", registry.symbol());
-        console.log("OINIO Token Address:", address(registry.oinioToken()));
+        console.log("OINIO Token Address:", address(registry.OINIO_TOKEN()));
 
         vm.stopBroadcast();
 
