@@ -1,0 +1,26 @@
+{
+  "governance_version": "v2",
+  "receipt": "v2-public-reviewer-start-here-link-v1",
+  "created_at": "2026-06-22T16:21:54Z",
+  "base_commit": "86f9f4891abc8ed4b54aa5c03775910c48447069",
+  "intent": "make v2 public reviewer start-here entrypoint discoverable from public surface without changing execution state",
+  "target_document": "docs/public/V2_PUBLIC_REVIEWER_START_HERE_V1.md",
+  "target_sha256": "a25b037a91be1213e103b5ff53d65257810891f16cffdd78d74861a442c8f35c",
+  "modified_files": [
+    "index.html"
+  ],
+  "modified_file_sha256": {
+    "index.html": "728141d975eaeb3e4c3a2ce2ecdc279a6959f34726d0052c31ece0a9802332a1"
+  },
+  "safety": {
+    "live_execution": false,
+    "private_key_access": false,
+    "wallet_actions": false,
+    "signing_attempted": false,
+    "transaction_broadcast": false,
+    "deploy": false,
+    "staking": false,
+    "minting": false
+  },
+  "status": "sealed"
+}
