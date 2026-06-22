@@ -1,0 +1,26 @@
+{
+  "governance_version": "v1",
+  "receipt": "post-wrangler-security-main-seal-v1",
+  "created_at": "2026-06-22T15:19:47.308Z",
+  "git_head": "4e572d9c5fa51136824fe0053da697f9c7e71c22",
+  "expected_head_prefix": "4e572d9",
+  "git_status_short": "",
+  "completed": [
+    "PR #470 merged",
+    "wrangler/miniflare/undici audit lane closed",
+    "npm audit --audit-level=high passed",
+    "verify:evidence passed"
+  ],
+  "verification": {
+    "npm_audit_high": "pass",
+    "verify_evidence": "pass"
+  },
+  "boundary": {
+    "wallet_actions": false,
+    "private_key_access": false,
+    "signing_attempted": false,
+    "transaction_broadcast": false,
+    "deploy_attempted": false,
+    "live_execution": false
+  }
+}
