@@ -1,33 +1,6 @@
-# Mainnet Execution Window Notice v1
-
-STATUS: EXECUTION_WINDOW_OPEN
-SINGLE_USE_WINDOW: true
-OPERATOR_APPROVAL_GRANTED: true
-FINAL_OPERATOR_COMMAND_APPROVED: true
-
-This notice opens a single-use execution window for the previously sealed final command.
-
-This notice does not execute the command.
-
-This notice does not itself deploy.
-
-This notice does not itself broadcast.
-
-This notice does not itself mutate mainnet state.
-
-The operator must run the sealed command manually after this execution-window receipt is merged and verified on canonical main.
-
-APPROVED_COMMAND_FILE:
-receipts/governance/mainnet-final-command-text-v1.txt
-
-APPROVAL_RECEIPT:
-receipts/governance/mainnet-operator-approval-v1.json
-
-POST_EXECUTION_RECEIPT_REQUIRED:
-true
-
-EXECUTED_FLAGS_INITIAL_STATE:
-deployment_executed=false
-broadcast_executed=false
-mainnet_cutover_executed=false
-state_changing_transaction_executed=false
+MAINNET_EXECUTION_WINDOW_V1_OPEN
+single_use_execution_window=true
+post_execution_receipt_required=true
+automatic_execution_performed_by_this_receipt=false
+approved_final_command=npm run autonomous:v2-mainnet-cutover:execute -- --require-command-hash --receipt receipts/execution/v2-mainnet-cutover-execution-v1.json
+next_valid_boundary=mainnet-execution-result-v1
