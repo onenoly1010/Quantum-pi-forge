@@ -1,6 +1,15 @@
 {
+  "../lib/openzeppelin-contracts": {
+    "rev": "5fd1781b1454fd1ef8e722282f86f9293cacf256"
+  },
   "../pi-forge-quantum-genesis": {
     "rev": "65492bd024e7ccc34cbc00014ba68c019f1a0e30"
+  },
+  "../quantum-pi-forge-ignited/quantum-pi-forge-ignited": {
+    "rev": "31832ae7773e018c537aa807105368d31d1cbaa4"
+  },
+  "../server/pi-forge-quantum-genesis": {
+    "rev": "5a57f03964bf6a533845f88153db57e4f8529edd"
   },
   "lib/forge-std": {
     "tag": {
