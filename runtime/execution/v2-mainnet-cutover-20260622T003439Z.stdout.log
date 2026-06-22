@@ -1,0 +1,28 @@
+[2m2026-06-22T00:34:43.388953Z[0m [31mERROR[0m [2mfoundry_compilers_artifacts_solc::sources[0m[2m:[0m [3merror[0m[2m=[0m"/home/kris/Quantum-pi-forge/contracts/lib/forge-std/src/Script.sol": No such file or directory (os error 2)
+[2m2026-06-22T00:34:43.399143Z[0m [31mERROR[0m [2mfoundry_compilers_artifacts_solc::sources[0m[2m:[0m [3merror[0m[2m=[0m"/home/kris/Quantum-pi-forge/contracts/lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol": No such file or directory (os error 2)
+[2m2026-06-22T00:34:43.399208Z[0m [31mERROR[0m [2mfoundry_compilers_artifacts_solc::sources[0m[2m:[0m [3merror[0m[2m=[0m"/home/kris/Quantum-pi-forge/contracts/lib/openzeppelin-contracts/contracts/token/ERC721/extensions/ERC721URIStorage.sol": No such file or directory (os error 2)
+[2m2026-06-22T00:34:43.399229Z[0m [31mERROR[0m [2mfoundry_compilers_artifacts_solc::sources[0m[2m:[0m [3merror[0m[2m=[0m"/home/kris/Quantum-pi-forge/contracts/lib/openzeppelin-contracts/contracts/token/ERC721/extensions/ERC721Burnable.sol": No such file or directory (os error 2)
+[2m2026-06-22T00:34:43.399265Z[0m [31mERROR[0m [2mfoundry_compilers_artifacts_solc::sources[0m[2m:[0m [3merror[0m[2m=[0m"/home/kris/Quantum-pi-forge/contracts/lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol": No such file or directory (os error 2)
+[2m2026-06-22T00:34:43.399286Z[0m [31mERROR[0m [2mfoundry_compilers_artifacts_solc::sources[0m[2m:[0m [3merror[0m[2m=[0m"/home/kris/Quantum-pi-forge/contracts/lib/openzeppelin-contracts/contracts/access/Ownable.sol": No such file or directory (os error 2)
+[2m2026-06-22T00:34:43.399304Z[0m [31mERROR[0m [2mfoundry_compilers_artifacts_solc::sources[0m[2m:[0m [3merror[0m[2m=[0m"/home/kris/Quantum-pi-forge/contracts/lib/openzeppelin-contracts/contracts/utils/ReentrancyGuard.sol": No such file or directory (os error 2)
+[2m2026-06-22T00:34:43.399323Z[0m [31mERROR[0m [2mfoundry_compilers_artifacts_solc::sources[0m[2m:[0m [3merror[0m[2m=[0m"/home/kris/Quantum-pi-forge/contracts/lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol": No such file or directory (os error 2)
+[2m2026-06-22T00:34:43.399349Z[0m [31mERROR[0m [2mfoundry_compilers_artifacts_solc::sources[0m[2m:[0m [3merror[0m[2m=[0m"/home/kris/Quantum-pi-forge/contracts/lib/openzeppelin-contracts/contracts/token/ERC20/extensions/ERC20Burnable.sol": No such file or directory (os error 2)
+[2m2026-06-22T00:34:43.399368Z[0m [31mERROR[0m [2mfoundry_compilers_artifacts_solc::sources[0m[2m:[0m [3merror[0m[2m=[0m"/home/kris/Quantum-pi-forge/contracts/lib/openzeppelin-contracts/contracts/access/Ownable.sol": No such file or directory (os error 2)
+[2m2026-06-22T00:34:43.399388Z[0m [31mERROR[0m [2mfoundry_compilers_artifacts_solc::sources[0m[2m:[0m [3merror[0m[2m=[0m"/home/kris/Quantum-pi-forge/contracts/lib/openzeppelin-contracts/contracts/access/Ownable.sol": No such file or directory (os error 2)
+Unable to resolve imports:
+      "@openzeppelin/contracts/utils/ReentrancyGuard.sol" in "/home/kris/Quantum-pi-forge/contracts/src/OINIOModelRegistry.sol"
+      "@openzeppelin/contracts/token/ERC721/extensions/ERC721Burnable.sol" in "/home/kris/Quantum-pi-forge/contracts/src/OINIOModelRegistry.sol"
+      "@openzeppelin/contracts/token/ERC20/ERC20.sol" in "/home/kris/Quantum-pi-forge/contracts/src/OINIOToken.sol"
+      "@openzeppelin/contracts/access/Ownable.sol" in "/home/kris/Quantum-pi-forge/contracts/heartbeat/HeartbeatMonitor.sol"
+      "forge-std/Script.sol" in "/home/kris/Quantum-pi-forge/contracts/script/BirthGenesisHeartbeat.s.sol"
+      "@openzeppelin/contracts/access/Ownable.sol" in "/home/kris/Quantum-pi-forge/contracts/src/OINIOModelRegistry.sol"
+      "@openzeppelin/contracts/access/Ownable.sol" in "/home/kris/Quantum-pi-forge/contracts/src/OINIOToken.sol"
+      "@openzeppelin/contracts/token/ERC721/ERC721.sol" in "/home/kris/Quantum-pi-forge/contracts/src/OINIOModelRegistry.sol"
+      "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol" in "/home/kris/Quantum-pi-forge/contracts/src/OINIOToken.sol"
+      "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol" in "/home/kris/Quantum-pi-forge/contracts/src/OINIOModelRegistry.sol"
+      "@openzeppelin/contracts/token/ERC20/IERC20.sol" in "/home/kris/Quantum-pi-forge/contracts/src/OINIOModelRegistry.sol"
+with remappings:
+      @openzeppelin/contracts/=/home/kris/Quantum-pi-forge/contracts/lib/openzeppelin-contracts/contracts/
+      forge-std/=/home/kris/Quantum-pi-forge/contracts/lib/forge-std/src/
+Compiling 4 files with Solc 0.8.24
+Solc 0.8.24 finished in 205.59ms

@@ -3,14 +3,14 @@
   "cutover_command": "npm run autonomous:v2-mainnet-cutover:execute -- --require-command-hash --receipt receipts/execution/v2-mainnet-cutover-execution-v1.json",
   "cutover_command_sha256": "37f8940d93130365e0bf395912b4eef134fa558db92c82c254b1f0af838a20a8",
   "execution_command_executed": true,
-  "execution_command_exit_code": 0,
-  "execution_log_file": "runtime/execution/v2-mainnet-cutover-20260615T191222Z.stdout.log",
-  "execution_log_sha256": "02fcfc7736bd443abc62674b27407d155a86c0ebefbbd606d7413f97f91ff005",
-  "stderr_log_file": "runtime/execution/v2-mainnet-cutover-20260615T191222Z.stderr.log",
-  "stderr_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "execution_command_exit_code": 1,
+  "execution_log_file": "runtime/execution/v2-mainnet-cutover-20260622T003439Z.stdout.log",
+  "execution_log_sha256": "bc64bbd870de0553286d4e514ef7185433dc274341396f764dbcd8b796d15060",
+  "stderr_log_file": "runtime/execution/v2-mainnet-cutover-20260622T003439Z.stderr.log",
+  "stderr_log_sha256": "77f03eaf6bc4fa06bbd4904adcf625c86dd5eef13bec060a9fa55d8a3d9cce03",
   "execution_receipt_path": "receipts/execution/v2-mainnet-cutover-execution-v1.json",
   "execution_receipt_exists": true,
   "final_operator_unpark_approval_granted": true,
   "mainnet_cutover_approval_granted": true,
-  "timestamp_utc": "2026-06-15T19:12:39.784Z"
+  "timestamp_utc": "2026-06-22T00:34:43.614Z"
 }
