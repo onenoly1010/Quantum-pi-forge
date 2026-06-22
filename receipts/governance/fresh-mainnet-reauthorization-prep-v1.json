@@ -1,0 +1,37 @@
+{
+  "governance_version": "v1",
+  "receipt": "fresh-mainnet-reauthorization-prep-v1",
+  "created_at": "2026-06-22T01:27:14.411Z",
+  "git_head": "2c2595a11d133321c89ce378dc6ffa983d6f5cd3",
+  "inputs": {
+    "post_failure_repair_readiness": "receipts/governance/post-failure-repair-readiness-v1.json",
+    "mainnet_execution_result": "receipts/governance/mainnet-execution-result-v1.json",
+    "foundry_dependency_layout_repair": "receipts/governance/foundry-dependency-layout-repair-v1.json"
+  },
+  "state": {
+    "prior_execution_attempted": true,
+    "prior_execution_exit_code": 1,
+    "prior_execution_success": false,
+    "single_use_window_consumed": true,
+    "dependency_repair_complete": true,
+    "dependency_repair_build_exit_code": 0
+  },
+  "boundary": {
+    "operator_reauthorization_granted": false,
+    "new_execution_window_open": false,
+    "rerun_authorized": false,
+    "wallet_actions": false,
+    "private_key_access": false,
+    "signing_attempted": false,
+    "transaction_broadcast": false,
+    "deploy_attempted": false,
+    "live_execution": false,
+    "next_valid_boundary": "fresh-mainnet-operator-reauthorization-v1"
+  },
+  "sealed_artifacts": {
+    "docs/governance/FRESH_MAINNET_REAUTHORIZATION_PREP_V1.md": "df0c1059b7a2287322451d667760fef6c6fe5806f96dec0625c1d30e0e46b932",
+    "receipts/governance/post-failure-repair-readiness-v1.json": "2c0926e00587b595338a98ee796be56a60636b496bfff23dae3c2dfb40b8cf18",
+    "receipts/governance/mainnet-execution-result-v1.json": "b8ce43fdb6656e6c443492fc6ba11c5a59eac121b8a50edc1d4fda1ee13a7be9",
+    "receipts/governance/foundry-dependency-layout-repair-v1.json": "492ecf836ce2e470d14cea148e4d66ff3152241b4f3e6c4133c02c50df8c44c9"
+  }
+}
