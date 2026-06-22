@@ -1,0 +1,30 @@
+{
+  "governance_version": "v2",
+  "receipt": "v2-public-packet-human-readability-audit-v1",
+  "created_at": "2026-06-22T16:13:30Z",
+  "base_commit": "8bd2caeda8b04af0ed1896cd568d8807564c34b7",
+  "intent": "audit v2 public packet readability without changing execution state",
+  "report": "reports/governance/v2-public-packet-human-readability-audit-v1.md",
+  "report_sha256": "12ca97c2c3f473764550864f9df8e32e48cd73566a5d50c52cf845576f3b17e8",
+  "scoped_artifacts": {
+    "docs/public/READ_ONLY_STATUS_DASHBOARD_V1.md": "4a86c5f161254cecf7b837bec93b850f5dcea498d065b71bab3999f83295aa2b",
+    "docs/public/status-dashboard-v1.json": "64b54ff4ad70e59ba248706082b77ecb1c15ab76cb281efd691851018a240c5b",
+    "receipts/governance/v2-public-status-endpoint-v1.json": "3ac93ade12cad7d41a9a605995bf79e5dfc506d110fdbe8eca6dca7038d6fa08",
+    "receipts/governance/v2-public-funder-packet-index-v1.json": "a426067de6b7fd854271e5cfc6b1113230a99017d2d525620558b2b9e6f6f9d8",
+    "receipts/governance/v2-funder-review-packet-v1.json": "a9fb073628cfd4ddcad6f36e681c1d4d406dcf3996f64c9564cefa2233015fe0",
+    "receipts/governance/v2-reviewer-evidence-index-v1.json": "1cc7f7ea468c9c37649278ff81ea05028e1d98a5b9ce8e1e19f352f8bc112d0b",
+    "receipts/governance/v2-pre-unpark-readiness-gate-v1.json": "081648ae2d54eca570450c877233cc0025c2af6d63f0796e9e076bfa719753d4"
+  },
+  "missing_artifacts": [],
+  "safety": {
+    "live_execution": false,
+    "private_key_access": false,
+    "wallet_actions": false,
+    "signing_attempted": false,
+    "transaction_broadcast": false,
+    "deploy": false,
+    "staking": false,
+    "minting": false
+  },
+  "status": "sealed"
+}
