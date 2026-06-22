@@ -1,0 +1,24 @@
+{
+  "governance_version": "v1",
+  "receipt": "post-pr467-main-seal-v1",
+  "created_at": "2026-06-22T15:05:16.521Z",
+  "git_head": "0eac9951eef14763a139a5f97f65108fdf01f4d5",
+  "expected_head": "0eac995",
+  "git_status_short": "",
+  "verification": {
+    "submodule_sync_update": "pass",
+    "forge_lint": "completed_with_notes",
+    "forge_build": "pass",
+    "mainnet_execution_result_check": "pass",
+    "v2_mainnet_cutover_execution_check": "pass",
+    "verify_evidence": "pass"
+  },
+  "boundary": {
+    "wallet_actions": false,
+    "private_key_access": false,
+    "signing_attempted": false,
+    "transaction_broadcast": false,
+    "deploy_attempted": false,
+    "live_execution": false
+  }
+}
