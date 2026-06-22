@@ -1,0 +1,29 @@
+{
+  "governance_version": "v2",
+  "receipt": "v2-activation-readiness-review-v1",
+  "created_at": "2026-06-22T16:35:49Z",
+  "base_commit": "8aa024dc8bf6ffac037cca07fc7829f54326e4e7",
+  "intent": "review activation readiness boundaries without authorizing live execution",
+  "report": "reports/governance/v2-activation-readiness-review-v1.md",
+  "report_sha256": "3b616e4c781ee80d8a5ff4f79f4774d13b0c1e78f874cffcd0694b0c44e45c4a",
+  "reviewed_artifacts": {
+    "receipts/governance/v2-pre-unpark-readiness-gate-v1.json": "081648ae2d54eca570450c877233cc0025c2af6d63f0796e9e076bfa719753d4",
+    "receipts/governance/cloudflare-pages-public-surface-audit-v1.json": "dd9ec4e3a9bcfb1d040c191cd92f3e4797d137705df7e8e1c536d8db0e976d57",
+    "receipts/governance/post-pr-484-main-state-closure-v1.json": "c99587138cc6e72102d7455207f498abc12559df989cae02168996d75f96fa0e",
+    "docs/public/V2_PUBLIC_REVIEWER_START_HERE_V1.md": "a25b037a91be1213e103b5ff53d65257810891f16cffdd78d74861a442c8f35c",
+    "docs/public/READ_ONLY_STATUS_DASHBOARD_V1.md": "4a86c5f161254cecf7b837bec93b850f5dcea498d065b71bab3999f83295aa2b",
+    "docs/public/status-dashboard-v1.json": "64b54ff4ad70e59ba248706082b77ecb1c15ab76cb281efd691851018a240c5b",
+    "index.html": "728141d975eaeb3e4c3a2ce2ecdc279a6959f34726d0052c31ece0a9802332a1"
+  },
+  "safety": {
+    "live_execution": false,
+    "private_key_access": false,
+    "wallet_actions": false,
+    "signing_attempted": false,
+    "transaction_broadcast": false,
+    "deploy": false,
+    "staking": false,
+    "minting": false
+  },
+  "status": "sealed_review_only"
+}
