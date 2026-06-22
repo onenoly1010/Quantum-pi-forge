@@ -36,7 +36,7 @@
     "public/status-dashboard-v1.json": "64b54ff4ad70e59ba248706082b77ecb1c15ab76cb281efd691851018a240c5b",
     "public/status/index.html": "af1ff2e862e7cea0fefed551cebb765de68015e1a89481a29e1000795e50a1bc",
     "public/status/index.json": "64b54ff4ad70e59ba248706082b77ecb1c15ab76cb281efd691851018a240c5b",
-    "receipts/governance/v2-public-status-endpoint-v1.json": "1811bdbfeb6979850103d75b4863708c9a53568430120c2c3b27fcd1bfe15aee",
+    "receipts/governance/v2-public-status-endpoint-v1.json": "3ac93ade12cad7d41a9a605995bf79e5dfc506d110fdbe8eca6dca7038d6fa08",
     "scripts/verify-v2-public-status-endpoint-v1.cjs": "2648f1663697950aace5d8c62f5d72ac3db891d1b81f99a4d467a2811bcd0710"
   }
 }

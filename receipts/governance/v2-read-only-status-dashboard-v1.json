@@ -20,7 +20,7 @@
     "visibility_layer": true
   },
   "sealed_artifacts": {
-    "receipts/governance/mainnet-execution-result-v1.json": "9e563937d6a5ec40760941a41ff13a57e4b10a1684892b68d40fe87c7e19f911",
+    "receipts/governance/mainnet-execution-result-v1.json": "b8ce43fdb6656e6c443492fc6ba11c5a59eac121b8a50edc1d4fda1ee13a7be9",
     "receipts/governance/mainnet-final-state-seal-v1.json": "bb022bddef1f080c332b8c3f8e85946448fa4311783789b389da5ca1b44a72c5",
     "receipts/governance/v2-scope-definition.json": "819b8b3898df7363a74d4edde82a19c18118958ad7c7372dea48ee7314a9bb93",
     "scripts/verify-v2-scope-definition.cjs": "a2cc178c2602ca20047544beb8e4864078f27cbfcf2e1beaaff636bd590c8d9b"

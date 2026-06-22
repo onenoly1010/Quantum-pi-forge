@@ -24,7 +24,7 @@
     "docs/public/READ_ONLY_STATUS_DASHBOARD_V1.md": "4a86c5f161254cecf7b837bec93b850f5dcea498d065b71bab3999f83295aa2b",
     "docs/public/status-dashboard-v1.json": "64b54ff4ad70e59ba248706082b77ecb1c15ab76cb281efd691851018a240c5b",
     "receipts/governance/mainnet-final-state-seal-v1.json": "bb022bddef1f080c332b8c3f8e85946448fa4311783789b389da5ca1b44a72c5",
-    "receipts/governance/v2-read-only-status-dashboard-v1.json": "47ae4de77644eb820b625a3d78d2cb753f2b6382d34ac5b8b97170416a746511",
+    "receipts/governance/v2-read-only-status-dashboard-v1.json": "1baa8b1afb46953cf40f2f9be63571a5589908a17b50a750d214020f8a352228",
     "scripts/verify-v2-read-only-status-dashboard-v1.cjs": "d6561df2242017cde09fd7336d5a8f111145234bbf5997044218dd1e93f60294"
   }
 }
