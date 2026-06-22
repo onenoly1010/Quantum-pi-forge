@@ -1,0 +1,74 @@
+{
+  "governance_version": "v2",
+  "receipt": "post-pr-477-main-state-closure-v1",
+  "created_at": "2026-06-22T16:09:50Z",
+  "main_commit": "db2227945f68b93965ebedb630f37f0e3779d438",
+  "merged_pr": 477,
+  "merged_commit": "db22279",
+  "intent": "seal clean main state after v2 read-only dashboard sealed hash cascade repair",
+  "repo_state": {
+    "branch": "main",
+    "status_short": "",
+    "clean": true
+  },
+  "verification": {
+    "mainnet_execution_result_v1": {
+      "command": "npm run governance:mainnet-execution-result:v1:check",
+      "result": "PASS"
+    },
+    "v2_read_only_status_dashboard_v1": {
+      "command": "npm run governance:v2-read-only-status-dashboard:v1:check",
+      "result": "PASS"
+    },
+    "v2_public_status_endpoint_v1": {
+      "command": "npm run governance:v2-public-status-endpoint:v1:check",
+      "result": "PASS"
+    },
+    "v2_public_funder_packet_index_v1": {
+      "command": "npm run governance:v2-public-funder-packet-index:v1:check",
+      "result": "PASS"
+    },
+    "v2_funder_review_packet_v1": {
+      "command": "npm run governance:v2-funder-review-packet:v1:check",
+      "result": "PASS"
+    },
+    "v2_reviewer_evidence_index_v1": {
+      "command": "npm run governance:v2-reviewer-evidence-index:v1:check",
+      "result": "PASS"
+    },
+    "v2_pre_unpark_readiness_gate_v1": {
+      "command": "npm run governance:v2-pre-unpark-readiness-gate:v1:check",
+      "result": "PASS"
+    },
+    "verify_evidence": {
+      "command": "npm run verify:evidence",
+      "result": "PASS"
+    },
+    "v2_mainnet_cutover_execution_v1": {
+      "command": "npm run governance:v2-mainnet-cutover-execution:v1:check",
+      "result": "PASS"
+    },
+    "mainnet_finalization_gate_v1": {
+      "command": "node scripts/check-mainnet-finalization-gate-v1.cjs",
+      "result": "PASS"
+    }
+  },
+  "sealed_artifacts": {
+    "receipts/governance/mainnet-execution-result-v1.json": "b8ce43fdb6656e6c443492fc6ba11c5a59eac121b8a50edc1d4fda1ee13a7be9",
+    "receipts/governance/v2-read-only-status-dashboard-v1.json": "1baa8b1afb46953cf40f2f9be63571a5589908a17b50a750d214020f8a352228",
+    "receipts/governance/v2-public-status-endpoint-v1.json": "3ac93ade12cad7d41a9a605995bf79e5dfc506d110fdbe8eca6dca7038d6fa08",
+    "receipts/governance/v2-reviewer-evidence-index-v1.json": "1cc7f7ea468c9c37649278ff81ea05028e1d98a5b9ce8e1e19f352f8bc112d0b",
+    "receipts/governance/v2-pre-unpark-readiness-gate-v1.json": "081648ae2d54eca570450c877233cc0025c2af6d63f0796e9e076bfa719753d4"
+  },
+  "safety": {
+    "live_execution": false,
+    "private_key_access": false,
+    "wallet_actions": false,
+    "signing_attempted": false,
+    "transaction_broadcast": false,
+    "deploy": false,
+    "staking": false,
+    "minting": false
+  },
+  "status": "sealed"
+}
