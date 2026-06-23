@@ -53,3 +53,21 @@ forge create --rpc-url https://evmrpc.0g.ai \
 ---
 
 ✅ This reference will be used for all future 0G coding work.
+
+## Custom Workflow Skills
+
+### DEX Integration Workflow
+- [0G DEX Quickstart](0G_DEX_QUICKSTART.md)
+- [0G DEX Deployment](0G_DEX_DEPLOYMENT.md)
+- [0G DEX Implementation Summary](0G_DEX_IMPLEMENTATION_SUMMARY.md)
+
+### AI Agent Workflow
+- [AI Agent Quick Reference](AI_AGENT_QUICK_REFERENCE.md)
+- [AI Agent Handoff Runbook](AI_AGENT_HANDOFF_RUNBOOK.md)
+
+### Social Network Workflow
+- [AI Social Network Workflow](AI_SOCIAL_NETWORK_WORKFLOW.md)
+
+### API Integration
+- [API Reference](API.md)
+
