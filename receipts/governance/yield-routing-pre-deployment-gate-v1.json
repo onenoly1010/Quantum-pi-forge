@@ -1,0 +1,34 @@
+{
+  "governance_version": "v2",
+  "receipt": "yield-routing-pre-deployment-gate-v1",
+  "created_at": "2026-06-23T10:29:36.579Z",
+  "base_head": "7f36daac56c6031e56347cd8b3facc230954aff0",
+  "mode": "review_only",
+  "intent": "define pre-deployment governance gate requiring human approval and frozen parameters before any yield-routing contract deployment",
+  "prior_lane": "yield-routing-test-spec-v1 closed by PR #505",
+  "gate_requirements": [
+    "human approval from Primary Sovereign Steward or Ennead Council",
+    "deployment parameters frozen (chain ID 16661, RPC, explorer, EVM cancun, solc 0.8.24)",
+    "constructor arguments recorded for all 4 contracts",
+    "forge build PASS, forge test 45/45 PASS",
+    "bytecode and ABI hashes recorded",
+    "wallet balance confirmed >= 2.0 0G",
+    "no private key exposed in repo or logs",
+    "dry-run on Galileo testnet completed",
+    "eth_getCode verification planned",
+    "DEPLOYED_ADDRESSES.md update criteria defined"
+  ],
+  "assertions": {
+    "wallet_actions": false,
+    "private_key_access": false,
+    "signing_attempted": false,
+    "transaction_broadcast": false,
+    "deployments": false,
+    "staking": false,
+    "minting": false,
+    "liquidity": false,
+    "relayer_execution": false,
+    "earnings_live": false,
+    "yield_execution_verified": false
+  }
+}
