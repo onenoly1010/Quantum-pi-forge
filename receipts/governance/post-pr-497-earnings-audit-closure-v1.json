@@ -1,0 +1,32 @@
+{
+  "governance_version": "v2",
+  "receipt": "post-pr-497-earnings-audit-closure-v1",
+  "created_at": "2026-06-23T07:21:57.152Z",
+  "merged_pr": 497,
+  "main_head": "77744fdc2a4c148b6d0bc7b3d419c5726c7d8f77",
+  "intent": "seal post-merge closure for earnings-layer absence audit and public-claims correction lane",
+  "merged_files": [
+    "EARNINGS_LAYER_ABSENCE_AUDIT_V1.md"
+  ],
+  "audit_result": {
+    "yield_activation_proof": "GATE_FALSE",
+    "false_execution_claim_present": false,
+    "vocabulary_consistency": "PASS",
+    "token_emission_risk": "LOW_FIXED_SUPPLY_NON_MINTABLE",
+    "next_gate": "verified on-chain transaction hash at or after block 1850000 showing fee collection routed per GDR-001.2 section 2"
+  },
+  "verification": {
+    "verify_evidence": "pass",
+    "git_status_before_receipt": "?? FETCH_HEAD\n?? claim-map:check\n?? docs/0g-ship-skill-custom-workflows-v1\n?? evidence:receipt:check\n?? node\n?? verify:claim-map\n?? verify:evidence\n?? verify:evidence-index\n?? verify:snapshot"
+  },
+  "assertions": {
+    "wallet_actions": false,
+    "private_key_access": false,
+    "signing_attempted": false,
+    "transaction_broadcast": false,
+    "live_execution": false,
+    "earnings_live": false,
+    "yield_execution_verified": false,
+    "public_claims_corrected": true
+  }
+}
