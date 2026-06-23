@@ -1,0 +1,24 @@
+{
+  "governance_version": "v2",
+  "receipt": "post-pr-494-0g-skill-reference-closure-v1",
+  "created_at": "2026-06-23T06:52:14.809Z",
+  "merged_pr": 494,
+  "main_head": "1a5cbb3a638153f8147a9d7a5c101196f48123d6",
+  "merge_commit": "1a5cbb3",
+  "intent": "seal post-merge closure for 0G ship skill custom workflow reference update",
+  "merged_files": [
+    "docs/0G_SHIP_SKILL_REFERENCE.md"
+  ],
+  "verification": {
+    "verify_evidence": "pass",
+    "git_status_before_receipt": "clean"
+  },
+  "assertions": {
+    "wallet_actions": false,
+    "private_key_access": false,
+    "signing_attempted": false,
+    "transaction_broadcast": false,
+    "live_execution": false,
+    "docs_only": true
+  }
+}
