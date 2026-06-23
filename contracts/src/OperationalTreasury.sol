@@ -71,6 +71,12 @@ contract OperationalTreasury {
         if (guardians.length == 0) revert ZeroAddress();
     }
 
+    /// @notice Accept native 0G deposit (FeeCollector only via .call)
+    receive() external payable {
+        if (msg.sender != feeCollector) revert NotFeeCollector();
+        emit Deposited(msg.sender, msg.value);
+    }
+
     /// @notice Accept native 0G deposit (FeeCollector only)
     function deposit() external payable onlyFeeCollector {
         emit Deposited(msg.sender, msg.value);
@@ -139,10 +145,5 @@ contract OperationalTreasury {
     /// @notice Set approval threshold (Guardian consensus via separate mechanism)
     function setThreshold(uint256 newThreshold) external onlyGuardian {
         guardianApprovalThreshold = newThreshold;
-    }
-
-    receive() external payable {
-        if (msg.sender != feeCollector) revert NotFeeCollector();
-        emit Deposited(msg.sender, msg.value);
     }
 }
