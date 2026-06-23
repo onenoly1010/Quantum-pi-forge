@@ -1,0 +1,28 @@
+{
+  "governance_version": "v2",
+  "receipt": "phase-7-guardian-address-intake-v1",
+  "created_at": "2026-06-23T16:16:20.008Z",
+  "base_head": "5cca303fb297491605581b03e35abbaa274fec04",
+  "phase": "Phase 7",
+  "status": "AWAITING_GUARDIAN_ADDRESS",
+  "purpose": "Provide a sealed intake slot for the Ennead multisig / guardian / Safe address required before Phase 7 yield-routing deployment readiness can advance.",
+  "required_address": {
+    "label": "Ennead multisig / guardian / Safe",
+    "address": null,
+    "source": null,
+    "verification_status": "not_provided"
+  },
+  "blocking_receipt": "receipts/governance/guardian-address-search-v1.json",
+  "blocked_reason": "No guardian, Ennead multisig, Safe, or quorum address exists in repo governance source documents.",
+  "safety": {
+    "wallet_action": false,
+    "private_key_access": false,
+    "signing": false,
+    "broadcast": false,
+    "deployment": false,
+    "staking": false,
+    "minting": false,
+    "liquidity": false,
+    "live_execution": false
+  }
+}
