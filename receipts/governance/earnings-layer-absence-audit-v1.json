@@ -1,0 +1,57 @@
+{
+  "governance_version": "v2",
+  "receipt": "earnings-layer-absence-audit-v1",
+  "created_at": "2026-06-23T06:50:08.240Z",
+  "base_head": "1a5cbb3a638153f8147a9d7a5c101196f48123d6",
+  "chain": "0G Aristotle Mainnet",
+  "audit_scope": "contract deployment, token balance concentration, and earnings/revenue distribution readiness",
+  "deployed_contracts": {
+    "oinio_token": "0x6011c341a01c80f489a5c3Ab751987A55142F04e",
+    "oinio_model_registry": "0x4673f0137Ad734eAd213F908a51E2f93f2721B5C",
+    "heartbeat_monitor": "0x8a56E85A7d46DDE42c2FcCC31eC7283b654f928c"
+  },
+  "owner_wallet_balance": {
+    "owner_wallet": "0x353663cd664bB3e034Dc0f308D8896C0a242e4cd",
+    "oinio_balance": "962839002.79598073",
+    "supply_share_percent": 96.28,
+    "total_supply_reference": "1000000000 OINIO"
+  },
+  "earnings_audit_results": {
+    "treasury_contract_deployed": false,
+    "fee_distribution_mechanism_onchain": false,
+    "revenue_claim_function_for_token_holders": false,
+    "dex_fee_to_configured": false,
+    "staking_generates_yield": false,
+    "staking_note": "staking locks funds in registry but no yield mechanism was verified"
+  },
+  "critical_issues": [
+    "96 percent supply concentration in a single owner wallet with mint authority",
+    "documented fee model is not implemented on-chain",
+    "no earnings or distribution contracts exist despite grant/revenue documentation"
+  ],
+  "documented_fee_model_not_implemented": {
+    "dex_fee": "0.5%",
+    "nft_royalties": "2.5%",
+    "staking_fee": "1.0%",
+    "bridge_fee": "0.25%"
+  },
+  "governance_conclusion": "core token and registry are deployed, but the revenue and earnings layer is absent; earnings/yield/revenue-share claims must remain blocked until implemented and independently verified",
+  "required_next_steps": [
+    "remove or qualify public earnings claims until implementation exists",
+    "design treasury and fee-distribution contracts",
+    "define holder/participant claim mechanics",
+    "configure DEX fee collector only through a verified governance action",
+    "perform a new on-chain verification after deployment"
+  ],
+  "assertions": {
+    "wallet_actions": false,
+    "private_key_access": false,
+    "signing_attempted": false,
+    "transaction_broadcast": false,
+    "live_execution": false,
+    "treasury_deployed": false,
+    "earnings_enabled": false,
+    "revenue_distribution_enabled": false,
+    "public_claim_correction_required": true
+  }
+}
