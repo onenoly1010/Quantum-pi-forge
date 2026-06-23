@@ -1,0 +1,45 @@
+{
+  "governance_version": "v2",
+  "receipt": "post-pr-488-main-state-closure-v1",
+  "created_at": "2026-06-22T23:06:09.990Z",
+  "merged_pr": 488,
+  "head": "65b5128648ea321b0b342db0882687f02ae3c114",
+  "short_head": "65b5128",
+  "branch": "main",
+  "origin_main": "65b5128648ea321b0b342db0882687f02ae3c114",
+  "activation_result": "ONCHAIN_EXECUTION_COMPLETE_SUCCESSFUL",
+  "deployed_contracts": {
+    "oinio_token": "0x709f23C7A7172E137427576abB5Eb8959E2A57c1",
+    "model_registry": "0x25A9C5A244EAf688E078C387616e2380A0589562",
+    "heartbeat_monitor": "0xd1d5147f38E74855a133Cd75cE7b040eBE6324a0"
+  },
+  "first_soul_born": {
+    "block": 36824369,
+    "model_id": 1
+  },
+  "sealed_files": [
+    {
+      "file": "receipts/execution/v2-mainnet-cutover-execution-v1.json",
+      "sha256": "0cc7d4d9b238b7988effafb6b66cc5de7ee78f7000a01342a106fa139f752fd8"
+    },
+    {
+      "file": "receipts/governance/v2-mainnet-cutover-execution-governance-wrapper-v1.json",
+      "sha256": "8fbe41558dd76e4656959540896be22032487601d332f7c2c37e2eeb4e1c90e8"
+    },
+    {
+      "file": "receipts/governance/post-mainnet-activation-closure-v1.json",
+      "sha256": "bdf763eb734caf8be375bca587b2eac0436a8d2bf6ad2a259e8a5303f4edf65f"
+    },
+    {
+      "file": "receipts/governance/pr-488-local-verification-ci-unavailable-v1.json",
+      "sha256": "db6cafc8e072374c07d1fec707f4cba69cad41719ba263dd95437c6ec148a589"
+    }
+  ],
+  "verification": [
+    "npm run verify:evidence: PASS",
+    "npm run governance:v2-mainnet-cutover-execution:v1:check: PASS",
+    "node scripts/check-mainnet-finalization-gate-v1.cjs: PASS"
+  ],
+  "repo_status": "",
+  "status": "MAIN_SYNCED_AND_VERIFIED"
+}
