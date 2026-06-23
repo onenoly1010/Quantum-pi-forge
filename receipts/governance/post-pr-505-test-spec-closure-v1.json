@@ -1,0 +1,40 @@
+{
+  "governance_version": "v2",
+  "receipt": "post-pr-505-test-spec-closure-v1",
+  "created_at": "2026-06-23T11:18:00.000Z",
+  "merged_pr": 505,
+  "main_head": "7f36daa1b289c32f8c0e9b8b8599d2fa3a3b4cf1",
+  "intent": "seal post-merge closure for Yield-Routing Test Spec v1 and contract implementations",
+  "merged_files": [
+    "YIELD_ROUTING_TEST_SPEC_V1.md",
+    "contracts/src/FeeCollector.sol",
+    "contracts/src/OperationalTreasury.sol",
+    "contracts/test/FeeCollector.t.sol",
+    "contracts/test/OperationalTreasury.t.sol"
+  ],
+  "lane_result": {
+    "mode": "review_only",
+    "design_status": "proposed",
+    "test_artifacts": "created",
+    "contract_implementations": "created",
+    "earnings_architecture": "documented/proposed",
+    "earnings_execution": "not claimed live",
+    "next_gate": "verified on-chain transaction hash at or after block 1850000 showing fee routing per GDR-001.2 section 2"
+  },
+  "verification": {
+    "verify_evidence": "pass"
+  },
+  "assertions": {
+    "wallet_actions": false,
+    "private_key_access": false,
+    "signing_attempted": false,
+    "transaction_broadcast": false,
+    "deployments": false,
+    "staking": false,
+    "minting": false,
+    "liquidity": false,
+    "relayer_execution": false,
+    "earnings_live": false,
+    "yield_execution_verified": false
+  }
+}
