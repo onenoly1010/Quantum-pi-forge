@@ -1,0 +1,99 @@
+{
+  "governance_version": "v2",
+  "receipt": "public-site-404-sweep-v1-cleanup",
+  "created_at": "2026-06-23T06:17:54.745Z",
+  "intent": "repair public route 404s while preserving real static asset references and without enabling wallet, staking, minting, liquidity, relayer execution, or live execution",
+  "pre_sweep_broken_internal_links": [
+    {
+      "file": "public/status/index.html",
+      "raw": "/status/index.json",
+      "url": "/status/index.json"
+    },
+    {
+      "file": "server/pi-forge-quantum-genesis/frontend/index.html",
+      "raw": "/_vercel/insights/script.js",
+      "url": "/_vercel/insights/script.js"
+    },
+    {
+      "file": "server/pi-forge-quantum-genesis/frontend/production_dashboard.html",
+      "raw": "/_vercel/insights/script.js",
+      "url": "/_vercel/insights/script.js"
+    },
+    {
+      "file": "server/pi-forge-quantum-genesis/index.html",
+      "raw": "/manifest.json",
+      "url": "/manifest.json"
+    },
+    {
+      "file": "server/pi-forge-quantum-genesis/index.html",
+      "raw": "/icons/icon-32x32.png",
+      "url": "/icons/icon-32x32.png"
+    },
+    {
+      "file": "server/pi-forge-quantum-genesis/index.html",
+      "raw": "/icons/icon-16x16.png",
+      "url": "/icons/icon-16x16.png"
+    },
+    {
+      "file": "server/pi-forge-quantum-genesis/index.html",
+      "raw": "/icons/icon-180x180.png",
+      "url": "/icons/icon-180x180.png"
+    },
+    {
+      "file": "server/pi-forge-quantum-genesis/index.html",
+      "raw": "/icons/icon-152x152.png",
+      "url": "/icons/icon-152x152.png"
+    },
+    {
+      "file": "server/pi-forge-quantum-genesis/index.html",
+      "raw": "/icons/icon-144x144.png",
+      "url": "/icons/icon-144x144.png"
+    },
+    {
+      "file": "server/pi-forge-quantum-genesis/index.html",
+      "raw": "/icons/icon-120x120.png",
+      "url": "/icons/icon-120x120.png"
+    },
+    {
+      "file": "server/pi-forge-quantum-genesis/index.html",
+      "raw": "/_vercel/insights/script.js",
+      "url": "/_vercel/insights/script.js"
+    },
+    {
+      "file": "test/stress-test-runner.html",
+      "raw": "network-stress-harness.js",
+      "url": "network-stress-harness.js"
+    }
+  ],
+  "created_recovery_pages": [
+    "status-index-json.html"
+  ],
+  "rewritten_conflict_links": [],
+  "post_sweep_broken_internal_links": [],
+  "assertions": {
+    "wallet_actions": false,
+    "private_key_access": false,
+    "signing_attempted": false,
+    "transaction_broadcast": false,
+    "live_execution": false,
+    "public_surface_only": true
+  },
+  "cleaned_at": "2026-06-23T06:24:02.620Z",
+  "removed_invalid_asset_fallback_pages": [
+    "_vercel/insights/script.js.html",
+    "icons/icon-120x120.png.html",
+    "icons/icon-144x144.png.html",
+    "icons/icon-152x152.png.html",
+    "icons/icon-16x16.png.html",
+    "icons/icon-180x180.png.html",
+    "icons/icon-32x32.png.html",
+    "manifest.json.html",
+    "network-stress-harness.js.html",
+    "resonate.js.html",
+    "src/main.tsx.html",
+    "status-dashboard-v1.json.html",
+    "styles.css.html"
+  ],
+  "asset_links_preserved": true,
+  "post_cleanup_note": "Static assets, scripts, manifests, json, icons, and tsx/js/css references are not converted into HTML recovery pages."
+}
