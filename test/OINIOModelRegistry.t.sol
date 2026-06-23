@@ -40,7 +40,7 @@ contract OINIOModelRegistryTest is Test {
     function testDeployment() public {
         assertEq(registry.name(), "OINIO AI Model");
         assertEq(registry.symbol(), "OINIO-MODEL");
-        assertEq(address(registry.oinioToken()), address(token));
+        assertEq(address(registry.OINIO_TOKEN()), address(token));
         assertEq(registry.owner(), owner);
         assertEq(registry.totalModels(), 0);
     }
@@ -57,7 +57,7 @@ contract OINIOModelRegistryTest is Test {
         assertEq(registry.totalModels(), 1);
         assertEq(registry.ownerOf(modelId), creator1);
 
-        OINIOModelRegistry.AIModel memory model = registry.getModel(modelId);
+        OINIOModelRegistry.AiModel memory model = registry.getModel(modelId);
         assertEq(model.modelId, modelId);
         assertEq(model.creator, creator1);
         assertEq(model.name, "Test Model");
@@ -101,7 +101,7 @@ contract OINIOModelRegistryTest is Test {
         vm.prank(creator1);
         registry.updateModelMetadata(modelId, "ipfs://new");
 
-        OINIOModelRegistry.AIModel memory model = registry.getModel(modelId);
+        OINIOModelRegistry.AiModel memory model = registry.getModel(modelId);
         assertEq(model.metadataURI, "ipfs://new");
     }
 
@@ -112,7 +112,7 @@ contract OINIOModelRegistryTest is Test {
         vm.prank(creator1);
         registry.deactivateModel(modelId);
 
-        OINIOModelRegistry.AIModel memory model = registry.getModel(modelId);
+        OINIOModelRegistry.AiModel memory model = registry.getModel(modelId);
         assertFalse(model.isActive);
     }
 
