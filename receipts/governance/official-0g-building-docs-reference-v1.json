@@ -1,0 +1,31 @@
+{
+  "governance_version": "v2",
+  "receipt": "official-0g-building-docs-reference-v1",
+  "created_at": "2026-06-24T04:01:14.493Z",
+  "status": "SEALED",
+  "branch": "ai/inner-docs-improvement-lane-v1",
+  "head": "a97944f6e4653ed6948ae0b4108c0366fb200bcb",
+  "source": {
+    "title": "Building on 0G",
+    "url": "https://docs.0g.ai/developer-hub/building-on-0g/introduction"
+  },
+  "artifact": {
+    "path": "docs/0G_SKILLS_README.md",
+    "sha256": "cca61eea98796f197e7035c22117acb049dc732a215218c6356068cec32c7a8a"
+  },
+  "purpose": "Add official 0G Building on 0G documentation reference to the AI-agent 0G skills index without changing execution authority.",
+  "phase_7_state": "AWAITING_GUARDIAN_ADDRESS",
+  "safety_assertions": {
+    "wallet_actions": false,
+    "private_key_access": false,
+    "signing": false,
+    "transaction_broadcast": false,
+    "deployment": false,
+    "liquidity_creation": false,
+    "minting": false,
+    "staking": false,
+    "chain_state_touched": false,
+    "guardian_address_invention": false,
+    "agent_execution_authority": false
+  }
+}
