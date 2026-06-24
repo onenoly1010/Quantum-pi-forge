@@ -1,0 +1,33 @@
+{
+  "created_at": "2026-06-24T02:23:58.257Z",
+  "status": "OPEN",
+  "mode": "review_only_documentation_only",
+  "phase_7_state": "AWAITING_GUARDIAN_ADDRESS",
+  "allowed": [
+    "inner documentation updates",
+    "repo maps",
+    "reviewer guides",
+    "agent handoff notes",
+    "evidence index descriptions",
+    "safe workflow documentation",
+    "stale documentation detection"
+  ],
+  "forbidden": {
+    "wallet_actions": false,
+    "private_key_access": false,
+    "signing": false,
+    "transaction_broadcast": false,
+    "deployment": false,
+    "liquidity_creation": false,
+    "minting": false,
+    "staking": false,
+    "guardian_address_invention": false
+  },
+  "first_targets": [
+    "docs/ai-agents/INNER_DOCS_IMPROVEMENT_LANE_V1.md",
+    "repo map for AI agents",
+    "documentation freshness checklist",
+    "safe handoff template",
+    "reviewer-facing Phase 7 blocked-state explanation"
+  ]
+}

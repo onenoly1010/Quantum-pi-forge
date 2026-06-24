@@ -1,0 +1,55 @@
+{
+  "governance_version": "v2",
+  "receipt": "ai-inner-docs-improvement-lane-closure-v1",
+  "created_at": "2026-06-24T03:09:47.248Z",
+  "status": "SEALED",
+  "branch": "ai/inner-docs-improvement-lane-v1",
+  "head": "b221e08b85ec61d78b948da47e1622a0b1e64d7c",
+  "purpose": "Seal completed AI-agent inner documentation improvement lane while Phase 7 remains blocked at AWAITING_GUARDIAN_ADDRESS.",
+  "completed_work": [
+    "Consolidated 0G skills reference for AI agents",
+    "Updated 0G grant status tracking with M3 direct provider inference verified",
+    "Corrected Aristotle grant application production on-chain addresses per eth_getCode audit",
+    "Documented direct provider canonical compute policy and router non-authoritative 402 result",
+    "Documented 0G storage client binary, root hash, SDK references, and verification protocol"
+  ],
+  "phase_7_state": "AWAITING_GUARDIAN_ADDRESS",
+  "guardian_address_status": "No guardian/Ennead multisig/Safe address exists in repo; deployer, DEX factory/router, treasury, and operational wallets excluded.",
+  "artifacts": {
+    "docs/0G_SKILLS_README.md": {
+      "exists": true,
+      "sha256": "49e36448dd4c0bade65b44c2fc6fa262e4c3d2f2dfe08191d906e737edf7037a"
+    },
+    "0G_GRANT_STATUS_TRACKING.md": {
+      "exists": true,
+      "sha256": "e9eef1c2bb6bafa33ce81464722cfe5a3401aef3ae1986798e4593ba387da747"
+    },
+    "0G_ARISTOTLE_GRANT_APPLICATION_PRODUCTION.md": {
+      "exists": true,
+      "sha256": "cfc46fa90ffb0ba396ab4af143aba2435c96c8bcf2828a0474788dbfecadcfcd"
+    },
+    "receipts/governance/guardian-address-search-v1.json": {
+      "exists": false
+    },
+    "receipts/governance/phase-7-guardian-address-intake-v1.json": {
+      "exists": true,
+      "sha256": "90fd619f3ab44cfe4faa438436ed003b686311d89ebf44a91e2d18db7ceb6a1b"
+    },
+    "receipts/governance/guardian-address-task-closure-v1.json": {
+      "exists": false
+    }
+  },
+  "safety_assertions": {
+    "wallet_actions": false,
+    "private_key_access": false,
+    "signing": false,
+    "transaction_broadcast": false,
+    "deployment": false,
+    "liquidity_creation": false,
+    "minting": false,
+    "staking": false,
+    "chain_state_touched": false,
+    "guardian_address_invention": false
+  },
+  "next_allowed_step": "Commit documentation lane closure, open PR, and merge only as documentation/governance evidence update. Phase 7 remains blocked until authoritative 0G Aristotle mainnet guardian address is available."
+}

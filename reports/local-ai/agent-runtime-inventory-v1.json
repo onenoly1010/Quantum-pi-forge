@@ -1,0 +1,52 @@
+{
+  "created_at": "2026-06-24T03:11:11.561Z",
+  "status": "COMPLETE",
+  "phase_7_state": "AWAITING_GUARDIAN_ADDRESS",
+  "active_runtime": {
+    "ollama": {
+      "status": "ACTIVE",
+      "endpoint": "127.0.0.1:11434",
+      "models_noted": [
+        "qwen2.5-coder:7b",
+        "oinio-soul-forge:latest",
+        "llama3.1:8b"
+      ],
+      "process_note": "Ollama serve observed active by operator investigation."
+    }
+  },
+  "inactive_components": [
+    "workers/resonance-worker.js",
+    "workers/guardian-sentinel.js",
+    "workers/trigger-poller.js",
+    "workers/wallet-sentinel.js",
+    "workers/x-poster-mock.js",
+    "guardian/actions/*.sh",
+    "agents/*.py",
+    "press-agent/",
+    "soul-core/"
+  ],
+  "autonomy_queue": {
+    "status": "PENDING_DOC_ONLY",
+    "objectives": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "execution_authority": false
+  },
+  "safety_assertions": {
+    "wallet_actions": false,
+    "private_key_access": false,
+    "signing": false,
+    "transaction_broadcast": false,
+    "deployment": false,
+    "liquidity_creation": false,
+    "minting": false,
+    "staking": false,
+    "chain_state_touched": false,
+    "agent_execution_authority": false,
+    "guardian_address_invention": false
+  }
+}

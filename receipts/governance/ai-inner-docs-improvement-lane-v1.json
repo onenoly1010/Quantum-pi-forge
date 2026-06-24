@@ -1,0 +1,34 @@
+{
+  "governance_version": "v2",
+  "receipt": "ai-inner-docs-improvement-lane-v1",
+  "created_at": "2026-06-24T02:23:58.257Z",
+  "status": "OPEN",
+  "mode": "review_only_documentation_only",
+  "base_head": "b221e08b85ec61d78b948da47e1622a0b1e64d7c",
+  "branch": "ai/inner-docs-improvement-lane-v1",
+  "purpose": "Open a bounded AI-agent lane for inner repository documentation improvements while Phase 7 waits for the real guardian address.",
+  "phase_7_blocker": "AWAITING_GUARDIAN_ADDRESS",
+  "artifacts": {
+    "plan": {
+      "path": "docs/ai-agents/INNER_DOCS_IMPROVEMENT_LANE_V1.md",
+      "sha256": "3035f1a7a2d6212dd4c43a641bd32927297665a55ae9c61470ed0185f24e88f6"
+    },
+    "backlog": {
+      "path": "reports/local-ai/inner-docs-improvement-backlog-v1.json",
+      "sha256": "804126b32ad09dc190edd5d50ea1bebb7f4fd7dc15c63ed8794db9e1e1c69d7c"
+    }
+  },
+  "safety_assertions": {
+    "wallet_actions": false,
+    "private_key_access": false,
+    "signing": false,
+    "transaction_broadcast": false,
+    "deployment": false,
+    "liquidity_creation": false,
+    "minting": false,
+    "staking": false,
+    "guardian_address_invention": false,
+    "on_chain_source_of_truth_replaced": false
+  },
+  "next_allowed_step": "Have AI agents review documentation and propose documentation-only improvements under this lane."
+}
