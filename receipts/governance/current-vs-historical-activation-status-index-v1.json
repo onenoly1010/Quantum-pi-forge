@@ -1,0 +1,32 @@
+{
+  "schema": "qpf.current_vs_historical_activation_status_index.v1",
+  "status": "SEALED",
+  "created_at": "2026-06-23T17:31:04.085Z",
+  "head": "f048edf14310fc907f5a220b12efc7aad2e38577",
+  "purpose": "separate historical pre-activation non-execution receipts from current post-activation truth",
+  "classification": {
+    "historical_pre_activation_receipts": "retain_as_timestamped_truth_do_not_rewrite",
+    "dry_run_and_readiness_receipts": "superseded_for_current_status_but_valid_for_history",
+    "current_activation_truth": "mainnet_activation_executed_and_sealed_in_later_execution_receipts",
+    "current_phase_7_blocker": "guardian_or_ennead_multisig_safe_address_required"
+  },
+  "safety": {
+    "wallet_action": false,
+    "private_key_access": false,
+    "signing_attempted": false,
+    "transaction_broadcast": false,
+    "deployment_executed": false,
+    "state_changing_transaction_executed": false,
+    "repo_receipt_only": true
+  },
+  "merge_order": {
+    "first": "merge_PR_511_when_governance_allows",
+    "second": "merge_or_rebase_PR_510_after_PR_511_lands",
+    "stop_state": "AWAITING_GUARDIAN_ADDRESS"
+  },
+  "notes": [
+    "Old receipts with mainnet_cutover_executed=false remain historically correct.",
+    "They should not be patched to true.",
+    "Use this index to prevent reviewers from mistaking historical non-execution receipts for current activation status."
+  ]
+}

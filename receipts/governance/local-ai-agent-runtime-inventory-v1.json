@@ -1,0 +1,39 @@
+{
+  "governance_version": "v2",
+  "receipt": "local-ai-agent-runtime-inventory-v1",
+  "created_at": "2026-06-24T03:11:11.561Z",
+  "status": "SEALED",
+  "branch": "ai/inner-docs-improvement-lane-v1",
+  "head": "b221e08b85ec61d78b948da47e1622a0b1e64d7c",
+  "purpose": "Seal local AI and agent runtime investigation and create a doc-only autonomy queue while Phase 7 remains blocked.",
+  "artifacts": {
+    "inventory_report": {
+      "path": "reports/local-ai/agent-runtime-inventory-v1.json",
+      "sha256": "5b09aa9d4d2fa0e07a0c1bc125f655d341b571e77986dd7844b17d737ca478f9"
+    },
+    "doc_only_queue": {
+      "path": "docs/ai-agents/DOC_ONLY_AUTONOMY_QUEUE_V1.md",
+      "sha256": "5f4607494014094e4a1705b463cf6c850fb4d73e4d8224be9b58166c112fd22a"
+    }
+  },
+  "findings": {
+    "ollama_active": true,
+    "agent_workers_active": false,
+    "autonomy_queue_doc_only": true,
+    "phase_7_state": "AWAITING_GUARDIAN_ADDRESS"
+  },
+  "safety_assertions": {
+    "wallet_actions": false,
+    "private_key_access": false,
+    "signing": false,
+    "transaction_broadcast": false,
+    "deployment": false,
+    "liquidity_creation": false,
+    "minting": false,
+    "staking": false,
+    "chain_state_touched": false,
+    "agent_execution_authority": false,
+    "guardian_address_invention": false
+  },
+  "next_allowed_step": "Use local AI only for doc-only objectives A-E. Do not grant worker, wallet, signing, deployment, or chain authority."
+}

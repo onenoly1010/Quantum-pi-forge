@@ -1,0 +1,14 @@
+{
+  "schema": "qpf.governance.phase7.deploy_yield_router_script_created.v1",
+  "status": "DEPLOY_SCRIPT_CREATED_PRE_BROADCAST",
+  "created_at": "2026-06-25T10:30:14Z",
+  "script": "contracts/script/DeployYieldRouter.s.sol",
+  "source": "contracts/src/YieldRouterFactory.sol",
+  "safe_fee_collector_owner": "0x8d088B88219D072aB035502065ee2410c2cb4389",
+  "constructor_mode": "NO_CONSTRUCTOR_ARGS",
+  "social_recovery_deployed": false,
+  "owner_addresses_published": false,
+  "wallet_action_performed_by_repo": false,
+  "signing_performed_by_repo": false,
+  "broadcast_performed_by_repo": false
+}

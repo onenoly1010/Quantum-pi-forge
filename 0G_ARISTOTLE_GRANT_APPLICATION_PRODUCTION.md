@@ -31,17 +31,21 @@ This application is submitted under the **Guild on 0G 2.0** category, falling wi
 | **Funding Composition** | Combination of direct grants, strategic investments, and ecosystem incentives including gas credits for on-chain operations |
 | **Dedicated Pool** | Drawing from the **$8.88 million** Guild accelerator fund for early-stage builders transitioning from testnet to mainnet |
 
-### ✅ LIVE MAINNET DEPLOYMENT VERIFICATION
-| Asset | Address / Hash |
-| :--- | :--- |
-| **Birth Transaction** | `0xac4e8f234256ca02c165321768dec2e6787f590e674ccc64bde5de5648074bd0` |
-| **Birth Block** | `32561033` |
-| **OINIOToken** | `0x1C3A93bC97675B4C4DF29951bdc7446cd741772b` |
-| **OINIOModelRegistry** | `0x4673f0137Ad734eAd213F908a51E2f93f2721B5C` |
-| **HeartbeatMonitor** | `0x8a56E85A7d46DDE42c2FcCC31eC7283b654f928c` |
-| **Locked Stake** | 100 OINIO |
+### ✅ LIVE MAINNET DEPLOYMENT VERIFICATION (POST-AUDIT CORRECTED)
+| Asset | Address / Hash | Status |
+| :--- | :--- | :--- |
+| **Birth Transaction** | `0xac4e8f234256ca02c165321768dec2e6787f590e674ccc64bde5de5648074bd0` | ✅ CONFIRMED |
+| **Birth Block** | `32561033` | ✅ CONFIRMED |
+| **OINIO Core (verified bytecode)** | `0x6011c341a01c80f489a5c3Ab751987A55142F04e` | ✅ BYTECODE PRESENT via `eth_getCode` |
+| **OINIOToken (stale)** | `0x1C3A93bC97675B4C4DF29951bdc7446cd741772b` | ⚠️ NO BYTECODE — deprecated |
+| **OINIOModelRegistry (stale)** | `0x4673f0137Ad734eAd213F908a51E2f93f2721B5C` | ⚠️ NO BYTECODE — deprecated |
+| **HeartbeatMonitor (stale)** | `0x8a56E85A7d46DDE42c2FcCC31eC7283b654f928c` | ⚠️ NO BYTECODE — deprecated |
+| **Genesis State Digest** | `0xaaa0cc0f1678eb6e0385d1cd83ec2e676f629faf5fd8ce726038b5b9c880ccd3` | ✅ CONFIRMED |
+| **Deployment Transaction** | `0x3d768430ab02659be395afcc116b4c70739f0590dac3b0818da3088d8a104ba9` | ✅ CONFIRMED |
 
-M1 and M2 milestones are now fully completed on mainnet. The system is live and operational with the Heartbeat Monitor maintaining a 24-hour deliberate manual pulse protocol.
+> **Note:** On-chain audit via `eth_getCode` on 2026-04-17 confirmed that only `0x6011c341a01c80f489a5c3Ab751987A55142F04e` (OINIO Core) has deployed bytecode. The other three addresses returned `0x` and are stale/undeployed. All grant milestones reference the verified OINIO Core contract only.
+
+All three milestones (M1, M2, M3) are now fully completed and verified on mainnet.
 
 ### 🏛️ Broader Funding Ecosystem
 For future scaling phases after successful deployment:
