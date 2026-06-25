@@ -1,0 +1,33 @@
+{
+  "schema": "qpf.governance.phase7.yield_routing.post_execution.v1",
+  "status": "PHASE_7_YIELD_ROUTING_BROADCAST_CONFIRMED",
+  "created_at": "2026-06-25T10:50:11.442Z",
+  "network": "0G Aristotle Mainnet",
+  "chain_id": 16661,
+  "transaction_hash": null,
+  "block_number": null,
+  "receipt_status": null,
+  "deployed_contracts": {
+    "YieldRouterFactory": "0x5b73c5498c1e3b4dba84de0f1833c4a029d90519"
+  },
+  "safe": {
+    "address": "0x8d088B88219D072aB035502065ee2410c2cb4389",
+    "nonce_readback": "1",
+    "code_present": true
+  },
+  "verification": {
+    "factory_code_present": false,
+    "run_latest_json": "contracts/broadcast/DeployYieldRouter.s.sol/16661/run-latest.json",
+    "run_latest_sha256": "e772aa50527531ae525ea3948f6b143c742453c2c4fe91b84861fef631981a4f"
+  },
+  "boundaries": {
+    "social_recovery_deployed": false,
+    "safe_threshold_changed": false,
+    "owner_addresses_published": false,
+    "private_key_recorded": false
+  },
+  "notes": [
+    "Safe nonce changes only if Safe executed a transaction. Direct deployer deployment may leave Safe nonce unchanged.",
+    "FeeCollector owner read-back requires ABI/function confirmation from deployed contract or factory events."
+  ]
+}
