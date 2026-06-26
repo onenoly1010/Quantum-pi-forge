@@ -1,0 +1,49 @@
+{
+  "governance_version": "v2",
+  "receipt": "phase-7-post-merge-closure-v1",
+  "created_at": "2026-06-26T13:49:00.000Z",
+  "main_commit": "e6564ca",
+  "phase": "Phase 7",
+  "status": "COMPLETE",
+  "pr_number": 516,
+  "pr_title": "phase7: complete guardian public readiness",
+  "pr_branch": "public/onboarding-readiness-v1",
+  "merge_commit": "885b416",
+  "purpose": "Phase 7 Guardian Governance + Public Readiness — post-merge closure receipt. Seals all Phase 7 work and transitions governance state to Phase 8 readiness.",
+  "completed_work": [
+    "deploy/deployed-addresses.html — published with all verified contract addresses, Guardian Safe, chain info, feature status, liquidity disclaimer",
+    "deploy/onboarding-status.html — published with 17-pass checklist, plain-language status, boundary confirmation",
+    "deploy/for-builders.html — updated with nav links, onboarding status link, review-only/no-investment promise card",
+    "deploy/index.html — homepage nav updated with Status link",
+    "scripts/build.js — onboarding-status.html changed from optional to required",
+    "0G_GUARDIAN_INTAKE_RECEIPT.md — guardian safe receipt sealed as ACCEPTED",
+    "receipts/governance/phase-7-guardian-address-intake-v1.json — updated to ACCEPTED status"
+  ],
+  "guardian_safe": {
+    "address": "0x8d088B88219D072aB035502065ee2410c2cb4389",
+    "chain_id": 16661,
+    "status": "ACCEPTED",
+    "social_recovery_module": "CREATED_NOT_AUTHORIZED",
+    "wallet_actions_performed_by_repo": false
+  },
+  "safety": {
+    "liquidity_added": false,
+    "staking_enabled": false,
+    "minting_enabled": false,
+    "bridge_active": false,
+    "earnings_execution_live": false,
+    "wallet_action_by_repo": false,
+    "signing_authorized": false,
+    "broadcast_authorized": false
+  },
+  "next_phase": "Phase 8 — Public Deployment + Liquidity/Utility Readiness",
+  "next_phase_status": "READY_TO_OPEN",
+  "blocking_items_pre_liquidity": [
+    "Confirm W0G contract status",
+    "Confirm DEX factory/router deployment readiness",
+    "Confirm 0G ecosystem preferred router/factory addresses",
+    "Decide QPF own DEX lane vs existing infra integration",
+    "Create evidence receipt before any liquidity action",
+    "Require human approval before signing anything"
+  ]
+}
