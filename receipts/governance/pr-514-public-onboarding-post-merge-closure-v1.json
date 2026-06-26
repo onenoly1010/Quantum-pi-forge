@@ -1,0 +1,37 @@
+{
+  "governance_version": "v2",
+  "receipt": "pr-514-public-onboarding-post-merge-closure-v1",
+  "created_at": "2026-06-26T01:34:57.930Z",
+  "branch": "main",
+  "head": "2056cb86a47c7132cfdcec8462a5ef0dbf735831",
+  "head_short": "2056cb8",
+  "pr_number": 514,
+  "pr_title": "Publish public onboarding readiness v1",
+  "status": "MERGED_AND_LOCALLY_VERIFIED",
+  "merged_to": "main",
+  "public_site_changes": [
+    "builder onboarding page published",
+    "deployed addresses page published",
+    "onboarding status page published",
+    "public navigation linked",
+    "homepage claims aligned with verified state",
+    "OINIO token address separated from DEX pair address"
+  ],
+  "verification": {
+    "local_build": "pass",
+    "verify_evidence": "pass",
+    "final_status": "clean main synced with origin/main"
+  },
+  "boundaries": {
+    "wallet_signing": false,
+    "staking": false,
+    "minting": false,
+    "liquidity_provision": false,
+    "contract_deployment": false,
+    "private_key_access": false,
+    "transaction_broadcast": false,
+    "guardian_safe_exists": true,
+    "social_recovery_production_authorized": false
+  },
+  "next_gate": "public deployment observation only; no wallet or chain execution implied"
+}

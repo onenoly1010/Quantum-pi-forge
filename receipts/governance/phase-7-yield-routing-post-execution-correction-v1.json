@@ -1,0 +1,32 @@
+{
+  "schema": "qpf.governance.phase7.yield_routing.post_execution_correction.v1",
+  "status": "PHASE_7_YIELD_ROUTING_BROADCAST_CONFIRMED_CORRECTED",
+  "created_at": "2026-06-25T16:01:19.093Z",
+  "corrects": "receipts/governance/phase-7-yield-routing-post-execution-v1.json",
+  "reason": "Prior receipt used wrong deployed_contracts.YieldRouterFactory address and left transaction_hash/block_number/receipt_status null while claiming confirmed.",
+  "network": "0G Aristotle Mainnet",
+  "chain_id": 16661,
+  "transaction_hash": "0x58e8ff2f7c380d6f075f702e68a298356353c3c4853a87294f25724c8255abcd",
+  "block_number": "0x23533f5",
+  "receipt_status": "0x1",
+  "deployed_contracts": {
+    "YieldRouterFactory": "0x566b30c98d73dfc8f4b5cb4bd2e540f6584ea6c3"
+  },
+  "verification": {
+    "factory_code_present": true,
+    "cast_code_prefix": "0x608060405234801561000f575f80fd5b5060043610610060575f3560e01c8063",
+    "receipt_contract_address": "0x566b30c98d73dfc8f4b5cb4bd2e540f6584ea6c3",
+    "receipt_contract_matches_expected": true
+  },
+  "boundaries": {
+    "wallet_action": false,
+    "private_key_access": false,
+    "signing_attempted": false,
+    "transaction_broadcast": false,
+    "deployment_executed_by_this_command": false,
+    "state_changing_transaction_executed_by_this_command": false,
+    "repo_receipt_only": true
+  },
+  "safety_note": "Correction receipt only. This command verifies an existing broadcast artifact and chain state; it does not deploy, sign, broadcast, or move funds.",
+  "sha256": "6b92beb3fb424db554712cf28392b5db110a3d10b852e90d03709214e6d6c89b"
+}
