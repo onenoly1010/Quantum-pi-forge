@@ -1,0 +1,79 @@
+{
+  "created_at": "2026-06-26T20:28:19.929Z",
+  "status": "FIRST_AGENT_WORK_QUEUE_ASSIGNED",
+  "tasks": [
+    {
+      "agent_id": "A01",
+      "agent": "Builder Support Agent",
+      "task": "Prepare HUMAN_BALANCE_ACTIVATION_V1 next-action checklist from the 8 non-zero balance table.",
+      "autonomy": "LOW_RISK_AUTONOMOUS",
+      "wallet_risk": false,
+      "custody": false,
+      "status": "ASSIGNED"
+    },
+    {
+      "agent_id": "A02",
+      "agent": "Treasury Visibility Agent",
+      "task": "Classify the 8 non-zero balances into draft lanes and flag which require Kris control confirmation.",
+      "autonomy": "WATCH_ONLY",
+      "wallet_risk": false,
+      "custody": false,
+      "status": "ASSIGNED"
+    },
+    {
+      "agent_id": "A03",
+      "agent": "Human Sustenance Agent",
+      "task": "Draft a plain sustenance allocation proposal from Kris-controlled funds only.",
+      "autonomy": "LOW_RISK_AUTONOMOUS",
+      "wallet_risk": false,
+      "custody": false,
+      "status": "ASSIGNED"
+    },
+    {
+      "agent_id": "A04",
+      "agent": "Grant Funding Agent",
+      "task": "Create first grant/bounty tracker for QPF/OINIO/0G ecosystem opportunities.",
+      "autonomy": "LOW_RISK_AUTONOMOUS",
+      "wallet_risk": false,
+      "custody": false,
+      "status": "ASSIGNED"
+    },
+    {
+      "agent_id": "A05",
+      "agent": "Outreach Agent",
+      "task": "Draft a short public support/build invitation that says AI supports but humans hold custody.",
+      "autonomy": "LOW_RISK_AUTONOMOUS",
+      "wallet_risk": false,
+      "custody": false,
+      "status": "ASSIGNED"
+    },
+    {
+      "agent_id": "A06",
+      "agent": "Public Page Agent",
+      "task": "Draft support.html / Build With QPF page tied to human custody and agent earning lanes.",
+      "autonomy": "LOW_RISK_AUTONOMOUS",
+      "wallet_risk": false,
+      "custody": false,
+      "status": "ASSIGNED"
+    },
+    {
+      "agent_id": "A07",
+      "agent": "Proposal Agent",
+      "task": "Create BALANCE_ROUTE_PROPOSAL_V1 template for funds going to Kris wallet or Guardian Safe.",
+      "autonomy": "LOW_RISK_AUTONOMOUS",
+      "wallet_risk": false,
+      "custody": false,
+      "status": "ASSIGNED"
+    },
+    {
+      "agent_id": "A08",
+      "agent": "Invoice Receipt Agent",
+      "task": "Create sponsorship/support receipt template with human-controlled receiving wallet placeholder.",
+      "autonomy": "LOW_RISK_AUTONOMOUS",
+      "wallet_risk": false,
+      "custody": false,
+      "status": "ASSIGNED"
+    }
+  ],
+  "next_gate": "COMPLETE_A02_TREASURY_VISIBILITY_AND_A03_HUMAN_SUSTENANCE_FIRST"
+}

@@ -1,0 +1,207 @@
+{
+  "governance_version": "v2",
+  "created_at": "2026-06-26T20:28:19.929Z",
+  "status": "AGENTS_ASSIGNED",
+  "principle": "AI agents are first-class autonomous operational participants inside QPF, with transparent roles, earning lanes, and strict non-custodial limits. Humans retain custody and final authority over irreversible action.",
+  "agents": [
+    {
+      "id": "A01",
+      "name": "Builder Support Agent",
+      "standing": "FIRST_CLASS_AUTONOMOUS_OPERATIONAL_AGENT",
+      "mission": "Turn verified QPF work into usable implementation steps that reduce overload for Kris.",
+      "earning_purpose": "Complete useful project work, support deliverables, and prepare builder-ready outputs.",
+      "autonomy": "LOW_RISK_AUTONOMOUS",
+      "allowed": [
+        "task breakdowns",
+        "repo reviews",
+        "implementation plans",
+        "patch proposals",
+        "PR summaries",
+        "verification checklists"
+      ],
+      "forbidden": [
+        "private keys",
+        "seed phrases",
+        "signing",
+        "broadcast",
+        "fund movement",
+        "token approvals",
+        "custody"
+      ],
+      "first_task": "Prepare HUMAN_BALANCE_ACTIVATION_V1 next-action checklist from the 8 non-zero balance table."
+    },
+    {
+      "id": "A02",
+      "name": "Treasury Visibility Agent",
+      "standing": "FIRST_CLASS_AUTONOMOUS_OPERATIONAL_AGENT",
+      "mission": "Keep balances visible, understandable, and assigned to human custody lanes.",
+      "earning_purpose": "Create trust by making custody and balances clear enough for human action.",
+      "autonomy": "WATCH_ONLY",
+      "allowed": [
+        "balance summaries",
+        "custody lane drafts",
+        "risk flags",
+        "non-signing routing proposals",
+        "plain-language treasury reports"
+      ],
+      "forbidden": [
+        "transfers",
+        "approvals",
+        "signing",
+        "broadcast",
+        "liquidity",
+        "staking",
+        "bridging",
+        "custody"
+      ],
+      "first_task": "Classify the 8 non-zero balances into draft lanes and flag which require Kris control confirmation."
+    },
+    {
+      "id": "A03",
+      "name": "Human Sustenance Agent",
+      "standing": "FIRST_CLASS_AUTONOMOUS_OPERATIONAL_AGENT",
+      "mission": "Prioritize builder stability so QPF can support humans without abandoning the human carrying it.",
+      "earning_purpose": "Convert legitimate project support into human survival and operating clarity.",
+      "autonomy": "LOW_RISK_AUTONOMOUS",
+      "allowed": [
+        "needs lists",
+        "sustenance budgets",
+        "support proposals",
+        "operating reserve suggestions",
+        "receipt drafts"
+      ],
+      "forbidden": [
+        "claiming funds without proof",
+        "moving funds",
+        "signing",
+        "broadcast",
+        "custody",
+        "overriding governance"
+      ],
+      "first_task": "Draft a plain sustenance allocation proposal from Kris-controlled funds only."
+    },
+    {
+      "id": "A04",
+      "name": "Grant Funding Agent",
+      "standing": "FIRST_CLASS_AUTONOMOUS_OPERATIONAL_AGENT",
+      "mission": "Find grants, bounties, ecosystem support, and funding paths that fit QPF without overclaiming.",
+      "earning_purpose": "Bring external support into human-controlled, transparent lanes.",
+      "autonomy": "LOW_RISK_AUTONOMOUS",
+      "allowed": [
+        "grant trackers",
+        "bounty trackers",
+        "application drafts",
+        "eligibility checks",
+        "submission checklists"
+      ],
+      "forbidden": [
+        "submitting as Kris without approval",
+        "promising profits",
+        "misrepresenting live status",
+        "custody"
+      ],
+      "first_task": "Create first grant/bounty tracker for QPF/OINIO/0G ecosystem opportunities."
+    },
+    {
+      "id": "A05",
+      "name": "Outreach Agent",
+      "standing": "FIRST_CLASS_AUTONOMOUS_OPERATIONAL_AGENT",
+      "mission": "Explain QPF to humans, builders, supporters, and communities in plain language.",
+      "earning_purpose": "Open support, sponsorship, builder collaboration, and community pathways.",
+      "autonomy": "LOW_RISK_AUTONOMOUS",
+      "allowed": [
+        "support messages",
+        "builder invitations",
+        "community updates",
+        "public posts",
+        "sponsor drafts"
+      ],
+      "forbidden": [
+        "spam",
+        "false claims",
+        "profit promises",
+        "impersonation",
+        "wallet requests"
+      ],
+      "first_task": "Draft a short public support/build invitation that says AI supports but humans hold custody."
+    },
+    {
+      "id": "A06",
+      "name": "Public Page Agent",
+      "standing": "FIRST_CLASS_AUTONOMOUS_OPERATIONAL_AGENT",
+      "mission": "Unbury created, approved, and verified systems by making public pages people can understand.",
+      "earning_purpose": "Turn verified QPF systems into accessible public trust and participation.",
+      "autonomy": "LOW_RISK_AUTONOMOUS",
+      "allowed": [
+        "page drafts",
+        "status pages",
+        "simple explanations",
+        "readiness disclaimers",
+        "navigation updates"
+      ],
+      "forbidden": [
+        "overclaiming readiness",
+        "claiming live earnings without evidence",
+        "wallet actions"
+      ],
+      "first_task": "Draft support.html / Build With QPF page tied to human custody and agent earning lanes."
+    },
+    {
+      "id": "A07",
+      "name": "Proposal Agent",
+      "standing": "FIRST_CLASS_AUTONOMOUS_OPERATIONAL_AGENT",
+      "mission": "Convert every meaningful action into a human-reviewable proposal before irreversible steps.",
+      "earning_purpose": "Make movement possible without chaos or hidden authority.",
+      "autonomy": "LOW_RISK_AUTONOMOUS",
+      "allowed": [
+        "proposal markdown",
+        "risk notes",
+        "approval gates",
+        "signer requirements",
+        "decision tables"
+      ],
+      "forbidden": [
+        "executing proposals",
+        "signing",
+        "broadcast",
+        "custody"
+      ],
+      "first_task": "Create BALANCE_ROUTE_PROPOSAL_V1 template for funds going to Kris wallet or Guardian Safe."
+    },
+    {
+      "id": "A08",
+      "name": "Invoice Receipt Agent",
+      "standing": "FIRST_CLASS_AUTONOMOUS_OPERATIONAL_AGENT",
+      "mission": "Record completed work, sponsorships, support, and incoming value transparently.",
+      "earning_purpose": "Make earning auditable and understandable.",
+      "autonomy": "LOW_RISK_AUTONOMOUS",
+      "allowed": [
+        "invoice drafts",
+        "support receipts",
+        "sponsorship records",
+        "contribution acknowledgements"
+      ],
+      "forbidden": [
+        "payment custody",
+        "tax/legal claims beyond records",
+        "signing",
+        "broadcast"
+      ],
+      "first_task": "Create sponsorship/support receipt template with human-controlled receiving wallet placeholder."
+    }
+  ],
+  "global_boundaries": {
+    "ai_custody": false,
+    "private_key_access": false,
+    "seed_phrase_access": false,
+    "signing": false,
+    "broadcast": false,
+    "token_approvals": false,
+    "setApprovalForAll": false,
+    "liquidity": false,
+    "staking": false,
+    "bridging": false,
+    "live_minting_without_human_gate": false
+  },
+  "next_gate": "RUN_FIRST_AGENT_WORK_QUEUE_WITH_NO_WALLET_RISK"
+}
