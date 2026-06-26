@@ -1,0 +1,63 @@
+{
+  "governance_version": "v2",
+  "receipt": "guardian-completion-acceptance-v1",
+  "created_at": "2026-06-25T08:55:00.000Z",
+  "base_head": "a97944f6e4653ed6948ae0b4108c0366fb200bcb",
+  "phase": "Phase 7",
+  "status": "GUARDIAN_ACCEPTED_AND_VERIFIED",
+  "purpose": "Seal guardian-address completion. Safe configuration verified on-chain. No wallet actions performed by repo. No social recovery deployment performed. Owner addresses not published.",
+  "intake_receipt": "receipts/governance/phase-7-guardian-address-intake-v1.json",
+  "evidence_suite_passed": true,
+  "guardian_safe": {
+    "address": "0x8d088B88219D072aB035502065ee2410c2cb4389",
+    "network": "0G Aristotle Mainnet",
+    "chain_id": 16661,
+    "safe_version": "1.4.1",
+    "bytecode_confirmed": true,
+    "bytecode_check_method": "cast code → 0x6080... Safe proxy",
+    "owner_count": 4,
+    "owner_addresses_public": false,
+    "threshold": 1,
+    "threshold_label": "1-of-4",
+    "nonce": 0,
+    "modules_enabled": [],
+    "modules_count": 0,
+    "guard_enabled": false,
+    "domain_separator": "0xe606960d1dc5516ba43ca7199435407fbe1e7c2ca5d1ce5368e0a42432ddd0db",
+    "verification_source": "direct RPC calls via cast — getOwners(), getThreshold(), nonce(), getModulesPaginated(), getGuard()"
+  },
+  "guardian_status_separation": {
+    "guardian_safe_address": "COMPLETE — ACCEPTED",
+    "guardian_safe_configuration": "VERIFIED ON-CHAIN",
+    "social_recovery_module": "CREATED / NOT YET PRODUCTION-AUTHORIZED — NOT DEPLOYED — NOT ENABLED ON SAFE",
+    "owner_addresses": "PRIVATE — not published in any public document or receipt"
+  },
+  "threshold_note": "The Safe is configured as 1-of-4, not 3-of-5. This is the actual on-chain state. If a multi-signature threshold is required for QPF governance, the Safe owners must submit a transaction to increase the threshold via execTransaction. The current 1-of-4 configuration means any single owner can execute transactions.",
+  "wallet_actions_performed_by_repo": {
+    "signing": false,
+    "broadcast": false,
+    "deployment": false,
+    "private_key_access": false,
+    "fund_movement": false
+  },
+  "social_recovery_module_status": {
+    "implementation_created": true,
+    "deployed": false,
+    "enabled_on_safe": false,
+    "mock_recovery_completed": false,
+    "production_authorized": false,
+    "required_for_phase_7": false
+  },
+  "next_gate": "Phase 7 authorization proposal — identify protocol role for Safe, generate proposed calldata without signing, review target contract/function/args/value/chain, stop for explicit human approval.",
+  "safety": {
+    "wallet_action": false,
+    "private_key_access": false,
+    "signing": false,
+    "broadcast": false,
+    "deployment": false,
+    "staking": false,
+    "minting": false,
+    "liquidity": false,
+    "live_execution": false
+  }
+}

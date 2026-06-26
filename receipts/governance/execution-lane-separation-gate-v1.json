@@ -1,6 +1,6 @@
 {
   "schema": "qpf.execution_lane_separation_gate.receipt.v1",
-  "created_at": "2026-06-21T22:44:40.181Z",
+  "created_at": "2026-06-26T23:15:37.546Z",
   "status": "sealed",
   "named_action": "supervised-mainnet-activation-execution-v1",
   "checks": {
@@ -49,6 +49,6 @@
   "live_execution": false,
   "gate_path": "docs/governance/EXECUTION_LANE_SEPARATION_GATE_V1.json",
   "gate_sha256": "f46805fd7015c83f83485db7c52cca1ca3cd71e2bb8dc4ac9752ecf78fb78c51",
-  "git_head": "d882f73eaf2fae7a765a3c09e7b05751dd18da2f",
-  "git_status_short": "M package.json\n?? docs/governance/EXECUTION_LANE_SEPARATION_GATE_V1.json\n?? scripts/create-execution-lane-separation-gate-v1.cjs\n?? scripts/verify-execution-lane-separation-gate-v1.cjs"
+  "git_head": "3f6fc0e5a540acbb6465dceb34411777547fa6c6",
+  "git_status_short": "A  0G_SOCIAL_RECOVERY_SETUP_GUIDE.md\nA  contracts/ZeroGSocialRecovery.sol\nA  contracts/script/DeploySocialRecovery.s.sol\nA  docs/governance/FULL_LIVE_ROADMAP_V1.md\n m pi-forge-quantum-genesis\nA  receipts/activation/activation-readiness-snapshot-after-pr-515-v1.json\nA  receipts/contracts/contract-ownership-audit-phase-5-v1.json\nA  receipts/contracts/safe-ownership-transfer-preflight-phase-6-v1.json\n M receipts/governance/bounded-activation-readiness-gate-v1.json\nA  receipts/governance/guardian-completion-acceptance-v1.json\nA  receipts/governance/guardian-governance-readiness-v1.json\nA  receipts/governance/human-approval-checkpoint-phase-7-v1.json\nA  receipts/governance/manual-custody-and-nested-safe-execution-model-v1.json\n M receipts/governance/named-activation-action-plan-v1.json\nA  receipts/governance/phase-7-authorization-proposal-v1.json\nA  receipts/governance/phase-7-pre-execution-validation-v1.json\nA  receipts/governance/public-onboarding-readiness-v1-evidence-v1.json\nA  receipts/onboarding/explorer-verification-phase-3-v1.json\nA  receipts/onboarding/public-deployment-observation-v1.json\nA  scripts/0g_social_recovery.py\nA  scripts/broadcast-phase7.sh\nA  wrangler.toml.bak"
 }

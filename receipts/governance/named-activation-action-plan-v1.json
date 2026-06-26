@@ -1,6 +1,6 @@
 {
   "schema": "qpf.named_activation_action_plan.receipt.v1",
-  "created_at": "2026-06-21T20:26:15.967Z",
+  "created_at": "2026-06-26T23:14:57.783Z",
   "plan": "Named Activation Action Plan v1",
   "action_name": "supervised-mainnet-activation-execution-v1",
   "status": "sealed",
@@ -55,6 +55,6 @@
   "live_execution": false,
   "plan_path": "docs/governance/NAMED_ACTIVATION_ACTION_PLAN_V1.json",
   "plan_sha256": "d15ef15133b19893a70c25c05072fecd837f5d2eec267df9e779d2be2216ea75",
-  "git_head": "921882063609981bf6c29dff6155fbcde1abb8d0",
-  "git_status_short": "M package.json\n?? docs/governance/NAMED_ACTIVATION_ACTION_PLAN_V1.json\n?? scripts/create-named-activation-action-plan-v1.cjs\n?? scripts/verify-named-activation-action-plan-v1.cjs"
+  "git_head": "3f6fc0e5a540acbb6465dceb34411777547fa6c6",
+  "git_status_short": "A  0G_SOCIAL_RECOVERY_SETUP_GUIDE.md\nA  contracts/ZeroGSocialRecovery.sol\nA  contracts/script/DeploySocialRecovery.s.sol\nA  docs/governance/FULL_LIVE_ROADMAP_V1.md\n m pi-forge-quantum-genesis\nA  receipts/activation/activation-readiness-snapshot-after-pr-515-v1.json\nA  receipts/contracts/contract-ownership-audit-phase-5-v1.json\nA  receipts/contracts/safe-ownership-transfer-preflight-phase-6-v1.json\n M receipts/governance/bounded-activation-readiness-gate-v1.json\nA  receipts/governance/guardian-completion-acceptance-v1.json\nA  receipts/governance/guardian-governance-readiness-v1.json\nA  receipts/governance/human-approval-checkpoint-phase-7-v1.json\nA  receipts/governance/manual-custody-and-nested-safe-execution-model-v1.json\nA  receipts/governance/phase-7-authorization-proposal-v1.json\nA  receipts/governance/phase-7-pre-execution-validation-v1.json\nA  receipts/governance/public-onboarding-readiness-v1-evidence-v1.json\nA  receipts/onboarding/explorer-verification-phase-3-v1.json\nA  receipts/onboarding/public-deployment-observation-v1.json\nA  scripts/0g_social_recovery.py\nA  scripts/broadcast-phase7.sh\nA  wrangler.toml.bak"
 }

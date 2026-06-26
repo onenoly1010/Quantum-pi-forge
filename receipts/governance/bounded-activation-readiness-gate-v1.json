@@ -1,6 +1,6 @@
 {
   "schema": "qpf.bounded_activation_readiness_gate.receipt.v1",
-  "created_at": "2026-06-21T22:55:50.613Z",
+  "created_at": "2026-06-26T23:13:58.300Z",
   "status": "ready",
   "ready": true,
   "named_action": "supervised-mainnet-activation-execution-v1",
@@ -40,6 +40,6 @@
   "signing_attempted": false,
   "transaction_broadcast": false,
   "live_execution": false,
-  "git_head": "965f5bd63c0fc2ce88e6d5701592d8ab91ad9aef",
-  "git_status_short": "M receipts/governance/bounded-activation-readiness-gate-v1.json\n M scripts/create-bounded-activation-readiness-gate-v1.cjs\n M scripts/verify-bounded-activation-readiness-gate-v1.cjs"
+  "git_head": "3f6fc0e5a540acbb6465dceb34411777547fa6c6",
+  "git_status_short": "m pi-forge-quantum-genesis\n?? 0G_SOCIAL_RECOVERY_SETUP_GUIDE.md\n?? contracts/ZeroGSocialRecovery.sol\n?? contracts/script/DeploySocialRecovery.s.sol\n?? docs/governance/FULL_LIVE_ROADMAP_V1.md\n?? receipts/activation/activation-readiness-snapshot-after-pr-515-v1.json\n?? receipts/contracts/\n?? receipts/governance/guardian-completion-acceptance-v1.json\n?? receipts/governance/guardian-governance-readiness-v1.json\n?? receipts/governance/human-approval-checkpoint-phase-7-v1.json\n?? receipts/governance/manual-custody-and-nested-safe-execution-model-v1.json\n?? receipts/governance/phase-7-authorization-proposal-v1.json\n?? receipts/governance/phase-7-pre-execution-validation-v1.json\n?? receipts/governance/public-onboarding-readiness-v1-evidence-v1.json\n?? receipts/onboarding/\n?? scripts/0g_social_recovery.py\n?? scripts/broadcast-phase7.sh\n?? wrangler.toml.bak"
 }

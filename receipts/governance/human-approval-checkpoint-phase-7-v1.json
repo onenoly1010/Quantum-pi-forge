@@ -1,0 +1,42 @@
+{
+  "schema": "human-approval-checkpoint-phase-7-v1",
+  "generatedAt": "2026-06-26T03:11:10.121288+00:00",
+  "gitCommit": "3af46a9f99fa03b88755ef2d6b0386d457156d30",
+  "branch": "public/onboarding-readiness-v1",
+  "approvals": {
+    "ownershipTransfer": {
+      "approved": false,
+      "required": true
+    },
+    "contractVerification": {
+      "approved": false,
+      "required": true
+    },
+    "publicWalletConnect": {
+      "approved": false,
+      "required": true
+    },
+    "staking": {
+      "approved": false,
+      "required": true
+    },
+    "minting": {
+      "approved": false,
+      "required": true
+    },
+    "liquidityProvision": {
+      "approved": false,
+      "required": true
+    },
+    "treasuryFunding": {
+      "approved": false,
+      "required": true
+    },
+    "publicAnnouncement": {
+      "approved": false,
+      "required": true
+    }
+  },
+  "rule": "Each live-action lane requires its own explicit human approval and receipt",
+  "gate": "written approval for the specific lane only"
+}

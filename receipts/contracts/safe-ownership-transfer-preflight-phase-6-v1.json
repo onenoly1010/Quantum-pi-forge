@@ -1,0 +1,39 @@
+{
+  "schema": "safe-ownership-transfer-preflight-phase-6-v1",
+  "generatedAt": "2026-06-26T03:11:08.992774+00:00",
+  "gitCommit": "3af46a9f99fa03b88755ef2d6b0386d457156d30",
+  "branch": "public/onboarding-readiness-v1",
+  "proposedTransfers": [
+    {
+      "contract": "OINIO Token",
+      "address": "0x75995EC0fdf881189850aeD864cB3f43c0DFCb58",
+      "method": "transferOwnership(address)"
+    },
+    {
+      "contract": "OINIO Model Registry",
+      "address": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+      "method": "transferOwnership(address)"
+    },
+    {
+      "contract": "Heartbeat Monitor",
+      "address": "0x5E50b92E57e854659f7D98c733088aABd551C49F",
+      "method": "transferOwnership(address)"
+    },
+    {
+      "contract": "DEX Factory",
+      "address": "0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8",
+      "method": "transferOwnership(address)"
+    },
+    {
+      "contract": "ForgeRegistry",
+      "address": "0x6011c341a01c80f489a5c3Ab751987A55142F04e",
+      "method": "transferOwnership(address)"
+    }
+  ],
+  "targetGuardianSafe": "0x8d088B88219D072aB035502065ee2410c2cb4389",
+  "unsigned": true,
+  "broadcast": false,
+  "hardwareWalletFlowRequired": true,
+  "approvalRequiredBeforeBroadcast": true,
+  "gate": "human approval required before any Safe or wallet action"
+}
