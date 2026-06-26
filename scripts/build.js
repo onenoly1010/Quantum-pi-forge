@@ -24,6 +24,7 @@ const staticFiles = [
   { src: 'deploy/staking.html', dest: 'staking.html' },
   { src: 'deploy/what-it-does.html', dest: 'what-it-does.html' },
   { src: 'deploy/for-builders.html', dest: 'for-builders.html' },
+  { src: 'deploy/why-this-matters.html', dest: 'why-this-matters.html' },
   { src: 'deploy/deployed-addresses.html', dest: 'deployed-addresses.html' },
   { src: 'deploy/onboarding-status.html', dest: 'onboarding-status.html' },
   { src: 'deploy/manifest.json', dest: 'manifest.json' },
