@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>For Builders: Launch-Ready Verification | Quantum Pi Forge</title>
+  <meta name="description" content="Quantum Pi Forge helps AI/Web3 builders prove launch readiness before keys, contracts, funds, deployments, or irreversible actions are touched.">
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;line-height:1.6;margin:0;background:#0b0f14;color:#eef4ff}
+    main{max-width:920px;margin:0 auto;padding:48px 22px 72px}
+    a{color:#8fd3ff}
+    .eyebrow{color:#a8b3c7;text-transform:uppercase;letter-spacing:.12em;font-size:.8rem}
+    h1{font-size:clamp(2rem,6vw,4.5rem);line-height:1.05;margin:.2em 0}
+    h2{margin-top:2.2rem}
+    .lead{font-size:1.25rem;color:#d9e7ff}
+    .card{border:1px solid #263142;background:#111824;border-radius:18px;padding:22px;margin:18px 0}
+    code,pre{background:#111824;border:1px solid #263142;border-radius:10px;padding:.15rem .35rem;color:#e9f6ff}
+    pre{padding:16px;overflow:auto}
+    ul{padding-left:1.3rem}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+    .cta{display:inline-block;margin-top:16px;padding:12px 16px;border:1px solid #8fd3ff;border-radius:999px;text-decoration:none}
+  </style>
+</head>
+<body>
+<main>
+  <p class="eyebrow">Quantum Pi Forge</p>
+  <h1>For Builders: Launch-Ready Verification</h1>
+  <p class="lead"><strong>Quantum Pi Forge is a public proof engine for digital launches.</strong></p>
+  <p>You build. QPF helps prove your project is ready before keys, contracts, funds, deployments, or irreversible actions are touched.</p>
+
+  <section class="card">
+    <h2>The Problem</h2>
+    <p>Most AI/Web3 launches still rely on blind trust:</p>
+    <ul>
+      <li>Hidden admin keys</li>
+      <li>Unverified deployment paths</li>
+      <li>No deterministic evidence trail</li>
+      <li>Unclear operator approval</li>
+      <li>“Trust us” governance</li>
+      <li>No clean public review packet before activation</li>
+    </ul>
+    <p>That creates risk for builders, users, ecosystems, grant reviewers, and funders.</p>
+  </section>
+
+  <section class="card">
+    <h2>The QPF Solution</h2>
+    <p>Quantum Pi Forge creates a visible, auditable proof trail using safety-gated workflows, local-first AI review, deterministic checks, and sealed receipts.</p>
+  </section>
+
+  <section class="card">
+    <h2>How It Works</h2>
+    <ol>
+      <li><strong>Builder</strong> — A project prepares its repository, launch path, or activation workflow for review.</li>
+      <li><strong>Proof Receipts</strong> — QPF-style checks produce evidence: local audits, deterministic verification, live canary gates, evidence indexes, and sealed JSON receipts.</li>
+      <li><strong>Public Review</strong> — Anyone can inspect the repo, receipts, and verification trail without trusting a private claim.</li>
+      <li><strong>Operator Approval</strong> — Human/controller approval remains separate from review. Evidence does not equal permission to execute.</li>
+      <li><strong>Activation</strong> — Any irreversible action only happens after explicit approval, bounded scope, and verified readiness.</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h2>Verified Example</h2>
+    <p>Quantum Pi Forge uses its own process as the example.</p>
+    <ul>
+      <li>Main head: <code>a55b46f</code></li>
+      <li>PR #447 merged: unsigned transaction preparation readiness artifacts</li>
+      <li>PR #448 merged: post-merge closure receipt</li>
+      <li><code>npm run verify:evidence</code>: PASS</li>
+      <li>Cross-platform determinism: PASS</li>
+      <li>Live canary gate: PASS</li>
+      <li>Wallet actions: false</li>
+      <li>Private-key access: false</li>
+      <li>Signing authorized: false</li>
+      <li>Broadcast authorized: false</li>
+      <li>Funding authorized: false</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Who This Helps</h2>
+    <div class="grid">
+      <div><h3>Solo and Indie Builders</h3><p>Prove your project is launch-ready before asking users, funders, or ecosystems to trust it.</p></div>
+      <div><h3>Teams and DAOs</h3><p>Create a governance evidence trail before votes, deployments, grants, or public launches.</p></div>
+      <div><h3>Ecosystems</h3><p>Standardize safer launch practices for AI agents, Web3 apps, protocol tooling, and public infrastructure.</p></div>
+      <div><h3>Grant Reviewers and Funders</h3><p>Review what was built, what was verified, what remains blocked, and what would require explicit approval.</p></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Early Service Packages</h2>
+    <h3>1. Self-Service Verification Kit</h3>
+    <p>Use the open-source QPF repo, scripts, templates, and evidence patterns to build your own launch-readiness trail.</p>
+    <h3>2. Assisted Repo Audit</h3>
+    <p>A guided review of your repo against QPF-style readiness standards, producing a sealed evidence package.</p>
+    <h3>3. Governance Template Integration</h3>
+    <p>Custom safety gates, approval boundaries, local AI review patterns, and verification receipts for your project.</p>
+    <h3>4. Grant-Ready Evidence Bundle</h3>
+    <p>A funder-readable package showing your project’s current state, verification status, risks, and activation boundaries.</p>
+  </section>
+
+  <section class="card">
+    <h2>Safety Boundary</h2>
+    <p>QPF is verification infrastructure, not blind automation.</p>
+    <p>By default:</p>
+    <ul>
+      <li>No wallet creation</li>
+      <li>No seed access</li>
+      <li>No private-key access</li>
+      <li>No signing</li>
+      <li>No broadcast</li>
+      <li>No funding</li>
+      <li>No deployment</li>
+      <li>No swaps, bridges, approvals, or fund movement</li>
+    </ul>
+    <p>Evidence comes first. Human approval remains separate.</p>
+  </section>
+
+  <section class="card">
+    <h2>Start Here</h2>
+    <p>Review the public repository and run the verification path locally:</p>
+    <pre><code>npm run verify:evidence</code></pre>
+    <p><a href="https://github.com/onenoly1010/Quantum-pi-forge">GitHub: onenoly1010/Quantum-pi-forge</a></p>
+    <p>Quantum Pi Forge helps builders prove readiness before irreversible action.</p>
+    <a class="cta" href="https://github.com/onenoly1010/Quantum-pi-forge">Verify the repo</a>
+  </section>
+</main>
+</body>
+</html>
