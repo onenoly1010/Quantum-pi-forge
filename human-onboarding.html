@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Human Onboarding | Quantum Pi Forge</title>
+  <meta name="description" content="How human onboarding works on Quantum Pi Forge: wallet provided → role selected → permission recorded → no funds move → receipt sealed → future actions require separate approval." />
+  <style>
+    body{margin:0;min-height:100vh;background:linear-gradient(180deg,#050816,#0b1020 55%,#111827);color:#f8fafc;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    main{padding:48px 20px}
+    section{max-width:980px;margin:0 auto}
+    .nav-links{margin-bottom:2rem;padding:.5rem 0;border-bottom:1px solid rgba(148,163,184,.2);display:flex;gap:1.5rem;font-size:.9rem;flex-wrap:wrap}
+    .nav-links a{color:#93c5fd;text-decoration:none}
+    .nav-links a:hover{text-decoration:underline}
+    .hero{text-align:center}
+    .eyebrow{color:#93c5fd;font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.82rem}
+    h1{font-size:clamp(2.2rem,6vw,5rem);line-height:1;margin:18px 0;letter-spacing:-.05em}
+    .sub{max-width:760px;margin:0 auto;color:#cbd5e1;font-size:clamp(1.1rem,2vw,1.35rem);line-height:1.55}
+    .panel{margin-top:64px;background:rgba(15,23,42,.82);border:1px solid rgba(148,163,184,.25);border-radius:28px;padding:28px;box-shadow:0 24px 80px rgba(0,0,0,.35)}
+    h2{font-size:clamp(1.7rem,4vw,2.7rem);margin:0 0 12px;letter-spacing:-.04em}
+    h3{font-size:clamp(1.2rem,2.5vw,1.6rem);margin:24px 0 8px;color:#e0f2fe}
+    p{color:#cbd5e1;line-height:1.6}
+    ol,ul{color:#cbd5e1;line-height:1.7}
+    .steps{margin-top:34px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+    .step{padding:22px;border-radius:22px;background:rgba(15,23,42,.8);border:1px solid rgba(148,163,184,.2)}
+    .step h3{margin-top:0;color:#e0f2fe}
+    .step-num{display:inline-block;width:32px;height:32px;line-height:32px;text-align:center;border-radius:50%;background:#60a5fa;color:#020617;font-weight:800;font-size:.9rem;margin-bottom:8px}
+    .explain{margin-top:34px;padding:26px;border-radius:24px;background:rgba(30,41,59,.72);border:1px solid rgba(148,163,184,.22)}
+    .callout-blue{border-left:4px solid #60a5fa;padding:12px 20px;margin:20px 0;background:rgba(96,165,250,.08);border-radius:0 12px 12px 0}
+    .callout-green{border-left:4px solid #34d399;padding:12px 20px;margin:20px 0;background:rgba(52,211,153,.08);border-radius:0 12px 12px 0}
+    .callout-amber{border-left:4px solid #f59e0b;padding:12px 20px;margin:20px 0;background:rgba(245,158,11,.08);border-radius:0 12px 12px 0}
+    .callout-red{border-left:4px solid #ef4444;padding:12px 20px;margin:20px 0;background:rgba(239,68,68,.08);border-radius:0 12px 12px 0}
+    code{background:rgba(148,163,184,.15);padding:2px 6px;border-radius:6px;font-size:.9em}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:16px 0}
+    .role-card{padding:16px;border-radius:16px;background:rgba(15,23,42,.6);border:1px solid rgba(148,163,184,.18);text-align:center}
+    .role-card h4{margin:0 0 4px;color:#e0f2fe}
+    .role-card p{margin:0;font-size:.9rem;color:#94a3b8}
+    .no{margin-top:24px;padding:20px;border-radius:20px;background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.25)}
+    .no h3{color:#fca5a5;margin-top:0}
+    .no p{margin:0}
+    footer{margin-top:3rem;padding-top:1.5rem;border-top:1px solid rgba(148,163,184,.15);text-align:center;color:#64748b;font-size:.85rem}
+  </style>
+</head>
+<body>
+<main>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/what-it-does.html">What It Does</a>
+    <a href="/why-this-matters.html">Why This Matters</a>
+    <a href="/human-onboarding.html">Human Onboarding</a>
+    <a href="/for-builders.html">For Builders</a>
+    <a href="/deployed-addresses.html">Contracts</a>
+    <a href="/onboarding-status.html">Status</a>
+    <a href="https://github.com/onenoly1010/Quantum-pi-forge">GitHub</a>
+  </div>
+
+  <section class="hero">
+    <p class="eyebrow">Phase 8: Human Onboarding</p>
+    <h1>How Human Onboarding Works</h1>
+    <p class="sub">Wallet provided → Role selected → Permission recorded → No funds move → Receipt sealed → Future actions require separate approval.</p>
+  </section>
+
+  <div class="panel">
+    <h2>The Simple Version</h2>
+    <p>Anyone can provide a wallet address to Quantum Pi Forge. That wallet is recorded with a role label and nothing more. No money moves. No keys change hands. No custody transfers. The entire process produces a sealed receipt that anyone can verify.</p>
+
+    <div class="callout-green">
+      <strong>Financial Exposure: ZERO</strong> — Onboarding a wallet does not authorize any fund movement. It is a metadata receipt, not a financial transaction.
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>The Process</h2>
+    <p>Human onboarding follows a fixed five-step sequence. Each step produces a sealed JSON receipt stored in the repository.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Wallet Provided</h3>
+        <p>A human shares a public wallet address. This can be any chain: Bitcoin, Ethereum, OINIO, or others. Only the public address is recorded.</p>
+        <p><code>Input: bc1q...abc123</code></p>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Role Selected</h3>
+        <p>The wallet is assigned a role describing its purpose. Roles are metadata only. They do not grant authority.</p>
+        <p><code>Role: personal_support_wallet</code></p>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Receipt Sealed</h3>
+        <p>A JSON receipt is created recording the wallet, role, timestamp, git commit hash, and policy reference. The receipt is committed to the repository.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Policy Applied</h3>
+        <p>The Wallet Onboarding Policy v1 is applied, clearly stating what this receipt does <strong>not</strong> authorize.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-num">5</div>
+        <h3>Milestone Sealed</h3>
+        <p>A governance receipt seals the onboarding milestone. No further action occurs unless a new, separate receipt explicitly unblocks it.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Wallet Roles</h2>
+    <p>Each onboarded wallet receives a role. Roles describe intent, not authority. The system treats all roles as read-only by default.</p>
+
+    <div class="grid">
+      <div class="role-card">
+        <h4>Supporter</h4>
+        <p>A person who supports the project. No authority. No claims.</p>
+      </div>
+      <div class="role-card">
+        <h4>Builder</h4>
+        <p>Someone contributing work. No deployment authority. No fund authority.</p>
+      </div>
+      <div class="role-card">
+        <h4>Observer</h4>
+        <p>Watching governance or activity. No voting power. No claims.</p>
+      </div>
+      <div class="role-card">
+        <h4>Donor</h4>
+        <p>Provided past support. No ongoing obligation. No control.</p>
+      </div>
+      <div class="role-card">
+        <h4>Foundation Candidate</h4>
+        <p>Under consideration for a foundation role. No authority until explicit verification and legal steps.</p>
+      </div>
+      <div class="role-card">
+        <h4>Trust Candidate</h4>
+        <p>Under consideration for a trust-related role. No authority until explicit verification.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>What Onboarding Does NOT Authorize</h2>
+    <p>A wallet onboarding receipt explicitly does <strong>not</strong> authorize any of the following:</p>
+
+    <div class="grid">
+      <div class="no">
+        <h3>No BTC Sends</h3>
+        <p>No Bitcoin movement of any kind.</p>
+      </div>
+      <div class="no">
+        <h3>No OINIO Sends</h3>
+        <p>No OINIO token transfers.</p>
+      </div>
+      <div class="no">
+        <h3>No Liquidity</h3>
+        <p>No liquidity pool creation or funding.</p>
+      </div>
+      <div class="no">
+        <h3>No Treasury Routing</h3>
+        <p>No treasury distribution or rebalancing.</p>
+      </div>
+      <div class="no">
+        <h3>No Staking</h3>
+        <p>No staking or delegation authority.</p>
+      </div>
+      <div class="no">
+        <h3>No Minting</h3>
+        <p>No token minting authority.</p>
+      </div>
+      <div class="no">
+        <h3>No Bridge Activity</h3>
+        <p>No cross-chain bridge operations.</p>
+      </div>
+      <div class="no">
+        <h3>No Foundation Claim</h3>
+        <p>No public foundation authority assertion.</p>
+      </div>
+      <div class="no">
+        <h3>No Identity Claim</h3>
+        <p>No wallet-for-Kris or public identity claim.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Security Guarantees</h2>
+
+    <div class="callout-blue">
+      <strong>No Private Keys</strong> — QPF never requests, stores, or accesses private keys, seed phrases, recovery words, or passwords.
+    </div>
+
+    <div class="callout-blue">
+      <strong>No Custody</strong> — Onboarding does not transfer custody. The wallet provider retains full control of their wallet at all times.
+    </div>
+
+    <div class="callout-blue">
+      <strong>No Automatic Movement</strong> — A receipt does not trigger fund movement, signing, or any on-chain action.
+    </div>
+
+    <div class="callout-amber">
+      <strong>Roles Are Metadata First</strong> — A role label describes intent, not authority. Changing or confirming a role requires a new explicit permission receipt.
+    </div>
+
+    <div class="callout-amber">
+      <strong>Every Unlock Requires a New Receipt</strong> — Anything beyond read-only onboarding requires a separate receipt with explicit scope, human approval, and the required verification steps.
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Optional Future Unlocks</h2>
+    <p>The following actions are not currently available. Each would require a separate receipt and explicit approval before it can proceed.</p>
+
+    <div class="explain">
+      <h3>Signed Bitcoin Message Verification</h3>
+      <p>A wallet provider could optionally sign a message proving they control the wallet. This would produce a separate verification receipt without authorizing fund movement.</p>
+    </div>
+
+    <div class="explain">
+      <h3>Public/Private Permission Update</h3>
+      <p>A wallet's role or visibility could be updated. This requires a signed permission from the wallet provider and a new receipt.</p>
+    </div>
+
+    <div class="explain">
+      <h3>EVM Wallet Pairing Record</h3>
+      <p>An EVM-compatible wallet (e.g., OINIO, Ethereum) could be paired with a Bitcoin wallet. This would be a metadata relationship record, not a bridge or transfer.</p>
+    </div>
+
+    <div class="explain">
+      <h3>Safe-Controlled Support Vault Design</h3>
+      <p>A multi-signature vault could be designed to accept support contributions. The design would be verified and receipted before any deployment or funding.</p>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Current Onboarded Wallet</h2>
+    <div class="callout-green">
+      <strong>First External Human Onboarding: COMPLETE</strong>
+    </div>
+    <ul>
+      <li><strong>Wallet:</strong> <code>bc1qmcmz4xp5ean3mne3xwylke4xsc7h5n2x83u28f</code></li>
+      <li><strong>Chain:</strong> Bitcoin</li>
+      <li><strong>Role:</strong> <code>personal_support_wallet</code></li>
+      <li><strong>Status:</strong> Onboarded read-only</li>
+      <li><strong>Financial Exposure:</strong> Zero</li>
+      <li><strong>Evidence Verification:</strong> PASS 5/5</li>
+      <li><strong>Policy:</strong> Wallet Onboarding Policy v1</li>
+      <li><strong>Receipt:</strong> <code>receipts/governance/oinio-personal-support-wallet-onboarding-v1.json</code></li>
+    </ul>
+  </div>
+
+  <footer>
+    <p>Quantum Pi Forge — Onboarding is metadata first. Verification comes before value flow.</p>
+    <p><a href="https://github.com/onenoly1010/Quantum-pi-forge">GitHub</a> · <a href="/what-it-does.html">What It Does</a> · <a href="/for-builders.html">For Builders</a></p>
+  </footer>
+</main>
+</body>
+</html>

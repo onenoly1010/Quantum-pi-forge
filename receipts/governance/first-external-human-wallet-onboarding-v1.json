@@ -1,0 +1,64 @@
+{
+  "governance_version": "v1",
+  "receipt": "first-external-human-wallet-onboarding-v1",
+  "created_at": "2026-06-26T17:52:42.921Z",
+  "base_head": "abfdc4fe00181ca93189d23091b44d14efe20a36",
+  "branch": "phase8/human-why-v1",
+  "milestone": "first_external_human_support_wallet_onboarded",
+  "mode": "read_only_evidence_role_metadata",
+  "wallet": {
+    "address": "bc1qmcmz4xp5ean3mne3xwylke4xsc7h5n2x83u28f",
+    "chain": "Bitcoin",
+    "role": "personal_support_wallet",
+    "controller_statement": "Yoko"
+  },
+  "evidence_refs": [
+    {
+      "path": "receipts/governance/oinio-personal-support-wallet-onboarding-v1.json",
+      "sha256": "55d8c5c6f88f5cb600a32fd8dc15b49c4150170d155fda2ec4afab69d1ab925b"
+    },
+    {
+      "path": "receipts/governance/oinio-wallet-onboarding-status-index-v1.json",
+      "sha256": "cfc94458dcc5501e62a2e9c6590dd7beaf528f421c480d1153c2cbbd3e0ca8fd"
+    },
+    {
+      "path": "receipts/governance/wallet-onboarding-policy-v1.json",
+      "sha256": "27ffdabff84f60b2c8af3a456404cbb83925c47d9bac4254128bd6ef2c77102f"
+    }
+  ],
+  "capability_demonstrated": [
+    "external_human_wallet_onboarding",
+    "role_confirmation",
+    "permission_boundary_capture",
+    "receipt_based_verification",
+    "zero_financial_exposure",
+    "policy_guardrails_for_future_agents"
+  ],
+  "blocked_actions": [
+    "funds_movement",
+    "btc_send",
+    "oinio_transfer",
+    "oinio_pairing",
+    "liquidity",
+    "treasury_routing",
+    "staking",
+    "minting",
+    "bridge_activity",
+    "public_foundation_claim",
+    "public_identity_claim",
+    "wallet_for_kris_claim",
+    "guardian_authority_claim"
+  ],
+  "safety_assertions": {
+    "no_funds_moved": true,
+    "no_wallet_access_requested": true,
+    "no_private_keys_requested": true,
+    "no_seed_phrase_requested": true,
+    "no_liquidity_created": true,
+    "no_treasury_routing": true,
+    "no_public_identity_claim": true,
+    "no_foundation_authority_claim": true,
+    "financial_exposure_zero": true
+  },
+  "summary": "QPF/OINIO completed its first external human support wallet onboarding as read-only evidence and role metadata only. The process demonstrates simplified transparent onboarding with proof receipts, verification, and no custody or value movement."
+}

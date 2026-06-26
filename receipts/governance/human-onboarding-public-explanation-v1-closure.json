@@ -1,0 +1,85 @@
+{
+  "governance_version": "v1",
+  "receipt": "human-onboarding-public-explanation-v1-closure",
+  "created_at": "2026-06-26T18:28:52.826Z",
+  "base_head": "de8ffb2e7189a4a0b6c8403715ae7ae32b55fdd4",
+  "branch": "phase8/human-why-v1",
+  "status": "complete",
+  "mode": "public_explanation_closure",
+  "artifacts": [
+    {
+      "path": "human-onboarding.html",
+      "sha256": "362d823eb69a3bcf4f13230cadf5ebee6851c7d98220e94c839f7133809ad485"
+    },
+    {
+      "path": "scripts/human-onboarding-receipt-template.json",
+      "sha256": "219354226adb8d671ee05b45485450b094905aeee10e1a29a17c95422a583834"
+    },
+    {
+      "path": "docs/human-onboarding-explanation-v1.md",
+      "sha256": "c878bffd2c3e135b281e5170b464b6ed506a9ab1461b66efda7db80940ffb41b"
+    },
+    {
+      "path": "scripts/build.js",
+      "sha256": "01f33bde9f95e606a32698942215528af3e57d4d372bdb3bf09e3f21042d74a0"
+    },
+    {
+      "path": "out/human-onboarding.html",
+      "sha256": "362d823eb69a3bcf4f13230cadf5ebee6851c7d98220e94c839f7133809ad485"
+    }
+  ],
+  "deliverables": {
+    "public_page": true,
+    "receipt_template": true,
+    "builder_user_docs": true,
+    "build_integration": true,
+    "out_file_created": true
+  },
+  "process_explained": [
+    "wallet_provided",
+    "role_selected",
+    "permission_recorded",
+    "no_funds_move",
+    "receipt_sealed",
+    "future_actions_require_separate_approval"
+  ],
+  "security_guarantees": [
+    "no_custody",
+    "no_private_keys",
+    "no_seed_phrases",
+    "no_automatic_funds_movement",
+    "roles_are_metadata_first",
+    "every_unlock_requires_new_receipt"
+  ],
+  "blocked_actions": [
+    "btc_send",
+    "oinio_send",
+    "wallet_access",
+    "private_key_request",
+    "seed_phrase_request",
+    "liquidity",
+    "treasury_routing",
+    "staking",
+    "minting",
+    "bridge_activity",
+    "public_identity_claim",
+    "foundation_authority_claim"
+  ],
+  "optional_future_unlocks": [
+    "signed_bitcoin_message_verification",
+    "public_private_permission_update",
+    "evm_wallet_pairing_record",
+    "safe_controlled_support_vault_design"
+  ],
+  "safety_assertions": {
+    "no_funds_moved": true,
+    "no_wallet_access_requested": true,
+    "no_private_keys_requested": true,
+    "no_seed_phrase_requested": true,
+    "no_liquidity_created": true,
+    "no_treasury_routing": true,
+    "no_public_identity_claim": true,
+    "financial_exposure_zero": true
+  },
+  "summary": "Phase 8 Human Onboarding Public Explanation v1 completed. QPF now publicly explains external human wallet onboarding as receipt-backed, role-based, read-only, and zero-financial-exposure by default."
+}

@@ -1,0 +1,100 @@
+{
+  "schema": "human-onboarding-receipt-template-v1",
+  "description": "Reusable receipt template for onboarding a human wallet into QPF/OINIO. Copy this file, rename with the wallet identifier, fill in the fields, and commit.",
+  "instructions": [
+    "1. Copy this file to receipts/governance/{wallet-identifier}-onboarding-v1.json",
+    "2. Fill in all REQUIRED fields",
+    "3. Choose one ROLE from the roles list below",
+    "4. Verify safety_assertions remain true",
+    "5. Commit with message: 'receipt(governance): read-only onboarding v1 for {controller} {role}'",
+    "6. Seal milestone with a governance receipt after onboarding is complete"
+  ],
+  "available_roles": {
+    "supporter_wallet": {
+      "description": "Someone supporting the project. No authority. No claims.",
+      "intent": "public_record_of_support"
+    },
+    "builder_wallet": {
+      "description": "Someone contributing work. No deployment or fund authority.",
+      "intent": "contribution_verification"
+    },
+    "observer_wallet": {
+      "description": "Watching governance or activity. No voting power.",
+      "intent": "observation"
+    },
+    "donor_wallet": {
+      "description": "Provided past support. No ongoing obligation. No control.",
+      "intent": "past_support_acknowledgment"
+    },
+    "foundation_candidate_wallet": {
+      "description": "Under consideration for a foundation role. No authority until explicit verification and legal steps.",
+      "intent": "candidacy_pending_verification"
+    },
+    "trust_candidate_wallet": {
+      "description": "Under consideration for a trust-related role. No authority until explicit verification.",
+      "intent": "candidacy_pending_verification"
+    },
+    "personal_support_wallet": {
+      "description": "Personal support from an individual. No foundation or public claim.",
+      "intent": "personal_support"
+    }
+  },
+  "template": {
+    "governance_version": "v1",
+    "receipt": "REQUIRED: {wallet-identifier}-onboarding-v1",
+    "created_at": "REQUIRED: ISO 8601 timestamp",
+    "base_head": "REQUIRED: current git commit hash",
+    "mode": "read_only_onboarding",
+    "wallet": {
+      "address": "REQUIRED: public wallet address",
+      "chain": "REQUIRED: e.g. Bitcoin, Ethereum, OINIO, 0G",
+      "role": "REQUIRED: select from available_roles above",
+      "claimed_controller": "REQUIRED: name or pseudonym of the wallet provider",
+      "control_statement": "REQUIRED: statement from the provider confirming wallet control",
+      "permission_statement": "REQUIRED: permission boundary from the provider"
+    },
+    "status": "candidate_wallet_received_role_confirmed",
+    "allowed_now": [
+      "record_wallet_address",
+      "record_role",
+      "preserve_onboarding_evidence",
+      "create_internal_qpf_receipt",
+      "optional_future_signed_message_verification"
+    ],
+    "blocked_actions": [
+      "funds_movement",
+      "btc_send",
+      "oinio_pairing",
+      "liquidity",
+      "treasury_routing",
+      "public_foundation_claim",
+      "claim_wallet_is_for_kris",
+      "claim_wallet_is_imagine_foundation_wallet",
+      "claim_guardian_authority",
+      "claim_safe_authority",
+      "minting",
+      "staking",
+      "bridge_activity"
+    ],
+    "safety_assertions": {
+      "no_funds_moved": true,
+      "no_wallet_access_requested": true,
+      "no_private_keys_requested": true,
+      "no_seed_phrase_requested": true,
+      "no_public_identity_claim": true,
+      "no_foundation_authority_claim": true,
+      "no_liquidity_created": true,
+      "no_oinio_pairing_created": true,
+      "no_signing_authorized": true,
+      "no_broadcast_authorized": true
+    },
+    "next_required": [
+      "optional signed message proving wallet control",
+      "explicit public_or_private_permission",
+      "separate verified foundation wallet if foundation onboarding is requested",
+      "human approval before any financial movement"
+    ]
+  },
+  "policy_reference": "docs/governance/WALLET_ONBOARDING_POLICY_V1.md",
+  "principle": "Trust can be honored without movement. Support can be recorded without custody. Verification comes before value flow."
+}

@@ -1,0 +1,35 @@
+{
+  "governance_version": "v1",
+  "receipt": "oinio-wallet-onboarding-status-index-v1",
+  "created_at": "2026-06-26T17:37:33.926Z",
+  "base_head": "70e8d9d5dc2a4e1823d21918d890e78a6b583903",
+  "indexed_receipts": [
+    {
+      "path": "receipts/governance/oinio-personal-support-wallet-onboarding-v1.json",
+      "sha256": "55d8c5c6f88f5cb600a32fd8dc15b49c4150170d155fda2ec4afab69d1ab925b",
+      "status": "complete",
+      "mode": "read_only_evidence_role_metadata"
+    }
+  ],
+  "canonical_status": {
+    "wallet": "bc1qmcmz4xp5ean3mne3xwylke4xsc7h5n2x83u28f",
+    "chain": "Bitcoin",
+    "role": "personal_support_wallet",
+    "status": "onboarded_read_only",
+    "financial_exposure": "zero"
+  },
+  "standing_boundaries": [
+    "not_a_foundation_wallet_claim",
+    "not_an_imagine_foundation_wallet_claim",
+    "not_a_wallet_for_kris_claim",
+    "not_an_oinio_pairing",
+    "not_liquidity",
+    "not_treasury_routing",
+    "not_public_identity_claim"
+  ],
+  "next_allowed_steps": [
+    "optional_signed_bitcoin_message_verification",
+    "explicit_public_private_permission",
+    "separate_foundation_wallet_onboarding_if_requested"
+  ]
+}
