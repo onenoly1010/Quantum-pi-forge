@@ -1,0 +1,53 @@
+{
+  "governance_version": "v2",
+  "created_at": "2026-06-26T20:41:07.707Z",
+  "status": "REVIEWER_APPROVAL_PACKAGE_READY",
+  "review_priority": "HIGH",
+  "funding_priority": "HUMAN_SUSTENANCE_AND_AGENT_EARNING",
+  "technical_status": "FOUNDATION_CONFIRMED_GATED_PUBLIC_READINESS",
+  "custody_status": "HUMAN_CUSTODY_REQUIRED",
+  "requested_action": "APPROVE_PRIORITY_GRANT_SUPPORT_REVIEW",
+  "head": "71917147e2deaafc6e2f96b5838ac51d0d74f89f",
+  "branch": "phase8/human-why-v1",
+  "evidence_commits": [
+    "ff8f766",
+    "ddc70c5",
+    "70f78fa",
+    "dcbbb9a",
+    "3eebb82",
+    "05aebbb",
+    "7f3b39a",
+    "7c71c3e",
+    "020fa01",
+    "7191714"
+  ],
+  "conditions_met": [
+    "PROJECT_LEVEL_ERC721_FOUND",
+    "FALSE_EMPTY_PATH_REJECTED",
+    "MINT_READY_NOT_PUBLIC_READY_CLASSIFIED",
+    "HUMAN_CUSTODY_OPENED",
+    "BALANCES_MAPPED",
+    "HUMAN_SUSTENANCE_PRIORITY_OPENED",
+    "AGENT_EARNING_LANES_OPENED",
+    "REVIEWER_PRIORITY_GATE_OPENED"
+  ],
+  "conditions_open": [
+    "CLASSIFY_8_NON_ZERO_BALANCES",
+    "CONFIRM_KRIS_TREZOR_DESTINATION",
+    "PREPARE_UNSIGNED_ROUTE_ONLY",
+    "ANCHOR_MODEL_REGISTRY_DEPLOYMENT_REALITY"
+  ],
+  "forbidden": [
+    "wallet_transfer",
+    "signing",
+    "broadcast",
+    "private_key_access",
+    "seed_phrase_access",
+    "token_approval",
+    "liquidity",
+    "staking",
+    "bridging",
+    "live_minting_without_gate"
+  ],
+  "next_gate": "CLASSIFY_8_NON_ZERO_BALANCES_AND_PREPARE_UNSIGNED_HUMAN_ROUTE"
+}
