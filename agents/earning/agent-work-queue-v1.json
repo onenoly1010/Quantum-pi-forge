@@ -1,0 +1,37 @@
+{
+  "created_at": "2026-06-26T20:11:31.261Z",
+  "status": "OPEN",
+  "agent_work_queue": [
+    {
+      "agent": "Grant / Funding Agent",
+      "task": "Create grant and bounty tracker for QPF/OINIO ecosystem opportunities",
+      "earning_path": "applications, bounties, sponsorships",
+      "wallet_risk": false
+    },
+    {
+      "agent": "Outreach Agent",
+      "task": "Draft plain-language supporter/builder invitation",
+      "earning_path": "sponsorships, builder partnerships, community support",
+      "wallet_risk": false
+    },
+    {
+      "agent": "Public Page Agent",
+      "task": "Draft Support / Build With QPF public page",
+      "earning_path": "donations, sponsorship, service inquiries",
+      "wallet_risk": false
+    },
+    {
+      "agent": "Invoice / Receipt Agent",
+      "task": "Create sponsorship/support receipt template",
+      "earning_path": "transparent incoming support records",
+      "wallet_risk": false
+    },
+    {
+      "agent": "Treasury Visibility Agent",
+      "task": "Summarize current 8 non-zero balance lanes in plain language",
+      "earning_path": "trust and operational readiness",
+      "wallet_risk": false
+    }
+  ],
+  "next_action": "SELECT_ONE_AGENT_TASK_FOR_IMMEDIATE_COMPLETION"
+}
