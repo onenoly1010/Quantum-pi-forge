@@ -1,0 +1,22 @@
+{
+  "governance_version": "v1",
+  "receipt": "staking-policy-readiness-v1",
+  "created_at": "2026-06-26T14:59:00.000Z",
+  "phase": 16,
+  "title": "Staking Readiness",
+  "status": "STAKING_NOT_AUTHORIZED",
+  "questions_to_answer": [
+    "What is staked?",
+    "What rewards exist?",
+    "Where rewards come from?",
+    "Can users withdraw?",
+    "What are the risks?",
+    "Is there a lock period?",
+    "Is it audited?"
+  ],
+  "safety_assertions": {
+    "no_staking_contract_deployed": true,
+    "no_reward_formula_defined": true,
+    "no_withdrawal_logic_enabled": true
+  }
+}

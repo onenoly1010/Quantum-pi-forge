@@ -1,0 +1,75 @@
+{
+  "governance_version": "v1",
+  "receipt": "public-ready-ecosystem-gate-index-v1",
+  "created_at": "2026-06-26T14:56:00.000Z",
+  "title": "Public-Ready Ecosystem Gate Index V1",
+  "purpose": "Single authoritative reference for all public-facing gates, public pages, and governance receipts for Phase 8 through Phase 17.",
+  "master_index": "docs/status/PUBLIC_READY_ECOSYSTEM_GATE_INDEX_V1.md",
+  "phase_summary": {
+    "phase_8": {
+      "title": "Human Explanation Closure",
+      "status": "CLOSED_ON_MAIN",
+      "receipt": "receipts/governance/phase-8-human-onboarding-main-closure-v1.json",
+      "commit": "5f490d6"
+    },
+    "phase_9": {
+      "title": "Mint Policy Readiness",
+      "status": "MINT_POLICY_REQUIRED",
+      "receipt": "receipts/governance/public-mint-policy-readiness-v1.json"
+    },
+    "phase_10": {
+      "title": "Public Mint Status Page",
+      "status": "PAGE_LIVE",
+      "file": "mint-status.html"
+    },
+    "phase_11": {
+      "title": "Disabled Mint Interface",
+      "status": "UI_LOCKED",
+      "file": "mint.html"
+    },
+    "phase_12": {
+      "title": "Guardian / Governance Authorization",
+      "status": "AUTHORIZATION_PENDING",
+      "receipt": "receipts/governance/public-mint-authorization-v1.json",
+      "guardian_safe": "0x8d088B88219D072aB035502065ee2410c2cb4389"
+    },
+    "phase_13": {
+      "title": "First Controlled Mint",
+      "status": "PREPARED",
+      "receipt": "receipts/execution/first-controlled-mint-v1.json"
+    },
+    "phase_14": {
+      "title": "Public Mint Opening",
+      "status": "PENDING_CONTROLLED_MINT_VERIFICATION",
+      "receipt": "receipts/governance/public-mint-open-v1.json"
+    },
+    "phase_15": {
+      "title": "Liquidity Readiness",
+      "status": "LIQUIDITY_NOT_AUTHORIZED",
+      "receipt": "receipts/governance/liquidity-policy-readiness-v1.json"
+    },
+    "phase_16": {
+      "title": "Staking Readiness",
+      "status": "STAKING_NOT_AUTHORIZED",
+      "receipt": "receipts/governance/staking-policy-readiness-v1.json"
+    },
+    "phase_17": {
+      "title": "Bridge Readiness",
+      "status": "BRIDGE_NOT_AUTHORIZED",
+      "receipt": "receipts/governance/bridge-policy-readiness-v1.json"
+    }
+  },
+  "safety_assertions": {
+    "no_public_mint_enabled": true,
+    "no_liquidity_pool_created": true,
+    "no_staking_contract_deployed": true,
+    "no_bridge_contract_deployed": true,
+    "all_gates_explicitly_closed_or_pending": true
+  },
+  "next_executable_gate": "Phase 13: first controlled mint verification only after authorization",
+  "confirmation": [
+    "All Phase 8-17 gates are explicitly closed or pending.",
+    "No public mint, token sale, liquidity launch, staking rewards, or bridge deployment is enabled.",
+    "All public-facing pages and receipts are accounted for in their respective phases."
+  ]
+}

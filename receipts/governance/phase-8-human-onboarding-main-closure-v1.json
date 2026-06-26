@@ -1,0 +1,31 @@
+{
+  "governance_version": "v1",
+  "receipt": "phase-8-human-onboarding-main-closure-v1",
+  "created_at": "2026-06-26T14:59:00.000Z",
+  "phase": 8,
+  "title": "Phase 8 Human Onboarding Closure",
+  "base_head": "5f490d6",
+  "pr": {
+    "number": 518,
+    "title": "phase8: add why-this-matters human-facing page",
+    "state": "MERGED",
+    "merge_commit": "5f490d6",
+    "merge_method": "squash"
+  },
+  "status": "CLOSED",
+  "summary": "Human-facing onboarding explanation merged into main. Public mint policy readiness opened.",
+  "artifacts_merged": [
+    "deploy/human-onboarding.html",
+    "deploy/why-this-matters.html",
+    "docs/human-onboarding-explanation-v1.md",
+    "receipts/governance/human-onboarding-public-explanation-v1-closure.json",
+    "receipts/governance/phase-8-opening-receipt-v1.json",
+    "receipts/governance/wallet-onboarding-policy-v1.json"
+  ],
+  "next_phase": {
+    "phase": 9,
+    "title": "Public Mint Policy Readiness",
+    "receipt": "public-mint-policy-readiness-v1",
+    "status": "MINT_POLICY_REQUIRED"
+  }
+}

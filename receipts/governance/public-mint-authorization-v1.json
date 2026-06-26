@@ -1,0 +1,34 @@
+{
+  "governance_version": "v1",
+  "receipt": "public-mint-authorization-v1",
+  "created_at": "2026-06-26T14:59:00.000Z",
+  "phase": 12,
+  "title": "Guardian / Governance Public Mint Authorization",
+  "status": "AUTHORIZATION_PENDING",
+  "guardian_safe": {
+    "address": "0x8d088B88219D072aB035502065ee2410c2cb4389",
+    "chain": "Ethereum / Multi-chain",
+    "role": "governance_authorization_gate"
+  },
+  "authorization_questions": [
+    "Public mint authorized: PENDING",
+    "Who authorized it: Guardian / governance path - NOT YET SEALED",
+    "What contract: awaiting exact address confirmation",
+    "What chain: 0G Aristotle Mainnet, chain 16661",
+    "What supply/rules: awaiting definition",
+    "What fee: awaiting definition, even if zero",
+    "What metadata: awaiting definition",
+    "What risk warning: awaiting definition"
+  ],
+  "safety_assertions": {
+    "no_public_mint_authorized": true,
+    "no_wallet_execution_enabled": true,
+    "no_controlled_mint_executed": true
+  },
+  "required_artifacts": [
+    "receipts/governance/public-mint-authorization-v1.json",
+    "receipts/execution/first-controlled-mint-v1.json",
+    "Mint button activation signal"
+  ],
+  "gate_state": "CLOSED"
+}
