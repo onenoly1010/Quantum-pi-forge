@@ -1,0 +1,53 @@
+{
+  "governance_version": "v1",
+  "receipt": "wallet-onboarding-policy-v1",
+  "created_at": "2026-06-26T17:46:19.482Z",
+  "base_head": "c264426f1f672c557403c533f9b96b50f8b50a8d",
+  "mode": "policy_seal",
+  "policy_doc": {
+    "path": "docs/governance/WALLET_ONBOARDING_POLICY_V1.md",
+    "sha256": "d39c09cf790945e49654e60f5126ea577e9d4910266d312ec3345d007d41d5b1"
+  },
+  "indexed_wallet_receipts": [
+    {
+      "path": "receipts/governance/oinio-personal-support-wallet-onboarding-v1.json",
+      "sha256": "55d8c5c6f88f5cb600a32fd8dc15b49c4150170d155fda2ec4afab69d1ab925b"
+    },
+    {
+      "path": "receipts/governance/oinio-wallet-onboarding-status-index-v1.json",
+      "sha256": "cfc94458dcc5501e62a2e9c6590dd7beaf528f421c480d1153c2cbbd3e0ca8fd"
+    }
+  ],
+  "default_posture": "read_only_evidence_role_metadata",
+  "blocked_actions": [
+    "funds_movement",
+    "btc_send",
+    "oinio_transfer",
+    "oinio_pairing",
+    "liquidity",
+    "treasury_routing",
+    "staking",
+    "minting",
+    "bridge_activity",
+    "public_foundation_claim",
+    "public_identity_claim",
+    "wallet_for_kris_claim",
+    "guardian_authority_claim"
+  ],
+  "unlock_requirements": [
+    "signed_wallet_control_message",
+    "explicit_public_private_permission",
+    "explicit_role_confirmation",
+    "independent_legal_or_foundation_verification_for_public_authority_claims",
+    "human_approval_before_financial_movement"
+  ],
+  "safety_assertions": {
+    "no_funds_moved": true,
+    "no_wallet_access_requested": true,
+    "no_private_keys_requested": true,
+    "no_seed_phrase_requested": true,
+    "no_liquidity_created": true,
+    "no_treasury_routing": true,
+    "no_public_identity_claim": true
+  }
+}
