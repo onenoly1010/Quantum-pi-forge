@@ -35,8 +35,10 @@
     },
     "phase_13": {
       "title": "First Controlled Mint",
-      "status": "PREPARED",
-      "receipt": "receipts/execution/first-controlled-mint-v1.json"
+      "status": "CONTROLLED_MINT_APPROVAL_REQUIRED",
+      "receipt": "receipts/execution/first-controlled-mint-v1.json",
+      "pre_execution_authorization": "receipts/governance/controlled-mint-approval-and-stake-risk-v1.json",
+      "note": "Requires OINIO token approval and transfer because registerModel() requires stakeAmount > 0 and calls transferFrom"
     },
     "phase_14": {
       "title": "Public Mint Opening",

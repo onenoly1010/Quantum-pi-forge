@@ -104,8 +104,26 @@ Required before public mint opens:
 
 ## Phase 13 — First Controlled Mint
 
-* Status: PREPARED
+* Status: CONTROLLED_MINT_APPROVAL_REQUIRED
 * Receipt: `receipts/execution/first-controlled-mint-v1.json`
+* Pre-execution authorization: `receipts/governance/controlled-mint-approval-and-stake-risk-v1.json`
+
+Context: The first controlled mint requires OINIO token approval and transfer because registerModel() requires stakeAmount > 0 and calls transferFrom.
+
+Required wallet actions:
+- approve OINIO spend for registry contract
+- call registerModel with positive stakeAmount
+- OINIO transferred from caller to registry
+- ERC721 NFT minted to caller
+
+Guardian Safe: 0x8d088B88219D072aB035502065ee2410c2cb4389
+
+Required approvals:
+- Guardian authorization for first controlled mint
+- Explicit approval for OINIO token movement
+- Stake amount definition
+- Recipient confirmation
+- Metadata URI confirmation
 
 Rules:
 - One mint only
@@ -207,7 +225,7 @@ Questions to answer before authorization:
 | 10 | Public Mint Status Page | PAGE LIVE |
 | 11 | Disabled Mint Interface | UI LOCKED |
 | 12 | Guardian / Governance Authorization | AUTHORIZATION_PENDING |
-| 13 | First Controlled Mint | PREPARED |
+| 13 | First Controlled Mint | CONTROLLED_MINT_APPROVAL_REQUIRED |
 | 14 | Public Mint Opening | PENDING_CONTROLLED_MINT_VERIFICATION |
 | 15 | Liquidity Readiness | LIQUIDITY_NOT_AUTHORIZED |
 | 16 | Staking Readiness | STAKING_NOT_AUTHORIZED |
