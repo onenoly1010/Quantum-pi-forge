@@ -24,6 +24,7 @@ const staticFiles = [
   { src: 'deploy/staking.html', dest: 'staking.html' },
   { src: 'deploy/what-it-does.html', dest: 'what-it-does.html' },
   { src: 'deploy/for-builders.html', dest: 'for-builders.html' },
+  { src: 'deploy/deployed-addresses.html', dest: 'deployed-addresses.html' },
   { src: 'deploy/manifest.json', dest: 'manifest.json' },
   { src: 'ceremonial_interface.html', dest: 'ceremonial_interface.html', optional: true },
   { src: 'spectral_command_shell.html', dest: 'spectral_command_shell.html', optional: true },
