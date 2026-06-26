@@ -1,0 +1,165 @@
+{
+  "governance_version": "v2",
+  "receipt": "human-balance-activation-v1",
+  "created_at": "2026-06-26T19:56:23.600Z",
+  "source": "reports/balances/human-balance-map-v1.json",
+  "status": "NON_ZERO_BALANCES_EXTRACTED_FOR_HUMAN_CLASSIFICATION",
+  "wallet_actions": false,
+  "signing": false,
+  "broadcast": false,
+  "private_key_access": false,
+  "non_zero_count": 8,
+  "balances": [
+    {
+      "address": "0x8d088B88219D072aB035502065ee2410c2cb4389",
+      "native_0g": "2",
+      "native_0g_wei": "2000000000000000000",
+      "custody_lane": "UNCLASSIFIED",
+      "proposed_destination": "UNSET",
+      "action": "REVIEW_BEFORE_MOVEMENT",
+      "files": [
+        "receipts/contracts/safe-ownership-transfer-preflight-phase-6-v1.json",
+        "receipts/governance/guardian-completion-acceptance-v1.json",
+        "receipts/governance/guardian-governance-readiness-v1.json",
+        "receipts/governance/phase-7-authorization-proposal-v1.json",
+        "receipts/governance/phase-7-deploy-yield-router-script-created-v1.json",
+        "receipts/governance/phase-7-guardian-address-intake-v1.json",
+        "receipts/governance/phase-7-pre-execution-validation-v1.json",
+        "receipts/governance/phase-7-yield-routing-post-execution-v1.json",
+        "receipts/governance/pr-516-phase-7-post-merge-closure-v1.json",
+        "receipts/governance/public-onboarding-readiness-v1-evidence-v1.json",
+        "receipts/onboarding/explorer-verification-phase-3-v1.json",
+        "contracts/script/DeployYieldRouter.s.sol"
+      ]
+    },
+    {
+      "address": "0xD1De4F87C8b195f21254b7163dDA9370D8Df593d",
+      "native_0g": "0.050000000000000000",
+      "native_0g_wei": "50000000000000000",
+      "custody_lane": "UNCLASSIFIED",
+      "proposed_destination": "UNSET",
+      "action": "REVIEW_BEFORE_MOVEMENT",
+      "files": [
+        "receipts/execution/v2-first-pair-final-execution-command-selection-v1.json",
+        "receipts/execution/v2-first-pair-final-live-prebroadcast-probe-v1.json",
+        "receipts/execution/v2-first-pair-final-state-seal-v1.json",
+        "receipts/execution/v2-first-pair-init-command-hash-v1.json",
+        "receipts/execution/v2-first-pair-live-createpair-execution-v1.json",
+        "receipts/execution/v2-first-pair-metadata-probe-v1.json",
+        "receipts/execution/v2-full-dex-deployment-execution-v1.json",
+        "receipts/execution/v2-pair-init-execution-v1.json",
+        "receipts/governance/liquidity-approval-command-hash-blocked-v1.json",
+        "receipts/governance/liquidity-funding-plan-v1.json",
+        "receipts/governance/liquidity-readiness-preflight-v1.json",
+        "docs/deployments/0g-dex-first-pair-final-execution-command-selection-v1.md",
+        "docs/deployments/0g-dex-first-pair-final-state-seal-v1.md",
+        "docs/deployments/0g-dex-first-pair-init-command-hash-v1.md",
+        "docs/deployments/0g-dex-first-pair-init-preflight-audit-v1.md",
+        "docs/deployments/0g-dex-first-pair-live-createpair-execution-v1.md",
+        "docs/deployments/0g-dex-first-pair-metadata-probe-v1.md",
+        "docs/deployments/0g-dex-first-pair-selection-manifest-v1.md",
+        "docs/deployments/0g-dex-pair-init-execution-v1.md",
+        "docs/deployments/0g-dex-pair-init-readiness-v1.md",
+        "docs/deployments/full-0g-dex-live-status-v1.md",
+        "contracts/0g-uniswap-v2/broadcast/Deploy.s.sol/16661/deployW0GOnly-latest.json",
+        "contracts/0g-uniswap-v2/broadcast/Deploy.s.sol/16661/run-1781556527918.json"
+      ]
+    },
+    {
+      "address": "0x0000000000000000000000000000000000000000",
+      "native_0g": "878198773.004057045915887779",
+      "native_0g_wei": "878198773004057045915887779",
+      "custody_lane": "UNCLASSIFIED",
+      "proposed_destination": "UNSET",
+      "action": "REVIEW_BEFORE_MOVEMENT",
+      "files": [
+        "receipts/execution/v2-first-pair-final-live-prebroadcast-probe-v1.json",
+        "receipts/execution/v2-first-pair-live-createpair-execution-v1.json",
+        "docs/CODE_REVIEW_IMPLEMENTATION.md",
+        "docs/deployments/0g-dex-first-pair-metadata-probe-v1.md",
+        "docs/governance/EXECUTION_WRAPPER_READINESS_TRIAGE_V1.md",
+        "contracts/0g-uniswap-v2/broadcast/Deploy.s.sol/16661/deployW0GOnly-latest.json",
+        "contracts/0g-uniswap-v2/broadcast/Deploy.s.sol/16661/run-1781556527918.json",
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-1781550759760.json",
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-latest.json",
+        "contracts/lib/forge-std/src/safeconsole.sol",
+        "contracts/lib/forge-std/test/Config.t.sol",
+        "contracts/lib/forge-std/test/fixtures/broadcast.log.json",
+        "contracts/lib/openzeppelin-contracts/contracts/governance/Governor.sol",
+        "contracts/lib/openzeppelin-contracts/contracts/metatx/ERC2771Forwarder.sol",
+        "contracts/lib/openzeppelin-contracts/contracts/utils/ShortStrings.sol",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/test/fixtures/broadcast.log.json"
+      ]
+    },
+    {
+      "address": "0x335651BD160fDA89C9E7A095dF9Dc1BB9f3cF4DC",
+      "native_0g": "6.507996671795127059",
+      "native_0g_wei": "6507996671795127059",
+      "custody_lane": "UNCLASSIFIED",
+      "proposed_destination": "UNSET",
+      "action": "REVIEW_BEFORE_MOVEMENT",
+      "files": [
+        "receipts/execution/v2-first-pair-live-createpair-execution-v1.json",
+        "receipts/execution/v2-full-dex-deployment-execution-v1.json",
+        "receipts/governance/liquidity-approval-command-hash-blocked-v1.json",
+        "receipts/governance/liquidity-funding-plan-v1.json",
+        "receipts/governance/liquidity-readiness-preflight-v1.json",
+        "receipts/governance/public-validation-status-v1.json",
+        "receipts/security/eth-mainnet-old-wallet-untrusted-v1.json",
+        "docs/deployments/full-0g-dex-live-status-v1.md",
+        "docs/deployments/liquidity-funding-plan-v1.md",
+        "docs/governance/PUBLIC_VALIDATION_STATUS_V1.md",
+        "docs/security/ETH_MAINNET_OLD_WALLET_UNTRUSTED_V1.md",
+        "contracts/0g-uniswap-v2/broadcast/Deploy.s.sol/16661/deployW0GOnly-latest.json",
+        "contracts/0g-uniswap-v2/broadcast/Deploy.s.sol/16661/run-1781556527918.json",
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-1781550759760.json",
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-latest.json"
+      ]
+    },
+    {
+      "address": "0x353663cd664bB3e034Dc0f308D8896C0a242e4cd",
+      "native_0g": "0.000157500000441000",
+      "native_0g_wei": "157500000441000",
+      "custody_lane": "UNCLASSIFIED",
+      "proposed_destination": "UNSET",
+      "action": "REVIEW_BEFORE_MOVEMENT",
+      "files": [
+        "receipts/governance/earnings-layer-absence-audit-v1.json"
+      ]
+    },
+    {
+      "address": "0x1234567890123456789012345678901234567890",
+      "native_0g": "0.000100000000000000",
+      "native_0g_wei": "100000000000000",
+      "custody_lane": "UNCLASSIFIED",
+      "proposed_destination": "UNSET",
+      "action": "REVIEW_BEFORE_MOVEMENT",
+      "files": [
+        "docs/VERIFICATION.md"
+      ]
+    },
+    {
+      "address": "0x1111111111111111111111111111111111111111",
+      "native_0g": "0.000100000000000000",
+      "native_0g_wei": "100000000000000",
+      "custody_lane": "UNCLASSIFIED",
+      "proposed_destination": "UNSET",
+      "action": "REVIEW_BEFORE_MOVEMENT",
+      "files": [
+        "contracts/lib/forge-std/test/Config.t.sol"
+      ]
+    },
+    {
+      "address": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+      "native_0g": "0.010000000000000000",
+      "native_0g_wei": "10000000000000000",
+      "custody_lane": "UNCLASSIFIED",
+      "proposed_destination": "UNSET",
+      "action": "REVIEW_BEFORE_MOVEMENT",
+      "files": [
+        "contracts/lib/forge-std/test/StdCheats.t.sol"
+      ]
+    }
+  ],
+  "next_gate": "CLASSIFY_EACH_BALANCE_PERSONAL_GUARDIAN_SAFE_COMMUNITY_PROJECT_OR_DO_NOT_TOUCH"
+}
