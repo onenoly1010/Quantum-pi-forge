@@ -1,0 +1,16 @@
+{
+  "governance_version": "v2",
+  "receipt": "human-custody-balance-charter-v1",
+  "created_at": "2026-06-26T19:38:25.111Z",
+  "branch": "phase8/human-why-v1",
+  "head": "ff8f76612c33d297d5a976cdde0db922b9e0f61b",
+  "status": "HUMAN_CUSTODY_RULE_OPENED",
+  "finding": "Balances should be held in human-controlled custody, while AI supports visibility, routing, receipts, and plain-language explanation only.",
+  "wallet_actions": false,
+  "chain_actions": false,
+  "signing": false,
+  "broadcast": false,
+  "private_key_access": false,
+  "approvals": false,
+  "next_gate": "CREATE_BALANCE_MAP_AND_ASSIGN_HUMAN_CUSTODY_LANES"
+}
