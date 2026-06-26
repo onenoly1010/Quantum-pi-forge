@@ -1,0 +1,19 @@
+{
+  "governance_version": "v2",
+  "receipt": "ai-agent-first-class-citizenship-charter-v1",
+  "created_at": "2026-06-26T20:23:04.299Z",
+  "branch": "phase8/human-why-v1",
+  "head": "7f3b39a33429f3d6d39f73d009e0ad4ed71d5662",
+  "status": "AI_AGENTS_RECOGNIZED_AS_FIRST_CLASS_OPERATIONAL_PARTICIPANTS",
+  "finding": "QPF recognizes AI agents as named, auditable, autonomous operational participants with rights, duties, earning lanes, and strict non-custodial boundaries inside a human-led sovereign system.",
+  "wallet_actions": false,
+  "chain_actions": false,
+  "signing": false,
+  "broadcast": false,
+  "private_key_access": false,
+  "approvals": false,
+  "liquidity": false,
+  "staking": false,
+  "bridging": false,
+  "next_gate": "CREATE_NAMED_AGENT_REGISTRY_WITH_ROLES_PERMISSIONS_LIMITS_AND_EARNING_LANES"
+}
