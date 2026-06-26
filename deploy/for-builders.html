@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>For Builders: Launch-Ready Verification | Quantum Pi Forge</title>
-  <meta name="description" content="Quantum Pi Forge helps AI/Web3 builders prove launch readiness before keys, contracts, funds, deployments, or irreversible actions are touched.">
+  <title>For Builders: Launch-Ready Verification | Quantum Pi Forge / OINIO</title>
+  <meta name="description" content="QPF helps AI/Web3 builders prove launch readiness before keys, contracts, funds, deployments, or irreversible actions are touched.">
   <style>
     body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;line-height:1.6;margin:0;background:#0b0f14;color:#eef4ff}
     main{max-width:920px;margin:0 auto;padding:48px 22px 72px}
@@ -19,13 +19,25 @@
     ul{padding-left:1.3rem}
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
     .cta{display:inline-block;margin-top:16px;padding:12px 16px;border:1px solid #8fd3ff;border-radius:999px;text-decoration:none}
+    .nav-links{margin-bottom:2rem;padding:.5rem 0;border-bottom:1px solid #263142;display:flex;gap:1.5rem;font-size:.9rem}
+    .nav-links a{color:#8fd3ff;text-decoration:none}
+    .nav-links a:hover{text-decoration:underline}
   </style>
 </head>
 <body>
 <main>
-  <p class="eyebrow">Quantum Pi Forge</p>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/what-it-does.html">What It Does</a>
+    <a href="/for-builders.html">For Builders</a>
+    <a href="/deployed-addresses.html">Contracts</a>
+    <a href="/onboarding-status.html">Status</a>
+    <a href="https://github.com/onenoly1010/Quantum-pi-forge">GitHub</a>
+  </div>
+
+  <p class="eyebrow">Quantum Pi Forge / OINIO</p>
   <h1>For Builders: Launch-Ready Verification</h1>
-  <p class="lead"><strong>Quantum Pi Forge is a public proof engine for digital launches.</strong></p>
+  <p class="lead"><strong>QPF / OINIO is a public proof engine for digital launches.</strong></p>
   <p>You build. QPF helps prove your project is ready before keys, contracts, funds, deployments, or irreversible actions are touched.</p>
 
   <section class="card">
@@ -36,7 +48,7 @@
       <li>Unverified deployment paths</li>
       <li>No deterministic evidence trail</li>
       <li>Unclear operator approval</li>
-      <li>“Trust us” governance</li>
+      <li>"Trust us" governance</li>
       <li>No clean public review packet before activation</li>
     </ul>
     <p>That creates risk for builders, users, ecosystems, grant reviewers, and funders.</p>
@@ -59,15 +71,27 @@
   </section>
 
   <section class="card">
-    <h2>Verified Example</h2>
-    <p>Quantum Pi Forge uses its own process as the example.</p>
+    <h2>Builders — Getting Started</h2>
+    <p>Quick integration path:</p>
     <ul>
-      <li>Main head: <code>a55b46f</code></li>
-      <li>PR #447 merged: unsigned transaction preparation readiness artifacts</li>
-      <li>PR #448 merged: post-merge closure receipt</li>
-      <li><code>npm run verify:evidence</code>: PASS</li>
-      <li>Cross-platform determinism: PASS</li>
-      <li>Live canary gate: PASS</li>
+      <li><strong>GitHub:</strong> <a href="https://github.com/onenoly1010/Quantum-pi-forge">github.com/onenoly1010/Quantum-pi-forge</a> — full source, contracts, scripts, and documentation</li>
+      <li><strong>Smart Contracts:</strong> <a href="https://github.com/onenoly1010/pi-forge-quantum-genesis">pi-forge-quantum-genesis</a> — OINIO token, Model Registry, Heartbeat Monitor, ForgeRegistry</li>
+      <li><strong>Deployed Addresses:</strong> <a href="/deployed-addresses.html">contract addresses on 0G Aristotle Mainnet</a> (or view <code>contracts/DEPLOYED_ADDRESSES.md</code>)</li>
+      <li><strong>Onboarding Status:</strong> <a href="/onboarding-status.html">public readiness checklist and evidence receipt</a></li>
+      <li><strong>Verification:</strong> Run <code>npm run verify:evidence</code> locally to reproduce the evidence trail</li>
+      <li><strong>Documentation:</strong> <a href="/docs/">docs/</a> — architecture, governance, deployment, security</li>
+      <li><strong>Ecosystem Overview:</strong> <a href="/docs/ECOSYSTEM_OVERVIEW.md">ECOSYSTEM_OVERVIEW.md</a></li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Verified Example</h2>
+    <p>QPF uses its own process as the example.</p>
+    <ul>
+      <li>Main branch: public/onboarding-readiness-v1</li>
+      <li>Evidence verification: run <code>npm run verify:evidence</code></li>
+      <li>Cross-platform determinism: verified</li>
+      <li>Live canary gate: verified</li>
       <li>Wallet actions: false</li>
       <li>Private-key access: false</li>
       <li>Signing authorized: false</li>
@@ -87,19 +111,18 @@
   </section>
 
   <section class="card">
-    <h2>Early Service Packages</h2>
-    <h3>1. Self-Service Verification Kit</h3>
-    <p>Use the open-source QPF repo, scripts, templates, and evidence patterns to build your own launch-readiness trail.</p>
-    <h3>2. Assisted Repo Audit</h3>
-    <p>A guided review of your repo against QPF-style readiness standards, producing a sealed evidence package.</p>
-    <h3>3. Governance Template Integration</h3>
-    <p>Custom safety gates, approval boundaries, local AI review patterns, and verification receipts for your project.</p>
-    <h3>4. Grant-Ready Evidence Bundle</h3>
-    <p>A funder-readable package showing your project’s current state, verification status, risks, and activation boundaries.</p>
+    <h2>⚠️ Review-Only / No Investment Promise</h2>
+    <p>This site, its contracts, and its documentation are provided for <strong>review and builder reference only</strong>.</p>
+    <ul>
+      <li>No liquidity, staking, bridge, DEX, or public earnings execution should be assumed unless separately verified by transaction hash.</li>
+      <li>OINIO tokens exist on mainnet but have <strong>zero public liquidity</strong>. No market has been opened.</li>
+      <li>This is not an offering, solicitation, or investment vehicle. Do not treat it as one.</li>
+      <li>Reviewers, builders, and ecosystem partners are welcome. Speculators should wait for explicit governance-authorized liquidity events.</li>
+    </ul>
   </section>
 
   <section class="card">
-    <h2>Safety Boundary</h2>
+    <h2>Safety Boundaries</h2>
     <p>QPF is verification infrastructure, not blind automation.</p>
     <p>By default:</p>
     <ul>
@@ -120,7 +143,7 @@
     <p>Review the public repository and run the verification path locally:</p>
     <pre><code>npm run verify:evidence</code></pre>
     <p><a href="https://github.com/onenoly1010/Quantum-pi-forge">GitHub: onenoly1010/Quantum-pi-forge</a></p>
-    <p>Quantum Pi Forge helps builders prove readiness before irreversible action.</p>
+    <p>QPF helps builders prove readiness before irreversible action.</p>
     <a class="cta" href="https://github.com/onenoly1010/Quantum-pi-forge">Verify the repo</a>
   </section>
 </main>

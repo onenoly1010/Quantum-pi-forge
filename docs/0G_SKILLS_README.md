@@ -255,11 +255,3 @@ curl -X POST https://evmrpc.0g.ai \
 
 **Last updated:** 2026-06-24
 **Canonical branch:** `ai/inner-docs-improvement-lane-v1`
-
-## Official 0G Building Reference
-
-Source: https://docs.0g.ai/developer-hub/building-on-0g/introduction
-
-This official 0G documentation page describes building AI-powered applications using 0G modular infrastructure and points builders toward 0G Chain, 0G Compute, 0G Storage, 0G DA, and Agentic IDs. It supports the repository posture of documenting and verifying one 0G service path at a time while preserving execution gates.
-
-QPF interpretation: Storage and Compute documentation may continue as documentation/review work, but Phase 7 execution remains blocked at `AWAITING_GUARDIAN_ADDRESS` until the real Ennead multisig/Gnosis Safe guardian address is obtained from the 0G Aristotle mainnet on-chain source of truth.

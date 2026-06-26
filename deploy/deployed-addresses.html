@@ -1,1 +1,227 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Deployed Addresses | Quantum Pi Forge</title><style>body{margin:0;background:#090b10;color:#eef2ff;font-family:system-ui,sans-serif;line-height:1.6}.wrap{max-width:960px;margin:auto;padding:56px 24px}a{color:#8be9fd}code{overflow-wrap:anywhere}.card{background:#101522;border:1px solid #263044;border-radius:16px;padding:22px;margin:18px 0}.warn{border-color:#8a5b18;background:#241b0b}</style></head><body><main class="wrap"><p><a href="/">Quantum Pi Forge</a> · <a href="/what-it-does.html">What it does</a> · <a href="/for-builders.html">For builders</a></p><h1>Deployed Addresses</h1><p>0G Aristotle Mainnet · Chain ID 16661 · Explorer: <a href="https://chainscan.0g.ai">chainscan.0g.ai</a></p><section class="card"><h2>Core contracts</h2><p><strong>OINIO Token</strong><br><code>0x75995EC0fdf881189850aeD864cB3f43c0DFCb58</code></p><p><strong>Model Registry</strong><br><code>0x67aD7169184581f23D1E10B39d4eb4e98293E87a</code></p><p><strong>Heartbeat Monitor</strong><br><code>0x5E50b92E57e854659f7D98c733088aABd551C49F</code></p></section><section class="card"><h2>DEX evidence</h2><p><strong>Factory</strong><br><code>0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8</code></p><p><strong>Sealed Pair</strong><br><code>0x709f23C7A7172E137427576abB5Eb8959E2A57c1</code></p><p>No liquidity is claimed on this page.</p></section><section class="card"><h2>Guardian governance</h2><p><strong>Safe</strong><br><code>0x8d088B88219D072aB035502065ee2410c2cb4389</code></p><p>Owner addresses remain private. Social recovery is not production-authorized.</p></section><section class="card warn"><strong>Safety boundary:</strong> This page is informational. It does not request wallet connection, signing, staking, minting, liquidity, approval, or transaction broadcast.</section></main></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Deployed Contracts | Quantum Pi Forge / OINIO</title>
+  <meta name="description" content="Live contract addresses, chain/network info, and explorer links for QPF / OINIO on 0G Aristotle Mainnet." />
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;background:#050816;color:#f8fafc;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6}
+    main{max-width:960px;margin:0 auto;padding:2rem 1.25rem 4rem}
+    a{color:#93c5fd}
+    .nav-links{margin-bottom:2rem;padding:.5rem 0;border-bottom:1px solid rgba(148,163,184,.2);display:flex;gap:1.5rem;font-size:.9rem;flex-wrap:wrap}
+    .nav-links a{text-decoration:none}
+    .nav-links a:hover{text-decoration:underline}
+    h1{font-size:clamp(1.6rem,4vw,2.6rem);margin:.2em 0 .1em;letter-spacing:-.04em}
+    .subtitle{color:#94a3b8;margin-bottom:2rem}
+    h2{margin-top:2.5rem;font-size:1.4rem;border-bottom:1px solid rgba(148,163,184,.15);padding-bottom:.5rem}
+    .network-card{background:rgba(30,41,59,.6);border:1px solid rgba(148,163,184,.2);border-radius:12px;padding:1.25rem;margin:1rem 0}
+    .network-card h3{margin:0 0 .5rem;color:#e0f2fe}
+    .network-card .detail{margin:.25rem 0;font-size:.95rem}
+    .network-card .label{color:#94a3b8;font-size:.82rem;display:inline-block;width:7rem}
+    .network-card .value{color:#f1f5f9;font-family:monospace;font-size:.9rem;word-break:break-all}
+    .contract-table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.9rem}
+    .contract-table th,.contract-table td{border:1px solid rgba(148,163,184,.15);padding:.5rem .75rem;text-align:left;vertical-align:top}
+    .contract-table th{background:rgba(30,41,59,.5);color:#94a3b8;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em}
+    .contract-table td{color:#e2e8f0}
+    .contract-table code{font-size:.82rem;word-break:break-all;background:rgba(0,0,0,.3);padding:.1rem .3rem;border-radius:3px}
+    .badge{display:inline-block;padding:.15rem .7rem;border-radius:999px;font-size:.75rem;font-weight:600}
+    .badge-live{background:rgba(34,197,94,.15);color:#22c55e;border:1px solid rgba(34,197,94,.3)}
+    .badge-pending{background:rgba(234,179,8,.15);color:#eab308;border:1px solid rgba(234,179,8,.3)}
+    .badge-private{background:rgba(239,68,68,.1);color:#ef4444;border:1px solid rgba(239,68,68,.2)}
+    .status-section{margin-top:2rem}
+    .status-row{display:flex;align-items:center;gap:.75rem;padding:.5rem 0;border-bottom:1px solid rgba(148,163,184,.08)}
+    .status-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+    .dot-live{background:#22c55e}
+    .dot-pending{background:#eab308}
+    .dot-private{background:#ef4444}
+    .dot-na{background:#64748b}
+    .copy-btn{background:transparent;border:1px solid rgba(148,163,184,.2);color:#93c5fd;padding:.1rem .4rem;border-radius:4px;cursor:pointer;font-size:.75rem;margin-left:.4rem}
+    .copy-btn:hover{background:rgba(147,197,253,.1)}
+    .gap-4{display:flex;gap:1rem;flex-wrap:wrap}
+    @media(max-width:600px){.contract-table th,.contract-table td{padding:.35rem .4rem;font-size:.8rem}}
+  </style>
+</head>
+<body>
+<main>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/what-it-does.html">What It Does</a>
+    <a href="/for-builders.html">For Builders</a>
+    <a href="/deployed-addresses.html">Contracts</a>
+    <a href="https://github.com/onenoly1010/Quantum-pi-forge">GitHub</a>
+  </div>
+
+  <h1>Deployed Contracts & Network Info</h1>
+  <p class="subtitle">Quantum Pi Forge / OINIO — verified contracts on 0G Aristotle Mainnet</p>
+
+  <!-- 0G ARISTOTLE NETWORK INFO -->
+  <section>
+    <h2>0G Aristotle Network</h2>
+    <div class="network-card">
+      <h3>0G Aristotle Mainnet</h3>
+      <div class="detail"><span class="label">Chain ID</span> <span class="value">16661 (0x4115)</span></div>
+      <div class="detail"><span class="label">RPC URL</span> <span class="value">https://evmrpc.0g.ai</span></div>
+      <div class="detail"><span class="label">Explorer</span> <span class="value"><a href="https://chainscan.0g.ai" target="_blank" rel="noopener">https://chainscan.0g.ai</a></span></div>
+      <div class="detail"><span class="label">Native Currency</span> <span class="value">0G (0G)</span></div>
+      <div class="detail"><span class="label">Current Block</span> <span class="value">~36,500,000+</span></div>
+    </div>
+  </section>
+
+  <!-- CONTRACT ADDRESSES -->
+  <section>
+    <h2>Smart Contract Addresses</h2>
+    <p style="color:#94a3b8;font-size:.9rem;">All deployed on 0G Aristotle Mainnet (Chain ID 16661). Explorer links provided where available.</p>
+
+    <table class="contract-table">
+      <thead>
+        <tr>
+          <th>Contract</th>
+          <th>Address</th>
+          <th>Status</th>
+          <th>Explorer</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>OINIO Token</strong></td>
+          <td><code>0x75995EC0fdf881189850aeD864cB3f43c0DFCb58</code></td>
+          <td><span class="badge badge-live">Live</span></td>
+          <td><a href="https://chainscan.0g.ai/address/0x75995EC0fdf881189850aeD864cB3f43c0DFCb58" target="_blank" rel="noopener">🔍 View</a></td>
+        </tr>
+        <tr>
+          <td><strong>OINIO Model Registry</strong></td>
+          <td><code>0x67aD7169184581f23D1E10B39d4eb4e98293E87a</code></td>
+          <td><span class="badge badge-live">Live</span></td>
+          <td><a href="https://chainscan.0g.ai/address/0x67aD7169184581f23D1E10B39d4eb4e98293E87a" target="_blank" rel="noopener">🔍 View</a></td>
+        </tr>
+        <tr>
+          <td><strong>Heartbeat Monitor</strong></td>
+          <td><code>0x5E50b92E57e854659f7D98c733088aABd551C49F</code></td>
+          <td><span class="badge badge-live">Live</span></td>
+          <td><a href="https://chainscan.0g.ai/address/0x5E50b92E57e854659f7D98c733088aABd551C49F" target="_blank" rel="noopener">🔍 View</a></td>
+        </tr>
+        <tr>
+          <td><strong>ForgeRegistry</strong></td>
+          <td><code>0x6011c341a01c80f489a5c3Ab751987A55142F04e</code></td>
+          <td><span class="badge badge-live">Live</span></td>
+          <td><a href="https://chainscan.0g.ai/address/0x6011c341a01c80f489a5c3Ab751987A55142F04e" target="_blank" rel="noopener">🔍 View</a></td>
+        </tr>
+        <tr>
+          <td><strong>DEX Factory</strong></td>
+          <td><code>0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8</code></td>
+          <td><span class="badge badge-live">Live</span></td>
+          <td><a href="https://chainscan.0g.ai/address/0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8" target="_blank" rel="noopener">🔍 View</a></td>
+        </tr>
+        <tr>
+          <td><strong>DEX Pair (OINIO/0G)</strong></td>
+          <td><code>0x709f23C7A7172E137427576abB5Eb8959E2A57c1</code></td>
+          <td><span class="badge badge-live">Live</span></td>
+          <td><a href="https://chainscan.0g.ai/address/0x709f23C7A7172E137427576abB5Eb8959E2A57c1" target="_blank" rel="noopener">🔍 View</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- GUARDIAN / GOVERNANCE -->
+  <section>
+    <h2>Governance Addresses</h2>
+    <div class="network-card">
+      <div class="detail">
+        <span class="label">Safe Guardian</span>
+        <span class="value">
+          <code>0x8d088B88219D072aB035502065ee2410c2cb4389</code>
+          <button class="copy-btn" onclick="navigator.clipboard.writeText('0x8d088B88219D072aB035502065ee2410c2cb4389');this.textContent='Copied!'">Copy</button>
+        </span>
+      </div>
+      <p style="color:#94a3b8;font-size:.85rem;margin-top:.5rem;">
+        This Safe wallet serves as the QPF guardian governance address on 0G Aristotle Mainnet.
+        Bytecode confirmed. Owner addresses remain private.
+      </p>
+    </div>
+  </section>
+
+  <!-- STATUS OF ONBOARDING FEATURES -->
+  <section>
+    <h2>Feature Status</h2>
+    <div class="status-section">
+      <div class="status-row">
+        <span class="status-dot dot-live"></span>
+        <span>OINIO Token — Live, transferable, public</span>
+      </div>
+      <div class="status-row">
+        <span class="status-dot dot-live"></span>
+        <span>OINIO Model Registry — Live, registration open</span>
+      </div>
+      <div class="status-row">
+        <span class="status-dot dot-live"></span>
+        <span>Heartbeat Monitor — Live, on-chain pings active</span>
+      </div>
+      <div class="status-row">
+        <span class="status-dot dot-live"></span>
+        <span>ForgeRegistry — Live, genesis anchor committed</span>
+      </div>
+      <div class="status-row">
+        <span class="status-dot dot-live"></span>
+        <span>DEX Factory + Pair — Live, pair sealed (no liquidity)</span>
+      </div>
+      <div class="status-row">
+        <span class="status-dot dot-live"></span>
+        <span>Safe Guardian — Live, governance address active</span>
+      </div>
+      <div class="status-row">
+        <span class="status-dot dot-pending"></span>
+        <span>Social Recovery — Created, not production-authorized</span>
+      </div>
+      <div class="status-row">
+        <span class="status-dot dot-pending"></span>
+        <span>Threshold Gate — Pending final governance decision</span>
+      </div>
+      <div class="status-row">
+        <span class="status-dot dot-pending"></span>
+        <span>Earnings / Yield — Proposed or gated unless live tx evidence exists</span>
+      </div>
+      <div class="status-row">
+        <span class="status-dot dot-private"></span>
+        <span>Owner Addresses — Private, never published</span>
+      </div>
+      <div class="status-row">
+        <span class="status-dot dot-na"></span>
+        <span>Wallet Signing / Staking / Minting / Broadcast — Disabled on this page</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPLOYMENT REFERENCE -->
+  <section>
+    <h2>Deployment Reference</h2>
+    <div class="network-card">
+      <p><strong>Birth Ceremony Transaction:</strong> <code>0xac4e8f...</code> (ForgeRegistry genesis)</p>
+      <p><strong>DEX CreatePair Transaction:</strong> <code>0x4f887876313a5085337ce22eac9418725558a91225096191057dd6d7d2e2f6a2</code></p>
+      <p><strong>DEX CreatePair Block:</strong> 36,238,884</p>
+      <p><strong>Full receipt index:</strong> <code>receipts/</code> in the <a href="https://github.com/onenoly1010/Quantum-pi-forge">repository</a></p>
+    </div>
+  </section>
+
+  <section style="margin-top:2rem;border:1px solid rgba(239,68,68,.2);background:rgba(239,68,68,.05);border-radius:12px;padding:1rem;">
+    <h3 style="color:#ef4444;margin:0 0 .5rem;">⚠️ Wallet Safety Notice</h3>
+    <ul style="color:#94a3b8;font-size:.9rem;">
+      <li>No private keys, seed phrases, or mnemonic phrases are stored or handled on this site or in the repository.</li>
+      <li>No wallet signing, staking execution, gasless flow, or relayer broadcast is enabled on this page.</li>
+      <li>Connect-wallet buttons are for read-only display of on-chain state (balances, blocks).</li>
+      <li>Owner addresses are private and never published.</li>
+      <li>Any live contract deployment, wallet transaction, liquidity provision, staking, minting, or production authorization requires a separate human approval gate and signed transaction outside this site.</li>
+    </ul>
+    <p style="color:#94a3b8;font-size:.85rem;margin-top:.5rem;">
+      <strong style="color:#ef4444;">⚠️ No liquidity, staking, bridge, DEX, or public earnings execution should be assumed unless separately verified by transaction hash.</strong>
+    </p>
+  </section>
+
+  <footer style="margin-top:3rem;padding-top:1.5rem;border-top:1px solid rgba(148,163,184,.15);text-align:center;color:#64748b;font-size:.85rem;">
+    <p>Quantum Pi Forge / OINIO — Public Onboarding Readiness v1</p>
+    <p>Repository: <a href="https://github.com/onenoly1010/Quantum-pi-forge">github.com/onenoly1010/Quantum-pi-forge</a></p>
+  </footer>
+</main>
+</body>
+</html>

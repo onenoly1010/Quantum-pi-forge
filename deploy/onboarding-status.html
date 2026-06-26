@@ -1,1 +1,79 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Onboarding Status | Quantum Pi Forge</title><style>body{margin:0;background:#090b10;color:#eef2ff;font-family:system-ui,sans-serif;line-height:1.6}.wrap{max-width:960px;margin:auto;padding:56px 24px}a{color:#8be9fd}.card{background:#101522;border:1px solid #263044;border-radius:16px;padding:22px;margin:18px 0}.ok{border-color:#225c3b}.hold{border-color:#8a5b18}.no{border-color:#7f1d1d}code{overflow-wrap:anywhere}</style></head><body><main class="wrap"><p><a href="/">Quantum Pi Forge</a> · <a href="/what-it-does.html">What it does</a> · <a href="/for-builders.html">For builders</a> · <a href="/deployed-addresses.html">Addresses</a></p><h1>Public Onboarding Status</h1><section class="card ok"><h2>Available now</h2><p>Public documentation, repository evidence, deployed-address references, read-only verification, and builder readiness review.</p></section><section class="card hold"><h2>Prepared but not production-authorized</h2><p>Guardian social recovery module, broader participant onboarding, and future signature-based flows.</p></section><section class="card no"><h2>Not enabled through these pages</h2><p>Wallet signing, token approvals, staking, minting, liquidity provision, contract deployment, private-key access, or transaction broadcast.</p></section><section class="card"><h2>Governance</h2><p>Guardian Safe: <code>0x8d088B88219D072aB035502065ee2410c2cb4389</code></p><p>This page reports readiness boundaries only. It does not perform governance or wallet actions.</p></section></main></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Public Onboarding Readiness v1 — Evidence Receipt | QPF / OINIO</title>
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;background:#050505;color:#e2e8f0;font-family:system-ui,-apple-system,sans-serif;line-height:1.6}
+    main{max-width:840px;margin:0 auto;padding:2rem 1.25rem 4rem}
+    h1{font-size:1.6rem;border-bottom:1px solid rgba(148,163,184,.2);padding-bottom:.5rem}
+    h2{font-size:1.2rem;margin-top:2rem;color:#f1f5f9}
+    .meta{color:#94a3b8;font-size:.85rem;margin:.5rem 0 1.5rem}
+    .check{display:flex;align-items:flex-start;gap:.6rem;padding:.4rem 0}
+    .check.pass .icon{color:#22c55e}
+    .check.fail .icon{color:#ef4444}
+    .check.warn .icon{color:#eab308}
+    .icon{font-size:1rem;flex-shrink:0;width:1.2rem;text-align:center}
+    .label{flex:1}
+    .note{color:#94a3b8;font-size:.85rem;padding-left:1.8rem}
+    .seal{border:1px solid rgba(34,197,94,.3);background:rgba(34,197,94,.05);border-radius:12px;padding:1rem;margin:2rem 0;font-family:monospace;font-size:.85rem;color:#22c55e}
+    .border-box{border:1px solid rgba(148,163,184,.15);border-radius:10px;padding:1rem;margin:1rem 0;background:rgba(0,0,0,.2)}
+  </style>
+</head>
+<body>
+<main>
+  <h1>Evidence Receipt: Public Onboarding Readiness v1</h1>
+  <div class="meta">
+    <strong>Branch:</strong> public/onboarding-readiness-v1<br>
+    <strong>Commit:</strong> <code>3af46a9</code> (base) + local changes<br>
+    <strong>Date:</strong> 2026-06-25<br>
+    <strong>Status:</strong> <span style="color:#22c55e">✅ ALL CHECKS PASS</span>
+  </div>
+
+  <h2>Checklist Results</h2>
+
+  <div class="check pass"><span class="icon">✅</span><span class="label"><strong>Landing page</strong> — Clearly explains what QPF / OINIO is, with plain-English summary in hero section.</span></div>
+  <div class="check pass"><span class="icon">✅</span><span class="label"><strong>"What it does" page</strong> — Live at <code>/what-it-does.html</code>, linked from homepage nav, hero, and CTA.</span></div>
+  <div class="check pass"><span class="icon">✅</span><span class="label"><strong>Builder page</strong> — Live at <code>/for-builders.html</code>, linked from homepage nav and CTA. Includes integration path, repo/docs/API links.</span></div>
+  <div class="check pass"><span class="icon">✅</span><span class="label"><strong>Contract addresses</strong> — Displayed with chain label (0G Aristotle Mainnet, Chain ID 16661) in table on homepage and on dedicated <code>/deployed-addresses.html</code> page.</span></div>
+  <div class="check pass"><span class="icon">✅</span><span class="label"><strong>0G Aristotle network info</strong> — Chain ID (16661/0x4115), RPC URL (evmrpc.0g.ai), explorer (chainscan.0g.ai) shown on contracts page and homepage.</span></div>
+  <div class="check pass"><span class="icon">✅</span><span class="label"><strong>Safe guardian address</strong> — Listed as governance address (<code>0x8d088B88219D072aB035502065ee2410c2cb4389</code>) on contracts page and homepage, owner addresses marked private.</span></div>
+  <div class="check pass"><span class="icon">✅</span><span class="label"><strong>Token / registry / heartbeat contracts</strong> — All linked to chainscan.0g.ai explorer.</span></div>
+  <div class="check pass"><span class="icon">✅</span><span class="label"><strong>Onboarding path</strong> — 4-step onboarding section on homepage: explore what it does → check contracts → build → run local agent.</span></div>
+  <div class="check pass"><span class="icon">✅</span><span class="label"><strong>Builder integration path</strong> — GitHub links, repo/docs/API links visible on builder page and hero.</span></div>
+  <div class="check pass"><span class="icon">✅</span><span class="label"><strong>Wallet safety</strong> — Red-bordered safety notice on contracts page: no private keys/seeds/mnemonics, connect-wallet is read-only, any live contract action requires separate human approval gate. Also noted in footer of hero.</span></div>
+  <div class="check pass"><span class="icon">✅</span><span class="label"><strong>Social recovery</strong> — Marked as "Created but not production-authorized" (⏸️) on contracts page and homepage feature status.</span></div>
+  <div class="check pass"><span class="icon">✅</span><span class="label"><strong>Threshold gate</strong> — Marked as "Pending final governance decision" (⚠️) on contracts page and homepage.</span></div>
+  <div class="check pass"><span class="icon">✅</span><span class="label"><strong>Earnings / yield</strong> — Marked "Proposed or gated unless live tx evidence exists" on contracts page. Staking execution is disabled.</span></div>
+  <div class="check pass"><span class="icon">✅</span><span class="label"><strong>Mobile usability</strong> — Viewport meta tag present, responsive CSS (grid, clamp, flex-wrap). Contract table has mobile-specific smaller padding/font.</span></div>
+  <div class="check pass"><span class="icon">✅</span><span class="label"><strong>Link audit</strong> — No dead/404 links. All nav links resolve to existing pages or external URLs. Internal anchors reference real sections.</span></div>
+  <div class="check pass"><span class="icon">✅</span><span class="label"><strong>Deployment</strong> — Cloudflare Pages configured (<code>wrangler.toml</code>), build script produces <code>out/</code> directory. Build verified <code>npm run build</code> passes.</span></div>
+  <div class="check pass"><span class="icon">✅</span><span class="label"><strong>Evidence receipt</strong> — Created at <code>/onboarding-status.html</code></span></div>
+
+  <h2>Boundary Confirmation</h2>
+  <div class="border-box">
+    <p>All changes in this lane are <strong>read-only surface improvements</strong>. No live contract deployment, wallet transaction, liquidity provision, staking, minting, or production authorization has been executed or enabled.</p>
+    <p>The following remain explicitly blocked pending separate human approval gate and signed transaction:</p>
+    <ul style="color:#94a3b8;font-size:.9rem;">
+      <li>Wallet signing, staking, gasless flow, relayer broadcast</li>
+      <li>Liquidity provision or seeding</li>
+      <li>iNFT minting (beyond current read-only display)</li>
+      <li>Threshold gate authorization</li>
+      <li>Social recovery production authorization</li>
+      <li>Yield / earnings distribution</li>
+    </ul>
+  </div>
+
+  <div class="seal">
+    📜 EVIDENCE RECEIPT — PUBLIC ONBOARDING READINESS V1<br>
+    Status: ✅ ALL 17 CHECKS PASSING<br>
+    Boundary: Read-only surface. No wallet/signing/staking/broadcast enabled.<br>
+    Human approval required for: contract deployment, transactions, liquidity, staking, minting, production authorization.
+  </div>
+
+  <p style="color:#64748b;font-size:.82rem;text-align:center;margin-top:2rem;">Quantum Pi Forge / OINIO — Public Onboarding Readiness v1</p>
+</main>
+</body>
+</html>
