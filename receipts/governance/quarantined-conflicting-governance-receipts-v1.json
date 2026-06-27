@@ -1,0 +1,14 @@
+{
+  "receipt": "quarantined-conflicting-governance-receipts-v1",
+  "status": "QUARANTINED",
+  "state": "QPF_SIGNATURE_RECOVERY_REQUIRED",
+  "reason": "Two untracked governance receipts were found after the Guardian signature recovery commit. One implied all execution lanes were approved, which conflicts with the current gated state. Both were moved to receipts/quarantine and are not active governance receipts.",
+  "quarantined_files": [
+    "receipts/quarantine/human-approval-all-execution-lanes-v1.json",
+    "receipts/quarantine/main-activation-readiness-snapshot-after-pr-515-v1.json"
+  ],
+  "public_mint": "DISABLED",
+  "financial_lanes_active": false,
+  "destructive_action_authorized": false,
+  "redeployment_authorized": false
+}

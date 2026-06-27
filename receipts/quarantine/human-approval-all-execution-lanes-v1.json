@@ -1,0 +1,39 @@
+{
+  "governance_version": "v2",
+  "receipt": "human-approval-all-execution-lanes-v1",
+  "created_at": "2026-06-26T03:22:03.064Z",
+  "branch": "main",
+  "head": "afd808be9e270098429b34901e5e6539616922db",
+  "head_short": "afd808b",
+  "status": "HUMAN_APPROVAL_GRANTED_ALL_LANES",
+  "approver": "human operator / project steward",
+  "approval_statement": "Human operator approved all execution lanes and stated they will perform all wallet, Safe, and manual execution actions themselves.",
+  "approved_lanes": [
+    "ownershipTransfer",
+    "contractVerification",
+    "publicWalletConnect",
+    "staking",
+    "minting",
+    "liquidityProvision",
+    "treasuryFunding",
+    "publicAnnouncement"
+  ],
+  "execution_model": {
+    "manual_human_execution": true,
+    "repo_executes_wallet_actions": false,
+    "repo_accesses_private_keys": false,
+    "repo_broadcasts_transactions": false,
+    "repo_submits_safe_transactions": false
+  },
+  "boundaries": {
+    "wallet_signing": "human_manual_only",
+    "staking": "human_manual_only",
+    "minting": "human_manual_only",
+    "liquidity_provision": "human_manual_only",
+    "contract_deployment": "human_manual_only_if_needed",
+    "private_key_access": "human_only_never_repo",
+    "transaction_broadcast": "human_manual_only",
+    "safe_transaction_submission": "human_manual_only"
+  },
+  "next_gate": "execute lanes one at a time manually, then record transaction hashes or external proof receipts after each action"
+}
