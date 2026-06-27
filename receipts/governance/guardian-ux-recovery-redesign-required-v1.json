@@ -1,0 +1,23 @@
+{
+  "receipt": "guardian-ux-recovery-redesign-required-v1",
+  "status": "GUARDIAN_UX_RECOVERY_REDESIGN_REQUIRED",
+  "state": "QPF_GUARDIAN_UX_RECOVERY_REDESIGN_REQUIRED",
+  "safe": "0x8d088B88219D072aB035502065ee2410c2cb4389",
+  "reason": "The Guardian Safe security model protects activation but is not usable enough for the rightful operator to resolve signing, threshold, queue, execution, and recovery flow without external confusion. Before further activation, QPF must improve Guardian UX and recovery design.",
+  "public_mint": "DISABLED",
+  "financial_lanes_active": false,
+  "controlled_mint_execution_authorized": false,
+  "destructive_action_authorized": false,
+  "redeployment_authorized": false,
+  "required_improvements": [
+    "public-safe signer role dashboard",
+    "owner-address match checklist",
+    "threshold and execution-state explanation",
+    "Queue versus History signing guide",
+    "Trezor signer address verification guide",
+    "Guardian coordination process",
+    "stuck-safe recovery path",
+    "no false activation language"
+  ],
+  "truth_statement": "QPF is not failed. The Guardian model protected the system, but the recovery and signing user experience is not good enough. Activation remains paused until Guardian UX and recovery flow are redesigned."
+}
