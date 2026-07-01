@@ -4,3 +4,4 @@ requests
 python-dotenv
 httpx
 httpx2
+pyyaml
