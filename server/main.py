@@ -21,7 +21,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
 from fastapi.security import OAuth2PasswordBearer
 from pydantic import BaseModel, EmailStr, Field
-from control_plane_config import get_ollama_url, get_value
+from server.control_plane_config import get_ollama_url, get_value
 
 # Configure logging first
 logging.basicConfig(level=logging.INFO)
