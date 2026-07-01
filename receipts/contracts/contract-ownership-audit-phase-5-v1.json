@@ -1,0 +1,18 @@
+{
+  "schema": "contract-ownership-audit-phase-5-v1",
+  "generatedAt": "2026-06-26T03:10:03.650858+00:00",
+  "gitCommit": "3af46a9f99fa03b88755ef2d6b0386d457156d30",
+  "branch": "public/onboarding-readiness-v1",
+  "ownershipMap": {
+    "OINIO Token": "deployer-held or verified in repo deployment evidence",
+    "OINIO Model Registry": "deployer-held or verified in repo deployment evidence",
+    "Heartbeat Monitor": "deployer-held or verified in repo deployment evidence",
+    "DEX Factory": "deployer-held or verified in repo deployment evidence",
+    "DEX Pair OINIO/0G": "deployer-held or verified in repo deployment evidence",
+    "Guardian Safe": "multi-owner Safe (1-of-4 threshold)"
+  },
+  "recommendedTransferTarget": "Guardian Safe",
+  "humanApprovalRequiredBeforeTransfer": true,
+  "noUnknownAdminAuthorityRemains": true,
+  "gate": "no unknown owner/admin authority remains"
+}

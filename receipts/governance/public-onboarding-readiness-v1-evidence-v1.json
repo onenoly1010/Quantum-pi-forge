@@ -1,0 +1,27 @@
+{
+  "scope": "public/onboarding-readiness-v1",
+  "status": "prepared",
+  "branch": "public/onboarding-readiness-v1",
+  "commit": "3af46a9",
+  "timestamp": "2026-06-25T20:26:00Z",
+  "checks": [
+    { "area": "Landing page", "status": "live", "notes": "Root index.html explains QPF/OINIO as public proof engine for digital launches" },
+    { "area": "What it does page", "status": "live", "notes": "deploy/what-it-does.html live and linked from homepage" },
+    { "area": "Builder page", "status": "live", "notes": "for-builders.html live and linked from all pages" },
+    { "area": "Contract addresses", "status": "displayed", "notes": "0G Aristotle mainnet contracts listed with addresses and explorers" },
+    { "area": "0G Aristotle network info", "status": "displayed", "notes": "Chain ID 16661, RPC evmrpc.0g.ai, explorer chainscan.0g.ai" },
+    { "area": "Safe guardian address", "status": "listed", "notes": "0x8d088B88219D072aB035502065ee2410c2cb4389 listed as governance address" },
+    { "area": "Token/registry/heartbeat contracts", "status": "linked", "notes": "Linked to 0G Aristotle explorer" },
+    { "area": "Onboarding path", "status": "clear", "notes": "User can understand what to do next from landing page" },
+    { "area": "Builder integration path", "status": "clear", "notes": "Repo/docs/API links easy to find on for-builders.html" },
+    { "area": "Wallet safety", "status": "secured", "notes": "No private key, seed, or owner-address exposure" },
+    { "area": "Social recovery", "status": "marked", "notes": "ZeroGSocialRecovery.sol created but not production-authorized" },
+    { "area": "Threshold gate", "status": "pending", "notes": "Guardian threshold needs final governance decision" },
+    { "area": "Earnings / yield", "status": "gated", "notes": "Proposed; no live tx exists for yield distribution" },
+    { "area": "Mobile usability", "status": "checked", "notes": "Landing page readable on phone via responsive meta viewport" },
+    { "area": "Link audit", "status": "checked", "notes": "No dead/404 links on public surface" },
+    { "area": "Deployment", "status": "checked", "notes": "Cloudflare Pages configured via deploy/ directory" }
+  ],
+  "boundary": "Public onboarding surface fully prepared and verifiable. Live contract deployment, wallet transaction, liquidity, staking, minting, or production authorization still requires separate human approval gate and signed transaction.",
+  "evidence_receipt": "evidence/receipt.json"
+}

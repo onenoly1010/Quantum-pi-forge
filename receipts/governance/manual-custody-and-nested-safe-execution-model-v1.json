@@ -1,0 +1,45 @@
+{
+  "governance_version": "v2",
+  "receipt": "manual-custody-and-nested-safe-execution-model-v1",
+  "created_at": "2026-06-26T03:33:40.843Z",
+  "branch": "public/onboarding-readiness-v1",
+  "head": "3af46a9f99fa03b88755ef2d6b0386d457156d30",
+  "head_short": "3af46a9",
+  "status": "MANUAL_CUSTODY_EXECUTION_MODEL_CONFIRMED",
+  "operator_statement": "The human operator is not rushing the process. The local system prepares, validates, and records. The human operator provides final approvals and manually handles cold-storage wallets and Safe execution. Wallets are prepared, funded, signed, executed, and verified manually with nested Safes for each wallet where applicable.",
+  "system_role": [
+    "prepare governance receipts",
+    "verify local evidence",
+    "generate unsigned plans",
+    "validate public claims",
+    "record post-execution proofs",
+    "never handle private keys"
+  ],
+  "human_only_role": [
+    "final lane approval",
+    "cold-storage wallet custody",
+    "Safe signing",
+    "manual wallet funding",
+    "manual transaction execution",
+    "manual Safe execution",
+    "manual verification of wallet prompts"
+  ],
+  "custody_model": {
+    "cold_storage": true,
+    "nested_safes": true,
+    "wallets_funded_manually": true,
+    "manual_signing_only": true,
+    "manual_execution_only": true
+  },
+  "repo_boundaries": {
+    "private_key_access": false,
+    "wallet_signing": false,
+    "safe_transaction_submission": false,
+    "transaction_broadcast": false,
+    "staking": false,
+    "minting": false,
+    "liquidity_provision": false,
+    "contract_deployment": false
+  },
+  "next_gate": "phase-8 may proceed only as human-manual execution with post-execution receipts recording transaction hashes and verification evidence"
+}

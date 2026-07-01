@@ -1,0 +1,38 @@
+{
+  "governance_version": "v1",
+  "receipt": "first-controlled-mint-v1",
+  "created_at": "2026-06-26T14:59:00.000Z",
+  "phase": 13,
+  "title": "First Controlled Mint Execution",
+  "status": "PREPARED",
+  "mint_parameters": {
+    "type": "first_controlled_proof_mint",
+    "max_supply_for_this_mint": 1,
+    "recipient": "awaiting_defined",
+    "metadata": "awaiting_defined",
+    "contract": "awaiting_exact_address",
+    "chain_id": 16661,
+    "network": "0G Aristotle Mainnet"
+  },
+  "required_fields": [
+    "tx hash",
+    "block number",
+    "chain id",
+    "contract address",
+    "recipient",
+    "token id / model id",
+    "metadata reference",
+    "operator confirmation"
+  ],
+  "safety_assertions": {
+    "one_mint_only": true,
+    "no_public_announcement_until_verified": true,
+    "receipt_required_after_execution": true
+  },
+  "post_execution_required": [
+    "Verify transaction on 0G Aristotle Mainnet block explorer",
+    "Seal receipt with tx hash and block number",
+    "Confirm token metadata matches expected",
+    "Await Phase 14 authorization before public opening"
+  ]
+}

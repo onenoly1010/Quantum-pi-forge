@@ -1,0 +1,14 @@
+{
+  "governance_version": "v2",
+  "receipt": "project-erc721-surface-audit-v1",
+  "created_at": "2026-06-26T19:13:43.368Z",
+  "branch": "phase8/human-why-v1",
+  "head": "9e411023830e5bb110becdbece088d27d3f38fb7",
+  "status": "PROJECT_LEVEL_ERC721_FOUND",
+  "finding": "ERC721 contract OINIOModelRegistry found at contracts/src/OINIOModelRegistry.sol. Implements ERC721, ERC721URIStorage, ERC721Burnable with safeTransferFrom, tokenURI, and NFT minting for AI model registration. Also verified by VERIFICATION.md references (lines 28, 91, 121). UniswapV2Router02 reference was safeTransferFrom import only (not an NFT contract).",
+  "sources": [
+    "contracts/src/OINIOModelRegistry.sol: imports ERC721, ERC721URIStorage, ERC721Burnable; contract implements all three with safeTransferFrom, tokenURI",
+    "contracts/VERIFICATION.md: lines 28, 91, 121 document ERC721 as base contract"
+  ],
+  "next_gate": "Review OINIOModelRegistry for Genesis Resonance iNFT/ERC721 readiness requirements."
+}

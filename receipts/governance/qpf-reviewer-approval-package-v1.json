@@ -1,0 +1,16 @@
+{
+  "governance_version": "v2",
+  "receipt": "qpf-reviewer-approval-package-v1",
+  "created_at": "2026-06-26T20:41:07.707Z",
+  "branch": "phase8/human-why-v1",
+  "head": "71917147e2deaafc6e2f96b5838ac51d0d74f89f",
+  "status": "REVIEWER_APPROVAL_PACKAGE_READY",
+  "finding": "Phase 8 evidence trail is packaged for high-priority grant/support review, with human sustenance and non-custodial agent earning as funding priority.",
+  "wallet_actions": false,
+  "chain_actions": false,
+  "signing": false,
+  "broadcast": false,
+  "private_key_access": false,
+  "approvals": false,
+  "next_gate": "CLASSIFY_8_NON_ZERO_BALANCES_AND_PREPARE_UNSIGNED_HUMAN_ROUTE"
+}

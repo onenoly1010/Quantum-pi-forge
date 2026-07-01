@@ -1,0 +1,36 @@
+{
+  "path": "deploy/deployed-addresses.html",
+  "sha256": "0f42f9a655782c9fe2ca65d3f1d889e30e0679d415621d772eb528a45eac057c",
+  "page": "https://public-onboarding-readiness.quantum-pi-forge-fixed.pages.dev/deployed-addresses.html",
+  "explorerBase": "https://chainscan.0g.ai",
+  "addresses": {
+    "OINIO Token": {
+      "url": "https://chainscan.0g.ai/address/0x75995EC0fdf881189850aeD864cB3f43c0DFCb58",
+      "address": "0x75995EC0fdf881189850aeD864cB3f43c0DFCb58"
+    },
+    "OINIO Model Registry": {
+      "url": "https://chainscan.0g.ai/address/0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+      "address": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a"
+    },
+    "Heartbeat Monitor": {
+      "url": "https://chainscan.0g.ai/address/0x5E50b92E57e854659f7D98c733088aABd551C49F",
+      "address": "0x5E50b92E57e854659f7D98c733088aABd551C49F"
+    },
+    "ForgeRegistry": {
+      "url": "https://chainscan.0g.ai/address/0x6011c341a01c80f489a5c3Ab751987A55142F04e",
+      "address": "0x6011c341a01c80f489a5c3Ab751987A55142F04e"
+    },
+    "DEX Factory": {
+      "url": "https://chainscan.0g.ai/address/0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8",
+      "address": "0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8"
+    },
+    "DEX Pair OINIO/0G": {
+      "url": "https://chainscan.0g.ai/address/0x709f23C7A7172E137427576abB5Eb8959E2A57c1",
+      "address": "0x709f23C7A7172E137427576abB5Eb8959E2A57c1"
+    },
+    "Guardian Safe": {
+      "url": "https://chainscan.0g.ai/address/0x8d088B88219D072aB035502065ee2410c2cb4389",
+      "address": "0x8d088B88219D072aB035502065ee2410c2cb4389"
+    }
+  }
+}

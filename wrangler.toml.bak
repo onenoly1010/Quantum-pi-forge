@@ -1,0 +1,17 @@
+name = "quantum-pi-forge-fixed"
+pages_build_output_dir = "./out"
+compatibility_date = "2026-04-04"
+
+[vars]
+POLYGON_CHAIN_ID = "137"
+ETH_CHAIN_ID = "1"
+OG_CHAIN_ID = "16661"
+ENVIRONMENT = "production"
+
+# KV Namespace for Soul Shards (metadata for identities/agents)
+[[kv_namespaces]]
+binding = "SOUL_METADATA"
+id = "c2ee9447ec994c5d9ef09020c24ff887"
+
+[assets]
+directory = "./out"

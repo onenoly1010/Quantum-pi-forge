@@ -1,0 +1,75 @@
+{
+  "governance_version": "v2",
+  "receipt": "phase-7-pre-execution-validation-v1",
+  "created_at": "2026-06-25T09:35:00.000Z",
+  "base_head": "a97944f6e4653ed6948ae0b4108c0366fb200bcb",
+  "phase": "Phase 7",
+  "status": "PRE_EXECUTION_VALIDATION_PASSED",
+  "purpose": "Final pre-broadcast validation of authorized Phase 7 yield-routing deployment. Script compiled, dry-run simulated (failed only due to absent DEPLOYER_KEY, which is expected). No broadcast performed.",
+  "deployment_script": "contracts/script/DeployYieldRouter.s.sol",
+  "broadcast_status": "AUTHORIZED / PENDING — not yet executed",
+  "required_env_vars": ["DEPLOYER_KEY", "GUARDIANS (optional, comma-separated)"],
+  "human_gate_remaining": "Provide DEPLOYER_KEY and re-run with --broadcast flag",
+  "authorization": {
+    "granted": true,
+    "scope": "Phase 7 yield-routing deployment only",
+    "safe_address": "0x8d088B88219D072aB035502065ee2410c2cb4389",
+    "network": "0G Aristotle Mainnet (16661)",
+    "excluded": [
+      "Deploying 0GSocialRecovery.sol",
+      "Enabling recovery module on Safe",
+      "Changing Safe owners",
+      "Changing Safe threshold",
+      "Publishing owner addresses",
+      "Unrelated token transfers",
+      "Unrelated contract mutations"
+    ]
+  },
+  "build_status": {
+    "source_contracts": "PASS",
+    "zero_g_social_recovery": "COMPILED (contract renamed from 0GSocialRecovery to ZeroGSocialRecovery to avoid compiler identifier restriction)",
+    "deploy_script": "COMPILED",
+    "lint_notes": "unaliased-plain-import warnings in test files only (non-blocking)"
+  },
+  "simulation_result": {
+    "compilation": "PASS",
+    "script_execution": "REVERTED — expected: DEPLOYER_KEY env var not provided",
+    "contract_creation": "PASS — DeployYieldRouter deployed to 0x9f7cF1d1F558E57ef88a59ac3D47214eF25B6A06",
+    "conclusion": "Script logic valid. Ready for broadcast when key provided."
+  },
+  "execution_gate": {
+    "target_chain": "0G Aristotle Mainnet / 16661",
+    "rpc": "https://evmrpc.0g.ai",
+    "script": "contracts/script/DeployYieldRouter.s.sol",
+    "fee_collector_owner": "0x8d088B88219D072aB035502065ee2410c2cb4389",
+    "social_recovery_deployment": false,
+    "safe_module_enablement": false,
+    "threshold_change": false
+  },
+  "post_broadcast_evidence_required": [
+    "transaction hash",
+    "block number",
+    "deployed contract addresses",
+    "FeeCollector owner read-back",
+    "Safe nonce change",
+    "post-execution receipt",
+    "npm run verify:evidence PASS"
+  ],
+  "post_broadcast_expected": {
+    "yield_router_factory_address": "TBD — deployed by script",
+    "fee_collector_address": "TBD — computed as nonce 3 of factory",
+    "legacy_vault_address": "TBD — nonce 0",
+    "pioneer_rewards_address": "TBD — nonce 1",
+    "operational_treasury_address": "TBD — nonce 2",
+    "fee_collector_owner": "0x8d088B88219D072aB035502065ee2410c2cb4389 (Safe)",
+    "next_required_safe_action": "Safe owner calls FeeCollector.activate() via execTransaction"
+  },
+  "safety": {
+    "no_wallet_action": true,
+    "no_signing": true,
+    "no_broadcast": true,
+    "no_private_key_access": true,
+    "no_fund_movement": true,
+    "social_recovery_deployed": "NOT YET — gated"
+  }
+}

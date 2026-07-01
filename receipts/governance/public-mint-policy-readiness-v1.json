@@ -1,0 +1,36 @@
+{
+  "governance_version": "v1",
+  "receipt": "public-mint-policy-readiness-v1",
+  "created_at": "2026-06-26T14:58:00.000Z",
+  "base_head": "5f490d6",
+  "phase": 9,
+  "title": "Public Mint Policy Readiness",
+  "status": "MINT_POLICY_REQUIRED",
+  "audit_findings": [
+    "PROJECT_LEVEL_ERC721_FOUND",
+    "MINT_READY_NOT_PUBLIC_READY"
+  ],
+  "policy_questions_open": [
+    "What can be minted?",
+    "Who can mint?",
+    "Is it public, allowlist, guardian-only, or disabled?",
+    "Does it cost anything?",
+    "Where do funds go?",
+    "What metadata is attached?",
+    "What receipt proves a mint is authorized?",
+    "What wallet warning must users see?",
+    "What contract address is canonical?"
+  ],
+  "required_decisions": [
+    "Public mint authorization: NOT AUTHORIZED",
+    "Public mint button: NOT LIVE",
+    "Mint surface: exists, unauthenticated",
+    "Wallet execution: NOT ENABLED",
+    "Funds flow: NOT DEFINED",
+    "Receipt: NOT SEALED"
+  ],
+  "safety_assertions": {
+    "no_public_mint_enabled": true,
+    "no_wallet_execution_enabled": true
+  }
+}

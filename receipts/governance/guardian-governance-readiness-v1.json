@@ -1,0 +1,30 @@
+{
+  "schema": "guardian-governance-readiness-v1",
+  "generatedAt": "2026-06-26T03:10:03.479828+00:00",
+  "gitCommit": "3af46a9f99fa03b88755ef2d6b0386d457156d30",
+  "branch": "public/onboarding-readiness-v1",
+  "safe": {
+    "address": "0x8d088B88219D072aB035502065ee2410c2cb4389",
+    "threshold": "1-of-4",
+    "ownersPrivate": true,
+    "nonce": 0,
+    "safeVersion": "1.4.1",
+    "canReceive": true
+  },
+  "socialRecovery": {
+    "contract": "contracts/ZeroGSocialRecovery.sol",
+    "status": "created",
+    "productionAuthorized": false
+  },
+  "documentedActionsRequiringSafeApproval": [
+    "contract ownership transfer",
+    "admin configuration changes",
+    "treasury funding movements",
+    "emergency pause or circuit breaker",
+    "staking parameter updates",
+    "minting authorization",
+    "liquidity provision or LP lock changes"
+  ],
+  "ownerAddressesPublished": false,
+  "gate": "Safe governance boundary is documented"
+}

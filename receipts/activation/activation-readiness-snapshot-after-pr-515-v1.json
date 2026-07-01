@@ -1,0 +1,31 @@
+{
+  "schema": "main-activation-readiness-snapshot-v1",
+  "generatedAt": "2026-06-26T02:51:07.511957+00:00",
+  "gitCommit": "3af46a9f99fa03b88755ef2d6b0386d457156d30",
+  "gitCommitShort": "3af46a9",
+  "branch": "public/onboarding-readiness-v1",
+  "mergedPRs": {
+    "PR514": "Publish public onboarding readiness v1",
+    "PR515": "Seal PR 514 public onboarding closure"
+  },
+  "buildStatus": {
+    "command": "npm run build",
+    "result": "pass"
+  },
+  "evidenceVerification": {
+    "command": "npm run verify:evidence",
+    "result": "pass",
+    "lanesChecked": 3,
+    "pathsChecked": 6,
+    "indexSha256": "a63dc16e5f577c808fd495e5a18e87f25006980cf0d84d23b61f5beca57e58fa"
+  },
+  "authorityBoundary": {
+    "walletSigning": false,
+    "privateKeyUse": false,
+    "contractDeployment": false,
+    "staking": false,
+    "minting": false,
+    "liquidityAction": false,
+    "governanceExecution": false
+  }
+}

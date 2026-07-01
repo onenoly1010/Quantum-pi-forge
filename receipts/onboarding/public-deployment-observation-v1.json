@@ -1,0 +1,47 @@
+{
+  "schema": "public-deployment-observation-v1",
+  "generatedAt": "2026-06-26T03:07:10.005734+00:00",
+  "gitCommit": "3af46a9f99fa03b88755ef2d6b0386d457156d30",
+  "branch": "public/onboarding-readiness-v1",
+  "deployment": {
+    "project": "quantum-pi-forge-fixed",
+    "aliasUrl": "https://public-onboarding-readiness.quantum-pi-forge-fixed.pages.dev",
+    "deploymentUrl": "https://20467932.quantum-pi-forge-fixed.pages.dev",
+    "commitHash": "3af46a9f99fa03b88755ef2d6b0386d457156d30",
+    "pagesBuildOutputDir": "./out"
+  },
+  "pageChecks": [
+    {
+      "path": "/",
+      "finalHttp": 200,
+      "status": "live"
+    },
+    {
+      "path": "/for-builders.html",
+      "finalHttp": 200,
+      "status": "live"
+    },
+    {
+      "path": "/deployed-addresses.html",
+      "finalHttp": 200,
+      "status": "live"
+    },
+    {
+      "path": "/onboarding-status.html",
+      "finalHttp": 200,
+      "status": "live"
+    },
+    {
+      "path": "/what-it-does.html",
+      "finalHttp": 200,
+      "status": "live"
+    }
+  ],
+  "publicClaimVerification": {
+    "noPublicMintingClaim": true,
+    "noLiveLiquidityClaim": true,
+    "noWalletSigning": true,
+    "noPrivateKeyAccess": true
+  },
+  "gate": "public site matches repo state"
+}

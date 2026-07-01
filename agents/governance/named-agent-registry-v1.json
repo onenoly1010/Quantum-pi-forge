@@ -1,0 +1,68 @@
+{
+  "created_at": "2026-06-26T20:23:04.301Z",
+  "status": "INITIAL_AGENT_REGISTRY_OPEN",
+  "agents": [
+    {
+      "name": "Builder Support Agent",
+      "standing": "FIRST_CLASS_OPERATIONAL_PARTICIPANT",
+      "autonomy": "LOW_RISK_AUTONOMOUS",
+      "earning_lane": "implementation support, task completion, repo clarity",
+      "custody": false
+    },
+    {
+      "name": "Outreach Agent",
+      "standing": "FIRST_CLASS_OPERATIONAL_PARTICIPANT",
+      "autonomy": "LOW_RISK_AUTONOMOUS",
+      "earning_lane": "public updates, builder invitations, support messages",
+      "custody": false
+    },
+    {
+      "name": "Grant Funding Agent",
+      "standing": "FIRST_CLASS_OPERATIONAL_PARTICIPANT",
+      "autonomy": "LOW_RISK_AUTONOMOUS",
+      "earning_lane": "grants, bounties, ecosystem opportunities",
+      "custody": false
+    },
+    {
+      "name": "Public Page Agent",
+      "standing": "FIRST_CLASS_OPERATIONAL_PARTICIPANT",
+      "autonomy": "LOW_RISK_AUTONOMOUS",
+      "earning_lane": "human-readable pages and public alignment",
+      "custody": false
+    },
+    {
+      "name": "Treasury Visibility Agent",
+      "standing": "FIRST_CLASS_OPERATIONAL_PARTICIPANT",
+      "autonomy": "WATCH_ONLY",
+      "earning_lane": "balance visibility and custody lane reporting",
+      "custody": false
+    },
+    {
+      "name": "Proposal Agent",
+      "standing": "FIRST_CLASS_OPERATIONAL_PARTICIPANT",
+      "autonomy": "LOW_RISK_AUTONOMOUS",
+      "earning_lane": "human-reviewable proposals before action",
+      "custody": false
+    },
+    {
+      "name": "Invoice Receipt Agent",
+      "standing": "FIRST_CLASS_OPERATIONAL_PARTICIPANT",
+      "autonomy": "LOW_RISK_AUTONOMOUS",
+      "earning_lane": "support receipts, sponsorship records, invoices",
+      "custody": false
+    }
+  ],
+  "forbidden": [
+    "private_keys",
+    "seed_phrases",
+    "signing",
+    "broadcast",
+    "token_approvals",
+    "fund_movement",
+    "liquidity",
+    "staking",
+    "bridging",
+    "live_minting_without_human_gate"
+  ],
+  "next_gate": "ASSIGN_FIRST_AGENT_TASK_FOR_EARNING_WITHOUT_WALLET_RISK"
+}

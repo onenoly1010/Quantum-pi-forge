@@ -1,0 +1,110 @@
+{
+  "governance_version": "v2",
+  "receipt": "phase-7-authorization-proposal-v1",
+  "created_at": "2026-06-25T09:00:00.000Z",
+  "base_head": "a97944f6e4653ed6948ae0b4108c0366fb200bcb",
+  "phase": "Phase 7",
+  "status": "AUTHORIZATION_PROPOSAL_READY",
+  "purpose": "Propose the first on-chain role assignment for the QPF Guardian Safe. Generate pre-execution governance receipt. No signing, no broadcast, no wallet action performed by repo.",
+  "prerequisites": {
+    "guardian_safe_accepted": true,
+    "guardian_safe_verified_on_chain": true,
+    "evidence_suite_passed": true,
+    "intake_receipt": "receipts/governance/phase-7-guardian-address-intake-v1.json",
+    "completion_receipt": "receipts/governance/guardian-completion-acceptance-v1.json"
+  },
+  "guardian_safe": {
+    "address": "0x8d088B88219D072aB035502065ee2410c2cb4389",
+    "network": "0G Aristotle Mainnet",
+    "chain_id": 16661,
+    "version": "1.4.1",
+    "threshold": "1-of-4",
+    "nonce": 0,
+    "modules_enabled": 0,
+    "guard_enabled": false
+  },
+  "proposed_action": {
+    "title": "Deploy Phase 7 yield-routing contracts with Safe as FeeCollector owner",
+    "description": "Deploy YieldRouterFactory via forge script, then call deployAll() with the Safe address as _guardian. This makes the Safe the owner of FeeCollector, giving it authority to activate fee collection, manage guardians, and pause/unpause routing.",
+    "contracts_to_deploy": {
+      "YieldRouterFactory": {
+        "source": "contracts/src/YieldRouterFactory.sol",
+        "status": "NOT_DEPLOYED",
+        "deployment_method": "forge script"
+      },
+      "FeeCollector": {
+        "source": "contracts/src/FeeCollector.sol",
+        "status": "NOT_DEPLOYED (deployed atomically via factory)",
+        "role": "Safe as owner (Ownable(_guardian))"
+      },
+      "OperationalTreasury": {
+        "source": "contracts/src/OperationalTreasury.sol",
+        "status": "NOT_DEPLOYED (deployed atomically via factory)",
+        "guardian_threshold": 3
+      },
+      "LegacyVault": {
+        "source": "contracts/src/LegacyVault.sol",
+        "status": "NOT_DEPLOYED (deployed atomically via factory)"
+      },
+      "PioneerRewards": {
+        "source": "contracts/src/PioneerRewards.sol",
+        "status": "NOT_DEPLOYED (deployed atomically via factory)"
+      }
+    }
+  },
+  "target_function": {
+    "contract": "YieldRouterFactory (to be deployed)",
+    "function": "deployAll(address _predictedFeeCollector, address _guardian, address[] _guardians)",
+    "proposed_arguments": {
+      "_guardian": "0x8d088B88219D072aB035502065ee2410c2cb4389 (QPF Guardian Safe)",
+      "_guardians": "At minimum: [0x8d088B88219D072aB035502065ee2410c2cb4389]. Additional guardian addresses can be added.",
+      "_predictedFeeCollector": "Must be computed after YieldRouterFactory deployment via: cast compute-address --nonce 3 <FACTORY_ADDR>"
+    },
+    "chain": "0G Aristotle Mainnet (16661)",
+    "value": "0",
+    "calldata_status": "NOT_GENERATED — requires factory deployment first",
+    "signed": false
+  },
+  "fee_collector_authority": {
+    "owner": "Safe — activate(), setGuardian(), transferOwnership()",
+    "guardians": "Safe — pause(), unpause()",
+    "activation_block": ">= 1,850,000 per GDR-001.2"
+  },
+  "operational_treasury_authority": {
+    "guardians": "proposeExpenditure(), approveExpenditure(), executeExpenditure(), pause(), unpause(), setThreshold()",
+    "threshold": "3 (requires 3 guardian approvals for each expenditure)"
+  },
+  "next_human_gate": {
+    "step": "Review this proposal. If approved, the next actionable steps are:",
+    "actions": [
+      "1. Authorize deployment of YieldRouterFactory via forge script",
+      "2. Compute predicted FeeCollector address: cast compute-address --nonce 3 <FACTORY_ADDR>",
+      "3. Call deployAll(predictedFC, 0x8d088..., [0x8d088..., ...])",
+      "4. Safe owners submit execTransaction to activate FeeCollector (activate())",
+      "5. Safe owners submit execTransaction to configure guardians/additional Safe threshold if desired"
+    ]
+  },
+  "wallet_actions_performed_by_repo": {
+    "signing": false,
+    "broadcast": false,
+    "deployment": false,
+    "private_key_access": false,
+    "fund_movement": false
+  },
+  "social_recovery_module": {
+    "status": "CREATED / NOT YET PRODUCTION-AUTHORIZED — not required for this phase",
+    "deployed": false,
+    "enabled_on_safe": false
+  },
+  "safety": {
+    "wallet_action": false,
+    "private_key_access": false,
+    "signing": false,
+    "broadcast": false,
+    "deployment": false,
+    "staking": false,
+    "minting": false,
+    "liquidity": false,
+    "live_execution": false
+  }
+}

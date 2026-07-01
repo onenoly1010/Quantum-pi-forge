@@ -1,6 +1,6 @@
 {
   "schema": "qpf.irreversible_zone_review.receipt.v1",
-  "created_at": "2026-06-21T22:45:55.975Z",
+  "created_at": "2026-06-26T23:16:17.780Z",
   "status": "sealed",
   "named_action": "supervised-mainnet-activation-execution-v1",
   "checks": {
@@ -52,6 +52,6 @@
   "live_execution": false,
   "review_path": "docs/governance/IRREVERSIBLE_ZONE_REVIEW_V1.json",
   "review_sha256": "10b64000d990b01fbec222c978dbda0383dd4109bc7a9406e3368a9e5def1797",
-  "git_head": "8dc58d419199d50f6dbcbd8e1d66d35662f24bf9",
-  "git_status_short": "M package.json\n?? docs/governance/IRREVERSIBLE_ZONE_REVIEW_V1.json\n?? scripts/create-irreversible-zone-review-v1.cjs\n?? scripts/verify-irreversible-zone-review-v1.cjs"
+  "git_head": "3f6fc0e5a540acbb6465dceb34411777547fa6c6",
+  "git_status_short": "A  0G_SOCIAL_RECOVERY_SETUP_GUIDE.md\nA  contracts/ZeroGSocialRecovery.sol\nA  contracts/script/DeploySocialRecovery.s.sol\nA  docs/governance/FULL_LIVE_ROADMAP_V1.md\n m pi-forge-quantum-genesis\nA  receipts/activation/activation-readiness-snapshot-after-pr-515-v1.json\nA  receipts/contracts/contract-ownership-audit-phase-5-v1.json\nA  receipts/contracts/safe-ownership-transfer-preflight-phase-6-v1.json\n M receipts/governance/bounded-activation-readiness-gate-v1.json\n M receipts/governance/execution-lane-separation-gate-v1.json\nA  receipts/governance/guardian-completion-acceptance-v1.json\nA  receipts/governance/guardian-governance-readiness-v1.json\nA  receipts/governance/human-approval-checkpoint-phase-7-v1.json\nA  receipts/governance/manual-custody-and-nested-safe-execution-model-v1.json\n M receipts/governance/named-activation-action-plan-v1.json\nA  receipts/governance/phase-7-authorization-proposal-v1.json\nA  receipts/governance/phase-7-pre-execution-validation-v1.json\nA  receipts/governance/public-onboarding-readiness-v1-evidence-v1.json\nA  receipts/onboarding/explorer-verification-phase-3-v1.json\nA  receipts/onboarding/public-deployment-observation-v1.json\nA  scripts/0g_social_recovery.py\nA  scripts/broadcast-phase7.sh\nA  wrangler.toml.bak"
 }

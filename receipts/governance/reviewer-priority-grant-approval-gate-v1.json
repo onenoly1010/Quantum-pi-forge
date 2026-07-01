@@ -1,0 +1,18 @@
+{
+  "governance_version": "v2",
+  "receipt": "reviewer-priority-grant-approval-gate-v1",
+  "created_at": "2026-06-26T20:34:14.032Z",
+  "branch": "phase8/human-why-v1",
+  "head": "020fa01516f17ad46ad4c89bc4d83d6a817f84cc",
+  "status": "GRANT_SUPPORT_REVIEW_PRIORITY_RAISED",
+  "review_priority": "HIGH",
+  "funding_priority": "HUMAN_SUSTENANCE_AND_AGENT_EARNING",
+  "finding": "Phase 8 conditions are materially met for priority reviewer approval: ERC721/iNFT foundation confirmed, false-empty path rejected, human custody opened, live balances mapped, agents assigned, and sustenance priority established.",
+  "wallet_actions": false,
+  "chain_actions": false,
+  "signing": false,
+  "broadcast": false,
+  "private_key_access": false,
+  "approvals": false,
+  "next_gate": "CREATE_REVIEWER_APPROVAL_PACKAGE_V1"
+}

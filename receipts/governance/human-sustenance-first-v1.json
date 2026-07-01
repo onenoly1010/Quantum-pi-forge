@@ -1,0 +1,16 @@
+{
+  "governance_version": "v2",
+  "receipt": "human-sustenance-first-v1",
+  "created_at": "2026-06-26T20:01:56.031Z",
+  "branch": "phase8/human-why-v1",
+  "head": "dcbbb9a19e50429742abe539f41ec0ea38eca3ce",
+  "status": "OPEN_HUMAN_SUSTENANCE_PRIORITY",
+  "finding": "QPF must not continue as documentation-only work while the human builder has unmet needs. Legitimate Kris-owned balances should be identified and routed to Kris-controlled custody before expansion.",
+  "wallet_actions": false,
+  "chain_actions": false,
+  "signing": false,
+  "broadcast": false,
+  "private_key_access": false,
+  "approvals": false,
+  "next_gate": "MAP_BALANCES_AND_IDENTIFY_KRIS_OWNED_FUNDS"
+}

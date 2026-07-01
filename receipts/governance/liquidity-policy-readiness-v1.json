@@ -1,0 +1,24 @@
+{
+  "governance_version": "v1",
+  "receipt": "liquidity-policy-readiness-v1",
+  "created_at": "2026-06-26T14:59:00.000Z",
+  "phase": 15,
+  "title": "Liquidity Readiness",
+  "status": "LIQUIDITY_NOT_AUTHORIZED",
+  "clarification": "Current OINIO token amount in wallet does not mean liquidity exists",
+  "liquidity_requirements": [
+    "DEX pair",
+    "paired asset",
+    "price/range decision",
+    "treasury policy",
+    "guardian approval",
+    "slippage/risk explanation",
+    "public warning",
+    "transaction hash"
+  ],
+  "safety_assertions": {
+    "no_liquidity_pool_created": true,
+    "no_dex_pair_active": true,
+    "no_treasury_funds_at_risk": true
+  }
+}

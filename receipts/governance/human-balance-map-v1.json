@@ -1,0 +1,2804 @@
+{
+  "governance_version": "v2",
+  "receipt": "human-balance-map-v1",
+  "created_at": "2026-06-26T19:50:13.826Z",
+  "mode": "read_only",
+  "rpc": "https://evmrpc.0g.ai",
+  "wallet_actions": false,
+  "signing": false,
+  "broadcast": false,
+  "private_key_access": false,
+  "address_count": 236,
+  "balances": [
+    {
+      "address": "0x75995EC0fdf881189850aeD864cB3f43c0DFCb58",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "receipts/contracts/safe-ownership-transfer-preflight-phase-6-v1.json",
+        "receipts/onboarding/explorer-verification-phase-3-v1.json",
+        "docs/governance/PUBLIC_VALIDATION_STATUS_V1.md",
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-1781550759760.json",
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-latest.json"
+      ]
+    },
+    {
+      "address": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "receipts/contracts/safe-ownership-transfer-preflight-phase-6-v1.json",
+        "receipts/onboarding/explorer-verification-phase-3-v1.json",
+        "docs/governance/PUBLIC_VALIDATION_STATUS_V1.md",
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-1781550759760.json",
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-latest.json"
+      ]
+    },
+    {
+      "address": "0x5E50b92E57e854659f7D98c733088aABd551C49F",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "receipts/contracts/safe-ownership-transfer-preflight-phase-6-v1.json",
+        "receipts/onboarding/explorer-verification-phase-3-v1.json",
+        "docs/governance/PUBLIC_VALIDATION_STATUS_V1.md",
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-1781550759760.json",
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-latest.json"
+      ]
+    },
+    {
+      "address": "0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "receipts/contracts/safe-ownership-transfer-preflight-phase-6-v1.json",
+        "receipts/execution/v2-first-pair-final-execution-command-selection-v1.json",
+        "receipts/execution/v2-first-pair-final-live-prebroadcast-probe-v1.json",
+        "receipts/execution/v2-first-pair-final-state-seal-v1.json",
+        "receipts/execution/v2-first-pair-init-command-hash-v1.json",
+        "receipts/execution/v2-first-pair-live-createpair-execution-v1.json",
+        "receipts/execution/v2-first-pair-metadata-probe-v1.json",
+        "receipts/execution/v2-full-dex-deployment-execution-v1.json",
+        "receipts/execution/v2-pair-init-execution-v1.json",
+        "receipts/governance/liquidity-funding-plan-v1.json",
+        "receipts/governance/liquidity-readiness-preflight-v1.json",
+        "receipts/governance/public-first-dex-pair-comms-v1.json",
+        "receipts/governance/public-first-dex-pair-handoff-v1.json",
+        "receipts/onboarding/explorer-verification-phase-3-v1.json",
+        "docs/deployments/0g-dex-first-pair-final-execution-command-selection-v1.md",
+        "docs/deployments/0g-dex-first-pair-final-state-seal-v1.md",
+        "docs/deployments/0g-dex-first-pair-init-command-hash-v1.md",
+        "docs/deployments/0g-dex-first-pair-init-preflight-audit-v1.md",
+        "docs/deployments/0g-dex-first-pair-live-createpair-execution-v1.md",
+        "docs/deployments/0g-dex-first-pair-metadata-probe-v1.md",
+        "docs/deployments/0g-dex-pair-init-execution-v1.md",
+        "docs/deployments/0g-dex-pair-init-readiness-v1.md",
+        "docs/deployments/full-0g-dex-live-status-v1.md",
+        "docs/deployments/public-first-dex-pair-handoff-v1.md"
+      ]
+    },
+    {
+      "address": "0x6011c341a01c80f489a5c3Ab751987A55142F04e",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "receipts/contracts/safe-ownership-transfer-preflight-phase-6-v1.json",
+        "receipts/governance/earnings-layer-absence-audit-v1.json",
+        "receipts/onboarding/explorer-verification-phase-3-v1.json",
+        "docs/0G_SKILLS_README.md",
+        "contracts/script/DeploySocialRecovery.s.sol"
+      ]
+    },
+    {
+      "address": "0x8d088B88219D072aB035502065ee2410c2cb4389",
+      "native_0g_wei": "2000000000000000000",
+      "native_0g": "2",
+      "files": [
+        "receipts/contracts/safe-ownership-transfer-preflight-phase-6-v1.json",
+        "receipts/governance/guardian-completion-acceptance-v1.json",
+        "receipts/governance/guardian-governance-readiness-v1.json",
+        "receipts/governance/phase-7-authorization-proposal-v1.json",
+        "receipts/governance/phase-7-deploy-yield-router-script-created-v1.json",
+        "receipts/governance/phase-7-guardian-address-intake-v1.json",
+        "receipts/governance/phase-7-pre-execution-validation-v1.json",
+        "receipts/governance/phase-7-yield-routing-post-execution-v1.json",
+        "receipts/governance/pr-516-phase-7-post-merge-closure-v1.json",
+        "receipts/governance/public-onboarding-readiness-v1-evidence-v1.json",
+        "receipts/onboarding/explorer-verification-phase-3-v1.json",
+        "contracts/script/DeployYieldRouter.s.sol"
+      ]
+    },
+    {
+      "address": "0x428d21299bbc299bccda2f6362009718244a90ef",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "receipts/execution/v2-first-pair-final-execution-command-selection-v1.json",
+        "receipts/execution/v2-first-pair-final-live-prebroadcast-probe-v1.json",
+        "receipts/execution/v2-first-pair-live-createpair-execution-v1.json"
+      ]
+    },
+    {
+      "address": "0xc9c65396000000000000000000000000d1de4f87",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "receipts/execution/v2-first-pair-final-execution-command-selection-v1.json",
+        "receipts/execution/v2-first-pair-init-command-hash-v1.json"
+      ]
+    },
+    {
+      "address": "0x8fd440c3e5304c456986b3cb435dd674d4118b73",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "receipts/execution/v2-first-pair-final-execution-command-selection-v1.json",
+        "receipts/execution/v2-first-pair-final-live-prebroadcast-probe-v1.json",
+        "receipts/execution/v2-first-pair-init-command-hash-v1.json",
+        "receipts/execution/v2-first-pair-live-createpair-execution-v1.json"
+      ]
+    },
+    {
+      "address": "0xD1De4F87C8b195f21254b7163dDA9370D8Df593d",
+      "native_0g_wei": "50000000000000000",
+      "native_0g": "0.050000000000000000",
+      "files": [
+        "receipts/execution/v2-first-pair-final-execution-command-selection-v1.json",
+        "receipts/execution/v2-first-pair-final-live-prebroadcast-probe-v1.json",
+        "receipts/execution/v2-first-pair-final-state-seal-v1.json",
+        "receipts/execution/v2-first-pair-init-command-hash-v1.json",
+        "receipts/execution/v2-first-pair-live-createpair-execution-v1.json",
+        "receipts/execution/v2-first-pair-metadata-probe-v1.json",
+        "receipts/execution/v2-full-dex-deployment-execution-v1.json",
+        "receipts/execution/v2-pair-init-execution-v1.json",
+        "receipts/governance/liquidity-approval-command-hash-blocked-v1.json",
+        "receipts/governance/liquidity-funding-plan-v1.json",
+        "receipts/governance/liquidity-readiness-preflight-v1.json",
+        "docs/deployments/0g-dex-first-pair-final-execution-command-selection-v1.md",
+        "docs/deployments/0g-dex-first-pair-final-state-seal-v1.md",
+        "docs/deployments/0g-dex-first-pair-init-command-hash-v1.md",
+        "docs/deployments/0g-dex-first-pair-init-preflight-audit-v1.md",
+        "docs/deployments/0g-dex-first-pair-live-createpair-execution-v1.md",
+        "docs/deployments/0g-dex-first-pair-metadata-probe-v1.md",
+        "docs/deployments/0g-dex-first-pair-selection-manifest-v1.md",
+        "docs/deployments/0g-dex-pair-init-execution-v1.md",
+        "docs/deployments/0g-dex-pair-init-readiness-v1.md",
+        "docs/deployments/full-0g-dex-live-status-v1.md",
+        "contracts/0g-uniswap-v2/broadcast/Deploy.s.sol/16661/deployW0GOnly-latest.json",
+        "contracts/0g-uniswap-v2/broadcast/Deploy.s.sol/16661/run-1781556527918.json"
+      ]
+    },
+    {
+      "address": "0x1f3aa82227281ca364bfb3d253b0f1af1da6473e",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "receipts/execution/v2-first-pair-final-execution-command-selection-v1.json",
+        "receipts/execution/v2-first-pair-final-live-prebroadcast-probe-v1.json",
+        "receipts/execution/v2-first-pair-final-state-seal-v1.json",
+        "receipts/execution/v2-first-pair-init-command-hash-v1.json",
+        "receipts/execution/v2-first-pair-live-createpair-execution-v1.json",
+        "receipts/execution/v2-first-pair-metadata-probe-v1.json",
+        "receipts/governance/liquidity-approval-command-hash-blocked-v1.json",
+        "receipts/governance/liquidity-funding-plan-v1.json",
+        "receipts/governance/liquidity-readiness-preflight-v1.json",
+        "docs/deployments/0g-dex-first-pair-final-execution-command-selection-v1.md",
+        "docs/deployments/0g-dex-first-pair-final-state-seal-v1.md",
+        "docs/deployments/0g-dex-first-pair-init-command-hash-v1.md",
+        "docs/deployments/0g-dex-first-pair-init-preflight-audit-v1.md",
+        "docs/deployments/0g-dex-first-pair-live-createpair-execution-v1.md"
+      ]
+    },
+    {
+      "address": "0x0000000000000000000000000000000000000000",
+      "native_0g_wei": "878198773004057045915887779",
+      "native_0g": "878198773.004057045915887779",
+      "files": [
+        "receipts/execution/v2-first-pair-final-live-prebroadcast-probe-v1.json",
+        "receipts/execution/v2-first-pair-live-createpair-execution-v1.json",
+        "docs/CODE_REVIEW_IMPLEMENTATION.md",
+        "docs/deployments/0g-dex-first-pair-metadata-probe-v1.md",
+        "docs/governance/EXECUTION_WRAPPER_READINESS_TRIAGE_V1.md",
+        "contracts/0g-uniswap-v2/broadcast/Deploy.s.sol/16661/deployW0GOnly-latest.json",
+        "contracts/0g-uniswap-v2/broadcast/Deploy.s.sol/16661/run-1781556527918.json",
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-1781550759760.json",
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-latest.json",
+        "contracts/lib/forge-std/src/safeconsole.sol",
+        "contracts/lib/forge-std/test/Config.t.sol",
+        "contracts/lib/forge-std/test/fixtures/broadcast.log.json",
+        "contracts/lib/openzeppelin-contracts/contracts/governance/Governor.sol",
+        "contracts/lib/openzeppelin-contracts/contracts/metatx/ERC2771Forwarder.sol",
+        "contracts/lib/openzeppelin-contracts/contracts/utils/ShortStrings.sol",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/test/fixtures/broadcast.log.json"
+      ]
+    },
+    {
+      "address": "0x4f887876313a5085337ce22eac9418725558a912",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "receipts/execution/v2-first-pair-final-state-seal-v1.json",
+        "receipts/execution/v2-first-pair-live-createpair-execution-v1.json",
+        "receipts/governance/public-first-dex-pair-handoff-v1.json",
+        "docs/deployments/0g-dex-first-pair-final-state-seal-v1.md",
+        "docs/deployments/0g-dex-first-pair-live-createpair-execution-v1.md",
+        "docs/deployments/public-first-dex-pair-handoff-v1.md"
+      ]
+    },
+    {
+      "address": "0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "receipts/execution/v2-first-pair-final-state-seal-v1.json",
+        "receipts/execution/v2-first-pair-live-createpair-execution-v1.json",
+        "receipts/execution/v2-first-pair-metadata-probe-v1.json",
+        "receipts/governance/liquidity-approval-command-hash-blocked-v1.json",
+        "receipts/governance/liquidity-funding-plan-v1.json",
+        "receipts/governance/liquidity-readiness-preflight-v1.json",
+        "receipts/governance/public-first-dex-pair-handoff-v1.json",
+        "docs/deployments/0g-dex-first-pair-final-state-seal-v1.md",
+        "docs/deployments/0g-dex-first-pair-live-createpair-execution-v1.md",
+        "docs/deployments/liquidity-funding-plan-v1.md",
+        "docs/deployments/public-first-dex-pair-handoff-v1.md"
+      ]
+    },
+    {
+      "address": "0x335651BD160fDA89C9E7A095dF9Dc1BB9f3cF4DC",
+      "native_0g_wei": "6507996671795127059",
+      "native_0g": "6.507996671795127059",
+      "files": [
+        "receipts/execution/v2-first-pair-live-createpair-execution-v1.json",
+        "receipts/execution/v2-full-dex-deployment-execution-v1.json",
+        "receipts/governance/liquidity-approval-command-hash-blocked-v1.json",
+        "receipts/governance/liquidity-funding-plan-v1.json",
+        "receipts/governance/liquidity-readiness-preflight-v1.json",
+        "receipts/governance/public-validation-status-v1.json",
+        "receipts/security/eth-mainnet-old-wallet-untrusted-v1.json",
+        "docs/deployments/full-0g-dex-live-status-v1.md",
+        "docs/deployments/liquidity-funding-plan-v1.md",
+        "docs/governance/PUBLIC_VALIDATION_STATUS_V1.md",
+        "docs/security/ETH_MAINNET_OLD_WALLET_UNTRUSTED_V1.md",
+        "contracts/0g-uniswap-v2/broadcast/Deploy.s.sol/16661/deployW0GOnly-latest.json",
+        "contracts/0g-uniswap-v2/broadcast/Deploy.s.sol/16661/run-1781556527918.json",
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-1781550759760.json",
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-latest.json"
+      ]
+    },
+    {
+      "address": "0x2c70129E50BF88eCD59b89d63af2e8920aCF3951",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "receipts/execution/v2-first-pair-metadata-probe-v1.json",
+        "receipts/execution/v2-full-dex-deployment-execution-v1.json",
+        "receipts/execution/v2-pair-init-execution-v1.json",
+        "receipts/governance/liquidity-approval-command-hash-blocked-v1.json",
+        "receipts/governance/liquidity-funding-plan-v1.json",
+        "receipts/governance/liquidity-readiness-preflight-v1.json",
+        "docs/deployments/0g-dex-first-pair-init-preflight-audit-v1.md",
+        "docs/deployments/0g-dex-first-pair-metadata-probe-v1.md",
+        "docs/deployments/0g-dex-pair-init-execution-v1.md",
+        "docs/deployments/0g-dex-pair-init-readiness-v1.md",
+        "docs/deployments/full-0g-dex-live-status-v1.md"
+      ]
+    },
+    {
+      "address": "0x4e59b44847b379578588920cA78FbF26c0B4956C",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "receipts/execution/v2-full-dex-deployment-execution-v1.json",
+        "contracts/lib/forge-std/src/Base.sol",
+        "contracts/lib/forge-std/src/StdCheats.sol",
+        "contracts/lib/forge-std/src/StdConstants.sol",
+        "contracts/lib/forge-std/test/StdCheats.t.sol",
+        "contracts/lib/forge-std/test/fixtures/broadcast.log.json",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/src/Base.sol",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/test/fixtures/broadcast.log.json"
+      ]
+    },
+    {
+      "address": "0x938b1aa88fc24a75b078533f8629ce0ae6a276fa",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "receipts/execution/v2-full-dex-deployment-execution-v1.json"
+      ]
+    },
+    {
+      "address": "0x979c230659a4d6c7e4046d638f2eb4716111576e",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "receipts/execution/v2-full-dex-deployment-execution-v1.json"
+      ]
+    },
+    {
+      "address": "0x7382a5405b8c9a6d63f1e603e85690ea44606f4e",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "receipts/execution/v2-full-dex-deployment-execution-v1.json"
+      ]
+    },
+    {
+      "address": "0x03122c0defcc75f77473b6b3af8e4954b4591308",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "receipts/execution/v2-full-dex-deployment-execution-v1.json"
+      ]
+    },
+    {
+      "address": "0x0ee982e687af41950da5a27ca2e6e2dd7817c918",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "receipts/execution/v2-full-dex-deployment-execution-v1.json",
+        "docs/deployments/full-0g-dex-live-status-v1.md"
+      ]
+    },
+    {
+      "address": "0xde4534d39d625dbf19bc9fe5b8f8d2190a10fa38",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "receipts/execution/v2-full-dex-deployment-execution-v1.json",
+        "docs/deployments/full-0g-dex-live-status-v1.md"
+      ]
+    },
+    {
+      "address": "0x18db81bf5707aa966311c76526750a6b15f42d14",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "receipts/execution/v2-full-dex-deployment-execution-v1.json",
+        "docs/deployments/full-0g-dex-live-status-v1.md"
+      ]
+    },
+    {
+      "address": "0x4673f0137Ad734eAd213F908a51E2f93f2721B5C",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "receipts/governance/earnings-layer-absence-audit-v1.json"
+      ]
+    },
+    {
+      "address": "0x8a56E85A7d46DDE42c2FcCC31eC7283b654f928c",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "receipts/governance/earnings-layer-absence-audit-v1.json"
+      ]
+    },
+    {
+      "address": "0x353663cd664bB3e034Dc0f308D8896C0a242e4cd",
+      "native_0g_wei": "157500000441000",
+      "native_0g": "0.000157500000441000",
+      "files": [
+        "receipts/governance/earnings-layer-absence-audit-v1.json"
+      ]
+    },
+    {
+      "address": "0xe606960d1dc5516ba43ca7199435407fbe1e7c2c",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "receipts/governance/guardian-completion-acceptance-v1.json"
+      ]
+    },
+    {
+      "address": "0x9f7cF1d1F558E57ef88a59ac3D47214eF25B6A06",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "receipts/governance/phase-7-pre-execution-validation-v1.json"
+      ]
+    },
+    {
+      "address": "0x58e8ff2f7c380d6f075f702e68a298356353c3c4",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "receipts/governance/phase-7-yield-routing-post-execution-correction-v1.json"
+      ]
+    },
+    {
+      "address": "0x566b30c98d73dfc8f4b5cb4bd2e540f6584ea6c3",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "receipts/governance/phase-7-yield-routing-post-execution-correction-v1.json"
+      ]
+    },
+    {
+      "address": "0x608060405234801561000f575f80fd5b50600436",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "receipts/governance/phase-7-yield-routing-post-execution-correction-v1.json",
+        "contracts/out/DeploySocialRecovery.s.sol/DeploySocialRecovery.json",
+        "contracts/out/DeployYieldRouter.s.sol/DeployYieldRouter.json",
+        "contracts/out/HeartbeatMonitor.sol/HeartbeatMonitor.json",
+        "contracts/out/LegacyVault.t.sol/LegacyVaultTest.json",
+        "contracts/out/OINIOModelRegistry.sol/OINIOModelRegistry.json",
+        "contracts/out/OINIOToken.sol/OINIOToken.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json",
+        "contracts/out/YieldRouterFactory.sol/YieldRouterFactory.json",
+        "contracts/out/YieldRouterFactory.t.sol/YieldRouterFactoryTest.json",
+        "contracts/out/ZeroGSocialRecovery.sol/ZeroGSocialRecovery.json"
+      ]
+    },
+    {
+      "address": "0x5b73c5498c1e3b4dba84de0f1833c4a029d90519",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "receipts/governance/phase-7-yield-routing-post-execution-v1.json"
+      ]
+    },
+    {
+      "address": "0x709f23C7A7172E137427576abB5Eb8959E2A57c1",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "receipts/governance/post-mainnet-activation-closure-v1.json",
+        "receipts/governance/post-pr-488-main-state-closure-v1.json",
+        "receipts/governance/pr-488-local-verification-ci-unavailable-v1.json",
+        "receipts/onboarding/explorer-verification-phase-3-v1.json"
+      ]
+    },
+    {
+      "address": "0x25A9C5A244EAf688E078C387616e2380A0589562",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "receipts/governance/post-mainnet-activation-closure-v1.json",
+        "receipts/governance/post-pr-488-main-state-closure-v1.json",
+        "receipts/governance/pr-488-local-verification-ci-unavailable-v1.json"
+      ]
+    },
+    {
+      "address": "0xd1d5147f38E74855a133Cd75cE7b040eBE6324a0",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "receipts/governance/post-mainnet-activation-closure-v1.json",
+        "receipts/governance/post-pr-488-main-state-closure-v1.json",
+        "receipts/governance/pr-488-local-verification-ci-unavailable-v1.json"
+      ]
+    },
+    {
+      "address": "0x541B9034C82D7Fb564F12cA07037947ff5b4eF2f",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "receipts/security/eth-mainnet-old-wallet-untrusted-v1.json",
+        "receipts/security/suspicious-address-repo-causality-check-v1.json",
+        "docs/governance/PUBLIC_VALIDATION_STATUS_V1.md",
+        "docs/security/ETH_MAINNET_OLD_WALLET_UNTRUSTED_V1.md",
+        "docs/security/SUSPICIOUS_ADDRESS_REPO_CAUSALITY_CHECK_V1.md"
+      ]
+    },
+    {
+      "address": "0x1fec3b41314e5066a2771ea608f6ed09580e10f4",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "receipts/security/eth-mainnet-old-wallet-untrusted-v1.json",
+        "docs/governance/PUBLIC_VALIDATION_STATUS_V1.md",
+        "docs/security/ETH_MAINNET_OLD_WALLET_UNTRUSTED_V1.md"
+      ]
+    },
+    {
+      "address": "0xac4e8f234256ca02c165321768dec2e6787f590e",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "docs/0G_SKILLS_README.md"
+      ]
+    },
+    {
+      "address": "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "docs/0G_SKILLS_README.md"
+      ]
+    },
+    {
+      "address": "0x35651c43292e7306c154bc70075dbed1ac02b0e0",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "docs/0G_SKILLS_README.md"
+      ]
+    },
+    {
+      "address": "0xaaa0cc0f1678eb6e0385d1cd83ec2e676f629faf",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "docs/0G_SKILLS_README.md"
+      ]
+    },
+    {
+      "address": "0x3d768430ab02659be395afcc116b4c70739f0590",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "docs/0G_SKILLS_README.md"
+      ]
+    },
+    {
+      "address": "0x07f43E5B1A8a0928B364E40d5885f81A543B05C7",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "docs/REACT_DASHBOARD_INTEGRATION.md"
+      ]
+    },
+    {
+      "address": "0x742d35Cc6634C0532925a3b8B9C4A1d3F1a8b1c2",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "docs/REACT_DASHBOARD_INTEGRATION.md"
+      ]
+    },
+    {
+      "address": "0x7F9c2e8A3d4B5f6E7c8D9a0B1c2D3e4F5a6B7c8D",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "docs/SOVEREIGN_DATA_VALIDATION_SERVICE_AGREEMENT.md"
+      ]
+    },
+    {
+      "address": "0x1234567890123456789012345678901234567890",
+      "native_0g_wei": "100000000000000",
+      "native_0g": "0.000100000000000000",
+      "files": [
+        "docs/VERIFICATION.md"
+      ]
+    },
+    {
+      "address": "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb1",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "docs/VERIFICATION_GUIDE.md"
+      ]
+    },
+    {
+      "address": "0x6e71edae12b1b97f4d1f60370fef10105fa2faae",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/0g-dex/UniswapV2ERC20.sol"
+      ]
+    },
+    {
+      "address": "0x96e8ac4277198ff8b6f785478aa9a39f403cb768",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/0g-uniswap-v2/QUICKSTART.md"
+      ]
+    },
+    {
+      "address": "0x7747e937fbfa8e100d73fe3375b6bf2fad31924f",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/0g-uniswap-v2/broadcast/Deploy.s.sol/16661/deployW0GOnly-latest.json",
+        "contracts/0g-uniswap-v2/broadcast/Deploy.s.sol/16661/run-1781556527918.json"
+      ]
+    },
+    {
+      "address": "0x60c0604052600a60809081526957726170706564",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/0g-uniswap-v2/broadcast/Deploy.s.sol/16661/deployW0GOnly-latest.json",
+        "contracts/0g-uniswap-v2/broadcast/Deploy.s.sol/16661/run-1781556527918.json",
+        "contracts/0g-uniswap-v2/out/W0G.sol/W0G.json"
+      ]
+    },
+    {
+      "address": "0x9be40db1e22fcbe43c07b91abb0bcad5f0667124",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/0g-uniswap-v2/broadcast/Deploy.s.sol/16661/deployW0GOnly-latest.json",
+        "contracts/0g-uniswap-v2/broadcast/Deploy.s.sol/16661/run-1781556527918.json"
+      ]
+    },
+    {
+      "address": "0x926f1c9907b7dadb56dc920ae80dc473070989ab",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/0g-uniswap-v2/out/Base.sol/CommonBase.json",
+        "contracts/0g-uniswap-v2/out/Base.sol/ScriptBase.json",
+        "contracts/0g-uniswap-v2/out/Base.sol/TestBase.json",
+        "contracts/0g-uniswap-v2/out/Deploy.s.sol/Deploy.json",
+        "contracts/0g-uniswap-v2/out/Script.sol/Script.json",
+        "contracts/0g-uniswap-v2/out/Test.sol/Test.json",
+        "contracts/0g-uniswap-v2/out/ZeroGDeployment.t.sol/ZeroGDeploymentTest.json",
+        "contracts/out/Base.sol/CommonBase.json",
+        "contracts/out/Base.sol/ScriptBase.json",
+        "contracts/out/Base.sol/TestBase.json",
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/DeploySocialRecovery.s.sol/DeploySocialRecovery.json",
+        "contracts/out/DeployYieldRouter.s.sol/DeployYieldRouter.json",
+        "contracts/out/FeeCollector.t.sol/FeeCollectorTest.json",
+        "contracts/out/LegacyVault.t.sol/LegacyVaultTest.json",
+        "contracts/out/OperationalTreasury.t.sol/OperationalTreasuryTest.json",
+        "contracts/out/PioneerRewards.t.sol/PioneerRewardsTest.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json",
+        "contracts/out/Script.sol/Script.json",
+        "contracts/out/Test.sol/Test.json",
+        "contracts/out/YieldRouterFactory.t.sol/YieldRouterFactoryTest.json"
+      ]
+    },
+    {
+      "address": "0x1d08e4002e086bef63602b17d00369bd2e692ce9",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/0g-uniswap-v2/out/Base.sol/CommonBase.json",
+        "contracts/0g-uniswap-v2/out/Base.sol/ScriptBase.json",
+        "contracts/0g-uniswap-v2/out/Base.sol/TestBase.json",
+        "contracts/0g-uniswap-v2/out/Deploy.s.sol/Deploy.json",
+        "contracts/0g-uniswap-v2/out/Script.sol/Script.json",
+        "contracts/0g-uniswap-v2/out/StdCheats.sol/StdCheats.json",
+        "contracts/0g-uniswap-v2/out/StdCheats.sol/StdCheatsSafe.json",
+        "contracts/0g-uniswap-v2/out/StdStorage.sol/stdStorage.json",
+        "contracts/0g-uniswap-v2/out/StdStorage.sol/stdStorageSafe.json",
+        "contracts/0g-uniswap-v2/out/Test.sol/Test.json",
+        "contracts/0g-uniswap-v2/out/ZeroGDeployment.t.sol/ZeroGDeploymentTest.json",
+        "contracts/out/Base.sol/CommonBase.json",
+        "contracts/out/Base.sol/ScriptBase.json",
+        "contracts/out/Base.sol/TestBase.json",
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/DeploySocialRecovery.s.sol/DeploySocialRecovery.json",
+        "contracts/out/DeployYieldRouter.s.sol/DeployYieldRouter.json",
+        "contracts/out/FeeCollector.t.sol/FeeCollectorTest.json",
+        "contracts/out/LegacyVault.t.sol/LegacyVaultTest.json",
+        "contracts/out/OperationalTreasury.t.sol/OperationalTreasuryTest.json",
+        "contracts/out/PioneerRewards.t.sol/PioneerRewardsTest.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json",
+        "contracts/out/Script.sol/Script.json",
+        "contracts/out/StdCheats.sol/StdCheats.json",
+        "contracts/out/StdCheats.sol/StdCheatsSafe.json",
+        "contracts/out/StdStorage.sol/stdStorage.json",
+        "contracts/out/StdStorage.sol/stdStorageSafe.json",
+        "contracts/out/Test.sol/Test.json",
+        "contracts/out/YieldRouterFactory.t.sol/YieldRouterFactoryTest.json"
+      ]
+    },
+    {
+      "address": "0x0b50ffdf244156d98d50b6b3c37cdb982edf843b",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/0g-uniswap-v2/out/Base.sol/CommonBase.json",
+        "contracts/0g-uniswap-v2/out/Base.sol/ScriptBase.json",
+        "contracts/0g-uniswap-v2/out/Base.sol/TestBase.json",
+        "contracts/0g-uniswap-v2/out/Deploy.s.sol/Deploy.json",
+        "contracts/0g-uniswap-v2/out/Script.sol/Script.json",
+        "contracts/0g-uniswap-v2/out/StdAssertions.sol/StdAssertions.json",
+        "contracts/0g-uniswap-v2/out/StdChains.sol/StdChains.json",
+        "contracts/0g-uniswap-v2/out/StdCheats.sol/StdCheats.json",
+        "contracts/0g-uniswap-v2/out/StdCheats.sol/StdCheatsSafe.json",
+        "contracts/0g-uniswap-v2/out/StdConstants.sol/StdConstants.json",
+        "contracts/0g-uniswap-v2/out/StdJson.sol/stdJson.json",
+        "contracts/0g-uniswap-v2/out/StdStorage.sol/stdStorage.json",
+        "contracts/0g-uniswap-v2/out/StdStorage.sol/stdStorageSafe.json",
+        "contracts/0g-uniswap-v2/out/StdStyle.sol/StdStyle.json",
+        "contracts/0g-uniswap-v2/out/StdToml.sol/stdToml.json",
+        "contracts/0g-uniswap-v2/out/StdUtils.sol/StdUtils.json",
+        "contracts/0g-uniswap-v2/out/Test.sol/Test.json",
+        "contracts/0g-uniswap-v2/out/Vm.sol/Vm.json",
+        "contracts/0g-uniswap-v2/out/Vm.sol/VmSafe.json",
+        "contracts/0g-uniswap-v2/out/ZeroGDeployment.t.sol/ZeroGDeploymentTest.json",
+        "contracts/out/Base.sol/CommonBase.json",
+        "contracts/out/Base.sol/ScriptBase.json",
+        "contracts/out/Base.sol/TestBase.json",
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/DeploySocialRecovery.s.sol/DeploySocialRecovery.json",
+        "contracts/out/DeployYieldRouter.s.sol/DeployYieldRouter.json",
+        "contracts/out/FeeCollector.t.sol/FeeCollectorTest.json",
+        "contracts/out/LegacyVault.t.sol/LegacyVaultTest.json",
+        "contracts/out/OperationalTreasury.t.sol/OperationalTreasuryTest.json",
+        "contracts/out/PioneerRewards.t.sol/PioneerRewardsTest.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json",
+        "contracts/out/Script.sol/Script.json",
+        "contracts/out/StdAssertions.sol/StdAssertions.json",
+        "contracts/out/StdChains.sol/StdChains.json",
+        "contracts/out/StdCheats.sol/StdCheats.json",
+        "contracts/out/StdCheats.sol/StdCheatsSafe.json",
+        "contracts/out/StdConstants.sol/StdConstants.json",
+        "contracts/out/StdJson.sol/stdJson.json",
+        "contracts/out/StdStorage.sol/stdStorage.json",
+        "contracts/out/StdStorage.sol/stdStorageSafe.json",
+        "contracts/out/StdStyle.sol/StdStyle.json",
+        "contracts/out/StdToml.sol/stdToml.json",
+        "contracts/out/StdUtils.sol/StdUtils.json",
+        "contracts/out/Test.sol/Test.json",
+        "contracts/out/Vm.sol/Vm.json",
+        "contracts/out/Vm.sol/VmSafe.json",
+        "contracts/out/YieldRouterFactory.t.sol/YieldRouterFactoryTest.json"
+      ]
+    },
+    {
+      "address": "0x6080604052600c805462ff00ff19166201000117",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/0g-uniswap-v2/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/DeploySocialRecovery.s.sol/DeploySocialRecovery.json",
+        "contracts/out/DeployYieldRouter.s.sol/DeployYieldRouter.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json"
+      ]
+    },
+    {
+      "address": "0x60806040523480156200001157600080fd5b5060",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/0g-uniswap-v2/out/Deploy.s.sol/Deploy.json",
+        "contracts/0g-uniswap-v2/out/ZeroGDeployment.t.sol/ZeroGDeploymentTest.json"
+      ]
+    },
+    {
+      "address": "0x7a4077e7ec41cfa429ac749c6a47c7966f7b14fc",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/0g-uniswap-v2/out/Deploy.s.sol/Deploy.json",
+        "contracts/0g-uniswap-v2/out/Script.sol/Script.json",
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/DeploySocialRecovery.s.sol/DeploySocialRecovery.json",
+        "contracts/out/DeployYieldRouter.s.sol/DeployYieldRouter.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json",
+        "contracts/out/Script.sol/Script.json"
+      ]
+    },
+    {
+      "address": "0x5b4fcfabe595deaef2d96fba54fb923fc03f5a0e",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/0g-uniswap-v2/out/Deploy.s.sol/Deploy.json",
+        "contracts/0g-uniswap-v2/out/Script.sol/Script.json",
+        "contracts/0g-uniswap-v2/out/StdChains.sol/StdChains.json",
+        "contracts/0g-uniswap-v2/out/Test.sol/Test.json",
+        "contracts/0g-uniswap-v2/out/ZeroGDeployment.t.sol/ZeroGDeploymentTest.json",
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/DeploySocialRecovery.s.sol/DeploySocialRecovery.json",
+        "contracts/out/DeployYieldRouter.s.sol/DeployYieldRouter.json",
+        "contracts/out/FeeCollector.t.sol/FeeCollectorTest.json",
+        "contracts/out/LegacyVault.t.sol/LegacyVaultTest.json",
+        "contracts/out/OperationalTreasury.t.sol/OperationalTreasuryTest.json",
+        "contracts/out/PioneerRewards.t.sol/PioneerRewardsTest.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json",
+        "contracts/out/Script.sol/Script.json",
+        "contracts/out/StdChains.sol/StdChains.json",
+        "contracts/out/Test.sol/Test.json",
+        "contracts/out/YieldRouterFactory.t.sol/YieldRouterFactoryTest.json"
+      ]
+    },
+    {
+      "address": "0xa49e94d01c8eba45bf98467efaff571c8f8be8bb",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/0g-uniswap-v2/out/Deploy.s.sol/Deploy.json",
+        "contracts/0g-uniswap-v2/out/Script.sol/Script.json",
+        "contracts/0g-uniswap-v2/out/StdCheats.sol/StdCheats.json",
+        "contracts/0g-uniswap-v2/out/StdCheats.sol/StdCheatsSafe.json",
+        "contracts/0g-uniswap-v2/out/Test.sol/Test.json",
+        "contracts/0g-uniswap-v2/out/ZeroGDeployment.t.sol/ZeroGDeploymentTest.json",
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/DeploySocialRecovery.s.sol/DeploySocialRecovery.json",
+        "contracts/out/DeployYieldRouter.s.sol/DeployYieldRouter.json",
+        "contracts/out/FeeCollector.t.sol/FeeCollectorTest.json",
+        "contracts/out/LegacyVault.t.sol/LegacyVaultTest.json",
+        "contracts/out/OperationalTreasury.t.sol/OperationalTreasuryTest.json",
+        "contracts/out/PioneerRewards.t.sol/PioneerRewardsTest.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json",
+        "contracts/out/Script.sol/Script.json",
+        "contracts/out/StdCheats.sol/StdCheats.json",
+        "contracts/out/StdCheats.sol/StdCheatsSafe.json",
+        "contracts/out/Test.sol/Test.json",
+        "contracts/out/YieldRouterFactory.t.sol/YieldRouterFactoryTest.json"
+      ]
+    },
+    {
+      "address": "0xdee8966717b8a40d2b0c365441a89c89120c3e19",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/0g-uniswap-v2/out/Deploy.s.sol/Deploy.json",
+        "contracts/0g-uniswap-v2/out/Script.sol/Script.json",
+        "contracts/0g-uniswap-v2/out/StdConstants.sol/StdConstants.json",
+        "contracts/0g-uniswap-v2/out/StdUtils.sol/StdUtils.json",
+        "contracts/0g-uniswap-v2/out/Test.sol/Test.json",
+        "contracts/0g-uniswap-v2/out/ZeroGDeployment.t.sol/ZeroGDeploymentTest.json",
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/DeploySocialRecovery.s.sol/DeploySocialRecovery.json",
+        "contracts/out/DeployYieldRouter.s.sol/DeployYieldRouter.json",
+        "contracts/out/FeeCollector.t.sol/FeeCollectorTest.json",
+        "contracts/out/LegacyVault.t.sol/LegacyVaultTest.json",
+        "contracts/out/OperationalTreasury.t.sol/OperationalTreasuryTest.json",
+        "contracts/out/PioneerRewards.t.sol/PioneerRewardsTest.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json",
+        "contracts/out/Script.sol/Script.json",
+        "contracts/out/StdConstants.sol/StdConstants.json",
+        "contracts/out/StdUtils.sol/StdUtils.json",
+        "contracts/out/Test.sol/Test.json",
+        "contracts/out/YieldRouterFactory.t.sol/YieldRouterFactoryTest.json"
+      ]
+    },
+    {
+      "address": "0xce13663a643b3a1db69a03865bb0c97cd79d3920",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/0g-uniswap-v2/out/Deploy.s.sol/Deploy.json",
+        "contracts/0g-uniswap-v2/out/Script.sol/Script.json",
+        "contracts/0g-uniswap-v2/out/StdJson.sol/stdJson.json",
+        "contracts/0g-uniswap-v2/out/Test.sol/Test.json",
+        "contracts/0g-uniswap-v2/out/ZeroGDeployment.t.sol/ZeroGDeploymentTest.json",
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/DeploySocialRecovery.s.sol/DeploySocialRecovery.json",
+        "contracts/out/DeployYieldRouter.s.sol/DeployYieldRouter.json",
+        "contracts/out/FeeCollector.t.sol/FeeCollectorTest.json",
+        "contracts/out/LegacyVault.t.sol/LegacyVaultTest.json",
+        "contracts/out/OperationalTreasury.t.sol/OperationalTreasuryTest.json",
+        "contracts/out/PioneerRewards.t.sol/PioneerRewardsTest.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json",
+        "contracts/out/Script.sol/Script.json",
+        "contracts/out/StdJson.sol/stdJson.json",
+        "contracts/out/Test.sol/Test.json",
+        "contracts/out/YieldRouterFactory.t.sol/YieldRouterFactoryTest.json"
+      ]
+    },
+    {
+      "address": "0x78f0fada900e6a3383425c21affd4fc72f3d8412",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/0g-uniswap-v2/out/Deploy.s.sol/Deploy.json",
+        "contracts/0g-uniswap-v2/out/Script.sol/Script.json",
+        "contracts/0g-uniswap-v2/out/StdMath.sol/stdMath.json",
+        "contracts/0g-uniswap-v2/out/Test.sol/Test.json",
+        "contracts/0g-uniswap-v2/out/ZeroGDeployment.t.sol/ZeroGDeploymentTest.json",
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/DeploySocialRecovery.s.sol/DeploySocialRecovery.json",
+        "contracts/out/DeployYieldRouter.s.sol/DeployYieldRouter.json",
+        "contracts/out/FeeCollector.t.sol/FeeCollectorTest.json",
+        "contracts/out/LegacyVault.t.sol/LegacyVaultTest.json",
+        "contracts/out/OperationalTreasury.t.sol/OperationalTreasuryTest.json",
+        "contracts/out/PioneerRewards.t.sol/PioneerRewardsTest.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json",
+        "contracts/out/Script.sol/Script.json",
+        "contracts/out/StdMath.sol/stdMath.json",
+        "contracts/out/Test.sol/Test.json",
+        "contracts/out/YieldRouterFactory.t.sol/YieldRouterFactoryTest.json"
+      ]
+    },
+    {
+      "address": "0x07d838e46fca86930c9a4060dcaeb5e6a4494de7",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/0g-uniswap-v2/out/Deploy.s.sol/Deploy.json",
+        "contracts/0g-uniswap-v2/out/Script.sol/Script.json",
+        "contracts/0g-uniswap-v2/out/StdStyle.sol/StdStyle.json",
+        "contracts/0g-uniswap-v2/out/Test.sol/Test.json",
+        "contracts/0g-uniswap-v2/out/ZeroGDeployment.t.sol/ZeroGDeploymentTest.json",
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/DeploySocialRecovery.s.sol/DeploySocialRecovery.json",
+        "contracts/out/DeployYieldRouter.s.sol/DeployYieldRouter.json",
+        "contracts/out/FeeCollector.t.sol/FeeCollectorTest.json",
+        "contracts/out/LegacyVault.t.sol/LegacyVaultTest.json",
+        "contracts/out/OperationalTreasury.t.sol/OperationalTreasuryTest.json",
+        "contracts/out/PioneerRewards.t.sol/PioneerRewardsTest.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json",
+        "contracts/out/Script.sol/Script.json",
+        "contracts/out/StdStyle.sol/StdStyle.json",
+        "contracts/out/Test.sol/Test.json",
+        "contracts/out/YieldRouterFactory.t.sol/YieldRouterFactoryTest.json"
+      ]
+    },
+    {
+      "address": "0xd8583c467ce988619f04bed294e167e31a7e91c7",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/0g-uniswap-v2/out/Deploy.s.sol/Deploy.json",
+        "contracts/0g-uniswap-v2/out/Script.sol/Script.json",
+        "contracts/0g-uniswap-v2/out/StdUtils.sol/StdUtils.json",
+        "contracts/0g-uniswap-v2/out/Test.sol/Test.json",
+        "contracts/0g-uniswap-v2/out/ZeroGDeployment.t.sol/ZeroGDeploymentTest.json",
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/DeploySocialRecovery.s.sol/DeploySocialRecovery.json",
+        "contracts/out/DeployYieldRouter.s.sol/DeployYieldRouter.json",
+        "contracts/out/FeeCollector.t.sol/FeeCollectorTest.json",
+        "contracts/out/LegacyVault.t.sol/LegacyVaultTest.json",
+        "contracts/out/OperationalTreasury.t.sol/OperationalTreasuryTest.json",
+        "contracts/out/PioneerRewards.t.sol/PioneerRewardsTest.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json",
+        "contracts/out/Script.sol/Script.json",
+        "contracts/out/StdUtils.sol/StdUtils.json",
+        "contracts/out/Test.sol/Test.json",
+        "contracts/out/YieldRouterFactory.t.sol/YieldRouterFactoryTest.json"
+      ]
+    },
+    {
+      "address": "0xb501ada090cfb86d6101284ad4fcbd37513b2f07",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/0g-uniswap-v2/out/Deploy.s.sol/Deploy.json",
+        "contracts/0g-uniswap-v2/out/Script.sol/Script.json",
+        "contracts/0g-uniswap-v2/out/StdCheats.sol/StdCheats.json",
+        "contracts/0g-uniswap-v2/out/StdCheats.sol/StdCheatsSafe.json",
+        "contracts/0g-uniswap-v2/out/Test.sol/Test.json",
+        "contracts/0g-uniswap-v2/out/ZeroGDeployment.t.sol/ZeroGDeploymentTest.json",
+        "contracts/0g-uniswap-v2/out/console.sol/console.json",
+        "contracts/0g-uniswap-v2/out/src/console.sol/console.json",
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/DeploySocialRecovery.s.sol/DeploySocialRecovery.json",
+        "contracts/out/DeployYieldRouter.s.sol/DeployYieldRouter.json",
+        "contracts/out/FeeCollector.t.sol/FeeCollectorTest.json",
+        "contracts/out/LegacyVault.t.sol/LegacyVaultTest.json",
+        "contracts/out/OperationalTreasury.t.sol/OperationalTreasuryTest.json",
+        "contracts/out/PioneerRewards.t.sol/PioneerRewardsTest.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json",
+        "contracts/out/Script.sol/Script.json",
+        "contracts/out/StdCheats.sol/StdCheats.json",
+        "contracts/out/StdCheats.sol/StdCheatsSafe.json",
+        "contracts/out/Test.sol/Test.json",
+        "contracts/out/YieldRouterFactory.t.sol/YieldRouterFactoryTest.json",
+        "contracts/out/console.sol/console.json"
+      ]
+    },
+    {
+      "address": "0x27ce53a34b674228d19bd57c1a38f20818b5f88f",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/0g-uniswap-v2/out/Deploy.s.sol/Deploy.json",
+        "contracts/0g-uniswap-v2/out/Script.sol/Script.json",
+        "contracts/0g-uniswap-v2/out/StdCheats.sol/StdCheats.json",
+        "contracts/0g-uniswap-v2/out/StdCheats.sol/StdCheatsSafe.json",
+        "contracts/0g-uniswap-v2/out/Test.sol/Test.json",
+        "contracts/0g-uniswap-v2/out/ZeroGDeployment.t.sol/ZeroGDeploymentTest.json",
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/DeploySocialRecovery.s.sol/DeploySocialRecovery.json",
+        "contracts/out/DeployYieldRouter.s.sol/DeployYieldRouter.json",
+        "contracts/out/FeeCollector.t.sol/FeeCollectorTest.json",
+        "contracts/out/LegacyVault.t.sol/LegacyVaultTest.json",
+        "contracts/out/OperationalTreasury.t.sol/OperationalTreasuryTest.json",
+        "contracts/out/PioneerRewards.t.sol/PioneerRewardsTest.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json",
+        "contracts/out/Script.sol/Script.json",
+        "contracts/out/StdCheats.sol/StdCheats.json",
+        "contracts/out/StdCheats.sol/StdCheatsSafe.json",
+        "contracts/out/Test.sol/Test.json",
+        "contracts/out/YieldRouterFactory.t.sol/YieldRouterFactoryTest.json"
+      ]
+    },
+    {
+      "address": "0x946a8ca9f2e2c69d9d70280de4b599b6396c1877",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/0g-uniswap-v2/out/Deploy.s.sol/Deploy.json",
+        "contracts/0g-uniswap-v2/out/IMulticall3.sol/IMulticall3.json",
+        "contracts/0g-uniswap-v2/out/Script.sol/Script.json",
+        "contracts/0g-uniswap-v2/out/StdConstants.sol/StdConstants.json",
+        "contracts/0g-uniswap-v2/out/StdUtils.sol/StdUtils.json",
+        "contracts/0g-uniswap-v2/out/Test.sol/Test.json",
+        "contracts/0g-uniswap-v2/out/ZeroGDeployment.t.sol/ZeroGDeploymentTest.json",
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/DeploySocialRecovery.s.sol/DeploySocialRecovery.json",
+        "contracts/out/DeployYieldRouter.s.sol/DeployYieldRouter.json",
+        "contracts/out/FeeCollector.t.sol/FeeCollectorTest.json",
+        "contracts/out/IMulticall3.sol/IMulticall3.json",
+        "contracts/out/LegacyVault.t.sol/LegacyVaultTest.json",
+        "contracts/out/OperationalTreasury.t.sol/OperationalTreasuryTest.json",
+        "contracts/out/PioneerRewards.t.sol/PioneerRewardsTest.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json",
+        "contracts/out/Script.sol/Script.json",
+        "contracts/out/StdConstants.sol/StdConstants.json",
+        "contracts/out/StdUtils.sol/StdUtils.json",
+        "contracts/out/Test.sol/Test.json",
+        "contracts/out/YieldRouterFactory.t.sol/YieldRouterFactoryTest.json"
+      ]
+    },
+    {
+      "address": "0xfe5517cddd00783f6d2e1c1c17accb3f431c528a",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/0g-uniswap-v2/out/Deploy.s.sol/Deploy.json",
+        "contracts/0g-uniswap-v2/out/Script.sol/Script.json",
+        "contracts/0g-uniswap-v2/out/Test.sol/Test.json",
+        "contracts/0g-uniswap-v2/out/ZeroGDeployment.t.sol/ZeroGDeploymentTest.json",
+        "contracts/0g-uniswap-v2/out/safeconsole.sol/safeconsole.json",
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/DeploySocialRecovery.s.sol/DeploySocialRecovery.json",
+        "contracts/out/DeployYieldRouter.s.sol/DeployYieldRouter.json",
+        "contracts/out/FeeCollector.t.sol/FeeCollectorTest.json",
+        "contracts/out/LegacyVault.t.sol/LegacyVaultTest.json",
+        "contracts/out/OperationalTreasury.t.sol/OperationalTreasuryTest.json",
+        "contracts/out/PioneerRewards.t.sol/PioneerRewardsTest.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json",
+        "contracts/out/Script.sol/Script.json",
+        "contracts/out/Test.sol/Test.json",
+        "contracts/out/YieldRouterFactory.t.sol/YieldRouterFactoryTest.json",
+        "contracts/out/safeconsole.sol/safeconsole.json"
+      ]
+    },
+    {
+      "address": "0xe6ce12fb3b1e06c50779d08764cc819a97a6ba89",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/0g-uniswap-v2/out/Deploy.s.sol/Deploy.json"
+      ]
+    },
+    {
+      "address": "0xcb77738cef38cd7e1ff40a95ca937646d56f5a3d",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/0g-uniswap-v2/out/Deploy.s.sol/Deploy.json",
+        "contracts/0g-uniswap-v2/out/W0G.sol/W0G.json",
+        "contracts/0g-uniswap-v2/out/ZeroGDeployment.t.sol/ZeroGDeploymentTest.json"
+      ]
+    },
+    {
+      "address": "0x866fd0d61ec02ee20af00166bbf04f8a802d654f",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/0g-uniswap-v2/out/StdAssertions.sol/StdAssertions.json",
+        "contracts/0g-uniswap-v2/out/Test.sol/Test.json",
+        "contracts/0g-uniswap-v2/out/ZeroGDeployment.t.sol/ZeroGDeploymentTest.json",
+        "contracts/out/FeeCollector.t.sol/FeeCollectorTest.json",
+        "contracts/out/LegacyVault.t.sol/LegacyVaultTest.json",
+        "contracts/out/OperationalTreasury.t.sol/OperationalTreasuryTest.json",
+        "contracts/out/PioneerRewards.t.sol/PioneerRewardsTest.json",
+        "contracts/out/StdAssertions.sol/StdAssertions.json",
+        "contracts/out/Test.sol/Test.json",
+        "contracts/out/YieldRouterFactory.t.sol/YieldRouterFactoryTest.json"
+      ]
+    },
+    {
+      "address": "0x60566037600b82828239805160001a607314602a",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/0g-uniswap-v2/out/StdConstants.sol/StdConstants.json",
+        "contracts/0g-uniswap-v2/out/StdJson.sol/stdJson.json",
+        "contracts/0g-uniswap-v2/out/StdMath.sol/stdMath.json",
+        "contracts/0g-uniswap-v2/out/StdStorage.sol/stdStorage.json",
+        "contracts/0g-uniswap-v2/out/StdStorage.sol/stdStorageSafe.json",
+        "contracts/0g-uniswap-v2/out/StdStyle.sol/StdStyle.json",
+        "contracts/0g-uniswap-v2/out/StdToml.sol/stdToml.json",
+        "contracts/0g-uniswap-v2/out/console.sol/console.json",
+        "contracts/0g-uniswap-v2/out/safeconsole.sol/safeconsole.json",
+        "contracts/0g-uniswap-v2/out/src/console.sol/console.json"
+      ]
+    },
+    {
+      "address": "0x7300000000000000000000000000000000000000",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/0g-uniswap-v2/out/StdConstants.sol/StdConstants.json",
+        "contracts/0g-uniswap-v2/out/StdError.sol/stdError.json",
+        "contracts/0g-uniswap-v2/out/StdJson.sol/stdJson.json",
+        "contracts/0g-uniswap-v2/out/StdMath.sol/stdMath.json",
+        "contracts/0g-uniswap-v2/out/StdStorage.sol/stdStorage.json",
+        "contracts/0g-uniswap-v2/out/StdStorage.sol/stdStorageSafe.json",
+        "contracts/0g-uniswap-v2/out/StdStyle.sol/StdStyle.json",
+        "contracts/0g-uniswap-v2/out/StdToml.sol/stdToml.json",
+        "contracts/0g-uniswap-v2/out/console.sol/console.json",
+        "contracts/0g-uniswap-v2/out/safeconsole.sol/safeconsole.json",
+        "contracts/0g-uniswap-v2/out/src/console.sol/console.json",
+        "contracts/out/Math.sol/Math.json",
+        "contracts/out/SignedMath.sol/SignedMath.json",
+        "contracts/out/StdConstants.sol/StdConstants.json",
+        "contracts/out/StdError.sol/stdError.json",
+        "contracts/out/StdJson.sol/stdJson.json",
+        "contracts/out/StdMath.sol/stdMath.json",
+        "contracts/out/StdStorage.sol/stdStorage.json",
+        "contracts/out/StdStorage.sol/stdStorageSafe.json",
+        "contracts/out/StdStyle.sol/StdStyle.json",
+        "contracts/out/StdToml.sol/stdToml.json",
+        "contracts/out/Strings.sol/Strings.json",
+        "contracts/out/console.sol/console.json",
+        "contracts/out/safeconsole.sol/safeconsole.json"
+      ]
+    },
+    {
+      "address": "0x6102c961003a600b82828239805160001a607314",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/0g-uniswap-v2/out/StdError.sol/stdError.json"
+      ]
+    },
+    {
+      "address": "0xb4cb5388cd4160b73fe3d86716029c6b75dc7253",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/0g-uniswap-v2/out/StdError.sol/stdError.json",
+        "contracts/0g-uniswap-v2/out/Test.sol/Test.json",
+        "contracts/0g-uniswap-v2/out/ZeroGDeployment.t.sol/ZeroGDeploymentTest.json",
+        "contracts/out/FeeCollector.t.sol/FeeCollectorTest.json",
+        "contracts/out/LegacyVault.t.sol/LegacyVaultTest.json",
+        "contracts/out/OperationalTreasury.t.sol/OperationalTreasuryTest.json",
+        "contracts/out/PioneerRewards.t.sol/PioneerRewardsTest.json",
+        "contracts/out/StdError.sol/stdError.json",
+        "contracts/out/Test.sol/Test.json",
+        "contracts/out/YieldRouterFactory.t.sol/YieldRouterFactoryTest.json"
+      ]
+    },
+    {
+      "address": "0xc21dc235e4bde145caa5747f9a5d401e6fa25727",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/0g-uniswap-v2/out/StdInvariant.sol/StdInvariant.json",
+        "contracts/0g-uniswap-v2/out/Test.sol/Test.json",
+        "contracts/0g-uniswap-v2/out/ZeroGDeployment.t.sol/ZeroGDeploymentTest.json",
+        "contracts/out/FeeCollector.t.sol/FeeCollectorTest.json",
+        "contracts/out/LegacyVault.t.sol/LegacyVaultTest.json",
+        "contracts/out/OperationalTreasury.t.sol/OperationalTreasuryTest.json",
+        "contracts/out/PioneerRewards.t.sol/PioneerRewardsTest.json",
+        "contracts/out/StdInvariant.sol/StdInvariant.json",
+        "contracts/out/Test.sol/Test.json",
+        "contracts/out/YieldRouterFactory.t.sol/YieldRouterFactoryTest.json"
+      ]
+    },
+    {
+      "address": "0x0be37e621781ad6ee0ad12127ad49df376584456",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/0g-uniswap-v2/out/StdToml.sol/stdToml.json",
+        "contracts/0g-uniswap-v2/out/Test.sol/Test.json",
+        "contracts/0g-uniswap-v2/out/ZeroGDeployment.t.sol/ZeroGDeploymentTest.json",
+        "contracts/out/FeeCollector.t.sol/FeeCollectorTest.json",
+        "contracts/out/LegacyVault.t.sol/LegacyVaultTest.json",
+        "contracts/out/OperationalTreasury.t.sol/OperationalTreasuryTest.json",
+        "contracts/out/PioneerRewards.t.sol/PioneerRewardsTest.json",
+        "contracts/out/StdToml.sol/stdToml.json",
+        "contracts/out/Test.sol/Test.json",
+        "contracts/out/YieldRouterFactory.t.sol/YieldRouterFactoryTest.json"
+      ]
+    },
+    {
+      "address": "0x85ec743febe9bc173a5382cab22334b44daa3fb1",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/0g-uniswap-v2/out/Test.sol/Test.json",
+        "contracts/0g-uniswap-v2/out/ZeroGDeployment.t.sol/ZeroGDeploymentTest.json",
+        "contracts/out/FeeCollector.t.sol/FeeCollectorTest.json",
+        "contracts/out/LegacyVault.t.sol/LegacyVaultTest.json",
+        "contracts/out/OperationalTreasury.t.sol/OperationalTreasuryTest.json",
+        "contracts/out/PioneerRewards.t.sol/PioneerRewardsTest.json",
+        "contracts/out/Test.sol/Test.json",
+        "contracts/out/YieldRouterFactory.t.sol/YieldRouterFactoryTest.json"
+      ]
+    },
+    {
+      "address": "0x6080604052600436106100c05760003560e01c80",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/0g-uniswap-v2/out/W0G.sol/W0G.json"
+      ]
+    },
+    {
+      "address": "0x6080604052600c8054600160ff19918216811790",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/0g-uniswap-v2/out/ZeroGDeployment.t.sol/ZeroGDeploymentTest.json",
+        "contracts/out/FeeCollector.t.sol/FeeCollectorTest.json",
+        "contracts/out/LegacyVault.t.sol/LegacyVaultTest.json",
+        "contracts/out/OperationalTreasury.t.sol/OperationalTreasuryTest.json",
+        "contracts/out/PioneerRewards.t.sol/PioneerRewardsTest.json"
+      ]
+    },
+    {
+      "address": "0x3c9e3dcc820b70e21f27ed854f205e62892ff20f",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/0g-uniswap-v2/out/ZeroGDeployment.t.sol/ZeroGDeploymentTest.json"
+      ]
+    },
+    {
+      "address": "0xe0e63c1c54251fcee2c9e74eaf3e19b5d89cfe39",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-1781550759760.json",
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-latest.json"
+      ]
+    },
+    {
+      "address": "0x608060405234801562000010575f80fd5b506040",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-1781550759760.json",
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-latest.json",
+        "contracts/out/OINIOToken.sol/OINIOToken.json"
+      ]
+    },
+    {
+      "address": "0x50e8ff59c6880f72b286eabf1db3c30abec0ecdd",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-1781550759760.json",
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-latest.json"
+      ]
+    },
+    {
+      "address": "0x60a060405234801562000010575f80fd5b506040",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-1781550759760.json",
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-latest.json",
+        "contracts/out/OINIOModelRegistry.sol/OINIOModelRegistry.json"
+      ]
+    },
+    {
+      "address": "0x7dd7bb48722f6bb02d92362dc0a0e9b6d9fea6ff",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-1781550759760.json",
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-latest.json"
+      ]
+    },
+    {
+      "address": "0x095ea7b300000000000000000000000067ad7169",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-1781550759760.json",
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-latest.json"
+      ]
+    },
+    {
+      "address": "0xfb086acce7fe184dda4193f01216f2a6b0ee3621",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-1781550759760.json",
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-latest.json"
+      ]
+    },
+    {
+      "address": "0xb557114400000000000000000000000000000000",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-1781550759760.json",
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-latest.json"
+      ]
+    },
+    {
+      "address": "0x46ec5dcbd836cdecd531f81a5c68e37213b0e4e7",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-1781550759760.json",
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-latest.json"
+      ]
+    },
+    {
+      "address": "0x60a060405234801561000f575f80fd5b50604051",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-1781550759760.json",
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-latest.json",
+        "contracts/out/HeartbeatMonitor.sol/HeartbeatMonitor.json",
+        "contracts/out/LegacyVault.sol/LegacyVault.json",
+        "contracts/out/PioneerRewards.sol/PioneerRewards.json"
+      ]
+    },
+    {
+      "address": "0x91635821c2df2f928d78d23cb75f475799e3bad6",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-1781550759760.json",
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-latest.json"
+      ]
+    },
+    {
+      "address": "0xa79652b500000000000000000000000000000000",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-1781550759760.json",
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-latest.json"
+      ]
+    },
+    {
+      "address": "0x8be0079c531659141344cd1fd0a4f28419497f97",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-1781550759760.json",
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-latest.json"
+      ]
+    },
+    {
+      "address": "0x000000000000000000000000335651bd160fda89",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-1781550759760.json",
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-latest.json"
+      ]
+    },
+    {
+      "address": "0x402380fd30555b720d259cbbe3d38ee36390f7ac",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-1781550759760.json",
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-latest.json"
+      ]
+    },
+    {
+      "address": "0xddf252ad1be2c89b69c2b068fc378daa952ba7f1",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-1781550759760.json",
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-latest.json"
+      ]
+    },
+    {
+      "address": "0x0000000000000000400000000000000000000000",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-1781550759760.json",
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-latest.json"
+      ]
+    },
+    {
+      "address": "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-1781550759760.json",
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-latest.json"
+      ]
+    },
+    {
+      "address": "0x00000000000000000000000067ad7169184581f2",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-1781550759760.json",
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-latest.json"
+      ]
+    },
+    {
+      "address": "0x0000000000000100400000000000000000000000",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-1781550759760.json",
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-latest.json"
+      ]
+    },
+    {
+      "address": "0xf8e1a15aba9398e019f0b49df1a4fde98ee17ae3",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-1781550759760.json",
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-latest.json"
+      ]
+    },
+    {
+      "address": "0xfe9e14c1861c2b28790dd7f8d05b00296872d432",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-1781550759760.json",
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-latest.json"
+      ]
+    },
+    {
+      "address": "0x0000000000000100000008000000000000000000",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-1781550759760.json",
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-latest.json"
+      ]
+    },
+    {
+      "address": "0x09d4906cef85081fbb4f1f07d26375f9fba37ea2",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-1781550759760.json",
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-latest.json"
+      ]
+    },
+    {
+      "address": "0x4b092d6c09014169f892fe93fe6d718ef6e101cf",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-1781550759760.json",
+        "contracts/broadcast/BirthGenesisHeartbeat.s.sol/16661/run-latest.json"
+      ]
+    },
+    {
+      "address": "0x7109709ECfa91a80626fF3989D68f67F5b1DD12D",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/src/Base.sol",
+        "contracts/lib/forge-std/src/StdConstants.sol",
+        "contracts/lib/forge-std/test/StdCheats.t.sol",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/lib/ds-test/src/test.sol",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/src/Base.sol"
+      ]
+    },
+    {
+      "address": "0x000000000000000000636F6e736F6c652e6c6f67",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/src/Base.sol",
+        "contracts/lib/forge-std/src/StdCheats.sol",
+        "contracts/lib/forge-std/src/StdConstants.sol",
+        "contracts/lib/forge-std/src/StdUtils.sol",
+        "contracts/lib/forge-std/src/console.sol",
+        "contracts/lib/forge-std/test/StdCheats.t.sol",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/src/Base.sol",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/src/StdUtils.sol",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/src/console.sol",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/src/console2.sol"
+      ]
+    },
+    {
+      "address": "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/src/Base.sol",
+        "contracts/lib/forge-std/src/StdConstants.sol",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/src/Base.sol"
+      ]
+    },
+    {
+      "address": "0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/src/Base.sol",
+        "contracts/lib/forge-std/src/StdConstants.sol",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/src/Base.sol"
+      ]
+    },
+    {
+      "address": "0xcA11bde05977b3631167028862bE2a173976CA11",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/src/Base.sol",
+        "contracts/lib/forge-std/src/StdConstants.sol"
+      ]
+    },
+    {
+      "address": "0x4200000000000000000000000000000000000000",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/src/StdCheats.sol",
+        "contracts/lib/forge-std/test/StdCheats.t.sol",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/src/StdCheats.sol",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/test/StdCheats.t.sol"
+      ]
+    },
+    {
+      "address": "0x4200000000000000000000000000000000000800",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/src/StdCheats.sol",
+        "contracts/lib/forge-std/test/StdCheats.t.sol",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/src/StdCheats.sol",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/test/StdCheats.t.sol"
+      ]
+    },
+    {
+      "address": "0x0000000000000000000000000000000000000064",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/src/StdCheats.sol",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/src/StdCheats.sol"
+      ]
+    },
+    {
+      "address": "0x0000000000000000000000000000000000000068",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/src/StdCheats.sol",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/src/StdCheats.sol"
+      ]
+    },
+    {
+      "address": "0x0100000000000000000000000000000000000000",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/src/StdCheats.sol",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/src/StdCheats.sol"
+      ]
+    },
+    {
+      "address": "0x01000000000000000000000000000000000000ff",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/src/StdCheats.sol",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/src/StdCheats.sol"
+      ]
+    },
+    {
+      "address": "0x0200000000000000000000000000000000000000",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/src/StdCheats.sol",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/src/StdCheats.sol"
+      ]
+    },
+    {
+      "address": "0x02000000000000000000000000000000000000FF",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/src/StdCheats.sol",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/src/StdCheats.sol"
+      ]
+    },
+    {
+      "address": "0x0300000000000000000000000000000000000000",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/src/StdCheats.sol",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/src/StdCheats.sol"
+      ]
+    },
+    {
+      "address": "0x03000000000000000000000000000000000000Ff",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/src/StdCheats.sol",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/src/StdCheats.sol"
+      ]
+    },
+    {
+      "address": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/src/StdConfig.sol",
+        "contracts/lib/forge-std/test/Config.t.sol"
+      ]
+    },
+    {
+      "address": "0x00000000000000000000000000000000deadbeef",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/src/StdConfig.sol"
+      ]
+    },
+    {
+      "address": "0x000000000000000000000000000000c0ffeebabe",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/src/StdConfig.sol"
+      ]
+    },
+    {
+      "address": "0x4200000000000000000000000000000000000006",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/Config.t.sol"
+      ]
+    },
+    {
+      "address": "0x1111111111111111111111111111111111111111",
+      "native_0g_wei": "100000000000000",
+      "native_0g": "0.000100000000000000",
+      "files": [
+        "contracts/lib/forge-std/test/Config.t.sol"
+      ]
+    },
+    {
+      "address": "0x2222222222222222222222222222222222222222",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/Config.t.sol"
+      ]
+    },
+    {
+      "address": "0x3333333333333333333333333333333333333333",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/Config.t.sol"
+      ]
+    },
+    {
+      "address": "0xDeaDbeefdEAdbeefdEadbEEFdeadbeEFdEaDbeeF",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/Config.t.sol"
+      ]
+    },
+    {
+      "address": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/StdCheats.t.sol",
+        "contracts/lib/forge-std/test/fixtures/broadcast.log.json",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/test/StdCheats.t.sol",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/test/fixtures/broadcast.log.json"
+      ]
+    },
+    {
+      "address": "0xac0974bec39a17e36ba4a6b4d238ff944bacb478",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/StdCheats.t.sol",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/test/StdCheats.t.sol"
+      ]
+    },
+    {
+      "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/StdCheats.t.sol",
+        "contracts/lib/forge-std/test/fixtures/broadcast.log.json",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/test/StdCheats.t.sol",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/test/fixtures/broadcast.log.json"
+      ]
+    },
+    {
+      "address": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+      "native_0g_wei": "10000000000000000",
+      "native_0g": "0.010000000000000000",
+      "files": [
+        "contracts/lib/forge-std/test/StdCheats.t.sol"
+      ]
+    },
+    {
+      "address": "0x1E34A77868E19A6647b1f2F47B51ed72dEDE95DD",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/StdCheats.t.sol"
+      ]
+    },
+    {
+      "address": "0x8f8a8F4B54a2aAC7799d7bc81368aC27b852822A",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/StdCheats.t.sol"
+      ]
+    },
+    {
+      "address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/StdCheats.t.sol",
+        "contracts/lib/forge-std/test/StdUtils.t.sol"
+      ]
+    },
+    {
+      "address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/StdCheats.t.sol",
+        "contracts/lib/openzeppelin-contracts/contracts/mocks/token/ERC20ForceApproveMock.sol"
+      ]
+    },
+    {
+      "address": "0x6C9FC64A53c1b71FB3f9Af64d1ae3A4931A5f4E9",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/StdUtils.t.sol",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/test/StdUtils.t.sol"
+      ]
+    },
+    {
+      "address": "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/StdUtils.t.sol",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/test/StdUtils.t.sol"
+      ]
+    },
+    {
+      "address": "0xB147a5d25748fda14b463EB04B111027C290f4d3",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/StdUtils.t.sol",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/test/StdUtils.t.sol"
+      ]
+    },
+    {
+      "address": "0xc290c670fde54e5ef686f9132cbc8711e76a98f0",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/StdUtils.t.sol"
+      ]
+    },
+    {
+      "address": "0x1a578b7a4b0b5755db6d121b4118d4bc68fe170d",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/StdUtils.t.sol"
+      ]
+    },
+    {
+      "address": "0xc0ffEe2198a06235aAbFffe5Db0CacF1717f5Ac6",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/StdUtils.t.sol"
+      ]
+    },
+    {
+      "address": "0x95aD61b0a150d79219dCF64E1E6Cc01f0B64C4cE",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/StdUtils.t.sol"
+      ]
+    },
+    {
+      "address": "0x855F5981e831D83e6A4b4EBFCAdAa68D92333170",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/StdUtils.t.sol"
+      ]
+    },
+    {
+      "address": "0x8F509A90c2e47779cA408Fe00d7A72e359229AdA",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/StdUtils.t.sol"
+      ]
+    },
+    {
+      "address": "0x0e3bbc0D04fF62211F71f3e4C45d82ad76224385",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/StdUtils.t.sol"
+      ]
+    },
+    {
+      "address": "0xDa9CE944a37d218c3302F6B82a094844C6ECEb17",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/StdUtils.t.sol"
+      ]
+    },
+    {
+      "address": "0x3e67F4721E6d1c41a015f645eFa37BEd854fcf52",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/StdUtils.t.sol"
+      ]
+    },
+    {
+      "address": "0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/StdUtils.t.sol"
+      ]
+    },
+    {
+      "address": "0xc6006863c267735a11476b7f15b15bc718e117e2",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/fixtures/broadcast.log.json",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/test/fixtures/broadcast.log.json"
+      ]
+    },
+    {
+      "address": "0x23e9918700000000000000000000000000000000",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/fixtures/broadcast.log.json",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/test/fixtures/broadcast.log.json"
+      ]
+    },
+    {
+      "address": "0xedf2b38d8d896519a947a1acf720f859bb35c0c5",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/fixtures/broadcast.log.json",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/test/fixtures/broadcast.log.json"
+      ]
+    },
+    {
+      "address": "0xa57e8e3981a6c861442e46c9471bd19cb3e21f9a",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/fixtures/broadcast.log.json",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/test/fixtures/broadcast.log.json"
+      ]
+    },
+    {
+      "address": "0x7c6b4bbe207d642d98d5c537142d85209e585087",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/fixtures/broadcast.log.json",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/test/fixtures/broadcast.log.json"
+      ]
+    },
+    {
+      "address": "0xafe29f7100000000000000000000000000000000",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/fixtures/broadcast.log.json",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/test/fixtures/broadcast.log.json"
+      ]
+    },
+    {
+      "address": "0x481dc86e40bba90403c76f8e144aa9ff04c1da21",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/fixtures/broadcast.log.json",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/test/fixtures/broadcast.log.json"
+      ]
+    },
+    {
+      "address": "0xef0730448490304e5403be0fa8f8ce64f118e9ad",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/fixtures/broadcast.log.json",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/test/fixtures/broadcast.log.json"
+      ]
+    },
+    {
+      "address": "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/fixtures/broadcast.log.json",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/test/fixtures/broadcast.log.json"
+      ]
+    },
+    {
+      "address": "0x6a187183545b8a9e7f1790e847139379bf5622ba",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/fixtures/broadcast.log.json",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/test/fixtures/broadcast.log.json"
+      ]
+    },
+    {
+      "address": "0xf3acb96a90071640c2a8c067ae4e16aad87e634e",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/fixtures/broadcast.log.json",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/test/fixtures/broadcast.log.json"
+      ]
+    },
+    {
+      "address": "0x064ad173b4867bdef2fb60060bbdaf01735fbf10",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/fixtures/broadcast.log.json",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/test/fixtures/broadcast.log.json"
+      ]
+    },
+    {
+      "address": "0x8373d02109d3ee06a0225f23da4c161c656ccc48",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/fixtures/broadcast.log.json",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/test/fixtures/broadcast.log.json"
+      ]
+    },
+    {
+      "address": "0x16712fae5c0e18f75045f84363fb6b4d9a9fe25e",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/fixtures/broadcast.log.json",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/test/fixtures/broadcast.log.json"
+      ]
+    },
+    {
+      "address": "0x156b88c3eb9a1244ba00a1834f3f70de735b39e3",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/fixtures/broadcast.log.json",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/test/fixtures/broadcast.log.json"
+      ]
+    },
+    {
+      "address": "0xcf61faca67dbb2c28952b0b8a379e53b1505ae08",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/fixtures/broadcast.log.json",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/test/fixtures/broadcast.log.json"
+      ]
+    },
+    {
+      "address": "0x0b2e13ff20ac7b474198655583edf70dedd2c1dc",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/fixtures/broadcast.log.json",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/test/fixtures/broadcast.log.json"
+      ]
+    },
+    {
+      "address": "0x0000000000080000000000000000001000000000",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/fixtures/broadcast.log.json",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/test/fixtures/broadcast.log.json"
+      ]
+    },
+    {
+      "address": "0x11fbb10230c168ca1e36a7e5c69a6dbcd04fd9e6",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/fixtures/broadcast.log.json",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/test/fixtures/broadcast.log.json"
+      ]
+    },
+    {
+      "address": "0xf1e0ed2eda4e923626ec74621006ed50b3fc2758",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/fixtures/broadcast.log.json",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/test/fixtures/broadcast.log.json"
+      ]
+    },
+    {
+      "address": "0x0000000000000000000000000000000000001337",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/forge-std/test/fixtures/broadcast.log.json",
+        "contracts/lib/openzeppelin-contracts/lib/forge-std/test/fixtures/broadcast.log.json"
+      ]
+    },
+    {
+      "address": "0xffffffffffffffffffffffffffffffffffffffff",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/openzeppelin-contracts/contracts/mocks/ERC1271WalletMock.sol",
+        "contracts/lib/openzeppelin-contracts/contracts/mocks/ERC165/ERC165MaliciousData.sol"
+      ]
+    },
+    {
+      "address": "0x3d602d80600a3d3981f3363d3d373d3d3d363d73",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/openzeppelin-contracts/contracts/proxy/Clones.sol"
+      ]
+    },
+    {
+      "address": "0x360894a13ba1a3210667c828492db98dca3e2076",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/openzeppelin-contracts/contracts/proxy/ERC1967/ERC1967Proxy.sol",
+        "contracts/lib/openzeppelin-contracts/contracts/proxy/ERC1967/ERC1967Utils.sol",
+        "contracts/lib/openzeppelin-contracts/contracts/utils/StorageSlot.sol"
+      ]
+    },
+    {
+      "address": "0xb53127684a568b3173ae13b9f8a6016e243e63b6",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/openzeppelin-contracts/contracts/proxy/ERC1967/ERC1967Utils.sol"
+      ]
+    },
+    {
+      "address": "0xa3f0ad74e5423aebfd80d3ef4346578335a9a72a",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/openzeppelin-contracts/contracts/proxy/ERC1967/ERC1967Utils.sol"
+      ]
+    },
+    {
+      "address": "0xf0c57e16840df040f15088dc2f81fe391c3923be",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/openzeppelin-contracts/contracts/proxy/utils/Initializable.sol"
+      ]
+    },
+    {
+      "address": "0xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/openzeppelin-contracts/contracts/utils/ShortStrings.sol"
+      ]
+    },
+    {
+      "address": "0x7fffffffffffffffffffffffffffffffffffffff",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/openzeppelin-contracts/contracts/utils/cryptography/ECDSA.sol"
+      ]
+    },
+    {
+      "address": "0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/openzeppelin-contracts/contracts/utils/cryptography/ECDSA.sol"
+      ]
+    },
+    {
+      "address": "0x7FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF5D576E73",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/lib/openzeppelin-contracts/contracts/utils/cryptography/ECDSA.sol"
+      ]
+    },
+    {
+      "address": "0x608060405234801562000010575f80fd5b506004",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/FeeCollector.t.sol/FeeCollectorTest.json",
+        "contracts/out/OperationalTreasury.t.sol/OperationalTreasuryTest.json",
+        "contracts/out/PioneerRewards.t.sol/PioneerRewardsTest.json"
+      ]
+    },
+    {
+      "address": "0x521512db017993589307c3ddec82f091a30cc908",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/HeartbeatMonitor.sol/HeartbeatMonitor.json"
+      ]
+    },
+    {
+      "address": "0xff6d0bb2e285473e5311d9d3caacb525ae3538a8",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/DeployYieldRouter.s.sol/DeployYieldRouter.json",
+        "contracts/out/FeeCollector.sol/FeeCollector.json",
+        "contracts/out/FeeCollector.t.sol/FeeCollectorTest.json",
+        "contracts/out/HeartbeatMonitor.sol/HeartbeatMonitor.json",
+        "contracts/out/OINIOModelRegistry.sol/OINIOModelRegistry.json",
+        "contracts/out/OINIOToken.sol/OINIOToken.json",
+        "contracts/out/Ownable.sol/Ownable.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json",
+        "contracts/out/YieldRouterFactory.sol/YieldRouterFactory.json",
+        "contracts/out/YieldRouterFactory.t.sol/YieldRouterFactoryTest.json"
+      ]
+    },
+    {
+      "address": "0xde7e9fd9aee8d4f40772f96bb3b58836cbc6dfc0",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/ERC721URIStorage.sol/ERC721URIStorage.json",
+        "contracts/out/HeartbeatMonitor.sol/HeartbeatMonitor.json",
+        "contracts/out/IERC4906.sol/IERC4906.json",
+        "contracts/out/OINIOModelRegistry.sol/OINIOModelRegistry.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json"
+      ]
+    },
+    {
+      "address": "0xb31b86c03f4677dcffa4655285d62433509513be",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/ERC721URIStorage.sol/ERC721URIStorage.json",
+        "contracts/out/HeartbeatMonitor.sol/HeartbeatMonitor.json",
+        "contracts/out/IERC4906.sol/IERC4906.json",
+        "contracts/out/OINIOModelRegistry.sol/OINIOModelRegistry.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json"
+      ]
+    },
+    {
+      "address": "0xc4d7ebf63eb2f6bf3fee1b6c0ee775efa9f31b48",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/ERC721URIStorage.sol/ERC721URIStorage.json",
+        "contracts/out/HeartbeatMonitor.sol/HeartbeatMonitor.json",
+        "contracts/out/IERC4906.sol/IERC4906.json",
+        "contracts/out/OINIOModelRegistry.sol/OINIOModelRegistry.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json"
+      ]
+    },
+    {
+      "address": "0x60c65f701957fdd6faea1acb0bb45825791d4736",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/ERC20.sol/ERC20.json",
+        "contracts/out/ERC20Burnable.sol/ERC20Burnable.json",
+        "contracts/out/ERC721.sol/ERC721.json",
+        "contracts/out/ERC721Burnable.sol/ERC721Burnable.json",
+        "contracts/out/ERC721URIStorage.sol/ERC721URIStorage.json",
+        "contracts/out/HeartbeatMonitor.sol/HeartbeatMonitor.json",
+        "contracts/out/OINIOModelRegistry.sol/OINIOModelRegistry.json",
+        "contracts/out/OINIOToken.sol/OINIOToken.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json",
+        "contracts/out/draft-IERC6093.sol/IERC1155Errors.json",
+        "contracts/out/draft-IERC6093.sol/IERC20Errors.json",
+        "contracts/out/draft-IERC6093.sol/IERC721Errors.json"
+      ]
+    },
+    {
+      "address": "0xc3e1fa9d1987f8d349dfb4d6fe93bf2ca014b52b",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/ERC20.sol/ERC20.json",
+        "contracts/out/ERC20Burnable.sol/ERC20Burnable.json",
+        "contracts/out/OINIOToken.sol/OINIOToken.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json"
+      ]
+    },
+    {
+      "address": "0xc6a8ff0ea489379b61faa647490411b801025784",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/ERC20.sol/ERC20.json",
+        "contracts/out/ERC20Burnable.sol/ERC20Burnable.json",
+        "contracts/out/HeartbeatMonitor.sol/HeartbeatMonitor.json",
+        "contracts/out/IERC20.sol/IERC20.json",
+        "contracts/out/IERC20Metadata.sol/IERC20Metadata.json",
+        "contracts/out/OINIOModelRegistry.sol/OINIOModelRegistry.json",
+        "contracts/out/OINIOToken.sol/OINIOToken.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json"
+      ]
+    },
+    {
+      "address": "0x2659248df25e34000ed214b3dc8da2160bc39874",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/ERC20Burnable.sol/ERC20Burnable.json",
+        "contracts/out/OINIOToken.sol/OINIOToken.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json"
+      ]
+    },
+    {
+      "address": "0xaa761817f6cd7892fcf158b3c776b34551cde36f",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/ERC20.sol/ERC20.json",
+        "contracts/out/ERC20Burnable.sol/ERC20Burnable.json",
+        "contracts/out/IERC20Metadata.sol/IERC20Metadata.json",
+        "contracts/out/OINIOToken.sol/OINIOToken.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json"
+      ]
+    },
+    {
+      "address": "0x13dd061770956c8489b80cfc89d9cdfc8ea2783d",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/ERC721.sol/ERC721.json",
+        "contracts/out/ERC721Burnable.sol/ERC721Burnable.json",
+        "contracts/out/ERC721URIStorage.sol/ERC721URIStorage.json",
+        "contracts/out/HeartbeatMonitor.sol/HeartbeatMonitor.json",
+        "contracts/out/OINIOModelRegistry.sol/OINIOModelRegistry.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json"
+      ]
+    },
+    {
+      "address": "0x5ef46daa3b58ef2702279d514780316efaa95291",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/ERC721.sol/ERC721.json",
+        "contracts/out/ERC721Burnable.sol/ERC721Burnable.json",
+        "contracts/out/ERC721URIStorage.sol/ERC721URIStorage.json",
+        "contracts/out/HeartbeatMonitor.sol/HeartbeatMonitor.json",
+        "contracts/out/IERC4906.sol/IERC4906.json",
+        "contracts/out/IERC721.sol/IERC721.json",
+        "contracts/out/IERC721Metadata.sol/IERC721Metadata.json",
+        "contracts/out/OINIOModelRegistry.sol/OINIOModelRegistry.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json"
+      ]
+    },
+    {
+      "address": "0x7f7a26306c79a65fb8b3b6c757cd74660c532cd8",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/ERC721.sol/ERC721.json",
+        "contracts/out/ERC721Burnable.sol/ERC721Burnable.json",
+        "contracts/out/ERC721URIStorage.sol/ERC721URIStorage.json",
+        "contracts/out/HeartbeatMonitor.sol/HeartbeatMonitor.json",
+        "contracts/out/IERC721Receiver.sol/IERC721Receiver.json",
+        "contracts/out/OINIOModelRegistry.sol/OINIOModelRegistry.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json"
+      ]
+    },
+    {
+      "address": "0xc48434419baa510862ba4b4802bc0500ccddadd0",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/ERC721Burnable.sol/ERC721Burnable.json",
+        "contracts/out/HeartbeatMonitor.sol/HeartbeatMonitor.json",
+        "contracts/out/OINIOModelRegistry.sol/OINIOModelRegistry.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json"
+      ]
+    },
+    {
+      "address": "0xcc6f49e0c57072d6a18eef0d5fc22a4cc20462c1",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/ERC721URIStorage.sol/ERC721URIStorage.json",
+        "contracts/out/HeartbeatMonitor.sol/HeartbeatMonitor.json",
+        "contracts/out/OINIOModelRegistry.sol/OINIOModelRegistry.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json"
+      ]
+    },
+    {
+      "address": "0x37d1aaaa5a2908a09e9dcf56a26ddf762ecf295a",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/ERC721.sol/ERC721.json",
+        "contracts/out/ERC721Burnable.sol/ERC721Burnable.json",
+        "contracts/out/ERC721URIStorage.sol/ERC721URIStorage.json",
+        "contracts/out/HeartbeatMonitor.sol/HeartbeatMonitor.json",
+        "contracts/out/IERC721Metadata.sol/IERC721Metadata.json",
+        "contracts/out/OINIOModelRegistry.sol/OINIOModelRegistry.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json"
+      ]
+    },
+    {
+      "address": "0x493033a8d1b176a037b2cc6a04dad01a5c157722",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Context.sol/Context.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/DeployYieldRouter.s.sol/DeployYieldRouter.json",
+        "contracts/out/ERC20.sol/ERC20.json",
+        "contracts/out/ERC20Burnable.sol/ERC20Burnable.json",
+        "contracts/out/ERC721.sol/ERC721.json",
+        "contracts/out/ERC721Burnable.sol/ERC721Burnable.json",
+        "contracts/out/ERC721URIStorage.sol/ERC721URIStorage.json",
+        "contracts/out/FeeCollector.sol/FeeCollector.json",
+        "contracts/out/FeeCollector.t.sol/FeeCollectorTest.json",
+        "contracts/out/HeartbeatMonitor.sol/HeartbeatMonitor.json",
+        "contracts/out/OINIOModelRegistry.sol/OINIOModelRegistry.json",
+        "contracts/out/OINIOToken.sol/OINIOToken.json",
+        "contracts/out/Ownable.sol/Ownable.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json",
+        "contracts/out/YieldRouterFactory.sol/YieldRouterFactory.json",
+        "contracts/out/YieldRouterFactory.t.sol/YieldRouterFactoryTest.json"
+      ]
+    },
+    {
+      "address": "0xf980daa263b661ab8ddee7d4fd833c7da7e7995e",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/DeployYieldRouter.s.sol/DeployYieldRouter.json",
+        "contracts/out/FeeCollector.sol/FeeCollector.json",
+        "contracts/out/FeeCollector.t.sol/FeeCollectorTest.json",
+        "contracts/out/HeartbeatMonitor.sol/HeartbeatMonitor.json",
+        "contracts/out/OINIOModelRegistry.sol/OINIOModelRegistry.json",
+        "contracts/out/PioneerRewards.sol/PioneerRewards.json",
+        "contracts/out/PioneerRewards.t.sol/PioneerRewardsTest.json",
+        "contracts/out/ReentrancyGuard.sol/ReentrancyGuard.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json",
+        "contracts/out/YieldRouterFactory.sol/YieldRouterFactory.json",
+        "contracts/out/YieldRouterFactory.t.sol/YieldRouterFactoryTest.json"
+      ]
+    },
+    {
+      "address": "0x55f102ea785d8399c0e58d1108e2d289506dde18",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/ERC721.sol/ERC721.json",
+        "contracts/out/ERC721Burnable.sol/ERC721Burnable.json",
+        "contracts/out/ERC721URIStorage.sol/ERC721URIStorage.json",
+        "contracts/out/HeartbeatMonitor.sol/HeartbeatMonitor.json",
+        "contracts/out/OINIOModelRegistry.sol/OINIOModelRegistry.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json",
+        "contracts/out/Strings.sol/Strings.json"
+      ]
+    },
+    {
+      "address": "0x9e8778b14317ba9e256c30a76fd6c32b960af621",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/ERC165.sol/ERC165.json",
+        "contracts/out/ERC721.sol/ERC721.json",
+        "contracts/out/ERC721Burnable.sol/ERC721Burnable.json",
+        "contracts/out/ERC721URIStorage.sol/ERC721URIStorage.json",
+        "contracts/out/HeartbeatMonitor.sol/HeartbeatMonitor.json",
+        "contracts/out/OINIOModelRegistry.sol/OINIOModelRegistry.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json"
+      ]
+    },
+    {
+      "address": "0x4296879f55019b23e135000eb36896057e7101fb",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/ERC165.sol/ERC165.json",
+        "contracts/out/ERC721.sol/ERC721.json",
+        "contracts/out/ERC721Burnable.sol/ERC721Burnable.json",
+        "contracts/out/ERC721URIStorage.sol/ERC721URIStorage.json",
+        "contracts/out/HeartbeatMonitor.sol/HeartbeatMonitor.json",
+        "contracts/out/IERC165.sol/IERC165.json",
+        "contracts/out/IERC4906.sol/IERC4906.json",
+        "contracts/out/IERC721.sol/IERC721.json",
+        "contracts/out/IERC721Metadata.sol/IERC721Metadata.json",
+        "contracts/out/OINIOModelRegistry.sol/OINIOModelRegistry.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json"
+      ]
+    },
+    {
+      "address": "0x005ec64c6313f0555d59e278f9a7a5ab2db5bdc7",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/ERC721.sol/ERC721.json",
+        "contracts/out/ERC721Burnable.sol/ERC721Burnable.json",
+        "contracts/out/ERC721URIStorage.sol/ERC721URIStorage.json",
+        "contracts/out/HeartbeatMonitor.sol/HeartbeatMonitor.json",
+        "contracts/out/Math.sol/Math.json",
+        "contracts/out/OINIOModelRegistry.sol/OINIOModelRegistry.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json",
+        "contracts/out/Strings.sol/Strings.json"
+      ]
+    },
+    {
+      "address": "0x5f7e4076e175393767754387c962926577f1660d",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/ERC721.sol/ERC721.json",
+        "contracts/out/ERC721Burnable.sol/ERC721Burnable.json",
+        "contracts/out/ERC721URIStorage.sol/ERC721URIStorage.json",
+        "contracts/out/HeartbeatMonitor.sol/HeartbeatMonitor.json",
+        "contracts/out/OINIOModelRegistry.sol/OINIOModelRegistry.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json",
+        "contracts/out/SignedMath.sol/SignedMath.json",
+        "contracts/out/Strings.sol/Strings.json"
+      ]
+    },
+    {
+      "address": "0x11306ada70fc1849d2504785e89c71699908533d",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json"
+      ]
+    },
+    {
+      "address": "0xca763d21d11339ef20744c98421c216a1d6c165d",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/HeartbeatMonitor.sol/HeartbeatMonitor.json",
+        "contracts/out/OINIOModelRegistry.sol/OINIOModelRegistry.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json"
+      ]
+    },
+    {
+      "address": "0xb3dd79ba92f7ecd99944209cca2d7343d7c2aa77",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+        "contracts/out/Deploy.s.sol/Deploy.json",
+        "contracts/out/OINIOToken.sol/OINIOToken.json",
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json"
+      ]
+    },
+    {
+      "address": "0xb1a0e6dbd4b78b2aa26f20088eb1cdd6f752567b",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/Deploy.s.sol/Deploy.json"
+      ]
+    },
+    {
+      "address": "0xf6526455c210594c2fe7a2b8b7a2c64b32d271d7",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/DeploySocialRecovery.s.sol/DeploySocialRecovery.json",
+        "contracts/out/ZeroGSocialRecovery.sol/IForgeRegistry.json",
+        "contracts/out/ZeroGSocialRecovery.sol/ZeroGSocialRecovery.json"
+      ]
+    },
+    {
+      "address": "0xe1d559a78a9893b61c9d4c3306e5bb13f6bdd96c",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/DeploySocialRecovery.s.sol/DeploySocialRecovery.json"
+      ]
+    },
+    {
+      "address": "0xee96d3a146318e7e50f21099b3b00a99cbc37d58",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/DeployYieldRouter.s.sol/DeployYieldRouter.json"
+      ]
+    },
+    {
+      "address": "0xb8b9f38388557849b729673f059e8aaa7d56c820",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/DeployYieldRouter.s.sol/DeployYieldRouter.json",
+        "contracts/out/FeeCollector.sol/FeeCollector.json",
+        "contracts/out/FeeCollector.t.sol/FeeCollectorTest.json",
+        "contracts/out/YieldRouterFactory.sol/YieldRouterFactory.json",
+        "contracts/out/YieldRouterFactory.t.sol/YieldRouterFactoryTest.json"
+      ]
+    },
+    {
+      "address": "0x69fc503014bc69f01ccb9c66e01af252d566be11",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/DeployYieldRouter.s.sol/DeployYieldRouter.json",
+        "contracts/out/LegacyVault.sol/LegacyVault.json",
+        "contracts/out/LegacyVault.t.sol/LegacyVaultTest.json",
+        "contracts/out/YieldRouterFactory.sol/YieldRouterFactory.json",
+        "contracts/out/YieldRouterFactory.t.sol/YieldRouterFactoryTest.json"
+      ]
+    },
+    {
+      "address": "0xfdaa033ff54b664107a93be13c0e6c61e02e1ff3",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/DeployYieldRouter.s.sol/DeployYieldRouter.json",
+        "contracts/out/OperationalTreasury.sol/OperationalTreasury.json",
+        "contracts/out/OperationalTreasury.t.sol/OperationalTreasuryTest.json",
+        "contracts/out/YieldRouterFactory.sol/YieldRouterFactory.json",
+        "contracts/out/YieldRouterFactory.t.sol/YieldRouterFactoryTest.json"
+      ]
+    },
+    {
+      "address": "0xa7295c1d3a1d71e297544d84000c87f7e55cc8f3",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/DeployYieldRouter.s.sol/DeployYieldRouter.json",
+        "contracts/out/PioneerRewards.sol/PioneerRewards.json",
+        "contracts/out/PioneerRewards.t.sol/PioneerRewardsTest.json",
+        "contracts/out/YieldRouterFactory.sol/YieldRouterFactory.json",
+        "contracts/out/YieldRouterFactory.t.sol/YieldRouterFactoryTest.json"
+      ]
+    },
+    {
+      "address": "0x611ad1f59c9c233dc1340ae5eda43db2e015a361",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/DeployYieldRouter.s.sol/DeployYieldRouter.json",
+        "contracts/out/YieldRouterFactory.sol/YieldRouterFactory.json",
+        "contracts/out/YieldRouterFactory.t.sol/YieldRouterFactoryTest.json"
+      ]
+    },
+    {
+      "address": "0x6080604052611388600555610bb86006556107d0",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/FeeCollector.sol/FeeCollector.json"
+      ]
+    },
+    {
+      "address": "0x608060405260043610610164575f3560e01c8063",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/FeeCollector.sol/FeeCollector.json"
+      ]
+    },
+    {
+      "address": "0x408c42af4f8d5e329be2629efe7038facb91f0bc",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/FeeCollector.t.sol/FeeCollectorTest.json"
+      ]
+    },
+    {
+      "address": "0x608060405260043610610092575f3560e01c8063",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/LegacyVault.sol/LegacyVault.json"
+      ]
+    },
+    {
+      "address": "0xfadfd4e425057aeef5a6a5d2539968803939464e",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/LegacyVault.t.sol/LegacyVaultTest.json"
+      ]
+    },
+    {
+      "address": "0x60556032600b8282823980515f1a607314602657",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/Math.sol/Math.json",
+        "contracts/out/SignedMath.sol/SignedMath.json",
+        "contracts/out/StdConstants.sol/StdConstants.json",
+        "contracts/out/StdJson.sol/stdJson.json",
+        "contracts/out/StdMath.sol/stdMath.json",
+        "contracts/out/StdStorage.sol/stdStorage.json",
+        "contracts/out/StdStorage.sol/stdStorageSafe.json",
+        "contracts/out/StdStyle.sol/StdStyle.json",
+        "contracts/out/StdToml.sol/stdToml.json",
+        "contracts/out/Strings.sol/Strings.json",
+        "contracts/out/console.sol/console.json",
+        "contracts/out/safeconsole.sol/safeconsole.json"
+      ]
+    },
+    {
+      "address": "0x60a0604052600360015534801562000015575f80",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/OperationalTreasury.sol/OperationalTreasury.json"
+      ]
+    },
+    {
+      "address": "0x6080604052600436106100e7575f3560e01c8063",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/OperationalTreasury.sol/OperationalTreasury.json"
+      ]
+    },
+    {
+      "address": "0x7865ecf41b994a919b1f78547bbf565abe7e7259",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/OperationalTreasury.t.sol/OperationalTreasuryTest.json"
+      ]
+    },
+    {
+      "address": "0x6080604052600436106100dc575f3560e01c8063",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/PioneerRewards.sol/PioneerRewards.json"
+      ]
+    },
+    {
+      "address": "0x95f6c70ccaf935e284a5dbe11ea7dec1a094a4f2",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/PioneerRewards.t.sol/PioneerRewardsTest.json"
+      ]
+    },
+    {
+      "address": "0x06b9c667eb7bacdf4978848b3efc95089964c7be",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json"
+      ]
+    },
+    {
+      "address": "0x61024a610035600b8282823980515f1a60731461",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/StdError.sol/stdError.json"
+      ]
+    },
+    {
+      "address": "0x608060405234801561000f575f80fd5b50612ca9",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/YieldRouterFactory.sol/YieldRouterFactory.json"
+      ]
+    },
+    {
+      "address": "0x6080604052600c805460ff199081166001908117",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/YieldRouterFactory.t.sol/YieldRouterFactoryTest.json"
+      ]
+    },
+    {
+      "address": "0x9afb4f00601938f4f63b47bdde469d3072270dd2",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/YieldRouterFactory.t.sol/YieldRouterFactoryTest.json"
+      ]
+    },
+    {
+      "address": "0x60c060405234801561000f575f80fd5b50604051",
+      "native_0g_wei": "0",
+      "native_0g": "0",
+      "files": [
+        "contracts/out/ZeroGSocialRecovery.sol/ZeroGSocialRecovery.json"
+      ]
+    }
+  ],
+  "next_gate": "ASSIGN_CUSTODY_LANES_AND_DESTINATION_WALLET"
+}

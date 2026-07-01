@@ -1,0 +1,19 @@
+{
+  "governance_version": "v2",
+  "receipt": "agent-earning-ungate-v1",
+  "created_at": "2026-06-26T20:11:31.259Z",
+  "branch": "phase8/human-why-v1",
+  "head": "3eebb8281d94aa4cdb24fd3f180d36827b3de59e",
+  "status": "AGENT_EARNING_LANES_OPENED_NON_CUSTODIAL",
+  "finding": "Agents may support earning through work production, proposals, outreach, grant tracking, invoices, receipts, and public explanation. Agents may not custody, sign, approve, or move funds.",
+  "wallet_actions": false,
+  "chain_actions": false,
+  "signing": false,
+  "broadcast": false,
+  "private_key_access": false,
+  "approvals": false,
+  "liquidity": false,
+  "staking": false,
+  "bridging": false,
+  "next_gate": "CREATE_FIRST_AGENT_WORK_QUEUE"
+}

@@ -1,0 +1,37 @@
+{
+  "governance_version": "v1",
+  "receipt": "controlled-mint-approval-and-stake-risk-v1",
+  "created_at": "2026-06-26T14:10:00.000Z",
+  "phase": "13-pre-execution",
+  "title": "Controlled Mint Approval and Stake Risk Authorization",
+  "status": "CONTROLLED_MINT_APPROVAL_REQUIRED",
+  "context": "The first controlled mint requires OINIO token approval and transfer because registerModel() requires stakeAmount > 0 and calls transferFrom.",
+  "contract": "contracts/src/OINIOModelRegistry.sol",
+  "function": "registerModel(...)",
+  "required_wallet_actions": [
+    "approve OINIO spend for registry contract",
+    "call registerModel with positive stakeAmount",
+    "OINIO transferred from caller to registry",
+    "ERC721 NFT minted to caller"
+  ],
+  "guardian_safe": "0x8d088B88219D072aB035502065ee2410c2cb4389",
+  "required_approvals": [
+    "Guardian authorization for first controlled mint",
+    "Explicit approval for OINIO token movement",
+    "Stake amount definition",
+    "Recipient confirmation",
+    "Metadata URI confirmation"
+  ],
+  "risk_acknowledgments": [
+    "OINIO tokens will be transferred from the operator wallet to the registry contract",
+    "This is a wallet action requiring private key/signer access",
+    "No automatic execution without explicit guardian approval",
+    "Transaction will be visible on 0G Aristotle Mainnet"
+  ],
+  "safety_assertions": {
+    "no_oini_approve_yet": true,
+    "no_oinitransfer_yet": true,
+    "no_controlled_mint_execution_yet": true,
+    "guardian_approval_required_before_wallet_action": true
+  }
+}

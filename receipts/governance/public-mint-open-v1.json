@@ -1,0 +1,22 @@
+{
+  "governance_version": "v1",
+  "receipt": "public-mint-open-v1",
+  "created_at": "2026-06-26T14:59:00.000Z",
+  "phase": 14,
+  "title": "Public Mint Opening",
+  "status": "PENDING_CONTROLLED_MINT_VERIFICATION",
+  "dependency": "Phase 13 first controlled mint must verify clean",
+  "required_verification": [
+    "Controlled mint tx hash confirmed",
+    "Token metadata matches expected",
+    "No security issues detected",
+    "Guardian authorization sealed"
+  ],
+  "public_status_when_authorized": "PUBLIC_MINT_READY",
+  "safety_warnings_for_users": [
+    "Never enter seed phrase",
+    "Never send funds manually",
+    "Only use official site",
+    "Verify contract address"
+  ]
+}
