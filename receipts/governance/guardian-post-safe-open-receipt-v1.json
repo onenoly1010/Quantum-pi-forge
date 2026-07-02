@@ -1,0 +1,41 @@
+{
+  "version": "1.0.0",
+  "receipt": "guardian-post-safe-open-receipt-v1",
+  "status": "POST_SAFE_OPEN_RECEIPT_PREPARED",
+  "blockedBy": "guardian-signature-recovery-required-v1",
+  "requires": [
+    "guardian-signature-recovery-operator-runbook-v1",
+    "guardian-pre-signature-payload-authority-checklist-v1",
+    "guardian-payload-specimen-intake-v1",
+    "guardian-blank-specimen-template-v1",
+    "guardian-specimen-completion-rules-v1",
+    "guardian-specimen-rejection-rules-v1",
+    "guardian-specimen-review-decision-states-v1",
+    "guardian-human-safe-open-readiness-gate-v1"
+  ],
+  "attestations": [
+    "openedOfficialSafeInterface",
+    "chainMatchesSpecimen",
+    "safeAddressMatchesSpecimen",
+    "payloadMatchesSpecimen",
+    "didNotSignOrExecute",
+    "noKeysExposed",
+    "signingDecisionStillPending"
+  ],
+  "safety": {
+    "walletSigning": false,
+    "broadcast": false,
+    "deployment": false,
+    "mint": false,
+    "staking": false,
+    "liquidity": false,
+    "bridge": false,
+    "tokenTransfer": false,
+    "privateKeyAccess": false,
+    "seedPhraseRequest": false,
+    "approvalOrAllowance": false,
+    "safeOpened": false
+  },
+  "nextRequiredAction": "Human operator seals this receipt after Safe inspection. A separate signature recovery completion receipt is still required.",
+  "createdAt": "2026-07-02T02:46:01.806Z"
+}
