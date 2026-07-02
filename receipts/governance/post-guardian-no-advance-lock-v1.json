@@ -1,0 +1,39 @@
+{
+  "version": "1.0.0",
+  "receipt": "post-guardian-no-advance-lock-v1",
+  "status": "NO_DOWNSTREAM_ADVANCE",
+  "blockedBy": "guardian-signature-recovery-required-v1",
+  "reason": "guardian-signature-recovery-completion-receipt-v1 is prepared only and has not been sealed with signatureRecoveryCompleted true.",
+  "requiredBeforeAdvance": [
+    "real guardian safe address",
+    "real chain name",
+    "real chain id",
+    "real payload hash",
+    "human authorization decision",
+    "signatureRecoveryCompleted:true",
+    "separate sealed completion receipt"
+  ],
+  "blockedGates": {
+    "publicMintAuthorization": "AUTHORIZATION_PENDING",
+    "publicMintOpen": "PENDING_CONTROLLED_MINT_VERIFICATION",
+    "liquidity": "LIQUIDITY_NOT_AUTHORIZED",
+    "staking": "STAKING_NOT_AUTHORIZED",
+    "bridge": "BRIDGE_NOT_AUTHORIZED"
+  },
+  "safety": {
+    "walletSigning": false,
+    "broadcast": false,
+    "deployment": false,
+    "mint": false,
+    "staking": false,
+    "liquidity": false,
+    "bridge": false,
+    "tokenTransfer": false,
+    "privateKeyAccess": false,
+    "seedPhraseRequest": false,
+    "approvalOrAllowance": false,
+    "downstreamGateAdvancement": false
+  },
+  "nextRequiredAction": "Human operator must seal guardian-signature-recovery-completion-receipt-v1 with real values and signatureRecoveryCompleted true before any downstream gate can be reconsidered.",
+  "createdAt": "2026-07-02T10:06:05.988Z"
+}
