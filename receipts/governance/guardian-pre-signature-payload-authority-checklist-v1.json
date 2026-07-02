@@ -1,0 +1,35 @@
+{
+  "version": "1.0.0",
+  "receipt": "guardian-pre-signature-payload-authority-checklist-v1",
+  "status": "PRE_SIGNATURE_CHECKLIST_PREPARED",
+  "blockedBy": "guardian-signature-recovery-required-v1",
+  "requires": [
+    "guardian-signature-recovery-operator-runbook-v1",
+    "human-confirmed-safe-address",
+    "human-confirmed-chain",
+    "human-confirmed-payload-hash",
+    "human-confirmed-governance-intent-alignment"
+  ],
+  "downstreamGates": [
+    "public-mint-authorization-v1",
+    "public-mint-open-v1",
+    "liquidity-policy-readiness-v1",
+    "staking-policy-readiness-v1",
+    "bridge-policy-readiness-v1"
+  ],
+  "safety": {
+    "walletSigning": false,
+    "broadcast": false,
+    "deployment": false,
+    "mint": false,
+    "staking": false,
+    "liquidity": false,
+    "bridge": false,
+    "tokenTransfer": false,
+    "privateKeyAccess": false,
+    "seedPhraseRequest": false,
+    "approvalOrAllowance": false
+  },
+  "nextRequiredAction": "Human operator must inspect Safe chain, Safe address, payload hash, and governance alignment before any separate human signing decision.",
+  "createdAt": "2026-07-02T01:26:54.691Z"
+}
