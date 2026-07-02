@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "receipt": "guardian-specimen-completion-rules-v1",
+  "status": "SPECIMEN_COMPLETION_RULES_PREPARED",
+  "blockedBy": "guardian-signature-recovery-required-v1",
+  "requires": [
+    "guardian-signature-recovery-operator-runbook-v1",
+    "guardian-pre-signature-payload-authority-checklist-v1",
+    "guardian-payload-specimen-intake-v1",
+    "guardian-blank-specimen-template-v1"
+  ],
+  "validationRules": [
+    "chainName non-empty",
+    "chainId positive integer",
+    "guardianSafeAddress valid 0x-address",
+    "targetAddress valid 0x-address",
+    "payloadSummary non-empty",
+    "payloadHash non-empty 0x-hex",
+    "value zero unless authorized",
+    "recoveryOnlyAssertion true",
+    "noHiddenFinancialActionAssertion true",
+    "operatorConfirmedNoKeysExposed true"
+  ],
+  "safety": {
+    "walletSigning": false,
+    "broadcast": false,
+    "deployment": false,
+    "mint": false,
+    "staking": false,
+    "liquidity": false,
+    "bridge": false,
+    "tokenTransfer": false,
+    "privateKeyAccess": false,
+    "seedPhraseRequest": false,
+    "approvalOrAllowance": false,
+    "safeOpened": false
+  },
+  "nextRequiredAction": "Human operator fills specimen template and validates against these rules, then seals a completion receipt. No Safe opened or signature requested.",
+  "createdAt": "2026-07-02T01:48:37.887Z"
+}
