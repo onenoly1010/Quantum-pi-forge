@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "receipt": "guardian-specimen-rejection-rules-v1",
+  "status": "SPECIMEN_REJECTION_RULES_PREPARED",
+  "blockedBy": "guardian-signature-recovery-required-v1",
+  "requires": [
+    "guardian-signature-recovery-operator-runbook-v1",
+    "guardian-pre-signature-payload-authority-checklist-v1",
+    "guardian-payload-specimen-intake-v1",
+    "guardian-blank-specimen-template-v1",
+    "guardian-specimen-completion-rules-v1"
+  ],
+  "rejectionCriteria": [
+    "chainName empty or unrecognized",
+    "chainId missing or mismatched",
+    "guardianSafeAddress invalid",
+    "targetAddress invalid",
+    "payloadSummary empty or financial",
+    "payloadHash invalid",
+    "value non-zero without authorization",
+    "recoveryOnlyAssertion not true",
+    "noHiddenFinancialActionAssertion not true",
+    "operatorConfirmedNoKeysExposed not true",
+    "contains key material"
+  ],
+  "safety": {
+    "walletSigning": false,
+    "broadcast": false,
+    "deployment": false,
+    "mint": false,
+    "staking": false,
+    "liquidity": false,
+    "bridge": false,
+    "tokenTransfer": false,
+    "privateKeyAccess": false,
+    "seedPhraseRequest": false,
+    "approvalOrAllowance": false,
+    "safeOpened": false
+  },
+  "nextRequiredAction": "Human operator validates specimen against rejection rules before completion rules. Rejected specimens must not be submitted to Safe.",
+  "createdAt": "2026-07-02T01:59:00.205Z"
+}
