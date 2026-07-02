@@ -1,0 +1,46 @@
+{
+  "version": "1.0.0",
+  "receipt": "guardian-human-authorization-receipt-template-v1",
+  "status": "HUMAN_AUTHORIZATION_TEMPLATE_PREPARED",
+  "defaultAuthorization": "NOT_AUTHORIZED",
+  "blockedBy": [
+    "guardian-signature-recovery-required-v1",
+    "guardian-recovery-execution-authorization-blocker-v1"
+  ],
+  "requiredFields": [
+    "authorizationDecision",
+    "guardianSafeAddress",
+    "chainName",
+    "chainId",
+    "payloadTarget",
+    "payloadValue",
+    "payloadHash",
+    "payloadSummary",
+    "governanceIntentAlignment",
+    "recoveryOnlyAssertion",
+    "noHiddenFinancialActionAssertion",
+    "humanOperator",
+    "timestamp"
+  ],
+  "allowedDecisions": [
+    "AUTHORIZED",
+    "REJECTED",
+    "NEEDS_CORRECTION"
+  ],
+  "safety": {
+    "walletSigning": false,
+    "broadcast": false,
+    "deployment": false,
+    "mint": false,
+    "staking": false,
+    "liquidity": false,
+    "bridge": false,
+    "tokenTransfer": false,
+    "privateKeyAccess": false,
+    "seedPhraseRequest": false,
+    "approvalOrAllowance": false,
+    "downstreamGateAdvancement": false
+  },
+  "nextRequiredAction": "Human operator must complete a separate authorization receipt with real Safe, chain, target, value, payload hash, and governance alignment before any signing can be considered.",
+  "createdAt": "2026-07-02T04:01:30.007Z"
+}
