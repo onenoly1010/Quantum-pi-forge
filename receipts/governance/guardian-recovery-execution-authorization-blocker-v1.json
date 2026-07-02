@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "receipt": "guardian-recovery-execution-authorization-blocker-v1",
+  "status": "EXECUTION_AUTHORIZATION_REQUIRED",
+  "blockedBy": "guardian-signature-recovery-required-v1",
+  "reason": "Inspection and decision receipts do not authorize Safe signing or broadcast. A separate explicit human authorization receipt is required.",
+  "requires": [
+    "human-inspection-decision-receipt",
+    "guardian-safe-address",
+    "chain-name-and-chain-id",
+    "payload-hash",
+    "payload-target",
+    "payload-value",
+    "governance-intent-alignment",
+    "separate-human-authorization-receipt"
+  ],
+  "downstreamGates": [
+    "public-mint-authorization-v1",
+    "public-mint-open-v1",
+    "liquidity-policy-readiness-v1",
+    "staking-policy-readiness-v1",
+    "bridge-policy-readiness-v1"
+  ],
+  "safety": {
+    "walletSigning": false,
+    "broadcast": false,
+    "deployment": false,
+    "mint": false,
+    "staking": false,
+    "liquidity": false,
+    "bridge": false,
+    "tokenTransfer": false,
+    "privateKeyAccess": false,
+    "seedPhraseRequest": false,
+    "approvalOrAllowance": false,
+    "downstreamGateAdvancement": false
+  },
+  "nextRequiredAction": "Create a separate explicit human authorization receipt only after accepted inspection decision and payload details are known.",
+  "createdAt": "2026-07-02T03:54:30.994Z"
+}
