@@ -1,0 +1,35 @@
+{
+  "version": "1.0.0",
+  "receipt": "guardian-specimen-review-decision-states-v1",
+  "status": "SPECIMEN_REVIEW_DECISION_STATES_PREPARED",
+  "blockedBy": "guardian-signature-recovery-required-v1",
+  "requires": [
+    "guardian-signature-recovery-operator-runbook-v1",
+    "guardian-pre-signature-payload-authority-checklist-v1",
+    "guardian-payload-specimen-intake-v1",
+    "guardian-blank-specimen-template-v1",
+    "guardian-specimen-completion-rules-v1",
+    "guardian-specimen-rejection-rules-v1"
+  ],
+  "allowedDecisionStates": [
+    "SPECIMEN_ACCEPTED_FOR_HUMAN_SAFE_REVIEW",
+    "SPECIMEN_REJECTED",
+    "SPECIMEN_NEEDS_CORRECTION"
+  ],
+  "safety": {
+    "walletSigning": false,
+    "broadcast": false,
+    "deployment": false,
+    "mint": false,
+    "staking": false,
+    "liquidity": false,
+    "bridge": false,
+    "tokenTransfer": false,
+    "privateKeyAccess": false,
+    "seedPhraseRequest": false,
+    "approvalOrAllowance": false,
+    "safeOpened": false
+  },
+  "nextRequiredAction": "Human operator assigns one of the three decision states after validating against completion and rejection rules.",
+  "createdAt": "2026-07-02T02:18:18.956Z"
+}
