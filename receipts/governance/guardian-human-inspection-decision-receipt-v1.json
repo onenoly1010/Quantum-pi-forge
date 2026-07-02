@@ -1,0 +1,39 @@
+{
+  "version": "1.0.0",
+  "receipt": "guardian-human-inspection-decision-receipt-v1",
+  "status": "HUMAN_INSPECTION_DECISION_RECEIPT_PREPARED",
+  "blockedBy": "guardian-signature-recovery-required-v1",
+  "requires": [
+    "guardian-signature-recovery-operator-runbook-v1",
+    "guardian-pre-signature-payload-authority-checklist-v1",
+    "guardian-payload-specimen-intake-v1",
+    "guardian-blank-specimen-template-v1",
+    "guardian-specimen-completion-rules-v1",
+    "guardian-specimen-rejection-rules-v1",
+    "guardian-specimen-review-decision-states-v1",
+    "guardian-human-safe-open-readiness-gate-v1",
+    "guardian-post-safe-open-receipt-v1",
+    "guardian-safe-inspection-completion-intake-v1"
+  ],
+  "allowedDecisionStates": [
+    "SAFE_INSPECTION_ACCEPTED",
+    "SAFE_INSPECTION_REJECTED",
+    "SAFE_INSPECTION_NEEDS_CORRECTION"
+  ],
+  "safety": {
+    "walletSigning": false,
+    "broadcast": false,
+    "deployment": false,
+    "mint": false,
+    "staking": false,
+    "liquidity": false,
+    "bridge": false,
+    "tokenTransfer": false,
+    "privateKeyAccess": false,
+    "seedPhraseRequest": false,
+    "approvalOrAllowance": false,
+    "safeOpened": false
+  },
+  "nextRequiredAction": "Human operator records one of three decision states. If accepted, separate signing decision and signature recovery completion receipt are still required.",
+  "createdAt": "2026-07-02T03:43:34.394Z"
+}
