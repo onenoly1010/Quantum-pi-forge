@@ -1,0 +1,41 @@
+{
+  "version": "1.0.0",
+  "receipt": "guardian-completion-receipt-filling-guide-v1",
+  "status": "COMPLETION_RECEIPT_FILLING_GUIDE_PREPARED",
+  "blockedBy": [
+    "guardian-signature-recovery-required-v1",
+    "post-guardian-no-advance-lock-v1"
+  ],
+  "defaultAuthorization": "NOT_AUTHORIZED",
+  "completionRule": "signatureRecoveryCompleted may become true only after human operator completes and verifies the recovery flow with real values.",
+  "nonCompletionRule": "If any value is missing, placeholder, unknown, mismatched, or unverified, signatureRecoveryCompleted remains false and downstream gates remain blocked.",
+  "requiredRealValues": [
+    "guardianSafeAddress",
+    "chainName",
+    "chainId",
+    "payloadTarget",
+    "payloadValue",
+    "payloadHash",
+    "humanAuthorizationDecision",
+    "humanInspectionDecision",
+    "signatureRecoveryCompleted",
+    "noHiddenFinancialActionAssertion",
+    "noAutomationSigningAssertion"
+  ],
+  "safety": {
+    "walletSigning": false,
+    "broadcast": false,
+    "deployment": false,
+    "mint": false,
+    "staking": false,
+    "liquidity": false,
+    "bridge": false,
+    "tokenTransfer": false,
+    "privateKeyAccess": false,
+    "seedPhraseRequest": false,
+    "approvalOrAllowance": false,
+    "downstreamGateAdvancement": false
+  },
+  "nextRequiredAction": "Human operator may later complete the actual completion receipt with real values only after recovery flow is actually completed and verified.",
+  "createdAt": "2026-07-02T14:17:37.990Z"
+}
