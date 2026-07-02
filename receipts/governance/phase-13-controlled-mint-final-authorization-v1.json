@@ -1,0 +1,69 @@
+{
+  "governance_version": "v1",
+  "receipt": "phase-13-controlled-mint-final-authorization-v1",
+  "created_at": "2026-07-02T20:27:00.000Z",
+  "base_head": "c39b577",
+  "phase": "13-controlled-mint",
+  "title": "Phase 13 Controlled Mint — Final Pre-Execution Authorization",
+  "mode": "review_only_no_wallet_action",
+  "status": "PRE_EXECUTION_AUTHORIZATION_SEALED_WALLET_ACTION_NOT_YET_AUTHORIZED",
+  "authorization_references": {
+    "phase_9_policy": "receipts/governance/public-mint-policy-final-v1.json",
+    "phase_12_public_mint_authorization": "receipts/governance/public-mint-authorization-final-v1.json",
+    "phase_12_guardian_authorization": "receipts/governance/guardian-controlled-mint-authorization-v1.json",
+    "phase_13_human_decisions": "receipts/governance/phase-13-controlled-mint-human-decisions-v1.json",
+    "phase_13_parameter_candidate": "receipts/governance/phase-13-controlled-mint-parameter-candidate-v1.json",
+    "phase_13_authorization_request": "receipts/governance/phase-13-controlled-mint-authorization-request-v1.json"
+  },
+  "execution_parameters": {
+    "chain_id": 16661,
+    "network": "0G Aristotle Mainnet",
+    "contract": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+    "contract_name": "OINIOModelRegistry",
+    "function": "registerModel(string name, string metadataURI, uint256 stakeAmount)",
+    "name": "QPF Genesis Guardian Model",
+    "metadata_uri": "https://quantumpiforge.com/metadata/qpf-genesis-guardian-model-v1.json",
+    "metadata_uri_backup": "https://raw.githubusercontent.com/onenoly1010/Quantum-pi-forge/main/metadata/qpf-genesis-guardian-model-v1.json",
+    "stake_amount_oinio": "1000000000000000000",
+    "stake_amount_human": "1 OINIO",
+    "recipient": "0x335651BD160fDA89C9E7A095dF9Dc1BB9f3cF4DC",
+    "max_mints": 1
+  },
+  "execution_sequence": [
+    "1. approve(OINIO_TOKEN at 0x75995EC0fdf881189850aeD864cB3f43c0DFCb58, registry at 0x67aD7169184581f23D1E10B39d4eb4e98293E87a, 1000000000000000000)",
+    "2. registerModel('QPF Genesis Guardian Model', 'https://quantumpiforge.com/metadata/qpf-genesis-guardian-model-v1.json', 1000000000000000000)",
+    "3. Verify ModelRegistered event on 0G Aristotle Mainnet explorer",
+    "4. Seal execution receipt with tx hash, block number, model ID"
+  ],
+  "pre_execution_verification": {
+    "contract_source_inspected": true,
+    "registerModel_parameters_matched": true,
+    "registerModel_calls_transferFrom": true,
+    "registerModel_mints_erc721_to_caller": true,
+    "operator_wallet": "0x335651BD160fDA89C9E7A095dF9Dc1BB9f3cF4DC",
+    "operator_wallet_oiniO_balance_verification": "REQUIRED_BEFORE_EXECUTION",
+    "operator_wallet_0g_gas_balance_verification": "REQUIRED_BEFORE_EXECUTION"
+  },
+  "safety_assertions": {
+    "wallet_signing_authorized": false,
+    "token_approval_authorized": false,
+    "token_transfer_authorized": false,
+    "controlled_mint_authorized": false,
+    "public_mint_authorized": false,
+    "liquidity_authorized": false,
+    "staking_authorized": false,
+    "bridge_authorized": false,
+    "pre_execution_authorization_sealed": true,
+    "guardian_human_decision_gates_closed": true,
+    "all_required_receipts_referenced": true
+  },
+  "explicit_restrictions": [
+    "NO wallet signing authorized until explicit approve/registerModel command is confirmed",
+    "NO OINIO approval authorized yet",
+    "NO OINIO transfer authorized yet",
+    "NO controlled mint transaction authorized yet",
+    "NO public mint under any circumstances",
+    "NO liquidity, staking, or bridge activity authorized"
+  ],
+  "next_safe_step": "Verify operator wallet balances (OINIO + 0G gas) on chain 16661. If sufficient, operator may proceed with exactly one approve + registerModel transaction, then seal execution verification receipt."
+}
