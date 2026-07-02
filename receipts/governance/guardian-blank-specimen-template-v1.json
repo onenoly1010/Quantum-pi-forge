@@ -1,0 +1,27 @@
+{
+  "version": "1.0.0",
+  "receipt": "guardian-blank-specimen-template-v1",
+  "status": "BLANK_SPECIMEN_TEMPLATE_PREPARED",
+  "blockedBy": "guardian-signature-recovery-required-v1",
+  "requires": [
+    "guardian-signature-recovery-operator-runbook-v1",
+    "guardian-pre-signature-payload-authority-checklist-v1",
+    "guardian-payload-specimen-intake-v1"
+  ],
+  "safety": {
+    "walletSigning": false,
+    "broadcast": false,
+    "deployment": false,
+    "mint": false,
+    "staking": false,
+    "liquidity": false,
+    "bridge": false,
+    "tokenTransfer": false,
+    "privateKeyAccess": false,
+    "seedPhraseRequest": false,
+    "approvalOrAllowance": false,
+    "safeOpened": false
+  },
+  "nextRequiredAction": "Human operator fills the blank specimen template with text-only values from Safe interface or governance receipts, then seals a completion receipt.",
+  "createdAt": "2026-07-02T01:42:51.504Z"
+}
