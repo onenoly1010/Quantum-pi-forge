@@ -1,0 +1,50 @@
+{
+  "version": "1.0.0",
+  "receipt": "guardian-human-authorization-completion-receipt-v1",
+  "status": "HUMAN_AUTHORIZATION_COMPLETION_RECEIPT_PREPARED",
+  "defaultAuthorization": "NOT_AUTHORIZED",
+  "blockedBy": [
+    "guardian-signature-recovery-required-v1",
+    "guardian-recovery-execution-authorization-blocker-v1"
+  ],
+  "requires": [
+    "guardian-human-authorization-receipt-template-v1",
+    "human-inspection-decision-receipt"
+  ],
+  "requiredFields": [
+    "authorizationDecision",
+    "guardianSafeAddress",
+    "chainName",
+    "chainId",
+    "payloadTarget",
+    "payloadValue",
+    "payloadHash",
+    "payloadSummary",
+    "governanceIntentAlignment",
+    "recoveryOnlyAssertion",
+    "noHiddenFinancialActionAssertion",
+    "humanOperator",
+    "timestamp"
+  ],
+  "allowedDecisions": [
+    "AUTHORIZED",
+    "REJECTED",
+    "NEEDS_CORRECTION"
+  ],
+  "safety": {
+    "walletSigning": false,
+    "broadcast": false,
+    "deployment": false,
+    "mint": false,
+    "staking": false,
+    "liquidity": false,
+    "bridge": false,
+    "tokenTransfer": false,
+    "privateKeyAccess": false,
+    "seedPhraseRequest": false,
+    "approvalOrAllowance": false,
+    "downstreamGateAdvancement": false
+  },
+  "nextRequiredAction": "Human operator completes and seals this receipt with real values. Even if AUTHORIZED, separate signature recovery completion receipt is still required.",
+  "createdAt": "2026-07-02T04:05:40.906Z"
+}
