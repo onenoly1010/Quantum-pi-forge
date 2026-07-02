@@ -1,0 +1,27 @@
+{
+  "version": "1.0.0",
+  "receipt": "guardian-signature-recovery-operator-runbook-v1",
+  "status": "SIGNATURE_RECOVERY_RUNBOOK_PREPARED",
+  "blockedBy": "guardian-signature-recovery-required-v1",
+  "downstreamGates": [
+    "public-mint-authorization-v1",
+    "public-mint-open-v1",
+    "liquidity-policy-readiness-v1",
+    "staking-policy-readiness-v1",
+    "bridge-policy-readiness-v1"
+  ],
+  "safety": {
+    "walletSigning": false,
+    "broadcast": false,
+    "deployment": false,
+    "mint": false,
+    "staking": false,
+    "liquidity": false,
+    "bridge": false,
+    "tokenTransfer": false,
+    "privateKeyAccess": false,
+    "seedPhraseRequest": false
+  },
+  "nextRequiredAction": "Human operator must complete Guardian Safe signature recovery flow outside automation, then seal a separate completion receipt.",
+  "createdAt": "2026-07-02T01:14:43.162Z"
+}
