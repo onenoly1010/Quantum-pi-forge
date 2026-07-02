@@ -1,0 +1,37 @@
+{
+  "version": "1.0.0",
+  "receipt": "guardian-payload-specimen-intake-v1",
+  "status": "PAYLOAD_SPECIMEN_INTAKE_PREPARED",
+  "blockedBy": "guardian-signature-recovery-required-v1",
+  "requires": [
+    "guardian-signature-recovery-operator-runbook-v1",
+    "guardian-pre-signature-payload-authority-checklist-v1"
+  ],
+  "specimenFields": [
+    "chainName",
+    "chainId",
+    "guardianSafeAddress",
+    "targetAddress",
+    "payloadSummary",
+    "payloadHash",
+    "value",
+    "recoveryOnlyAssertion",
+    "noHiddenFinancialActionAssertion"
+  ],
+  "safety": {
+    "walletSigning": false,
+    "broadcast": false,
+    "deployment": false,
+    "mint": false,
+    "staking": false,
+    "liquidity": false,
+    "bridge": false,
+    "tokenTransfer": false,
+    "privateKeyAccess": false,
+    "seedPhraseRequest": false,
+    "approvalOrAllowance": false,
+    "safeOpened": false
+  },
+  "nextRequiredAction": "Human operator must provide text-only payload specimen values for review before any separate Safe signing decision.",
+  "createdAt": "2026-07-02T01:35:59.897Z"
+}
