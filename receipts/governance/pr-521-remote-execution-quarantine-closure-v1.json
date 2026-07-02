@@ -1,0 +1,24 @@
+{
+  "version": "1.0.0",
+  "receipt": "pr-521-remote-execution-quarantine-closure-v1",
+  "status": "SEALED_ON_MAIN",
+  "pr": 521,
+  "mainCommit": "cfb5bb1",
+  "summary": "PR 521 squash-merged to main; CI/evidence/build verified; remote execution scripts quarantined before merge; submodule restored to parent-recorded pointer.",
+  "safety": {
+    "walletSigning": false,
+    "broadcast": false,
+    "deployment": false,
+    "mint": false,
+    "staking": false,
+    "liquidity": false,
+    "bridge": false,
+    "tokenTransfer": false
+  },
+  "verification": {
+    "evidence": "PASS",
+    "build": "PASS",
+    "checks": "6/6 PASS"
+  },
+  "createdAt": "2026-07-02T00:45:16.049Z"
+}
