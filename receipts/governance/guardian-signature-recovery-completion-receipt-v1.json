@@ -1,0 +1,54 @@
+{
+  "version": "1.0.0",
+  "receipt": "guardian-signature-recovery-completion-receipt-v1",
+  "status": "SIGNATURE_RECOVERY_COMPLETION_RECEIPT_PREPARED",
+  "defaultAuthorization": "NOT_AUTHORIZED",
+  "blockedBy": [
+    "guardian-signature-recovery-required-v1"
+  ],
+  "requires": [
+    "guardian-signature-recovery-operator-runbook-v1",
+    "guardian-pre-signature-payload-authority-checklist-v1",
+    "guardian-payload-specimen-intake-v1",
+    "guardian-blank-specimen-template-v1",
+    "guardian-specimen-completion-rules-v1",
+    "guardian-specimen-rejection-rules-v1",
+    "guardian-specimen-review-decision-states-v1",
+    "guardian-human-safe-open-readiness-gate-v1",
+    "guardian-post-safe-open-receipt-v1",
+    "guardian-safe-inspection-completion-intake-v1",
+    "guardian-human-inspection-decision-receipt-v1",
+    "guardian-recovery-execution-authorization-blocker-v1",
+    "guardian-human-authorization-receipt-template-v1",
+    "guardian-human-authorization-completion-receipt-v1"
+  ],
+  "requiredFields": [
+    "guardianSafeAddress",
+    "chainName",
+    "chainId",
+    "payloadTarget",
+    "payloadValue",
+    "payloadHash",
+    "payloadSummary",
+    "authorizationDecision",
+    "humanOperator",
+    "timestamp",
+    "signatureRecoveryCompleted"
+  ],
+  "safety": {
+    "walletSigning": false,
+    "broadcast": false,
+    "deployment": false,
+    "mint": false,
+    "staking": false,
+    "liquidity": false,
+    "bridge": false,
+    "tokenTransfer": false,
+    "privateKeyAccess": false,
+    "seedPhraseRequest": false,
+    "approvalOrAllowance": false
+  },
+  "nextRequiredAction": "Human operator seals this receipt after signature recovery is complete.",
+  "requires14Prereqs": true,
+  "createdAt": "2026-07-02T04:09:37.623Z"
+}
