@@ -1,22 +1,51 @@
 {
   "governance_version": "v1",
   "receipt": "public-mint-open-v1",
-  "created_at": "2026-06-26T14:59:00.000Z",
-  "phase": 14,
-  "title": "Public Mint Opening",
-  "status": "PENDING_CONTROLLED_MINT_VERIFICATION",
-  "dependency": "Phase 13 first controlled mint must verify clean",
-  "required_verification": [
-    "Controlled mint tx hash confirmed",
-    "Token metadata matches expected",
-    "No security issues detected",
-    "Guardian authorization sealed"
+  "created_at": "2026-07-02T15:58:00.000Z",
+  "phase": "14-public-mint-readiness",
+  "title": "Public Mint Opening — Readiness Review",
+  "mode": "review_only_no_wallet_action",
+  "status": "CONTROLLED_MINT_VERIFIED_PUBLIC_MINT_REQUIRES_SEPARATE_AUTHORIZATION",
+  "dependency": "Phase 13 first controlled mint verified",
+  "phase_13_proof": {
+    "model_id": 2,
+    "name": "QPF Genesis Guardian Model",
+    "register_tx": "0xfa1a67f402ae7806e520b8b617dbf709ec682bc5b0a9058214409d6ee9fd8ac5",
+    "register_block": 37713208,
+    "verification_receipt": "receipts/execution/first-controlled-mint-verification-v1.json"
+  },
+  "required_verification_before_public_open": [
+    "Controlled mint tx hash confirmed — ✅",
+    "Token metadata matches expected — ✅",
+    "No security issues detected — ✅",
+    "Guardian authorization sealed — ⏸️ NOT YET GRANTED FOR PUBLIC",
+    "Public mint policy defined in Phase 9 — ✅",
+    "Official-site-only warnings confirmed — ✅",
+    "Explicit governance authorization to open public mint"
   ],
-  "public_status_when_authorized": "PUBLIC_MINT_READY",
-  "safety_warnings_for_users": [
-    "Never enter seed phrase",
-    "Never send funds manually",
-    "Only use official site",
-    "Verify contract address"
-  ]
+  "public_open_requirements": {
+    "contract_address": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+    "chain": "0G Aristotle Mainnet",
+    "chain_id": 16661,
+    "contract_name": "OINIOModelRegistry",
+    "mint_function": "registerModel(string name, string metadataURI, uint256 stakeAmount)",
+    "mint_requires": "OINIO approve + registerModel per the Phase 13 pattern",
+    "wallet_connect": "Allowed only through official site (quantumpiforge.com)",
+    "user_warnings": [
+      "Never enter seed phrase",
+      "Never send funds manually",
+      "Only use official site",
+      "Verify contract address: 0x67aD7169184581f23D1E10B39d4eb4e98293E87a"
+    ]
+  },
+  "safety_assertions": {
+    "controlled_mint_verified": true,
+    "public_mint_not_open": true,
+    "public_mint_requires_separate_authorization": true,
+    "no_wallet_execution_authorized_for_public": true,
+    "no_liquidity": true,
+    "no_staking": true,
+    "no_bridge": true
+  },
+  "next_safe_step": "If public mint is desired, create a separate governance authorization receipt specifically for Phase 14 public opening. Do not open public mint without a sealed authorization."
 }
