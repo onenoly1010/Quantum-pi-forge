@@ -1,0 +1,39 @@
+{
+  "version": "1.0.0",
+  "receipt": "guardian-human-safe-open-readiness-gate-v1",
+  "status": "HUMAN_SAFE_OPEN_READINESS_GATE_PREPARED",
+  "blockedBy": "guardian-signature-recovery-required-v1",
+  "requires": [
+    "guardian-signature-recovery-operator-runbook-v1",
+    "guardian-pre-signature-payload-authority-checklist-v1",
+    "guardian-payload-specimen-intake-v1",
+    "guardian-blank-specimen-template-v1",
+    "guardian-specimen-completion-rules-v1",
+    "guardian-specimen-rejection-rules-v1",
+    "guardian-specimen-review-decision-states-v1"
+  ],
+  "readinessConditions": [
+    "specimenDecisionAccepted",
+    "noKeysExposedConfirmed",
+    "officialSafeInterfaceConfirmed",
+    "correctChainConfirmed",
+    "understandsOpenNotSign",
+    "postSafeOpenReceiptRequired"
+  ],
+  "safety": {
+    "walletSigning": false,
+    "broadcast": false,
+    "deployment": false,
+    "mint": false,
+    "staking": false,
+    "liquidity": false,
+    "bridge": false,
+    "tokenTransfer": false,
+    "privateKeyAccess": false,
+    "seedPhraseRequest": false,
+    "approvalOrAllowance": false,
+    "safeOpened": false
+  },
+  "nextRequiredAction": "Human operator confirms all readiness conditions, then may open official Safe UI for inspection only. Signs a separate post-open receipt.",
+  "createdAt": "2026-07-02T02:41:50.028Z"
+}
