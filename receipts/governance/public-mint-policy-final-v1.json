@@ -1,0 +1,38 @@
+{
+  "governance_version": "v1",
+  "receipt": "public-mint-policy-final-v1",
+  "created_at": "2026-07-02T20:05:00.000Z",
+  "base_head": "c39b577",
+  "phase": "9-mint-policy-readiness",
+  "title": "Public Mint Policy — Final (No Activation)",
+  "mode": "review_only_no_wallet_action",
+  "status": "DEFINED_NO_ACTIVATION",
+  "policy_decisions": {
+    "mint_allowed": false,
+    "public_mint_active": false,
+    "mintable_assets": "AI Model NFTs via OINIOModelRegistry.registerModel()",
+    "who_can_mint": "Any address on 0G Aristotle Mainnet (chain 16661) — but currently DISABLED",
+    "mint_type": "Controlled via registerModel with OINIO stake transfer",
+    "mint_cost": "OINIO stakeAmount > 0 defined per mint; no fixed fee",
+    "stake_flow": "OINIO transferred from caller → registry on registerModel",
+    "funds_destination": "Held in OINIOModelRegistry contract (0x67aD7169184581f23D1E10B39d4eb4e98293E87a)",
+    "metadata_rules": "metadataURI must be non-empty, pointing to IPFS or on-chain metadata",
+    "receipt_proof": "ModelRegistered event emitted with modelId, creator, name, metadataURI, stakeAmount",
+    "wallet_warning": "NEVER enter seed phrase. NEVER send funds manually. Only use official site. Verify contract address.",
+    "canonical_contract": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a"
+  },
+  "authorizations_required_before_opening": [
+    "Guardian authorization for controlled mint",
+    "Phase 13 controlled mint execution and verification",
+    "Phase 14 public mint opening receipt"
+  ],
+  "safety_assertions": {
+    "no_public_mint": true,
+    "no_wallet_execution": true,
+    "policy_sealed_only_no_activation": true,
+    "contract_address_verified_from_source": true,
+    "registerModel_requires_stakeAmount_gt_0": true,
+    "registerModel_transfers_oiniO_to_registry": true
+  },
+  "next_safe_step": "Seal Phase 12 guardian authorization; then fill Phase 13 human decisions and execute one controlled mint only after all approvals are sealed."
+}

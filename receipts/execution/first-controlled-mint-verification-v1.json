@@ -1,0 +1,66 @@
+{
+  "receipt": "first-controlled-mint-verification-v1",
+  "created_at": "2026-07-02T21:11:36.563Z",
+  "phase": "13-first-controlled-mint",
+  "status": "CONTROLLED_MINT_VERIFIED",
+  "head": "c39b57720538c4ce35f359c308e654af7bb19879",
+  "network": "0G Aristotle Mainnet",
+  "chain_id": 16661,
+  "registry": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+  "oinio_token": "0x75995EC0fdf881189850aeD864cB3f43c0DFCb58",
+  "operator": "0x335651BD160fDA89C9E7A095dF9Dc1BB9f3cF4DC",
+  "recipient": "0x335651BD160fDA89C9E7A095dF9Dc1BB9f3cF4DC",
+  "name": "QPF Genesis Guardian Model",
+  "metadata_uri": "https://quantumpiforge.com/metadata/qpf-genesis-guardian-model-v1.json",
+  "metadata_uri_backup": "https://raw.githubusercontent.com/onenoly1010/Quantum-pi-forge/main/metadata/qpf-genesis-guardian-model-v1.json",
+  "stake_amount_oinio_raw": "1000000000000000000",
+  "stake_amount_human": "1 OINIO",
+  "approve": {
+    "tx_hash": "0xb3b519ff5457fc053e238cf889dc941af3c0cb4d176fa49d429e59f441a596ae",
+    "block_number": 37711583,
+    "status": "success",
+    "allowance_after": "1000000000000000000"
+  },
+  "register_model": {
+    "tx_hash": "0xfa1a67f402ae7806e520b8b617dbf709ec682bc5b0a9058214409d6ee9fd8ac5",
+    "block_number": 37713208,
+    "status": "success",
+    "model_id": 2,
+    "token_id": 2
+  },
+  "on_chain_verification": {
+    "total_models": 2,
+    "wallet_nft_balance": 2,
+    "allowance_remaining": "0",
+    "wallet_oinio_decreased_by_1": true,
+    "registry_oinio_increased_by_1": true,
+    "model_2_creator": "0x335651BD160fDA89C9E7A095dF9Dc1BB9f3cF4DC",
+    "model_2_name": "QPF Genesis Guardian Model",
+    "model_2_metadata": "https://quantumpiforge.com/metadata/qpf-genesis-guardian-model-v1.json",
+    "model_2_stake": "1000000000000000000",
+    "model_2_active": true
+  },
+  "operator_confirmation": {
+    "confirmed_by": "human_decision_authorization",
+    "note": "User explicitly authorized Phase 13 controlled mint execution with type YES confirmation on approve and registerModel",
+    "approved_by_wallet": "0x335651BD160fDA89C9E7A095dF9Dc1BB9f3cF4DC"
+  },
+  "governance_references": {
+    "phase_9_policy": "receipts/governance/public-mint-policy-final-v1.json",
+    "phase_12_public_auth": "receipts/governance/public-mint-authorization-final-v1.json",
+    "phase_12_guardian_auth": "receipts/governance/guardian-controlled-mint-authorization-v1.json",
+    "phase_13_decisions": "receipts/governance/phase-13-controlled-mint-human-decisions-v1.json",
+    "phase_13_final_auth": "receipts/governance/phase-13-controlled-mint-final-authorization-v1.json",
+    "phase_13_request": "receipts/governance/phase-13-controlled-mint-authorization-request-v1.json"
+  },
+  "safety_assertions": {
+    "controlled_mint_completed": true,
+    "one_mint_only_executed": true,
+    "no_public_mint": true,
+    "no_liquidity": true,
+    "no_staking": true,
+    "no_bridge": true,
+    "no_public_announcement": true
+  },
+  "next_gate": "Phase 14 public mint opening remains blocked. Controlled mint is verified. Do not open public mint until governance review and Phase 14 authorization receipt is sealed."
+}

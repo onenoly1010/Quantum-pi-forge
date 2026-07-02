@@ -1,0 +1,58 @@
+{
+  "governance_version": "v1",
+  "receipt": "guardian-controlled-mint-authorization-v1",
+  "created_at": "2026-07-02T20:07:00.000Z",
+  "base_head": "c39b577",
+  "phase": "12-guardian-governance-authorization",
+  "title": "Guardian Controlled Mint Authorization — Final",
+  "mode": "review_only_no_wallet_action",
+  "status": "AUTHORIZATION_DEFINED_NOT_YET_GRANTED",
+  "guardian_details": {
+    "guardian_safe": "0x8d088B88219D072aB035502065ee2410c2cb4389",
+    "governance_model": "Multi-signature safe requiring guardian approval before any wallet action",
+    "authorization_scope": "Exactly one controlled proof mint via OINIOModelRegistry.registerModel()",
+    "authorization_does_NOT_cover": [
+      "Public mint (requires Phase 14)",
+      "Additional controlled mints beyond first",
+      "Liquidity (requires Phase 15)",
+      "Staking (requires Phase 16)",
+      "Bridge (requires Phase 17)"
+    ]
+  },
+  "authorization_gates": {
+    "pre_approval_required": [
+      "Recipient address must be defined",
+      "Metadata URI must be defined (IPFS or on-chain URI)",
+      "Stake amount must be defined (> 0 OINIO)",
+      "Operator wallet must have sufficient OINIO balance for stake + gas",
+      "Operator wallet must have 0G tokens for gas on chain 16661",
+      "Guardian must confirm contract source matches deployed bytecode (OINIOModelRegistry at 0x67aD7169184581f23D1E10B39d4eb4e98293E87a)"
+    ],
+    "execution_sequence": [
+      "1. approve(OINIO_TOKEN, registry, stakeAmount) — operator wallet signs",
+      "2. registerModel(name, metadataURI, stakeAmount) — operator wallet signs",
+      "3. Verify ModelRegistered event on 0G Aristotle Mainnet explorer",
+      "4. Seal execution receipt with tx hash, block number, model ID"
+    ]
+  },
+  "risk_acknowledgments": [
+    "OINIO tokens will be transferred from operator wallet to registry contract permanently (staked)",
+    "Transaction is irreversible on 0G Aristotle Mainnet",
+    "Gas costs paid in 0G native tokens",
+    "registerModel uses transferFrom which requires prior approval",
+    "Model ID is auto-incremented by registry contract"
+  ],
+  "safety_assertions": {
+    "wallet_signing_authorized": false,
+    "token_approval_authorized": false,
+    "token_transfer_authorized": false,
+    "controlled_mint_authorized": false,
+    "public_mint_authorized": false,
+    "liquidity_authorized": false,
+    "staking_authorized": false,
+    "bridge_authorized": false,
+    "guardian_path_sealed": true,
+    "human_decisions_still_required": true
+  },
+  "next_safe_step": "Phase 13 human decisions receipt: define recipient_address, metadata_uri, and stake_amount_oinio. No wallet action until Phase 13 final pre-execution authorization is sealed."
+}

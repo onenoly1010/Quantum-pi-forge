@@ -1,0 +1,54 @@
+{
+  "governance_version": "v1",
+  "receipt": "public-mint-authorization-final-v1",
+  "created_at": "2026-07-02T20:06:00.000Z",
+  "base_head": "c39b577",
+  "phase": "12-guardian-governance-authorization",
+  "title": "Public Mint Authorization — Final (Guardian Path Defined)",
+  "mode": "review_only_no_wallet_action",
+  "status": "AUTHORIZATION_DEFINED_NOT_YET_GRANTED",
+  "authorization_details": {
+    "guardian_safe": "0x8d088B88219D072aB035502065ee2410c2cb4389",
+    "canonical_contract": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+    "chain": "0G Aristotle Mainnet",
+    "chain_id": 16661,
+    "supply_rule": "One NFT per registerModel call; no max supply cap, but controlled mint limited to 1 for Phase 13",
+    "fee_rule": "No fixed fee; OINIO stakeAmount > 0 required per mint, transferred to registry",
+    "metadata_rule": "metadataURI must be non-empty; creator defined; verified on-chain via ModelRegistered event",
+    "risk_warning": "NEVER enter seed phrase. NEVER send funds manually. Only use official site. Verify contract address 0x67aD7169184581f23D1E10B39d4eb4e98293E87a on 0G Aristotle Mainnet (chain 16661)."
+  },
+  "guardian_authorization_path": [
+    "1. Guardian defines recipient_address, metadata_uri, stake_amount_oinio in Phase 13 human decisions receipt",
+    "2. Guardian seals Phase 13 final pre-execution authorization receipt",
+    "3. Operator executes exactly one registerModel call (approve + registerModel)",
+    "4. Post-execution verification receipt sealed with tx hash, block number, model ID",
+    "5. Only after verification, Phase 14 public mint opening may be considered"
+  ],
+  "required_before_guardian_grants_authorization": [
+    "Recipient address defined",
+    "Metadata URI defined",
+    "Stake amount defined (OINIO > 0)",
+    "Guardian confirms contract source verified: registerModel calls transferFrom and mints ERC721",
+    "Operator explicitly confirms no automatic execution without guardian approval"
+  ],
+  "safety_assertions": {
+    "wallet_signing_authorized": false,
+    "token_approval_authorized": false,
+    "token_transfer_authorized": false,
+    "controlled_mint_authorized": false,
+    "public_mint_authorized": false,
+    "guardian_path_defined_only": true,
+    "contract_source_inspected": true,
+    "registerModel_function_parameters_confirmed": true
+  },
+  "source_references": {
+    "contract": "contracts/src/OINIOModelRegistry.sol",
+    "registerModel_parameters": ["name (string)", "metadataURI (string)", "stakeAmount (uint256)"],
+    "registerModel_effects": [
+      "OINIO_TOKEN.transferFrom(msg.sender, address(this), stakeAmount)",
+      "_safeMint(msg.sender, modelId) — mints ERC721 to caller",
+      "_setTokenURI(modelId, metadataURI)",
+      "Emits ModelRegistered(modelId, creator, name, metadataURI, stakeAmount)"
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "QPF Genesis Guardian Model",
+  "description": "First controlled proof mint for Quantum Pi Forge / OINIO on 0G Aristotle Mainnet. This NFT represents a governance-verified AI model registry entry and does not open public minting, liquidity, staking, or bridge activity.",
+  "image": null,
+  "attributes": [
+    {
+      "trait_type": "Network",
+      "value": "0G Aristotle Mainnet"
+    },
+    {
+      "trait_type": "Chain ID",
+      "value": "16661"
+    },
+    {
+      "trait_type": "Registry",
+      "value": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a"
+    },
+    {
+      "trait_type": "Mint Type",
+      "value": "Controlled Proof Mint"
+    },
+    {
+      "trait_type": "Phase",
+      "value": "Phase 13"
+    },
+    {
+      "trait_type": "Governance",
+      "value": "Guardian Authorized"
+    },
+    {
+      "trait_type": "Stake Required",
+      "value": "1 OINIO"
+    }
+  ],
+  "external_url": null
+}
