@@ -21,7 +21,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
 from fastapi.security import OAuth2PasswordBearer
 from pydantic import BaseModel, EmailStr, Field
-from control_plane_config import get_ollama_url, get_value
+from server.control_plane_config import get_ollama_url, get_value
 
 # Configure logging first
 logging.basicConfig(level=logging.INFO)
@@ -144,9 +144,13 @@ except ImportError as e:
     tracing_enabled = False
     get_tracing_system = None
     trace_consciousness_stream = lambda *args, **kwargs: None
-    trace_fastapi_operation = lambda *args, **kwargs: None
-    trace_payment_processing = lambda *args, **kwargs: None
-    trace_payment_visualization_flow = lambda *args, **kwargs: None
+    def _noop_decorator_factory(*args, **kwargs):
+        def _passthrough(func):
+            return func
+        return _passthrough
+    trace_fastapi_operation = _noop_decorator_factory
+    trace_payment_processing = _noop_decorator_factory
+    trace_payment_visualization_flow = _noop_decorator_factory
 
 # Import autonomous decision tools
 try:

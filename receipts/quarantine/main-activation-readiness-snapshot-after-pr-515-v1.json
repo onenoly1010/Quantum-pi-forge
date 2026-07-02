@@ -1,0 +1,30 @@
+{
+  "governance_version": "v2",
+  "receipt": "main-activation-readiness-snapshot-after-pr-515-v1",
+  "created_at": "2026-06-26T01:47:59.529Z",
+  "branch": "main",
+  "head": "afd808be9e270098429b34901e5e6539616922db",
+  "head_short": "afd808b",
+  "status": "SEALED_MAIN_READY_FOR_NEXT_GATE_REVIEW",
+  "sealed_prs": [
+    514,
+    515
+  ],
+  "verified_local_commands": [
+    "npm run build",
+    "npm run verify:evidence"
+  ],
+  "current_boundary": {
+    "repo_clean": true,
+    "public_onboarding_published": true,
+    "guardian_safe_registered": true,
+    "wallet_signing": false,
+    "private_key_access": false,
+    "contract_deployment": false,
+    "transaction_broadcast": false,
+    "staking": false,
+    "minting": false,
+    "liquidity_provision": false
+  },
+  "next_gate": "choose next activation lane explicitly: public observation, guardian governance, or on-chain execution preflight"
+}

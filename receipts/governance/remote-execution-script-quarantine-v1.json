@@ -1,0 +1,33 @@
+{
+  "type": "REMOTE_EXECUTION_SCRIPT_QUARANTINE_V1",
+  "status": "QUARANTINE_REQUIRED_BEFORE_MERGE",
+  "remote_head": "2d9da6f",
+  "local_head": "15f4224",
+  "risk_files": [
+    "scripts/0g_social_recovery.py",
+    "scripts/broadcast-phase7.sh",
+    "contracts/script/DeploySocialRecovery.s.sol"
+  ],
+  "findings": [
+    "social recovery CLI accepts private key argument",
+    "social recovery CLI can initialize wallet, request recovery, approve recovery, execute recovery, rotate key, and sign recovery approval",
+    "broadcast-phase7.sh requires DEPLOYER_KEY and includes forge --broadcast path",
+    "DeploySocialRecovery.s.sol includes startBroadcast deployment path"
+  ],
+  "decision": "Do not merge remote execution scripts into main until they are redesigned as offline/read-only by default or isolated behind explicit human-only execution gates.",
+  "prohibited_until_authorized": [
+    "merge",
+    "rebase",
+    "push_to_main",
+    "private_key_cli_usage",
+    "wallet_signing",
+    "broadcast",
+    "deployment",
+    "executeRecovery",
+    "rotateKey",
+    "mint",
+    "staking",
+    "liquidity",
+    "bridge"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "type": "REMOTE_SOCIAL_RECOVERY_MERGE_SAFETY_REVIEW_V1",
+  "status": "REVIEW_REQUIRED_BEFORE_MERGE",
+  "remote_head": "2d9da6f",
+  "local_head": "f53695b",
+  "safety_branch": "safety/guardian-recovery-before-remote-merge-f53695b",
+  "findings": [
+    "origin/main adds ZeroGSocialRecovery.sol",
+    "origin/main adds DeploySocialRecovery.s.sol",
+    "deploy script includes private-key and broadcast path",
+    "contract includes executeRecovery owner-change flow"
+  ],
+  "prohibited_until_authorized": [
+    "merge",
+    "rebase",
+    "force_push",
+    "wallet_signing",
+    "broadcast",
+    "deployment",
+    "mint",
+    "staking",
+    "liquidity",
+    "bridge"
+  ]
+}

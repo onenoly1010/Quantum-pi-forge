@@ -1,0 +1,15 @@
+{
+  "receipt": "external-guardian-assistance-required-v1",
+  "status": "EXTERNAL_GUARDIAN_ASSISTANCE_REQUIRED",
+  "state": "QPF_EXTERNAL_GUARDIAN_ASSISTANCE_REQUIRED",
+  "safe": "0x8d088B88219D072aB035502065ee2410c2cb4389",
+  "reason": "The operator cannot resolve the Guardian Safe signature or execution requirement alone. Further progress requires either a valid Guardian signer, confirmation that the existing signature is executable, or a reviewed Safe recovery path.",
+  "operator_can_resolve_alone": false,
+  "public_mint": "DISABLED",
+  "financial_lanes_active": false,
+  "controlled_mint_execution_authorized": false,
+  "destructive_action_authorized": false,
+  "redeployment_authorized": false,
+  "next_gate": "Guardian signer coordination or Safe execution-path verification",
+  "truth_statement": "Quantum Pi Forge is not failed. It is parked at a multisig governance wall that cannot be bypassed by the operator alone. No financial lane is active and no destructive restart is authorized."
+}
