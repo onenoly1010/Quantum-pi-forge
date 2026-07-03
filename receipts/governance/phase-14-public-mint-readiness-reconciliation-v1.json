@@ -1,0 +1,31 @@
+{
+  "receipt": "phase-14-public-mint-readiness-reconciliation-v1",
+  "created_at": "2026-07-03T01:01:54.581Z",
+  "head": "0650eb79ffa1c4dc3915c7fe828425096c3c98d0",
+  "phase": "14-public-mint",
+  "status": "READINESS_RECONCILED_PUBLIC_MINT_STILL_CLOSED",
+  "public_mint_open": false,
+  "history_reconciliation": {
+    "origin_main": "0650eb7",
+    "review_branch": "review/phase-14",
+    "review_head": "7952e2c",
+    "same_tree_content": true,
+    "merge_required": false,
+    "cherry_pick_required": false,
+    "reason": "review branch and origin/main have identical tree content; difference is commit identity/history only"
+  },
+  "receipt_semantics": {
+    "public_mint_open_v1_is_activation": false,
+    "public_mint_open_v1_meaning": "blocker/readiness receipt; public mint requires separate authorization",
+    "no_receipt_sets_public_mint_open_true": true,
+    "no_wallet_execution_authorized": true
+  },
+  "confirmed_state": {
+    "mint_ui_state": "disabled_or_ready_not_open_only",
+    "public_mint_closed": true,
+    "liquidity_authorized": false,
+    "staking_authorized": false,
+    "bridge_authorized": false
+  },
+  "next_gate": "Create a separate explicit public mint open receipt only after final human/governance decision."
+}
