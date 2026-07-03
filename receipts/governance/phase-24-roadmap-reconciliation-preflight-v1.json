@@ -1,0 +1,43 @@
+{
+  "governance_version": "v1",
+  "receipt": "phase-24-roadmap-reconciliation-preflight-v1",
+  "phase": 24,
+  "title": "Roadmap Reconciliation Preflight — Phase 24",
+  "classification": "RECONCILIATION_PREFLIGHT",
+  "status": "PHASE_24_RECONCILIATION_REQUIRED_BEFORE_EXECUTION",
+  "created_at": "2026-07-03T20:28:27.106Z",
+  "checked": {
+    "roadmap_truth_source": "origin/phase-19-gate",
+    "local_main_note": "local main (72cbb2c) is not treated as current truth — it is 10 commits behind origin/phase-19-gate",
+    "phase_18": "PHASE_18_OPEN_REVIEW_ONLY",
+    "phase_18_commit": "9810807",
+    "phase_19": "PUBLIC_MINT_REQUIRES_ADDITIONAL_REVIEW",
+    "phase_19_commit": "7c1cb5d",
+    "phase_20": "PUBLIC_MINT_REVIEW_CLOSED",
+    "phase_20_commit": "7e05dcb",
+    "phase_21": "PUBLIC_MINT_AUTHORIZED_BY_GOVERNANCE",
+    "phase_21_commit": "4622af8",
+    "phase_22": "PHASE_22_SURFACE_ALIGNMENT_COMPLETE",
+    "phase_22_commit": "3df5d27",
+    "phase_23": "NOT_RECORDED — Phase 23 was never created; roadmap gap detected",
+    "receipt_hash_discrepancy_4c24370": {
+      "claimed_sha256": "86cddc6395aa30fea5d059f05d6fdfa7ac198d8de8d36858567e848546dfc912",
+      "actual_file_hash": "97774062662df28e547d7eca636607b4848511eef57c6aab39aea9eea0731b43",
+      "resolution": "CANONICAL_PRE_SHA_HASH — verified: delete sha256 field, hash remainder, matches claimed value",
+      "integrity": true
+    }
+  },
+  "blocked_until_resolved": {
+    "public_mint_execution": false,
+    "signing": false,
+    "broadcast": false,
+    "liquidity": false,
+    "staking": false,
+    "bridge": false,
+    "yield_routing": false,
+    "token_transfer": false,
+    "treasury_movement": false
+  },
+  "next_required_action": "Record Phase 23 on this branch to close the roadmap gap, then decide which lane to authorize first",
+  "sha256": "3baedf034ea89e213c4221a0e04932f2f9fe7f8fd6e0bde7ed5c78cec0df18d9"
+}
