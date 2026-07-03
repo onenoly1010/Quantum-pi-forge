@@ -1,0 +1,25 @@
+{
+  "governance_version": "v1",
+  "receipt": "phase-20-public-mint-review-outcome-v1",
+  "created_at": "2026-07-03T07:09:06.113Z",
+  "phase": 20,
+  "classification": "PUBLIC_MINT_REVIEW_OUTCOME",
+  "status": "PUBLIC_MINT_REVIEW_PASSED_AUTHORIZATION_READY",
+  "public_mint_authorized": false,
+  "authorization_ready": true,
+  "wallet_actions": false,
+  "signing": false,
+  "broadcast": false,
+  "token_transfer": false,
+  "liquidity": false,
+  "staking": false,
+  "bridge": false,
+  "treasury_movement": false,
+  "next_required_receipt": "public-mint-authorization-final-v1.json",
+  "truth_boundary": "Authorization-ready does not mean public mint is active. A later dedicated authorization receipt is still required.",
+  "files": [
+    "docs/status/PHASE_20_PUBLIC_MINT_REVIEW_OUTCOME_V1.md",
+    "receipts/governance/phase-20-public-mint-review-outcome-v1.json"
+  ],
+  "sha256": "72a925705cf59e41598b580c36e12bfd3386c3a66ee9d1b0046ab3386a88ef2e"
+}
