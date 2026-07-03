@@ -29,6 +29,8 @@ const staticFiles = [
   { src: 'deploy/deployed-addresses.html', dest: 'deployed-addresses.html' },
   { src: 'deploy/onboarding-status.html', dest: 'onboarding-status.html' },
   { src: 'deploy/manifest.json', dest: 'manifest.json' },
+  { src: 'mint.html', dest: 'mint.html' },
+  { src: 'mint-status.html', dest: 'mint-status.html' },
   { src: 'ceremonial_interface.html', dest: 'ceremonial_interface.html', optional: true },
   { src: 'spectral_command_shell.html', dest: 'spectral_command_shell.html', optional: true },
   { src: 'pi-forge-integration.js', dest: 'pi-forge-integration.js', optional: true }
