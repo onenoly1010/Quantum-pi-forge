@@ -1,0 +1,42 @@
+{
+  "governance_version": "v1",
+  "receipt": "phase-20-public-mint-additional-review-checklist-v1",
+  "created_at": "2026-07-03T07:05:31.528Z",
+  "phase": 20,
+  "classification": "PUBLIC_MINT_ADDITIONAL_REVIEW_CHECKLIST",
+  "status": "PHASE_20_OPEN_REVIEW_CHECKLIST",
+  "opened_from_phase_19_status": "PUBLIC_MINT_REQUIRES_ADDITIONAL_REVIEW",
+  "public_mint_authorized": false,
+  "wallet_actions": false,
+  "signing": false,
+  "broadcast": false,
+  "token_transfer": false,
+  "liquidity": false,
+  "staking": false,
+  "bridge": false,
+  "treasury_movement": false,
+  "checklist": [
+    "controlled mint proof present",
+    "controlled mint proof independently reviewable",
+    "phase 19 decision outcome receipt exists",
+    "public mint remains disabled unless explicitly authorized",
+    "mint.html matches governance state",
+    "mint-status.html matches governance state",
+    "no wallet signing triggered by public pages",
+    "no token transfer triggered by public pages",
+    "no liquidity staking bridge or treasury actions enabled",
+    "evidence verification passes",
+    "build passes",
+    "human approval language prepared but not executed"
+  ],
+  "exit_outcomes": [
+    "PUBLIC_MINT_REVIEW_PASSED_AUTHORIZATION_READY",
+    "PUBLIC_MINT_REVIEW_FAILED_REMEDIATION_REQUIRED",
+    "PUBLIC_MINT_REMAINS_GATED_BY_GOVERNANCE"
+  ],
+  "files": [
+    "docs/status/PHASE_20_PUBLIC_MINT_ADDITIONAL_REVIEW_CHECKLIST_V1.md",
+    "receipts/governance/phase-20-public-mint-additional-review-checklist-v1.json"
+  ],
+  "sha256": "c1e838cc3ad7569535484c65419c119c97b39f1afe52280123e2402267b431ea"
+}
