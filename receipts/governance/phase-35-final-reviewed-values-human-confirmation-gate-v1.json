@@ -19,12 +19,12 @@
     "KRIS_FINAL_REVIEWED_VALUES_CONFIRMED",
     "NO_GO_FINAL_VALUES_NOT_CONFIRMED"
   ],
-  "decision_outcome": "NO_GO_FINAL_VALUES_NOT_CONFIRMED",
+  "decision_outcome": "KRIS_FINAL_REVIEWED_VALUES_CONFIRMED",
   "decision_rationale": [
-    "Kris has not yet recorded explicit confirmation of final reviewed literal values",
+    "Kris recorded explicit confirmation of final reviewed literal values in phase-35-final-reviewed-values-human-confirmation-v1.json",
     "Phase 33 execution authorization remains NO-GO",
-    "mint_allowed policy remains false",
-    "live_execution_script remains null",
+    "mint_allowed policy remains false until separate authorization receipt",
+    "live_execution_script remains null; Phase 36 defines approved manual UI preview path",
     "Automatic execution, signing, broadcast, and wallet prompts remain prohibited"
   ],
   "live_action_rule": "No Phase 33 execution authorization retry until Kris inspects the confirmation request and explicitly confirms the exact literal values.",
@@ -47,7 +47,7 @@
     "treasury_movement": false,
     "token_transfer": false,
     "live_execution_script_enabled": false,
-    "kris_final_values_confirmed": false
+    "kris_final_values_confirmed": true
   },
-  "next_gate": "PHASE_33_EXECUTION_AUTHORIZATION_RETRY_OR_NO_GO_AFTER_PHASE_35_CONFIRMATION"
+  "next_gate": "PHASE_36_PUBLIC_MINT_POLICY_LIVE_PREVIEW_READINESS_REPAIR_GATE"
 }
