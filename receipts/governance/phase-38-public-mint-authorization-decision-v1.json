@@ -64,5 +64,5 @@
     "treasury_movement": false,
     "token_transfer": false
   },
-  "next_gate": "LIVE_EXECUTION_AUTHORIZATION_SEPARATE_GATE_NOT_OPENED"
+  "next_gate": "PHASE_39_PUBLIC_MINT_NOGO_CLOSURE"
 }
