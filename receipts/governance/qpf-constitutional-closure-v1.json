@@ -1,0 +1,51 @@
+{
+  "governance_version": "v1",
+  "receipt": "qpf-constitutional-closure-v1",
+  "created_at": "2026-07-04T00:43:03.040Z",
+  "status": "CONSTITUTIONAL_CLOSURE_PREPARED",
+  "doc": "docs/governance/QPF_CONSTITUTIONAL_CLOSURE_V1.md",
+  "doc_sha256": "d06e200c6ef8050f0053bb82177134eae6e5425f98f2ff2ca63114566bbef0e8",
+  "git_head": "cf791bad32966059926478ebfd35c478b0328dc6",
+  "authority_prerequisite": {
+    "receipt": "receipts/governance/guardian-authority-reconciliation-v1.json",
+    "status": "GUARDIAN_AUTHORITY_RECONCILED",
+    "sha256": "98c972434a80e5490e26b07f54f20803ef738351cd08c1ce82701c8e81a13e9d",
+    "guardian_safe": "0x8d088B88219D072aB035502065ee2410c2cb4389"
+  },
+  "genesis_layers": {
+    "ceremonial_genesis": {
+      "label": "Foundational Moment",
+      "purpose": "Provenance, witness, historical origin of sovereign intent",
+      "execution_authority": false,
+      "block": "RECONCILE_FROM_RECEIPTS"
+    },
+    "operational_genesis": {
+      "label": "Execution Baseline",
+      "purpose": "Active mainnet contract baseline and future governance reference point",
+      "execution_authority": true,
+      "block": "RECONCILE_FROM_DEPLOYMENT_RECEIPT"
+    }
+  },
+  "reconciliation_rule": "Ceremonial Genesis preserves provenance. Operational Genesis governs execution. No execution authority flows from narrative provenance alone.",
+  "gates": {
+    "mint": "NOT_AUTHORIZED_BY_THIS_RECEIPT",
+    "staking": "NOT_AUTHORIZED_BY_THIS_RECEIPT",
+    "liquidity": "NOT_AUTHORIZED_BY_THIS_RECEIPT",
+    "bridge": "NOT_AUTHORIZED_BY_THIS_RECEIPT",
+    "treasury_movement": "NOT_AUTHORIZED_BY_THIS_RECEIPT",
+    "yield_routing": "NOT_AUTHORIZED_BY_THIS_RECEIPT",
+    "agent_authority": "NOT_AUTHORIZED_BY_THIS_RECEIPT",
+    "on_chain_anchor": "NOT_AUTHORIZED_BY_THIS_RECEIPT"
+  },
+  "assertions": {
+    "read_only": true,
+    "no_wallet_action": true,
+    "no_signing": true,
+    "no_broadcast": true,
+    "no_private_key_access": true,
+    "no_seed_phrase_access": true,
+    "no_funds_moved": true,
+    "no_on_chain_anchor": true
+  },
+  "next": "Review constitutional closure, run verification/build, then commit if clean."
+}
