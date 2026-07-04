@@ -1,0 +1,36 @@
+{
+  "receipt": "phase-40-public-mint-human-decision-gate-v1",
+  "created_at": "2026-07-04T19:15:02.102Z",
+  "head": "f6e9960",
+  "phase": 40,
+  "title": "Public Mint Human Decision Gate",
+  "status": "HUMAN_REVIEW_REQUIRED",
+  "public_mint": "NOT_OPEN",
+  "controlled_mint": "REQUIRES_VERIFICATION",
+  "governance_authorization": "REQUIRED",
+  "wallet_signing": false,
+  "token_transfer": false,
+  "liquidity": false,
+  "staking": false,
+  "bridge": false,
+  "next_allowed_actions": [
+    "human review of outreach send packet",
+    "human review of live outreach targets",
+    "read-only mint requirements reconciliation",
+    "no public mint activation until explicit governance authorization receipt and controlled mint verification receipt exist"
+  ],
+  "recent_main_commits": [
+    "f6e9960 valuation: complete live outreach target source research (#587)",
+    "f881cce valuation: require live outreach target research (#586)",
+    "d711584 valuation: add outreach send packet index (#585)",
+    "0826f07 valuation: add outreach send tracker (#584)",
+    "bbf4293 valuation: make outreach package reviewer ready (#583)",
+    "e2679e8 valuation: open outreach package polish lane (#582)",
+    "0d020d4 valuation: add outreach package deliverables (#581)",
+    "cd29913 valuation: open grant partner outreach package (#580)",
+    "dc5780b valuation: add grant partner outreach kit (#575)",
+    "f2d20eb governance: Phase 39 public mint NO-GO closure + next requirements index (#579)",
+    "ba69970 governance: open Phase 38 public mint authorization gate (NO-GO) (#578)",
+    "ff9e3c2 governance: open Phase 37 public mint authorization readiness gate (#577)"
+  ]
+}
