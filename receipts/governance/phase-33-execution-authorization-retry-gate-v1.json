@@ -1,0 +1,63 @@
+{
+  "governance_version": "v1",
+  "receipt": "phase-33-execution-authorization-retry-gate-v1",
+  "phase": 33,
+  "title": "Public Mint Execution Authorization Retry Gate",
+  "status": "PHASE_33_EXECUTION_AUTHORIZATION_RETRY_GATE_OPEN_NO_AUTO_EXECUTION",
+  "created_at": "2026-07-04T04:50:00.000Z",
+  "mode": "governance_review_only_no_execution",
+  "purpose": "Retry gate for Phase 33 live execution authorization after Phase 35 final values confirmation. Review/governance only. Does not sign, broadcast, trigger wallet prompts, enable live execution script, or execute public minting.",
+  "trigger_from_phase_35": {
+    "receipt": "receipts/governance/phase-35-final-reviewed-values-human-confirmation-v1.json",
+    "required_status": "KRIS_FINAL_REVIEWED_VALUES_CONFIRMED",
+    "dry_run_preview_fingerprint": "e1b801b5388ce2cab47f39ed0aedb47dc01d799432f07a4e7b04e256730361ff"
+  },
+  "prior_phase_33_state": {
+    "original_gate": "receipts/governance/phase-33-public-mint-execution-gate-v1.json",
+    "no_go_receipt": "receipts/governance/phase-33-public-mint-execution-no-go-v1.json",
+    "prior_outcome": "NO_GO_PUBLIC_MINT_EXECUTION_NOT_AUTHORIZED"
+  },
+  "retry_request": "receipts/governance/public-mint-execution-authorization-retry-request-v1.json",
+  "review_harness": "scripts/review/phase-33-execution-authorization-retry-review-v1.cjs",
+  "possible_outcomes": [
+    "KRIS_EXPLICIT_PHASE_33_EXECUTION_AUTHORIZATION_RETRY_APPROVAL_RECORDED",
+    "NO_GO_PHASE_33_EXECUTION_AUTHORIZATION_RETRY_NOT_AUTHORIZED"
+  ],
+  "decision_outcome": "NO_GO_PHASE_33_EXECUTION_AUTHORIZATION_RETRY_NOT_AUTHORIZED",
+  "decision_rationale": [
+    "Phase 35 final reviewed values are confirmed but do not authorize live execution",
+    "mint_allowed policy remains false",
+    "live_execution_script remains null",
+    "live_gas_estimate remains null and live gas preview gate not satisfied",
+    "Kris has not recorded explicit YES for Phase 33 execution authorization retry",
+    "Automatic execution, signing, broadcast, and wallet prompts remain prohibited"
+  ],
+  "no_go_auto_conditions": {
+    "mint_allowed_false_forces_no_go": true,
+    "live_execution_script_null_forces_no_go": true,
+    "current_mint_allowed": false,
+    "current_live_execution_script": null
+  },
+  "live_action_rule": "No public mint transaction may be signed, broadcast, or executed until Kris explicitly approves Phase 33 execution authorization retry in a separate receipt after this retry gate review, and all policy/script/gas prerequisites are satisfied.",
+  "execution_boundaries": {
+    "signing": false,
+    "broadcast": false,
+    "public_mint_execution": false,
+    "wallet_actions": false,
+    "wallet_prompt": false,
+    "wallet_prompt_triggered": false,
+    "automatic_execution": false,
+    "live_execution_script_enabled": false,
+    "private_key_access": false,
+    "seed_phrase_request": false,
+    "contract_changes": false,
+    "liquidity_activation": false,
+    "staking_activation": false,
+    "bridge_activation": false,
+    "yield_routing": false,
+    "treasury_movement": false,
+    "token_transfer": false,
+    "kris_retry_approval_recorded": false
+  },
+  "next_gate": "PHASE_33_EXECUTION_AUTHORIZATION_RETRY_EXPLICIT_APPROVAL_OR_NO_GO_THEN_SEPARATE_LIVE_ACTION"
+}
