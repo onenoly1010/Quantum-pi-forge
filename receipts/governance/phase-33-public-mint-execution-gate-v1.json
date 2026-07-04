@@ -1,0 +1,49 @@
+{
+  "governance_version": "v1",
+  "receipt": "phase-33-public-mint-execution-gate-v1",
+  "phase": 33,
+  "title": "Public Mint Execution Gate",
+  "status": "PHASE_33_PUBLIC_MINT_EXECUTION_GATE_OPEN_NO_AUTO_EXECUTION",
+  "created_at": "2026-07-04T04:10:00.000Z",
+  "mode": "governance_only_no_execution",
+  "purpose": "Separate public mint execution gate after Phase 32 human signing approval. Records explicit execution approval or NO-GO. Does not sign, broadcast, trigger wallet prompts, or execute transactions.",
+  "trigger_from_phase_32": {
+    "receipt": "receipts/governance/phase-32-human-signing-approval-v1.json",
+    "required_status": "KRIS_EXPLICIT_SIGNING_APPROVAL_RECORDED",
+    "approved_fingerprint": "5389c18c03bc9adaf6cb251d21ce5aef07ca07b5b5425ae62ba0f0adf75b56ad"
+  },
+  "execution_path_spec": "receipts/governance/public-mint-execution-path-spec-v1.json",
+  "execution_approval_request": "receipts/governance/public-mint-execution-approval-request-v1.json",
+  "possible_outcomes": [
+    "KRIS_EXPLICIT_PUBLIC_MINT_EXECUTION_APPROVAL_RECORDED",
+    "NO_GO_PUBLIC_MINT_EXECUTION_NOT_AUTHORIZED"
+  ],
+  "decision_outcome": "NO_GO_PUBLIC_MINT_EXECUTION_NOT_AUTHORIZED",
+  "decision_rationale": [
+    "Phase 32 human signing approval is recorded but does not authorize execution",
+    "Kris has not yet recorded explicit YES to authorize live public mint execution",
+    "Automatic execution, signing, broadcast, and wallet prompts remain prohibited",
+    "Live execution script remains null"
+  ],
+  "live_action_rule": "No public mint transaction may be signed, broadcast, or executed until Kris explicitly approves live execution in a separate Phase 33 approval receipt after reviewing this gate.",
+  "execution_boundaries": {
+    "signing": false,
+    "broadcast": false,
+    "public_mint_execution": false,
+    "wallet_actions": false,
+    "wallet_prompt": false,
+    "wallet_prompt_triggered": false,
+    "automatic_execution": false,
+    "private_key_access": false,
+    "seed_phrase_request": false,
+    "contract_changes": false,
+    "liquidity_activation": false,
+    "staking_activation": false,
+    "bridge_activation": false,
+    "yield_routing": false,
+    "treasury_movement": false,
+    "token_transfer": false,
+    "live_execution_script_enabled": false
+  },
+  "next_gate": "PHASE_33_EXPLICIT_EXECUTION_APPROVAL_OR_NO_GO_THEN_SEPARATE_LIVE_WALLET_ACTION"
+}
