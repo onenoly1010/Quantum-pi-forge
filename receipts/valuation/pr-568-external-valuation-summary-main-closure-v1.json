@@ -1,0 +1,20 @@
+{
+  "receipt": "pr-568-external-valuation-summary-main-closure-v1",
+  "created_at": "2026-07-04T05:39:48Z",
+  "status": "MERGED_TO_MAIN_AND_VERIFIED",
+  "pr": 568,
+  "head_short": "2d28eb9",
+  "head": "2d28eb94a3d948697c08902b1030bd2fae175439",
+  "verification": [
+    "npm run verify:evidence",
+    "npm run build"
+  ],
+  "wallet_action": false,
+  "signing": false,
+  "broadcast": false,
+  "mint_open": false,
+  "liquidity_authorized": false,
+  "staking_authorized": false,
+  "bridge_authorized": false,
+  "fmv_effect": "converts internal valuation evidence into reviewer-ready external value language without claiming finalized FMV"
+}
