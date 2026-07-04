@@ -10,13 +10,29 @@ ENV SOURCE_DATE_EPOCH=1713360000 \
     DEBIAN_FRONTEND=noninteractive \
     PYTHONUNBUFFERED=1
 
+# Pin apt to the same bookworm snapshot as the base image. Live Debian mirrors
+# no longer serve these exact package revisions, which broke determinism CI.
+RUN printf '%s\n' \
+    'Types: deb' \
+    'URIs: http://snapshot.debian.org/archive/debian/20240211T000000Z' \
+    'Suites: bookworm' \
+    'Components: main' \
+    'Check-Valid-Until: no' \
+    '' \
+    'Types: deb' \
+    'URIs: http://snapshot.debian.org/archive/debian-security/20240211T000000Z' \
+    'Suites: bookworm-security' \
+    'Components: main' \
+    'Check-Valid-Until: no' \
+    > /etc/apt/sources.list.d/debian.sources
+
 # Install only required pinned packages (add exact versions from v1.3 if more needed)
 RUN apt-get update && apt-get install -y --no-install-recommends \
     git=1:2.39.2-1.1 \
     jq=1.6-2.1 \
     ca-certificates=20230311 \
     curl=7.88.1-10+deb12u5 \
-    python3.11=3.11.2-6+deb12u* \
+    python3.11=3.11.2-6 \
     && rm -rf /var/lib/apt/lists/* /var/cache/apt/* \
     && apt-get clean
 
