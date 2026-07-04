@@ -1,0 +1,16 @@
+{
+  "receipt": "qpf-independent-audit-engagement-package-v1",
+  "created_at": "2026-07-04T05:53:11Z",
+  "status": "AUDIT_ENGAGEMENT_PACKAGE_CREATED",
+  "head_short": "9d836e7",
+  "indexed_files": 1329,
+  "output": "docs/valuation/QPF_INDEPENDENT_AUDIT_ENGAGEMENT_PACKAGE_V1.md",
+  "wallet_action": false,
+  "signing": false,
+  "broadcast": false,
+  "mint_open": false,
+  "liquidity_authorized": false,
+  "staking_authorized": false,
+  "bridge_authorized": false,
+  "sha256": "a0d6ac2f3064882b633f22329b992796da2f4d2aadf92cec72e79476bcd43366"
+}
