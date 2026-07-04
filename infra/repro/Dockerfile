@@ -36,10 +36,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/* /var/cache/apt/* \
     && apt-get clean
 
-# Non-privileged auditor user
-RUN useradd -m -s /bin/bash auditor && \
+# Non-privileged auditor user. UID/GID 1001 matches GitHub Actions ubuntu-latest
+# runner so bind-mounted ./output (created by the workflow) is writable in CI.
+RUN groupadd -g 1001 auditor && \
+    useradd -m -s /bin/bash -u 1001 -g 1001 auditor && \
     mkdir -p /forge/output && \
-    chown -R auditor:auditor /forge
+    chown -R auditor:auditor /forge && \
+    chmod 775 /forge/output
 
 WORKDIR /forge
 USER auditor

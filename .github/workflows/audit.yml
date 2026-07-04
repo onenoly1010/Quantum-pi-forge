@@ -22,6 +22,8 @@ jobs:
       - name: Execute Deterministic Transformation
         run: |
           mkdir -p ./output
+          # Host bind mount replaces image /forge/output; grant auditor write access.
+          chmod a+rwx ./output
           docker run --rm \
             -v "$(pwd)/output:/forge/output" \
             epi-audit:v1.5 > manifest_output.log
