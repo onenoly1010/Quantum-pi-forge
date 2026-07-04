@@ -3,7 +3,7 @@
   "receipt": "public-mint-live-gas-rpc-preview-v1",
   "title": "Public Mint Live Gas RPC Preview",
   "status": "LIVE_GAS_RPC_PREVIEW_ATTEMPTED_NO_BROADCAST",
-  "created_at": "2026-07-04T06:27:46.331Z",
+  "created_at": "2026-07-04T06:33:28.131Z",
   "mode": "rpc_preview_only_no_signing_no_broadcast",
   "purpose": "Record live eth_estimateGas results for Phase 35 confirmed calldata via public RPC. Does not sign, broadcast, or trigger wallet prompts.",
   "source_preview": "receipts/governance/public-mint-dry-run-execution-preview-v1.json",
@@ -53,5 +53,5 @@
     "live_execution_script_enabled": false
   },
   "live_execution_script": null,
-  "sha256": "36b3e07d2ba7c4fa4f9c0c9c184b257e9961ad03840017299b280a6fc9c7620c"
+  "sha256": "525024f6d43111004bd5f7ec0c80603052767e28ce806cf160899efc5c5216ad"
 }
