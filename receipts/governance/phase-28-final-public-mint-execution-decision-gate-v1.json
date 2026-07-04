@@ -1,0 +1,53 @@
+{
+  "governance_version": "v1",
+  "receipt": "phase-28-final-public-mint-execution-decision-gate-v1",
+  "phase": 28,
+  "title": "Final Public Mint Execution Decision Gate",
+  "status": "PHASE_28_FINAL_EXECUTION_DECISION_RECORDED",
+  "created_at": "2026-07-04T03:33:04.695Z",
+  "mode": "governance_only_no_execution",
+  "purpose": "Decide whether the public mint execution path is ready for a separate final human signing decision, or remains NO-GO.",
+  "inputs": {
+    "phase_26_receipt": "receipts/governance/phase-26-public-mint-execution-path-design-v1.json",
+    "phase_27_open_receipt": "receipts/governance/phase-27-public-mint-execution-script-review-v1.json",
+    "phase_27_findings_receipt": "receipts/governance/phase-27-public-mint-execution-script-review-findings-v1.json",
+    "phase_27_outcome": "NO_GO_EXECUTION_PATH_INCOMPLETE"
+  },
+  "possible_outcomes": [
+    "APPROVE_FINAL_EXECUTION_REVIEW_PENDING_HUMAN_SIGNING",
+    "NO_GO_PUBLIC_MINT_EXECUTION_NOT_READY"
+  ],
+  "decision_outcome": "NO_GO_PUBLIC_MINT_EXECUTION_NOT_READY",
+  "decision_rationale": [
+    "Phase 27 review found partial contract and governance documentation only",
+    "No exact public mint execution script exists in the repository",
+    "No wired frontend/API wallet broadcast path exists on the mint surface",
+    "Wallet prompt, executable gas harness, receipt generator, and abort wiring remain missing",
+    "Public mint execution therefore remains not ready for final human signing"
+  ],
+  "execution_boundaries": {
+    "signing": false,
+    "broadcast": false,
+    "public_mint_execution": false,
+    "wallet_actions": false,
+    "private_key_access": false,
+    "seed_phrase_request": false,
+    "contract_changes": false,
+    "liquidity_activation": false,
+    "staking_activation": false,
+    "bridge_activation": false,
+    "yield_routing": false,
+    "treasury_movement": false,
+    "token_transfer": false,
+    "automatic_wallet_signing": false,
+    "final_human_signing_authorized": false
+  },
+  "required_before_any_future_execution": [
+    "complete execution path artifact (script or equivalent review harness)",
+    "documented wallet prompt and abort conditions",
+    "separate explicit final human signing approval receipt",
+    "operator confirmation on chainId 16661, contract address, function, args, value, and gas"
+  ],
+  "next_gate": "SEPARATE_FINAL_HUMAN_SIGNING_DECISION_ONLY_IF_PATH_COMPLETED_AND_REAUTHORIZED",
+  "sha256": "dc2c5f7549020091bc36f5054e336ecd08f727eee0d5fa43e325ee135bde7fa3"
+}
