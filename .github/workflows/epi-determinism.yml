@@ -22,6 +22,8 @@ jobs:
       - name: Execute Pipeline & Capture Output
         run: |
           mkdir -p ./output
+          # Host bind mount replaces image /forge/output; grant auditor write access.
+          chmod a+rwx ./output
           docker run --rm \
             -v "$(pwd)/output:/forge/output" \
             epi-proof:v1.5 > manifest.log 2>&1
