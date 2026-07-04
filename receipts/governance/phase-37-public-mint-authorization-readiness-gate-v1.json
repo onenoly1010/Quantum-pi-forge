@@ -53,5 +53,5 @@
     "treasury_movement": false,
     "token_transfer": false
   },
-  "next_gate": "SEPARATE_PUBLIC_MINT_AUTHORIZATION_RECEIPT_NOT_OPENED"
+  "next_gate": "PHASE_38_PUBLIC_MINT_AUTHORIZATION_GATE"
 }
