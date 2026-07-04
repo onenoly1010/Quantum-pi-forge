@@ -1,0 +1,23 @@
+{
+  "receipt": "outreach-package-deliverables-v1",
+  "created_at": "2026-07-04T16:14:58.373Z",
+  "base_commit": "cd29913",
+  "status": "DRAFT_CREATED",
+  "deliverables": [
+    "docs/valuation/outreach/GRANT_COVER_LETTER_V1.md",
+    "docs/valuation/outreach/PARTNER_ONE_PAGER_V1.md",
+    "docs/valuation/outreach/AUDITOR_REVIEW_BRIEF_V1.md",
+    "docs/valuation/outreach/ECOSYSTEM_INTRO_MESSAGE_V1.md",
+    "docs/valuation/outreach/OUTREACH_TARGET_INDEX_V1.md"
+  ],
+  "forbidden_actions": [
+    "wallet signing",
+    "token transfer",
+    "liquidity activation",
+    "staking activation",
+    "bridge activation",
+    "public mint opening",
+    "private key access"
+  ],
+  "safety": "Documentation-only deliverables. No on-chain execution."
+}
