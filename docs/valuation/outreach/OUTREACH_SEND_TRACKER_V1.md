@@ -23,11 +23,11 @@ Track reviewer-ready outreach targets, contact state, next action, and evidence 
 
 | Target | Category | Contact path | Status | Next action | Notes |
 |---|---|---|---|---|---|
-| 0G ecosystem / foundation review | Ecosystem grant / partner | TBD | IDENTIFIED | Confirm best submission path | Verification-first public-good fit |
-| AI/Web3 accelerator | Accelerator | TBD | IDENTIFIED | Confirm active program fit | Agent trust / verification lane |
-| Audit reviewer | Security / diligence | TBD | IDENTIFIED | Send auditor review brief | No execution requested |
-| Infrastructure partner | Partner | TBD | IDENTIFIED | Send partner one-pager | Verification and activation kit fit |
-| Public-good funder | Grant / public good | TBD | IDENTIFIED | Send grant cover letter | Documentation-only ask |
+| Guild on 0G / 0G Foundation | Ecosystem grant / partner | https://guild.0gfoundation.ai/ | SOURCE_VERIFIED | Human review + send decision | Source: 0gfoundation.ai/ecosystem (2026-07-04) |
+| 0G Accelerator (Apollo) | Accelerator | https://apollo.0g.ai | SOURCE_VERIFIED | Human review + send decision | Traction-stage path; Web3Labs alt available |
+| OpenZeppelin Security Audits | Security / diligence | https://www.openzeppelin.com/request | SOURCE_VERIFIED | Human review + auditor brief send | Trail of Bits alt: trailofbits.com/contact |
+| Phala Network | Infrastructure partner | https://phala.com/contact | SOURCE_VERIFIED | Human review + partner one-pager send | Listed on 0g.ai/partners |
+| Gitcoin Grants GG24 Dev Tooling | Grant / public good | giveth Notion apply link in LIVE_OUTREACH_TARGETS_V1.md | SOURCE_VERIFIED | Human review + grant cover letter send | Confirm domain eligibility/window first |
 
 ## Safety posture
 
