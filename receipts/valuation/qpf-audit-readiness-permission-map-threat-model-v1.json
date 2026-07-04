@@ -1,0 +1,17 @@
+{
+  "receipt": "qpf-audit-readiness-permission-map-threat-model-v1",
+  "created_at": "2026-07-04T05:21:32Z",
+  "status": "PERMISSION_MAP_THREAT_MODEL_CREATED",
+  "head_short": "1f6afbd",
+  "source_receipts_checked": 1201,
+  "evidence_hits": 63,
+  "output": "docs/valuation/QPF_AUDIT_READINESS_PERMISSION_MAP_THREAT_MODEL_V1.md",
+  "wallet_action": false,
+  "signing": false,
+  "broadcast": false,
+  "mint_open": false,
+  "liquidity_authorized": false,
+  "staking_authorized": false,
+  "bridge_authorized": false,
+  "sha256": "1dfd918c35d39bd379f4b788c8c1c7341e68445fa69dcd6d1cc46d5aeb3919a6"
+}
