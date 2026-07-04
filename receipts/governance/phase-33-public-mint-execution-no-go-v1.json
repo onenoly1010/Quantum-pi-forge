@@ -1,0 +1,29 @@
+{
+  "governance_version": "v1",
+  "receipt": "phase-33-public-mint-execution-no-go-v1",
+  "phase": 33,
+  "title": "Public Mint Execution Authorization NO-GO",
+  "status": "NO_GO_PUBLIC_MINT_EXECUTION_NOT_AUTHORIZED",
+  "created_at": "2026-07-04T04:20:00.000Z",
+  "authorized_by": "Kris Olofson",
+  "decision_statement": "NO-GO for Phase 33 live execution authorization.",
+  "decision_rationale": [
+    "live_execution_script is null",
+    "gas estimate is null",
+    "name and metadataURI are placeholders in path spec",
+    "human_approval.currently_authorized is false",
+    "path spec status is REVIEW_ONLY_NOT_EXECUTABLE"
+  ],
+  "phase_32_signing_approval_reference": "receipts/governance/phase-32-human-signing-approval-v1.json",
+  "phase_33_gate_reference": "receipts/governance/phase-33-public-mint-execution-gate-v1.json",
+  "approved_fingerprint": "5389c18c03bc9adaf6cb251d21ce5aef07ca07b5b5425ae62ba0f0adf75b56ad",
+  "execution_boundaries": {
+    "signing_performed": false,
+    "broadcast_performed": false,
+    "public_mint_execution_performed": false,
+    "wallet_prompt_triggered": false,
+    "transaction_hash": null,
+    "phase_34_preparation_lane_required": true
+  },
+  "next_gate": "PHASE_34_PUBLIC_MINT_EXECUTION_PREPARATION_LANE"
+}

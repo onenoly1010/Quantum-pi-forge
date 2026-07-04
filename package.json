@@ -17,6 +17,8 @@
     "governance:human-wallet-prompt-inspection:v1:check": "node scripts/review/human-wallet-prompt-inspection-v1.cjs",
     "governance:phase-32-human-signing-approval-gate:v1:check": "node scripts/review/verify-phase-32-human-signing-approval-gate-v1.cjs",
     "governance:phase-33-public-mint-execution-gate:v1:check": "node scripts/review/verify-phase-33-public-mint-execution-gate-v1.cjs",
+    "governance:public-mint-dry-run-execution-preview:v1:check": "node scripts/review/public-mint-dry-run-execution-preview-v1.cjs",
+    "governance:phase-34-public-mint-execution-preparation-lane:v1:check": "node scripts/review/verify-phase-34-public-mint-execution-preparation-lane-v1.cjs",
     "verify:snapshot": "node scripts/verify-snapshot.cjs",
     "governance:post-merge:check": "node scripts/verify-post-merge-governance-receipt.cjs",
     "execution:autonomous:check": "node scripts/verify-autonomous-execution-receipt.cjs",
