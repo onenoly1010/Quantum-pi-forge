@@ -1,0 +1,28 @@
+{
+  "governance_version": "v1",
+  "receipt": "qpf-constitutional-closure-manifest-v1",
+  "created_at": "2026-07-04T00:45:51.014Z",
+  "status": "CONSTITUTIONAL_CLOSURE_MANIFEST_PREPARED",
+  "manifest": "manifests/governance/QPF_CONSTITUTIONAL_CLOSURE_MANIFEST_V1.json",
+  "manifest_sha256": "de889df6c2682fed7c229f0b0a7f21646f2731180c63a4edc42320e495587632",
+  "git_head": "7ea55fb69262f0f2c78b6db116357d7e94a461ea",
+  "inputs": {
+    "constitution_doc": "docs/governance/QPF_CONSTITUTIONAL_CLOSURE_V1.md",
+    "constitution_doc_sha256": "d06e200c6ef8050f0053bb82177134eae6e5425f98f2ff2ca63114566bbef0e8",
+    "constitution_receipt": "receipts/governance/qpf-constitutional-closure-v1.json",
+    "constitution_receipt_sha256": "63c96f985f58cc9ae989d10e9db7101a4dce4626a4022c830a41bf8b18fa8329",
+    "guardian_receipt": "receipts/governance/guardian-authority-reconciliation-v1.json",
+    "guardian_receipt_sha256": "98c972434a80e5490e26b07f54f20803ef738351cd08c1ce82701c8e81a13e9d"
+  },
+  "assertions": {
+    "read_only": true,
+    "no_wallet_action": true,
+    "no_signing": true,
+    "no_broadcast": true,
+    "no_private_key_access": true,
+    "no_seed_phrase_access": true,
+    "no_funds_moved": true,
+    "no_on_chain_anchor": true
+  },
+  "next": "Review manifest, run verification/build, then commit. Decentralized publication and on-chain anchor remain separate future gates."
+}

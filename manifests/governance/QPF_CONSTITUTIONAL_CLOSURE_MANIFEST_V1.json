@@ -1,0 +1,61 @@
+{
+  "manifest_version": "v1",
+  "manifest": "QPF_CONSTITUTIONAL_CLOSURE_MANIFEST_V1",
+  "created_at": "2026-07-04T00:45:51.010Z",
+  "git_head": "7ea55fb69262f0f2c78b6db116357d7e94a461ea",
+  "source_of_truth": {
+    "constitution_doc": "docs/governance/QPF_CONSTITUTIONAL_CLOSURE_V1.md",
+    "constitution_doc_sha256": "d06e200c6ef8050f0053bb82177134eae6e5425f98f2ff2ca63114566bbef0e8",
+    "constitution_receipt": "receipts/governance/qpf-constitutional-closure-v1.json",
+    "constitution_receipt_sha256": "63c96f985f58cc9ae989d10e9db7101a4dce4626a4022c830a41bf8b18fa8329",
+    "guardian_receipt": "receipts/governance/guardian-authority-reconciliation-v1.json",
+    "guardian_receipt_sha256": "98c972434a80e5490e26b07f54f20803ef738351cd08c1ce82701c8e81a13e9d"
+  },
+  "authority": {
+    "guardian_safe": "0x8d088B88219D072aB035502065ee2410c2cb4389",
+    "guardian_status": "GUARDIAN_AUTHORITY_RECONCILED",
+    "deployer_unilateral_future_authority": false,
+    "narrative_provenance_execution_authority": false,
+    "ceremonial_genesis_execution_authority": false,
+    "operational_genesis_required_for_live_execution": true
+  },
+  "genesis_layers": {
+    "ceremonial_genesis": {
+      "label": "Foundational Moment",
+      "purpose": "Provenance, witness, historical origin of sovereign intent",
+      "execution_authority": false,
+      "block": "RECONCILE_FROM_RECEIPTS"
+    },
+    "operational_genesis": {
+      "label": "Execution Baseline",
+      "purpose": "Active mainnet contract baseline and future governance reference point",
+      "execution_authority": true,
+      "block": "RECONCILE_FROM_DEPLOYMENT_RECEIPT"
+    }
+  },
+  "reconciliation_rule": "Ceremonial Genesis preserves provenance. Operational Genesis governs execution. No execution authority flows from narrative provenance alone.",
+  "gates": {
+    "mint": "NOT_AUTHORIZED_BY_THIS_RECEIPT",
+    "staking": "NOT_AUTHORIZED_BY_THIS_RECEIPT",
+    "liquidity": "NOT_AUTHORIZED_BY_THIS_RECEIPT",
+    "bridge": "NOT_AUTHORIZED_BY_THIS_RECEIPT",
+    "treasury_movement": "NOT_AUTHORIZED_BY_THIS_RECEIPT",
+    "yield_routing": "NOT_AUTHORIZED_BY_THIS_RECEIPT",
+    "agent_authority": "NOT_AUTHORIZED_BY_THIS_RECEIPT",
+    "on_chain_anchor": "NOT_AUTHORIZED_BY_THIS_RECEIPT"
+  },
+  "anchor_policy": {
+    "decentralized_storage_publication": "PREPARED_NOT_PUBLISHED_BY_THIS_COMMAND",
+    "on_chain_anchor": "NOT_AUTHORIZED_BY_THIS_MANIFEST"
+  },
+  "assertions": {
+    "read_only": true,
+    "no_wallet_action": true,
+    "no_signing": true,
+    "no_broadcast": true,
+    "no_private_key_access": true,
+    "no_seed_phrase_access": true,
+    "no_funds_moved": true,
+    "no_on_chain_anchor": true
+  }
+}

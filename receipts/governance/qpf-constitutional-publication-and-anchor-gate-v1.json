@@ -1,0 +1,32 @@
+{
+  "governance_version": "v1",
+  "receipt": "qpf-constitutional-publication-and-anchor-gate-v1",
+  "created_at": "2026-07-04T00:48:02.608Z",
+  "status": "PUBLICATION_AND_ANCHOR_GATE_PREPARED_NOT_AUTHORIZED",
+  "git_head": "96037de506bc5c4d9c3ab964b91245a55259412e",
+  "manifest": "manifests/governance/QPF_CONSTITUTIONAL_CLOSURE_MANIFEST_V1.json",
+  "manifest_sha256": "de889df6c2682fed7c229f0b0a7f21646f2731180c63a4edc42320e495587632",
+  "manifest_status": "CONSTITUTIONAL_CLOSURE_MANIFEST_PREPARED",
+  "allowed_now": {
+    "repo_history": true,
+    "local_review": true,
+    "verification": true,
+    "build": true
+  },
+  "not_authorized": {
+    "decentralized_storage_publication": true,
+    "on_chain_anchor": true,
+    "wallet_action": true,
+    "signing": true,
+    "broadcast": true,
+    "funds_movement": true,
+    "mint": true,
+    "staking": true,
+    "liquidity": true,
+    "bridge": true,
+    "treasury_movement": true,
+    "yield_routing": true,
+    "agent_authority": true
+  },
+  "next": "Run verification/build, commit this gate, then only publish or anchor after separate explicit Guardian/public authorization receipt."
+}

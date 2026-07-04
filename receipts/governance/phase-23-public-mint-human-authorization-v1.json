@@ -1,0 +1,46 @@
+{
+  "governance_version": "v1",
+  "receipt": "phase-23-public-mint-human-authorization-v1",
+  "phase": 23,
+  "title": "Public Mint Human Authorization",
+  "status": "PHASE_23_PUBLIC_MINT_HUMAN_AUTHORIZATION_RECORDED",
+  "created_at": "2026-07-03T20:47:28.152Z",
+  "authorized_by": "Kris Olofson",
+  "roadmap_context": {
+    "phase_18": "PHASE_18_OPEN_REVIEW_ONLY",
+    "phase_19": "PUBLIC_MINT_REQUIRES_ADDITIONAL_REVIEW",
+    "phase_20": "PUBLIC_MINT_REVIEW_CLOSED",
+    "phase_21": "PUBLIC_MINT_AUTHORIZED_BY_GOVERNANCE",
+    "phase_22": "PHASE_22_SURFACE_ALIGNMENT_COMPLETE",
+    "phase_24": "PHASE_24_RECONCILIATION_REQUIRED_BEFORE_EXECUTION"
+  },
+  "authorization_scope": {
+    "public_mint_authorization": true,
+    "public_mint_execution_readiness": true,
+    "public_mint_execution": false,
+    "liquidity_activation": false,
+    "staking_activation": false,
+    "bridge_activation": false,
+    "yield_routing": false,
+    "treasury_movement": false,
+    "token_transfer": false,
+    "automatic_wallet_signing": false
+  },
+  "execution_boundaries": {
+    "signing": false,
+    "broadcast": false,
+    "private_key_access": false,
+    "seed_phrase_request": false,
+    "manual_fund_transfer_request": false,
+    "final_wallet_execution_approval_required": true
+  },
+  "integrity_notes": {
+    "receipt_hash_discrepancy_resolved": true,
+    "hash_method": "canonical_pre_sha256_field",
+    "integrity_intact": true,
+    "roadmap_gap_closed_by_this_receipt": true
+  },
+  "human_authorization_statement": "I, Kris Olofson, authorize Quantum Pi Forge public mint human authorization to be recorded. This does not approve liquidity activation, staking activation, bridge activation, yield routing, treasury movement, token transfer, public mint execution, automatic wallet signing, or broadcast. Any wallet signing or broadcast remains human-only and requires my explicit final approval at the moment of execution.",
+  "next_gate": "PHASE_24_RECONCILIATION_CLOSE_OR_PHASE_25_PUBLIC_MINT_EXECUTION_PREFLIGHT",
+  "sha256": "d3c4d7beabc738a9d073a4287522395bd99fd5dbae8d29ea214e6025303456ca"
+}

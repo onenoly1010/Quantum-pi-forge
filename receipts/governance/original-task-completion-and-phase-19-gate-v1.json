@@ -1,0 +1,14 @@
+{
+  "governance_version": "v1",
+  "receipt": "original-task-completion-and-phase-19-gate-v1",
+  "created_at": "2026-07-03T07:20:53Z",
+  "phase": 19,
+  "status": "PHASE_19_DECISION_GATE_OPEN",
+  "commit": "4c24370",
+  "receipt_sha256_provided": "86cddc6395aa30fea5d059f05d6fdfa7ac198d8de8d36858567e848546dfc912",
+  "evidence_verification": "PASS",
+  "build": "PASS",
+  "outcome": "PUBLIC_MINT_REQUIRES_ADDITIONAL_REVIEW",
+  "notes": "Phase 19 opens the decision gate only; it does NOT authorize public mint, liquidity, staking, bridge, treasury movement, token transfer, or wallet signing.",
+  "sha256": "8ad194d560183a573480d72589699e575d7b047c18e061586733b22f4c9c3d2c"
+}
