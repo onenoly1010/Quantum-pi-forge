@@ -61,7 +61,7 @@ while IFS= read -r line; do
     # Extract repository, commit, file from location (format: "commit: <sha> (file: path)")
     # Example: "commit: f23f30d (file: src/circuit-do/index.js)"
     commit=$(echo "$location" | sed -n 's/.*commit: \([a-f0-9]\+\) .*/\1/p')
-    file=$(echo "$location" | sed -n 's/.*file: \([^)]\+\))/\1/p')
+    file=$(echo "$location" | sed -n 's/.*file: \([^)]\+\))/\1/p' | tr -d '`')
     # Infer repository from component name (heuristic – adjust as needed)
     # For now, we map known components to their GitHub repos
     if [[ "$component" == *"Circuit Breaker"* ]] || [[ "$component" == *"Header Chain"* ]] || [[ "$component" == *"SVL WASM"* ]] || [[ "$component" == *"Spec‑Parity"* ]] || [[ "$component" == *"Truth Domain"* ]] || [[ "$component" == *"EPI"* ]]; then
@@ -85,15 +85,16 @@ while IFS= read -r line; do
         WORKDIR="$TMP_DIR/$(basename "$REPO")_$commit"
         if [[ ! -d "$WORKDIR" ]]; then
             echo "⬇️ Cloning $REPO at commit $commit"
-            git clone --quiet --depth 1 --branch "$commit" "$REPO" "$WORKDIR" 2>/dev/null || {
-                # If branch fails, try full clone and checkout
+            if git clone --quiet --depth 1 --branch "$commit" "$REPO" "$WORKDIR" 2>/dev/null; then
+                :
+            elif git clone --quiet "$REPO" "$WORKDIR" 2>/dev/null && \
+                 (cd "$WORKDIR" && git checkout --quiet "$commit" 2>/dev/null); then
+                :
+            else
+                echo "⚠️ Failed to clone or checkout $REPO@$commit"
                 rm -rf "$WORKDIR"
-                git clone --quiet "$REPO" "$WORKDIR"
-                (cd "$WORKDIR" && git checkout --quiet "$commit") || {
-                    echo "⚠️ Failed to checkout commit $commit for $REPO"
-                    WORKDIR=""
-                }
-            }
+                WORKDIR=""
+            fi
         fi
         if [[ -n "$WORKDIR" && -f "$WORKDIR/$file" ]]; then
             FILE_HASH=$(sha256sum "$WORKDIR/$file" | awk '{print $1}')

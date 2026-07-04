@@ -8,7 +8,8 @@ ENV SOURCE_DATE_EPOCH=1713360000 \
     LC_ALL=C.UTF-8 \
     TZ=UTC \
     DEBIAN_FRONTEND=noninteractive \
-    PYTHONUNBUFFERED=1
+    PYTHONUNBUFFERED=1 \
+    GIT_TERMINAL_PROMPT=0
 
 # Pin apt to the same bookworm snapshot as the base image. Live Debian mirrors
 # no longer serve these exact package revisions, which broke determinism CI.
