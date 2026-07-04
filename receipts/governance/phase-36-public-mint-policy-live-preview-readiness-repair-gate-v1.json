@@ -69,5 +69,5 @@
     "treasury_movement": false,
     "token_transfer": false
   },
-  "next_gate": "PHASE_37_PUBLIC_MINT_AUTHORIZATION_READINESS_GATE_SEPARATE_NOT_OPENED"
+  "next_gate": "PHASE_37_PUBLIC_MINT_AUTHORIZATION_READINESS_GATE"
 }
