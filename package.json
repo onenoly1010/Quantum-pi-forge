@@ -29,6 +29,8 @@
     "governance:public-mint-authorization-decision-review:v1:check": "node scripts/review/public-mint-authorization-decision-review-v1.cjs",
     "governance:phase-38-public-mint-authorization-gate:v1:check": "node scripts/review/verify-phase-38-public-mint-authorization-gate-v1.cjs",
     "governance:phase-38-authorization-gate:v1": "node scripts/review/create-phase-38-authorization-gate-v1.cjs",
+    "governance:phase-39-public-mint-nogo-closure:v1:check": "node scripts/review/verify-phase-39-public-mint-nogo-closure-v1.cjs",
+    "governance:phase-39-nogo-closure:v1": "node scripts/review/create-phase-39-nogo-closure-v1.cjs",
     "governance:phase-33-execution-authorization-retry-review:v1:check": "node scripts/review/phase-33-execution-authorization-retry-review-v1.cjs",
     "governance:phase-33-execution-authorization-retry-gate:v1:check": "node scripts/review/verify-phase-33-execution-authorization-retry-gate-v1.cjs",
     "verify:snapshot": "node scripts/verify-snapshot.cjs",
