@@ -2,7 +2,7 @@
   "governance_version": "v1",
   "receipt": "public-mint-final-reviewed-values-confirmation-request-v1",
   "title": "Public Mint Final Reviewed Values Human Confirmation Request",
-  "status": "PENDING_KRIS_EXPLICIT_CONFIRMATION",
+  "status": "KRIS_EXPLICIT_CONFIRMATION_RECORDED",
   "created_at": "2026-07-04T04:30:00.000Z",
   "mode": "human_confirmation_request_no_execution",
   "purpose": "Require Kris to confirm final literal reviewed values from Phase 34 before any Phase 33 execution authorization retry. Does not sign, broadcast, trigger wallet prompts, or execute public minting.",
@@ -84,9 +84,10 @@
   "kris_confirmation": {
     "required": true,
     "explicit_yes_required": true,
-    "confirmed": false,
-    "confirmed_at": null,
-    "confirmed_by": null,
+    "confirmed": true,
+    "confirmed_at": "2026-07-04T04:41:01.704Z",
+    "confirmed_by": "Kris Olofson",
+    "confirmation_receipt": "receipts/governance/phase-35-final-reviewed-values-human-confirmation-v1.json",
     "confirmation_phrase_required": "explicit human YES confirming these exact final reviewed literal values"
   },
   "execution_boundaries": {

@@ -2,6 +2,7 @@
 const fs = require("fs");
 
 const REQUEST = "receipts/governance/public-mint-final-reviewed-values-confirmation-request-v1.json";
+const CONFIRMATION = "receipts/governance/phase-35-final-reviewed-values-human-confirmation-v1.json";
 const VALUES = "receipts/governance/public-mint-final-reviewed-values-v1.json";
 const PREVIEW = "receipts/governance/public-mint-dry-run-execution-preview-v1.json";
 const POLICY = "receipts/governance/public-mint-policy-final-v1.json";
@@ -12,22 +13,31 @@ const fail = (msg) => {
   process.exit(1);
 };
 
-for (const path of [REQUEST, VALUES, PREVIEW, POLICY, SPEC]) {
+for (const path of [REQUEST, CONFIRMATION, VALUES, PREVIEW, POLICY, SPEC]) {
   if (!fs.existsSync(path)) fail("missing file: " + path);
 }
 
 const request = JSON.parse(fs.readFileSync(REQUEST, "utf8"));
+const confirmation = JSON.parse(fs.readFileSync(CONFIRMATION, "utf8"));
 const values = JSON.parse(fs.readFileSync(VALUES, "utf8"));
 const preview = JSON.parse(fs.readFileSync(PREVIEW, "utf8"));
 const policy = JSON.parse(fs.readFileSync(POLICY, "utf8"));
 const spec = JSON.parse(fs.readFileSync(SPEC, "utf8"));
 
-if (request.status !== "PENDING_KRIS_EXPLICIT_CONFIRMATION") {
-  fail("confirmation request must remain pending");
-}
-
-if (request.kris_confirmation?.confirmed !== false) {
-  fail("kris_confirmation.confirmed must be false");
+if (confirmation.status === "KRIS_FINAL_REVIEWED_VALUES_CONFIRMED") {
+  if (request.status !== "KRIS_EXPLICIT_CONFIRMATION_RECORDED") {
+    fail("confirmation request must record Kris explicit confirmation");
+  }
+  if (request.kris_confirmation?.confirmed !== true) {
+    fail("kris_confirmation.confirmed must be true after Kris confirmation");
+  }
+} else {
+  if (request.status !== "PENDING_KRIS_EXPLICIT_CONFIRMATION") {
+    fail("confirmation request must remain pending");
+  }
+  if (request.kris_confirmation?.confirmed !== false) {
+    fail("kris_confirmation.confirmed must be false");
+  }
 }
 
 const fields = request.fields_requiring_human_confirmation;
@@ -79,7 +89,7 @@ console.log("policy.policy_decisions.mint_allowed: " + policy.policy_decisions.m
 console.log("");
 console.log("PASS final-reviewed-values-human-confirmation-v1");
 console.log("MODE human_confirmation_request_no_execution");
-console.log("KRIS_CONFIRMED false");
+console.log("KRIS_CONFIRMED " + (confirmation.status === "KRIS_FINAL_REVIEWED_VALUES_CONFIRMED"));
 console.log("SIGNING false");
 console.log("BROADCAST false");
 console.log("PHASE_33_EXECUTION_AUTHORIZATION false");
