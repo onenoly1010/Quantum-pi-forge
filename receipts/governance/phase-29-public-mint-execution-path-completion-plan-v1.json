@@ -1,0 +1,72 @@
+{
+  "governance_version": "v1",
+  "receipt": "phase-29-public-mint-execution-path-completion-plan-v1",
+  "phase": 29,
+  "title": "Public Mint Execution Path Completion Plan",
+  "status": "PHASE_29_EXECUTION_PATH_COMPLETION_PLAN_OPEN_BUILDER_REVIEW_ONLY",
+  "created_at": "2026-07-04T03:36:51.557Z",
+  "mode": "builder_review_lane_no_execution",
+  "purpose": "Identify or create the missing public mint execution path safely without executing, signing, broadcasting, or triggering any wallet prompt.",
+  "trigger_from_phase_28": {
+    "decision_outcome": "NO_GO_PUBLIC_MINT_EXECUTION_NOT_READY",
+    "receipt": "receipts/governance/phase-28-final-public-mint-execution-decision-gate-v1.json",
+    "reason": "Exact execution path not fully identified or reviewed"
+  },
+  "lane_type": "builder_plan_not_human_signing_approval",
+  "note": "Phase 29 is intentionally NOT Human Wallet Signing Approval. Human signing remains a future-only gate after this lane proves the exact path.",
+  "completion_deliverables": {
+    "exact_mint_contract": null,
+    "exact_abi_or_function": null,
+    "exact_frontend_or_script_call": null,
+    "exact_function_args": null,
+    "expected_chain": "0G Aristotle Mainnet",
+    "expected_chain_id": 16661,
+    "expected_value": null,
+    "expected_gas_behavior": null,
+    "expected_success_receipt": null,
+    "abort_conditions": null,
+    "human_signing_gate": "future_only_not_in_phase_29"
+  },
+  "known_partial_from_phase_27": {
+    "contract_address": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+    "contract_name": "OINIOModelRegistry",
+    "oinio_token": "0x75995EC0fdf881189850aeD864cB3f43c0DFCb58",
+    "function_candidate": "registerModel(string,string,uint256)",
+    "prerequisite_candidate": "approve(address,uint256) on OINIO token",
+    "documented_stake_human": "1 OINIO",
+    "abi_source": "contracts/src/OINIOModelRegistry.sol"
+  },
+  "builder_scope": {
+    "design_or_document_exact_path": true,
+    "create_review_harness_or_script_spec": true,
+    "wire_mint_surface": false,
+    "trigger_wallet_prompt": false,
+    "execute_transactions": false
+  },
+  "execution_boundaries": {
+    "signing": false,
+    "broadcast": false,
+    "public_mint_execution": false,
+    "wallet_actions": false,
+    "wallet_prompt": false,
+    "private_key_access": false,
+    "seed_phrase_request": false,
+    "contract_changes": false,
+    "liquidity_activation": false,
+    "staking_activation": false,
+    "bridge_activation": false,
+    "yield_routing": false,
+    "treasury_movement": false,
+    "token_transfer": false,
+    "automatic_wallet_signing": false,
+    "final_human_signing_authorized": false
+  },
+  "success_criteria_for_lane_close": [
+    "all completion_deliverables fields populated with reviewed exact values",
+    "abort conditions documented and reviewable",
+    "no execution, signing, broadcast, or wallet prompt in lane artifacts",
+    "separate future phase required before final execution review reopens"
+  ],
+  "next_gate": "PHASE_30_FINAL_EXECUTION_REVIEW_REOPEN_OR_NO_GO",
+  "sha256": "44c581872f2bb6ce815253300afca3df13a8acebd27d41b050079b641f144066"
+}
