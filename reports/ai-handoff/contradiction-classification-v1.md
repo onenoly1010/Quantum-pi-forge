@@ -1,0 +1,119 @@
+# QPF / OINIO AI Handoff Contradiction Classification v1
+
+Created: 2026-07-05T20:07:08.665Z
+
+## Result
+PASS: No direct action-required contradiction found by context classifier.
+
+## Classifications
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: docs/status/PUBLIC_READY_ECOSYSTEM_GATE_INDEX_V1.md :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: docs/status/ROADMAP_COMPLETION_AND_FOLLOWING_PHASE_V1.md :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: docs/status/PHASE_22_PUBLIC_MINT_SURFACE_ALIGNMENT_V1.md :: governance authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: docs/governance/PUBLIC_MINT_POLICY_FINAL_V1.md :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: docs/governance/GUARDIAN_PRE_SIGNATURE_PAYLOAD_AUTHORITY_CHECKLIST_V1.md :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: docs/governance/GUARDIAN_PAYLOAD_SPECIMEN_INTAKE_V1.md :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: docs/governance/GUARDIAN_RECOVERY_EXECUTION_AUTHORIZATION_BLOCKER_V1.md :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: docs/governance/GUARDIAN_SIGNATURE_RECOVERY_OPERATOR_RUNBOOK_V1.md :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: docs/governance/POST_GUARDIAN_NO_ADVANCE_LOCK_V1.md :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: docs/ai-handoff/LOCAL_AI_AUTONOMOUS_FINALIZATION_HANDOFF_V1.md :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: docs/valuation/QPF_PARTNER_AUDITOR_DILIGENCE_INDEX_V1.md :: liquidity authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: docs/valuation/QPF_PARTNER_AUDITOR_DILIGENCE_INDEX_V1.md :: staking authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: docs/valuation/QPF_PARTNER_AUDITOR_DILIGENCE_INDEX_V1.md :: bridge authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: docs/valuation/QPF_GRANT_PARTNER_OUTREACH_KIT_V1.md :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: docs/valuation/QPF_GRANT_PARTNER_OUTREACH_KIT_V1.md :: liquidity authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: docs/valuation/QPF_GRANT_PARTNER_OUTREACH_KIT_V1.md :: staking authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: docs/valuation/QPF_GRANT_PARTNER_OUTREACH_KIT_V1.md :: bridge authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: docs/valuation/QPF_AUDIT_READINESS_PERMISSION_MAP_THREAT_MODEL_V1.md :: liquidity authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: docs/valuation/QPF_AUDIT_READINESS_PERMISSION_MAP_THREAT_MODEL_V1.md :: staking authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: docs/valuation/QPF_AUDIT_READINESS_PERMISSION_MAP_THREAT_MODEL_V1.md :: bridge authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: docs/valuation/QPF_AUDIT_READINESS_LIVE_EVIDENCE_ADDENDUM_V1.md :: liquidity authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: docs/valuation/QPF_AUDIT_READINESS_LIVE_EVIDENCE_ADDENDUM_V1.md :: staking authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: docs/valuation/QPF_AUDIT_READINESS_LIVE_EVIDENCE_ADDENDUM_V1.md :: bridge authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: docs/valuation/outreach/LIVE_OUTREACH_TARGETS_V1.md :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: docs/valuation/outreach/OUTREACH_SEND_TRACKER_V1.md :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: docs/valuation/outreach/GRANT_COVER_LETTER_V1.md :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: docs/valuation/outreach/OUTREACH_PACKAGE_INDEX_V1.md :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: docs/valuation/outreach/ECOSYSTEM_INTRO_MESSAGE_V1.md :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: docs/valuation/outreach/OUTREACH_TARGET_RESEARCH_REQUIRED_V1.md :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: docs/valuation/outreach/OUTREACH_SEND_PACKET_INDEX_V1.md :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: docs/valuation/QPF_INDEPENDENT_AUDIT_ENGAGEMENT_PACKAGE_V1.md :: liquidity authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: docs/valuation/QPF_INDEPENDENT_AUDIT_ENGAGEMENT_PACKAGE_V1.md :: staking authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: docs/valuation/QPF_INDEPENDENT_AUDIT_ENGAGEMENT_PACKAGE_V1.md :: bridge authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: docs/valuation/QPF_SELF_SUSTAINING_VALUE_FLYWHEEL_V1.md :: liquidity authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: docs/valuation/QPF_SELF_SUSTAINING_VALUE_FLYWHEEL_V1.md :: staking authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: docs/valuation/QPF_SELF_SUSTAINING_VALUE_FLYWHEEL_V1.md :: bridge authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: docs/valuation/QPF_EXTERNAL_VALUATION_SUMMARY_V1.md :: liquidity authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: docs/valuation/QPF_EXTERNAL_VALUATION_SUMMARY_V1.md :: staking authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: docs/valuation/QPF_EXTERNAL_VALUATION_SUMMARY_V1.md :: bridge authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: docs/valuation/GRANT_PARTNER_OUTREACH_KIT_V1.md :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: receipts/governance/public-mint-open-v1.json :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: receipts/governance/phase-14-public-mint-readiness-reconciliation-v1.json :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: receipts/governance/public-ready-ecosystem-gate-index-v1.json :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: receipts/governance/public-mint-policy-final-v1.json :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: receipts/execution/first-controlled-mint-verification-v1.json :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: receipts/valuation/grant-partner-outreach-package-open-v1.json :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: receipts/valuation/outreach-send-tracker-v1.json :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: receipts/valuation/outreach-package-deliverables-v1.json :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: receipts/valuation/outreach-send-packet-index-v1.json :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: receipts/valuation/outreach-package-reviewer-ready-v1.json :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: receipts/valuation/live-outreach-targets-v1.json :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: receipts/valuation/grant-partner-outreach-kit-open-v1.json :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: receipts/valuation/outreach-package-polish-v1.json :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: receipts/valuation/outreach-target-research-required-v1.json :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./receipts/governance/public-mint-open-v1.json :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./receipts/governance/phase-14-public-mint-readiness-reconciliation-v1.json :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./receipts/governance/public-ready-ecosystem-gate-index-v1.json :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./receipts/governance/public-mint-policy-final-v1.json :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./receipts/execution/first-controlled-mint-verification-v1.json :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./receipts/valuation/grant-partner-outreach-package-open-v1.json :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./receipts/valuation/outreach-send-tracker-v1.json :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./receipts/valuation/outreach-package-deliverables-v1.json :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./receipts/valuation/outreach-send-packet-index-v1.json :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./receipts/valuation/outreach-package-reviewer-ready-v1.json :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./receipts/valuation/live-outreach-targets-v1.json :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./receipts/valuation/grant-partner-outreach-kit-open-v1.json :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./receipts/valuation/outreach-package-polish-v1.json :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./receipts/valuation/outreach-target-research-required-v1.json :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./docs/status/PUBLIC_READY_ECOSYSTEM_GATE_INDEX_V1.md :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./docs/status/ROADMAP_COMPLETION_AND_FOLLOWING_PHASE_V1.md :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./docs/status/PHASE_22_PUBLIC_MINT_SURFACE_ALIGNMENT_V1.md :: governance authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./docs/governance/PUBLIC_MINT_POLICY_FINAL_V1.md :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./docs/governance/GUARDIAN_PRE_SIGNATURE_PAYLOAD_AUTHORITY_CHECKLIST_V1.md :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./docs/governance/GUARDIAN_PAYLOAD_SPECIMEN_INTAKE_V1.md :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./docs/governance/GUARDIAN_RECOVERY_EXECUTION_AUTHORIZATION_BLOCKER_V1.md :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./docs/governance/GUARDIAN_SIGNATURE_RECOVERY_OPERATOR_RUNBOOK_V1.md :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./docs/governance/POST_GUARDIAN_NO_ADVANCE_LOCK_V1.md :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./docs/ai-handoff/LOCAL_AI_AUTONOMOUS_FINALIZATION_HANDOFF_V1.md :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./docs/valuation/QPF_PARTNER_AUDITOR_DILIGENCE_INDEX_V1.md :: liquidity authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./docs/valuation/QPF_PARTNER_AUDITOR_DILIGENCE_INDEX_V1.md :: staking authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./docs/valuation/QPF_PARTNER_AUDITOR_DILIGENCE_INDEX_V1.md :: bridge authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./docs/valuation/QPF_GRANT_PARTNER_OUTREACH_KIT_V1.md :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./docs/valuation/QPF_GRANT_PARTNER_OUTREACH_KIT_V1.md :: liquidity authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./docs/valuation/QPF_GRANT_PARTNER_OUTREACH_KIT_V1.md :: staking authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./docs/valuation/QPF_GRANT_PARTNER_OUTREACH_KIT_V1.md :: bridge authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./docs/valuation/QPF_AUDIT_READINESS_PERMISSION_MAP_THREAT_MODEL_V1.md :: liquidity authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./docs/valuation/QPF_AUDIT_READINESS_PERMISSION_MAP_THREAT_MODEL_V1.md :: staking authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./docs/valuation/QPF_AUDIT_READINESS_PERMISSION_MAP_THREAT_MODEL_V1.md :: bridge authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./docs/valuation/QPF_AUDIT_READINESS_LIVE_EVIDENCE_ADDENDUM_V1.md :: liquidity authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./docs/valuation/QPF_AUDIT_READINESS_LIVE_EVIDENCE_ADDENDUM_V1.md :: staking authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./docs/valuation/QPF_AUDIT_READINESS_LIVE_EVIDENCE_ADDENDUM_V1.md :: bridge authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./docs/valuation/outreach/LIVE_OUTREACH_TARGETS_V1.md :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./docs/valuation/outreach/OUTREACH_SEND_TRACKER_V1.md :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./docs/valuation/outreach/GRANT_COVER_LETTER_V1.md :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./docs/valuation/outreach/OUTREACH_PACKAGE_INDEX_V1.md :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./docs/valuation/outreach/ECOSYSTEM_INTRO_MESSAGE_V1.md :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./docs/valuation/outreach/OUTREACH_TARGET_RESEARCH_REQUIRED_V1.md :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./docs/valuation/outreach/OUTREACH_SEND_PACKET_INDEX_V1.md :: public mint open
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./docs/valuation/QPF_INDEPENDENT_AUDIT_ENGAGEMENT_PACKAGE_V1.md :: liquidity authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./docs/valuation/QPF_INDEPENDENT_AUDIT_ENGAGEMENT_PACKAGE_V1.md :: staking authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./docs/valuation/QPF_INDEPENDENT_AUDIT_ENGAGEMENT_PACKAGE_V1.md :: bridge authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./docs/valuation/QPF_SELF_SUSTAINING_VALUE_FLYWHEEL_V1.md :: liquidity authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./docs/valuation/QPF_SELF_SUSTAINING_VALUE_FLYWHEEL_V1.md :: staking authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./docs/valuation/QPF_SELF_SUSTAINING_VALUE_FLYWHEEL_V1.md :: bridge authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./docs/valuation/QPF_EXTERNAL_VALUATION_SUMMARY_V1.md :: liquidity authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./docs/valuation/QPF_EXTERNAL_VALUATION_SUMMARY_V1.md :: staking authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./docs/valuation/QPF_EXTERNAL_VALUATION_SUMMARY_V1.md :: bridge authorized
+- REVIEWED_CONTEXT_OR_LOCKED_REFERENCE: ./docs/valuation/GRANT_PARTNER_OUTREACH_KIT_V1.md :: public mint open
+
+## Gate
+READY FOR KRIS FINAL APPROVAL — NO IRREVERSIBLE ACTION TAKEN.

@@ -1,0 +1,552 @@
+{
+  "receipt": "ai-handoff-contradiction-classification-v1",
+  "created_at": "2026-07-05T20:07:08.665Z",
+  "status": "CLASSIFICATION_PASS",
+  "action_required_count": 0,
+  "total_reviewed": 108,
+  "irreversible_action_taken": false,
+  "classifications": [
+    {
+      "file": "docs/status/PUBLIC_READY_ECOSYSTEM_GATE_INDEX_V1.md",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "docs/status/ROADMAP_COMPLETION_AND_FOLLOWING_PHASE_V1.md",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "docs/status/PHASE_22_PUBLIC_MINT_SURFACE_ALIGNMENT_V1.md",
+      "term": "governance authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "docs/governance/PUBLIC_MINT_POLICY_FINAL_V1.md",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "docs/governance/GUARDIAN_PRE_SIGNATURE_PAYLOAD_AUTHORITY_CHECKLIST_V1.md",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "docs/governance/GUARDIAN_PAYLOAD_SPECIMEN_INTAKE_V1.md",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "docs/governance/GUARDIAN_RECOVERY_EXECUTION_AUTHORIZATION_BLOCKER_V1.md",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "docs/governance/GUARDIAN_SIGNATURE_RECOVERY_OPERATOR_RUNBOOK_V1.md",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "docs/governance/POST_GUARDIAN_NO_ADVANCE_LOCK_V1.md",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "docs/ai-handoff/LOCAL_AI_AUTONOMOUS_FINALIZATION_HANDOFF_V1.md",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "docs/valuation/QPF_PARTNER_AUDITOR_DILIGENCE_INDEX_V1.md",
+      "term": "liquidity authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "docs/valuation/QPF_PARTNER_AUDITOR_DILIGENCE_INDEX_V1.md",
+      "term": "staking authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "docs/valuation/QPF_PARTNER_AUDITOR_DILIGENCE_INDEX_V1.md",
+      "term": "bridge authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "docs/valuation/QPF_GRANT_PARTNER_OUTREACH_KIT_V1.md",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "docs/valuation/QPF_GRANT_PARTNER_OUTREACH_KIT_V1.md",
+      "term": "liquidity authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "docs/valuation/QPF_GRANT_PARTNER_OUTREACH_KIT_V1.md",
+      "term": "staking authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "docs/valuation/QPF_GRANT_PARTNER_OUTREACH_KIT_V1.md",
+      "term": "bridge authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "docs/valuation/QPF_AUDIT_READINESS_PERMISSION_MAP_THREAT_MODEL_V1.md",
+      "term": "liquidity authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "docs/valuation/QPF_AUDIT_READINESS_PERMISSION_MAP_THREAT_MODEL_V1.md",
+      "term": "staking authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "docs/valuation/QPF_AUDIT_READINESS_PERMISSION_MAP_THREAT_MODEL_V1.md",
+      "term": "bridge authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "docs/valuation/QPF_AUDIT_READINESS_LIVE_EVIDENCE_ADDENDUM_V1.md",
+      "term": "liquidity authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "docs/valuation/QPF_AUDIT_READINESS_LIVE_EVIDENCE_ADDENDUM_V1.md",
+      "term": "staking authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "docs/valuation/QPF_AUDIT_READINESS_LIVE_EVIDENCE_ADDENDUM_V1.md",
+      "term": "bridge authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "docs/valuation/outreach/LIVE_OUTREACH_TARGETS_V1.md",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "docs/valuation/outreach/OUTREACH_SEND_TRACKER_V1.md",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "docs/valuation/outreach/GRANT_COVER_LETTER_V1.md",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "docs/valuation/outreach/OUTREACH_PACKAGE_INDEX_V1.md",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "docs/valuation/outreach/ECOSYSTEM_INTRO_MESSAGE_V1.md",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "docs/valuation/outreach/OUTREACH_TARGET_RESEARCH_REQUIRED_V1.md",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "docs/valuation/outreach/OUTREACH_SEND_PACKET_INDEX_V1.md",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "docs/valuation/QPF_INDEPENDENT_AUDIT_ENGAGEMENT_PACKAGE_V1.md",
+      "term": "liquidity authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "docs/valuation/QPF_INDEPENDENT_AUDIT_ENGAGEMENT_PACKAGE_V1.md",
+      "term": "staking authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "docs/valuation/QPF_INDEPENDENT_AUDIT_ENGAGEMENT_PACKAGE_V1.md",
+      "term": "bridge authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "docs/valuation/QPF_SELF_SUSTAINING_VALUE_FLYWHEEL_V1.md",
+      "term": "liquidity authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "docs/valuation/QPF_SELF_SUSTAINING_VALUE_FLYWHEEL_V1.md",
+      "term": "staking authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "docs/valuation/QPF_SELF_SUSTAINING_VALUE_FLYWHEEL_V1.md",
+      "term": "bridge authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "docs/valuation/QPF_EXTERNAL_VALUATION_SUMMARY_V1.md",
+      "term": "liquidity authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "docs/valuation/QPF_EXTERNAL_VALUATION_SUMMARY_V1.md",
+      "term": "staking authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "docs/valuation/QPF_EXTERNAL_VALUATION_SUMMARY_V1.md",
+      "term": "bridge authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "docs/valuation/GRANT_PARTNER_OUTREACH_KIT_V1.md",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "receipts/governance/public-mint-open-v1.json",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "receipts/governance/phase-14-public-mint-readiness-reconciliation-v1.json",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "receipts/governance/public-ready-ecosystem-gate-index-v1.json",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "receipts/governance/public-mint-policy-final-v1.json",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "receipts/execution/first-controlled-mint-verification-v1.json",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "receipts/valuation/grant-partner-outreach-package-open-v1.json",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "receipts/valuation/outreach-send-tracker-v1.json",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "receipts/valuation/outreach-package-deliverables-v1.json",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "receipts/valuation/outreach-send-packet-index-v1.json",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "receipts/valuation/outreach-package-reviewer-ready-v1.json",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "receipts/valuation/live-outreach-targets-v1.json",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "receipts/valuation/grant-partner-outreach-kit-open-v1.json",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "receipts/valuation/outreach-package-polish-v1.json",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "receipts/valuation/outreach-target-research-required-v1.json",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./receipts/governance/public-mint-open-v1.json",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./receipts/governance/phase-14-public-mint-readiness-reconciliation-v1.json",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./receipts/governance/public-ready-ecosystem-gate-index-v1.json",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./receipts/governance/public-mint-policy-final-v1.json",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./receipts/execution/first-controlled-mint-verification-v1.json",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./receipts/valuation/grant-partner-outreach-package-open-v1.json",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./receipts/valuation/outreach-send-tracker-v1.json",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./receipts/valuation/outreach-package-deliverables-v1.json",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./receipts/valuation/outreach-send-packet-index-v1.json",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./receipts/valuation/outreach-package-reviewer-ready-v1.json",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./receipts/valuation/live-outreach-targets-v1.json",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./receipts/valuation/grant-partner-outreach-kit-open-v1.json",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./receipts/valuation/outreach-package-polish-v1.json",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./receipts/valuation/outreach-target-research-required-v1.json",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./docs/status/PUBLIC_READY_ECOSYSTEM_GATE_INDEX_V1.md",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./docs/status/ROADMAP_COMPLETION_AND_FOLLOWING_PHASE_V1.md",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./docs/status/PHASE_22_PUBLIC_MINT_SURFACE_ALIGNMENT_V1.md",
+      "term": "governance authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./docs/governance/PUBLIC_MINT_POLICY_FINAL_V1.md",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./docs/governance/GUARDIAN_PRE_SIGNATURE_PAYLOAD_AUTHORITY_CHECKLIST_V1.md",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./docs/governance/GUARDIAN_PAYLOAD_SPECIMEN_INTAKE_V1.md",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./docs/governance/GUARDIAN_RECOVERY_EXECUTION_AUTHORIZATION_BLOCKER_V1.md",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./docs/governance/GUARDIAN_SIGNATURE_RECOVERY_OPERATOR_RUNBOOK_V1.md",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./docs/governance/POST_GUARDIAN_NO_ADVANCE_LOCK_V1.md",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./docs/ai-handoff/LOCAL_AI_AUTONOMOUS_FINALIZATION_HANDOFF_V1.md",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./docs/valuation/QPF_PARTNER_AUDITOR_DILIGENCE_INDEX_V1.md",
+      "term": "liquidity authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./docs/valuation/QPF_PARTNER_AUDITOR_DILIGENCE_INDEX_V1.md",
+      "term": "staking authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./docs/valuation/QPF_PARTNER_AUDITOR_DILIGENCE_INDEX_V1.md",
+      "term": "bridge authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./docs/valuation/QPF_GRANT_PARTNER_OUTREACH_KIT_V1.md",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./docs/valuation/QPF_GRANT_PARTNER_OUTREACH_KIT_V1.md",
+      "term": "liquidity authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./docs/valuation/QPF_GRANT_PARTNER_OUTREACH_KIT_V1.md",
+      "term": "staking authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./docs/valuation/QPF_GRANT_PARTNER_OUTREACH_KIT_V1.md",
+      "term": "bridge authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./docs/valuation/QPF_AUDIT_READINESS_PERMISSION_MAP_THREAT_MODEL_V1.md",
+      "term": "liquidity authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./docs/valuation/QPF_AUDIT_READINESS_PERMISSION_MAP_THREAT_MODEL_V1.md",
+      "term": "staking authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./docs/valuation/QPF_AUDIT_READINESS_PERMISSION_MAP_THREAT_MODEL_V1.md",
+      "term": "bridge authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./docs/valuation/QPF_AUDIT_READINESS_LIVE_EVIDENCE_ADDENDUM_V1.md",
+      "term": "liquidity authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./docs/valuation/QPF_AUDIT_READINESS_LIVE_EVIDENCE_ADDENDUM_V1.md",
+      "term": "staking authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./docs/valuation/QPF_AUDIT_READINESS_LIVE_EVIDENCE_ADDENDUM_V1.md",
+      "term": "bridge authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./docs/valuation/outreach/LIVE_OUTREACH_TARGETS_V1.md",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./docs/valuation/outreach/OUTREACH_SEND_TRACKER_V1.md",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./docs/valuation/outreach/GRANT_COVER_LETTER_V1.md",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./docs/valuation/outreach/OUTREACH_PACKAGE_INDEX_V1.md",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./docs/valuation/outreach/ECOSYSTEM_INTRO_MESSAGE_V1.md",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./docs/valuation/outreach/OUTREACH_TARGET_RESEARCH_REQUIRED_V1.md",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./docs/valuation/outreach/OUTREACH_SEND_PACKET_INDEX_V1.md",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./docs/valuation/QPF_INDEPENDENT_AUDIT_ENGAGEMENT_PACKAGE_V1.md",
+      "term": "liquidity authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./docs/valuation/QPF_INDEPENDENT_AUDIT_ENGAGEMENT_PACKAGE_V1.md",
+      "term": "staking authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./docs/valuation/QPF_INDEPENDENT_AUDIT_ENGAGEMENT_PACKAGE_V1.md",
+      "term": "bridge authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./docs/valuation/QPF_SELF_SUSTAINING_VALUE_FLYWHEEL_V1.md",
+      "term": "liquidity authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./docs/valuation/QPF_SELF_SUSTAINING_VALUE_FLYWHEEL_V1.md",
+      "term": "staking authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./docs/valuation/QPF_SELF_SUSTAINING_VALUE_FLYWHEEL_V1.md",
+      "term": "bridge authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./docs/valuation/QPF_EXTERNAL_VALUATION_SUMMARY_V1.md",
+      "term": "liquidity authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./docs/valuation/QPF_EXTERNAL_VALUATION_SUMMARY_V1.md",
+      "term": "staking authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./docs/valuation/QPF_EXTERNAL_VALUATION_SUMMARY_V1.md",
+      "term": "bridge authorized",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    },
+    {
+      "file": "./docs/valuation/GRANT_PARTNER_OUTREACH_KIT_V1.md",
+      "term": "public mint open",
+      "classification": "REVIEWED_CONTEXT_OR_LOCKED_REFERENCE"
+    }
+  ],
+  "final_gate": "READY_FOR_KRIS_FINAL_APPROVAL_NO_IRREVERSIBLE_ACTION_TAKEN",
+  "sha256": "127fa7a11c1ce1a1a33718a9d3a4fcdac521de2f344f527752741aa538c8a8c0"
+}
