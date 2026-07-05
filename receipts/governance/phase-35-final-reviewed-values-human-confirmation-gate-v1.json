@@ -1,0 +1,53 @@
+{
+  "governance_version": "v1",
+  "receipt": "phase-35-final-reviewed-values-human-confirmation-gate-v1",
+  "phase": 35,
+  "title": "Final Reviewed Values Human Confirmation Gate",
+  "status": "PHASE_35_HUMAN_CONFIRMATION_GATE_OPEN_NO_EXECUTION",
+  "created_at": "2026-07-04T04:30:00.000Z",
+  "mode": "governance_only_no_execution",
+  "purpose": "Require Kris to confirm final literal reviewed values from Phase 34 before any Phase 33 execution authorization retry. Does not sign, broadcast, trigger wallet prompts, or execute public minting.",
+  "trigger_from_phase_34": {
+    "receipt": "receipts/governance/phase-34-public-mint-execution-preparation-lane-v1.json",
+    "required_status": "PHASE_34_PREPARATION_LANE_OPEN_NO_EXECUTION",
+    "final_reviewed_values": "receipts/governance/public-mint-final-reviewed-values-v1.json",
+    "dry_run_preview": "receipts/governance/public-mint-dry-run-execution-preview-v1.json"
+  },
+  "confirmation_request": "receipts/governance/public-mint-final-reviewed-values-confirmation-request-v1.json",
+  "confirmation_harness": "scripts/review/final-reviewed-values-human-confirmation-v1.cjs",
+  "possible_outcomes": [
+    "KRIS_FINAL_REVIEWED_VALUES_CONFIRMED",
+    "NO_GO_FINAL_VALUES_NOT_CONFIRMED"
+  ],
+  "decision_outcome": "KRIS_FINAL_REVIEWED_VALUES_CONFIRMED",
+  "decision_rationale": [
+    "Kris recorded explicit confirmation of final reviewed literal values in phase-35-final-reviewed-values-human-confirmation-v1.json",
+    "Phase 33 execution authorization remains NO-GO",
+    "mint_allowed policy remains false until separate authorization receipt",
+    "live_execution_script remains null; Phase 36 defines approved manual UI preview path",
+    "Automatic execution, signing, broadcast, and wallet prompts remain prohibited"
+  ],
+  "live_action_rule": "No Phase 33 execution authorization retry until Kris inspects the confirmation request and explicitly confirms the exact literal values.",
+  "execution_boundaries": {
+    "signing": false,
+    "broadcast": false,
+    "public_mint_execution": false,
+    "wallet_actions": false,
+    "wallet_prompt": false,
+    "wallet_prompt_triggered": false,
+    "automatic_execution": false,
+    "phase_33_execution_authorization": false,
+    "private_key_access": false,
+    "seed_phrase_request": false,
+    "contract_changes": false,
+    "liquidity_activation": false,
+    "staking_activation": false,
+    "bridge_activation": false,
+    "yield_routing": false,
+    "treasury_movement": false,
+    "token_transfer": false,
+    "live_execution_script_enabled": false,
+    "kris_final_values_confirmed": true
+  },
+  "next_gate": "PHASE_36_PUBLIC_MINT_POLICY_LIVE_PREVIEW_READINESS_REPAIR_GATE"
+}

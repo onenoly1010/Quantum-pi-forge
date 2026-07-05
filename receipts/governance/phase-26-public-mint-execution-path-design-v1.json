@@ -1,0 +1,62 @@
+{
+  "governance_version": "v1",
+  "receipt": "phase-26-public-mint-execution-path-design-v1",
+  "phase": 26,
+  "title": "Public Mint Execution Path Design",
+  "status": "PHASE_26_PUBLIC_MINT_EXECUTION_PATH_DESIGN_REQUIRED",
+  "created_at": "2026-07-03T23:46:54.514Z",
+  "trigger_from_phase_25": {
+    "finding": "No public mint execution script exists in the repository",
+    "execution_path_identified": false,
+    "execution_authorized": false,
+    "signing": false,
+    "broadcast": false
+  },
+  "design_scope": {
+    "purpose": "define the exact public mint execution path before any wallet action",
+    "create_execution_script": false,
+    "review_only": true,
+    "implementation_required_after_review": true
+  },
+  "required_design_fields": {
+    "exact_script": null,
+    "contract_address": null,
+    "contract_name": null,
+    "abi_source": null,
+    "function_name": null,
+    "function_args": null,
+    "expected_chain": "0G Aristotle Mainnet",
+    "expected_chain_id": 16661,
+    "expected_wallet_prompt": null,
+    "expected_value": null,
+    "expected_gas": null,
+    "expected_receipt_path": null,
+    "expected_success_criteria": null,
+    "abort_conditions": [
+      "wrong chain",
+      "unknown contract",
+      "unexpected value",
+      "unexpected wallet prompt",
+      "private key or seed phrase request",
+      "liquidity/staking/bridge/yield/treasury action included",
+      "human final approval missing"
+    ]
+  },
+  "execution_boundaries": {
+    "signing": false,
+    "broadcast": false,
+    "public_mint_execution": false,
+    "liquidity_activation": false,
+    "staking_activation": false,
+    "bridge_activation": false,
+    "yield_routing": false,
+    "treasury_movement": false,
+    "token_transfer": false,
+    "automatic_wallet_signing": false,
+    "private_key_access": false,
+    "seed_phrase_request": false,
+    "manual_fund_transfer_request": false
+  },
+  "next_gate": "PHASE_27_PUBLIC_MINT_EXECUTION_SCRIPT_REVIEW_OR_NO_GO",
+  "sha256": "4b8ea8f309c25f314a972590a0ccb8fb7d4922461c076f1474209fca4352e509"
+}

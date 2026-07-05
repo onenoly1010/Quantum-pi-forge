@@ -1,0 +1,144 @@
+{
+  "governance_version": "v1",
+  "receipt": "public-mint-execution-path-spec-v1",
+  "title": "Public Mint Execution Path Specification",
+  "status": "REVIEW_ONLY_NOT_EXECUTABLE",
+  "created_at": "2026-07-04T03:45:00.000Z",
+  "mode": "builder_review_lane_no_execution",
+  "purpose": "Exact public mint execution path for review. Does not authorize signing, broadcast, or wallet prompts.",
+  "exact_mint_contract": {
+    "address": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+    "name": "OINIOModelRegistry",
+    "abi_source": "contracts/src/OINIOModelRegistry.sol",
+    "explorer": "https://chainscan.0g.ai/address/0x67aD7169184581f23D1E10B39d4eb4e98293E87a"
+  },
+  "oinio_token": {
+    "address": "0x75995EC0fdf881189850aeD864cB3f43c0DFCb58",
+    "name": "OINIOToken",
+    "abi_source": "contracts/src/OINIOToken.sol",
+    "explorer": "https://chainscan.0g.ai/address/0x75995EC0fdf881189850aeD864cB3f43c0DFCb58"
+  },
+  "expected_chain": "0G Aristotle Mainnet",
+  "expected_chain_id": 16661,
+  "execution_sequence": [
+    {
+      "step": 1,
+      "contract": "0x75995EC0fdf881189850aeD864cB3f43c0DFCb58",
+      "function": "approve",
+      "signature": "approve(address spender, uint256 amount)",
+      "selector": "0x095ea7b3",
+      "args": {
+        "spender": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+        "amount": "1000000000000000000"
+      },
+      "native_value_wei": "0",
+      "purpose": "Allow registry to pull public-mint stake"
+    },
+    {
+      "step": 2,
+      "contract": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+      "function": "registerModel",
+      "signature": "registerModel(string name, string metadataURI, uint256 stakeAmount)",
+      "selector": "0xb5571144",
+      "args": {
+        "name": "<user_model_name_non_empty>",
+        "metadataURI": "<user_metadata_uri_non_empty>",
+        "stakeAmount": "1000000000000000000"
+      },
+      "native_value_wei": "0",
+      "purpose": "Mint model NFT to caller after OINIO stake transfer"
+    }
+  ],
+  "exact_frontend_or_script_call": {
+    "review_harness": "scripts/review/public-mint-execution-path-review-v1.cjs",
+    "npm_check": "npm run governance:public-mint-execution-path-review:v1:check",
+    "live_execution_script": null,
+    "live_execution_note": "No live execution script exists. Future execution requires separate human signing gate."
+  },
+  "expected_wallet_prompt": {
+    "prompt_1": "Approve OINIO token spending for OINIOModelRegistry (1 OINIO)",
+    "prompt_2": "Register model on OINIOModelRegistry (registerModel)",
+    "must_not_prompt": [
+      "seed phrase",
+      "private key",
+      "manual fund transfer",
+      "liquidity add",
+      "staking",
+      "bridge",
+      "yield routing",
+      "treasury movement"
+    ]
+  },
+  "expected_value": {
+    "native_eth_or_0g": "0",
+    "oinio_stake_wei": "1000000000000000000",
+    "oinio_stake_human": "1 OINIO",
+    "recipient_of_stake": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a"
+  },
+  "expected_gas_behavior": {
+    "transaction_count": 2,
+    "payer": "user_wallet",
+    "network": "0G Aristotle Mainnet",
+    "notes": [
+      "User pays gas for approve and registerModel",
+      "Failed transactions may still consume gas",
+      "No relayer or gasless path defined in this spec"
+    ]
+  },
+  "expected_success_receipt": {
+    "receipt_template": "receipts/execution/public-mint-execution-v1.json",
+    "required_fields": [
+      "tx_hash_approve",
+      "tx_hash_register_model",
+      "block_number",
+      "chain_id",
+      "contract_address",
+      "operator",
+      "model_id",
+      "token_id",
+      "name",
+      "metadata_uri",
+      "stake_amount_oinio_raw",
+      "on_chain_verification"
+    ],
+    "on_chain_success_signals": [
+      "ModelRegistered event emitted",
+      "ERC721 token minted to caller",
+      "OINIO stake transferred to registry"
+    ],
+    "precedent": "receipts/execution/first-controlled-mint-verification-v1.json"
+  },
+  "abort_conditions": [
+    "wrong chain or chainId != 16661",
+    "contract address != 0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+    "oinio token address != 0x75995EC0fdf881189850aeD864cB3f43c0DFCb58",
+    "function != approve then registerModel",
+    "stakeAmount != 1000000000000000000 unless governance updates policy",
+    "empty name or metadataURI",
+    "unexpected native value > 0",
+    "wallet prompt requests seed phrase or private key",
+    "wallet prompt includes liquidity/staking/bridge/yield/treasury action",
+    "human final signing approval missing",
+    "public mint policy still shows mint_allowed=false"
+  ],
+  "execution_boundaries": {
+    "signing": false,
+    "broadcast": false,
+    "public_mint_execution": false,
+    "wallet_actions": false,
+    "wallet_prompt": false,
+    "private_key_access": false,
+    "seed_phrase_request": false,
+    "contract_changes": false,
+    "liquidity_activation": false,
+    "staking_activation": false,
+    "bridge_activation": false,
+    "yield_routing": false,
+    "treasury_movement": false,
+    "token_transfer": false,
+    "automatic_wallet_signing": false,
+    "final_human_signing_authorized": false
+  },
+  "human_signing_gate": "future_only_requires_separate_phase_after_final_execution_review",
+  "sha256": "c4488a2188647231ebce5a1fe29cc4a7008af9833040b0f6762b8f89f15e64f9"
+}

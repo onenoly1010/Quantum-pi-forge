@@ -1,0 +1,65 @@
+{
+  "governance_version": "v1",
+  "receipt": "public-mint-authorization-decision-request-v1",
+  "title": "Public Mint Authorization Decision Request",
+  "status": "PENDING_EXPLICIT_AUTHORIZATION_DECISION",
+  "created_at": "2026-07-04T07:30:00.000Z",
+  "mode": "authorization_decision_request_no_execution",
+  "purpose": "Require explicit governance decision on public_mint_authorized after Phase 37 authorization-readiness proof. Does not sign, broadcast, trigger wallet prompts, execute public minting, or open live execution.",
+  "trigger_from_phase_37": {
+    "receipt": "receipts/governance/phase-37-public-mint-authorization-readiness-gate-v1.json",
+    "proof_receipt": "receipts/governance/public-mint-authorization-readiness-proof-v1.json",
+    "required_proof_status": "AUTHORIZATION_READINESS_PROVED_NOT_AUTHORIZED"
+  },
+  "sealed_prerequisites": {
+    "phase_35_confirmation": "receipts/governance/phase-35-final-reviewed-values-human-confirmation-v1.json",
+    "phase_36_readiness_repair": "receipts/governance/phase-36-public-mint-policy-live-preview-readiness-repair-gate-v1.json",
+    "phase_37_authorization_readiness": "receipts/governance/phase-37-public-mint-authorization-readiness-gate-v1.json"
+  },
+  "decision_rule": "Phase 38 records public_mint_authorized true only after explicit human YES at this authorization gate. Live execution remains a separate later gate.",
+  "possible_outcomes": [
+    "PUBLIC_MINT_AUTHORIZED_BY_PHASE_38_GOVERNANCE_DECISION",
+    "NO_GO_PUBLIC_MINT_AUTHORIZATION_NOT_GRANTED"
+  ],
+  "fields_for_authorization_decision": {
+    "public_mint_authorized": null,
+    "mint_allowed_policy_flip": false,
+    "public_mint_active_flip": false,
+    "live_execution_authorization": false,
+    "phase_35_confirmed_values": {
+      "model_name": "QPF Public Mint Model v1",
+      "metadataURI": "https://quantumpiforge.com/metadata/qpf-public-mint-model-v1.json",
+      "chainId": 16661,
+      "oinio_token": "0x75995EC0fdf881189850aeD864cB3f43c0DFCb58",
+      "oiniomodel_registry": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+      "stake_amount_human": "1 OINIO"
+    },
+    "execution_path_state": {
+      "live_execution_script": null,
+      "approved_manual_ui_path": "mint.html"
+    },
+    "live_execution_separate": true
+  },
+  "human_decision": {
+    "required": true,
+    "explicit_yes_required_for_authorization": true,
+    "decided": false,
+    "decided_at": null,
+    "decided_by": null,
+    "decision_phrase_required": "explicit human YES granting public mint authorization at Phase 38 gate only"
+  },
+  "execution_boundaries": {
+    "signing": false,
+    "broadcast": false,
+    "public_mint_execution": false,
+    "wallet_prompt": false,
+    "wallet_prompt_triggered": false,
+    "automatic_execution": false,
+    "live_execution_authorization": false,
+    "phase_33_live_execution_authorization_retry": false,
+    "live_execution_script_enabled": false,
+    "transaction_receipt_created": false,
+    "private_key_access": false,
+    "seed_phrase_request": false
+  }
+}

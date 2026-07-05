@@ -1,0 +1,144 @@
+{
+  "governance_version": "v1",
+  "receipt": "public-mint-dry-run-execution-preview-v1",
+  "title": "Public Mint Dry-Run Execution Preview",
+  "status": "DRY_RUN_PREVIEW_NO_BROADCAST",
+  "created_at": "2026-07-04T04:20:00.000Z",
+  "mode": "dry_run_non_broadcast_preview_only",
+  "purpose": "Non-broadcast execution preview with final reviewed values and encoded calldata. Does not sign, broadcast, or trigger wallet prompts.",
+  "source_values": "receipts/governance/public-mint-final-reviewed-values-v1.json",
+  "network": {
+    "name": "0G Aristotle Mainnet",
+    "chain_id": 16661
+  },
+  "preview_transactions": [
+    {
+      "step": 1,
+      "to": "0x75995EC0fdf881189850aeD864cB3f43c0DFCb58",
+      "contract_name": "OINIOToken",
+      "function_name": "approve",
+      "function_signature": "approve(address spender, uint256 amount)",
+      "selector": "0x095ea7b3",
+      "function_args": {
+        "spender": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+        "amount": "1000000000000000000"
+      },
+      "value_wei": "0",
+      "calldata": "0x095ea7b300000000000000000000000067ad7169184581f23d1e10b39d4eb4e98293e87a0000000000000000000000000000000000000000000000000de0b6b3a7640000",
+      "from": "<caller_wallet_at_live_execution>",
+      "broadcast": false,
+      "signed": false
+    },
+    {
+      "step": 2,
+      "to": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+      "contract_name": "OINIOModelRegistry",
+      "function_name": "registerModel",
+      "function_signature": "registerModel(string name, string metadataURI, uint256 stakeAmount)",
+      "selector": "0xb5571144",
+      "function_args": {
+        "name": "QPF Public Mint Model v1",
+        "metadataURI": "https://quantumpiforge.com/metadata/qpf-public-mint-model-v1.json",
+        "stakeAmount": "1000000000000000000"
+      },
+      "value_wei": "0",
+      "calldata": "0xb5571144000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000de0b6b3a76400000000000000000000000000000000000000000000000000000000000000000018515046205075626c6963204d696e74204d6f64656c2076310000000000000000000000000000000000000000000000000000000000000000000000000000004168747470733a2f2f7175616e74756d7069666f7267652e636f6d2f6d657461646174612f7170662d7075626c69632d6d696e742d6d6f64656c2d76312e6a736f6e00000000000000000000000000000000000000000000000000000000000000",
+      "from": "<caller_wallet_at_live_execution>",
+      "minter_recipient": "caller_wallet_msg_sender",
+      "broadcast": false,
+      "signed": false
+    }
+  ],
+  "expected_value": {
+    "native_0g_sent": "0",
+    "oinio_stake_wei": "1000000000000000000",
+    "oinio_stake_human": "1 OINIO",
+    "stake_recipient": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a"
+  },
+  "gas_preview": {
+    "transaction_count": 2,
+    "payer": "user_wallet",
+    "live_gas_estimate": null,
+    "dry_run_note": "Structural dry-run only. No RPC eth_estimateGas call. No broadcast. Live gas requires separate wallet/RPC preview gate."
+  },
+  "wallet_prompt_preview": {
+    "prompt_1": {
+      "summary": "Approve OINIO token spending for OINIOModelRegistry (1 OINIO)",
+      "contract_address": "0x75995EC0fdf881189850aeD864cB3f43c0DFCb58",
+      "function_name": "approve",
+      "function_args": {
+        "spender": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+        "amount": "1000000000000000000"
+      },
+      "native_value": "0"
+    },
+    "prompt_2": {
+      "summary": "Register model on OINIOModelRegistry (registerModel)",
+      "contract_address": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+      "function_name": "registerModel",
+      "function_args": {
+        "name": "QPF Public Mint Model v1",
+        "metadataURI": "https://quantumpiforge.com/metadata/qpf-public-mint-model-v1.json",
+        "stakeAmount": "1000000000000000000"
+      },
+      "native_value": "0",
+      "minter_recipient": "caller_wallet_msg_sender"
+    }
+  },
+  "expected_transaction_receipt": {
+    "receipt_template": "receipts/execution/public-mint-execution-v1.json",
+    "required_fields": [
+      "tx_hash_approve",
+      "tx_hash_register_model",
+      "block_number",
+      "chain_id",
+      "contract_address",
+      "operator",
+      "model_id",
+      "token_id",
+      "name",
+      "metadata_uri",
+      "stake_amount_oinio_raw",
+      "on_chain_verification"
+    ]
+  },
+  "abort_conditions": [
+    "wrong chain or chainId != 16661",
+    "contract address != 0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+    "oinio token address != 0x75995EC0fdf881189850aeD864cB3f43c0DFCb58",
+    "function != approve then registerModel",
+    "stakeAmount != 1000000000000000000 unless governance updates policy",
+    "name or metadataURI differ from final reviewed values",
+    "unexpected native value > 0",
+    "wallet prompt requests seed phrase or private key",
+    "wallet prompt includes liquidity/staking/bridge/yield/treasury action",
+    "Phase 33 execution approval not recorded",
+    "public mint policy still shows mint_allowed=false"
+  ],
+  "excluded_actions": [
+    "seed phrase",
+    "private key",
+    "manual fund transfer",
+    "liquidity add",
+    "staking",
+    "bridge",
+    "yield routing",
+    "treasury movement",
+    "broadcast",
+    "signing",
+    "wallet_prompt_triggered"
+  ],
+  "execution_boundaries": {
+    "signing": false,
+    "broadcast": false,
+    "public_mint_execution": false,
+    "wallet_prompt": false,
+    "wallet_prompt_triggered": false,
+    "automatic_execution": false,
+    "private_key_access": false,
+    "seed_phrase_request": false,
+    "live_execution_script_enabled": false
+  },
+  "live_execution_script": null,
+  "sha256": "e1b801b5388ce2cab47f39ed0aedb47dc01d799432f07a4e7b04e256730361ff"
+}

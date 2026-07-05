@@ -1,0 +1,101 @@
+{
+  "governance_version": "v1",
+  "receipt": "public-mint-nogo-next-requirements-index-v1",
+  "title": "Public Mint NO-GO Next Requirements Index",
+  "status": "NEXT_REQUIREMENTS_INDEX_SEALED_NO_AUTHORIZATION",
+  "created_at": "2026-07-04T08:00:00.000Z",
+  "mode": "closure_index_only_no_execution",
+  "purpose": "Index remaining requirements before any future public mint authorization reconsideration. Does not reopen authorization, open live execution, or authorize wallet actions.",
+  "trigger_from_phase_38": {
+    "gate_receipt": "receipts/governance/phase-38-public-mint-authorization-gate-v1.json",
+    "decision_receipt": "receipts/governance/phase-38-public-mint-authorization-decision-v1.json",
+    "required_decision": "NO_GO_PUBLIC_MINT_AUTHORIZATION_NOT_GRANTED",
+    "main_merge_reference": "ba699705c25211eb7ec68441dd387940b25b42d2"
+  },
+  "sealed_nogo_state": {
+    "public_mint_authorized": false,
+    "mint_allowed": false,
+    "public_mint_active": false,
+    "governance_authorization_lane_decision": "NO_GO",
+    "live_execution_authorization": false,
+    "phase_33_execution_no_go": "NO_GO_PUBLIC_MINT_EXECUTION_NOT_AUTHORIZED"
+  },
+  "remaining_requirements_before_future_authorization": [
+    {
+      "id": "REQ-01",
+      "requirement": "Explicit human YES recorded at public-mint-authorization-decision-request-v1.json",
+      "status": "not_met",
+      "blocks": "public_mint_authorized=true"
+    },
+    {
+      "id": "REQ-02",
+      "requirement": "Separate Phase 38 authorization flip receipt or successor authorization receipt sealed",
+      "status": "not_met",
+      "blocks": "mint_allowed policy flip"
+    },
+    {
+      "id": "REQ-03",
+      "requirement": "Guardian or governance public mint authorization receipt aligned with current Phase 35-38 chain",
+      "status": "not_met",
+      "blocks": "policy activation"
+    },
+    {
+      "id": "REQ-04",
+      "requirement": "Live execution authorization gate opened and approved separately from authorization decision",
+      "status": "not_met",
+      "blocks": "signing, broadcast, wallet prompt"
+    },
+    {
+      "id": "REQ-05",
+      "requirement": "Phase 33 execution authorization retry explicit approval if live wallet path is pursued",
+      "status": "not_met",
+      "blocks": "live_execution_script enablement"
+    },
+    {
+      "id": "REQ-06",
+      "requirement": "Non-null live_execution_script or approved executable path beyond manual UI preview",
+      "status": "not_met",
+      "current_state": "mint.html manual preview only; live_execution_script=null"
+    },
+    {
+      "id": "REQ-07",
+      "requirement": "Successful live gas/RPC preview or wallet-scoped gas estimate recorded",
+      "status": "not_met",
+      "current_state": "LIVE_GAS_RPC_PREVIEW_ATTEMPTED_NO_BROADCAST with dummy from-address"
+    },
+    {
+      "id": "REQ-08",
+      "requirement": "Execution transaction receipt template prepared only after live execution authorization",
+      "status": "not_met",
+      "blocks": "transaction_receipt_created"
+    }
+  ],
+  "preserved_phase_chain": {
+    "phase_35": "KRIS_FINAL_REVIEWED_VALUES_CONFIRMED",
+    "phase_36": "PHASE_36_READINESS_REPAIR_GATE_OPEN_NO_EXECUTION",
+    "phase_37": "AUTHORIZATION_READINESS_PROVED_NOT_AUTHORIZED",
+    "phase_38": "NO_GO_PUBLIC_MINT_AUTHORIZATION_NOT_GRANTED"
+  },
+  "explicitly_not_reopened": {
+    "public_mint_authorization": true,
+    "live_execution_authorization": true,
+    "phase_33_live_execution_authorization_retry": true,
+    "execution_approval_receipt": true
+  },
+  "execution_boundaries": {
+    "signing": false,
+    "broadcast": false,
+    "public_mint_execution": false,
+    "wallet_prompt": false,
+    "wallet_prompt_triggered": false,
+    "automatic_execution": false,
+    "live_execution_authorization": false,
+    "phase_33_live_execution_authorization_retry": false,
+    "live_execution_script_enabled": false,
+    "transaction_receipt_created": false,
+    "reopen_public_mint_authorization": false,
+    "private_key_access": false,
+    "seed_phrase_request": false
+  },
+  "next_gate": "FUTURE_AUTHORIZATION_RECONSIDERATION_REQUIRES_NEW_EXPLICIT_GATE_NOT_OPENED"
+}

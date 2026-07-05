@@ -1,0 +1,68 @@
+{
+  "governance_version": "v1",
+  "receipt": "phase-38-public-mint-authorization-gate-v1",
+  "phase": 38,
+  "title": "Public Mint Authorization Gate",
+  "status": "PHASE_38_AUTHORIZATION_GATE_OPEN_NO_EXECUTION",
+  "created_at": "2026-07-04T07:30:00.000Z",
+  "mode": "authorization_decision_only",
+  "purpose": "Record explicit governance decision on public_mint_authorized after sealed Phase 37 authorization-readiness proof. Does not sign, broadcast, trigger wallet prompts, execute public minting, open live execution, or create transaction receipts.",
+  "trigger_from_phase_37": {
+    "receipt": "receipts/governance/phase-37-public-mint-authorization-readiness-gate-v1.json",
+    "proof_receipt": "receipts/governance/public-mint-authorization-readiness-proof-v1.json",
+    "required_proof_status": "AUTHORIZATION_READINESS_PROVED_NOT_AUTHORIZED"
+  },
+  "sealed_prerequisites": {
+    "phase_35_confirmation": "receipts/governance/phase-35-final-reviewed-values-human-confirmation-v1.json",
+    "phase_36_readiness_repair": "receipts/governance/phase-36-public-mint-policy-live-preview-readiness-repair-gate-v1.json",
+    "phase_37_authorization_readiness": "receipts/governance/phase-37-public-mint-authorization-readiness-gate-v1.json",
+    "authorization_readiness_proof": "receipts/governance/public-mint-authorization-readiness-proof-v1.json"
+  },
+  "artifacts": {
+    "authorization_decision_request": "receipts/governance/public-mint-authorization-decision-request-v1.json",
+    "authorization_decision": "receipts/governance/phase-38-public-mint-authorization-decision-v1.json",
+    "verify_harness": "scripts/review/verify-phase-38-public-mint-authorization-gate-v1.cjs",
+    "seal_harness": "scripts/review/create-phase-38-authorization-gate-v1.cjs",
+    "decision_review_harness": "scripts/review/public-mint-authorization-decision-review-v1.cjs"
+  },
+  "possible_outcomes": [
+    "PUBLIC_MINT_AUTHORIZED_BY_PHASE_38_GOVERNANCE_DECISION",
+    "NO_GO_PUBLIC_MINT_AUTHORIZATION_NOT_GRANTED"
+  ],
+  "decision_outcome": "NO_GO_PUBLIC_MINT_AUTHORIZATION_NOT_GRANTED",
+  "authorization_state": {
+    "public_mint_authorized": false,
+    "mint_allowed": false,
+    "public_mint_active": false,
+    "live_execution_authorization": false
+  },
+  "decision": {
+    "open_phase_38_authorization_gate": true,
+    "authorize_public_mint": false,
+    "open_live_execution_authorization": false,
+    "create_transaction_receipt": false
+  },
+  "live_action_rule": "Authorization decision only. Phase 38 records public_mint_authorized true or NO-GO. Live execution, signing, broadcast, wallet prompts, and transaction receipts remain separate and prohibited.",
+  "execution_boundaries": {
+    "signing": false,
+    "broadcast": false,
+    "public_mint_execution": false,
+    "wallet_actions": false,
+    "wallet_prompt": false,
+    "wallet_prompt_triggered": false,
+    "automatic_execution": false,
+    "private_key_access": false,
+    "seed_phrase_request": false,
+    "live_execution_authorization": false,
+    "phase_33_live_execution_authorization_retry": false,
+    "live_execution_script_enabled": false,
+    "transaction_receipt_created": false,
+    "liquidity_activation": false,
+    "staking_activation": false,
+    "bridge_activation": false,
+    "yield_routing": false,
+    "treasury_movement": false,
+    "token_transfer": false
+  },
+  "next_gate": "PHASE_39_PUBLIC_MINT_NOGO_CLOSURE"
+}

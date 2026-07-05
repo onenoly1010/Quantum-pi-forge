@@ -1,0 +1,47 @@
+{
+  "governance_version": "v1",
+  "receipt": "phase-27-public-mint-execution-script-review-v1",
+  "phase": 27,
+  "title": "Public Mint Execution Script Review / No-Go",
+  "status": "PHASE_27_REVIEW_COMPLETE_NO_GO_EXECUTION_PATH_INCOMPLETE",
+  "created_at": "2026-07-04T03:27:53.641Z",
+  "purpose": "Determine whether the exact public mint execution path can be safely identified or must be recorded as NO-GO.",
+  "review_scope": {
+    "identify_exact_script": true,
+    "identify_contract_address": true,
+    "identify_contract_name": true,
+    "identify_function_name": true,
+    "identify_function_args": true,
+    "identify_expected_chain": true,
+    "identify_expected_wallet_prompt": true,
+    "identify_expected_value": true,
+    "identify_expected_gas": true,
+    "identify_expected_receipt": true,
+    "identify_abort_conditions": true
+  },
+  "execution_boundaries": {
+    "signing": false,
+    "broadcast": false,
+    "public_mint_execution": false,
+    "wallet_actions": false,
+    "private_key_access": false,
+    "seed_phrase_request": false,
+    "contract_changes": false,
+    "liquidity_activation": false,
+    "staking_activation": false,
+    "bridge_activation": false,
+    "yield_routing": false,
+    "treasury_movement": false,
+    "token_transfer": false,
+    "automatic_wallet_signing": false
+  },
+  "possible_outcomes": [
+    "EXECUTION_PATH_IDENTIFIED_FOR_REVIEW_ONLY",
+    "NO_GO_EXECUTION_PATH_UNAVAILABLE"
+  ],
+  "next_gate": "PHASE_28_FINAL_EXECUTION_DECISION_OR_NO_GO",
+  "sha256": "30cfc782a5bbf49691637d969137fdba99dac9f402169b983d44ebde35326d6b",
+  "outcome": "NO_GO_EXECUTION_PATH_INCOMPLETE",
+  "findings_receipt": "receipts/governance/phase-27-public-mint-execution-script-review-findings-v1.json",
+  "review_completed_at": "2026-07-04T03:30:08.224Z"
+}

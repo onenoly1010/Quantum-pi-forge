@@ -1,0 +1,16 @@
+{
+  "receipt": "qpf-partner-auditor-diligence-index-v1",
+  "created_at": "2026-07-04T05:28:39Z",
+  "status": "PARTNER_AUDITOR_DILIGENCE_INDEX_CREATED",
+  "head_short": "6015522",
+  "indexed_files": 461,
+  "output": "docs/valuation/QPF_PARTNER_AUDITOR_DILIGENCE_INDEX_V1.md",
+  "wallet_action": false,
+  "signing": false,
+  "broadcast": false,
+  "mint_open": false,
+  "liquidity_authorized": false,
+  "staking_authorized": false,
+  "bridge_authorized": false,
+  "sha256": "c2a6b8a1804ada671daa7d7790ce31fe6a36230b91414185eff9023b2217046b"
+}

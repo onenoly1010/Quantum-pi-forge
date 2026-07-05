@@ -1,0 +1,15 @@
+{
+  "receipt": "qpf-grant-partner-outreach-kit-v1",
+  "created_at": "2026-07-04T06:08:02Z",
+  "status": "GRANT_PARTNER_OUTREACH_KIT_CREATED",
+  "head_short": "c7e7d51",
+  "output": "docs/valuation/QPF_GRANT_PARTNER_OUTREACH_KIT_V1.md",
+  "wallet_action": false,
+  "signing": false,
+  "broadcast": false,
+  "mint_open": false,
+  "liquidity_authorized": false,
+  "staking_authorized": false,
+  "bridge_authorized": false,
+  "sha256": "5de1d5e57a91084339a1def5d6dd883a9213f0ebde20f1e06141a4c585d191c8"
+}
