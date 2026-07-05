@@ -1,0 +1,55 @@
+{
+  "_meta": {
+    "schema": "human-cockpit-v1-closure-receipt",
+    "generated_at": "2026-07-05T13:24:00Z",
+    "generator": "manual",
+    "description": "Closure receipt sealing Human Cockpit v1 as a read-only witness layer over QPF governance state."
+  },
+  "receipt": "human-cockpit-v1-closure",
+  "purpose": "Seal Human Cockpit v1 as a read-only witness layer over QPF governance state. Confirm it performs no wallet connection, no signing, no broadcast, no minting, no transfer, no staking, no liquidity, and no bridge action.",
+  "commit": "b1375eb",
+  "commit_message": "human-cockpit: add read-only pipeline snapshot dashboard",
+  "governance_state": {
+    "cockpit_version": "v1",
+    "system_mode": "Read-Only Observation",
+    "pipeline_refresh": "verify:evidence → build → human-cockpit-status.cjs",
+    "update_trigger": "Intentional Forge state verification only — not real-time, not background-watched"
+  },
+  "non_authorization_statement": "This receipt does not authorize deployment, broadcast, mainnet cutover, state-changing transactions, wallet connection, signing, minting, transfer, staking, liquidity, or bridge action.",
+  "safety_assertions": {
+    "signing": false,
+    "broadcast": false,
+    "wallet_connection": false,
+    "private_key_access": false,
+    "mint": false,
+    "transfer": false,
+    "liquidity": false,
+    "staking": false,
+    "bridge": false
+  },
+  "invariant_guarantees": {
+    "signing_disabled": true,
+    "broadcast_disabled": true,
+    "wallet_connection_disabled": true,
+    "private_key_access_disabled": true,
+    "mint_disabled": true,
+    "transfer_disabled": true,
+    "liquidity_disabled": true,
+    "staking_disabled": true,
+    "bridge_disabled": true
+  },
+  "strategic_position": {
+    "qpf_core": "Trust Engine",
+    "oinio_human_cockpit": "Read-Only Translation Layer",
+    "execution_authority": "Still Human/Governance Gated",
+    "public_mint": "Still Not Open",
+    "controlled_mint": "Still Requires Verification",
+    "system_risk": "Not increased",
+    "user_clarity": "Increased"
+  },
+  "transition": {
+    "from": "Expert-mode receipts scattered across the Forge",
+    "to": "Human-readable sovereign state snapshot"
+  },
+  "next_phase": "Cockpit clarity only: public labels, public link placement, and continued witness-only posture. No orchestration."
+}
