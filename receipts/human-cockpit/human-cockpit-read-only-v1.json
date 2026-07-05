@@ -1,7 +1,7 @@
 {
   "_meta": {
     "schema": "human-cockpit-read-only-v1",
-    "generated_at": "2026-07-05T15:29:43.442Z",
+    "generated_at": "2026-07-05T15:36:13.980Z",
     "generator": "scripts/human-cockpit-status.cjs",
     "description": "Pipeline-refreshed read-only cockpit snapshot. Not a live controller."
   },
@@ -14,7 +14,7 @@
     "build": {
       "status": "Passed",
       "passed": true,
-      "detail": "Build commit 6efd1d9 at 2026-07-05T15:29:40Z"
+      "detail": "Build commit d3a74a8 at 2026-07-05T15:36:09Z"
     }
   },
   "system": {
