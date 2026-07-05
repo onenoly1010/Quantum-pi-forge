@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Human Cockpit v1 — QPF / OINIO Read-Only Observation</title>
+    <meta name="description" content="Pipeline-refreshed read-only cockpit for QPF/OINIO. Sealed snapshot — not a live controller.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;800&display=swap');
+        body { background-color: #050505; color: #d4d4d8; font-family: 'Inter', sans-serif; }
+        .font-mono { font-family: 'Fira Code', monospace; }
+        .cockpit-card { border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 20px; background: rgba(255,255,255,0.02); }
+        .status-ok { color: #34d399; }
+        .status-warn { color: #fbbf24; }
+        .status-error { color: #f87171; }
+        .status-disabled { color: #6b7280; }
+        .safety-true { color: #f87171; font-weight: bold; }
+        .safety-false { color: #34d399; }
+        .glow-border { border-color: rgba(59, 130, 246, 0.3); }
+        .glow-border:hover { border-color: rgba(59, 130, 246, 0.6); box-shadow: 0 0 20px rgba(59, 130, 246, 0.1); }
+    </style>
+</head>
+<body class="antialiased selection:bg-blue-500/30">
+    <nav class="border-b border-white/5 bg-black/50 backdrop-blur-md fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center text-sm font-mono text-zinc-400">
+            <div class="flex items-center gap-2">
+                <span class="text-blue-500">π</span>
+                <span class="font-bold text-zinc-200 tracking-tight">Human Cockpit v1</span>
+            </div>
+            <div class="flex items-center gap-3">
+                <a href="/" class="text-zinc-400 hover:text-white text-xs transition-all">Home</a>
+                <a href="/deployed-addresses.html" class="text-zinc-400 hover:text-white text-xs transition-all">Contracts</a>
+                <a href="/onboarding-status.html" class="text-zinc-400 hover:text-white text-xs transition-all">Status</a>
+                <span class="flex items-center gap-2 text-emerald-400 ml-2">
+                    <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span></span>
+                    READ-ONLY
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="pt-28 pb-16 px-6 max-w-5xl mx-auto">
+        <!-- HEADER -->
+        <div class="text-center mb-12">
+            <div class="inline-block px-4 py-1 text-xs font-mono text-blue-400 border border-blue-500/20 bg-blue-500/10 rounded mb-6 uppercase tracking-wider">
+                ⚡ PIPELINE-REFRESHED READ-ONLY COCKPIT
+            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tighter text-white mb-4">
+                Human Cockpit v1
+            </h1>
+            <p class="text-zinc-400 text-lg max-w-2xl mx-auto">
+                Sealed read-only snapshot of the QPF / OINIO Forge state.
+                Updates only when evidence verification and build pass.
+            </p>
+            <div class="mt-4 text-xs font-mono text-zinc-600">
+                <span id="generated-at">Loading...</span>
+            </div>
+        </div>
+
+        <!-- SYSTEM MODE BANNER -->
+        <div id="system-mode-banner" class="mb-8 p-6 rounded-xl border text-center cockpit-card glow-border">
+            <div class="text-sm font-mono text-zinc-500 mb-2">SYSTEM MODE</div>
+            <div id="system-mode-value" class="text-2xl font-bold text-blue-400">Read-Only Observation</div>
+            <div id="system-mode-desc" class="text-xs text-zinc-600 mt-2">Pipeline-refreshed read-only cockpit. Updates only when Forge state is intentionally verified.</div>
+        </div>
+
+        <!-- TRUST CHAIN -->
+        <div class="grid md:grid-cols-2 gap-6 mb-8">
+            <div class="cockpit-card glow-border">
+                <div class="text-sm font-mono text-zinc-500 mb-2">EVIDENCE VERIFICATION</div>
+                <div id="evidence-status" class="text-lg font-bold status-warn">Checking...</div>
+                <div id="evidence-detail" class="text-xs text-zinc-600 mt-1"></div>
+            </div>
+            <div class="cockpit-card glow-border">
+                <div class="text-sm font-mono text-zinc-500 mb-2">BUILD STATUS</div>
+                <div id="build-status" class="text-lg font-bold status-warn">Checking...</div>
+                <div id="build-detail" class="text-xs text-zinc-600 mt-1"></div>
+            </div>
+        </div>
+
+        <!-- STATUS TABLE -->
+        <div class="cockpit-card mb-8">
+            <h2 class="text-lg font-bold text-white mb-4">System Status</h2>
+            <div id="status-table" class="space-y-2">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+
+        <!-- SAFETY ASSERTIONS -->
+        <div class="cockpit-card mb-8">
+            <h2 class="text-lg font-bold text-white mb-4">Safety Assertions</h2>
+            <p class="text-xs text-zinc-500 mb-4">All must be <span class="text-emerald-400">false</span> (disabled) for safe read-only mode.</p>
+            <div id="safety-table" class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+
+        <!-- INVARIANTS -->
+        <div class="cockpit-card mb-8">
+            <h2 class="text-lg font-bold text-white mb-4">Invariant Guarantees</h2>
+            <div id="invariants-table" class="space-y-2">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+
+        <!-- NEXT ALLOWED ACTION -->
+        <div class="cockpit-card mb-8 border-emerald-500/20 bg-emerald-500/5">
+            <div class="text-sm font-mono text-zinc-500 mb-2">NEXT ALLOWED ACTION</div>
+            <div id="next-action" class="text-lg font-bold text-emerald-400">Human review of outreach packet or read-only reconciliation</div>
+        </div>
+
+        <!-- TRUST CHAIN DIAGRAM -->
+        <div class="cockpit-card">
+            <h2 class="text-lg font-bold text-white mb-4">Trust Chain</h2>
+            <div class="font-mono text-xs text-zinc-500 space-y-1">
+                <div>Receipts + Governance Files</div>
+                <div class="text-zinc-600">↓</div>
+                <div>verify:evidence</div>
+                <div class="text-zinc-600">↓</div>
+                <div>build</div>
+                <div class="text-zinc-600">↓</div>
+                <div class="text-blue-400">human-cockpit-status.cjs</div>
+                <div class="text-zinc-600">↓</div>
+                <div>human-cockpit-read-only-v1.json</div>
+                <div class="text-zinc-600">↓</div>
+                <div class="text-emerald-400 font-bold">human-cockpit.html</div>
+            </div>
+            <div class="mt-4 p-3 bg-red-500/5 border border-red-500/20 rounded text-xs text-zinc-500">
+                <span class="text-red-400 font-bold">Rule:</span> No dashboard update is trusted unless evidence verification and build pass first.
+            </div>
+        </div>
+    </div>
+
+    <footer class="py-8 border-t border-white/5 px-6">
+        <div class="max-w-5xl mx-auto text-center text-zinc-600 text-xs font-mono">
+            Human Cockpit v1 — Pipeline-refreshed read-only observation. Not a live controller.
+        </div>
+    </footer>
+
+<script>
+// ─── Load the sealed cockpit snapshot ──────────────────────────────────────
+async function loadCockpit() {
+    try {
+        const response = await fetch('/receipts/human-cockpit/human-cockpit-read-only-v1.json');
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const data = await response.json();
+        renderCockpit(data);
+    } catch (e) {
+        // Fallback: try relative path for local dev
+        try {
+            const response = await fetch('./receipts/human-cockpit/human-cockpit-read-only-v1.json');
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            const data = await response.json();
+            renderCockpit(data);
+        } catch (e2) {
+            document.getElementById('generated-at').textContent = '⚠ Snapshot not available — run the pipeline first';
+            document.getElementById('system-mode-value').textContent = 'No Data';
+            document.getElementById('evidence-status').textContent = 'Not Available';
+            document.getElementById('build-status').textContent = 'Not Available';
+        }
+    }
+}
+
+function renderCockpit(data) {
+    // Meta
+    document.getElementById('generated-at').textContent = `Generated: ${data._meta.generated_at}`;
+
+    // System mode
+    document.getElementById('system-mode-value').textContent = data.system.mode;
+    document.getElementById('system-mode-desc').textContent = data.system.description;
+
+    // Trust chain
+    const ev = data.trust_chain.evidence_verification;
+    const evEl = document.getElementById('evidence-status');
+    evEl.textContent = ev.status;
+    evEl.className = `text-lg font-bold ${ev.passed ? 'status-ok' : 'status-error'}`;
+    document.getElementById('evidence-detail').textContent = ev.detail;
+
+    const bd = data.trust_chain.build;
+    const bdEl = document.getElementById('build-status');
+    bdEl.textContent = bd.status;
+    bdEl.className = `text-lg font-bold ${bd.passed ? 'status-ok' : 'status-error'}`;
+    document.getElementById('build-detail').textContent = bd.detail;
+
+    // Status table
+    const statusTable = document.getElementById('status-table');
+    statusTable.innerHTML = '';
+    for (const [key, value] of Object.entries(data.status)) {
+        const row = document.createElement('div');
+        row.className = 'flex justify-between items-center py-2 border-b border-white/5 last:border-0';
+        row.innerHTML = `
+            <span class="text-zinc-400 text-sm">${key}</span>
+            <span class="font-mono text-sm ${getStatusColor(value)}">${value}</span>
+        `;
+        statusTable.appendChild(row);
+    }
+
+    // Safety assertions
+    const safetyTable = document.getElementById('safety-table');
+    safetyTable.innerHTML = '';
+    for (const [key, value] of Object.entries(data.safety_assertions)) {
+        const item = document.createElement('div');
+        item.className = 'cockpit-card text-center p-3';
+        item.innerHTML = `
+            <div class="text-xs text-zinc-500 mb-1">${key}</div>
+            <div class="font-mono text-sm font-bold ${value ? 'safety-true' : 'safety-false'}">${value}</div>
+        `;
+        safetyTable.appendChild(item);
+    }
+
+    // Invariants
+    const invTable = document.getElementById('invariants-table');
+    invTable.innerHTML = '';
+    for (const [key, value] of Object.entries(data.invariants)) {
+        const row = document.createElement('div');
+        row.className = 'flex justify-between items-center py-2 border-b border-white/5 last:border-0';
+        row.innerHTML = `
+            <span class="text-zinc-400 text-sm">${key}</span>
+            <span class="font-mono text-sm ${value ? 'status-ok' : 'status-error'}">${value ? '✓' : '✗'}</span>
+        `;
+        invTable.appendChild(row);
+    }
+
+    // Next allowed action
+    document.getElementById('next-action').textContent = data.status['Next Allowed Action'];
+}
+
+function getStatusColor(value) {
+    if (typeof value !== 'string') return 'text-zinc-400';
+    const lower = value.toLowerCase();
+    if (lower.includes('passed') || lower.includes('open') || lower.includes('allowed') || lower.includes('seeded')) return 'status-ok';
+    if (lower.includes('disabled') || lower.includes('not open') || lower.includes('required')) return 'status-disabled';
+    if (lower.includes('failed') || lower.includes('error') || lower.includes('warning')) return 'status-error';
+    return 'text-zinc-400';
+}
+
+document.addEventListener('DOMContentLoaded', loadCockpit);
+</script>
+</body>
+</html>

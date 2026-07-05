@@ -1,0 +1,67 @@
+{
+  "_meta": {
+    "schema": "human-cockpit-read-only-v1",
+    "generated_at": "2026-07-05T04:01:29.761Z",
+    "generator": "scripts/human-cockpit-status.cjs",
+    "description": "Pipeline-refreshed read-only cockpit snapshot. Not a live controller."
+  },
+  "trust_chain": {
+    "evidence_verification": {
+      "status": "Passed",
+      "passed": true,
+      "detail": "Evidence verification confirmed (4/4 receipts valid)"
+    },
+    "build": {
+      "status": "Passed",
+      "passed": true,
+      "detail": "Build commit ad90423 at 2026-07-05T04:01:27Z"
+    }
+  },
+  "system": {
+    "mode": "Read-Only Observation",
+    "description": "Pipeline-refreshed read-only cockpit. Updates only when Forge state is intentionally verified."
+  },
+  "safety_assertions": {
+    "signing": false,
+    "broadcast": false,
+    "wallet_connection": false,
+    "private_key_access": false,
+    "mint": false,
+    "transfer": false,
+    "liquidity": false,
+    "staking": false,
+    "bridge": false
+  },
+  "status": {
+    "System Mode": "Read-Only Observation",
+    "Public Mint": "Not Open",
+    "Controlled Mint": "Requires Verification",
+    "Wallet Signing": "Disabled",
+    "Token Transfer": "Disabled",
+    "Liquidity": "Disabled",
+    "Staking": "Disabled",
+    "Bridge": "Disabled",
+    "Outreach": "Human Review Allowed",
+    "Evidence Verification": "Passed / Passed",
+    "Build Status": "Passed / Passed",
+    "Next Allowed Action": "Human review of outreach packet or read-only reconciliation"
+  },
+  "governance_signals": {
+    "publicMintOpen": false,
+    "liquiditySeeded": false,
+    "stakingActive": false,
+    "bridgeActive": false,
+    "walletOnboarded": false
+  },
+  "invariants": {
+    "signing_disabled": true,
+    "broadcast_disabled": true,
+    "wallet_connection_disabled": true,
+    "private_key_access_disabled": true,
+    "mint_disabled": true,
+    "transfer_disabled": true,
+    "liquidity_disabled": true,
+    "staking_disabled": true,
+    "bridge_disabled": true
+  }
+}
