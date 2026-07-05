@@ -3,7 +3,7 @@
 ║        Pipeline-refreshed snapshot — NOT a live controller  ║
 ╚══════════════════════════════════════════════════════════════╝
 
-Generated: 2026-07-05T15:36:13.980Z
+Generated: 2026-07-05T15:53:35.440Z
 
 ── System Mode ──────────────────────────────────────────────
   Read-Only Observation
