@@ -1,99 +1,65 @@
-# Phase 45 — Self-Contained Completion Roadmap v1
+# QPF / OINIO Self-Contained Completion Roadmap v1
 
-Status: ACTIVE_DIRECTION
+Status: COMPLETION_IN_PROGRESS
 
-Created: 2026-07-05T17:00:00Z
+Created: 2026-07-05
 
 ## Purpose
 
-Define what remains to finish QPF / OINIO on its own terms without depending on grants, partners, reviewers, or outside validation.
+Define what must be finished before QPF/OINIO can stand alone, without depending on grants, partners, reviewers, or outside validation.
 
-We are not waiting for grants.
-We are not waiting for partners.
-We are not waiting for permission.
-We are finishing the system, sealing the proof, and letting the work speak for itself.
+Outreach artifacts are optional public proof. They are not the active lane. Completion is the mission.
 
-## Strategic Correction
+We are not waiting for grants. We are not waiting for partners. We are not waiting for permission. We are finishing the system, sealing the proof, and letting the work speak for itself.
 
-Outreach is not the mission. Completion is the mission.
+## What Must Be Finished
 
-QPF does not need to convince people first. It needs to become undeniable by being finished, verified, readable, and safe.
+1. Evidence verification and build-gated governance pipeline fully operational
+2. Human Cockpit v1 stable and pipeline-refreshed
+3. All safety assertions hardcoded and verified
+4. Public mint decision recorded and enforced on-chain
+5. Controlled mint path gated by human verification only
+6. Wallet signing disabled until explicit governance unlock
+7. Token transfer disabled until explicit governance unlock
+8. Liquidity, staking, and bridge disabled until explicit governance unlock
 
-## Active Direction
+## What Remains Locked
 
-The outreach artifacts remain available as optional public proof, but they are not the active lane.
+- Public mint: NOT OPEN
+- Controlled mint: REQUIRES VERIFICATION
+- Wallet signing: DISABLED
+- Token transfer: DISABLED
+- Liquidity: DISABLED
+- Staking: DISABLED
+- Bridge: DISABLED
 
-The active lane is:
+## What Is Allowed Next
 
-- Finish the remaining system work.
-- Seal the proof.
-- Make the state readable and verifiable.
-- Keep all execution surfaces gated until the required proof exists.
+- Evidence verification
+- Build and deployment
+- Human-readable proof publication
+- Read-only reconciliation
+- Human review of completed system state
 
-## Phase 45 Questions
+## What Is Not Allowed Yet
 
-Phase 45 must answer the following:
+- Automatic outreach
+- Wallet connection
+- Transaction signing
+- Public mint opening
+- Token transfer
+- Liquidity provision
+- Staking activation
+- Bridge activation
 
-1. What must be finished before QPF / OINIO can stand alone?
-2. What remains locked?
-3. What is allowed next?
-4. What is not allowed yet?
-5. What proof must exist before public mint, controlled mint, staking, bridge, liquidity, or orchestration?
+## Proof Required Before Unlock
 
-## Completion-First Working Structure
+Each unlock requires its own governance receipt, evidence verification pass, build, and human approval. There is no shortcut.
 
-### A. Finish What Is Still Incomplete
+## Current Position
 
-Identify the remaining technical, governance, and evidence gaps that block self-contained readiness.
+The system is observable, verified, and safe. It is not yet complete because unlock paths are not yet defined with sufficient precision and governance receipts are not yet sealed for each allowed action.
 
-### B. Seal the Truth
+## Non-Authorization Statement
 
-Ensure the repository state, receipts, public pages, and verification outputs match what is actually allowed.
-
-### C. Keep Execution Gated
-
-No public mint, controlled mint, staking, bridge, liquidity, or orchestration action is allowed until the required proof is present and explicitly accepted.
-
-### D. Treat Outreach as Optional Public Proof
-
-Outreach materials may be used to communicate progress, but they are not the path that determines readiness.
-
-## Allowed Next Actions
-
-- Finish missing implementation work.
-- Complete local verification and evidence generation.
-- Seal receipts that describe the actual state.
-- Publish readable proof surfaces.
-- Prepare controlled readiness gates for future activation.
-
-## Not Allowed Yet
-
-- Public mint opening.
-- Controlled mint execution.
-- Staking activation.
-- Bridge activation.
-- Liquidity activation.
-- Orchestration activation.
-- Any claim that the system is fully live without the corresponding sealed proof.
-
-## Required Proof Before Any Future Activation Lane
-
-Before public mint, controlled mint, staking, bridge, liquidity, or orchestration can be considered, the following must exist:
-
-- Verified repository state.
-- Matching public pages.
-- Sealed receipts describing actual permissions and limits.
-- Evidence that execution remains gated unless explicitly authorized.
-- Human-readable proof that the system is safe, complete, and understood.
-
-## Exit Criteria
-
-Phase 45 can be considered complete when the project can clearly answer:
-
-- What is finished.
-- What remains locked.
-- What proof exists.
-- What is allowed next.
-- What is not allowed yet.
-
-At that point, the project is no longer framed as waiting on grants, partners, or permission. It is framed as ready to stand on its own through completion, proof, and discipline.
+This roadmap does not authorize minting, wallet signing, broadcasting, token transfer, liquidity, staking, bridge activity, public mint opening, or automated outreach. It is a completion planning document only.
