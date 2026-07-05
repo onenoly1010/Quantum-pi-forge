@@ -8,7 +8,7 @@ HEAD: 1c44709
 
 ## Purpose
 
-This gate defines the manual target-review step before any QPF / OINIO outreach is sent. It does not send messages, automate contact, authorize wallet activity, or open public minting.
+This gate defines the manual target-review step for optional outreach as public proof only. It does not define the active lane, send messages, automate contact, authorize wallet activity, or open public minting. The active lane is self-contained completion of QPF / OINIO without dependence on grants, partners, reviewers, or outside permission.
 
 ## Allowed Target Categories
 

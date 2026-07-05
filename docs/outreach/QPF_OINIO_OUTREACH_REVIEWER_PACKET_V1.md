@@ -48,7 +48,7 @@ Receipts + Governance Files → verify:evidence → build → human-cockpit-stat
 
 ## Ask / Next Conversation
 
-We are seeking ecosystem review, grant feedback, and partner discussion around QPF/OINIO as a sovereign verification and human-readable trust layer for decentralized infrastructure.
+The active direction is not outreach-first. The active direction is completion-first: finish what remains, verify it, and let QPF / OINIO stand alone as a sovereign verification and human-readable trust layer for decentralized infrastructure. Outreach artifacts remain optional public proof only.
 
 ## Non-Authorization Statement
 

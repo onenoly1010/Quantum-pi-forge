@@ -1,6 +1,6 @@
 # QPF / OINIO Manual Outreach Send Packet v1
 
-Status: HUMAN_APPROVAL_REQUIRED
+Status: OPTIONAL_PUBLIC_PROOF / HUMAN_APPROVAL_REQUIRED
 
 Created: 2026-07-05T15:52:53.634Z
 
@@ -8,7 +8,7 @@ HEAD: 6b65cb9
 
 ## Purpose
 
-This packet prepares manual outreach for ecosystem, grant, and partner review. It does not send messages automatically and does not authorize execution.
+This packet prepares manual outreach for ecosystem, grant, and partner review as optional public proof only. It does not define the active lane. The active lane is completing QPF / OINIO on its own terms, verifying the system, and letting the finished work stand on its own merits.
 
 ## Core Message
 

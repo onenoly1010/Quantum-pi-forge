@@ -1,6 +1,6 @@
 # QPF / OINIO Manual Outreach Target Shortlist v1
 
-Status: TARGET_SHORTLIST_PREPARED / HUMAN_APPROVAL_REQUIRED
+Status: OPTIONAL_PUBLIC_PROOF / HUMAN_APPROVAL_REQUIRED
 
 Created: 2026-07-05T16:35:58.247Z
 
@@ -8,7 +8,9 @@ HEAD: 3e1afbf
 
 ## Purpose
 
-This document prepares a manual outreach target shortlist for human review. It does not send outreach, scrape targets, automate contact, authorize execution, or open public minting.
+This document prepares a manual outreach target shortlist for human review as optional public proof only. It does not define the active lane. The active lane is finishing QPF / OINIO on its own terms without depending on grants, partners, reviewers, or outside permission.
+
+We are not waiting for grants. We are not waiting for partners. We are not waiting for permission. We are finishing the system, sealing the proof, and letting the work speak for itself.
 
 ## Shortlist Categories
 
