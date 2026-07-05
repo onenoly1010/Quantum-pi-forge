@@ -1,0 +1,42 @@
+{
+  "receipt": "human-cockpit-public-trust-index-v1",
+  "created_at": "2026-07-05T15:28:51.881Z",
+  "head": "6efd1d9",
+  "status": "COMPLETE",
+  "phase": 41,
+  "title": "Human Cockpit Public Trust Index",
+  "mode": "READ_ONLY_PUBLIC_EXPLANATION",
+  "authorization": false,
+  "wallet_signing": false,
+  "broadcast": false,
+  "wallet_connection": false,
+  "private_key_access": false,
+  "mint": false,
+  "transfer": false,
+  "liquidity": false,
+  "staking": false,
+  "bridge": false,
+  "public_mint": "NOT_OPEN",
+  "controlled_mint": "REQUIRES_VERIFICATION",
+  "purpose": "Plain-language public trust index for Human Cockpit v1 witness layer.",
+  "trust_chain": [
+    "receipts + governance files",
+    "verify:evidence",
+    "build",
+    "human-cockpit-status.cjs",
+    "human-cockpit-read-only-v1.json",
+    "human-cockpit.html"
+  ],
+  "artifact_hashes": {
+    "human-cockpit.html": "a1e408273a92ec34b9d64b16d83c927962d17e3bea7fed7aff895dd2593371c3",
+    "receipts/human-cockpit/human-cockpit-read-only-v1.json": "c6bf4eb1bd5fd1ba70a654299dd59070b9341f49d166e353bb05333a287dabaf",
+    "receipts/human-cockpit/human-cockpit-summary-v1.txt": "e1873a0c2e444968953cfcfac4a0e89be2f7da7e22ed9bfdb5dada28a771020d",
+    "receipts/human-cockpit/human-cockpit-v1-closure-receipt.json": "e78e17d4a0fdfab7e53f8f6d30218eacda28a008461f474fa960e55be960c8b0",
+    "scripts/human-cockpit-status.cjs": "c07f204f529918c51aa1875cd87e4e8e4ae80dc1676e4f393d9191e20530c724"
+  },
+  "next_allowed_actions": [
+    "public review of cockpit trust index",
+    "partner/grant reviewer explanation",
+    "read-only reconciliation only"
+  ]
+}
