@@ -237,7 +237,9 @@
     "governance:human-operator-approval:v1": "node scripts/create-human-operator-approval-v1.cjs",
     "verify:human-operator-approval:v1": "node scripts/verify-human-operator-approval-v1.cjs",
     "governance:supervised-execution-gate:v1": "node scripts/create-supervised-execution-gate-v1.cjs",
-    "verify:supervised-execution-gate:v1": "node scripts/verify-supervised-execution-gate-v1.cjs"
+    "verify:supervised-execution-gate:v1": "node scripts/verify-supervised-execution-gate-v1.cjs",
+    "cockpit:status": "node scripts/human-cockpit-status.cjs",
+    "cockpit:pipeline": "npm run verify:evidence && npm run build && npm run cockpit:status"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",

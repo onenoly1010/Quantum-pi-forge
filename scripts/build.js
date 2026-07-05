@@ -31,6 +31,7 @@ const staticFiles = [
   { src: 'deploy/manifest.json', dest: 'manifest.json' },
   { src: 'mint.html', dest: 'mint.html' },
   { src: 'mint-status.html', dest: 'mint-status.html' },
+  { src: 'human-cockpit.html', dest: 'human-cockpit.html' },
   { src: 'ceremonial_interface.html', dest: 'ceremonial_interface.html', optional: true },
   { src: 'spectral_command_shell.html', dest: 'spectral_command_shell.html', optional: true },
   { src: 'pi-forge-integration.js', dest: 'pi-forge-integration.js', optional: true }
@@ -38,7 +39,8 @@ const staticFiles = [
 
 const staticDirs = [
   { src: 'frontend', dest: 'frontend', optional: true },
-  { src: 'deploy/trust', dest: 'trust', optional: true }
+  { src: 'deploy/trust', dest: 'trust', optional: true },
+  { src: 'receipts/human-cockpit', dest: 'receipts/human-cockpit', optional: true }
 ];
 
 function copyDir(src, dest) {

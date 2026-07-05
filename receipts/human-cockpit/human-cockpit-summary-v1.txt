@@ -1,0 +1,46 @@
+╔══════════════════════════════════════════════════════════════╗
+║        HUMAN COCKPIT v1 — READ-ONLY OBSERVATION             ║
+║        Pipeline-refreshed snapshot — NOT a live controller  ║
+╚══════════════════════════════════════════════════════════════╝
+
+Generated: 2026-07-05T23:04:39.777Z
+
+── System Mode ──────────────────────────────────────────────
+  Read-Only Observation
+
+── Status ───────────────────────────────────────────────────
+  System Mode: Read-Only Observation
+  Public Mint: Not Open
+  Controlled Mint: Requires Verification
+  Wallet Signing: Disabled
+  Token Transfer: Disabled
+  Liquidity: Disabled
+  Staking: Disabled
+  Bridge: Disabled
+  Outreach: Human Review Allowed
+  Evidence Verification: Passed / Passed
+  Build Status: Passed / Passed
+  Next Allowed Action: Human review of outreach packet or read-only reconciliation
+
+── Safety Assertions (all must be false) ────────────────────
+  signing: false
+  broadcast: false
+  wallet_connection: false
+  private_key_access: false
+  mint: false
+  transfer: false
+  liquidity: false
+  staking: false
+  bridge: false
+
+── Trust Chain ──────────────────────────────────────────────
+  Evidence Verification: Passed
+  Build:                Passed
+
+── Rule ─────────────────────────────────────────────────────
+  No dashboard update is trusted unless evidence verification
+  and build pass first.
+
+── Next Allowed Action ──────────────────────────────────────
+  Human review of outreach packet or read-only reconciliation
+

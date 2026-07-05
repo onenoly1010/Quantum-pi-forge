@@ -1,0 +1,46 @@
+{
+  "receipt": "qpf-oinio-manual-outreach-send-packet-v1",
+  "created_at": "2026-07-05T15:52:53.634Z",
+  "head": "6b65cb9",
+  "phase": 43,
+  "title": "QPF OINIO Manual Outreach Send Packet",
+  "status": "HUMAN_APPROVAL_REQUIRED",
+  "mode": "MANUAL_OUTREACH_PREP_ONLY",
+  "authorization": false,
+  "automatic_send": false,
+  "wallet_signing": false,
+  "broadcast": false,
+  "wallet_connection": false,
+  "private_key_access": false,
+  "mint": false,
+  "transfer": false,
+  "liquidity": false,
+  "staking": false,
+  "bridge": false,
+  "public_mint": "NOT_OPEN",
+  "controlled_mint": "REQUIRES_VERIFICATION",
+  "purpose": "Prepare a human-reviewed manual outreach send packet from the sealed reviewer packet and Human Cockpit milestone.",
+  "artifact_hashes": {
+    "docs/outreach/QPF_OINIO_OUTREACH_REVIEWER_PACKET_V1.md": "5cc8cacfc6c9c45382aace34e38ea1c3353f6e29243eb86a662536c34036344e",
+    "receipts/outreach/qpf-oinio-outreach-reviewer-packet-v1.json": "dff042d7232f8d1359acfdf40a6ee809a01cbcce5635ad508c26f1661830aa1e",
+    "human-cockpit.html": "a1e408273a92ec34b9d64b16d83c927962d17e3bea7fed7aff895dd2593371c3",
+    "docs/human-cockpit/HUMAN_COCKPIT_PUBLIC_TRUST_INDEX_V1.md": "60c97ca7615175bbecf69cb86967d5916ab16d2ee53e9d132654e55fa38febb9",
+    "receipts/human-cockpit/human-cockpit-read-only-v1.json": "64ead6721c22e0729728e67a143e40c5ec4bc86d6008f92acbac03e71a87ff43"
+  },
+  "next_allowed_actions": [
+    "human review of final outreach message",
+    "human selection of outreach targets",
+    "manual send only after explicit human approval",
+    "read-only reconciliation only"
+  ],
+  "blocked_actions": [
+    "automatic outreach send",
+    "public mint opening",
+    "controlled mint execution",
+    "wallet signing",
+    "token transfer",
+    "liquidity",
+    "staking",
+    "bridge"
+  ]
+}
