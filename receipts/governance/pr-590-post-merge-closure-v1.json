@@ -1,0 +1,34 @@
+{
+  "receipt": "pr-590-post-merge-closure-v1",
+  "created_at": "2026-07-06T00:28:47.020Z",
+  "head": "ba00d9d",
+  "branch": "main",
+  "status": "SEALED_ON_MAIN",
+  "pr": 590,
+  "title": "Kris Final Approval Statement and Human Cockpit Witness Snapshot",
+  "confirmed_chain": [
+    "ba00d9d governance: seal Kris final approval statement (#590)",
+    "f7ad1c7 governance: seal local ai final approval handoff (#589)",
+    "4c8344e governance: open Phase 40 public mint human decision gate (#588)"
+  ],
+  "assertions": {
+    "head_matches_origin_main": true,
+    "working_tree_clean": true,
+    "human_cockpit_assets_in_out": true,
+    "kris_approval_sealed": true,
+    "local_ai_handoff_sealed": true,
+    "irreversible_action_taken": false,
+    "wallet_signing": false,
+    "token_transfer": false,
+    "public_mint_open": false,
+    "liquidity": false,
+    "staking": false,
+    "bridge": false
+  },
+  "backup": "/tmp/qpf-local-main-backup-20260705T231457Z",
+  "recent_log": [
+    "ba00d9d governance: seal Kris final approval statement (#590)\nf7ad1c7 governance: seal local ai final approval handoff (#589)\n4c8344e governance: open Phase 40 public mint human decision gate (#588)\nf6e9960 valuation: complete live outreach target source research (#587)\nf881cce valuation: require live outreach target research (#586)\nd711584 valuation: add outreach send packet index (#585)\n0826f07 valuation: add outreach send tracker (#584)\nbbf4293 valuation: make outreach package reviewer ready (#583)"
+  ],
+  "final_gate": "READY_FOR_KRIS_FINAL_APPROVAL_NO_IRREVERSIBLE_ACTION_TAKEN",
+  "sha256": "282346d906b4cdd71e2eafcc8e2133af94bd106ba24109c75814957a0b07ab9a"
+}
