@@ -1,0 +1,22 @@
+{
+  "receipt": "pr-594-post-merge-closure-v1",
+  "created_at": "2026-07-08T01:34:50.553Z",
+  "head": "a9bf67b",
+  "branch": "main",
+  "status": "FINAL_PREP_READY_ON_MAIN",
+  "pr": 594,
+  "protected_truth": "a9bf67b",
+  "public_mint": "NOT_OPEN",
+  "public_mint_open_receipt_required": true,
+  "irreversible_actions": false,
+  "signing": false,
+  "broadcast": false,
+  "token_transfer": false,
+  "liquidity": false,
+  "staking": false,
+  "bridge": false,
+  "working_tree_clean": true,
+  "evidence_pass": true,
+  "build_pass": true,
+  "next_gate": "final open / no-open human decision"
+}
