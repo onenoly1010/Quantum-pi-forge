@@ -1,0 +1,8 @@
+SPIRAL RETURN READINESS PACKET v1
+created_at=2026-07-08T20:41:41.031Z
+head=41a52f0
+branch=main
+status=CLEAN
+receipt_sha256=b6fa292f5b4ce537a44aee3775e65ca54c3c2c1ae88bc925be9df37f7e10d258
+state=READINESS_PACKET_OPENED
+next=commit, verify:evidence, build, open completion phase
