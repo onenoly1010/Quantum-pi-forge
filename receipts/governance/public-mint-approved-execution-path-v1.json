@@ -1,0 +1,56 @@
+{
+  "governance_version": "v1",
+  "receipt": "public-mint-approved-execution-path-v1",
+  "title": "Public Mint Approved Execution Path (Preview Only)",
+  "status": "APPROVED_MANUAL_UI_PATH_DEFINED_NOT_EXECUTABLE",
+  "created_at": "2026-07-04T06:30:00.000Z",
+  "mode": "approved_path_definition_no_execution",
+  "purpose": "Define the approved non-executable public mint path after Phase 35 confirmation. Replaces null live_execution_script with an explicit manual UI preview path without enabling wallet actions.",
+  "trigger_from_phase_35": {
+    "receipt": "receipts/governance/phase-35-final-reviewed-values-human-confirmation-v1.json",
+    "required_status": "KRIS_FINAL_REVIEWED_VALUES_CONFIRMED"
+  },
+  "path_spec_reference": "receipts/governance/public-mint-execution-path-spec-v1.json",
+  "path_spec_status_preserved": "REVIEW_ONLY_NOT_EXECUTABLE",
+  "path_spec_status_repaired_classification": "LIVE_PREVIEW_READY_NOT_EXECUTABLE",
+  "approved_manual_ui_path": {
+    "surface": "mint.html",
+    "companion_surface": "mint-status.html",
+    "mode": "MANUAL_UI_PREVIEW_ONLY_NOT_EXECUTABLE",
+    "wallet_connection": false,
+    "mint_button_enabled": false,
+    "automatic_transactions": false,
+    "display_only": true,
+    "shows_phase_35_confirmed_addresses": true,
+    "shows_required_stake": "1 OINIO",
+    "shows_network": "0G Aristotle Mainnet / chainId 16661"
+  },
+  "live_execution_script": null,
+  "approved_preview_harnesses": [
+    "scripts/review/public-mint-execution-path-review-v1.cjs",
+    "scripts/review/public-mint-dry-run-execution-preview-v1.cjs",
+    "scripts/review/public-mint-live-gas-rpc-preview-v1.cjs"
+  ],
+  "npm_checks": [
+    "governance:public-mint-execution-path-review:v1:check",
+    "governance:public-mint-dry-run-execution-preview:v1:check",
+    "governance:public-mint-live-gas-rpc-preview:v1:check"
+  ],
+  "execution_sequence_preserved_from_phase_35": {
+    "step_1": "approve(address spender, uint256 amount) on OINIOToken",
+    "step_2": "registerModel(string name, string metadataURI, uint256 stakeAmount) on OINIOModelRegistry"
+  },
+  "execution_boundaries": {
+    "signing": false,
+    "broadcast": false,
+    "public_mint_execution": false,
+    "wallet_prompt": false,
+    "wallet_prompt_triggered": false,
+    "automatic_execution": false,
+    "private_key_access": false,
+    "seed_phrase_request": false,
+    "live_execution_script_enabled": false,
+    "phase_33_live_execution_authorization_retry": false
+  },
+  "note": "Approved path is manual UI preview plus governance harnesses only. Live execution still requires separate Phase 33 authorization retry and public mint authorization receipt."
+}

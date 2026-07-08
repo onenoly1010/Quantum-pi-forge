@@ -1,0 +1,78 @@
+{
+  "receipt": "final-public-mint-prep-v1",
+  "created_at": "2026-07-08T01:24:12.247Z",
+  "base_protected_truth": "ba00d9d",
+  "head": "fe94e63",
+  "branch": "main",
+  "status": "FINAL_PREP_READY",
+  "human_public_mint_decision": "APPROVED_FOR_FINAL_PREP",
+  "public_mint": "NOT_OPEN",
+  "public_mint_open_receipt_required": true,
+  "irreversible_actions": false,
+  "signing": false,
+  "broadcast": false,
+  "token_transfer": false,
+  "liquidity": false,
+  "staking": false,
+  "bridge": false,
+  "working_tree_clean": true,
+  "evidence": "REQUIRES_VERIFY_EVIDENCE_AFTER_COMMIT",
+  "build": "REQUIRES_BUILD_AFTER_COMMIT",
+  "completed_chain": [
+    {
+      "step": "Completion Reconciliation",
+      "commit": "7c01258",
+      "status": "sealed"
+    },
+    {
+      "step": "Authority Map",
+      "commit": "ce98179",
+      "status": "sealed"
+    },
+    {
+      "step": "Signing Boundary",
+      "commit": "06751a8",
+      "status": "sealed"
+    },
+    {
+      "step": "Final Address Confirmation Gate",
+      "commit": "9d7e5ad",
+      "status": "sealed"
+    },
+    {
+      "step": "Human Operator Confirmation",
+      "commit": "81b946e",
+      "status": "CONFIRMED"
+    },
+    {
+      "step": "Controlled Mint Verification",
+      "commit": "07cff73",
+      "status": "VERIFICATION_ONLY"
+    },
+    {
+      "step": "Public Mint Authorization Gate",
+      "commit": "e569144",
+      "status": "READY_FOR_HUMAN_DECISION"
+    },
+    {
+      "step": "Human Public Mint Decision",
+      "commit": "c2d35c0",
+      "status": "APPROVED_FOR_FINAL_PREP"
+    }
+  ],
+  "next_allowed_actions": [
+    "final public mint readiness documentation",
+    "read-only public mint UI review",
+    "read-only supply and address reconciliation",
+    "final human open/no-open decision receipt"
+  ],
+  "blocked_actions": [
+    "wallet signing",
+    "transaction broadcast",
+    "public mint opening",
+    "token transfer",
+    "liquidity creation",
+    "staking activation",
+    "bridge activation"
+  ]
+}

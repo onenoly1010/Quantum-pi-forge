@@ -12,6 +12,27 @@
     "verify:claim-map": "node scripts/verify-claim-map.cjs",
     "claim-map:check": "node scripts/check-claim-map.cjs",
     "verify:evidence": "node scripts/verify-evidence.cjs",
+    "governance:public-mint-execution-path-review:v1:check": "node scripts/review/public-mint-execution-path-review-v1.cjs",
+    "governance:phase-30-final-execution-review-reopen:v1:check": "node scripts/review/verify-phase-30-final-execution-review-reopen-v1.cjs",
+    "governance:human-wallet-prompt-inspection:v1:check": "node scripts/review/human-wallet-prompt-inspection-v1.cjs",
+    "governance:phase-32-human-signing-approval-gate:v1:check": "node scripts/review/verify-phase-32-human-signing-approval-gate-v1.cjs",
+    "governance:phase-33-public-mint-execution-gate:v1:check": "node scripts/review/verify-phase-33-public-mint-execution-gate-v1.cjs",
+    "governance:public-mint-dry-run-execution-preview:v1:check": "node scripts/review/public-mint-dry-run-execution-preview-v1.cjs",
+    "governance:phase-34-public-mint-execution-preparation-lane:v1:check": "node scripts/review/verify-phase-34-public-mint-execution-preparation-lane-v1.cjs",
+    "governance:final-reviewed-values-human-confirmation:v1:check": "node scripts/review/final-reviewed-values-human-confirmation-v1.cjs",
+    "governance:phase-35-final-reviewed-values-human-confirmation-gate:v1:check": "node scripts/review/verify-phase-35-final-reviewed-values-human-confirmation-gate-v1.cjs",
+    "governance:public-mint-live-gas-rpc-preview:v1:check": "node scripts/review/public-mint-live-gas-rpc-preview-v1.cjs",
+    "governance:phase-36-public-mint-readiness-repair-gate:v1:check": "node scripts/review/verify-phase-36-public-mint-policy-live-preview-readiness-repair-gate-v1.cjs",
+    "governance:phase-36-readiness-repair-gate:v1": "node scripts/review/create-phase-36-readiness-repair-gate-v1.cjs",
+    "governance:phase-37-public-mint-authorization-readiness-gate:v1:check": "node scripts/review/verify-phase-37-public-mint-authorization-readiness-gate-v1.cjs",
+    "governance:phase-37-authorization-readiness-gate:v1": "node scripts/review/create-phase-37-authorization-readiness-gate-v1.cjs",
+    "governance:public-mint-authorization-decision-review:v1:check": "node scripts/review/public-mint-authorization-decision-review-v1.cjs",
+    "governance:phase-38-public-mint-authorization-gate:v1:check": "node scripts/review/verify-phase-38-public-mint-authorization-gate-v1.cjs",
+    "governance:phase-38-authorization-gate:v1": "node scripts/review/create-phase-38-authorization-gate-v1.cjs",
+    "governance:phase-39-public-mint-nogo-closure:v1:check": "node scripts/review/verify-phase-39-public-mint-nogo-closure-v1.cjs",
+    "governance:phase-39-nogo-closure:v1": "node scripts/review/create-phase-39-nogo-closure-v1.cjs",
+    "governance:phase-33-execution-authorization-retry-review:v1:check": "node scripts/review/phase-33-execution-authorization-retry-review-v1.cjs",
+    "governance:phase-33-execution-authorization-retry-gate:v1:check": "node scripts/review/verify-phase-33-execution-authorization-retry-gate-v1.cjs",
     "verify:snapshot": "node scripts/verify-snapshot.cjs",
     "governance:post-merge:check": "node scripts/verify-post-merge-governance-receipt.cjs",
     "execution:autonomous:check": "node scripts/verify-autonomous-execution-receipt.cjs",
@@ -216,21 +237,23 @@
     "governance:human-operator-approval:v1": "node scripts/create-human-operator-approval-v1.cjs",
     "verify:human-operator-approval:v1": "node scripts/verify-human-operator-approval-v1.cjs",
     "governance:supervised-execution-gate:v1": "node scripts/create-supervised-execution-gate-v1.cjs",
-    "verify:supervised-execution-gate:v1": "node scripts/verify-supervised-execution-gate-v1.cjs"
+    "verify:supervised-execution-gate:v1": "node scripts/verify-supervised-execution-gate-v1.cjs",
+    "cockpit:status": "node scripts/human-cockpit-status.cjs",
+    "cockpit:pipeline": "npm run verify:evidence && npm run build && npm run cockpit:status"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",
     "chai": "^6.2.2",
     "dotenv": "^17.4.2",
     "ethers": "^6.17.0",
-    "hardhat": "^3.9.0"
+    "hardhat": "^3.9.1"
   },
   "devDependencies": {
     "@storacha/client": "^2.1.4",
     "@uniswap/v2-core": "^1.0.1",
     "@uniswap/v2-periphery": "^1.1.0-beta.0",
     "solc": "^0.8.35",
-    "wrangler": "^4.105.0"
+    "wrangler": "^4.107.0"
   },
   "overrides": {
     "ws": "^8.21.0",

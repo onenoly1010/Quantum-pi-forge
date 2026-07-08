@@ -1,0 +1,25 @@
+{
+  "receipt": "kris-final-approval-statement-v1",
+  "created_at": "2026-07-05T21:32:20.048Z",
+  "head": "f7ad1c7",
+  "branch": "main",
+  "approved_by": "Kris Olofson",
+  "approval_scope": "continue_safe_completion_flywheel_only",
+  "irreversible_action_approved": false,
+  "irreversible_action_taken": false,
+  "still_requires_separate_explicit_approval": [
+    "wallet_signing",
+    "token_transfer",
+    "public_mint_open",
+    "controlled_mint_execution",
+    "liquidity",
+    "staking",
+    "bridge",
+    "deployment",
+    "ownership_transfer",
+    "external_outreach_send",
+    "governance_authorization_claim"
+  ],
+  "final_gate": "READY_FOR_KRIS_FINAL_APPROVAL_NO_IRREVERSIBLE_ACTION_TAKEN",
+  "sha256": "3970e14428ee6807a5b1b97a705e8787b935a0232884331a00c1b4ace73d48eb"
+}

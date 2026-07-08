@@ -1,0 +1,113 @@
+{
+  "governance_version": "v1",
+  "receipt": "public-mint-final-reviewed-values-confirmation-request-v1",
+  "title": "Public Mint Final Reviewed Values Human Confirmation Request",
+  "status": "KRIS_EXPLICIT_CONFIRMATION_RECORDED",
+  "created_at": "2026-07-04T04:30:00.000Z",
+  "mode": "human_confirmation_request_no_execution",
+  "purpose": "Require Kris to confirm final literal reviewed values from Phase 34 before any Phase 33 execution authorization retry. Does not sign, broadcast, trigger wallet prompts, or execute public minting.",
+  "phase_34_reference": "receipts/governance/phase-34-public-mint-execution-preparation-lane-v1.json",
+  "source_artifacts": {
+    "final_reviewed_values": "receipts/governance/public-mint-final-reviewed-values-v1.json",
+    "dry_run_preview": "receipts/governance/public-mint-dry-run-execution-preview-v1.json",
+    "execution_path_spec": "receipts/governance/public-mint-execution-path-spec-v1.json",
+    "mint_policy": "receipts/governance/public-mint-policy-final-v1.json"
+  },
+  "confirmation_rule": "No Phase 33 execution authorization retry until Kris inspects this request and explicitly confirms these exact literal values.",
+  "fields_requiring_human_confirmation": {
+    "model_name": "QPF Public Mint Model v1",
+    "metadataURI": "https://quantumpiforge.com/metadata/qpf-public-mint-model-v1.json",
+    "metadataURI_backup": "https://raw.githubusercontent.com/onenoly1010/Quantum-pi-forge/main/metadata/qpf-public-mint-model-v1.json",
+    "metadata_file": "metadata/qpf-public-mint-model-v1.json",
+    "chainId": 16661,
+    "network": "0G Aristotle Mainnet",
+    "exact_execution_path": {
+      "step_1": {
+        "contract_address": "0x75995EC0fdf881189850aeD864cB3f43c0DFCb58",
+        "contract_name": "OINIOToken",
+        "function_name": "approve",
+        "function_args": {
+          "spender": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+          "amount": "1000000000000000000"
+        },
+        "native_value": "0"
+      },
+      "step_2": {
+        "contract_address": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+        "contract_name": "OINIOModelRegistry",
+        "function_name": "registerModel",
+        "function_args": {
+          "name": "QPF Public Mint Model v1",
+          "metadataURI": "https://quantumpiforge.com/metadata/qpf-public-mint-model-v1.json",
+          "stakeAmount": "1000000000000000000"
+        },
+        "native_value": "0",
+        "minter_recipient": "caller_wallet_msg_sender"
+      }
+    },
+    "expected_value": {
+      "native_0g_sent": "0",
+      "oinio_stake_wei": "1000000000000000000",
+      "oinio_stake_human": "1 OINIO",
+      "stake_recipient": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a"
+    },
+    "gas_behavior": {
+      "transaction_count": 2,
+      "payer": "user_wallet",
+      "live_gas_estimate": null,
+      "note": "Structural dry-run only. Live gas requires separate wallet/RPC preview gate."
+    },
+    "two_transaction_prompt_preview": {
+      "prompt_1": "Approve OINIO token spending for OINIOModelRegistry (1 OINIO) on 0x75995EC0fdf881189850aeD864cB3f43c0DFCb58",
+      "prompt_2": "Register model QPF Public Mint Model v1 on 0x67aD7169184581f23D1E10B39d4eb4e98293E87a with metadataURI https://quantumpiforge.com/metadata/qpf-public-mint-model-v1.json and stake 1 OINIO"
+    },
+    "mint_allowed_policy_state": {
+      "policy_receipt": "receipts/governance/public-mint-policy-final-v1.json",
+      "mint_allowed": false,
+      "public_mint_active": false,
+      "path_spec_status": "REVIEW_ONLY_NOT_EXECUTABLE"
+    },
+    "abort_conditions": [
+      "wrong chain or chainId != 16661",
+      "contract address != 0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+      "oinio token address != 0x75995EC0fdf881189850aeD864cB3f43c0DFCb58",
+      "function != approve then registerModel",
+      "stakeAmount != 1000000000000000000 unless governance updates policy",
+      "name or metadataURI differ from final reviewed values",
+      "unexpected native value > 0",
+      "wallet prompt requests seed phrase or private key",
+      "wallet prompt includes liquidity/staking/bridge/yield/treasury action",
+      "Phase 33 execution approval not recorded",
+      "public mint policy still shows mint_allowed=false"
+    ]
+  },
+  "kris_confirmation": {
+    "required": true,
+    "explicit_yes_required": true,
+    "confirmed": true,
+    "confirmed_at": "2026-07-04T04:41:01.704Z",
+    "confirmed_by": "Kris Olofson",
+    "confirmation_receipt": "receipts/governance/phase-35-final-reviewed-values-human-confirmation-v1.json",
+    "confirmation_phrase_required": "explicit human YES confirming these exact final reviewed literal values"
+  },
+  "execution_boundaries": {
+    "signing": false,
+    "broadcast": false,
+    "public_mint_execution": false,
+    "wallet_actions": false,
+    "wallet_prompt": false,
+    "wallet_prompt_triggered": false,
+    "automatic_execution": false,
+    "phase_33_execution_authorization": false,
+    "private_key_access": false,
+    "seed_phrase_request": false,
+    "contract_changes": false,
+    "liquidity_activation": false,
+    "staking_activation": false,
+    "bridge_activation": false,
+    "yield_routing": false,
+    "treasury_movement": false,
+    "token_transfer": false,
+    "live_execution_script_enabled": false
+  }
+}

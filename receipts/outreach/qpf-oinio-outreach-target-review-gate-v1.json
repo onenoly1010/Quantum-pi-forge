@@ -1,0 +1,66 @@
+{
+  "receipt": "qpf-oinio-outreach-target-review-gate-v1",
+  "created_at": "2026-07-05T16:23:54.855Z",
+  "head": "1c44709",
+  "phase": 44,
+  "title": "QPF OINIO Outreach Target Review Gate",
+  "status": "HUMAN_TARGET_REVIEW_REQUIRED",
+  "mode": "TARGET_REVIEW_ONLY",
+  "authorization": false,
+  "automatic_send": false,
+  "mass_outreach": false,
+  "scraping": false,
+  "wallet_signing": false,
+  "broadcast": false,
+  "wallet_connection": false,
+  "private_key_access": false,
+  "mint": false,
+  "transfer": false,
+  "liquidity": false,
+  "staking": false,
+  "bridge": false,
+  "public_mint": "NOT_OPEN",
+  "controlled_mint": "REQUIRES_VERIFICATION",
+  "allowed_target_categories": [
+    "0G ecosystem reviewers",
+    "grant program reviewers",
+    "infrastructure partners",
+    "verification / audit partners",
+    "AI + blockchain infrastructure collaborators",
+    "human-readable trust layer reviewers"
+  ],
+  "required_human_approval": [
+    "target name or organization",
+    "target category",
+    "final message body",
+    "artifact links",
+    "outreach channel",
+    "send timing"
+  ],
+  "purpose": "Define a manual human target-review gate before any outreach is sent.",
+  "artifact_hashes": {
+    "docs/outreach/QPF_OINIO_MANUAL_OUTREACH_SEND_PACKET_V1.md": "84d3695003d7786830e0434811d2958a0ba247b6f7d8a6eb1d74a5a79f98e620",
+    "receipts/outreach/qpf-oinio-manual-outreach-send-packet-v1.json": "66045d87c533502c24eddf6f188b19bfba2043b284257c7bb13720030b5c2c1b",
+    "docs/outreach/QPF_OINIO_OUTREACH_REVIEWER_PACKET_V1.md": "5cc8cacfc6c9c45382aace34e38ea1c3353f6e29243eb86a662536c34036344e",
+    "receipts/outreach/qpf-oinio-outreach-reviewer-packet-v1.json": "dff042d7232f8d1359acfdf40a6ee809a01cbcce5635ad508c26f1661830aa1e",
+    "human-cockpit.html": "a1e408273a92ec34b9d64b16d83c927962d17e3bea7fed7aff895dd2593371c3"
+  },
+  "next_allowed_actions": [
+    "human review of outreach targets",
+    "human approval of final message and links",
+    "manual send only after explicit human approval",
+    "read-only reconciliation only"
+  ],
+  "blocked_actions": [
+    "automatic outreach send",
+    "mass outreach",
+    "scraping",
+    "public mint opening",
+    "controlled mint execution",
+    "wallet signing",
+    "token transfer",
+    "liquidity",
+    "staking",
+    "bridge"
+  ]
+}

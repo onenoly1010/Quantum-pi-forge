@@ -1,0 +1,2 @@
+Local AI command target:
+Read docs/ai-handoff/LOCAL_AI_AUTONOMOUS_FINALIZATION_HANDOFF_V1.md, execute every safe finalization task, create the required reports/receipts/docs, run verification/build, and stop at: READY FOR KRIS FINAL APPROVAL — NO IRREVERSIBLE ACTION TAKEN.

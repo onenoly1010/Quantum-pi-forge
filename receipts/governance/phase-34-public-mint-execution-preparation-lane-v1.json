@@ -1,0 +1,54 @@
+{
+  "governance_version": "v1",
+  "receipt": "phase-34-public-mint-execution-preparation-lane-v1",
+  "phase": 34,
+  "title": "Public Mint Execution Preparation Lane",
+  "status": "PHASE_34_PREPARATION_LANE_OPEN_NO_EXECUTION",
+  "created_at": "2026-07-04T04:20:00.000Z",
+  "mode": "preparation_lane_dry_run_no_execution",
+  "purpose": "Replace placeholders with final reviewed values and produce a dry-run/non-broadcast execution preview after Phase 33 NO-GO. Does not sign, broadcast, trigger wallet prompts, or execute public minting.",
+  "trigger_from_phase_33": {
+    "no_go_receipt": "receipts/governance/phase-33-public-mint-execution-no-go-v1.json",
+    "required_status": "NO_GO_PUBLIC_MINT_EXECUTION_NOT_AUTHORIZED",
+    "gate_receipt": "receipts/governance/phase-33-public-mint-execution-gate-v1.json"
+  },
+  "artifacts": {
+    "final_reviewed_values": "receipts/governance/public-mint-final-reviewed-values-v1.json",
+    "dry_run_preview": "receipts/governance/public-mint-dry-run-execution-preview-v1.json",
+    "metadata_file": "metadata/qpf-public-mint-model-v1.json",
+    "preview_harness": "scripts/review/public-mint-dry-run-execution-preview-v1.cjs"
+  },
+  "resolved_blockers_from_phase_33_no_go": {
+    "name_metadata_placeholders_replaced": true,
+    "dry_run_preview_generated": true,
+    "live_execution_script": null,
+    "live_gas_estimate": null,
+    "path_spec_status": "REVIEW_ONLY_NOT_EXECUTABLE unchanged",
+    "human_execution_approval": false
+  },
+  "npm_checks": [
+    "governance:public-mint-dry-run-execution-preview:v1:check",
+    "governance:phase-34-public-mint-execution-preparation-lane:v1:check"
+  ],
+  "live_action_rule": "Preparation lane only. Kris must review final reviewed values and dry-run preview before any future Phase 33 execution authorization retry or live wallet action.",
+  "execution_boundaries": {
+    "signing": false,
+    "broadcast": false,
+    "public_mint_execution": false,
+    "wallet_actions": false,
+    "wallet_prompt": false,
+    "wallet_prompt_triggered": false,
+    "automatic_execution": false,
+    "private_key_access": false,
+    "seed_phrase_request": false,
+    "contract_changes": false,
+    "liquidity_activation": false,
+    "staking_activation": false,
+    "bridge_activation": false,
+    "yield_routing": false,
+    "treasury_movement": false,
+    "token_transfer": false,
+    "live_execution_script_enabled": false
+  },
+  "next_gate": "PHASE_35_FINAL_REVIEWED_VALUES_HUMAN_CONFIRMATION_OR_PHASE_33_EXECUTION_RETRY"
+}

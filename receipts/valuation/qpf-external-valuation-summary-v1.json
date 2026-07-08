@@ -1,0 +1,18 @@
+{
+  "receipt": "qpf-external-valuation-summary-v1",
+  "created_at": "2026-07-04T05:36:25Z",
+  "status": "EXTERNAL_VALUATION_SUMMARY_CREATED",
+  "head_short": "5c3337c",
+  "output": "docs/valuation/QPF_EXTERNAL_VALUATION_SUMMARY_V1.md",
+  "external_appraisal": false,
+  "financial_activation": false,
+  "wallet_action": false,
+  "signing": false,
+  "broadcast": false,
+  "mint_open": false,
+  "liquidity_authorized": false,
+  "staking_authorized": false,
+  "bridge_authorized": false,
+  "sha256": "bcaa1b7404831e268aa9c53d3455376a7c2f14f7b1f06781be50ade1fa7f9b54",
+  "fmv_effect": "translates sealed internal evidence lane into reviewer-ready value language"
+}

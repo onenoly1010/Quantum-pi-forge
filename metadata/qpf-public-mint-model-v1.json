@@ -1,0 +1,36 @@
+{
+  "name": "QPF Public Mint Model v1",
+  "description": "Governance-reviewed public mint model metadata for Quantum Pi Forge / OINIO on 0G Aristotle Mainnet. Preparation lane only. Does not authorize signing, broadcast, wallet prompts, or live execution.",
+  "image": null,
+  "attributes": [
+    {
+      "trait_type": "Network",
+      "value": "0G Aristotle Mainnet"
+    },
+    {
+      "trait_type": "Chain ID",
+      "value": "16661"
+    },
+    {
+      "trait_type": "Registry",
+      "value": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a"
+    },
+    {
+      "trait_type": "Mint Type",
+      "value": "Public Mint Preparation Lane"
+    },
+    {
+      "trait_type": "Phase",
+      "value": "Phase 34"
+    },
+    {
+      "trait_type": "Governance",
+      "value": "Final Reviewed Values — No Execution"
+    },
+    {
+      "trait_type": "Stake Required",
+      "value": "1 OINIO"
+    }
+  ],
+  "external_url": "https://quantumpiforge.com"
+}

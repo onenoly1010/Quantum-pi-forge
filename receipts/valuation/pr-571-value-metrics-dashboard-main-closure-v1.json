@@ -1,0 +1,20 @@
+{
+  "receipt": "pr-571-value-metrics-dashboard-main-closure-v1",
+  "created_at": "2026-07-04T05:48:22Z",
+  "status": "MERGED_TO_MAIN_AND_VERIFIED",
+  "pr": 571,
+  "head_short": "2dd4291",
+  "head": "2dd4291e3241fa68d4b2f6def015dd040856acdc",
+  "verification": [
+    "npm run verify:evidence",
+    "npm run build"
+  ],
+  "wallet_action": false,
+  "signing": false,
+  "broadcast": false,
+  "mint_open": false,
+  "liquidity_authorized": false,
+  "staking_authorized": false,
+  "bridge_authorized": false,
+  "fmv_effect": "turns the value flywheel into measurable live dashboard evidence"
+}

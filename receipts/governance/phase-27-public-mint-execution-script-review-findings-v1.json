@@ -1,0 +1,79 @@
+{
+  "governance_version": "v1",
+  "receipt": "phase-27-public-mint-execution-script-review-findings-v1",
+  "phase": 27,
+  "title": "Public Mint Execution Script Review Findings",
+  "status": "NO_GO_EXECUTION_PATH_INCOMPLETE",
+  "outcome": "NO_GO_EXECUTION_PATH_INCOMPLETE",
+  "created_at": "2026-07-04T03:30:08.224Z",
+  "review_mode": "review_only_no_execution",
+  "parent_receipt": "receipts/governance/phase-27-public-mint-execution-script-review-v1.json",
+  "purpose": "Record whether the exact public mint execution path can be safely identified.",
+  "finding": "Partial contract, address, and governance documentation exists, but no complete public mint execution script or wired frontend/API broadcast path exists in the repository.",
+  "identified_partial": {
+    "contract_address": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+    "contract_name": "OINIOModelRegistry",
+    "oinio_token": "0x75995EC0fdf881189850aeD864cB3f43c0DFCb58",
+    "function_name": "registerModel",
+    "function_signature": "registerModel(string name, string metadataURI, uint256 stakeAmount)",
+    "prerequisite_calls": [
+      "approve(address,uint256) on OINIO token before registerModel"
+    ],
+    "expected_chain": "0G Aristotle Mainnet",
+    "expected_chain_id": 16661,
+    "documented_stake_amount_wei": "1000000000000000000",
+    "documented_stake_amount_human": "1 OINIO",
+    "abi_source": "contracts/src/OINIOModelRegistry.sol",
+    "controlled_mint_precedent": "receipts/execution/first-controlled-mint-verification-v1.json",
+    "forge_script_partial": "contracts/script/RegisterGenesisAgent.s.sol",
+    "forge_script_note": "Uses PRIVATE_KEY + forge broadcast; operator script only, not a public mint path",
+    "surface_pages": [
+      "mint.html",
+      "mint-status.html",
+      "deploy/deployed-addresses.html"
+    ],
+    "governance_surface": [
+      "receipts/governance/public-mint-open-v1.json",
+      "receipts/governance/public-mint-policy-final-v1.json"
+    ]
+  },
+  "missing_for_complete_path": {
+    "exact_script": null,
+    "public_mint_npm_script": false,
+    "api_mint_endpoint": false,
+    "frontend_wallet_call": false,
+    "mint_html_wallet_integration": "static disabled UI only; no ethers/viem/web3 calls",
+    "expected_wallet_prompt": null,
+    "expected_value_in_executable_harness": null,
+    "expected_gas_behavior": "documented in HTML/receipts only",
+    "expected_receipt_generator": null,
+    "abort_conditions_wired": false
+  },
+  "repo_search_summary": {
+    "scripts_dir_public_mint_files": 0,
+    "package_json_public_mint_scripts": 0,
+    "api_mint_routes": 0,
+    "mint_html_sendTransaction": false,
+    "pi_forge_integration_mint_calls": false,
+    "seed_first_six_models_mint": "NotImplementedError unless --dry-run"
+  },
+  "execution_boundaries": {
+    "signing": false,
+    "broadcast": false,
+    "public_mint_execution": false,
+    "wallet_actions": false,
+    "private_key_access": false,
+    "seed_phrase_request": false,
+    "contract_changes": false,
+    "liquidity_activation": false,
+    "staking_activation": false,
+    "bridge_activation": false,
+    "yield_routing": false,
+    "treasury_movement": false,
+    "token_transfer": false,
+    "automatic_wallet_signing": false
+  },
+  "conclusion": "NOT ready to execute. Identified pieces are documentation and Phase 13 controlled-mint precedent only. Phase 28 must record final execution decision or NO-GO.",
+  "next_gate": "PHASE_28_FINAL_EXECUTION_DECISION_OR_NO_GO",
+  "sha256": "2488d7ed2284f5e5c406ec17bd42292ef7ccf45f0f76083c0e0d4a8484422200"
+}

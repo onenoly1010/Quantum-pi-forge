@@ -1,0 +1,35 @@
+{
+  "receipt": "local-ai-autonomous-finalization-handoff-v1",
+  "created_at": "2026-07-05T19:56:27.830Z",
+  "head": "4c8344e",
+  "branch": "main",
+  "title": "Local AI Autonomous Finalization Handoff",
+  "status": "HANDOFF_READY",
+  "mode": "AI_MAY_COMPLETE_SAFE_WORK_ONLY",
+  "human_authority": "KRIS_FINAL_APPROVAL_REQUIRED",
+  "allowed_without_approval": [
+    "read_only_audits",
+    "receipt_indexing",
+    "roadmap_updates",
+    "evidence_verification",
+    "build_verification",
+    "public_review_packet_preparation",
+    "contradiction_detection",
+    "final_approval_packet_drafting"
+  ],
+  "forbidden_without_approval": [
+    "wallet_signing",
+    "token_transfer",
+    "public_mint_open",
+    "controlled_mint_execution",
+    "liquidity",
+    "staking",
+    "bridge",
+    "deployment",
+    "ownership_transfer",
+    "external_outreach_send",
+    "governance_authorization_claim"
+  ],
+  "final_gate": "READY_FOR_KRIS_FINAL_APPROVAL_NO_IRREVERSIBLE_ACTION_TAKEN",
+  "sha256": "18479948f5f4a9e1f36cca19d9b8b2638cd156d0637de7ebddf5486bb33b1ee1"
+}

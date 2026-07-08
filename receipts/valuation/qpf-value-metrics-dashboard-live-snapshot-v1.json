@@ -1,0 +1,32 @@
+{
+  "receipt": "qpf-value-metrics-dashboard-live-snapshot-v1",
+  "created_at": "2026-07-04T05:45:19Z",
+  "status": "VALUE_METRICS_DASHBOARD_LIVE_SNAPSHOT_POPULATED",
+  "head_short": "afed71a",
+  "output": "docs/valuation/QPF_VALUE_METRICS_DASHBOARD_V1.md",
+  "metrics": {
+    "valuation_docs": 9,
+    "valuation_receipts": 10,
+    "governance_receipts": 280,
+    "governance_docs": 147,
+    "audit_readiness_docs": 4,
+    "deploy_public_html": 29,
+    "valuation_closure_receipts": 4,
+    "diligence_indexed_files": 461,
+    "permission_map_source_receipts_checked": 1201,
+    "permission_map_evidence_hits": 63,
+    "mint_allowed": false,
+    "public_mint_active": false,
+    "evidence_verify_status": "PASS",
+    "build_status": "PASS"
+  },
+  "wallet_action": false,
+  "signing": false,
+  "broadcast": false,
+  "mint_open": false,
+  "liquidity_authorized": false,
+  "staking_authorized": false,
+  "bridge_authorized": false,
+  "sha256": "ea19419120352ac2c7054eeb187bf15af6aff99fd240d33e0cf6d2906e25ca87",
+  "fmv_effect": "proves flywheel inputs with live repo counts rather than belief"
+}

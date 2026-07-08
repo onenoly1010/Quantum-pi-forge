@@ -1,0 +1,40 @@
+{
+  "governance_version": "v1",
+  "receipt": "guardian-authority-reconciliation-v1",
+  "created_at": "2026-07-04T00:31:17.045Z",
+  "status": "GUARDIAN_AUTHORITY_RECONCILED",
+  "guardian_safe": "0x8d088B88219D072aB035502065ee2410c2cb4389",
+  "precheck_receipt": "receipts/governance/guardian-authority-reconciliation-precheck-v1.json",
+  "precheck_status": "GUARDIAN_AUTHORITY_PRECHECK_PASS",
+  "precheck_sha256": "0ed9e43809e1cdb9560594ad0e4820a92e1c334c47a42c5738fedd9ba18e1d49",
+  "doc": "docs/governance/GUARDIAN_AUTHORITY_RECONCILIATION_V1.md",
+  "doc_sha256": "72af06d33c3cd76410d62903af465bf3460402175904c16240ac3be0c8327ff0",
+  "git_head": "4171e19ef40cd793d31afb47e9e360390bd6d0ef",
+  "authority_rules": {
+    "guardian_safe_expected": true,
+    "deployer_unilateral_future_authority": false,
+    "narrative_provenance_execution_authority": false,
+    "ceremonial_genesis_execution_authority": false,
+    "operational_genesis_required_for_live_execution": true
+  },
+  "gates": {
+    "mint": "NOT_AUTHORIZED_BY_THIS_RECEIPT",
+    "staking": "NOT_AUTHORIZED_BY_THIS_RECEIPT",
+    "liquidity": "NOT_AUTHORIZED_BY_THIS_RECEIPT",
+    "bridge": "NOT_AUTHORIZED_BY_THIS_RECEIPT",
+    "treasury_movement": "NOT_AUTHORIZED_BY_THIS_RECEIPT",
+    "yield_routing": "NOT_AUTHORIZED_BY_THIS_RECEIPT",
+    "agent_authority": "NOT_AUTHORIZED_BY_THIS_RECEIPT"
+  },
+  "assertions": {
+    "read_only": true,
+    "no_wallet_action": true,
+    "no_signing": true,
+    "no_broadcast": true,
+    "no_private_key_access": true,
+    "no_seed_phrase_access": true,
+    "no_funds_moved": true,
+    "constitutional_closure_not_yet_anchored": true
+  },
+  "next": "Draft docs/governance/QPF_CONSTITUTIONAL_CLOSURE_V1.md only after reviewing this Guardian Authority Reconciliation receipt."
+}

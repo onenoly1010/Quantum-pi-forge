@@ -1,0 +1,43 @@
+{
+  "governance_version": "v1",
+  "receipt": "qpf-constitutional-stack-status-v1",
+  "created_at": "2026-07-04T00:51:23.605Z",
+  "status": "CONSTITUTIONAL_STACK_SEALED_REPO_ONLY",
+  "git_head": "3172b417f85b69c38d7bb36018cf0d39a52c2a92",
+  "doc": "docs/status/QPF_CONSTITUTIONAL_STACK_STATUS_V1.md",
+  "doc_sha256": "767c0a41272962b23ccc313cca7031e15d08d64102fc82718811d4c1c871686d",
+  "inputs": {
+    "receipts/governance/guardian-authority-reconciliation-v1.json": {
+      "status": "GUARDIAN_AUTHORITY_RECONCILED",
+      "sha256": "98c972434a80e5490e26b07f54f20803ef738351cd08c1ce82701c8e81a13e9d"
+    },
+    "receipts/governance/qpf-constitutional-closure-v1.json": {
+      "status": "CONSTITUTIONAL_CLOSURE_PREPARED",
+      "sha256": "63c96f985f58cc9ae989d10e9db7101a4dce4626a4022c830a41bf8b18fa8329"
+    },
+    "receipts/governance/qpf-constitutional-closure-manifest-v1.json": {
+      "status": "CONSTITUTIONAL_CLOSURE_MANIFEST_PREPARED",
+      "sha256": "91f0ce2678a2036dc9aeeca16bb40324a0dff5bc8472407ef7e368e34c462447"
+    },
+    "receipts/governance/qpf-constitutional-publication-and-anchor-gate-v1.json": {
+      "status": "PUBLICATION_AND_ANCHOR_GATE_PREPARED_NOT_AUTHORIZED",
+      "sha256": "12366c31ac565ee3afe7936eae8c28a3eff4e64a399e25d1866278fc1522a117"
+    }
+  },
+  "not_authorized": {
+    "decentralized_storage_publication": true,
+    "on_chain_anchor": true,
+    "wallet_action": true,
+    "signing": true,
+    "broadcast": true,
+    "funds_movement": true,
+    "mint": true,
+    "staking": true,
+    "liquidity": true,
+    "bridge": true,
+    "treasury_movement": true,
+    "yield_routing": true,
+    "agent_authority": true
+  },
+  "next": "Commit this status receipt if review is clean."
+}

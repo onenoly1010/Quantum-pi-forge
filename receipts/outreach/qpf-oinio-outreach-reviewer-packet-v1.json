@@ -1,0 +1,43 @@
+{
+  "receipt": "qpf-oinio-outreach-reviewer-packet-v1",
+  "created_at": "2026-07-05T15:35:37.175Z",
+  "head": "d3a74a8",
+  "phase": 42,
+  "title": "QPF OINIO Outreach Reviewer Packet",
+  "status": "READY_FOR_HUMAN_REVIEW",
+  "mode": "OUTREACH_REVIEW_ONLY",
+  "authorization": false,
+  "wallet_signing": false,
+  "broadcast": false,
+  "wallet_connection": false,
+  "private_key_access": false,
+  "mint": false,
+  "transfer": false,
+  "liquidity": false,
+  "staking": false,
+  "bridge": false,
+  "public_mint": "NOT_OPEN",
+  "controlled_mint": "REQUIRES_VERIFICATION",
+  "purpose": "Create a human-reviewable outreach and grant reviewer packet from the sealed Human Cockpit v1 milestone.",
+  "artifact_hashes": {
+    "human-cockpit.html": "a1e408273a92ec34b9d64b16d83c927962d17e3bea7fed7aff895dd2593371c3",
+    "docs/human-cockpit/HUMAN_COCKPIT_PUBLIC_TRUST_INDEX_V1.md": "60c97ca7615175bbecf69cb86967d5916ab16d2ee53e9d132654e55fa38febb9",
+    "receipts/human-cockpit/human-cockpit-public-trust-index-v1.json": "caa3898acbf41d52048c2607d47ba410176f5c91563488e93dc61afe5e1c55a8",
+    "receipts/human-cockpit/human-cockpit-v1-closure-receipt.json": "e78e17d4a0fdfab7e53f8f6d30218eacda28a008461f474fa960e55be960c8b0",
+    "receipts/human-cockpit/human-cockpit-read-only-v1.json": "09bd1c4a74e94dcfd144dc4c14dd6c0d5adf274fc9cd790cf89c76efeaded7d5"
+  },
+  "next_allowed_actions": [
+    "human review of outreach packet",
+    "manual partner or grant reviewer outreach after approval",
+    "read-only reconciliation only"
+  ],
+  "blocked_actions": [
+    "public mint opening",
+    "controlled mint execution",
+    "wallet signing",
+    "token transfer",
+    "liquidity",
+    "staking",
+    "bridge"
+  ]
+}

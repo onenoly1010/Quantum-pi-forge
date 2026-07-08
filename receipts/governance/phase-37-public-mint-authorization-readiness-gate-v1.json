@@ -1,0 +1,57 @@
+{
+  "governance_version": "v1",
+  "receipt": "phase-37-public-mint-authorization-readiness-gate-v1",
+  "phase": 37,
+  "title": "Public Mint Authorization Readiness Gate",
+  "status": "PHASE_37_AUTHORIZATION_READINESS_GATE_OPEN_NO_EXECUTION",
+  "created_at": "2026-07-04T07:00:00.000Z",
+  "mode": "authorization_readiness_only",
+  "purpose": "Prove Phase 36 repaired readiness evidence is complete and intact before any separate public mint authorization receipt. Does not authorize signing, broadcast, wallet prompts, public mint execution, or live execution authorization.",
+  "trigger_from_phase_36": {
+    "receipt": "receipts/governance/phase-36-public-mint-policy-live-preview-readiness-repair-gate-v1.json",
+    "required_status": "PHASE_36_READINESS_REPAIR_GATE_OPEN_NO_EXECUTION",
+    "next_gate_declared": "PHASE_37_PUBLIC_MINT_AUTHORIZATION_READINESS_GATE_SEPARATE_NOT_OPENED"
+  },
+  "artifacts": {
+    "authorization_readiness_proof": "receipts/governance/public-mint-authorization-readiness-proof-v1.json",
+    "verify_harness": "scripts/review/verify-phase-37-public-mint-authorization-readiness-gate-v1.cjs",
+    "seal_harness": "scripts/review/create-phase-37-authorization-readiness-gate-v1.cjs"
+  },
+  "proof_scope": [
+    "phase_36_repaired_readiness_evidence",
+    "mint_allowed_policy_state",
+    "public_mint_active_state",
+    "approved_manual_ui_path_or_live_execution_script",
+    "live_gas_rpc_preview_gate_state",
+    "phase_35_confirmed_values_preserved",
+    "execution_boundaries_all_false"
+  ],
+  "decision": {
+    "open_phase_37_authorization_readiness_gate": true,
+    "authorize_public_mint": false,
+    "open_live_execution_authorization": false,
+    "open_phase_33_live_execution_authorization_retry": false
+  },
+  "live_action_rule": "Authorization readiness proof only. Phase 37 verifies repaired evidence from Phase 36. No signing, broadcast, wallet prompt, public mint execution, or live execution authorization is opened.",
+  "execution_boundaries": {
+    "signing": false,
+    "broadcast": false,
+    "public_mint_execution": false,
+    "wallet_actions": false,
+    "wallet_prompt": false,
+    "wallet_prompt_triggered": false,
+    "automatic_execution": false,
+    "private_key_access": false,
+    "seed_phrase_request": false,
+    "phase_33_live_execution_authorization_retry": false,
+    "live_execution_authorization": false,
+    "live_execution_script_enabled": false,
+    "liquidity_activation": false,
+    "staking_activation": false,
+    "bridge_activation": false,
+    "yield_routing": false,
+    "treasury_movement": false,
+    "token_transfer": false
+  },
+  "next_gate": "PHASE_38_PUBLIC_MINT_AUTHORIZATION_GATE"
+}

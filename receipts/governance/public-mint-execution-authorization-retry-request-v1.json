@@ -1,0 +1,107 @@
+{
+  "governance_version": "v1",
+  "receipt": "public-mint-execution-authorization-retry-request-v1",
+  "title": "Public Mint Execution Authorization Retry Request",
+  "status": "PENDING_KRIS_EXPLICIT_RETRY_APPROVAL",
+  "created_at": "2026-07-04T04:50:00.000Z",
+  "mode": "execution_authorization_retry_request_no_automatic_execution",
+  "purpose": "Require Kris to explicitly approve Phase 33 live execution authorization retry after Phase 35 confirmation. Does not sign, broadcast, trigger wallet prompts, or execute public minting.",
+  "phase_35_confirmation_reference": "receipts/governance/phase-35-final-reviewed-values-human-confirmation-v1.json",
+  "final_reviewed_values": "receipts/governance/public-mint-final-reviewed-values-v1.json",
+  "dry_run_preview": "receipts/governance/public-mint-dry-run-execution-preview-v1.json",
+  "mint_policy": "receipts/governance/public-mint-policy-final-v1.json",
+  "execution_path_spec": "receipts/governance/public-mint-execution-path-spec-v1.json",
+  "approval_rule": "No Phase 33 live execution authorization retry until Kris inspects this request and explicitly says yes, and mint_allowed is true and live_execution_script is non-null.",
+  "phase_35_final_values_confirmed": {
+    "status": "KRIS_FINAL_REVIEWED_VALUES_CONFIRMED",
+    "model_name": "QPF Public Mint Model v1",
+    "metadataURI": "https://quantumpiforge.com/metadata/qpf-public-mint-model-v1.json",
+    "chainId": 16661,
+    "network": "0G Aristotle Mainnet",
+    "dry_run_preview_fingerprint": "e1b801b5388ce2cab47f39ed0aedb47dc01d799432f07a4e7b04e256730361ff"
+  },
+  "mint_allowed_policy_state": {
+    "policy_receipt": "receipts/governance/public-mint-policy-final-v1.json",
+    "mint_allowed": false,
+    "public_mint_active": false,
+    "path_spec_status": "REVIEW_ONLY_NOT_EXECUTABLE"
+  },
+  "live_execution_script_status": {
+    "path_spec_live_execution_script": null,
+    "live_execution_script_enabled": false,
+    "note": "Live execution script must be defined in a separate authorized phase before retry can authorize execution."
+  },
+  "live_gas_preview_requirement": {
+    "live_gas_estimate": null,
+    "transaction_count": 2,
+    "payer": "user_wallet",
+    "requirement": "Live gas preview via wallet/RPC gate required before execution authorization retry may approve live action.",
+    "current_status": "NOT_SATISFIED"
+  },
+  "exact_two_transaction_sequence": {
+    "step_1": {
+      "contract_address": "0x75995EC0fdf881189850aeD864cB3f43c0DFCb58",
+      "contract_name": "OINIOToken",
+      "function_name": "approve",
+      "function_args": {
+        "spender": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+        "amount": "1000000000000000000"
+      },
+      "native_value": "0"
+    },
+    "step_2": {
+      "contract_address": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+      "contract_name": "OINIOModelRegistry",
+      "function_name": "registerModel",
+      "function_args": {
+        "name": "QPF Public Mint Model v1",
+        "metadataURI": "https://quantumpiforge.com/metadata/qpf-public-mint-model-v1.json",
+        "stakeAmount": "1000000000000000000"
+      },
+      "native_value": "0",
+      "minter_recipient": "caller_wallet_msg_sender"
+    }
+  },
+  "abort_conditions": [
+    "wrong chain or chainId != 16661",
+    "contract address != 0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+    "oinio token address != 0x75995EC0fdf881189850aeD864cB3f43c0DFCb58",
+    "function != approve then registerModel",
+    "stakeAmount != 1000000000000000000 unless governance updates policy",
+    "name or metadataURI differ from Phase 35 confirmed final values",
+    "unexpected native value > 0",
+    "wallet prompt requests seed phrase or private key",
+    "wallet prompt includes liquidity/staking/bridge/yield/treasury action",
+    "mint_allowed policy remains false",
+    "live_execution_script remains null",
+    "live gas preview requirement not satisfied",
+    "Kris has not explicitly approved Phase 33 execution authorization retry"
+  ],
+  "kris_retry_approval": {
+    "required": true,
+    "explicit_yes_required": true,
+    "approved": false,
+    "approved_at": null,
+    "approved_by": null,
+    "approval_phrase_required": "explicit human YES to authorize Phase 33 live execution authorization retry for this exact two-transaction sequence"
+  },
+  "execution_boundaries": {
+    "signing": false,
+    "broadcast": false,
+    "public_mint_execution": false,
+    "wallet_actions": false,
+    "wallet_prompt": false,
+    "wallet_prompt_triggered": false,
+    "automatic_execution": false,
+    "live_execution_script_enabled": false,
+    "private_key_access": false,
+    "seed_phrase_request": false,
+    "contract_changes": false,
+    "liquidity_activation": false,
+    "staking_activation": false,
+    "bridge_activation": false,
+    "yield_routing": false,
+    "treasury_movement": false,
+    "token_transfer": false
+  }
+}

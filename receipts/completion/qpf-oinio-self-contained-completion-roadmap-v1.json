@@ -1,0 +1,86 @@
+{
+  "receipt": "qpf-oinio-self-contained-completion-roadmap-v1",
+  "created_at": "2026-07-05T16:44:19.241Z",
+  "head": "86ad05f",
+  "phase": 45,
+  "title": "QPF OINIO Self-Contained Completion Roadmap",
+  "status": "COMPLETION_IN_PROGRESS",
+  "mode": "COMPLETION_PLANNING_ONLY",
+  "authorization": false,
+  "automatic_outreach": false,
+  "wallet_signing": false,
+  "broadcast": false,
+  "wallet_connection": false,
+  "private_key_access": false,
+  "mint": false,
+  "transfer": false,
+  "liquidity": false,
+  "staking": false,
+  "bridge": false,
+  "public_mint": "NOT_OPEN",
+  "controlled_mint": "REQUIRES_VERIFICATION",
+  "must_finish": [
+    "evidence verification and build-gated governance pipeline operational",
+    "human cockpit v1 stable and pipeline-refreshed",
+    "all safety assertions hardcoded and verified",
+    "public mint decision recorded and enforced on-chain",
+    "controlled mint path gated by human verification only",
+    "wallet signing disabled until explicit governance unlock",
+    "token transfer disabled until explicit governance unlock",
+    "liquidity, staking, bridge disabled until explicit governance unlock",
+    "outreach proof sealed but optional"
+  ],
+  "remains_locked": [
+    "public mint",
+    "controlled mint",
+    "wallet signing",
+    "token transfer",
+    "liquidity",
+    "staking",
+    "bridge"
+  ],
+  "allowed_next": [
+    "evidence verification",
+    "build and deployment",
+    "human-readable proof publication",
+    "read-only reconciliation",
+    "human review of completed system state"
+  ],
+  "not_allowed_yet": [
+    "automatic outreach",
+    "wallet connection",
+    "transaction signing",
+    "public mint opening",
+    "token transfer",
+    "liquidity provision",
+    "staking activation",
+    "bridge activation"
+  ],
+  "purpose": "Define a self-contained completion roadmap that does not depend on grants, partners, or outside validation.",
+  "artifact_hashes": {
+    "docs/outreach/QPF_OINIO_OUTREACH_REVIEWER_PACKET_V1.md": "5cc8cacfc6c9c45382aace34e38ea1c3353f6e29243eb86a662536c34036344e",
+    "receipts/outreach/qpf-oinio-outreach-reviewer-packet-v1.json": "dff042d7232f8d1359acfdf40a6ee809a01cbcce5635ad508c26f1661830aa1e",
+    "docs/outreach/QPF_OINIO_MANUAL_OUTREACH_SEND_PACKET_V1.md": "84d3695003d7786830e0434811d2958a0ba247b6f7d8a6eb1d74a5a79f98e620",
+    "docs/outreach/QPF_OINIO_OUTREACH_TARGET_REVIEW_GATE_V1.md": "9c7e72fa4856a9df8cba6955ce04db401095386f8a2c297db8ff8181ec07ceaf",
+    "docs/outreach/QPF_OINIO_MANUAL_OUTREACH_TARGET_SHORTLIST_V1.md": "fb7cfc894b8b4161f9433a38e0a4d943373f35b72ecdf4d2f9b0f5d8d61cc3a1",
+    "receipts/human-cockpit/human-cockpit-read-only-v1.json": "e15afdf0ef57f11b07bf3e3c341cfa4beab84ff9f9e1a574ed5e4c4e6ead149c",
+    "human-cockpit.html": "a1e408273a92ec34b9d64b16d83c927962d17e3bea7fed7aff895dd2593371c3"
+  },
+  "next_allowed_actions": [
+    "continue completion roadmap execution",
+    "seal remaining safety assertions and governance receipts",
+    "prepare unlock governance receipts when human approval exists",
+    "read-only reconciliation only"
+  ],
+  "blocked_actions": [
+    "automatic outreach",
+    "mass outreach",
+    "public mint opening",
+    "controlled mint execution",
+    "wallet signing",
+    "token transfer",
+    "liquidity",
+    "staking",
+    "bridge"
+  ]
+}

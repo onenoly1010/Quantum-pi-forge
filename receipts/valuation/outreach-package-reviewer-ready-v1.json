@@ -1,0 +1,23 @@
+{
+  "receipt": "outreach-package-reviewer-ready-v1",
+  "created_at": "2026-07-04T16:23:35.354Z",
+  "base_commit": "e2679e8",
+  "status": "REVIEWER_READY_V1_CREATED",
+  "updated_files": [
+    "docs/valuation/outreach/GRANT_COVER_LETTER_V1.md",
+    "docs/valuation/outreach/PARTNER_ONE_PAGER_V1.md",
+    "docs/valuation/outreach/AUDITOR_REVIEW_BRIEF_V1.md",
+    "docs/valuation/outreach/ECOSYSTEM_INTRO_MESSAGE_V1.md",
+    "docs/valuation/outreach/OUTREACH_TARGET_INDEX_V1.md"
+  ],
+  "forbidden_actions": [
+    "wallet signing",
+    "token transfer",
+    "liquidity activation",
+    "staking activation",
+    "bridge activation",
+    "public mint opening",
+    "private key access"
+  ],
+  "safety": "Documentation polish only. No on-chain execution."
+}
