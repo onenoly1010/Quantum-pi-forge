@@ -1,0 +1,9 @@
+PHASE 19 HUMAN ACTIVATION AUTHORIZATION v1
+created_at=2026-07-08T21:32:18.561Z
+head=10fff73
+branch=phase19/human-activation-authorization-v1
+status=DIRTY
+previous_phase_19_outcome=PUBLIC_MINT_REQUIRES_ADDITIONAL_REVIEW
+new_state=HUMAN_AUTHORIZATION_RECEIVED_REVIEW_STILL_REQUIRED
+receipt_sha256=f709889406defee9ec2e8a5d552366ee6ca8b96daf0ff4a28c15ed7937dc2f5b
+blocked=wallet signing,broadcast,public mint execution,token transfer,liquidity,staking,bridge,treasury
