@@ -1,0 +1,41 @@
+{
+  "receipt": "final-public-mint-open-decision-v1",
+  "created_at": "2026-07-08T17:46:28.446Z",
+  "base_protected_truth": "ba00d9d",
+  "head": "a9bf67b",
+  "branch": "governance/final-public-mint-open-decision-v1",
+  "status": "HUMAN_DECISION_REQUIRED",
+  "previous_main_closure": "1dc65fe",
+  "final_public_mint_prep": "MERGED_AND_CLOSED",
+  "public_mint": "NOT_OPEN",
+  "decision": "PENDING_OPEN_OR_NO_OPEN",
+  "irreversible_actions": false,
+  "signing": false,
+  "broadcast": false,
+  "token_transfer": false,
+  "liquidity": false,
+  "staking": false,
+  "bridge": false,
+  "working_tree_clean": true,
+  "parked_local_change": "receipts/public-review/public-review-verification-v1.json stashed before branch switch",
+  "decision_options": [
+    "KEEP_PUBLIC_MINT_CLOSED",
+    "AUTHORIZE_PUBLIC_MINT_OPEN_PREP_ONLY"
+  ],
+  "required_before_any_open": [
+    "explicit human final open decision receipt",
+    "read-only mint UI confirmation",
+    "read-only contract/address/supply reconciliation",
+    "final safety warning confirmation",
+    "separate open execution boundary if and only if authorized"
+  ],
+  "blocked_actions": [
+    "wallet signing",
+    "transaction broadcast",
+    "public mint opening",
+    "token transfer",
+    "liquidity creation",
+    "staking activation",
+    "bridge activation"
+  ]
+}
