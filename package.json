@@ -246,7 +246,7 @@
     "chai": "^6.2.2",
     "dotenv": "^17.4.2",
     "ethers": "^6.17.0",
-    "hardhat": "^3.9.0"
+    "hardhat": "^3.9.1"
   },
   "devDependencies": {
     "@storacha/client": "^2.1.4",
