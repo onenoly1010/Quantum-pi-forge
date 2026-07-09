@@ -1,0 +1,16 @@
+PHASE 19 WALLET SIGNING PREFLIGHT UNLOCK v1
+created_at=2026-07-09T02:07:32.760Z
+head=cd894fd
+branch=phase19/wallet-signing-preflight-unlock-v1
+decision=ALLOW_WALLET_SIGNING_PREFLIGHT_ONLY
+final_activation_authorized=true
+wallet_signing_allowed=true
+broadcast_allowed=false
+public_mint_open_allowed=false
+token_transfer_allowed=false
+liquidity_allowed=false
+staking_allowed=false
+bridge_allowed=false
+treasury_activation_allowed=false
+next_required_step=SELECT_EXACT_EXECUTION_TARGET_AND_RUN_NO_BROADCAST_PREFLIGHT
+receipt_sha256=e1a602670ad4f2b42e2de306b8eb686ddacdc306d22971cb4d6e0e1509cd1f3f

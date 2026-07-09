@@ -1,0 +1,21 @@
+{
+  "receipt": "phase-19-wallet-signing-preflight-unlock-v1",
+  "created_at": "2026-07-09T02:07:32.760Z",
+  "head": "cd894fd",
+  "branch": "phase19/wallet-signing-preflight-unlock-v1",
+  "phase": 19,
+  "title": "Wallet Signing Preflight Unlock",
+  "decision": "ALLOW_WALLET_SIGNING_PREFLIGHT_ONLY",
+  "reason": "Preflight confirms code exists and execution is blocked by flags, not missing scripts. This unlocks signing-readiness inspection only, not broadcast or public mint opening.",
+  "final_activation_authorized": true,
+  "wallet_signing_allowed": true,
+  "broadcast_allowed": false,
+  "public_mint_open_allowed": false,
+  "token_transfer_allowed": false,
+  "liquidity_allowed": false,
+  "staking_allowed": false,
+  "bridge_allowed": false,
+  "treasury_activation_allowed": false,
+  "next_required_step": "SELECT_EXACT_EXECUTION_TARGET_AND_RUN_NO_BROADCAST_PREFLIGHT",
+  "warning": "This does not sign, broadcast, open public mint, transfer tokens, create liquidity, activate staking, bridge, or treasury actions."
+}
