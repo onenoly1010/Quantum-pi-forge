@@ -1,9 +1,9 @@
-phase-19-final-activation-review-gate-v1
-created_at=2026-07-08T23:55:01.529Z
-head=9a5ad92
+PHASE 19 FINAL ACTIVATION REVIEW GATE v1
+created_at=2026-07-09T00:38:32.329Z
+head=b2b9eac
 branch=phase19/final-activation-review-gate-v1
-outcome=GATES_INVENTORIED_ACTIVATION_STILL_BLOCKED
-remaining_gates=8
-next_required=GATE_1_CHECKLIST_DEBT_ACTIVE_SCOPE
-consider_irreversible_actions=false
-activation=BLOCKED
+status=DIRTY
+previous_outcome=PUBLIC_MINT_REQUIRES_ADDITIONAL_REVIEW
+new_state=FINAL_ACTIVATION_REVIEW_GATE_OPEN
+receipt_sha256=1e92d2378250f869e4d322b8161240f36cbd2710935f8d83ba5f30ee84a12008
+blocked=wallet signing,broadcast,public mint execution,token transfer,liquidity,staking,bridge,treasury
