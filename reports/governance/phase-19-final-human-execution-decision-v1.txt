@@ -1,0 +1,11 @@
+PHASE 19 FINAL HUMAN EXECUTION DECISION v1
+created_at=2026-07-09T01:13:03.069Z
+head=65a4225
+branch=phase19/final-human-execution-decision-v1
+decision=PREPARE_FOR_ACTIVATION_PREFLIGHT_ONLY
+final_activation_authorized=true
+wallet_signing_allowed=false
+broadcast_allowed=false
+public_mint_open_allowed=false
+next_required_step=FINAL_EXECUTION_PREFLIGHT_NO_SIGNING_NO_BROADCAST
+receipt_sha256=f5bacc29c6a5e65fd3a405a6f72367cc29777637aa9573f92f854545dd5a6483
