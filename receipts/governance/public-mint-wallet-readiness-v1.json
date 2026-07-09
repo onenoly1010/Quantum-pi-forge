@@ -1,0 +1,24 @@
+{
+  "governance_version": "v1",
+  "created_at": "2026-07-09T23:07:31.549Z",
+  "head": "f1332de",
+  "chain": {
+    "name": "0G Aristotle Mainnet",
+    "chain_id": 16661
+  },
+  "wallet": "0x335651BD160fDA89C9E7A095dF9Dc1BB9f3cF4DC",
+  "receipt": "public-mint-wallet-readiness-v1",
+  "status": "READINESS_DECLARED_NO_SIGNING_NO_BROADCAST",
+  "wallet_requirements": {
+    "native_0g_for_gas": "REQUIRED_BEFORE_SIGNING",
+    "oinio_available_for_stake": "1 OINIO REQUIRED_BEFORE_SIGNING",
+    "allowance_path": "approve registry for exactly 1 OINIO then registerModel"
+  },
+  "execution_boundaries": {
+    "signing": false,
+    "broadcast": false,
+    "public_mint_execution": false,
+    "private_key_access": false,
+    "seed_phrase_request": false
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "governance_version": "v1",
+  "created_at": "2026-07-09T23:07:31.549Z",
+  "head": "f1332de",
+  "chain": {
+    "name": "0G Aristotle Mainnet",
+    "chain_id": 16661
+  },
+  "wallet": "0x335651BD160fDA89C9E7A095dF9Dc1BB9f3cF4DC",
+  "receipt": "public-mint-wallet-prompt-final-inspection-v1",
+  "status": "EXPECTED_PROMPTS_RECORDED_ABORT_CONDITIONS_SEALED",
+  "expected_prompts": [
+    {
+      "step": 1,
+      "contract": "0x75995EC0fdf881189850aeD864cB3f43c0DFCb58",
+      "function": "approve",
+      "spender": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+      "amount": "1000000000000000000",
+      "native_value": "0"
+    },
+    {
+      "step": 2,
+      "contract": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+      "function": "registerModel",
+      "name": "QPF Public Mint Model v1",
+      "metadataURI": "https://quantumpiforge.com/metadata/qpf-public-mint-model-v1.json",
+      "stakeAmount": "1000000000000000000",
+      "native_value": "0"
+    }
+  ],
+  "abort_conditions": [
+    "wrong chain or chainId != 16661",
+    "contract address mismatch",
+    "OINIO token address mismatch",
+    "function != approve then registerModel",
+    "stakeAmount != 1000000000000000000",
+    "unexpected native value > 0",
+    "wallet prompt requests seed phrase or private key",
+    "wallet prompt includes liquidity/staking/bridge/yield/treasury action",
+    "unknown contract",
+    "unbounded approval"
+  ],
+  "execution_boundaries": {
+    "signing": false,
+    "broadcast": false,
+    "public_mint_execution": false
+  }
+}
