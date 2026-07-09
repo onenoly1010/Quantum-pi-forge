@@ -1,0 +1,85 @@
+{
+  "receipt": "phase-19-final-public-mint-decision-review-no-go-v1",
+  "created_at": "2026-07-09T16:33:08.186Z",
+  "head": "0683fa0",
+  "status": "SEALED_REVIEW_NO_GO",
+  "decision": "DO_NOT_EXECUTE_PUBLIC_MINT",
+  "reason": [
+    "public mint policy still has mint_allowed=false",
+    "public mint policy still has public_mint_active=false",
+    "path spec is review-only and not executable",
+    "live_execution_script is null",
+    "live gas estimate is null",
+    "Phase 33 remains NO_GO_PUBLIC_MINT_EXECUTION_NOT_AUTHORIZED"
+  ],
+  "boundaries": {
+    "signing": false,
+    "broadcast": false,
+    "public_mint_execution": false,
+    "wallet_prompt": false,
+    "private_key_access": false,
+    "token_transfer": false,
+    "liquidity": false,
+    "staking": false,
+    "bridge": false,
+    "treasury": false
+  },
+  "inputs": [
+    {
+      "path": "receipts/governance/public-mint-dry-run-execution-preview-v1.json",
+      "sha256": "64691d9c6f374ea1243d4db5edc3c0e9096d65b5dbfaccf8500b48ad13d4c3cc",
+      "receipt": "public-mint-dry-run-execution-preview-v1",
+      "status": "DRY_RUN_PREVIEW_NO_BROADCAST",
+      "mode": "dry_run_non_broadcast_preview_only",
+      "live_execution_script": null,
+      "signing": false,
+      "broadcast": false,
+      "public_mint_execution": false
+    },
+    {
+      "path": "receipts/governance/public-mint-final-reviewed-values-v1.json",
+      "sha256": "881bbaf43060ce51d4345c51f6d3eec464e68fbaaa22d47a67bc637af4699178",
+      "receipt": "public-mint-final-reviewed-values-v1",
+      "status": "FINAL_REVIEWED_VALUES_SEALED_NO_EXECUTION",
+      "mode": "preparation_lane_no_execution",
+      "live_execution_script": null,
+      "signing": false,
+      "broadcast": false,
+      "public_mint_execution": false
+    },
+    {
+      "path": "receipts/governance/public-mint-policy-final-v1.json",
+      "sha256": "b162818b96c7c466639bc79021bc9b620dc139d046d50e2d8c66707fc5de8293",
+      "receipt": "public-mint-policy-final-v1",
+      "status": "DEFINED_NO_ACTIVATION",
+      "mode": "review_only_no_wallet_action",
+      "live_execution_script": null,
+      "signing": false,
+      "broadcast": false,
+      "public_mint_execution": false
+    },
+    {
+      "path": "receipts/governance/public-mint-execution-path-spec-v1.json",
+      "sha256": "7058fcb9bafad8ecc039d9b845115fb03f763b075207c7f7d9d2d2b9c476cdc1",
+      "receipt": "public-mint-execution-path-spec-v1",
+      "status": "REVIEW_ONLY_NOT_EXECUTABLE",
+      "mode": "builder_review_lane_no_execution",
+      "live_execution_script": null,
+      "signing": false,
+      "broadcast": false,
+      "public_mint_execution": false
+    },
+    {
+      "path": "receipts/governance/phase-33-public-mint-execution-no-go-v1.json",
+      "sha256": "96c097f84df0bac44d40299abdb70da8161b7653bc3914c83f3f08b7be168284",
+      "receipt": "phase-33-public-mint-execution-no-go-v1",
+      "status": "NO_GO_PUBLIC_MINT_EXECUTION_NOT_AUTHORIZED",
+      "mode": null,
+      "live_execution_script": null,
+      "signing": false,
+      "broadcast": false,
+      "public_mint_execution": false
+    }
+  ],
+  "working_tree_status_before": ""
+}
