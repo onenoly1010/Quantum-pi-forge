@@ -1,0 +1,28 @@
+{
+  "governance_version": "v1",
+  "created_at": "2026-07-09T23:07:31.549Z",
+  "head": "f1332de",
+  "chain": {
+    "name": "0G Aristotle Mainnet",
+    "chain_id": 16661
+  },
+  "wallet": "0x335651BD160fDA89C9E7A095dF9Dc1BB9f3cF4DC",
+  "receipt": "phase-33-public-mint-execution-authorization-retry-v1",
+  "status": "GO_FOR_EXACT_PUBLIC_MINT_ONLY_AFTER_PR_MERGE_AND_FINAL_HUMAN_WALLET_CONFIRMATION",
+  "decision": "GO_FOR_EXACT_PUBLIC_MINT_ONLY",
+  "not_authorized": [
+    "general autonomous wallet authority",
+    "future unlimited minting",
+    "liquidity",
+    "staking",
+    "bridge",
+    "treasury"
+  ],
+  "execution_boundaries": {
+    "signing_performed": false,
+    "broadcast_performed": false,
+    "public_mint_execution_performed": false,
+    "wallet_prompt_triggered": false
+  },
+  "pre_execution_requirement": "This receipt must be merged to protected main and verified before any wallet action."
+}

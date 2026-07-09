@@ -1,0 +1,47 @@
+{
+  "governance_version": "v1",
+  "created_at": "2026-07-09T23:07:31.549Z",
+  "head": "f1332de",
+  "chain": {
+    "name": "0G Aristotle Mainnet",
+    "chain_id": 16661
+  },
+  "wallet": "0x335651BD160fDA89C9E7A095dF9Dc1BB9f3cF4DC",
+  "receipt": "public-mint-final-command-hash-v1",
+  "status": "FINAL_COMMAND_HASH_SEALED_NO_EXECUTION",
+  "contract_addresses": {
+    "oinio_token": "0x75995EC0fdf881189850aeD864cB3f43c0DFCb58",
+    "oinio_model_registry": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a"
+  },
+  "functions": [
+    "approve(address,uint256)",
+    "registerModel(string,string,uint256)"
+  ],
+  "calldata_preview": {
+    "approve": "approve(address,uint256)::0x67aD7169184581f23D1E10B39d4eb4e98293E87a::1000000000000000000",
+    "registerModel": "registerModel(string,string,uint256)::QPF Public Mint Model v1::https://quantumpiforge.com/metadata/qpf-public-mint-model-v1.json::1000000000000000000"
+  },
+  "expected_values": {
+    "native_0g_sent": "0",
+    "oinio_stake_wei": "1000000000000000000",
+    "oinio_stake_human": "1 OINIO"
+  },
+  "abort_conditions": [
+    "wrong chain or chainId != 16661",
+    "contract address mismatch",
+    "OINIO token address mismatch",
+    "function != approve then registerModel",
+    "stakeAmount != 1000000000000000000",
+    "unexpected native value > 0",
+    "wallet prompt requests seed phrase or private key",
+    "wallet prompt includes liquidity/staking/bridge/yield/treasury action",
+    "unknown contract",
+    "unbounded approval"
+  ],
+  "command_hash_sha256": "684f2c6c20e10c3544330df04a73f751d68feeedf7b7d80c106115343dd19e5b",
+  "execution_boundaries": {
+    "signing": false,
+    "broadcast": false,
+    "public_mint_execution": false
+  }
+}
