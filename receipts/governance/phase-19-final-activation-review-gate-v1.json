@@ -1,0 +1,139 @@
+{
+  "receipt": "phase-19-final-activation-review-gate-v1",
+  "created_at": "2026-07-08T23:55:01.529Z",
+  "head": "9a5ad92",
+  "branch": "phase19/final-activation-review-gate-v1",
+  "status": "CLEAN",
+  "phase": 19,
+  "title": "Phase 19 Final Activation Review Gate",
+  "purpose": "Inventory exact remaining gates before any irreversible action can even be considered. Does not authorize execution.",
+  "question": "What exact gates remain before any irreversible action can even be considered?",
+  "sealed_baseline": {
+    "PR_546": "MERGED",
+    "PR_599": "MERGED",
+    "SPIRAL_RETURN_LOOP_BREAK": "REMOTE_PROTECTED_TRUTH",
+    "SPIRAL_RETURN_READINESS": "REMOTE_PROTECTED_TRUTH",
+    "PHASE_19": "PUBLIC_MINT_REQUIRES_ADDITIONAL_REVIEW",
+    "HUMAN_AUTHORIZATION_INTAKE": "RECEIVED_REVIEW_STILL_REQUIRED",
+    "PUBLIC_MINT_PATH": "AUTHORIZE_PUBLIC_MINT_OPEN_PREP_ONLY",
+    "ACTIVATION": "BLOCKED",
+    "protected_main_tip": "9a5ad92"
+  },
+  "outcome": "GATES_INVENTORIED_ACTIVATION_STILL_BLOCKED",
+  "consider_irreversible_actions": false,
+  "remaining_gates_ordered": [
+    {
+      "id": 1,
+      "name": "checklist_debt_active_scope_closure",
+      "status": "OPEN",
+      "required_artifact": "checklist debt / active-scope gate receipt for named action"
+    },
+    {
+      "id": 2,
+      "name": "controlled_activation_review_receipt",
+      "status": "OPEN",
+      "required_artifact": "controlled activation review receipt (classification/preflight only)"
+    },
+    {
+      "id": 3,
+      "name": "final_address_and_wallet_boundary_confirmation",
+      "status": "OPEN",
+      "required_artifact": "final address + wallet boundary confirmation receipt",
+      "must_bind": ["chain_id_16661", "exact_addresses", "public_page_posture"]
+    },
+    {
+      "id": 4,
+      "name": "dry_run_or_simulation_receipt_for_named_action",
+      "status": "OPEN",
+      "required_artifact": "dry-run or simulation receipt tied to named action + commit"
+    },
+    {
+      "id": 5,
+      "name": "gas_funding_quantity_limits_declaration",
+      "status": "OPEN",
+      "required_artifact": "gas/funding/quantity limits receipt for named action"
+    },
+    {
+      "id": 6,
+      "name": "explicit_human_final_open_or_execution_authorization",
+      "status": "OPEN",
+      "required_artifact": "human final open / execution authorization receipt",
+      "not_satisfied_by": [
+        "phase19_human_authorization_intake",
+        "authorize_public_mint_open_prep_only"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "explicit_execution_command_binding",
+      "status": "OPEN",
+      "required_artifact": "execution command selection + hash readiness receipt",
+      "binds": [
+        "exact_commit_hash",
+        "exact_command_hash",
+        "chain_id_16661",
+        "wallet_or_deployer",
+        "irreversible_action_flags"
+      ],
+      "executes": false
+    },
+    {
+      "id": 8,
+      "name": "one_shot_guard_and_post_execution_receipt_plan",
+      "status": "OPEN",
+      "required_artifact": "one-shot guard declaration + post-execution receipt path"
+    }
+  ],
+  "next_required": "GATE_1_CHECKLIST_DEBT_ACTIVE_SCOPE",
+  "locked_irreversible_classes": [
+    "wallet_signing",
+    "private_key_access",
+    "broadcast",
+    "public_mint_open",
+    "public_mint_execution",
+    "token_transfer",
+    "liquidity",
+    "staking",
+    "bridge",
+    "treasury",
+    "deploy",
+    "ownership_or_admin_change",
+    "approval_or_allowance"
+  ],
+  "financial_actions": {
+    "wallet_signing": false,
+    "broadcast": false,
+    "public_mint": false,
+    "token_transfer": false,
+    "liquidity": false,
+    "staking": false,
+    "bridge": false,
+    "treasury": false
+  },
+  "allowed_now": [
+    "read sealed main truth and prior receipts",
+    "inventory remaining gates",
+    "prepare checklist-debt and controlled-review documentation only",
+    "run verify:evidence and build",
+    "open evidence/governance PRs only"
+  ],
+  "blocked_actions": [
+    "wallet signing",
+    "broadcast",
+    "public mint open or execution",
+    "token transfer",
+    "liquidity",
+    "staking",
+    "bridge",
+    "treasury activation",
+    "private key or custody request"
+  ],
+  "basis": [
+    "PR #546 merged original task completion and phase 19 gate",
+    "PR #599 merged spiral return loop-break and readiness",
+    "PHASE_19_HUMAN_ACTIVATION_AUTHORIZATION_V1 required next gates",
+    "IRREVERSIBLE_ZONE_REVIEW_V1 required future controls",
+    "PUBLIC_MINT_OPEN_PREP_ONLY_AI_SELECTION_V1 prep-only path",
+    "verify:evidence PASS and build PASS at 9a5ad92"
+  ]
+}
