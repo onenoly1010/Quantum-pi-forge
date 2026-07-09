@@ -1,0 +1,54 @@
+{
+  "receipt": "phase-19-checklist-active-legacy-separation-v1",
+  "created_at": "2026-07-09T00:10:38.338Z",
+  "head": "12a19a7",
+  "branch": "phase19/checklist-active-legacy-separation-v1",
+  "status": "CLEAN",
+  "phase": 19,
+  "title": "Checklist Active vs Legacy Separation",
+  "purpose": "Separate active Phase 19 checklist debt from legacy/reference checklist debt before any activation review can progress.",
+  "previous_gate": "phase-19-final-activation-review-gate-1-checklist-scope-v1",
+  "phase_19_outcome": "PUBLIC_MINT_REQUIRES_ADDITIONAL_REVIEW",
+  "separation_policy": {
+    "active_scope": [
+      "docs/governance",
+      "docs/status",
+      "deploy",
+      "mint.html",
+      "mint-status.html",
+      "human-cockpit.html",
+      "package.json",
+      "scripts/build.js"
+    ],
+    "legacy_reference_scope": [
+      "old deployment guides",
+      "historical setup docs",
+      "issue templates",
+      "grant tracking notes",
+      "archived receipts and reports"
+    ],
+    "rule": "Legacy/reference checklist debt is not treated as completed work. It must be gated, archived, or migrated before being used as active readiness evidence."
+  },
+  "gate_state": "ACTIVE_LEGACY_SEPARATION_OPEN_REVIEW_ONLY",
+  "activation_authorized_for_execution": false,
+  "blocked_actions": [
+    "wallet signing",
+    "broadcast",
+    "public mint execution",
+    "token transfer",
+    "liquidity creation",
+    "staking activation",
+    "bridge activation",
+    "treasury activation"
+  ],
+  "financial_actions": {
+    "wallet_signing": false,
+    "broadcast": false,
+    "public_mint": false,
+    "token_transfer": false,
+    "liquidity": false,
+    "staking": false,
+    "bridge": false,
+    "treasury": false
+  }
+}
