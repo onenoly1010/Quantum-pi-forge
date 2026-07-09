@@ -1,0 +1,10 @@
+PHASE 19 ACTIVE CHECKLIST RESOLUTION POLICY v1
+created_at=2026-07-09T00:15:46.932Z
+head=c0bc15c
+branch=phase19/active-checklist-resolution-policy-v1
+status=CLEAN
+phase_19_outcome=PUBLIC_MINT_REQUIRES_ADDITIONAL_REVIEW
+gate_state=ACTIVE_CHECKLIST_RESOLUTION_POLICY_OPEN_REVIEW_ONLY
+activation_authorized_for_execution=false
+receipt_sha256=1f016366173e10bca062ba270017f8e0f107db1eb3bfe1bceed1e9614b925e02
+blocked=wallet signing,broadcast,public mint execution,token transfer,liquidity,staking,bridge,treasury
