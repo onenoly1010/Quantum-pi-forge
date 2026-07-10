@@ -1,0 +1,30 @@
+{
+  "receipt": "step-10-wallet-action-paused-no-public-mint-proof-v1",
+  "created_at": "2026-07-10T02:44:20.177Z",
+  "head": "4746510",
+  "status": "PAUSED_NO_PUBLIC_MINT_PROOF_FOUND",
+  "summary": "Human operator was at wallet, but provided export shows Safe/native 0G transactions, not the exact OINIOToken.approve plus OINIOModelRegistry.registerModel public mint pair.",
+  "expected_step_10": {
+    "approve_to_token": "0x75995EC0fdf881189850aeD864cB3f43c0DFCb58",
+    "approve_spender": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+    "register_model_contract": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+    "name": "QPF Public Mint Model v1",
+    "metadataURI": "https://quantumpiforge.com/metadata/qpf-public-mint-model-v1.json",
+    "stakeAmount": "1000000000000000000"
+  },
+  "observed_export": {
+    "safe_address": "0x8d088B88219D072aB035502065ee2410c2cb4389",
+    "asset_type": "native",
+    "not_public_mint_pair": true
+  },
+  "boundaries": {
+    "no_more_wallet_action": true,
+    "no_public_mint_execution_receipt": true,
+    "no_onchain_verification": true,
+    "no_liquidity": true,
+    "no_staking": true,
+    "no_bridge": true,
+    "no_treasury": true
+  },
+  "next_safe_step": "Find actual tx_hash_approve and tx_hash_register_model only if they exist; otherwise keep Step 10 paused."
+}
