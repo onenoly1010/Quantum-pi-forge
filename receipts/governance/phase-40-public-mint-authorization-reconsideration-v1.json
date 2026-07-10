@@ -1,0 +1,58 @@
+{
+  "governance_version": "v1",
+  "receipt": "phase-40-public-mint-authorization-reconsideration-v1",
+  "title": "Phase 40 — Public Mint Authorization Reconsideration",
+  "created_at": "2026-07-10T14:17:19.346Z",
+  "canonical_head_before_receipt": "88df683",
+  "branch": "main",
+  "human_authority": "Kris Olofson",
+  "human_statement": "If it is me, then I authorize it.",
+  "decision": "YES_PUBLIC_MINT_AUTHORIZATION_GRANTED",
+  "supersedes_decision": "NO_GO_PUBLIC_MINT_AUTHORIZATION_NOT_GRANTED",
+  "references": [
+    "docs/governance/PHASE_39_PUBLIC_MINT_NOGO_CLOSURE_V1.md",
+    "receipts/governance/public-mint-nogo-next-requirements-index-v1.json",
+    "receipts/governance/public-mint-final-reviewed-values-v1.json",
+    "receipts/governance/public-mint-execution-path-spec-v1.json"
+  ],
+  "policy_state": {
+    "authorization_reopened": true,
+    "public_mint_authorized": true,
+    "mint_allowed": true,
+    "public_mint_active": false,
+    "live_execution_authorization": false,
+    "execution_approval": false
+  },
+  "approved_scope": {
+    "network": "0G Aristotle Mainnet",
+    "chain_id": 16661,
+    "model_name": "QPF Public Mint Model v1",
+    "metadata_uri": "https://quantumpiforge.com/metadata/qpf-public-mint-model-v1.json",
+    "oinio_token": "0x75995EC0fdf881189850aeD864cB3f43c0DFCb58",
+    "model_registry": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+    "stake_amount_wei": "1000000000000000000",
+    "transaction_sequence": [
+      "approve(address,uint256)",
+      "registerModel(string,string,uint256)"
+    ]
+  },
+  "execution_boundaries": {
+    "wallet_prompt": false,
+    "wallet_actions": false,
+    "signing": false,
+    "broadcast": false,
+    "transaction_submitted": false,
+    "transaction_receipt_created": false,
+    "live_execution": false,
+    "private_key_access": false,
+    "seed_phrase_request": false,
+    "automatic_execution": false,
+    "liquidity_activation": false,
+    "staking_activation": false,
+    "bridge_activation": false,
+    "treasury_movement": false
+  },
+  "next_required_gate": "SEPARATE_LIVE_EXECUTION_AUTHORIZATION_REQUIRED",
+  "status": "SEALED_PUBLIC_MINT_AUTHORIZATION_GRANTED_NO_EXECUTION",
+  "sha256": "fcd680ed3a36b2fab75d07596815562cdf6cf356450f4b0c5182d37dba6453c3"
+}
