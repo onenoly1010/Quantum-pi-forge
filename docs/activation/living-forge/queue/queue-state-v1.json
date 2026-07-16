@@ -1,12 +1,13 @@
 {
   "version": "1",
-  "updated_at_utc": "2026-07-16T20:41:56Z",
+  "updated_at_utc": "2026-07-16T20:42:23Z",
   "rule": "Never ask Kris what to do next if another autonomous task exists.",
   "metrics": {
     "autonomous_completed": 21,
     "human_interruptions_this_session": 0,
     "last_scheduler_run_utc": "2026-07-16T20:41:56Z",
-    "last_reopen_count": 7
+    "last_reopen_count": 7,
+    "last_commit": "064a899"
   },
   "tasks": [
     {
@@ -183,12 +184,17 @@
       "id": "P1-authorize-commit",
       "priority": 1,
       "title": "Authorize commit of activation/living-forge evidence pack",
-      "status": "open",
+      "status": "done",
       "action": "human_only",
       "owner": "kris",
       "created_at_utc": "2026-07-16T20:36:09Z",
       "attempts": 0,
-      "last_result": null
+      "last_result": {
+        "ok": true,
+        "summary": "commit 064a899 living-forge pack (no push)",
+        "at": "2026-07-16T20:42:30Z"
+      },
+      "finished_at_utc": "2026-07-16T20:42:30Z"
     },
     {
       "id": "P0-any-sign-or-transfer",

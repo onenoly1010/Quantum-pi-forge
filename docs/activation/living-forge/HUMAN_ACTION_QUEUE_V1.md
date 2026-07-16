@@ -1,6 +1,6 @@
 # HUMAN ACTION QUEUE v1
 
-Updated: 2026-07-16T20:41:56Z
+Updated: 2026-07-16T20:42:23Z
 
 Rule: Agent does not ask what next while P3 remains. This file is the only interrupt surface for Kris.
 
@@ -10,9 +10,8 @@ Rule: Agent does not ask what next while P3 remains. This file is the only inter
 | ---: | ---: | --- | --- |
 | 1 | P1 | `P1-receiving-spec` | Fill FUNDING_RECEIVING_SPEC public destination fields |
 | 2 | P2 | `P2-grant-external` | Grant portal status (external human identity) |
-| 3 | P1 | `P1-authorize-commit` | Authorize commit of activation/living-forge evidence pack |
-| 4 | P1 | `P1-spiral-deadline` | Authorize Spiral Return deadline date |
-| 5 | P1 | `P1-physical-M01-M04` | Confirm or WAIVE physical readiness M-01..M-04 |
+| 3 | P1 | `P1-spiral-deadline` | Authorize Spiral Return deadline date |
+| 4 | P1 | `P1-physical-M01-M04` | Confirm or WAIVE physical readiness M-01..M-04 |
 
 ## Impact order (execute top-down)
 
