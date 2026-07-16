@@ -16,6 +16,8 @@ Latest verified public review surface anchor:
 
 - [AUDIT.md](./AUDIT.md) — canonical reviewer onboarding runbook
 - [README.md](./README.md) — public front door with audit entrypoint
+- [docs/review/VERIFICATION_STATUS_TABLE_V1.md](./docs/review/VERIFICATION_STATUS_TABLE_V1.md) — feature claim SSOT
+- [docs/review/PUBLIC_SURFACE_CLAIM_AUDIT_V1.md](./docs/review/PUBLIC_SURFACE_CLAIM_AUDIT_V1.md) — public copy audit
 - [docs/governance/AUDIT_HARDENING_READINESS_V1.md](./docs/governance/AUDIT_HARDENING_READINESS_V1.md)
 - [docs/governance/POST_MERGE_GOVERNANCE_RECEIPT_PR_253.md](./docs/governance/POST_MERGE_GOVERNANCE_RECEIPT_PR_253.md)
 

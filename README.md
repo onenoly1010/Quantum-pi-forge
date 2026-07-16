@@ -52,10 +52,13 @@ This project remains parked and does not authorize deployment, broadcast, mainne
 Start here for public review:
 
 - [Reviewer Start Here](REVIEWER_START_HERE.md)
+- [Verification Status Table](docs/review/VERIFICATION_STATUS_TABLE_V1.md) — SSOT: Verified / Implemented but gated / Experimental / Planned
 - [Claim-to-Proof Matrix](docs/review/CLAIM_TO_PROOF_MATRIX.md)
+- [Public Surface Claim Audit](docs/review/PUBLIC_SURFACE_CLAIM_AUDIT_V1.md)
 - [Public Status](STATUS.md)
+- [Grant/Partner Outreach Kit](docs/valuation/QPF_GRANT_PARTNER_OUTREACH_KIT_V1.md) — language locked to the status table
 
-The matrix classifies claims as verifiable, pending, disabled, archive, or aspirational so reviewers can inspect evidence before accepting narrative claims.
+The status table is the single source of truth for feature posture. The matrix classifies claims as verifiable, pending, disabled, archive, or aspirational so reviewers can inspect evidence before accepting narrative claims.
 
 > A local AI coding stack that installs cleanly and keeps working.
 

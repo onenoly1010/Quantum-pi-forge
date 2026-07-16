@@ -1,0 +1,93 @@
+{
+  "protocol": "ACTIVATION_GATE_PROTOCOL_V1",
+  "protocol_path": "docs/activation/ACTIVATION_GATE_PROTOCOL_V1.md",
+  "dirty_tree_policy_path": "docs/activation/DIRTY_TREE_RESOLUTION_POLICY_V1.md",
+  "version": "1",
+  "mission": "Drive repository to objectively verifiable ACTIVATION READY state. Maximize confidence. Evidence is the deliverable.",
+  "updated_at_utc": "2026-07-16T19:50:00Z",
+  "git_head_at_update": "fbefbc68e426a4660c9d1225e6bc555cda178e20",
+  "session_policy": {
+    "auto_commit": false,
+    "auto_push": false,
+    "never_invent": true,
+    "never_skip_gates": true,
+    "never_revisit_pass_without_trigger": true,
+    "dirty_tree_pause_once": true
+  },
+  "dirty_tree": {
+    "status": "HUMAN_AUTHORIZED_COMMIT",
+    "decision": "Commit all AI-generated work; do not push",
+    "authorized_at_utc": "2026-07-16T19:50:00Z",
+    "inventory_evidence": "docs/activation/evidence/DIRTY-TREE-INVENTORY-20260716T194612Z.md",
+    "captured_at_utc": "2026-07-16T19:46:12Z",
+    "porcelain_count_at_inventory": 16,
+    "classification_summary": {
+      "AI_generated_work": 16,
+      "Existing_user_work": 0,
+      "Generated_build_artifact": 0,
+      "Unknown": 0
+    },
+    "unpushed_commits_note": "Local main may remain ahead of origin/main; push not authorized"
+  },
+  "gates": {
+    "G-01": {
+      "name": "Repository Integrity",
+      "status": "IN_PROGRESS",
+      "started_at_utc": "2026-07-16T19:43:31Z",
+      "evidence": [
+        "docs/activation/evidence/G-01-repository-integrity-20260716T194331Z.md",
+        "docs/activation/evidence/DIRTY-TREE-INVENTORY-20260716T194612Z.md"
+      ],
+      "notes": "Re-check after authorized commit of AI work",
+      "exit_condition": "PASS only if porcelain empty OR recorded human cleanliness exception"
+    },
+    "G-02": {
+      "name": "Build Integrity",
+      "status": "NOT_STARTED",
+      "evidence": [],
+      "blocked_by": "G-01"
+    },
+    "G-03": {
+      "name": "Runtime Integrity",
+      "status": "NOT_STARTED",
+      "evidence": [],
+      "blocked_by": "G-02"
+    },
+    "G-04": {
+      "name": "Wallet Verification",
+      "status": "NOT_STARTED",
+      "evidence": [],
+      "blocked_by": "G-03"
+    },
+    "G-05": {
+      "name": "Contract Verification",
+      "status": "NOT_STARTED",
+      "evidence": [],
+      "blocked_by": "G-04",
+      "notes": "Live RPC eth_getCode only; DEPLOYED_ADDRESSES.md only from verified results"
+    },
+    "G-06": {
+      "name": "Documentation Audit",
+      "status": "NOT_STARTED",
+      "evidence": [],
+      "blocked_by": "G-05"
+    },
+    "G-07": {
+      "name": "Security",
+      "status": "NOT_STARTED",
+      "evidence": [],
+      "blocked_by": "G-06"
+    },
+    "G-08": {
+      "name": "Activation Report",
+      "status": "NOT_STARTED",
+      "evidence": [],
+      "blocked_by": "G-07"
+    }
+  },
+  "termination": {
+    "status": "IN_PROGRESS",
+    "reason": "Human authorized commit; G-01 re-check in progress",
+    "activation_ready": false
+  }
+}
