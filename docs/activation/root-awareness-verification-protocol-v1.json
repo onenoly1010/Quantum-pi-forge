@@ -1,0 +1,88 @@
+{
+  "document": "root-awareness-verification-protocol-v1",
+  "path": "docs/activation/ROOT_AWARENESS_VERIFICATION_PROTOCOL_V1.md",
+  "version": "1",
+  "prime_directive": "No action is valid unless it originates from verified state, authorized intent, and reproducible evidence.",
+  "optimization_target": "verified_state_transition",
+  "anti_activity_rule": "Every action must reduce uncertainty. Do not optimize for activity.",
+  "action_chain": [
+    "ROOT_STATE",
+    "OBSERVATION",
+    "VERIFICATION",
+    "HUMAN_AUTHORIZATION",
+    "EXECUTION",
+    "EVIDENCE_RECEIPT",
+    "UPDATED_STATE"
+  ],
+  "autonomous_stages": [
+    "ROOT_STATE",
+    "OBSERVATION",
+    "VERIFICATION",
+    "EVIDENCE_RECEIPT",
+    "UPDATED_STATE"
+  ],
+  "authorization_required_for": [
+    "commit",
+    "push",
+    "deploy",
+    "contract_write",
+    "sign",
+    "broadcast",
+    "liquidity",
+    "mint",
+    "stake",
+    "bridge",
+    "discard_user_work",
+    "documentation_canon_commit"
+  ],
+  "authorization_phrases": [
+    "Authorize commit",
+    "Authorize push",
+    "Authorize deployment",
+    "Authorize contract interaction",
+    "Authorize documentation update",
+    "Authorize liquidity action",
+    "Authorize signing"
+  ],
+  "verification_statuses": ["PASS", "FAIL", "BLOCKED", "UNKNOWN"],
+  "missing_evidence_rule": "STATUS=UNKNOWN not STATUS=TRUE",
+  "truth_questions": [
+    "What is observed?",
+    "What evidence proves it?",
+    "What is unknown?",
+    "What action is required?",
+    "What is the smallest valid intervention?"
+  ],
+  "roles": {
+    "guardian": "observe_health_drift_evidence",
+    "builder": "create_code_tests_docs_after_verification",
+    "auditor": "challenge_claims_reject_unsupported",
+    "human": "authorize_decide_external_commitments"
+  },
+  "anti_loop": {
+    "forbidden_after_pass": "How can we improve this further?",
+    "required_after_pass": "Is the activation requirement satisfied?",
+    "revisit_pass_only_if": [
+      "source_changed",
+      "dependencies_changed",
+      "configuration_changed",
+      "deployment_changed",
+      "chain_state_changed",
+      "unclassified_dirty_tree"
+    ]
+  },
+  "activation_truth_condition": [
+    "claims_map_to_evidence",
+    "code_maps_to_deployments",
+    "deployments_map_to_receipts",
+    "receipts_map_to_documented_state",
+    "actions_map_to_human_authorization"
+  ],
+  "related": {
+    "activation_gate_protocol": "docs/activation/ACTIVATION_GATE_PROTOCOL_V1.md",
+    "dirty_tree_policy": "docs/activation/DIRTY_TREE_RESOLUTION_POLICY_V1.md",
+    "verification_status_table": "docs/review/VERIFICATION_STATUS_TABLE_V1.md",
+    "remaining_blockers": "docs/activation/final/REMAINING_BLOCKERS_V1.md",
+    "state_file": "docs/activation/activation-gate-state-v1.json"
+  }
+}

@@ -5,7 +5,10 @@
 **Responsibility:** Maximize **confidence**, not change volume. **Evidence is the deliverable.**
 
 **State file:** [`activation-gate-state-v1.json`](./activation-gate-state-v1.json)  
-**Evidence directory:** `docs/activation/evidence/`
+**Evidence directory:** `docs/activation/evidence/`  
+**Root awareness (all agent work):** [`ROOT_AWARENESS_VERIFICATION_PROTOCOL_V1.md`](./ROOT_AWARENESS_VERIFICATION_PROTOCOL_V1.md)
+
+**Prime constraint:** You are not optimizing for activity. You are optimizing for **verified state transition**. Every action must **reduce uncertainty**.
 
 ---
 
@@ -21,6 +24,9 @@
 8. Every modification requires a reason.
 9. Every conclusion requires evidence.
 10. Every gate has a measurable exit condition.
+11. Missing evidence ⇒ `UNKNOWN`, never `TRUE`.
+12. State-changing work requires an explicit human authorization phrase.
+13. After PASS, ask only whether the activation requirement is satisfied — not how to improve further.
 
 ---
 
