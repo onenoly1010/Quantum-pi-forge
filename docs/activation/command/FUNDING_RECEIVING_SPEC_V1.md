@@ -1,63 +1,97 @@
 # FUNDING RECEIVING SPEC v1
 
-**Status:** TEMPLATE — incomplete until Kris fills PUBLIC fields  
-**Rule:** Never commit private keys, seeds, full bank account numbers, or recovery phrases.  
-**Related audit:** Funding path = PENDING; secured CAD = 0.
+**Status:** `AWAITING_KRIS_FILL` → then `AUTHORIZE TO RECEIVE`  
+**Companion form:** [`funding-receiving-form-v1.json`](./funding-receiving-form-v1.json)  
+**One-pager:** [`AUTHORIZE_TO_RECEIVE_READY_V1.md`](./AUTHORIZE_TO_RECEIVE_READY_V1.md)  
+**Rule:** Never commit private keys, seeds, or full bank account numbers. Public identifiers only.
+
+**Repo truth:** secured CAD = **0** until payment proof. Authorize **receive** ≠ authorize **spend**.
 
 ---
 
-## Define (fill only public / safe fields)
+## Pre-filled (from forge — do not treat as money)
 
-### Accepted asset / currency
-
-| Field | Value | Owner |
-| --- | --- | --- |
-| Fiat currency | `CAD` (Spiral plan default) | Kris confirm |
-| Crypto asset (if any) | `TBD_HUMAN` e.g. none / USDC / native 0G | Kris |
-| Rejected for Spiral runway unless safety review cleared | Unreviewed wallet funding lane | Protocol |
-
-### Receiving account / address (PUBLIC ONLY)
-
-| Channel | Public identifier | Status |
-| --- | --- | --- |
-| Fiat (bank/e-transfer/display name) | `TBD_HUMAN — do not paste full account # in public git if sensitive; use private vault + hash ref` | **UNSET** |
-| EVM address for grant/crypto (if required) | `TBD_HUMAN — 0x… public only` | **UNSET** |
-| Governance Safe (not auto-payout dest) | `0x8d088B88219D072aB035502065ee2410c2cb4389` (tracker claim) | Governance only |
-
-### Network
-
-| Use | Network | Status |
-| --- | --- | --- |
-| 0G grant crypto (if ever) | Aristotle mainnet chainId **16661** | Documented |
-| Application storage proof | 0G Storage | Historical |
-| Fiat | Off-chain CAD rails | **UNSET process** |
-
-### Ownership verification method
-
-| Method | When |
+| Field | Value |
 | --- | --- |
-| Fiat | Account ownership via institution (Kris); agent never holds login |
-| Crypto | Message sign **only** if Kris authorizes; or Safe policy; or hardware confirm |
-| Record | Store **public** address + “verified by Kris on DATE” in private note; optional hash in repo |
+| Spiral currency default | **CAD** |
+| Travel gap (plan) | CAD **4550** |
+| Vehicle estimate (model) | CAD **~10000** |
+| Crypto network if used | **0G Aristotle**, chainId **16661** |
+| Grant track | Guild **#789**, **PENDING** review |
 
-### Safety checks (must pass before treating inbound as secured)
+### Do **not** use as personal receive
 
-1. Source known (grant award letter / payer identity / invoice paid).  
-2. Destination matches this spec (no surprise address).  
-3. **Tx hash or payment confirmation** recorded.  
-4. Balance/available funds visible to Kris.  
-5. Then — and only then — update `spiral-return-secured-source-ledger-v1.json` `confirmed_secured_total`.  
-6. Crypto inbound: separate safety review if lane was blocked.  
+| Address | Why |
+| --- | --- |
+| `0x335651BD160fDA89C9E7A095dF9Dc1BB9f3cF4DC` | Untrusted |
+| `0x8d088B88219D072aB035502065ee2410c2cb4389` | Guardian Safe (governance only unless you deliberately choose Safe custody) |
 
 ---
 
-## Completion checklist
+## Kris fills (required for authorize)
 
-- [ ] Kris sets accepted currency/assets  
-- [ ] Kris sets receiving destination (public-safe)  
-- [ ] Kris sets network/rails  
-- [ ] Kris records ownership verification method used  
-- [ ] Safety checks listed above understood  
-- [ ] Spec status → `ACTIVE` (human stamp)
+### Accepted assets
 
-**Until complete: inbound path = NOT FINALIZED (blocker #3).**
+| Field | Value (edit) |
+| --- | --- |
+| Accept CAD fiat? | `YES` / `NO` |
+| Accept crypto? | `YES` / `NO` |
+| If crypto, asset | e.g. `native 0G` / `USDC` / `none` |
+
+### Destination (PUBLIC ONLY)
+
+| Channel | Your value | Status |
+| --- | --- | --- |
+| Fiat e-Transfer / display name | `_paste here_` | **UNSET** |
+| Fiat rails | e.g. Interac CAD | **UNSET** |
+| EVM public address (if crypto) | `0x…` | **UNSET** |
+| Chain ID (if crypto) | `16661` (default) | Documented |
+
+Also update the same fields in `funding-receiving-form-v1.json`.
+
+### Ownership
+
+| Field | Value |
+| --- | --- |
+| Statement | `I control this destination` (or stronger) |
+| Date (UTC) | `YYYY-MM-DD` |
+
+---
+
+## Safety checks (before counting funds as secured)
+
+1. Source known (grant award / payer / invoice).  
+2. Payment lands on destination above.  
+3. Tx hash or bank confirmation recorded.  
+4. You can see available balance.  
+5. **Then** update secured ledger — not before.  
+6. Crypto: safety review if using previously blocked wallet lane.  
+
+---
+
+## Authorization phrase (paste when form is complete)
+
+```text
+AUTHORIZE TO RECEIVE
+
+I am Kris Olofson.
+I control the destination recorded in:
+  docs/activation/command/funding-receiving-form-v1.json
+I authorize that destination to receive inbound funds for
+  Spiral Return / grant payout / revenue only.
+I understand secured ledger stays 0 until payment proof exists.
+I do not authorize the agent to sign, spend, or transfer.
+Date (UTC): ________
+```
+
+---
+
+## Checklist
+
+- [ ] Assets chosen (CAD / crypto)  
+- [ ] Destination filled (public-safe)  
+- [ ] Network/rails set  
+- [ ] Owner statement + date  
+- [ ] Paste **AUTHORIZE TO RECEIVE**  
+
+**After that phrase:** agent marks gate `READY_TO_RECEIVE` only — still no spend, no vehicle purchase automation.

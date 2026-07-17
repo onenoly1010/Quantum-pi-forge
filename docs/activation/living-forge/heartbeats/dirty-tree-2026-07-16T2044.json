@@ -1,0 +1,14 @@
+{
+  "at": "2026-07-16T20:44:44Z",
+  "count": 2,
+  "items": [
+    {
+      "line": "M cache/compile-cache.json",
+      "class": "build_artifact"
+    },
+    {
+      "line": " M docs/activation/living-forge/queue/queue-state-v1.json",
+      "class": "AI_or_agent_work"
+    }
+  ]
+}

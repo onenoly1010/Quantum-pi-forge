@@ -1,0 +1,10 @@
+{
+  "at": "2026-07-17T01:01:21Z",
+  "count": 1,
+  "items": [
+    {
+      "line": "spawnSync /bin/sh ETIMEDOUT",
+      "class": "AI_or_agent_work"
+    }
+  ]
+}

@@ -1,12 +1,12 @@
 {
   "version": "1",
-  "updated_at_utc": "2026-07-16T20:42:23Z",
+  "updated_at_utc": "2026-07-17T03:08:15Z",
   "rule": "Never ask Kris what to do next if another autonomous task exists.",
   "metrics": {
-    "autonomous_completed": 21,
+    "autonomous_completed": 206,
     "human_interruptions_this_session": 0,
-    "last_scheduler_run_utc": "2026-07-16T20:41:56Z",
-    "last_reopen_count": 7,
+    "last_scheduler_run_utc": "2026-07-17T03:08:15Z",
+    "last_reopen_count": 8,
     "last_commit": "064a899"
   },
   "tasks": [
@@ -17,16 +17,16 @@
       "status": "done",
       "action": "verify_evidence_index",
       "created_at_utc": "2026-07-16T20:36:09Z",
-      "attempts": 3,
+      "attempts": 29,
       "last_result": {
         "ok": true,
         "summary": "evidence-index PASS",
-        "at": "2026-07-16T20:41:53Z"
+        "at": "2026-07-17T03:08:10Z"
       },
-      "started_at_utc": "2026-07-16T20:41:52Z",
-      "finished_at_utc": "2026-07-16T20:41:53Z",
+      "started_at_utc": "2026-07-17T03:08:08Z",
+      "finished_at_utc": "2026-07-17T03:08:10Z",
       "recurring": true,
-      "reopened_at_utc": "2026-07-16T20:41:51Z"
+      "reopened_at_utc": "2026-07-17T03:07:59Z"
     },
     {
       "id": "P3-health-wallet-preflight",
@@ -35,16 +35,16 @@
       "status": "done",
       "action": "wallet_preflight",
       "created_at_utc": "2026-07-16T20:36:09Z",
-      "attempts": 3,
+      "attempts": 29,
       "last_result": {
         "ok": true,
         "summary": "wallet preflight PASS non-executing",
-        "at": "2026-07-16T20:41:56Z"
+        "at": "2026-07-17T03:08:15Z"
       },
-      "started_at_utc": "2026-07-16T20:41:53Z",
-      "finished_at_utc": "2026-07-16T20:41:56Z",
+      "started_at_utc": "2026-07-17T03:08:10Z",
+      "finished_at_utc": "2026-07-17T03:08:15Z",
       "recurring": true,
-      "reopened_at_utc": "2026-07-16T20:41:51Z"
+      "reopened_at_utc": "2026-07-17T03:07:59Z"
     },
     {
       "id": "P3-health-build",
@@ -53,16 +53,16 @@
       "status": "done",
       "action": "npm_build",
       "created_at_utc": "2026-07-16T20:36:09Z",
-      "attempts": 3,
+      "attempts": 29,
       "last_result": {
         "ok": true,
         "summary": "build PASS",
-        "at": "2026-07-16T20:41:52Z"
+        "at": "2026-07-17T03:08:08Z"
       },
-      "started_at_utc": "2026-07-16T20:41:51Z",
-      "finished_at_utc": "2026-07-16T20:41:52Z",
+      "started_at_utc": "2026-07-17T03:08:04Z",
+      "finished_at_utc": "2026-07-17T03:08:08Z",
       "recurring": true,
-      "reopened_at_utc": "2026-07-16T20:41:51Z"
+      "reopened_at_utc": "2026-07-17T03:07:59Z"
     },
     {
       "id": "P3-inventory-offline-paths",
@@ -71,16 +71,16 @@
       "status": "done",
       "action": "offline_inventory",
       "created_at_utc": "2026-07-16T20:36:09Z",
-      "attempts": 3,
+      "attempts": 29,
       "last_result": {
         "ok": true,
         "summary": "offline inventory missing=0",
-        "at": "2026-07-16T20:41:56Z"
+        "at": "2026-07-17T03:08:15Z"
       },
-      "started_at_utc": "2026-07-16T20:41:56Z",
-      "finished_at_utc": "2026-07-16T20:41:56Z",
+      "started_at_utc": "2026-07-17T03:08:15Z",
+      "finished_at_utc": "2026-07-17T03:08:15Z",
       "recurring": true,
-      "reopened_at_utc": "2026-07-16T20:41:51Z"
+      "reopened_at_utc": "2026-07-17T03:07:59Z"
     },
     {
       "id": "P3-classify-dirty-tree",
@@ -89,16 +89,16 @@
       "status": "done",
       "action": "dirty_tree_classify",
       "created_at_utc": "2026-07-16T20:36:09Z",
-      "attempts": 3,
+      "attempts": 29,
       "last_result": {
         "ok": true,
-        "summary": "dirty tree classified n=34",
-        "at": "2026-07-16T20:41:51Z"
+        "summary": "dirty tree classified n=111",
+        "at": "2026-07-17T03:08:04Z"
       },
-      "started_at_utc": "2026-07-16T20:41:51Z",
-      "finished_at_utc": "2026-07-16T20:41:51Z",
+      "started_at_utc": "2026-07-17T03:07:59Z",
+      "finished_at_utc": "2026-07-17T03:08:04Z",
       "recurring": true,
-      "reopened_at_utc": "2026-07-16T20:41:51Z"
+      "reopened_at_utc": "2026-07-17T03:07:59Z"
     },
     {
       "id": "P3-funding-status-snapshot",
@@ -107,16 +107,16 @@
       "status": "done",
       "action": "funding_snapshot",
       "created_at_utc": "2026-07-16T20:36:09Z",
-      "attempts": 3,
+      "attempts": 29,
       "last_result": {
         "ok": true,
         "summary": "funding PENDING_NO_SECURED_FUNDS secured=0",
-        "at": "2026-07-16T20:41:51Z"
+        "at": "2026-07-17T03:08:04Z"
       },
-      "started_at_utc": "2026-07-16T20:41:51Z",
-      "finished_at_utc": "2026-07-16T20:41:51Z",
+      "started_at_utc": "2026-07-17T03:08:04Z",
+      "finished_at_utc": "2026-07-17T03:08:04Z",
       "recurring": true,
-      "reopened_at_utc": "2026-07-16T20:41:51Z"
+      "reopened_at_utc": "2026-07-17T03:07:59Z"
     },
     {
       "id": "P3-human-queue-refresh",
@@ -125,16 +125,16 @@
       "status": "done",
       "action": "write_human_queue",
       "created_at_utc": "2026-07-16T20:36:09Z",
-      "attempts": 3,
+      "attempts": 29,
       "last_result": {
         "ok": true,
         "summary": "human queue refreshed",
-        "at": "2026-07-16T20:41:56Z"
+        "at": "2026-07-17T03:08:15Z"
       },
-      "started_at_utc": "2026-07-16T20:41:56Z",
-      "finished_at_utc": "2026-07-16T20:41:56Z",
+      "started_at_utc": "2026-07-17T03:08:15Z",
+      "finished_at_utc": "2026-07-17T03:08:15Z",
       "recurring": true,
-      "reopened_at_utc": "2026-07-16T20:41:51Z"
+      "reopened_at_utc": "2026-07-17T03:07:59Z"
     },
     {
       "id": "P2-grant-external",
@@ -150,13 +150,14 @@
     {
       "id": "P1-receiving-spec",
       "priority": 1,
-      "title": "Fill FUNDING_RECEIVING_SPEC public destination fields",
+      "title": "Fill funding-receiving-form + paste AUTHORIZE TO RECEIVE (see AUTHORIZE_TO_RECEIVE_READY_V1.md)",
       "status": "open",
       "action": "human_only",
       "owner": "kris",
       "created_at_utc": "2026-07-16T20:36:09Z",
       "attempts": 0,
-      "last_result": null
+      "last_result": null,
+      "blocker_clears_to": "READY_TO_RECEIVE"
     },
     {
       "id": "P1-spiral-deadline",
@@ -206,6 +207,34 @@
       "created_at_utc": "2026-07-16T20:36:09Z",
       "attempts": 0,
       "last_result": null
+    },
+    {
+      "id": "P1-authorize-to-receive",
+      "priority": 1,
+      "title": "Paste AUTHORIZE TO RECEIVE after form filled",
+      "status": "open",
+      "action": "human_only",
+      "owner": "kris",
+      "depends_on": "P1-receiving-spec fill",
+      "created_at_utc": "2026-07-16T20:47:43Z"
+    },
+    {
+      "id": "P3-funding-monitor",
+      "priority": 3,
+      "title": "Funding signal monitor (read-only)",
+      "status": "done",
+      "action": "funding_monitor",
+      "recurring": true,
+      "created_at_utc": "2026-07-17T01:41:28Z",
+      "attempts": 7,
+      "last_result": {
+        "ok": true,
+        "summary": "funding monitor ok",
+        "at": "2026-07-17T03:08:04Z"
+      },
+      "started_at_utc": "2026-07-17T03:08:04Z",
+      "finished_at_utc": "2026-07-17T03:08:04Z",
+      "reopened_at_utc": "2026-07-17T03:07:59Z"
     }
   ]
 }

@@ -1,0 +1,31 @@
+{
+  "receipt": "execution-authorization-v1-accepted",
+  "principal": "Kris Olofson",
+  "version": "1.0",
+  "accepted_at_utc": "2026-07-17T02:00:00Z",
+  "source": "docs/activation/living-forge/EXECUTION_AUTHORIZATION_V1.md",
+  "may": [
+    "inspect",
+    "document",
+    "code",
+    "build",
+    "test",
+    "verify",
+    "commit",
+    "push",
+    "open_pr",
+    "prepare_grant_and_revenue_packages",
+    "continue_without_prompt_when_work_remains"
+  ],
+  "must_stop": [
+    "sign_tx",
+    "spend_or_move_funds",
+    "change_wallet_ownership",
+    "export_keys_or_secrets",
+    "delete_repos_or_important_files",
+    "publish_confidential",
+    "accept_legal_agreements_as_principal"
+  ],
+  "funds_claim": "never_without_payment_proof",
+  "agent_response": "authorization_recorded_and_operating"
+}

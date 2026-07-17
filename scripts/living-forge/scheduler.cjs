@@ -113,6 +113,14 @@ const SEED_TASKS = [
     recurring: true,
   },
   {
+    id: "P3-funding-monitor",
+    priority: 3,
+    title: "Funding signal monitor (read-only)",
+    status: "open",
+    action: "funding_monitor",
+    recurring: true,
+  },
+  {
     id: "P2-grant-external",
     priority: 2,
     title: "Grant portal status (external human identity)",
@@ -282,6 +290,14 @@ function runAction(task) {
     case "write_human_queue": {
       writeHumanQueue(loadQueue());
       return { ok: true, summary: "human queue refreshed", detail: HUMAN_QUEUE_PATH };
+    }
+    case "funding_monitor": {
+      const r = sh("node scripts/living-forge/monitor-funding-signals.cjs");
+      return {
+        ok: r.ok,
+        summary: r.ok ? "funding monitor ok" : "funding monitor fail",
+        detail: r.out.slice(-800),
+      };
     }
     default:
       return { ok: false, summary: `unknown or non-autonomous action ${task.action}`, detail: "" };
