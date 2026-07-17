@@ -1,34 +1,30 @@
 # HUMAN ACTION QUEUE v1
 
-Updated: 2026-07-17T03:14:59Z
+Updated: 2026-07-17T03:17:21Z
+Mode: Event-driven standby (idle until state change)
 
-Rule: Agent does not ask what next while P3 remains. This file is the only interrupt surface for Kris.
+Local autonomous prep is complete when P3=0. Agent wakes on repo/docs changes.
 
-## Ranked by impact (only items Kris can clear)
+## Controlled by you
 
-| Rank | P | ID | Action |
-| ---: | ---: | --- | --- |
-| 1 | P1 | `P1-receiving-spec` | Fill funding-receiving-form + paste AUTHORIZE TO RECEIVE (see AUTHORIZE_TO_RECEIVE_READY_V1.md) |
-| 2 | P2 | `P2-grant-external` | Grant portal status (external human identity) |
-| 3 | P1 | `P1-spiral-deadline` | Authorize Spiral Return deadline date |
-| 4 | P1 | `P1-physical-M01-M04` | Confirm or WAIVE physical readiness M-01..M-04 |
+| Rank | Task | Artifact |
+| ---: | --- | --- |
+| 1 | Configure receiving form | `docs/activation/command/funding-receiving-form-v1.json` |
+| 2 | AUTHORIZE TO RECEIVE | `docs/activation/command/AUTHORIZE_TO_RECEIVE_READY_V1.md` |
+| 3 | Merge PR #614 | https://github.com/onenoly1010/Quantum-pi-forge/pull/614 |
+| 4 | Send Guild follow-up | `docs/activation/command/grant-package/` |
+| 5 | Send revenue offer | `docs/activation/command/revenue/OFFER_ONE_PAGER_AUDIT_WALKTHROUGH_V1.md` |
+| 6 | Spiral deadline + physical M-01…M-04 | spiral-return state |
 
-## Impact order (execute top-down)
+## Controlled by external parties
 
-1. **Fill receiving destination** — `docs/activation/command/FUNDING_RECEIVING_SPEC_V1.md`.
-2. **Guild/hall grant status** — identity login; one STATUS line.
-3. **Authorize commit** of living-forge + activation evidence.
-4. **Pin Spiral deadline** + physical M-01…M-04 or WAIVE.
-5. **Outbound revenue path #1** — one paid-offer message (grant-independent).
-
-## P2 external (poll only; no spam)
-
-- `P2-grant-external`: Grant portal status (external human identity)
+| Task | Party | Agent role |
+| --- | --- | --- |
+| Grant decision / payout | 0G Guild | Monitor + prepared packages |
+| Client payment | Customer | Offer ready |
 
 ## Standing P0
 
-- No sign / transfer / mint / deploy without explicit authorization.
+- Sign / spend / transfer / legal-as-Kris require explicit confirmation.
 
-## Metrics note
-
-- Success = human interruptions ↓, autonomous tasks ↑, backlog ↓ — not report count.
+Open P3 autonomous tasks: **0**

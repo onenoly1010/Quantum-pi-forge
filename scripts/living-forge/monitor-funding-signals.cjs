@@ -88,10 +88,20 @@ function main() {
   if (auth === "AUTHORIZED" || auth === "READY_TO_RECEIVE") {
     report.alerts.push("RECEIVE_AUTH_PRESENT — watch for payment proof");
   }
+  report.operational_mode = "RECEIVING_READINESS_AUTHORIZED";
+  report.ready_to_receive = !!(destFilled || evmFilled);
+  report.verified_available_funds_cad = plan.confirmed_secured_total || 0;
   if (destFilled || evmFilled) {
     report.alerts.push("DESTINATION_CONFIGURED");
+    if (auth === "AUTHORIZED" || auth === "READY_TO_RECEIVE" || report.ready_to_receive) {
+      report.alerts.push("READY_TO_RECEIVE_CANDIDATE");
+    }
   } else {
     report.alerts.push("DESTINATION_STILL_UNSET");
+    report.alerts.push("RECEIVING_READINESS_AUTHORIZED_AWAITING_DESTINATION");
+  }
+  if ((plan.confirmed_secured_total || 0) === 0) {
+    report.alerts.push("VERIFIED_AVAILABLE_FUNDS_CAD_0");
   }
   if (changed.length) report.alerts.push("WATCHED_FILES_CHANGED");
 

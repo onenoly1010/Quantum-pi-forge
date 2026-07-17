@@ -1,6 +1,6 @@
 {
   "form": "FUNDING_RECEIVING_FORM_V1",
-  "status": "AWAITING_KRIS_FILL",
+  "status": "AWAITING_DESTINATION_DESIGNATION",
   "purpose": "Public-safe inbound destination so Kris can AUTHORIZE TO RECEIVE",
   "secured_total_remains_zero_until_payment_proof": true,
   "agent_may_sign_or_spend": false,
@@ -30,14 +30,20 @@
   },
   "authorization": {
     "phrase_required": "AUTHORIZE TO RECEIVE",
-    "status": "NOT_AUTHORIZED",
+    "status": "AWAITING_DESTINATION_AND_OWNERSHIP",
     "authorized_at_utc": null,
-    "authorized_by": null
+    "authorized_by": null,
+    "founder_receiving_authority_active": true,
+    "note": "Founder authorized receiving readiness process; READY_TO_RECEIVE needs designated destination + ownership statement"
   },
   "after_authorize": {
     "gate_status_target": "READY_TO_RECEIVE",
     "ledger_update_requires": "payment_tx_hash_or_bank_confirmation"
   },
   "execution_authorization": "docs/activation/living-forge/EXECUTION_AUTHORIZATION_V1.md",
-  "note": "Agent may prepare everything; Kris fills destination and AUTHORIZE TO RECEIVE; agent never spends."
+  "note": "Agent may prepare everything; Kris fills destination and AUTHORIZE TO RECEIVE; agent never spends.",
+  "founder_receiving_authority": "docs/activation/living-forge/FOUNDER_RECEIVING_AUTHORITY_V1.md",
+  "operational_mode": "RECEIVING_READINESS_AUTHORIZED",
+  "ready_to_receive": false,
+  "verified_available_funds_cad": 0
 }

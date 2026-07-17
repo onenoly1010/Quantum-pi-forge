@@ -1,0 +1,16 @@
+{
+  "at_utc": "2026-07-17T03:17:13.943Z",
+  "secured_cad": 0,
+  "funding_movement": false,
+  "receiving_destination_filled": false,
+  "authorize_to_receive": "AWAITING_DESTINATION_AND_OWNERSHIP",
+  "files_changed_since_last_run": [],
+  "alerts": [
+    "DESTINATION_STILL_UNSET",
+    "RECEIVING_READINESS_AUTHORIZED_AWAITING_DESTINATION",
+    "VERIFIED_AVAILABLE_FUNDS_CAD_0"
+  ],
+  "operational_mode": "RECEIVING_READINESS_AUTHORIZED",
+  "ready_to_receive": false,
+  "verified_available_funds_cad": 0
+}

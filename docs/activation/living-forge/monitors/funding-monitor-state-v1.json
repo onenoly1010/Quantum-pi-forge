@@ -2,20 +2,25 @@
   "files": {
     "receipts/spiral-return/spiral-return-funding-action-plan-v1.json": "7aac7d5371755de5b7f8f20faa7bbe8eda1bbc9e2c93ad1cd2111b9af873e1f3",
     "receipts/spiral-return/spiral-return-secured-source-ledger-v1.json": "6a89e6439532ea61093f0fb5c714fa3330a6d1018d50aa9f067891595f946c6c",
-    "docs/activation/command/funding-receiving-form-v1.json": "068a33cfff89ec88d1b0cd5cbd8332bd82f96b5caa4c43fb38288abe0b918a54",
+    "docs/activation/command/funding-receiving-form-v1.json": "c85454d9a8d1b2d44b485431a8e6ec60b9e1ffd7c74b7dcae4c5c94fa02d958f",
     "docs/activation/command/FUNDING_RECEIVING_SPEC_V1.md": "f3ef93e3079b6e06edc4c1cf41f6ab3d8b2cfe134ef59d4d661389d3fdb2a4c4",
     "0G_GRANT_STATUS_TRACKING.md": "86daede84ad21851e44d61bc762311b983d9d9590ad686f72d6a10d1be0d0496",
     "docs/activation/evidence/FUNDING-CLAIMS-CLASSIFICATION-20260716T202752Z.json": "34f617b1b1cd44c2341c3473ef3a0491251998caa8badf1875c3ee3f71ec2ad4"
   },
   "last_report": {
-    "at_utc": "2026-07-17T03:14:50.729Z",
+    "at_utc": "2026-07-17T03:17:13.943Z",
     "secured_cad": 0,
     "funding_movement": false,
     "receiving_destination_filled": false,
-    "authorize_to_receive": "NOT_AUTHORIZED",
+    "authorize_to_receive": "AWAITING_DESTINATION_AND_OWNERSHIP",
     "files_changed_since_last_run": [],
     "alerts": [
-      "DESTINATION_STILL_UNSET"
-    ]
+      "DESTINATION_STILL_UNSET",
+      "RECEIVING_READINESS_AUTHORIZED_AWAITING_DESTINATION",
+      "VERIFIED_AVAILABLE_FUNDS_CAD_0"
+    ],
+    "operational_mode": "RECEIVING_READINESS_AUTHORIZED",
+    "ready_to_receive": false,
+    "verified_available_funds_cad": 0
   }
 }

@@ -1,11 +1,11 @@
 {
   "version": "1",
-  "updated_at_utc": "2026-07-17T03:14:59Z",
+  "updated_at_utc": "2026-07-17T03:17:21Z",
   "rule": "Never ask Kris what to do next if another autonomous task exists.",
   "metrics": {
-    "autonomous_completed": 230,
+    "autonomous_completed": 246,
     "human_interruptions_this_session": 0,
-    "last_scheduler_run_utc": "2026-07-17T03:14:59Z",
+    "last_scheduler_run_utc": "2026-07-17T03:17:21Z",
     "last_reopen_count": 8,
     "last_commit": "064a899"
   },
@@ -17,16 +17,16 @@
       "status": "done",
       "action": "verify_evidence_index",
       "created_at_utc": "2026-07-16T20:36:09Z",
-      "attempts": 32,
+      "attempts": 34,
       "last_result": {
         "ok": true,
         "summary": "evidence-index PASS",
-        "at": "2026-07-17T03:14:57Z"
+        "at": "2026-07-17T03:17:18Z"
       },
-      "started_at_utc": "2026-07-17T03:14:55Z",
-      "finished_at_utc": "2026-07-17T03:14:57Z",
+      "started_at_utc": "2026-07-17T03:17:17Z",
+      "finished_at_utc": "2026-07-17T03:17:18Z",
       "recurring": true,
-      "reopened_at_utc": "2026-07-17T03:14:48Z"
+      "reopened_at_utc": "2026-07-17T03:17:12Z"
     },
     {
       "id": "P3-health-wallet-preflight",
@@ -35,16 +35,16 @@
       "status": "done",
       "action": "wallet_preflight",
       "created_at_utc": "2026-07-16T20:36:09Z",
-      "attempts": 32,
+      "attempts": 34,
       "last_result": {
         "ok": true,
         "summary": "wallet preflight PASS non-executing",
-        "at": "2026-07-17T03:14:59Z"
+        "at": "2026-07-17T03:17:21Z"
       },
-      "started_at_utc": "2026-07-17T03:14:57Z",
-      "finished_at_utc": "2026-07-17T03:14:59Z",
+      "started_at_utc": "2026-07-17T03:17:18Z",
+      "finished_at_utc": "2026-07-17T03:17:21Z",
       "recurring": true,
-      "reopened_at_utc": "2026-07-17T03:14:48Z"
+      "reopened_at_utc": "2026-07-17T03:17:12Z"
     },
     {
       "id": "P3-health-build",
@@ -53,16 +53,16 @@
       "status": "done",
       "action": "npm_build",
       "created_at_utc": "2026-07-16T20:36:09Z",
-      "attempts": 32,
+      "attempts": 34,
       "last_result": {
         "ok": true,
         "summary": "build PASS",
-        "at": "2026-07-17T03:14:55Z"
+        "at": "2026-07-17T03:17:17Z"
       },
-      "started_at_utc": "2026-07-17T03:14:50Z",
-      "finished_at_utc": "2026-07-17T03:14:55Z",
+      "started_at_utc": "2026-07-17T03:17:13Z",
+      "finished_at_utc": "2026-07-17T03:17:17Z",
       "recurring": true,
-      "reopened_at_utc": "2026-07-17T03:14:48Z"
+      "reopened_at_utc": "2026-07-17T03:17:12Z"
     },
     {
       "id": "P3-inventory-offline-paths",
@@ -71,16 +71,16 @@
       "status": "done",
       "action": "offline_inventory",
       "created_at_utc": "2026-07-16T20:36:09Z",
-      "attempts": 32,
+      "attempts": 34,
       "last_result": {
         "ok": true,
         "summary": "offline inventory missing=0",
-        "at": "2026-07-17T03:14:59Z"
+        "at": "2026-07-17T03:17:21Z"
       },
-      "started_at_utc": "2026-07-17T03:14:59Z",
-      "finished_at_utc": "2026-07-17T03:14:59Z",
+      "started_at_utc": "2026-07-17T03:17:21Z",
+      "finished_at_utc": "2026-07-17T03:17:21Z",
       "recurring": true,
-      "reopened_at_utc": "2026-07-17T03:14:48Z"
+      "reopened_at_utc": "2026-07-17T03:17:12Z"
     },
     {
       "id": "P3-classify-dirty-tree",
@@ -89,16 +89,16 @@
       "status": "done",
       "action": "dirty_tree_classify",
       "created_at_utc": "2026-07-16T20:36:09Z",
-      "attempts": 32,
+      "attempts": 34,
       "last_result": {
         "ok": true,
-        "summary": "dirty tree classified n=15",
-        "at": "2026-07-17T03:14:50Z"
+        "summary": "dirty tree classified n=16",
+        "at": "2026-07-17T03:17:13Z"
       },
-      "started_at_utc": "2026-07-17T03:14:48Z",
-      "finished_at_utc": "2026-07-17T03:14:50Z",
+      "started_at_utc": "2026-07-17T03:17:12Z",
+      "finished_at_utc": "2026-07-17T03:17:13Z",
       "recurring": true,
-      "reopened_at_utc": "2026-07-17T03:14:48Z"
+      "reopened_at_utc": "2026-07-17T03:17:12Z"
     },
     {
       "id": "P3-funding-status-snapshot",
@@ -107,16 +107,16 @@
       "status": "done",
       "action": "funding_snapshot",
       "created_at_utc": "2026-07-16T20:36:09Z",
-      "attempts": 32,
+      "attempts": 34,
       "last_result": {
         "ok": true,
         "summary": "funding PENDING_NO_SECURED_FUNDS secured=0",
-        "at": "2026-07-17T03:14:50Z"
+        "at": "2026-07-17T03:17:13Z"
       },
-      "started_at_utc": "2026-07-17T03:14:50Z",
-      "finished_at_utc": "2026-07-17T03:14:50Z",
+      "started_at_utc": "2026-07-17T03:17:13Z",
+      "finished_at_utc": "2026-07-17T03:17:13Z",
       "recurring": true,
-      "reopened_at_utc": "2026-07-17T03:14:48Z"
+      "reopened_at_utc": "2026-07-17T03:17:12Z"
     },
     {
       "id": "P3-human-queue-refresh",
@@ -125,16 +125,16 @@
       "status": "done",
       "action": "write_human_queue",
       "created_at_utc": "2026-07-16T20:36:09Z",
-      "attempts": 32,
+      "attempts": 34,
       "last_result": {
         "ok": true,
         "summary": "human queue refreshed",
-        "at": "2026-07-17T03:14:59Z"
+        "at": "2026-07-17T03:17:21Z"
       },
-      "started_at_utc": "2026-07-17T03:14:59Z",
-      "finished_at_utc": "2026-07-17T03:14:59Z",
+      "started_at_utc": "2026-07-17T03:17:21Z",
+      "finished_at_utc": "2026-07-17T03:17:21Z",
       "recurring": true,
-      "reopened_at_utc": "2026-07-17T03:14:48Z"
+      "reopened_at_utc": "2026-07-17T03:17:12Z"
     },
     {
       "id": "P2-grant-external",
@@ -226,15 +226,15 @@
       "action": "funding_monitor",
       "recurring": true,
       "created_at_utc": "2026-07-17T01:41:28Z",
-      "attempts": 10,
+      "attempts": 12,
       "last_result": {
         "ok": true,
         "summary": "funding monitor ok",
-        "at": "2026-07-17T03:14:50Z"
+        "at": "2026-07-17T03:17:13Z"
       },
-      "started_at_utc": "2026-07-17T03:14:50Z",
-      "finished_at_utc": "2026-07-17T03:14:50Z",
-      "reopened_at_utc": "2026-07-17T03:14:48Z"
+      "started_at_utc": "2026-07-17T03:17:13Z",
+      "finished_at_utc": "2026-07-17T03:17:13Z",
+      "reopened_at_utc": "2026-07-17T03:17:12Z"
     }
   ]
 }

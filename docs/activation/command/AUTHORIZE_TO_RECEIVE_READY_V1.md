@@ -11,10 +11,12 @@
 
 | Step | Status |
 | --- | --- |
-| Funding truth (secured CAD = 0) | Recorded |
+| Founder Receiving Authority V1 | **ACTIVE** (`FOUNDER_RECEIVING_AUTHORITY_V1.md`) |
+| Operational mode | **RECEIVING_READINESS_AUTHORIZED** |
+| READY_TO_RECEIVE | **Not yet** — needs destination + ownership |
+| Verified available funds | **CAD $0** (unchanged until settlement evidence) |
 | Grant path (PENDING #789) | Recorded |
 | Receiving destination | **BLOCKER — only you can fill** |
-| Authorize to receive | **After** destination fields filled |
 
 ---
 
