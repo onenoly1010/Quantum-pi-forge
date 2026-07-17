@@ -2,7 +2,8 @@
 
 **Principal:** Kris Olofson  
 **Recorded by agent:** 2026-07-17  
-**Effective:** Immediately until revoked by Kris in writing in this path or successor receipt.
+**Effective:** Immediately until revoked by Kris in writing in this path or successor receipt.  
+**Superseding founder declaration:** [`FOUNDER_OPERATIONAL_AUTHORIZATION_V1.md`](./FOUNDER_OPERATIONAL_AUTHORIZATION_V1.md) (ACTIVE v1.0)
 
 ## Mission
 
