@@ -244,7 +244,8 @@
     "living-forge:once": "node scripts/living-forge/scheduler.cjs",
     "living-forge:drain": "node scripts/living-forge/scheduler.cjs --drain",
     "living-forge:human-queue": "node scripts/living-forge/scheduler.cjs --human-queue",
-    "living-forge:monitor-funding": "node scripts/living-forge/monitor-funding-signals.cjs"
+    "living-forge:monitor-funding": "node scripts/living-forge/monitor-funding-signals.cjs",
+    "living-forge:event-loop": "bash scripts/living-forge/event-loop.sh"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",

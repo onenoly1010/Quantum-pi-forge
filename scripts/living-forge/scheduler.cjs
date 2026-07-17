@@ -305,60 +305,41 @@ function runAction(task) {
 }
 
 function writeHumanQueue(q) {
-  const impactOrder = [
-    "P1-receiving-spec",
-    "P2-grant-external",
-    "P1-authorize-commit",
-    "P1-spiral-deadline",
-    "P1-physical-M01-M04",
-  ];
-  const byId = new Map(q.tasks.map((t) => [t.id, t]));
-  const p2 = q.tasks.filter((t) => t.status === "open" && t.priority === 2);
+  // Control-grouped queue: you vs external. No repeated "no funds" monologue.
   const lines = [
     "# HUMAN ACTION QUEUE v1",
     "",
     `Updated: ${now()}`,
+    "Mode: Event-driven standby (idle until state change)",
     "",
-    "Rule: Agent does not ask what next while P3 remains. This file is the only interrupt surface for Kris.",
+    "Local autonomous prep is complete when P3=0. Agent wakes on repo/docs changes.",
     "",
-    "## Ranked by impact (only items Kris can clear)",
+    "## Controlled by you",
     "",
-    "| Rank | P | ID | Action |",
-    "| ---: | ---: | --- | --- |",
-  ];
-  let rank = 1;
-  for (const id of impactOrder) {
-    const t = byId.get(id);
-    if (!t || t.status !== "open") continue;
-    lines.push(`| ${rank++} | P${t.priority} | \`${t.id}\` | ${t.title} |`);
-  }
-  lines.push(
+    "| Rank | Task | Artifact |",
+    "| ---: | --- | --- |",
+    "| 1 | Configure receiving form | `docs/activation/command/funding-receiving-form-v1.json` |",
+    "| 2 | AUTHORIZE TO RECEIVE | `docs/activation/command/AUTHORIZE_TO_RECEIVE_READY_V1.md` |",
+    "| 3 | Merge PR #614 | https://github.com/onenoly1010/Quantum-pi-forge/pull/614 |",
+    "| 4 | Send Guild follow-up | `docs/activation/command/grant-package/` |",
+    "| 5 | Send revenue offer | `docs/activation/command/revenue/OFFER_ONE_PAGER_AUDIT_WALKTHROUGH_V1.md` |",
+    "| 6 | Spiral deadline + physical M-01…M-04 | spiral-return state |",
     "",
-    "## Impact order (execute top-down)",
+    "## Controlled by external parties",
     "",
-    "1. **Fill receiving destination** — `docs/activation/command/FUNDING_RECEIVING_SPEC_V1.md`.",
-    "2. **Guild/hall grant status** — identity login; one STATUS line.",
-    "3. **Authorize commit** of living-forge + activation evidence.",
-    "4. **Pin Spiral deadline** + physical M-01…M-04 or WAIVE.",
-    "5. **Outbound revenue path #1** — one paid-offer message (grant-independent).",
-    "",
-    "## P2 external (poll only; no spam)",
-    ""
-  );
-  for (const t of p2) {
-    lines.push(`- \`${t.id}\`: ${t.title}`);
-  }
-  lines.push(
+    "| Task | Party | Agent role |",
+    "| --- | --- | --- |",
+    "| Grant decision / payout | 0G Guild | Monitor + prepared packages |",
+    "| Client payment | Customer | Offer ready |",
     "",
     "## Standing P0",
     "",
-    "- No sign / transfer / mint / deploy without explicit authorization.",
+    "- Sign / spend / transfer / legal-as-Kris require explicit confirmation.",
     "",
-    "## Metrics note",
-    "",
-    "- Success = human interruptions ↓, autonomous tasks ↑, backlog ↓ — not report count.",
-    ""
-  );
+  ];
+  const openP3 = q.tasks.filter((t) => t.status === "open" && t.priority === 3).length;
+  lines.push(`Open P3 autonomous tasks: **${openP3}**`);
+  lines.push("");
   fs.writeFileSync(HUMAN_QUEUE_PATH, lines.join("\n"));
 }
 
