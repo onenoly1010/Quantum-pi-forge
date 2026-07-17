@@ -1,11 +1,11 @@
 {
   "version": "1",
-  "updated_at_utc": "2026-07-17T03:17:21Z",
+  "updated_at_utc": "2026-07-17T03:19:44Z",
   "rule": "Never ask Kris what to do next if another autonomous task exists.",
   "metrics": {
-    "autonomous_completed": 246,
+    "autonomous_completed": 259,
     "human_interruptions_this_session": 0,
-    "last_scheduler_run_utc": "2026-07-17T03:17:21Z",
+    "last_scheduler_run_utc": "2026-07-17T03:19:44Z",
     "last_reopen_count": 8,
     "last_commit": "064a899"
   },
@@ -17,34 +17,34 @@
       "status": "done",
       "action": "verify_evidence_index",
       "created_at_utc": "2026-07-16T20:36:09Z",
-      "attempts": 34,
+      "attempts": 36,
       "last_result": {
         "ok": true,
         "summary": "evidence-index PASS",
-        "at": "2026-07-17T03:17:18Z"
+        "at": "2026-07-17T03:19:44Z"
       },
-      "started_at_utc": "2026-07-17T03:17:17Z",
-      "finished_at_utc": "2026-07-17T03:17:18Z",
+      "started_at_utc": "2026-07-17T03:19:43Z",
+      "finished_at_utc": "2026-07-17T03:19:44Z",
       "recurring": true,
-      "reopened_at_utc": "2026-07-17T03:17:12Z"
+      "reopened_at_utc": "2026-07-17T03:19:42Z"
     },
     {
       "id": "P3-health-wallet-preflight",
       "priority": 3,
       "title": "Wallet preflight non-executing",
-      "status": "done",
+      "status": "in_progress",
       "action": "wallet_preflight",
       "created_at_utc": "2026-07-16T20:36:09Z",
-      "attempts": 34,
+      "attempts": 36,
       "last_result": {
         "ok": true,
         "summary": "wallet preflight PASS non-executing",
-        "at": "2026-07-17T03:17:21Z"
+        "at": "2026-07-17T03:17:40Z"
       },
-      "started_at_utc": "2026-07-17T03:17:18Z",
-      "finished_at_utc": "2026-07-17T03:17:21Z",
+      "started_at_utc": "2026-07-17T03:19:44Z",
+      "finished_at_utc": "2026-07-17T03:17:40Z",
       "recurring": true,
-      "reopened_at_utc": "2026-07-17T03:17:12Z"
+      "reopened_at_utc": "2026-07-17T03:19:42Z"
     },
     {
       "id": "P3-health-build",
@@ -53,34 +53,34 @@
       "status": "done",
       "action": "npm_build",
       "created_at_utc": "2026-07-16T20:36:09Z",
-      "attempts": 34,
+      "attempts": 36,
       "last_result": {
         "ok": true,
         "summary": "build PASS",
-        "at": "2026-07-17T03:17:17Z"
+        "at": "2026-07-17T03:19:43Z"
       },
-      "started_at_utc": "2026-07-17T03:17:13Z",
-      "finished_at_utc": "2026-07-17T03:17:17Z",
+      "started_at_utc": "2026-07-17T03:19:42Z",
+      "finished_at_utc": "2026-07-17T03:19:43Z",
       "recurring": true,
-      "reopened_at_utc": "2026-07-17T03:17:12Z"
+      "reopened_at_utc": "2026-07-17T03:19:42Z"
     },
     {
       "id": "P3-inventory-offline-paths",
       "priority": 3,
       "title": "Inventory offline-critical paths",
-      "status": "done",
+      "status": "open",
       "action": "offline_inventory",
       "created_at_utc": "2026-07-16T20:36:09Z",
-      "attempts": 34,
+      "attempts": 35,
       "last_result": {
         "ok": true,
         "summary": "offline inventory missing=0",
-        "at": "2026-07-17T03:17:21Z"
+        "at": "2026-07-17T03:17:40Z"
       },
-      "started_at_utc": "2026-07-17T03:17:21Z",
-      "finished_at_utc": "2026-07-17T03:17:21Z",
+      "started_at_utc": "2026-07-17T03:17:40Z",
+      "finished_at_utc": "2026-07-17T03:17:40Z",
       "recurring": true,
-      "reopened_at_utc": "2026-07-17T03:17:12Z"
+      "reopened_at_utc": "2026-07-17T03:19:42Z"
     },
     {
       "id": "P3-classify-dirty-tree",
@@ -89,16 +89,16 @@
       "status": "done",
       "action": "dirty_tree_classify",
       "created_at_utc": "2026-07-16T20:36:09Z",
-      "attempts": 34,
+      "attempts": 36,
       "last_result": {
         "ok": true,
-        "summary": "dirty tree classified n=16",
-        "at": "2026-07-17T03:17:13Z"
+        "summary": "dirty tree classified n=13",
+        "at": "2026-07-17T03:19:42Z"
       },
-      "started_at_utc": "2026-07-17T03:17:12Z",
-      "finished_at_utc": "2026-07-17T03:17:13Z",
+      "started_at_utc": "2026-07-17T03:19:42Z",
+      "finished_at_utc": "2026-07-17T03:19:42Z",
       "recurring": true,
-      "reopened_at_utc": "2026-07-17T03:17:12Z"
+      "reopened_at_utc": "2026-07-17T03:19:42Z"
     },
     {
       "id": "P3-funding-status-snapshot",
@@ -107,34 +107,34 @@
       "status": "done",
       "action": "funding_snapshot",
       "created_at_utc": "2026-07-16T20:36:09Z",
-      "attempts": 34,
+      "attempts": 36,
       "last_result": {
         "ok": true,
         "summary": "funding PENDING_NO_SECURED_FUNDS secured=0",
-        "at": "2026-07-17T03:17:13Z"
+        "at": "2026-07-17T03:19:42Z"
       },
-      "started_at_utc": "2026-07-17T03:17:13Z",
-      "finished_at_utc": "2026-07-17T03:17:13Z",
+      "started_at_utc": "2026-07-17T03:19:42Z",
+      "finished_at_utc": "2026-07-17T03:19:42Z",
       "recurring": true,
-      "reopened_at_utc": "2026-07-17T03:17:12Z"
+      "reopened_at_utc": "2026-07-17T03:19:42Z"
     },
     {
       "id": "P3-human-queue-refresh",
       "priority": 3,
       "title": "Refresh ranked human action queue",
-      "status": "done",
+      "status": "open",
       "action": "write_human_queue",
       "created_at_utc": "2026-07-16T20:36:09Z",
-      "attempts": 34,
+      "attempts": 35,
       "last_result": {
         "ok": true,
         "summary": "human queue refreshed",
-        "at": "2026-07-17T03:17:21Z"
+        "at": "2026-07-17T03:17:40Z"
       },
-      "started_at_utc": "2026-07-17T03:17:21Z",
-      "finished_at_utc": "2026-07-17T03:17:21Z",
+      "started_at_utc": "2026-07-17T03:17:40Z",
+      "finished_at_utc": "2026-07-17T03:17:40Z",
       "recurring": true,
-      "reopened_at_utc": "2026-07-17T03:17:12Z"
+      "reopened_at_utc": "2026-07-17T03:19:42Z"
     },
     {
       "id": "P2-grant-external",
@@ -226,15 +226,15 @@
       "action": "funding_monitor",
       "recurring": true,
       "created_at_utc": "2026-07-17T01:41:28Z",
-      "attempts": 12,
+      "attempts": 14,
       "last_result": {
         "ok": true,
         "summary": "funding monitor ok",
-        "at": "2026-07-17T03:17:13Z"
+        "at": "2026-07-17T03:19:42Z"
       },
-      "started_at_utc": "2026-07-17T03:17:13Z",
-      "finished_at_utc": "2026-07-17T03:17:13Z",
-      "reopened_at_utc": "2026-07-17T03:17:12Z"
+      "started_at_utc": "2026-07-17T03:19:42Z",
+      "finished_at_utc": "2026-07-17T03:19:42Z",
+      "reopened_at_utc": "2026-07-17T03:19:42Z"
     }
   ]
 }

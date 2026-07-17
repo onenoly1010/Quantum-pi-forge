@@ -1,0 +1,58 @@
+{
+  "at": "2026-07-17T03:19:42Z",
+  "count": 13,
+  "items": [
+    {
+      "line": "M cache/compile-cache.json",
+      "class": "build_artifact"
+    },
+    {
+      "line": " M docs/activation/living-forge/FORGE_RUNNING_STATUS.md",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": " M docs/activation/living-forge/HUMAN_ACTION_QUEUE_V1.md",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": " M docs/activation/living-forge/heartbeats/dirty-tree-2026-07-17T0317.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": " M docs/activation/living-forge/heartbeats/funding-snapshot-2026-07-17T0317.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": " M docs/activation/living-forge/heartbeats/heartbeat-2026-07-17T0317.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": " M docs/activation/living-forge/monitors/funding-monitor-2026-07-17T0317.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": " M docs/activation/living-forge/monitors/funding-monitor-state-v1.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": " M docs/activation/living-forge/monitors/last-event-wake.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": " M docs/activation/living-forge/queue/queue-state-v1.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": " M scripts/living-forge/event-loop.sh",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/OPERATIONAL_STATE_STABLE_V1.md",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/monitors/funding-monitor-2026-07-17T0319.json",
+      "class": "AI_or_agent_work"
+    }
+  ]
+}
