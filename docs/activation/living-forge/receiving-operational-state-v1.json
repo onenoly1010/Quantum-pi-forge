@@ -1,0 +1,15 @@
+{
+  "mode": "RECEIVING_READINESS_AUTHORIZED",
+  "ready_to_receive": false,
+  "verified_available_funds_cad": 0,
+  "event_driven_standby": true,
+  "founder_receiving_authority": "ACTIVE",
+  "updated_at_utc": "2026-07-17T03:17:03Z",
+  "human_required_for_ready_to_receive": [
+    "designate_destination",
+    "ownership_statement"
+  ],
+  "human_required_for_funds_received": [
+    "independent_settlement_evidence"
+  ]
+}

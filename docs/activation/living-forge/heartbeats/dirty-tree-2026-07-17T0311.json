@@ -1,0 +1,38 @@
+{
+  "at": "2026-07-17T03:11:11Z",
+  "count": 8,
+  "items": [
+    {
+      "line": "M cache/compile-cache.json",
+      "class": "build_artifact"
+    },
+    {
+      "line": " M docs/activation/living-forge/monitors/funding-monitor-state-v1.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": " M docs/activation/living-forge/queue/queue-state-v1.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/command/MONITORING_INSTRUCTIONS_V1.md",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/command/grant-package/GRANT_STATUS_HUMAN.md",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/FOUNDER_OPERATIONAL_AUTHORIZATION_V1.md",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/monitors/funding-monitor-2026-07-17T0311.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/receipts/founder-operational-authorization-v1-active-20260717.json",
+      "class": "AI_or_agent_work"
+    }
+  ]
+}

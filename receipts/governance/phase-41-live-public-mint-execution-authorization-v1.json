@@ -1,0 +1,76 @@
+{
+  "governance_version": "v1",
+  "receipt": "phase-41-live-public-mint-execution-authorization-v1",
+  "title": "Phase 41 — Live Public Mint Execution Authorization",
+  "created_at": "2026-07-10T14:22:30.326Z",
+  "canonical_head_before_receipt": "8f949ed",
+  "human_authority": "Kris Olofson",
+  "human_statement": "I authorize all actions.",
+  "interpreted_scope": "Authorization is limited to the exact reviewed two-transaction public-mint sequence. It does not authorize unrelated or future actions.",
+  "references": [
+    "receipts/governance/phase-40-public-mint-authorization-reconsideration-v1.json",
+    "receipts/governance/public-mint-final-reviewed-values-v1.json",
+    "receipts/governance/public-mint-execution-path-spec-v1.json",
+    "receipts/governance/public-mint-live-gas-rpc-preview-v1.json"
+  ],
+  "authorization": {
+    "public_mint_authorized": true,
+    "mint_allowed": true,
+    "live_execution_authorization": true,
+    "execution_approval": true,
+    "signing_session_authorized": true,
+    "automatic_execution": false
+  },
+  "exact_scope": {
+    "network": "0G Aristotle Mainnet",
+    "chain_id": 16661,
+    "operator": "0x335651BD160fDA89C9E7A095dF9Dc1BB9f3cF4DC",
+    "transaction_1": {
+      "contract": "0x75995EC0fdf881189850aeD864cB3f43c0DFCb58",
+      "function": "approve(address,uint256)",
+      "spender": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+      "amount_wei": "1000000000000000000",
+      "native_value_wei": "0"
+    },
+    "transaction_2": {
+      "contract": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+      "function": "registerModel(string,string,uint256)",
+      "name": "QPF Public Mint Model v1",
+      "metadata_uri": "https://quantumpiforge.com/metadata/qpf-public-mint-model-v1.json",
+      "stake_amount_wei": "1000000000000000000",
+      "native_value_wei": "0"
+    }
+  },
+  "pre_execution_requirements": [
+    "confirm wallet address exactly matches operator",
+    "confirm chainId equals 16661",
+    "confirm both contract addresses exactly match",
+    "confirm native value equals zero",
+    "confirm approval amount and stake amount equal 1000000000000000000",
+    "abort on any unexpected wallet prompt",
+    "capture both transaction hashes and receipts"
+  ],
+  "still_forbidden": {
+    "automatic_wallet_signing": true,
+    "private_key_access": true,
+    "seed_phrase_request": true,
+    "liquidity_activation": true,
+    "staking_activation": true,
+    "bridge_activation": true,
+    "yield_routing": true,
+    "treasury_movement": true,
+    "unrelated_token_transfer": true
+  },
+  "execution_state": {
+    "wallet_opened": false,
+    "prompt_triggered": false,
+    "transaction_1_signed": false,
+    "transaction_1_broadcast": false,
+    "transaction_2_signed": false,
+    "transaction_2_broadcast": false,
+    "execution_receipt_created": false
+  },
+  "next_gate": "CONTROLLED_HUMAN_WALLET_SIGNING_SESSION",
+  "status": "SEALED_LIVE_EXECUTION_AUTHORIZED_AWAITING_HUMAN_SIGNING",
+  "sha256": "5b893cbea44ea5e8d1069517e88ad491ac50e78cea823a04f2c367fc031e20b7"
+}

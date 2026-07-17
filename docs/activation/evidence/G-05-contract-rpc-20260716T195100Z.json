@@ -1,0 +1,50 @@
+{
+    "timestamp_utc": "2026-07-16T19:49:43Z",
+    "rpc": "https://evmrpc.0g.ai",
+    "git_head": "ce275b81f54d4f166a17f7fac8ffa67f0c937435",
+    "eth_chainId_raw": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": "0x4115"
+    },
+    "chain_id_decimal": 16661,
+    "chain_id_expected": 16661,
+    "chain_id_match": true,
+    "latest_block": 38990004,
+    "birth_block_candidate": 36214213,
+    "birth_block_hash": "0x86dca3801e726fece5f726448e769c559810704ef59543cf4bd7c03e763193c4",
+    "contracts": [
+        {
+            "name": "OINIOToken",
+            "address": "0x75995EC0fdf881189850aeD864cB3f43c0DFCb58",
+            "has_code": true,
+            "code_bytes": 2281,
+            "runtime_bytecode_sha256": "3eeffb8f440a4db41722f4570a521e70fcfcf6b0464c858fb46bf9e8a57e95cf",
+            "eth_getCode_prefix": "0x608060405234801561000f575f80fd5b50600436106100e5575f3560e01c8063"
+        },
+        {
+            "name": "OINIOModelRegistry",
+            "address": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+            "has_code": true,
+            "code_bytes": 9850,
+            "runtime_bytecode_sha256": "b6312fc5f01c754957b4e58c0b17baf2a803232d57586145ef0916ef7c5c52a0",
+            "eth_getCode_prefix": "0x608060405234801561000f575f80fd5b50600436106101a1575f3560e01c8063"
+        },
+        {
+            "name": "HeartbeatMonitor",
+            "address": "0x5E50b92E57e854659f7D98c733088aABd551C49F",
+            "has_code": true,
+            "code_bytes": 2571,
+            "runtime_bytecode_sha256": "9c0a62c95d3eff926d6ba986d4e7ef51250803d85246d4666c76e508c31503c1",
+            "eth_getCode_prefix": "0x608060405234801561000f575f80fd5b50600436106100b1575f3560e01c8063"
+        },
+        {
+            "name": "OINIOToken_skill_alt",
+            "address": "0x6011c341a01c80f489a5c3Ab751987A55142F04e",
+            "has_code": true,
+            "code_bytes": 4132,
+            "runtime_bytecode_sha256": "2cf7b167e681488d1747750d586a01a2f5153f7d5febecd6e1d7fe27fe9b36c9",
+            "eth_getCode_prefix": "0x608060405234801561000f575f5ffd5b5060043610610106575f3560e01c8063"
+        }
+    ]
+}

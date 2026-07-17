@@ -1,0 +1,474 @@
+=== npm run build ===
+
+> build
+> node scripts/build.js
+
+Building static assets for Cloudflare Pages
+
+OK created out/_redirects
+
+Copying static files
+OK copied deploy/_headers -> out/_headers
+OK copied deploy/index.html -> out/index.html
+OK copied deploy/dao.html -> out/dao.html
+OK copied deploy/resonate.html -> out/resonate.html
+OK copied deploy/staking.html -> out/staking.html
+OK copied deploy/what-it-does.html -> out/what-it-does.html
+OK copied deploy/for-builders.html -> out/for-builders.html
+OK copied deploy/why-this-matters.html -> out/why-this-matters.html
+OK copied deploy/human-onboarding.html -> out/human-onboarding.html
+OK copied deploy/deployed-addresses.html -> out/deployed-addresses.html
+OK copied deploy/onboarding-status.html -> out/onboarding-status.html
+OK copied deploy/manifest.json -> out/manifest.json
+OK copied mint.html -> out/mint.html
+OK copied mint-status.html -> out/mint-status.html
+OK copied human-cockpit.html -> out/human-cockpit.html
+OK copied ceremonial_interface.html -> out/ceremonial_interface.html
+OK copied spectral_command_shell.html -> out/spectral_command_shell.html
+OK copied pi-forge-integration.js -> out/pi-forge-integration.js
+
+Copying static directories
+OK copied frontend/ -> out/frontend/
+OK copied deploy/trust/ -> out/trust/
+OK copied receipts/human-cockpit/ -> out/receipts/human-cockpit/
+OK pruned dev artifact out/frontend/README.md
+OK pruned dev artifact out/frontend/example.html
+OK generated version manifest for ce275b8
+
+Build completed: /home/kris/Quantum-pi-forge/out
+
+OK copied run-guardian.sh -> out/run-guardian.sh
+OK copied api/ -> out/api
+npm_build_exit=0
+=== forge build (contracts) ===
+Compiling 2 files with Solc 0.8.24
+Solc 0.8.24 finished in 6.68s
+Compiler run successful!
+note[screaming-snake-case-immutable]: immutables should use SCREAMING_SNAKE_CASE
+  --> src/PioneerRewards.sol:22:30
+   |
+22 |     address public immutable feeCollector;
+   |                              ^^^^^^^^^^^^ help: consider using: `FEE_COLLECTOR`
+   |
+   = help: https://book.getfoundry.sh/reference/forge/forge-lint#screaming-snake-case-immutable
+
+note[mixed-case-variable]: mutable variables should use mixedCase
+  --> src/PioneerRewards.sol:26:20
+   |
+26 |     uint256 public totalSOVWeight;
+   |                    ^^^^^^^^^^^^^^ help: consider using: `totalSovWeight`
+   |
+   = help: https://book.getfoundry.sh/reference/forge/forge-lint#mixed-case-variable
+
+note[mixed-case-function]: function names should use mixedCase
+  --> src/PioneerRewards.sol:55:14
+   |
+55 |     function setSOVWeight(address pioneer, uint256 weight) external onlyFeeCollector {
+   |              ^^^^^^^^^^^^ help: consider using: `setSovWeight`
+   |
+   = help: https://book.getfoundry.sh/reference/forge/forge-lint#mixed-case-function
+
+note[unwrapped-modifier-logic]: wrap modifier logic to reduce code size
+  --> src/PioneerRewards.sol:32:5
+   |
+32 | /     modifier onlyFeeCollector() {
+33 | |         if (msg.sender != feeCollector) revert NotFeeCollector();
+34 | |         _;
+35 | |     }
+   | |_____^
+   |
+help: wrap modifier logic to reduce code size
+   |
+32 ~     modifier onlyFeeCollector() {
+33 +         _onlyFeeCollector();
+34 +         _;
+35 +     }
+36 + 
+37 +     function _onlyFeeCollector() internal {
+38 +         if (msg.sender != feeCollector) revert NotFeeCollector();
+39 +     }
+   |
+   = help: https://book.getfoundry.sh/reference/forge/forge-lint#unwrapped-modifier-logic
+
+note[screaming-snake-case-immutable]: immutables should use SCREAMING_SNAKE_CASE
+  --> src/OperationalTreasury.sol:28:30
+   |
+28 |     address public immutable feeCollector;
+   |                              ^^^^^^^^^^^^ help: consider using: `FEE_COLLECTOR`
+   |
+   = help: https://book.getfoundry.sh/reference/forge/forge-lint#screaming-snake-case-immutable
+
+note[unwrapped-modifier-logic]: wrap modifier logic to reduce code size
+  --> src/OperationalTreasury.sol:47:5
+   |
+47 | /     modifier onlyFeeCollector() {
+48 | |         if (msg.sender != feeCollector) revert NotFeeCollector();
+49 | |         _;
+50 | |     }
+   | |_____^
+   |
+help: wrap modifier logic to reduce code size
+   |
+47 ~     modifier onlyFeeCollector() {
+48 +         _onlyFeeCollector();
+49 +         _;
+50 +     }
+51 + 
+52 +     function _onlyFeeCollector() internal {
+53 +         if (msg.sender != feeCollector) revert NotFeeCollector();
+54 +     }
+   |
+   = help: https://book.getfoundry.sh/reference/forge/forge-lint#unwrapped-modifier-logic
+
+note[unwrapped-modifier-logic]: wrap modifier logic to reduce code size
+  --> src/OperationalTreasury.sol:52:5
+   |
+52 | /     modifier onlyGuardian() {
+53 | |         if (!isGuardian[msg.sender]) revert NotGuardian();
+54 | |         _;
+55 | |     }
+   | |_____^
+   |
+help: wrap modifier logic to reduce code size
+   |
+52 ~     modifier onlyGuardian() {
+53 +         _onlyGuardian();
+54 +         _;
+55 +     }
+56 + 
+57 +     function _onlyGuardian() internal {
+58 +         if (!isGuardian[msg.sender]) revert NotGuardian();
+59 +     }
+   |
+   = help: https://book.getfoundry.sh/reference/forge/forge-lint#unwrapped-modifier-logic
+
+note[unwrapped-modifier-logic]: wrap modifier logic to reduce code size
+  --> src/OperationalTreasury.sol:57:5
+   |
+57 | /     modifier whenNotPaused() {
+58 | |         if (paused) revert Paused();
+59 | |         _;
+60 | |     }
+   | |_____^
+   |
+help: wrap modifier logic to reduce code size
+   |
+57 ~     modifier whenNotPaused() {
+58 +         _whenNotPaused();
+59 +         _;
+60 +     }
+61 + 
+62 +     function _whenNotPaused() internal {
+63 +         if (paused) revert Paused();
+64 +     }
+   |
+   = help: https://book.getfoundry.sh/reference/forge/forge-lint#unwrapped-modifier-logic
+
+warning[unsafe-typecast]: typecasts that can truncate values should be checked
+  --> test/OperationalTreasury.t.sol:54:78
+   |
+54 |         uint256 proposalId = treasury.proposeExpenditure(recipient, 1 ether, bytes32("node hosting"));
+   |                                                                              ^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: consider disabling this lint if you're certain the cast is safe
+           
+           // casting to 'bytes32' is safe because [explain why]
+           // forge-lint: disable-next-line(unsafe-typecast)
+           
+           
+   = help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+
+warning[unsafe-typecast]: typecasts that can truncate values should be checked
+  --> test/OperationalTreasury.t.sol:65:57
+   |
+65 |         treasury.proposeExpenditure(recipient, 1 ether, bytes32("node hosting"));
+   |                                                         ^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: consider disabling this lint if you're certain the cast is safe
+           
+           // casting to 'bytes32' is safe because [explain why]
+           // forge-lint: disable-next-line(unsafe-typecast)
+           
+           
+   = help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+
+warning[unsafe-typecast]: typecasts that can truncate values should be checked
+  --> test/OperationalTreasury.t.sol:74:70
+   |
+74 |         uint256 id = treasury.proposeExpenditure(recipient, 1 ether, bytes32("node hosting"));
+   |                                                                      ^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: consider disabling this lint if you're certain the cast is safe
+           
+           // casting to 'bytes32' is safe because [explain why]
+           // forge-lint: disable-next-line(unsafe-typecast)
+           
+           
+   = help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+
+warning[unsafe-typecast]: typecasts that can truncate values should be checked
+  --> test/OperationalTreasury.t.sol:88:70
+   |
+88 |         uint256 id = treasury.proposeExpenditure(recipient, 1 ether, bytes32("node hosting"));
+   |                                                                      ^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: consider disabling this lint if you're certain the cast is safe
+           
+           // casting to 'bytes32' is safe because [explain why]
+           // forge-lint: disable-next-line(unsafe-typecast)
+           
+           
+   = help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+
+warning[unsafe-typecast]: typecasts that can truncate values should be checked
+   --> test/OperationalTreasury.t.sol:104:70
+    |
+104 |         uint256 id = treasury.proposeExpenditure(recipient, 1 ether, bytes32("node hosting"));
+    |                                                                      ^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: consider disabling this lint if you're certain the cast is safe
+            
+            // casting to 'bytes32' is safe because [explain why]
+            // forge-lint: disable-next-line(unsafe-typecast)
+            
+            
+    = help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+
+warning[unsafe-typecast]: typecasts that can truncate values should be checked
+   --> test/OperationalTreasury.t.sol:125:70
+    |
+125 |         uint256 id = treasury.proposeExpenditure(recipient, 1 ether, bytes32("node hosting"));
+    |                                                                      ^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: consider disabling this lint if you're certain the cast is safe
+            
+            // casting to 'bytes32' is safe because [explain why]
+            // forge-lint: disable-next-line(unsafe-typecast)
+            
+            
+    = help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+
+warning[unsafe-typecast]: typecasts that can truncate values should be checked
+   --> test/OperationalTreasury.t.sol:142:70
+    |
+142 |         uint256 id = treasury.proposeExpenditure(recipient, 1 ether, bytes32("node hosting"));
+    |                                                                      ^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: consider disabling this lint if you're certain the cast is safe
+            
+            // casting to 'bytes32' is safe because [explain why]
+            // forge-lint: disable-next-line(unsafe-typecast)
+            
+            
+    = help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+
+warning[unsafe-typecast]: typecasts that can truncate values should be checked
+   --> test/OperationalTreasury.t.sol:169:57
+    |
+169 |         treasury.proposeExpenditure(recipient, 1 ether, bytes32("node hosting"));
+    |                                                         ^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: consider disabling this lint if you're certain the cast is safe
+            
+            // casting to 'bytes32' is safe because [explain why]
+            // forge-lint: disable-next-line(unsafe-typecast)
+            
+            
+    = help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+
+warning[unsafe-typecast]: typecasts that can truncate values should be checked
+   --> test/OperationalTreasury.t.sol:182:57
+    |
+182 |         treasury.proposeExpenditure(recipient, 1 ether, bytes32("node hosting"));
+    |                                                         ^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: consider disabling this lint if you're certain the cast is safe
+            
+            // casting to 'bytes32' is safe because [explain why]
+            // forge-lint: disable-next-line(unsafe-typecast)
+            
+            
+    = help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+
+note[unaliased-plain-import]: use named imports '{A, B}' or alias 'import ".." as X'
+ --> script/DeploySocialRecovery.s.sol:4:8
+  |
+4 | import "forge-std/Script.sol";
+  |        ^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = help: https://book.getfoundry.sh/reference/forge/forge-lint#unaliased-plain-import
+
+note[unaliased-plain-import]: use named imports '{A, B}' or alias 'import ".." as X'
+ --> script/DeploySocialRecovery.s.sol:5:8
+  |
+5 | import "../ZeroGSocialRecovery.sol";
+  |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = help: https://book.getfoundry.sh/reference/forge/forge-lint#unaliased-plain-import
+
+note[unaliased-plain-import]: use named imports '{A, B}' or alias 'import ".." as X'
+ --> script/DeployYieldRouter.s.sol:4:8
+  |
+4 | import "forge-std/Script.sol";
+  |        ^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = help: https://book.getfoundry.sh/reference/forge/forge-lint#unaliased-plain-import
+
+note[unaliased-plain-import]: use named imports '{A, B}' or alias 'import ".." as X'
+ --> script/DeployYieldRouter.s.sol:5:8
+  |
+5 | import "../src/YieldRouterFactory.sol";
+  |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = help: https://book.getfoundry.sh/reference/forge/forge-lint#unaliased-plain-import
+
+note[unwrapped-modifier-logic]: wrap modifier logic to reduce code size
+  --> src/FeeCollector.sol:47:5
+   |
+47 | /     modifier onlyGuardian() {
+48 | |         if (!guardians[msg.sender]) revert NotGuardian();
+49 | |         _;
+50 | |     }
+   | |_____^
+   |
+help: wrap modifier logic to reduce code size
+   |
+47 ~     modifier onlyGuardian() {
+48 +         _onlyGuardian();
+49 +         _;
+50 +     }
+51 + 
+52 +     function _onlyGuardian() internal {
+53 +         if (!guardians[msg.sender]) revert NotGuardian();
+54 +     }
+   |
+   = help: https://book.getfoundry.sh/reference/forge/forge-lint#unwrapped-modifier-logic
+
+note[unwrapped-modifier-logic]: wrap modifier logic to reduce code size
+  --> src/FeeCollector.sol:52:5
+   |
+52 | /     modifier whenActive() {
+53 | |         if (!active) revert NotActive();
+54 | |         _;
+55 | |     }
+   | |_____^
+   |
+help: wrap modifier logic to reduce code size
+   |
+52 ~     modifier whenActive() {
+53 +         _whenActive();
+54 +         _;
+55 +     }
+56 + 
+57 +     function _whenActive() internal {
+58 +         if (!active) revert NotActive();
+59 +     }
+   |
+   = help: https://book.getfoundry.sh/reference/forge/forge-lint#unwrapped-modifier-logic
+
+note[unwrapped-modifier-logic]: wrap modifier logic to reduce code size
+  --> src/FeeCollector.sol:57:5
+   |
+57 | /     modifier whenNotPaused() {
+58 | |         if (paused) revert Paused();
+59 | |         _;
+60 | |     }
+   | |_____^
+   |
+help: wrap modifier logic to reduce code size
+   |
+57 ~     modifier whenNotPaused() {
+58 +         _whenNotPaused();
+59 +         _;
+60 +     }
+61 + 
+62 +     function _whenNotPaused() internal {
+63 +         if (paused) revert Paused();
+64 +     }
+   |
+   = help: https://book.getfoundry.sh/reference/forge/forge-lint#unwrapped-modifier-logic
+
+note[screaming-snake-case-immutable]: immutables should use SCREAMING_SNAKE_CASE
+  --> src/LegacyVault.sol:19:30
+   |
+19 |     address public immutable feeCollector;
+   |                              ^^^^^^^^^^^^ help: consider using: `FEE_COLLECTOR`
+   |
+   = help: https://book.getfoundry.sh/reference/forge/forge-lint#screaming-snake-case-immutable
+
+note[unaliased-plain-import]: use named imports '{A, B}' or alias 'import ".." as X'
+ --> test/YieldRouterFactory.t.sol:4:8
+  |
+4 | import "forge-std/Test.sol";
+  |        ^^^^^^^^^^^^^^^^^^^^
+  |
+  = help: https://book.getfoundry.sh/reference/forge/forge-lint#unaliased-plain-import
+
+note[unaliased-plain-import]: use named imports '{A, B}' or alias 'import ".." as X'
+ --> test/YieldRouterFactory.t.sol:5:8
+  |
+5 | import "../src/YieldRouterFactory.sol";
+  |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = help: https://book.getfoundry.sh/reference/forge/forge-lint#unaliased-plain-import
+
+note[unaliased-plain-import]: use named imports '{A, B}' or alias 'import ".." as X'
+ --> test/YieldRouterFactory.t.sol:6:8
+  |
+6 | import "../src/FeeCollector.sol";
+  |        ^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = help: https://book.getfoundry.sh/reference/forge/forge-lint#unaliased-plain-import
+
+note[unaliased-plain-import]: use named imports '{A, B}' or alias 'import ".." as X'
+ --> test/YieldRouterFactory.t.sol:7:8
+  |
+7 | import "../src/LegacyVault.sol";
+  |        ^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = help: https://book.getfoundry.sh/reference/forge/forge-lint#unaliased-plain-import
+
+note[unaliased-plain-import]: use named imports '{A, B}' or alias 'import ".." as X'
+ --> test/YieldRouterFactory.t.sol:8:8
+  |
+8 | import "../src/PioneerRewards.sol";
+  |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = help: https://book.getfoundry.sh/reference/forge/forge-lint#unaliased-plain-import
+
+note[unaliased-plain-import]: use named imports '{A, B}' or alias 'import ".." as X'
+ --> test/YieldRouterFactory.t.sol:9:8
+  |
+9 | import "../src/OperationalTreasury.sol";
+  |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = help: https://book.getfoundry.sh/reference/forge/forge-lint#unaliased-plain-import
+
+note[unwrapped-modifier-logic]: wrap modifier logic to reduce code size
+  --> src/LegacyVault.sol:27:5
+   |
+27 | /     modifier onlyFeeCollector() {
+28 | |         if (msg.sender != feeCollector) revert NotFeeCollector();
+29 | |         _;
+30 | |     }
+   | |_____^
+   |
+help: wrap modifier logic to reduce code size
+   |
+27 ~     modifier onlyFeeCollector() {
+28 +         _onlyFeeCollector();
+29 +         _;
+30 +     }
+31 + 
+32 +     function _onlyFeeCollector() internal {
+33 +         if (msg.sender != feeCollector) revert NotFeeCollector();
+34 +     }
+   |
+   = help: https://book.getfoundry.sh/reference/forge/forge-lint#unwrapped-modifier-logic
+
+forge_build_exit=0
+=== hardhat compile ===
+◇ injected env (0) from .env // tip: ◈ encrypted .env [www.dotenvx.com]
+
+Compiled 2 Solidity files with solc 0.8.24 (evm target: cancun)
+hardhat_exit=0

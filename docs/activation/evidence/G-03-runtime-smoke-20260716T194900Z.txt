@@ -1,0 +1,42 @@
+timestamp_utc=2026-07-16T19:48:44Z
+cwd=/home/kris/Quantum-pi-forge
+server=python3 http.server 8767 --directory /home/kris/Quantum-pi-forge/out
+note=Cloudflare _redirects not applied by python SimpleHTTPRequestHandler
+PATH=/ HTTP=200 BYTES=52742
+PATH=/what-it-does.html HTTP=200 BYTES=7057
+PATH=/what-it-does HTTP=404 BYTES=335
+PATH=/deployed-addresses.html HTTP=200 BYTES=12039
+PATH=/staking.html HTTP=200 BYTES=3092
+PATH=/version.json HTTP=200 BYTES=159
+PATH=/frontend/production_dashboard.html HTTP=200 BYTES=46720
+=== claim language ===
+/home/kris/Quantum-pi-forge/out/what-it-does.html:77:  <h2>Genesis Activation Evidence (Gated)</h2>
+/home/kris/Quantum-pi-forge/out/what-it-does.html:78:  <p><strong>Status: Implemented but gated — not a claim that the full network or economy is live.</strong> Project records document a genesis activation path on 0G Aristotle (chain ID <code>16661</code>) with sealed local execution receipts. Canonical public addresses remain <strong>Pending</strong> in <code>contracts/DEPLOYED_ADDRESSES.md</code> until independently re-verified. Liquidity, staking, public mint opening, and bridge activation remain gated.</p>
+/home/kris/Quantum-pi-forge/out/frontend/production_dashboard.html:222:            <div class="live-indicator"><div class="live-dot" style="background: var(--warning-amber, #f59e0b); animation: none;"></div><span style="color: var(--warning-amber, #f59e0b); font-size: 0.85rem;">EXPERIMENTAL / GATED</span></div>
+=== version.json ===
+{
+  "commit": "ce275b81f54d4f166a17f7fac8ffa67f0c937435",
+  "build_time": "2026-07-16T19:47:35Z",
+  "system": "OINIO Quantum Pi Forge",
+  "version": "1.0.0"
+}
+=== _redirects ===
+/trust/* /trust/:splat 200
+/dashboard /frontend/production_dashboard.html 200
+/dashboard/ /frontend/production_dashboard.html 200
+/resonance-dashboard /frontend/production_dashboard.html 200
+/api/* https://pi-forge-quantum-genesis.railway.app/api/:splat 200
+/health https://pi-forge-quantum-genesis.railway.app/health 200
+=== workers listing ===
+guardian-sentinel.js
+resonance-worker.js
+trigger-poller.js
+wallet-sentinel.js
+wrangler.toml
+x-poster-mock.js
+=== out/api ===
+liquidity-signals.json
+=== docker-compose services (names only) ===
+  redis:
+  resonance-worker:
+  redis-data:

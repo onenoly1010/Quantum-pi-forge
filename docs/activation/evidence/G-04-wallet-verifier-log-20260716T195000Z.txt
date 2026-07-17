@@ -1,0 +1,186 @@
+timestamp_utc=2026-07-16T19:49:21Z
+HEAD=ce275b81f54d4f166a17f7fac8ffa67f0c937435
+=== security:wallet-preflight-gate:v1:check ===
+
+> security:wallet-preflight-gate:v1:check
+> bash scripts/security/wallet-preflight-gate-v1.sh
+
+=== wallet preflight gate v1 ===
+{
+  "id": "wallet-preflight-verifier-v1",
+  "result": "PASS",
+  "posture": "non_executing_wallet_preflight",
+  "source_mapping_receipt": "receipts/security/0g-wallet-access-control-mapping-v1.json",
+  "expected_chain_id": 16661,
+  "expected_rpc": "https://evmrpc.0g.ai",
+  "forbidden_env_checked": [
+    "PRIVATE_KEY",
+    "DEPLOYER_PRIVATE_KEY",
+    "FEE_TO_SETTER_PRIVATE_KEY",
+    "MNEMONIC",
+    "SEED",
+    "PI_PRIVATE_KEY",
+    "AI_PRIVATE_KEY"
+  ],
+  "private_key_used": false,
+  "transaction_signed": false,
+  "transaction_broadcast": false,
+  "failures": [],
+  "script_sha256": "956dd019eb60f2a7575e62ff38ac40b61124bce463a9e7fda9f4c8b7bbcf7c23",
+  "created_at_utc": "2026-07-16T19:49:22Z"
+}
+
+> verify:evidence-index
+> node scripts/verify-evidence-index.cjs
+
+OK evidence index verified: 3 lanes, 6 paths checked.
+WALLET_PREFLIGHT_GATE_V1_PASS=TRUE
+exit=0
+=== governance:human-wallet-prompt-inspection:v1:check ===
+
+> governance:human-wallet-prompt-inspection:v1:check
+> node scripts/review/human-wallet-prompt-inspection-v1.cjs
+
+=== PUBLIC MINT WALLET PROMPT INSPECTION (Kris review only) ===
+
+NETWORK: 0G Aristotle Mainnet (chainId 16661)
+RULE: No signature until Kris sees this prompt sheet and explicitly says yes to this exact prompt.
+
+--- Prompt 1 ---
+Summary: Approve OINIO token spending for OINIOModelRegistry (1 OINIO)
+Contract: 0x75995EC0fdf881189850aeD864cB3f43c0DFCb58 (OINIOToken)
+Function: approve approve(address spender, uint256 amount)
+Selector: 0x095ea7b3
+Args: {"spender":"0x67aD7169184581f23D1E10B39d4eb4e98293E87a","amount":"1000000000000000000","amount_human":"1 OINIO"}
+Native value: 0
+Note: Allows registry to pull stake; not a treasury or liquidity action
+
+--- Prompt 2 ---
+Summary: Register model on OINIOModelRegistry (registerModel)
+Contract: 0x67aD7169184581f23D1E10B39d4eb4e98293E87a (OINIOModelRegistry)
+Function: registerModel registerModel(string name, string metadataURI, uint256 stakeAmount)
+Selector: 0xb5571144
+Args: {"name":"<user_model_name_non_empty>","metadataURI":"<user_metadata_uri_non_empty>","stakeAmount":"1000000000000000000","stakeAmount_human":"1 OINIO"}
+Native value: 0
+Minter/recipient: caller_wallet_msg_sender
+Note: NFT minted to the signing wallet (msg.sender)
+
+EXPECTED VALUE:
+{
+  "native_0g_sent": "0",
+  "oinio_stake_transferred": "1000000000000000000",
+  "oinio_stake_human": "1 OINIO",
+  "stake_recipient": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a"
+}
+
+GAS INSPECTION:
+{
+  "transaction_count": 2,
+  "payer": "user_wallet",
+  "live_gas_estimate": null,
+  "inspection_note": "Gas is not live-estimated in this inspection lane. Expect two user-paid transactions on chainId 16661. Failed transactions may still cost gas."
+}
+
+ABORT CONDITIONS:
+- wrong chain or chainId != 16661
+- contract address != 0x67aD7169184581f23D1E10B39d4eb4e98293E87a
+- oinio token address != 0x75995EC0fdf881189850aeD864cB3f43c0DFCb58
+- function != approve then registerModel
+- stakeAmount != 1000000000000000000 unless governance updates policy
+- empty name or metadataURI
+- unexpected native value > 0
+- wallet prompt requests seed phrase or private key
+- wallet prompt includes liquidity/staking/bridge/yield/treasury action
+- Kris has not explicitly approved this exact prompt
+- public mint policy still shows mint_allowed=false
+
+PASS human-wallet-prompt-inspection-v1
+MODE inspection_only_no_wallet_prompt
+SIGNING false
+BROADCAST false
+HUMAN_APPROVAL_AUTHORIZED false
+exit=0
+=== governance:phase-32-human-signing-approval-gate:v1:check ===
+
+> governance:phase-32-human-signing-approval-gate:v1:check
+> node scripts/review/verify-phase-32-human-signing-approval-gate-v1.cjs
+
+
+> governance:human-wallet-prompt-inspection:v1:check
+> node scripts/review/human-wallet-prompt-inspection-v1.cjs
+
+=== PUBLIC MINT WALLET PROMPT INSPECTION (Kris review only) ===
+
+NETWORK: 0G Aristotle Mainnet (chainId 16661)
+RULE: No signature until Kris sees this prompt sheet and explicitly says yes to this exact prompt.
+
+--- Prompt 1 ---
+Summary: Approve OINIO token spending for OINIOModelRegistry (1 OINIO)
+Contract: 0x75995EC0fdf881189850aeD864cB3f43c0DFCb58 (OINIOToken)
+Function: approve approve(address spender, uint256 amount)
+Selector: 0x095ea7b3
+Args: {"spender":"0x67aD7169184581f23D1E10B39d4eb4e98293E87a","amount":"1000000000000000000","amount_human":"1 OINIO"}
+Native value: 0
+Note: Allows registry to pull stake; not a treasury or liquidity action
+
+--- Prompt 2 ---
+Summary: Register model on OINIOModelRegistry (registerModel)
+Contract: 0x67aD7169184581f23D1E10B39d4eb4e98293E87a (OINIOModelRegistry)
+Function: registerModel registerModel(string name, string metadataURI, uint256 stakeAmount)
+Selector: 0xb5571144
+Args: {"name":"<user_model_name_non_empty>","metadataURI":"<user_metadata_uri_non_empty>","stakeAmount":"1000000000000000000","stakeAmount_human":"1 OINIO"}
+Native value: 0
+Minter/recipient: caller_wallet_msg_sender
+Note: NFT minted to the signing wallet (msg.sender)
+
+EXPECTED VALUE:
+{
+  "native_0g_sent": "0",
+  "oinio_stake_transferred": "1000000000000000000",
+  "oinio_stake_human": "1 OINIO",
+  "stake_recipient": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a"
+}
+
+GAS INSPECTION:
+{
+  "transaction_count": 2,
+  "payer": "user_wallet",
+  "live_gas_estimate": null,
+  "inspection_note": "Gas is not live-estimated in this inspection lane. Expect two user-paid transactions on chainId 16661. Failed transactions may still cost gas."
+}
+
+ABORT CONDITIONS:
+- wrong chain or chainId != 16661
+- contract address != 0x67aD7169184581f23D1E10B39d4eb4e98293E87a
+- oinio token address != 0x75995EC0fdf881189850aeD864cB3f43c0DFCb58
+- function != approve then registerModel
+- stakeAmount != 1000000000000000000 unless governance updates policy
+- empty name or metadataURI
+- unexpected native value > 0
+- wallet prompt requests seed phrase or private key
+- wallet prompt includes liquidity/staking/bridge/yield/treasury action
+- Kris has not explicitly approved this exact prompt
+- public mint policy still shows mint_allowed=false
+
+PASS human-wallet-prompt-inspection-v1
+MODE inspection_only_no_wallet_prompt
+SIGNING false
+BROADCAST false
+HUMAN_APPROVAL_AUTHORIZED false
+PASS phase-32-human-signing-approval-gate-v1
+OUTCOME NO_GO_SIGNING_NOT_AUTHORIZED
+KRIS_EXPLICIT_APPROVAL false
+PROMPT_FINGERPRINT 5389c18c03bc9adaf6cb251d21ce5aef07ca07b5b5425ae62ba0f0adf75b56ad
+SIGNING false
+BROADCAST false
+RULE No transaction may be signed until Kris inspects the approval request and explicitly says yes to the exact prompt details.
+exit=0
+=== package wallet stack ===
+ethers present; no wagmi/WalletConnect/RainbowKit package deps found in prior discovery
+=== STATUS execution flags (from STATUS.md) ===
+Parked. Locally auditable. Non-executing.
+- mainnet_cutover_approval_granted = false
+- mainnet_cutover_executed = false
+- deployment_executed = false
+- broadcast_executed = false
+A defensive pre-cutover review window is active until `2026-06-25T23:59:59Z`. This does not authorize execution. It preserves `mainnet_cutover_approval_granted = false` and requires future receipts for all exit criteria before any governed cutover approval can be considered.

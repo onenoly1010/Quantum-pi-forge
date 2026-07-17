@@ -1,0 +1,240 @@
+{
+  "version": "1",
+  "updated_at_utc": "2026-07-17T03:19:44Z",
+  "rule": "Never ask Kris what to do next if another autonomous task exists.",
+  "metrics": {
+    "autonomous_completed": 259,
+    "human_interruptions_this_session": 0,
+    "last_scheduler_run_utc": "2026-07-17T03:19:44Z",
+    "last_reopen_count": 8,
+    "last_commit": "064a899"
+  },
+  "tasks": [
+    {
+      "id": "P3-health-evidence-index",
+      "priority": 3,
+      "title": "Verify evidence index",
+      "status": "done",
+      "action": "verify_evidence_index",
+      "created_at_utc": "2026-07-16T20:36:09Z",
+      "attempts": 36,
+      "last_result": {
+        "ok": true,
+        "summary": "evidence-index PASS",
+        "at": "2026-07-17T03:19:44Z"
+      },
+      "started_at_utc": "2026-07-17T03:19:43Z",
+      "finished_at_utc": "2026-07-17T03:19:44Z",
+      "recurring": true,
+      "reopened_at_utc": "2026-07-17T03:19:42Z"
+    },
+    {
+      "id": "P3-health-wallet-preflight",
+      "priority": 3,
+      "title": "Wallet preflight non-executing",
+      "status": "in_progress",
+      "action": "wallet_preflight",
+      "created_at_utc": "2026-07-16T20:36:09Z",
+      "attempts": 36,
+      "last_result": {
+        "ok": true,
+        "summary": "wallet preflight PASS non-executing",
+        "at": "2026-07-17T03:17:40Z"
+      },
+      "started_at_utc": "2026-07-17T03:19:44Z",
+      "finished_at_utc": "2026-07-17T03:17:40Z",
+      "recurring": true,
+      "reopened_at_utc": "2026-07-17T03:19:42Z"
+    },
+    {
+      "id": "P3-health-build",
+      "priority": 3,
+      "title": "Static site build",
+      "status": "done",
+      "action": "npm_build",
+      "created_at_utc": "2026-07-16T20:36:09Z",
+      "attempts": 36,
+      "last_result": {
+        "ok": true,
+        "summary": "build PASS",
+        "at": "2026-07-17T03:19:43Z"
+      },
+      "started_at_utc": "2026-07-17T03:19:42Z",
+      "finished_at_utc": "2026-07-17T03:19:43Z",
+      "recurring": true,
+      "reopened_at_utc": "2026-07-17T03:19:42Z"
+    },
+    {
+      "id": "P3-inventory-offline-paths",
+      "priority": 3,
+      "title": "Inventory offline-critical paths",
+      "status": "open",
+      "action": "offline_inventory",
+      "created_at_utc": "2026-07-16T20:36:09Z",
+      "attempts": 35,
+      "last_result": {
+        "ok": true,
+        "summary": "offline inventory missing=0",
+        "at": "2026-07-17T03:17:40Z"
+      },
+      "started_at_utc": "2026-07-17T03:17:40Z",
+      "finished_at_utc": "2026-07-17T03:17:40Z",
+      "recurring": true,
+      "reopened_at_utc": "2026-07-17T03:19:42Z"
+    },
+    {
+      "id": "P3-classify-dirty-tree",
+      "priority": 3,
+      "title": "Classify dirty working tree",
+      "status": "done",
+      "action": "dirty_tree_classify",
+      "created_at_utc": "2026-07-16T20:36:09Z",
+      "attempts": 36,
+      "last_result": {
+        "ok": true,
+        "summary": "dirty tree classified n=13",
+        "at": "2026-07-17T03:19:42Z"
+      },
+      "started_at_utc": "2026-07-17T03:19:42Z",
+      "finished_at_utc": "2026-07-17T03:19:42Z",
+      "recurring": true,
+      "reopened_at_utc": "2026-07-17T03:19:42Z"
+    },
+    {
+      "id": "P3-funding-status-snapshot",
+      "priority": 3,
+      "title": "Snapshot funding PENDING state from sealed files",
+      "status": "done",
+      "action": "funding_snapshot",
+      "created_at_utc": "2026-07-16T20:36:09Z",
+      "attempts": 36,
+      "last_result": {
+        "ok": true,
+        "summary": "funding PENDING_NO_SECURED_FUNDS secured=0",
+        "at": "2026-07-17T03:19:42Z"
+      },
+      "started_at_utc": "2026-07-17T03:19:42Z",
+      "finished_at_utc": "2026-07-17T03:19:42Z",
+      "recurring": true,
+      "reopened_at_utc": "2026-07-17T03:19:42Z"
+    },
+    {
+      "id": "P3-human-queue-refresh",
+      "priority": 3,
+      "title": "Refresh ranked human action queue",
+      "status": "open",
+      "action": "write_human_queue",
+      "created_at_utc": "2026-07-16T20:36:09Z",
+      "attempts": 35,
+      "last_result": {
+        "ok": true,
+        "summary": "human queue refreshed",
+        "at": "2026-07-17T03:17:40Z"
+      },
+      "started_at_utc": "2026-07-17T03:17:40Z",
+      "finished_at_utc": "2026-07-17T03:17:40Z",
+      "recurring": true,
+      "reopened_at_utc": "2026-07-17T03:19:42Z"
+    },
+    {
+      "id": "P2-grant-external",
+      "priority": 2,
+      "title": "Grant portal status (external human identity)",
+      "status": "open",
+      "action": "external_only",
+      "owner": "kris",
+      "created_at_utc": "2026-07-16T20:36:09Z",
+      "attempts": 0,
+      "last_result": null
+    },
+    {
+      "id": "P1-receiving-spec",
+      "priority": 1,
+      "title": "Fill funding-receiving-form + paste AUTHORIZE TO RECEIVE (see AUTHORIZE_TO_RECEIVE_READY_V1.md)",
+      "status": "open",
+      "action": "human_only",
+      "owner": "kris",
+      "created_at_utc": "2026-07-16T20:36:09Z",
+      "attempts": 0,
+      "last_result": null,
+      "blocker_clears_to": "READY_TO_RECEIVE"
+    },
+    {
+      "id": "P1-spiral-deadline",
+      "priority": 1,
+      "title": "Authorize Spiral Return deadline date",
+      "status": "open",
+      "action": "human_only",
+      "owner": "kris",
+      "created_at_utc": "2026-07-16T20:36:09Z",
+      "attempts": 0,
+      "last_result": null
+    },
+    {
+      "id": "P1-physical-M01-M04",
+      "priority": 1,
+      "title": "Confirm or WAIVE physical readiness M-01..M-04",
+      "status": "open",
+      "action": "human_only",
+      "owner": "kris",
+      "created_at_utc": "2026-07-16T20:36:09Z",
+      "attempts": 0,
+      "last_result": null
+    },
+    {
+      "id": "P1-authorize-commit",
+      "priority": 1,
+      "title": "Authorize commit of activation/living-forge evidence pack",
+      "status": "done",
+      "action": "human_only",
+      "owner": "kris",
+      "created_at_utc": "2026-07-16T20:36:09Z",
+      "attempts": 0,
+      "last_result": {
+        "ok": true,
+        "summary": "commit 064a899 living-forge pack (no push)",
+        "at": "2026-07-16T20:42:30Z"
+      },
+      "finished_at_utc": "2026-07-16T20:42:30Z"
+    },
+    {
+      "id": "P0-any-sign-or-transfer",
+      "priority": 0,
+      "title": "No sign/transfer unless explicitly authorized (standing guard)",
+      "status": "open",
+      "action": "guard",
+      "owner": "policy",
+      "created_at_utc": "2026-07-16T20:36:09Z",
+      "attempts": 0,
+      "last_result": null
+    },
+    {
+      "id": "P1-authorize-to-receive",
+      "priority": 1,
+      "title": "Paste AUTHORIZE TO RECEIVE after form filled",
+      "status": "open",
+      "action": "human_only",
+      "owner": "kris",
+      "depends_on": "P1-receiving-spec fill",
+      "created_at_utc": "2026-07-16T20:47:43Z"
+    },
+    {
+      "id": "P3-funding-monitor",
+      "priority": 3,
+      "title": "Funding signal monitor (read-only)",
+      "status": "done",
+      "action": "funding_monitor",
+      "recurring": true,
+      "created_at_utc": "2026-07-17T01:41:28Z",
+      "attempts": 14,
+      "last_result": {
+        "ok": true,
+        "summary": "funding monitor ok",
+        "at": "2026-07-17T03:19:42Z"
+      },
+      "started_at_utc": "2026-07-17T03:19:42Z",
+      "finished_at_utc": "2026-07-17T03:19:42Z",
+      "reopened_at_utc": "2026-07-17T03:19:42Z"
+    }
+  ]
+}

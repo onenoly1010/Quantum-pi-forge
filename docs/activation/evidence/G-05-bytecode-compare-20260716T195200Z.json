@@ -1,0 +1,38 @@
+{
+  "rpc": "https://evmrpc.0g.ai",
+  "results": [
+    {
+      "name": "OINIOToken",
+      "address": "0x75995EC0fdf881189850aeD864cB3f43c0DFCb58",
+      "onchain_bytes": 2281,
+      "artifact_deployed_bytes": 2280,
+      "onchain_sha256": "3eeffb8f440a4db41722f4570a521e70fcfcf6b0464c858fb46bf9e8a57e95cf",
+      "artifact_deployed_sha256": "87391a8139de32a697c683561c667dc28bb6d59291dcdd0e6148f9e7e677ea66",
+      "bytecode_match_full": false,
+      "bytecode_match_metadata_stripped": false,
+      "artifact_path": "contracts/out/OINIOToken.sol/OINIOToken.json"
+    },
+    {
+      "name": "OINIOModelRegistry",
+      "address": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+      "onchain_bytes": 9850,
+      "artifact_deployed_bytes": 9710,
+      "onchain_sha256": "b6312fc5f01c754957b4e58c0b17baf2a803232d57586145ef0916ef7c5c52a0",
+      "artifact_deployed_sha256": "c9c74ba2d1f7bd580963c522aa6b0f6cf1297121f0746987ec0f18c06beadb31",
+      "bytecode_match_full": false,
+      "bytecode_match_metadata_stripped": false,
+      "artifact_path": "contracts/out/OINIOModelRegistry.sol/OINIOModelRegistry.json"
+    },
+    {
+      "name": "HeartbeatMonitor",
+      "address": "0x5E50b92E57e854659f7D98c733088aABd551C49F",
+      "onchain_bytes": 2571,
+      "artifact_deployed_bytes": 2571,
+      "onchain_sha256": "9c0a62c95d3eff926d6ba986d4e7ef51250803d85246d4666c76e508c31503c1",
+      "artifact_deployed_sha256": "e531ff32de185bc49d9b77532bde775bc3eff6ff54531f6959645603c8d6f2ca",
+      "bytecode_match_full": false,
+      "bytecode_match_metadata_stripped": false,
+      "artifact_path": "contracts/out/HeartbeatMonitor.sol/HeartbeatMonitor.json"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "at_utc": "2026-07-17T03:07:59.052Z",
+  "secured_cad": 0,
+  "funding_movement": false,
+  "receiving_destination_filled": false,
+  "authorize_to_receive": "NOT_AUTHORIZED",
+  "files_changed_since_last_run": [
+    "docs/activation/command/funding-receiving-form-v1.json"
+  ],
+  "alerts": [
+    "DESTINATION_STILL_UNSET",
+    "WATCHED_FILES_CHANGED"
+  ]
+}

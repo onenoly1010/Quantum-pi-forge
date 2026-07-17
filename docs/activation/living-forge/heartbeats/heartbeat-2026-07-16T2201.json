@@ -1,0 +1,7 @@
+{
+  "at": "2026-07-16T22:01:54Z",
+  "task": "P3-funding-status-snapshot",
+  "result": "funding PENDING_NO_SECURED_FUNDS secured=0",
+  "ok": true,
+  "remaining_p3": 5
+}

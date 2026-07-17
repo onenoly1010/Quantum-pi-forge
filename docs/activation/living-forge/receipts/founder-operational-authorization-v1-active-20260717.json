@@ -1,0 +1,38 @@
+{
+  "receipt": "founder-operational-authorization-v1-active",
+  "version": "1.0",
+  "status": "ACTIVE",
+  "principal": "Kris Olofson",
+  "role": "Sole Human Creator, Founder, and Final Governance Authority",
+  "recorded_at_utc": "2026-07-17T03:15:00Z",
+  "source_path": "docs/activation/living-forge/FOUNDER_OPERATIONAL_AUTHORIZATION_V1.md",
+  "standing_approval": [
+    "file_creation",
+    "documentation",
+    "reports",
+    "testing",
+    "verification",
+    "local_commits",
+    "branch_creation",
+    "repository_organization",
+    "issue_preparation",
+    "pull_request_preparation",
+    "evidence_generation",
+    "governance_records",
+    "push_and_pr_when_safe"
+  ],
+  "requires_human_confirmation": [
+    "spend_money",
+    "transfer_assets",
+    "sign_blockchain_transactions",
+    "broadcast_blockchain_transactions",
+    "submit_legal_agreements",
+    "publish_confidential_information",
+    "reveal_secrets_or_private_keys",
+    "accept_contractual_obligations",
+    "delete_important_data",
+    "irreversible_operations"
+  ],
+  "external_dependency_rule": "complete_all_local_work_then_present_only_remaining_external_dependency",
+  "agent_action": "recorded_and_operating"
+}

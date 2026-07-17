@@ -1,8 +1,11 @@
 # Quantum Pi Forge Claim-to-Proof Matrix
 
 **Status:** Canonical Reviewer Matrix v1  
-**Date:** June 2026  
+**Date:** June 2026 (linked to Verification Status Table v1 on 2026-07-16)  
 **Purpose:** Compress public review into verifiable, pending, disabled, archive, and aspirational claims.
+
+**Operational feature SSOT:** [`VERIFICATION_STATUS_TABLE_V1.md`](./VERIFICATION_STATUS_TABLE_V1.md)  
+Use that table for Verified / Implemented but gated / Experimental / Planned labels on public site, grants, and partner copy. This matrix remains the reviewer claim vocabulary (verifiable / pending / disabled / archive / aspirational).
 
 ## Classification Standard
 
@@ -38,7 +41,9 @@
 
 ## Site Integration Note
 
-The live site should link to `REVIEWER_START_HERE.md` and this matrix from a visible trust, footer, or reviewer section during the next deploy.
+The live site should link to `REVIEWER_START_HERE.md`, [`VERIFICATION_STATUS_TABLE_V1.md`](./VERIFICATION_STATUS_TABLE_V1.md), and this matrix from a visible trust, footer, or reviewer section during the next deploy.
+
+Public claim audit: [`PUBLIC_SURFACE_CLAIM_AUDIT_V1.md`](./PUBLIC_SURFACE_CLAIM_AUDIT_V1.md).
 
 ## Reviewer Conclusion
 

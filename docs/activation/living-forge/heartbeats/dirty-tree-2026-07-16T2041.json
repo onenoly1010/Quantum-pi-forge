@@ -1,0 +1,142 @@
+{
+  "at": "2026-07-16T20:41:51Z",
+  "count": 34,
+  "items": [
+    {
+      "line": "M cache/compile-cache.json",
+      "class": "build_artifact"
+    },
+    {
+      "line": " M contracts/DEPLOYED_ADDRESSES.md",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": " M docs/activation/ACTIVATION_GATE_PROTOCOL_V1.md",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": " M docs/activation/activation-gate-state-v1.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": " M package.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/LOCAL_AI_EXECUTION_PROTOCOL_V1.md",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/ROOT_AWARENESS_VERIFICATION_PROTOCOL_V1.md",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/command/",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/evidence/AUTONOMY-STATUS-AUDIT-20260716T202517Z.md",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/evidence/DIAGNOSTIC-SWEEP-20260716T201342Z.md",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/evidence/EXECUTION-MODE-AUDIT-20260716T201800Z.md",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/evidence/EXECUTION-TEST-20260716T202752Z.md",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/evidence/FUNDING-CLAIMS-CLASSIFICATION-20260716T202752Z.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/evidence/G-01-recheck-20260716T194717Z.md",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/evidence/G-02-build-integrity-20260716T194734Z.md",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/evidence/G-02-build-log-20260716T194734Z.txt",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/evidence/G-03-runtime-integrity-20260716T194900Z.md",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/evidence/G-03-runtime-smoke-20260716T194900Z.txt",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/evidence/G-04-wallet-verification-20260716T194921Z.md",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/evidence/G-04-wallet-verifier-log-20260716T195000Z.txt",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/evidence/G-05-bytecode-compare-20260716T195200Z.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/evidence/G-05-bytecode-compare-broadcast-set-20260716T195300Z.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/evidence/G-05-contract-rpc-20260716T195100Z.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/evidence/G-05-contract-verification-20260716T195100Z.md",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/evidence/G-06-documentation-audit-20260716T195400Z.md",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/evidence/G-07-security-20260716T195400Z.md",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/evidence/G-08-activation-report-20260716T195500Z.md",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/evidence/ROOT-STATE-20260716T202517Z.txt",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/evidence/VERIFICATION-SWEEP-COUNTERS-AND-FUNDS-20260716T201918Z.md",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/final/",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/root-awareness-verification-protocol-v1.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/spiral-return/",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? scripts/living-forge/",
+      "class": "AI_or_agent_work"
+    }
+  ]
+}

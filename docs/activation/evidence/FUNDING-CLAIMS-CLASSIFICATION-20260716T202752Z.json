@@ -1,0 +1,46 @@
+{
+  "classified_at_utc": "2026-07-16T20:27:52Z",
+  "confirmed_funds": [
+    {
+      "item": "spiral_confirmed_secured_total",
+      "amount_cad": 0,
+      "status": "VERIFIED_ZERO",
+      "path": "receipts/spiral-return/spiral-return-funding-action-plan-v1.json"
+    },
+    {
+      "item": "secured_source_ledger_total",
+      "amount_cad": 0,
+      "status": "VERIFIED_ZERO",
+      "path": "receipts/spiral-return/spiral-return-secured-source-ledger-v1.json"
+    }
+  ],
+  "pending_applications": [
+    {
+      "item": "0G_Guild_grant_review",
+      "status": "PENDING",
+      "path": "0G_GRANT_STATUS_TRACKING.md",
+      "note": "M1-M3 claimed complete in tracker; awaiting grant review response"
+    },
+    {
+      "item": "grant_application_storage_artifact",
+      "status": "PENDING_NOT_PAYOUT",
+      "hash": "0x35651c43292e7306c154bc70075dbed1ac02b0e012ef3f1efdd1f4427079baaa",
+      "path": "0G_ARISTOTLE_GRANT_TRANSACTION_RECEIPT_20260417.md"
+    }
+  ],
+  "expected_possibilities": [
+    {
+      "item": "Guild_on_0G_program_size_reference",
+      "status": "EXPECTED_NOT_AWARD",
+      "note": "$200k program reference in skill/docs \u2014 not proof of award",
+      "path": "0G_GRANT_STATUS_TRACKING.md / 0g-skills"
+    },
+    {
+      "item": "GRANT_OPPORTUNITY_TRACKER_ranges",
+      "status": "EXPECTED_NOT_AWARD",
+      "path": "GRANT_OPPORTUNITY_TRACKER_2026.md"
+    }
+  ],
+  "payout_tx_found": false,
+  "funding_status": "PENDING"
+}

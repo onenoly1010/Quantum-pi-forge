@@ -1,0 +1,36 @@
+{
+  "receipt": "founder-receiving-authority-v1-active",
+  "version": "1.0",
+  "status": "ACTIVE",
+  "principal": "Kris Olofson",
+  "recorded_at_utc": "2026-07-17T03:25:00Z",
+  "source_path": "docs/activation/living-forge/FOUNDER_RECEIVING_AUTHORITY_V1.md",
+  "operational_mode": "RECEIVING_READINESS_AUTHORIZED",
+  "ready_to_receive": false,
+  "ready_to_receive_requires": [
+    "destination_designated_in_funding_receiving_form",
+    "ownership_statement_present",
+    "monitoring_active"
+  ],
+  "verified_available_funds_cad": 0,
+  "funds_received_verified": false,
+  "may": [
+    "continuous_integrity_verification",
+    "prepare_and_validate_receiving_specifications",
+    "monitor_approved_funding_channels",
+    "record_verified_inbound_funding_events",
+    "update_state_on_verifiable_payment_evidence",
+    "generate_grant_and_commercial_documentation",
+    "autonomous_monitoring_without_repeated_prompts"
+  ],
+  "must_not": [
+    "spend_funds",
+    "transfer_assets",
+    "sign_legal_as_founder",
+    "submit_binding_declarations_as_founder",
+    "claim_funds_received_without_evidence",
+    "treat_pending_grants_as_awarded",
+    "fabricate_payment_confirmations_or_balances"
+  ],
+  "agent_action": "authorization_recorded_monitoring_continues"
+}

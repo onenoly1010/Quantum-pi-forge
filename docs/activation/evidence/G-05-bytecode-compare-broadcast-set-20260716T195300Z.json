@@ -1,0 +1,62 @@
+[
+  {
+    "name": "OINIOToken_broadcast",
+    "address": "0x709f23C7A7172E137427576abB5Eb8959E2A57c1",
+    "match_artifact": true,
+    "on_bytes": 2280,
+    "art_bytes": 2280,
+    "on_sha": "87391a8139de32a697c683561c667dc28bb6d59291dcdd0e6148f9e7e677ea66",
+    "art_sha": "87391a8139de32a697c683561c667dc28bb6d59291dcdd0e6148f9e7e677ea66",
+    "owner": "0x335651bd160fda89c9e7a095df9dc1bb9f3cf4dc"
+  },
+  {
+    "name": "OINIOToken_docs",
+    "address": "0x75995EC0fdf881189850aeD864cB3f43c0DFCb58",
+    "match_artifact": false,
+    "on_bytes": 2281,
+    "art_bytes": 2280,
+    "on_sha": "3eeffb8f440a4db41722f4570a521e70fcfcf6b0464c858fb46bf9e8a57e95cf",
+    "art_sha": "87391a8139de32a697c683561c667dc28bb6d59291dcdd0e6148f9e7e677ea66",
+    "owner": "0x335651bd160fda89c9e7a095df9dc1bb9f3cf4dc"
+  },
+  {
+    "name": "Registry_broadcast",
+    "address": "0x25A9C5A244EAf688E078C387616e2380A0589562",
+    "match_artifact": false,
+    "on_bytes": 9710,
+    "art_bytes": 9710,
+    "on_sha": "d83520b20ce0516e21a8e5722bb9614f412c749a9492c046c17edbc2c6015bde",
+    "art_sha": "c9c74ba2d1f7bd580963c522aa6b0f6cf1297121f0746987ec0f18c06beadb31",
+    "owner": "0x335651bd160fda89c9e7a095df9dc1bb9f3cf4dc"
+  },
+  {
+    "name": "Registry_docs",
+    "address": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+    "match_artifact": false,
+    "on_bytes": 9850,
+    "art_bytes": 9710,
+    "on_sha": "b6312fc5f01c754957b4e58c0b17baf2a803232d57586145ef0916ef7c5c52a0",
+    "art_sha": "c9c74ba2d1f7bd580963c522aa6b0f6cf1297121f0746987ec0f18c06beadb31",
+    "owner": "0x335651bd160fda89c9e7a095df9dc1bb9f3cf4dc"
+  },
+  {
+    "name": "Heartbeat_broadcast",
+    "address": "0xd1d5147f38E74855a133Cd75cE7b040eBE6324a0",
+    "match_artifact": false,
+    "on_bytes": 2571,
+    "art_bytes": 2571,
+    "on_sha": "a9bd181e26eef8fd509e049a8785c4fdfb895fb1dec14487e766c3cd7ace13c2",
+    "art_sha": "e531ff32de185bc49d9b77532bde775bc3eff6ff54531f6959645603c8d6f2ca",
+    "owner": "0x335651bd160fda89c9e7a095df9dc1bb9f3cf4dc"
+  },
+  {
+    "name": "Heartbeat_docs",
+    "address": "0x5E50b92E57e854659f7D98c733088aABd551C49F",
+    "match_artifact": false,
+    "on_bytes": 2571,
+    "art_bytes": 2571,
+    "on_sha": "9c0a62c95d3eff926d6ba986d4e7ef51250803d85246d4666c76e508c31503c1",
+    "art_sha": "e531ff32de185bc49d9b77532bde775bc3eff6ff54531f6959645603c8d6f2ca",
+    "owner": "0x335651bd160fda89c9e7a095df9dc1bb9f3cf4dc"
+  }
+]

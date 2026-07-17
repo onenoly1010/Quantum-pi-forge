@@ -74,18 +74,17 @@
   </section>
 
 <section id="mainnet-activation-proof" style="border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:1.25rem;margin:2rem 0;background:rgba(0,0,0,.22)">
-  <h2>Live Mainnet Activation Proof</h2>
-  <p><strong>Quantum Pi Forge is now live on 0G Aristotle Mainnet.</strong> The v2 cutover executed successfully and is sealed by deterministic local receipts.</p>
+  <h2>Genesis Activation Evidence (Gated)</h2>
+  <p><strong>Status: Implemented but gated — not a claim that the full network or economy is live.</strong> Project records document a genesis activation path on 0G Aristotle (chain ID <code>16661</code>) with sealed local execution receipts. Canonical public addresses remain <strong>Pending</strong> in <code>contracts/DEPLOYED_ADDRESSES.md</code> until independently re-verified. Liquidity, staking, public mint opening, and bridge activation remain gated.</p>
   <ul>
-    <li><strong>Execution receipt:</strong> <code>receipts/execution/v2-mainnet-cutover-execution-v1.json</code></li>
-    <li><strong>Main commit:</strong> <code>4c9c392</code> — Activate v2 mainnet cutover: BirthGenesisHeartbeat (#341)</li>
-    <li><strong>Chain ID:</strong> <code>16661</code></li>
-    <li><strong>OINIO Token:</strong> <code>0x75995EC0fdf881189850aeD864cB3f43c0DFCb58</code></li>
-    <li><strong>Model Registry:</strong> <code>0x67aD7169184581f23D1E10B39d4eb4e98293E87a</code></li>
-    <li><strong>Heartbeat Monitor:</strong> <code>0x5E50b92E57e854659f7D98c733088aABd551C49F</code></li>
-    <li><strong>Birth block:</strong> <code>36214213</code></li>
+    <li><strong>Execution receipt (project artifact):</strong> <code>receipts/execution/v2-mainnet-cutover-execution-v1.json</code></li>
+    <li><strong>Main commit (historical):</strong> <code>4c9c392</code> — Activate v2 mainnet cutover: BirthGenesisHeartbeat (#341)</li>
+    <li><strong>Chain ID (declared):</strong> <code>16661</code></li>
+    <li><strong>Recorded candidate addresses (pending canonical matrix):</strong> OINIO Token <code>0x75995EC0fdf881189850aeD864cB3f43c0DFCb58</code>; Model Registry <code>0x67aD7169184581f23D1E10B39d4eb4e98293E87a</code>; Heartbeat Monitor <code>0x5E50b92E57e854659f7D98c733088aABd551C49F</code></li>
+    <li><strong>Recorded birth block (pending independent check):</strong> <code>36214213</code></li>
+    <li><strong>Status table:</strong> <code>docs/review/VERIFICATION_STATUS_TABLE_V1.md</code></li>
   </ul>
-  <p><em>Note:</em> EIP-712 / permit support is not part of the deployed OINIO Token or Model Registry contracts. It remains a future extension for signature-based flows.</p>
+  <p><em>Note:</em> EIP-712 / permit support is not part of the recorded OINIO Token or Model Registry contracts. It remains a future extension for signature-based flows. Do not treat this section as proof of live yield, mint, stake, or Pi bridge.</p>
 </section>
 \n</main>
 </body>

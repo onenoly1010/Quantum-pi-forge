@@ -239,7 +239,13 @@
     "governance:supervised-execution-gate:v1": "node scripts/create-supervised-execution-gate-v1.cjs",
     "verify:supervised-execution-gate:v1": "node scripts/verify-supervised-execution-gate-v1.cjs",
     "cockpit:status": "node scripts/human-cockpit-status.cjs",
-    "cockpit:pipeline": "npm run verify:evidence && npm run build && npm run cockpit:status"
+    "cockpit:pipeline": "npm run verify:evidence && npm run build && npm run cockpit:status",
+    "living-forge:seed": "node scripts/living-forge/scheduler.cjs --seed",
+    "living-forge:once": "node scripts/living-forge/scheduler.cjs",
+    "living-forge:drain": "node scripts/living-forge/scheduler.cjs --drain",
+    "living-forge:human-queue": "node scripts/living-forge/scheduler.cjs --human-queue",
+    "living-forge:monitor-funding": "node scripts/living-forge/monitor-funding-signals.cjs",
+    "living-forge:event-loop": "bash scripts/living-forge/event-loop.sh"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",

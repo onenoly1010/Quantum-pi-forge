@@ -1,0 +1,22 @@
+{
+  "at": "2026-07-17T03:15:15Z",
+  "count": 4,
+  "items": [
+    {
+      "line": "M cache/compile-cache.json",
+      "class": "build_artifact"
+    },
+    {
+      "line": " M docs/activation/living-forge/monitors/funding-monitor-state-v1.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": " M docs/activation/living-forge/queue/queue-state-v1.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/monitors/funding-monitor-2026-07-17T0315.json",
+      "class": "AI_or_agent_work"
+    }
+  ]
+}

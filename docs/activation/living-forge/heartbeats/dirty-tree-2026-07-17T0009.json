@@ -1,0 +1,298 @@
+{
+  "at": "2026-07-17T00:10:07Z",
+  "count": 73,
+  "items": [
+    {
+      "line": "M cache/compile-cache.json",
+      "class": "build_artifact"
+    },
+    {
+      "line": " M docs/activation/command/FUNDING_RECEIVING_SPEC_V1.md",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": " M docs/activation/living-forge/HUMAN_ACTION_QUEUE_V1.md",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": " M docs/activation/living-forge/queue/queue-state-v1.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/command/AUTHORIZE_TO_RECEIVE_READY_V1.md",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/command/funding-receiving-form-v1.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/FUND_LIQUIDITY_GATE_MAP_V1.md",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/dirty-tree-2026-07-16T2044.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/dirty-tree-2026-07-16T2058.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/dirty-tree-2026-07-16T2119.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/dirty-tree-2026-07-16T2129.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/dirty-tree-2026-07-16T2145.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/dirty-tree-2026-07-16T2201.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/dirty-tree-2026-07-16T2217.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/dirty-tree-2026-07-16T2233.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/dirty-tree-2026-07-16T2249.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/dirty-tree-2026-07-16T2305.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/dirty-tree-2026-07-16T2321.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/dirty-tree-2026-07-16T2337.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/dirty-tree-2026-07-16T2353.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/funding-snapshot-2026-07-16T2044.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/funding-snapshot-2026-07-16T2100.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/funding-snapshot-2026-07-16T2121.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/funding-snapshot-2026-07-16T2131.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/funding-snapshot-2026-07-16T2147.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/funding-snapshot-2026-07-16T2201.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/funding-snapshot-2026-07-16T2217.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/funding-snapshot-2026-07-16T2233.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/funding-snapshot-2026-07-16T2250.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/funding-snapshot-2026-07-16T2305.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/funding-snapshot-2026-07-16T2321.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/funding-snapshot-2026-07-16T2337.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/funding-snapshot-2026-07-16T2353.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/heartbeat-2026-07-16T2044.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/heartbeat-2026-07-16T2100.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/heartbeat-2026-07-16T2102.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/heartbeat-2026-07-16T2103.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/heartbeat-2026-07-16T2106.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/heartbeat-2026-07-16T2121.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/heartbeat-2026-07-16T2122.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/heartbeat-2026-07-16T2123.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/heartbeat-2026-07-16T2131.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/heartbeat-2026-07-16T2132.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/heartbeat-2026-07-16T2147.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/heartbeat-2026-07-16T2149.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/heartbeat-2026-07-16T2201.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/heartbeat-2026-07-16T2202.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/heartbeat-2026-07-16T2217.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/heartbeat-2026-07-16T2218.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/heartbeat-2026-07-16T2233.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/heartbeat-2026-07-16T2234.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/heartbeat-2026-07-16T2250.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/heartbeat-2026-07-16T2305.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/heartbeat-2026-07-16T2306.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/heartbeat-2026-07-16T2321.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/heartbeat-2026-07-16T2322.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/heartbeat-2026-07-16T2337.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/heartbeat-2026-07-16T2338.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/heartbeat-2026-07-16T2353.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/heartbeat-2026-07-16T2354.json",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/offline-inventory-2026-07-16T2044.txt",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/offline-inventory-2026-07-16T2106.txt",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/offline-inventory-2026-07-16T2123.txt",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/offline-inventory-2026-07-16T2132.txt",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/offline-inventory-2026-07-16T2149.txt",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/offline-inventory-2026-07-16T2202.txt",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/offline-inventory-2026-07-16T2218.txt",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/offline-inventory-2026-07-16T2234.txt",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/offline-inventory-2026-07-16T2250.txt",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/offline-inventory-2026-07-16T2306.txt",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/offline-inventory-2026-07-16T2322.txt",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/offline-inventory-2026-07-16T2338.txt",
+      "class": "AI_or_agent_work"
+    },
+    {
+      "line": "?? docs/activation/living-forge/heartbeats/offline-inventory-2026-07-16T2354.txt",
+      "class": "AI_or_agent_work"
+    }
+  ]
+}
