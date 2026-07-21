@@ -137,9 +137,10 @@ function writeVersionManifest() {
 function writeRedirects() {
   const redirects = [
     '/trust/* /trust/:splat 200',
-    '/dashboard /frontend/production_dashboard.html 200',
-    '/dashboard/ /frontend/production_dashboard.html 200',
-    '/resonance-dashboard /frontend/production_dashboard.html 200',
+    // Pi-network production_dashboard removed from public routes (see gated stub page).
+    '/dashboard /frontend/dashboard-gated.html 200',
+    '/dashboard/ /frontend/dashboard-gated.html 200',
+    '/resonance-dashboard /frontend/dashboard-gated.html 200',
     '/api/* https://pi-forge-quantum-genesis.railway.app/api/:splat 200',
     '/health https://pi-forge-quantum-genesis.railway.app/health 200'
   ].join('\n') + '\n';
