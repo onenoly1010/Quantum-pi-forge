@@ -36,16 +36,17 @@
       "id": "operator-f50f-0g",
       "network": "aristotle",
       "address": "0xf50FeE9d77f5161581A47f48874fB3f99a9EDBd1",
-      "label": "0G guardian/operator Safe",
-      "role": "operator"
+      "label": "0G guardian/operator Safe (hardened 2/2)",
+      "role": "operator",
+      "notes": "Live 2026-07-21T21:30Z: threshold 2/2, nonce 16. Owners 0x353663… + 0x335651…. Redundant pending changeThreshold can be left/rejected."
     },
     {
       "id": "trezor-f69-0g",
       "network": "aristotle",
       "address": "0xF69bA0dDAa323B07F57Fb02e0835391ba9DD08DE",
-      "label": "Trezor-path Safe on 0G (must harden to >=2)",
+      "label": "Trezor-path Safe on 0G (hardened 2/2)",
       "role": "trezor_path",
-      "notes": "Chain-specific: ETH instance may already be 2/2; this entry is Aristotle only."
+      "notes": "Hardened 2026-07-21: addOwnerWithThreshold Trezor 0x9588…c2E + threshold 2. safeTxHash 0xb240f088…f000 exec 0x088be032…cd36. Independent of eth: instance."
     },
     {
       "id": "trezor-f69-eth",
