@@ -453,11 +453,11 @@
                 <div class="p-6 border border-emerald-500/30 rounded-xl bg-emerald-500/5">
                     <div class="flex items-center gap-3 mb-4">
                         <div class="text-emerald-400 text-2xl">◆</div>
-                        <div class="font-mono text-sm text-emerald-400">DEX PAIR: SEALED</div>
+                        <div class="font-mono text-sm text-emerald-400">DEX PAIR: W0G/USDC.e (EMPTY)</div>
                     </div>
-                    <div class="font-mono text-white mb-2">0x709f23C7A7172E137427576abB5Eb8959E2A57c1</div>
-                    <div class="text-zinc-400 text-sm mb-4">Sealed 0G DEX Pair • Public verification active</div>
-                    <div class="text-xs font-mono text-zinc-500">CREATEPAIR BLOCK 36,238,884 • 0G ARISTOTLE</div>
+                    <div class="font-mono text-white mb-2">0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE</div>
+                    <div class="text-zinc-400 text-sm mb-4">Canonical UniswapV2 pair • Reserves 0/0 • Not a token contract</div>
+                    <div class="text-xs font-mono text-zinc-500">FACTORY 0x215E…D3F8 • 0G ARISTOTLE 16661</div>
                 </div>
 
                 <div class="p-6 border border-blue-500/30 rounded-xl bg-blue-500/5">
@@ -465,9 +465,9 @@
                         <div class="text-blue-400 text-2xl">◆</div>
                         <div class="font-mono text-sm text-blue-400">LIQUIDITY: NOT ADDED</div>
                     </div>
-                    <div class="font-mono text-white mb-2">0x709f23C7A7172E137427576abB5Eb8959E2A57c1</div>
-                    <div class="text-zinc-400 text-sm mb-4">Factory-sealed 0G Aristotle DEX • No liquidity added</div>
-                    <div class="text-xs font-mono text-zinc-500">CREATEPAIR BLOCK 36,238,884 • 0G ARISTOTLE</div>
+                    <div class="font-mono text-white mb-2">0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE</div>
+                    <div class="text-zinc-400 text-sm mb-4">Router 0x2c70…3951 • Seed gated until multi-sig + funding</div>
+                    <div class="text-xs font-mono text-zinc-500">Prior mislabel 0x709f… was ERC20 OINIO Token, not a pair</div>
                 </div>
             </div>
 
@@ -483,8 +483,8 @@
     <!-- PROOF STRIP - LIVE ON-CHAIN -->
     <div id="proof-strip" style="display:flex; gap:24px; justify-content:center; flex-wrap:wrap; font-size:1.1rem; margin:40px 0; scroll-margin-top:120px;">
       <div><strong>Liquidity:</strong> <span id="liquidity">Pending Activation</span> <span id="liquidity-change" style="color:#ffaa00">(treasury not seeded)</span></div>
-      <div><strong>LP Pair:</strong> <span id="lp-pair">0x709f23C7A7172E137427576abB5Eb8959E2A57c1</span></div>
-      <div id="sealed-first-dex-pair-proof" class="text-xs font-mono text-zinc-400 break-all">FIRST_PAIR_FINAL_STATE_SEALED<br>Factory: 0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8<br>Pair: 0x709f23C7A7172E137427576abB5Eb8959E2A57c1<br>CreatePair Tx: 0x4f887876313a5085337ce22eac9418725558a91225096191057dd6d7d2e2f6a2<br>CreatePair Block: 36238884<br>Observed Seal Block: 36239555<br>Pair Confirmed: true</div>
+      <div><strong>LP Pair (W0G/USDC.e):</strong> <span id="lp-pair">0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE</span></div>
+      <div id="sealed-first-dex-pair-proof" class="text-xs font-mono text-zinc-400 break-all">PAIR_EXISTS_ZERO_RESERVES<br>Factory: 0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8<br>Router: 0x2c70129E50BF88eCD59b89d63af2e8920aCF3951<br>Pair: 0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE (W0G/USDC.e)<br>Liquidity: not added<br>Note: 0x709f23… is ERC20 OINIO Token, not a V2 pair</div>
       <div><strong>Wallets connected:</strong> <span id="wallets">0</span> <span id="connected-wallet" style="font-size:0.8rem;opacity:0.6"></span></div>
       <div><strong>Governance Weight:</strong> <span id="governance-weight">Pending Wallet</span></div>
       <div><strong>iNFT minting:</strong> <span id="infts">Not publicly open</span></div>
@@ -843,10 +843,21 @@ function addNewSignalToLedger(signal) {
   };
   const readProvider = new ethers.providers.JsonRpcProvider(RPC);
   const TOKEN = "0x75995EC0fdf881189850aeD864cB3f43c0DFCb58";
-  const PAIR  = "0x709f23C7A7172E137427576abB5Eb8959E2A57c1";
-  window.FORGE_FIRST_PAIR_FINAL_STATE_SEAL = {"status":"FIRST_PAIR_FINAL_STATE_SEALED","factory":"0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8","pairAddress":"0x709f23C7A7172E137427576abB5Eb8959E2A57c1","txHash":"0x4f887876313a5085337ce22eac9418725558a91225096191057dd6d7d2e2f6a2","txBlockNumber":36238884,"observedBlockNumber":36239555,"pairConfirmed":true};
+  // Canonical empty V2 pool (factory.getPair(W0G, USDC.e)). Not ERC20 0x709f23… (OINIO Token).
+  const PAIR  = "0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE";
+  window.FORGE_FIRST_PAIR_FINAL_STATE_SEAL = {
+    status: "PAIR_EXISTS_ZERO_RESERVES",
+    factory: "0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8",
+    router: "0x2c70129E50BF88eCD59b89d63af2e8920aCF3951",
+    pairAddress: "0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE",
+    pairTokens: "W0G/USDC.e",
+    pairConfirmed: true,
+    liquidityAdded: false,
+    correctedFrom: "0x709f23C7A7172E137427576abB5Eb8959E2A57c1 was mislabeled as pair; it is ERC20 OINIO Token"
+  };
   window.FORGE_DEX_FACTORY_ADDRESS = "0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8";
-  window.FORGE_LIQUIDITY_PAIR_ADDRESS = "0x709f23C7A7172E137427576abB5Eb8959E2A57c1";
+  window.FORGE_DEX_ROUTER_ADDRESS = "0x2c70129E50BF88eCD59b89d63af2e8920aCF3951";
+  window.FORGE_LIQUIDITY_PAIR_ADDRESS = "0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE";
 
   function setWalletStatus(message, tone = "muted") {
     const status = document.getElementById("wallet-status");

@@ -1,0 +1,77 @@
+{
+  "schema": "qpf.governance.unsigned-liquidity-prep.v1",
+  "status": "UNSIGNED_PREP_COMPLETE_NO_EXECUTION",
+  "generatedAt": "2026-07-21T22:05:00.000Z",
+  "network": "0G Aristotle Mainnet",
+  "chainId": 16661,
+  "rpcUrl": "https://evmrpc.0g.ai",
+  "docs": [
+    "docs/activation/liquidity/UNSIGNED_LIQUIDITY_PREP_V1.md",
+    "docs/activation/liquidity/DOMAIN_ENV_AUDIT_V1.md"
+  ],
+  "canonical": {
+    "factory": "0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8",
+    "router": "0x2c70129E50BF88eCD59b89d63af2e8920aCF3951",
+    "w0g": "0xD1De4F87C8b195f21254b7163dDA9370D8Df593d",
+    "usdce": "0x1f3AA82227281cA364bFb3d253B0f1af1Da6473E",
+    "pair_w0g_usdce": "0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE",
+    "pair_reserves": { "reserve0": "0", "reserve1": "0", "totalSupply": "0" }
+  },
+  "site_mislabel": {
+    "address": "0x709f23C7A7172E137427576abB5Eb8959E2A57c1",
+    "site_label": "DEX Pair (OINIO/0G)",
+    "onchain": "ERC20 OINIO Token (not UniswapV2 pair)",
+    "action": "do_not_seed_as_pair"
+  },
+  "balances_snapshot": {
+    "0x353663cd664bB3e034Dc0f308D8896C0a242e4cd": {
+      "native": "0",
+      "w0g": "0",
+      "usdce": "0"
+    },
+    "0xf50FeE9d77f5161581A47f48874fB3f99a9EDBd1": {
+      "native": "2990000000000000000",
+      "w0g": "0",
+      "usdce": "0",
+      "threshold": "2/2"
+    },
+    "0x335651BD160fDA89C9E7A095dF9Dc1BB9f3cF4DC": {
+      "native": "3088916027761596762",
+      "w0g": "50000000000000000",
+      "usdce": "0",
+      "note": "legacy untrusted path — not preferred LP actor"
+    }
+  },
+  "placeholders": {
+    "amountW0G": null,
+    "amountUSDCe": null,
+    "amountAMin": null,
+    "amountBMin": null,
+    "deadline": null,
+    "lpRecipient": null,
+    "lpActor": null
+  },
+  "blocking_for_execution": [
+    "Human exact amounts not set",
+    "No W0G+USDC.e inventory on preferred Safes",
+    "Control EOA 0x353663 has zero native gas",
+    "Approval command hash blocked until funded with known amounts",
+    "Separate EXECUTE LIQUIDITY human authorization still required"
+  ],
+  "boundary": {
+    "privateKeyUsed": false,
+    "broadcast": false,
+    "approvals": false,
+    "transfers": false,
+    "liquidityAdded": false,
+    "routerMutation": false,
+    "factoryMutation": false
+  },
+  "domain_audit": {
+    "quantumpiforge_com": "200",
+    "homepage_rpc": "https://evmrpc.0g.ai",
+    "homepage_chainId": 16661,
+    "content_pair_label": "FAIL",
+    "production_dashboard_rpc": "FAIL_pi_network"
+  }
+}
