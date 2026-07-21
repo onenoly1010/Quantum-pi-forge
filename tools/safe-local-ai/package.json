@@ -1,0 +1,20 @@
+{
+  "name": "qpf-safe-local-ai",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Read-only local Safe diagnostics for QPF on 0G Aristotle. No signing, no keys.",
+  "scripts": {
+    "inspect": "node inspect-safe.mjs",
+    "inspect:cast": "bash inspect-safe-cast.sh",
+    "hygiene": "node inspect-safe.mjs --hygiene"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@safe-global/api-kit": "^5.0.1",
+    "@safe-global/protocol-kit": "^8.0.4",
+    "ethers": "^6.15.0"
+  }
+}
