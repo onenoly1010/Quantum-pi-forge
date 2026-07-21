@@ -1,10 +1,4 @@
 {
-  "network": {
-    "name": "0G Aristotle Mainnet",
-    "chainId": 16661,
-    "rpcUrl": "https://evmrpc.0g.ai",
-    "explorer": "https://chainscan.0g.ai"
-  },
   "policy": {
     "mode": "READ_ONLY",
     "privateKeysAllowed": false,
@@ -12,28 +6,60 @@
     "broadcastAllowed": false,
     "minSecureThreshold": 2
   },
+  "networks": {
+    "aristotle": {
+      "id": "aristotle",
+      "name": "0G Aristotle Mainnet",
+      "chainId": 16661,
+      "rpcUrl": "https://evmrpc.0g.ai",
+      "explorer": "https://chainscan.0g.ai",
+      "safePrefix": "og"
+    },
+    "ethereum": {
+      "id": "ethereum",
+      "name": "Ethereum Mainnet",
+      "chainId": 1,
+      "rpcUrl": "https://ethereum.publicnode.com",
+      "explorer": "https://etherscan.io",
+      "safePrefix": "eth"
+    }
+  },
   "safes": [
     {
-      "id": "guardian-prominent",
+      "id": "guardian-prominent-0g",
+      "network": "aristotle",
       "address": "0x8d088B88219D072aB035502065ee2410c2cb4389",
       "label": "Prominent 0G Guardian Safe (Phase 7 control plane)",
       "role": "guardian"
     },
     {
-      "id": "operator-f50f",
+      "id": "operator-f50f-0g",
+      "network": "aristotle",
       "address": "0xf50FeE9d77f5161581A47f48874fB3f99a9EDBd1",
       "label": "0G guardian/operator Safe",
       "role": "operator"
     },
     {
-      "id": "trezor-f69",
+      "id": "trezor-f69-0g",
+      "network": "aristotle",
       "address": "0xF69bA0dDAa323B07F57Fb02e0835391ba9DD08DE",
-      "label": "Trezor-path Safe (harden to >=2)",
-      "role": "trezor_path"
+      "label": "Trezor-path Safe on 0G (must harden to >=2)",
+      "role": "trezor_path",
+      "notes": "Chain-specific: ETH instance may already be 2/2; this entry is Aristotle only."
+    },
+    {
+      "id": "trezor-f69-eth",
+      "network": "ethereum",
+      "address": "0xF69bA0dDAa323B07F57Fb02e0835391ba9DD08DE",
+      "label": "Trezor-path Safe on Ethereum (hardened 2026-07-21)",
+      "role": "trezor_path",
+      "notes": "Executed addOwnerWithThreshold: owner 0x8d088…4389, threshold 2. safeTxHash 0x97433dc5…b7e0. Second owner has no code on ETH — nested 0G Safe is NOT a same-chain signer."
     }
   ],
   "notes": {
-    "transactionService": "Safe Transaction Service is not assumed available on chain 16661. Pending-queue fetch is best-effort and may fail offline.",
-    "hygiene": "threshold < 2 is flagged WEAK (single-key / either-owner can execute)."
+    "multiChain": "Same address on eth: vs og: are independent Safe instances. Never assume threshold sync across chains.",
+    "transactionService": "Safe Transaction Service is not assumed available on chain 16661. Pending-queue fetch is best-effort.",
+    "hygiene": "threshold < 2 is flagged WEAK (single-key / either-owner can execute).",
+    "optionB_0g_f69": "On Aristotle only: open app.safe.global with network 0G (not eth:), add second hardware owner (e.g. Trezor 0x9588fED230B62e36b3880cfDA0CC4Cc242969c2E if that is your intended key), set threshold 2."
   }
 }

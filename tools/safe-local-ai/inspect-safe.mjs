@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * QPF Safe local inspector — READ ONLY
+ * QPF Safe local inspector — READ ONLY (multi-chain)
  *
  * - No private keys
  * - No signing
@@ -9,10 +9,10 @@
  * Usage:
  *   node inspect-safe.mjs
  *   node inspect-safe.mjs --hygiene
- *   SAFE_ADDRESS=0x... node inspect-safe.mjs
- *   RPC_URL=https://evmrpc.0g.ai node inspect-safe.mjs
+ *   SAFE_ADDRESS=0x... NETWORK=aristotle node inspect-safe.mjs
+ *   NETWORK=ethereum node inspect-safe.mjs
  *
- * Local AI: run this from workspace terminal; paste stdout only (never keys).
+ * Local AI: run from workspace terminal; paste stdout only (never keys).
  */
 
 import { readFileSync } from "node:fs";
@@ -45,19 +45,55 @@ function parseArgs(argv) {
   };
 }
 
+function resolveNetworkKey(entry) {
+  if (process.env.NETWORK?.trim()) return process.env.NETWORK.trim();
+  if (entry.network) return entry.network;
+  // Back-compat: old single-network config
+  if (config.network) return "_legacy";
+  return "aristotle";
+}
+
+function getNetworkDef(key) {
+  if (key === "_legacy" && config.network) {
+    return {
+      id: "legacy",
+      name: config.network.name,
+      chainId: config.network.chainId,
+      rpcUrl: config.network.rpcUrl,
+      explorer: config.network.explorer,
+      safePrefix: "unknown",
+    };
+  }
+  const n = config.networks?.[key];
+  if (!n) {
+    throw new Error(
+      `Unknown network "${key}". Known: ${Object.keys(config.networks || {}).join(", ")}`,
+    );
+  }
+  return n;
+}
+
 function resolveSafes() {
   const single = process.env.SAFE_ADDRESS?.trim();
+  const networkFilter = process.env.NETWORK?.trim();
+
   if (single) {
     return [
       {
         id: "env",
+        network: networkFilter || "aristotle",
         address: single,
         label: "SAFE_ADDRESS from env",
         role: "custom",
       },
     ];
   }
-  return config.safes;
+
+  let list = config.safes || [];
+  if (networkFilter) {
+    list = list.filter((s) => (s.network || "aristotle") === networkFilter);
+  }
+  return list;
 }
 
 function classify(threshold, ownerCount, minSecure) {
@@ -87,15 +123,20 @@ function classify(threshold, ownerCount, minSecure) {
   };
 }
 
-async function inspectOne(provider, entry, minSecure) {
+async function inspectOne(provider, entry, networkDef, minSecure) {
   const code = await provider.getCode(entry.address);
   const out = {
     id: entry.id,
     label: entry.label,
     role: entry.role,
     address: entry.address,
+    network: networkDef.id,
+    chainId: networkDef.chainId,
+    networkName: networkDef.name,
+    safeUiHint: `${networkDef.safePrefix || "chain"}:${entry.address}`,
     isContract: code !== "0x" && code.length > 2,
     codePrefix: code.slice(0, 18),
+    configNotes: entry.notes || null,
   };
 
   if (!out.isContract) {
@@ -121,6 +162,13 @@ async function inspectOne(provider, entry, minSecure) {
     out.ownerCount = owners.length;
     out.nonce = Number(nonce);
     out.hygiene = classify(threshold, owners.length, minSecure);
+
+    // Flag owners with no code (cannot be nested Safe / ERC-1271 on this chain)
+    out.ownerCodePresence = {};
+    for (const o of owners) {
+      const oc = await provider.getCode(o);
+      out.ownerCodePresence[o] = oc !== "0x" && oc.length > 2 ? "contract" : "eoa_or_empty";
+    }
 
     try {
       out.version = await safe.VERSION();
@@ -157,7 +205,6 @@ async function inspectOne(provider, entry, minSecure) {
 }
 
 async function tryPendingQueue(chainId, safeAddress) {
-  // Best-effort only. Official Safe Transaction Service often has no 0G lane.
   try {
     const SafeApiKit = (await import("@safe-global/api-kit")).default;
     const apiKit = new SafeApiKit({ chainId: BigInt(chainId) });
@@ -184,37 +231,16 @@ async function tryPendingQueue(chainId, safeAddress) {
   }
 }
 
-async function tryProtocolKit(rpcUrl, safeAddress) {
-  try {
-    const Safe = (await import("@safe-global/protocol-kit")).default;
-    const kit = await Safe.init({
-      provider: rpcUrl,
-      safeAddress,
-    });
-    return {
-      available: true,
-      threshold: await kit.getThreshold(),
-      owners: await kit.getOwners(),
-      nonce: await kit.getNonce(),
-    };
-  } catch (err) {
-    return {
-      available: false,
-      error: String(err?.message || err).slice(0, 240),
-    };
-  }
-}
-
 function printHuman(report) {
-  console.log("=== QPF Safe Local Diagnostic (READ ONLY) ===");
-  console.log(`Network: ${report.network.name} (chainId ${report.network.chainId})`);
-  console.log(`RPC: ${report.network.rpcUrl}`);
+  console.log("=== QPF Safe Local Diagnostic (READ ONLY, multi-chain) ===");
   console.log(`Policy: ${report.policy.mode} | minSecureThreshold=${report.policy.minSecureThreshold}`);
   console.log(`Time: ${report.inspectedAtUtc}`);
   console.log("");
 
   for (const s of report.safes) {
     console.log(`--- ${s.label} ---`);
+    console.log(`Network:   ${s.networkName} (chainId ${s.chainId})`);
+    console.log(`Safe UI:   ${s.safeUiHint}`);
     console.log(`Address:   ${s.address}`);
     console.log(`Role:      ${s.role}`);
     if (s.error) {
@@ -232,25 +258,19 @@ function printHuman(report) {
       `Modules:   ${s.modulesCount == null ? "n/a" : s.modulesCount}`,
     );
     console.log("Owners:");
-    for (const o of s.owners || []) console.log(`  - ${o}`);
+    for (const o of s.owners || []) {
+      const kind = s.ownerCodePresence?.[o] || "?";
+      console.log(`  - ${o}  (${kind})`);
+    }
+    if (s.configNotes) console.log(`Note:      ${s.configNotes}`);
     if (s.pending) {
       if (s.pending.available) {
         console.log(`Pending queue: ${s.pending.count} (via Safe API Kit)`);
-        for (const p of s.pending.results || []) {
-          console.log(
-            `  • nonce=${p.nonce} conf=${p.confirmations}/${p.confirmationsRequired} to=${p.to} value=${p.value}`,
-          );
-        }
       } else {
         console.log(
           `Pending queue: unavailable (${s.pending.error || "no tx service"})`,
         );
       }
-    }
-    if (s.protocolKit?.available) {
-      console.log(
-        `Protocol Kit: threshold=${s.protocolKit.threshold} owners=${s.protocolKit.owners?.length} nonce=${s.protocolKit.nonce}`,
-      );
     }
     console.log("");
   }
@@ -262,29 +282,18 @@ function printHuman(report) {
 
   console.log("");
   console.log(
-    "Reminder: do not sign pending txs on WEAK Safes until threshold >= 2.",
+    "Reminder: eth: and og:/aristotle Safes do not share threshold state. Do not sign pending txs on WEAK Safes.",
   );
 }
 
 async function main() {
   const args = parseArgs(process.argv.slice(2));
-  const rpcUrl = process.env.RPC_URL?.trim() || config.network.rpcUrl;
-  const chainId = Number(process.env.CHAIN_ID || config.network.chainId);
   const minSecure = Number(
     process.env.MIN_SECURE_THRESHOLD || config.policy.minSecureThreshold,
   );
 
-  const provider = new ethers.JsonRpcProvider(rpcUrl, chainId);
-  const network = await provider.getNetwork();
-
   const report = {
     inspectedAtUtc: new Date().toISOString(),
-    network: {
-      name: config.network.name,
-      chainId: Number(network.chainId),
-      rpcUrl,
-      explorer: config.network.explorer,
-    },
     policy: {
       ...config.policy,
       minSecureThreshold: minSecure,
@@ -292,21 +301,29 @@ async function main() {
     safes: [],
   };
 
-  for (const entry of resolveSafes()) {
-    const base = await inspectOne(provider, entry, minSecure);
+  const providerCache = new Map();
 
-    if (process.env.SAFE_USE_PROTOCOL_KIT === "1" && base.isContract) {
-      base.protocolKit = await tryProtocolKit(rpcUrl, entry.address);
+  for (const entry of resolveSafes()) {
+    const netKey = resolveNetworkKey(entry);
+    const networkDef = getNetworkDef(netKey);
+    const rpcUrl = process.env.RPC_URL?.trim() || networkDef.rpcUrl;
+
+    let provider = providerCache.get(rpcUrl);
+    if (!provider) {
+      provider = new ethers.JsonRpcProvider(rpcUrl, networkDef.chainId);
+      providerCache.set(rpcUrl, provider);
     }
 
+    const base = await inspectOne(provider, entry, networkDef, minSecure);
+
     if (process.env.SAFE_USE_API_KIT === "1") {
-      base.pending = await tryPendingQueue(chainId, entry.address);
+      base.pending = await tryPendingQueue(networkDef.chainId, entry.address);
     } else {
       base.pending = {
         available: false,
         count: null,
         error:
-          "skipped (set SAFE_USE_API_KIT=1 to attempt Transaction Service; often unsupported on 16661)",
+          "skipped (set SAFE_USE_API_KIT=1 to attempt Transaction Service)",
       };
     }
 
@@ -318,7 +335,7 @@ async function main() {
       const grade = s.hygiene?.grade || "ERROR";
       const t =
         s.threshold != null ? `${s.threshold}/${s.ownerCount}` : "n/a";
-      return `[${grade}] ${s.address} ${t} — ${s.hygiene?.reason || s.error || ""}`;
+      return `[${grade}] ${s.networkName || s.network} ${s.address} ${t} — ${s.hygiene?.reason || s.error || ""}`;
     });
   }
 
@@ -328,7 +345,9 @@ async function main() {
     printHuman(report);
   }
 
-  const weak = report.safes.some((s) => s.hygiene?.grade === "WEAK");
+  const weak = report.safes.some(
+    (s) => s.hygiene?.grade === "WEAK" || s.hygiene?.grade === "ERROR",
+  );
   process.exitCode = weak ? 2 : 0;
 }
 

@@ -37,17 +37,32 @@ npm run safe:inspect:cast
 
 ---
 
-## Part A — Harden Trezor-path Safe `0xF69…08DE` (1/1 → 2/2)
+## Part A — Harden Trezor-path Safe `0xF69…08DE` on **0G Aristotle** (1/1 → 2/2)
 
-**Current owner (on-chain):** `0x353663cd664bB3e034Dc0f308D8896C0a242e4cd` only.
+**Multi-chain warning:** `eth:0xF69…` and the 0G instance are **independent**.  
+Ethereum mainnet F69 was already raised to **2/2** (tx `0xea7aaccf…0b0c`, safeTxHash `0x97433dc5…b7e0`).  
+**Aristotle may still be 1/1.** Always check the Safe UI prefix:
+
+| UI prefix | Chain | Goal |
+| --- | --- | --- |
+| `eth:0xF69…` | Ethereum | Already hardened (monitor only) |
+| **0G / chain 16661** `0xF69…` | Aristotle | **Must harden if still 1/1** |
+
+**Aristotle owner (last probe):** `0x353663cd664bB3e034Dc0f308D8896C0a242e4cd` only.
 
 You cannot set threshold to 2 with only one owner. Order: **add second owner**, set **threshold = 2** (often one batched Safe tx).
 
-### A1. Open the correct Safe
+**Recommended second owner on 0G:** your Trezor EOA  
+`0x9588fED230B62e36b3880cfDA0CC4Cc242969c2E`  
+(do **not** reuse `0x8d088…` unless that address is a **contract on Aristotle** that can sign — nested Safe only works same-chain.)
 
-1. Open official Safe UI for chain **16661**.
-2. Load address: `0xF69bA0dDAa323B07F57Fb02e0835391ba9DD08DE`.
-3. Confirm Settings shows **1 owner**, **threshold 1**.
+### A1. Open the correct Safe (**not** `eth:`)
+
+1. Open official Safe UI.
+2. Network selector: **0G Aristotle** (chain ID **16661**) — **not** Ethereum.
+3. Load address: `0xF69bA0dDAa323B07F57Fb02e0835391ba9DD08DE`.
+4. Confirm URL/network is **not** `safe=eth:…`.
+5. Confirm Settings shows **1 owner**, **threshold 1** on 0G.
 
 ### A2. Add second owner + set threshold 2
 

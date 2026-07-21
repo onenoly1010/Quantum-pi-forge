@@ -1,6 +1,8 @@
 # QPF Safe Local AI (read-only)
 
-Local tools for inspecting Quantum Pi Forge Safe smart accounts on **0G Aristotle** (`chainId 16661`) without putting keys or seed phrases into an AI context.
+Local tools for inspecting Quantum Pi Forge Safe smart accounts on **0G Aristotle** (`chainId 16661`) and tracking the **Ethereum** instance of the same address without putting keys or seed phrases into an AI context.
+
+**Multi-chain rule:** `eth:0xF69…` and the 0G `0xF69…` Safe are independent. Threshold changes do not sync across chains.
 
 ## Policy (hard)
 
@@ -28,25 +30,27 @@ npm run inspect
 # Hygiene summary only (exit 2 if any WEAK Safe)
 npm run hygiene
 
+# One network only
+NETWORK=aristotle npm run hygiene
+NETWORK=ethereum npm run hygiene
+
 # Machine-readable
 node inspect-safe.mjs --json
 
 # Foundry cast only (no Node deps beyond foundry)
 npm run inspect:cast
-# or
-bash inspect-safe-cast.sh
 ```
 
 ### Environment overrides
 
 | Variable | Default | Purpose |
 | --- | --- | --- |
-| `RPC_URL` | `https://evmrpc.0g.ai` | Trusted RPC |
-| `CHAIN_ID` | `16661` | Aristotle |
+| `NETWORK` | all | `aristotle` or `ethereum` |
+| `RPC_URL` | per-network | Override when inspecting a single network |
+| `RPC_URL_0G` / `RPC_URL_ETH` | public defaults | Cast multi-chain RPCs |
 | `SAFE_ADDRESS` | all in `safes.config.json` | Single Safe |
 | `MIN_SECURE_THRESHOLD` | `2` | WEAK if below |
 | `SAFE_USE_API_KIT` | unset | Set `1` to try pending queue via Safe Transaction Service |
-| `SAFE_USE_PROTOCOL_KIT` | unset | Set `1` for Protocol Kit double-check |
 
 **Note:** Safe Transaction Service often has **no** indexer for chain `16661`. Pending queues may only be visible in the Safe UI; on-chain threshold/owners always work via RPC.
 
@@ -54,9 +58,12 @@ bash inspect-safe-cast.sh
 
 See `safes.config.json`:
 
-- `0x8d088…4389` — guardian control plane (target: keep ≥2, currently 3/4)
-- `0xf50F…dBd1` — operator Safe (harden if 1/n)
-- `0xF69b…08DE` — Trezor-path Safe (harden if 1/1)
+| ID | Chain | Address | Role |
+| --- | --- | --- | --- |
+| `guardian-prominent-0g` | Aristotle | `0x8d088…4389` | 3/4 guardian (leave) |
+| `operator-f50f-0g` | Aristotle | `0xf50F…dBd1` | Harden if 1/n |
+| `trezor-f69-0g` | Aristotle | `0xF69b…08DE` | Harden if still 1/1 |
+| `trezor-f69-eth` | Ethereum | `0xF69b…08DE` | Track ETH 2/2 hardening |
 
 ## Local AI (Ollama / Cline / Continue)
 
