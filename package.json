@@ -12,6 +12,7 @@
     "verify:claim-map": "node scripts/verify-claim-map.cjs",
     "claim-map:check": "node scripts/check-claim-map.cjs",
     "verify:evidence": "node scripts/verify-evidence.cjs",
+    "gate:validate": "npm run verify:dry-run-simulation:v1 && npm run autonomous:supervised-dry-run:v1:check && npm run governance:open-verification-gate:v1:check && npm run governance:mainnet-activation-preflight:v1:check && npm run security:wallet-preflight-gate:v1:check && npm run verify:bounded-activation-readiness-gate:v1",
     "governance:public-mint-execution-path-review:v1:check": "node scripts/review/public-mint-execution-path-review-v1.cjs",
     "governance:phase-30-final-execution-review-reopen:v1:check": "node scripts/review/verify-phase-30-final-execution-review-reopen-v1.cjs",
     "governance:human-wallet-prompt-inspection:v1:check": "node scripts/review/human-wallet-prompt-inspection-v1.cjs",
