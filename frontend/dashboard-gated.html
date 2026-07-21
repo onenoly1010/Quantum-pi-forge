@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard gated — Quantum Pi Forge</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #0a0a0a; color: #e4e4e7; max-width: 40rem; margin: 4rem auto; padding: 0 1.5rem; line-height: 1.5; }
+    h1 { font-size: 1.25rem; color: #f97316; }
+    code { background: #18181b; padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.9em; }
+    a { color: #38bdf8; }
+    .box { border: 1px solid #3f3f46; border-radius: 8px; padding: 1rem; margin: 1.5rem 0; background: #18181b; }
+  </style>
+</head>
+<body>
+  <h1>Public dashboard route gated</h1>
+  <p>
+    The legacy <code>production_dashboard</code> page pointed at
+    <strong>Pi Network mainnet RPC</strong> (<code>rpc.mainnet.pi.network</code>).
+    That is incorrect for Quantum Pi Forge on <strong>0G Aristotle</strong>
+    (chain ID <code>16661</code>).
+  </p>
+  <div class="box">
+    <p><strong>Canonical network</strong></p>
+    <ul>
+      <li>Chain ID: <code>16661</code> / <code>0x4115</code></li>
+      <li>RPC: <code>https://evmrpc.0g.ai</code></li>
+      <li>Explorer: <a href="https://chainscan.0g.ai" rel="noopener">chainscan.0g.ai</a></li>
+    </ul>
+  </div>
+  <p>
+    Use the main site for Aristotle-bound status:
+    <a href="/">quantumpiforge.com</a>
+    · <a href="/deployed-addresses.html">deployed addresses</a>
+  </p>
+  <p style="opacity:0.7;font-size:0.9rem;">
+    Pi RPC dashboard removed from public routes prior to any liquidity seeding.
+    No wallet connection and no treasury metrics are loaded on this page.
+  </p>
+</body>
+</html>
