@@ -5,13 +5,17 @@
 
 ## Posture today
 
+> **Technical activation verified. Commercial activation pending governance authorization.**
+
 ```text
-TECHNICAL_ACTIVATION = COMPLETE (contracts live)
-COMMERCIAL_ACTIVATION = NOT_ACTIVE
+TECHNICAL_ACTIVATION = VERIFIED (contracts live; stranger-verifiable)
+COMMERCIAL_ACTIVATION = NOT_ACTIVE (pending governance authorization)
 PUBLIC_MINT_OPEN = NO
 LIQUIDITY = NO (pair empty)
 YIELD = NO
 ```
+
+One-screen status: [ACTIVATION_STATUS.md](./ACTIVATION_STATUS.md)
 
 ## Phase order (do not invert)
 
@@ -35,8 +39,11 @@ Yield / earnings (last)
 
 | Phase | Goal | Status |
 |-------|------|--------|
-| 8.1 Public readiness evidence | Single inspectable truth layer | In progress / this package |
-| Genesis verification package | Stranger-verifiable docs | This commit |
+| 8.0 Edge readiness | Headers + preflight | On main (PR #627) |
+| 8.1 Public readiness evidence | Single inspectable truth layer | On main (PR #628) |
+| Genesis verification package | Stranger-verifiable docs | This package (PR #629) |
+| 8.2 Safe / social recovery policy | Governance credibility | Next (docs only) |
+| 8.3 Mint authority explanation | Explain gates — not enable mint | After 8.2 |
 | Builder onboarding | 10-minute verify path | BUILDER_QUICKSTART |
 | First external participant | Non-Kris verification/contribution | Not yet proven |
 | Funding lane | Grants / ecosystem | After A–C credibility |

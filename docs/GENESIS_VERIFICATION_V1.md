@@ -18,11 +18,16 @@ This package protects **credibility**. It does **not** activate mint, liquidity,
 
 | Document | Role |
 |----------|------|
+| [ACTIVATION_STATUS.md](./ACTIVATION_STATUS.md) | **Technical vs commercial** status (one-screen) |
 | [CONTRACT_REGISTRY_V1.md](./CONTRACT_REGISTRY_V1.md) | Addresses, explorers, bytecode digests |
 | [SECURITY_BOUNDARIES_V1.md](./SECURITY_BOUNDARIES_V1.md) | What is forbidden / gated |
 | [BUILDER_QUICKSTART.md](./BUILDER_QUICKSTART.md) | 10-minute independent verification |
 | [ACTIVATION_ROADMAP.md](./ACTIVATION_ROADMAP.md) | Ordered unlock conditions (commercial later) |
 | [evidence/PUBLIC_READINESS_REPORT_V1.md](./evidence/PUBLIC_READINESS_REPORT_V1.md) | Phase 8.1 consolidation report |
+
+### Canonical credibility statement
+
+> **Technical activation verified. Commercial activation pending governance authorization.**
 
 Public surface: https://quantumpiforge.com/deployed-addresses  
 

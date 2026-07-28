@@ -13,16 +13,20 @@
   },
   "documents": [
     "docs/GENESIS_VERIFICATION_V1.md",
+    "docs/ACTIVATION_STATUS.md",
     "docs/CONTRACT_REGISTRY_V1.md",
     "docs/SECURITY_BOUNDARIES_V1.md",
     "docs/BUILDER_QUICKSTART.md",
     "docs/ACTIVATION_ROADMAP.md",
     "docs/evidence/PUBLIC_READINESS_REPORT_V1.md"
   ],
+  "canonical_statement": "Technical activation verified. Commercial activation pending governance authorization.",
   "public_surface_update": "deploy/deployed-addresses.html verification portal section",
   "posture": {
+    "technical_activation": "VERIFIED",
     "technical_presence": "LIVE",
     "commercial_activation": "NOT_ACTIVE",
+    "commercial_activation_note": "pending_governance_authorization",
     "public_mint": "GOVERNANCE_GATED_NO_GO",
     "liquidity": "PAIR_EXISTS_RESERVES_ZERO",
     "restraint": "INTENTIONAL"
