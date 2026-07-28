@@ -1,0 +1,118 @@
+{
+  "version": "1",
+  "schema": "reality-engine-expected-config-v1",
+  "trust_order": [
+    "live_rpc",
+    "safe_rpc_or_api_if_configured",
+    "fresh_evidence_json",
+    "sealed_historical_receipts",
+    "markdown_narrative_lowest"
+  ],
+  "chain": {
+    "chain_id": 16661,
+    "rpc_url": "https://evmrpc.0g.ai",
+    "rpc_url_env": "RPC_URL",
+    "source_of_truth": [
+      "contracts/DEPLOYED_ADDRESSES.md",
+      "scripts/activation-preflight.mjs",
+      ".env.launch.example ZERO_G_RPC_URL"
+    ],
+    "note": "Do not invent RPC endpoints. Override only via RPC_URL env if the project-configured endpoint is unreachable."
+  },
+  "safe": {
+    "address": "0x8d088B88219D072aB035502065ee2410c2cb4389",
+    "status": "CONFIGURED",
+    "label": "Guardian Safe",
+    "safe_tx_service_url": null,
+    "expected_threshold": 3,
+    "expected_owner_count": 4,
+    "expected_owners": [
+      "0x335651BD160fDA89C9E7A095dF9Dc1BB9f3cF4DC",
+      "0xF69bA0dDAa323B07F57Fb02e0835391ba9DD08DE",
+      "0xf50FeE9d77f5161581A47f48874fB3f99a9EDBd1",
+      "0x353663cd664bB3e034Dc0f308D8896C0a242e4cd"
+    ],
+    "expected_owners_note": "Nested architecture: Guardian is 3-of-4 with EOA1, F69 Safe, F50F Safe, EOA2. F69/F50F are nested Safes (institutional posture). Flatten migration parked until funded.",
+    "expected_owners_mode": "exact",
+    "probe_nested_owners": true,
+    "nested_labels": {
+      "0xf69ba0ddaa323b07f57fb02e0835391ba9dd08de": "F69 Safe",
+      "0xf50fee9d77f5161581a47f48874fb3f99a9edbd1": "F50F Safe"
+    },
+    "note": "Guardian Safe on Aristotle. Nested Safes require gas on sub-Safes before Guardian can execute."
+  },
+  "contracts": {
+    "set_a_broadcast": {
+      "label": "broadcast_create_set",
+      "token": "0x709f23C7A7172E137427576abB5Eb8959E2A57c1",
+      "registry": "0x25A9C5A244EAf688E078C387616e2380A0589562",
+      "heartbeat": "0xd1d5147f38E74855a133Cd75cE7b040eBE6324a0",
+      "registry_token_getter": "OINIO_TOKEN()"
+    },
+    "set_b_docs_mint": {
+      "label": "docs_public_mint_set",
+      "token": "0x75995EC0fdf881189850aeD864cB3f43c0DFCb58",
+      "registry": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+      "heartbeat": "0x5E50b92E57e854659f7D98c733088aABd551C49F",
+      "registry_token_getter": "oinioToken()"
+    }
+  },
+  "watch_balances": [
+    {
+      "label": "EOA Signer 1",
+      "address": "0x335651BD160fDA89C9E7A095dF9Dc1BB9f3cF4DC",
+      "role": "eoa_signer",
+      "gas_critical": true
+    },
+    {
+      "label": "EOA Signer 2",
+      "address": "0x353663cd664bB3e034Dc0f308D8896C0a242e4cd",
+      "role": "eoa_signer",
+      "gas_critical": true
+    },
+    {
+      "label": "F69 Safe",
+      "address": "0xF69bA0dDAa323B07F57Fb02e0835391ba9DD08DE",
+      "role": "nested_safe",
+      "gas_critical": true
+    },
+    {
+      "label": "F50F Safe",
+      "address": "0xf50FeE9d77f5161581A47f48874fB3f99a9EDBd1",
+      "role": "nested_safe",
+      "gas_critical": true
+    },
+    {
+      "label": "Guardian Safe",
+      "address": "0x8d088B88219D072aB035502065ee2410c2cb4389",
+      "role": "guardian_safe",
+      "gas_critical": true
+    }
+  ],
+  "gas_warn_wei": "1000000000000000",
+  "git": {
+    "track_head": true,
+    "log_limit": 5
+  },
+  "claim_map": {
+    "scan_paths": [
+      "0G_SOCIAL_RECOVERY_SETUP_GUIDE.md",
+      "contracts/DEPLOYED_ADDRESSES.md",
+      "docs/activation/final/ACTIVATION_SUMMARY_V1.md",
+      "docs/activation/final/REMAINING_BLOCKERS_V1.md",
+      "docs/activation/final/SECURITY_FINDINGS_V1.md",
+      "docs/activation/reality/REALITY_ENGINE_V0.md",
+      "docs/security/ETH_MAINNET_OLD_WALLET_UNTRUSTED_V1.md",
+      "STATUS.md",
+      "README.md",
+      "REVIEWER_START_HERE.md"
+    ]
+  },
+  "policy": {
+    "read_only": true,
+    "no_sign": true,
+    "no_broadcast": true,
+    "no_doc_auto_rewrite": true,
+    "markdown_is_lowest_trust": true
+  }
+}

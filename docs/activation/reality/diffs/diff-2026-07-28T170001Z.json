@@ -1,0 +1,99 @@
+{
+  "schema": "reality-engine-diff-v0",
+  "timestamp": "2026-07-28T17:00:01Z",
+  "previous_run_at": "2026-07-28T16:59:45Z",
+  "current_run_at": "2026-07-28T16:59:53Z",
+  "previous_payload_sha256": "913aaed2c1ad8ddccdd393139726d627c84f1a50e1679304d927dea5f1b542c6",
+  "current_payload_sha256": "30bbb292d8970bf138077a0a5275e9fdafd75a6a671f737b1cc476799d57c37f",
+  "first_run": false,
+  "alert_count": 2,
+  "change_count": 0,
+  "events": [
+    {
+      "severity": "info",
+      "category": "rpc",
+      "code": "CHAIN_REACHABLE",
+      "message": "Chain reachable (id 16661, block 40077790)",
+      "detail": null
+    },
+    {
+      "severity": "info",
+      "category": "safe",
+      "code": "SAFE_THRESHOLD_UNCHANGED",
+      "message": "Threshold unchanged (3)",
+      "detail": null
+    },
+    {
+      "severity": "info",
+      "category": "safe",
+      "code": "SAFE_OWNERS_UNCHANGED",
+      "message": "Owners unchanged (count 4)",
+      "detail": null
+    },
+    {
+      "severity": "info",
+      "category": "safe",
+      "code": "SAFE_NONCE_UNCHANGED",
+      "message": "Nonce unchanged (10)",
+      "detail": null
+    },
+    {
+      "severity": "alert",
+      "category": "balances",
+      "code": "LOW_GAS",
+      "message": "Low native balance: EOA Signer 2 (0)",
+      "detail": {
+        "label": "EOA Signer 2",
+        "address": "0x353663cd664bb3e034dc0f308d8896c0a242e4cd",
+        "role": "eoa_signer",
+        "gas_critical": true,
+        "wei": "0",
+        "native": "0",
+        "status": "LOW_GAS",
+        "low_gas": true
+      }
+    },
+    {
+      "severity": "alert",
+      "category": "balances",
+      "code": "EXECUTION_CHAIN_GAS_RISK",
+      "message": "1 gas-critical address(es) below warn threshold — nested Safe execution may stall",
+      "detail": {
+        "alerts": [
+          {
+            "label": "EOA Signer 2",
+            "address": "0x353663cd664bb3e034dc0f308d8896c0a242e4cd",
+            "native": "0",
+            "wei": "0",
+            "warn_wei": "1000000000000000"
+          }
+        ]
+      }
+    },
+    {
+      "severity": "info",
+      "category": "git",
+      "code": "GIT_HEAD_UNCHANGED",
+      "message": "HEAD unchanged (8f4f6a13cbec…) on fix/site-pair-and-pi-rpc-clean",
+      "detail": null
+    },
+    {
+      "severity": "info",
+      "category": "git",
+      "code": "GIT_DIRTY_TREE",
+      "message": "Working tree dirty (312 paths)",
+      "detail": null
+    }
+  ],
+  "summary_lines": [
+    "✓ [rpc] Chain reachable (id 16661, block 40077790)",
+    "✓ [safe] Threshold unchanged (3)",
+    "✓ [safe] Owners unchanged (count 4)",
+    "✓ [safe] Nonce unchanged (10)",
+    "! [balances] Low native balance: EOA Signer 2 (0)",
+    "! [balances] 1 gas-critical address(es) below warn threshold — nested Safe execution may stall",
+    "✓ [git] HEAD unchanged (8f4f6a13cbec…) on fix/site-pair-and-pi-rpc-clean",
+    "✓ [git] Working tree dirty (312 paths)"
+  ],
+  "payload_sha256": "77c4d818d106434fbe879f900021d82cfc90724cd6768df4b687d2b141f3c932"
+}

@@ -1,6 +1,6 @@
 # HUMAN ACTION QUEUE v1
 
-Updated: 2026-07-17T03:17:40Z
+Updated: 2026-07-28T17:00:02Z
 Mode: Event-driven standby (idle until state change)
 
 Local autonomous prep is complete when P3=0. Agent wakes on repo/docs changes.
@@ -26,5 +26,13 @@ Local autonomous prep is complete when P3=0. Agent wakes on repo/docs changes.
 ## Standing P0
 
 - Sign / spend / transfer / legal-as-Kris require explicit confirmation.
+
+## Ops residuals (non-blocking for docs/credibility)
+
+| Item | Status | Note |
+| --- | --- | --- |
+| Fund EOA Signer 2 `0x353663…e4cd` native gas | **Logged / parked** | Reality Engine `LOW_GAS` at last probe; do not block grant docs. Prefer other keys for quorum until funded. |
+| Flatten nested Safes (remove F69/F50F) | **Parked** | Requires multi-tx gas; commercial task after funding. Embrace nested posture in docs. |
+| Social recovery guide vs chain | **Addressed 2026-07-28** | `0G_SOCIAL_RECOVERY_SETUP_GUIDE.md` updated to measured 3-of-4 nested architecture. Re-check: `npm run reality:claim-map`. |
 
 Open P3 autonomous tasks: **0**

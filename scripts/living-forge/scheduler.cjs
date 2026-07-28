@@ -121,6 +121,14 @@ const SEED_TASKS = [
     recurring: true,
   },
   {
+    id: "P3-reality-engine",
+    priority: 3,
+    title: "Reality Engine collect+diff+brief (read-only)",
+    status: "open",
+    action: "reality_engine",
+    recurring: true,
+  },
+  {
     id: "P2-grant-external",
     priority: 2,
     title: "Grant portal status (external human identity)",
@@ -297,6 +305,14 @@ function runAction(task) {
         ok: r.ok,
         summary: r.ok ? "funding monitor ok" : "funding monitor fail",
         detail: r.out.slice(-800),
+      };
+    }
+    case "reality_engine": {
+      const r = sh("npm run reality:run", 120000);
+      return {
+        ok: r.ok,
+        summary: r.ok ? "reality engine ok" : "reality engine fail",
+        detail: r.out.slice(-1200),
       };
     }
     default:
