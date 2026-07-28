@@ -1,0 +1,49 @@
+{
+  "receipt": "phase-82-safe-governance-policy-draft-v1",
+  "created_at": "2026-07-28T17:41:00Z",
+  "phase": "8.2",
+  "title": "Safe / Social Recovery Policy Evidence (draft package)",
+  "status": "SUPERSEDED_BY_SEAL",
+  "superseded_by": "receipts/governance/phase-82-safe-governance-policy-sealed-v1.json",
+  "mode": "DOCUMENTATION_ONLY",
+  "purpose": "Package Safe address, threshold policy, owner roles, recovery assumptions, rotation, emergency outline, and governance-approval matrix without executing Safe transactions or authorizing economic gates.",
+  "depends_on": {
+    "phase_81_post_merge": "receipts/governance/phase-81-public-readiness-post-merge-v1.json",
+    "phase_81_merge_commit": "b9a4b54155b8aeb3f3d8ecc5d3061312661ae462",
+    "phase_7_intake": "receipts/governance/phase-7-guardian-address-intake-v1.json",
+    "reconciliation": "receipts/governance/guardian-authority-reconciliation-v1.json"
+  },
+  "deliverable": "docs/readiness/SAFE_GOVERNANCE_POLICY_V1.md",
+  "safe": {
+    "address": "0x8d088B88219D072aB035502065ee2410c2cb4389",
+    "chain_id": 16661,
+    "owners_published": false,
+    "threshold_publicly_sealed": false,
+    "threshold_status": "NEEDS_SAFE_UI_VERIFICATION",
+    "social_recovery": "CREATED_NOT_AUTHORIZED"
+  },
+  "boundaries": {
+    "safe_execution": false,
+    "owner_rotation_on_chain": false,
+    "social_recovery_enablement": false,
+    "ownership_transfer": false,
+    "signing": false,
+    "broadcast": false,
+    "public_mint_open": false,
+    "liquidity": false,
+    "staking": false,
+    "bridge": false,
+    "treasury": false,
+    "dex_construction": false
+  },
+  "next": {
+    "id": "8.3",
+    "title": "Mint Authority Explanation",
+    "mode": "DOCUMENTATION_ONLY",
+    "blocked_until": "Phase 8.2 human review optional; mint package must not enable mint"
+  },
+  "human_review": {
+    "required_for_SEALED": true,
+    "current": "DRAFT_AUTHORED"
+  }
+}
