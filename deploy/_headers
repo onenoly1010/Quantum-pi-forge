@@ -1,0 +1,42 @@
+# Cloudflare Pages response headers
+# Source of truth: deploy/_headers → copied to out/_headers by scripts/build.js
+# Format: https://developers.cloudflare.com/pages/configuration/headers/
+
+# ---------------------------------------------------------------------------
+# Global security baseline (all routes)
+# ---------------------------------------------------------------------------
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Cross-Origin-Opener-Policy: same-origin-allow-popups
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.tailwindcss.com; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; connect-src 'self' https://evmrpc.0g.ai https://chainscan.0g.ai https://pi-forge-quantum-genesis.railway.app; upgrade-insecure-requests
+
+# ---------------------------------------------------------------------------
+# Public mint / model metadata (must be JSON + CORS for wallets / tooling)
+# ---------------------------------------------------------------------------
+/metadata/*
+  Content-Type: application/json; charset=utf-8
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, HEAD, OPTIONS
+  Cache-Control: public, max-age=300
+  X-Content-Type-Options: nosniff
+
+# ---------------------------------------------------------------------------
+# JSON surfaces (manifest, version, static api snapshots)
+# ---------------------------------------------------------------------------
+/*.json
+  Content-Type: application/json; charset=utf-8
+  X-Content-Type-Options: nosniff
+
+/api/*
+  Content-Type: application/json; charset=utf-8
+  X-Content-Type-Options: nosniff
+  Cache-Control: public, max-age=60
+
+/version.json
+  Content-Type: application/json; charset=utf-8
+  Cache-Control: public, max-age=60
+  X-Content-Type-Options: nosniff
