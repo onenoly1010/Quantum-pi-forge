@@ -1,0 +1,74 @@
+{
+  "receipt": "phase-81-public-readiness-evidence-v1",
+  "created_at": "2026-07-28T17:35:00.026Z",
+  "head": "1d6c7ae",
+  "branch": "phase81/public-readiness-evidence-v1",
+  "phase": "8.1",
+  "title": "Public Readiness Evidence Consolidation",
+  "mode": "EVIDENCE_ONLY",
+  "status": "SEALED",
+  "purpose": "Consolidate live address probes, public status, and existing governance receipts into a single public readiness truth layer without activating mint, liquidity, or commercial features.",
+  "technical_activation": "COMPLETE",
+  "commercial_activation": "NOT_ACTIVE",
+  "network": {
+    "name": "0G Aristotle Mainnet",
+    "chain_id": 16661,
+    "chain_id_hex": "0x4115",
+    "rpc": "https://evmrpc.0g.ai",
+    "explorer": "https://chainscan.0g.ai"
+  },
+  "addresses_probed": {
+    "oinio_token": "0x75995EC0fdf881189850aeD864cB3f43c0DFCb58",
+    "oinio_model_registry": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+    "heartbeat_monitor": "0x5E50b92E57e854659f7D98c733088aABd551C49F",
+    "forge_registry": "0x6011c341a01c80f489a5c3Ab751987A55142F04e",
+    "dex_factory": "0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8",
+    "dex_router": "0x2c70129E50BF88eCD59b89d63af2e8920aCF3951",
+    "dex_pair_w0g_usdce": "0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE",
+    "safe_guardian": "0x8d088B88219D072aB035502065ee2410c2cb4389"
+  },
+  "live_probes": {
+    "eth_chainId": "0x4115",
+    "eth_getCode_all_listed_addresses": "HAS_CODE",
+    "pair_getReserves": "ZERO_ZERO",
+    "metadata_uri_http": "200",
+    "deployed_addresses_page_http": "200"
+  },
+  "mint_posture": {
+    "mint_allowed": false,
+    "public_mint_active": false,
+    "policy_status": "DEFINED_NO_ACTIVATION",
+    "path_spec_status": "REVIEW_ONLY_NOT_EXECUTABLE",
+    "phase_33": "NO_GO_PUBLIC_MINT_EXECUTION_NOT_AUTHORIZED",
+    "phase_19_review": "SEALED_REVIEW_NO_GO",
+    "decision": "DO_NOT_EXECUTE_PUBLIC_MINT",
+    "live_execution_script": null
+  },
+  "dex_posture": {
+    "pair_exists": true,
+    "liquidity_authorized": false,
+    "reserves": "empty",
+    "create_pair_tx": "0x4f887876313a5085337ce22eac9418725558a91225096191057dd6d7d2e2f6a2",
+    "create_pair_block": 36238884
+  },
+  "guardian_posture": {
+    "safe": "0x8d088B88219D072aB035502065ee2410c2cb4389",
+    "reconciliation_status": "GUARDIAN_AUTHORITY_RECONCILED",
+    "financial_gates": "NOT_AUTHORIZED_BY_RECONCILIATION_RECEIPT",
+    "owners_published": false
+  },
+  "boundaries": {
+    "signing": false,
+    "broadcast": false,
+    "public_mint_open": false,
+    "liquidity": false,
+    "staking": false,
+    "bridge": false,
+    "treasury": false,
+    "token_distribution": false,
+    "contract_upgrades": false,
+    "signer_changes": false
+  },
+  "deliverable": "docs/evidence/PUBLIC_READINESS_REPORT_V1.md",
+  "report_path": "docs/evidence/PUBLIC_READINESS_REPORT_V1.md"
+}
