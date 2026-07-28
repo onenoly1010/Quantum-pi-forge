@@ -70,7 +70,10 @@
     "scope": "Explain who can authorize mint, gates, unmet conditions, why mint remains disabled — do not activate"
   },
   "pr": {
-    "number": null,
-    "note": "Filled after PR open / merge if amended"
+    "number": 630,
+    "url": "https://github.com/onenoly1010/Quantum-pi-forge/pull/630",
+    "title": "docs: Phase 8.2 Safe governance policy evidence (seal)",
+    "commit": "66f7848"
   }
 }
+
