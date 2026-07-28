@@ -40,8 +40,13 @@ const staticFiles = [
 const staticDirs = [
   { src: 'frontend', dest: 'frontend', optional: true },
   { src: 'deploy/trust', dest: 'trust', optional: true },
-  { src: 'receipts/human-cockpit', dest: 'receipts/human-cockpit', optional: true }
+  { src: 'receipts/human-cockpit', dest: 'receipts/human-cockpit', optional: true },
+  // Public mint / model metadata — required (served as application/json via _headers)
+  { src: 'metadata', dest: 'metadata', optional: false },
 ];
+
+/** Minimum non-empty _headers size (bytes). Empty file was B-05 / S-03 residual. */
+const MIN_HEADERS_BYTES = 64;
 
 function copyDir(src, dest) {
   fs.mkdirSync(dest, { recursive: true });
@@ -185,7 +190,39 @@ function build() {
 
   writeVersionManifest();
 
+  assertHeadersPresent();
+
   console.log(`\nBuild completed: ${outputDir}\n`);
+}
+
+/**
+ * Edge foundation gate: refuse a green build if Cloudflare _headers is missing or empty.
+ * Source of truth is deploy/_headers (not public/_headers).
+ */
+function assertHeadersPresent() {
+  const outHeaders = path.join(outputDir, '_headers');
+  if (!fs.existsSync(outHeaders)) {
+    throw new Error('out/_headers missing after copy — check deploy/_headers');
+  }
+  const bytes = fs.statSync(outHeaders).size;
+  if (bytes < MIN_HEADERS_BYTES) {
+    throw new Error(
+      `out/_headers too small (${bytes} bytes; need >= ${MIN_HEADERS_BYTES}). ` +
+        'Author security + content-type rules in deploy/_headers (B-05 residual).',
+    );
+  }
+  const text = fs.readFileSync(outHeaders, 'utf8');
+  const required = [
+    'Content-Security-Policy',
+    'X-Content-Type-Options',
+    'X-Frame-Options',
+    '/metadata/*',
+  ];
+  const missing = required.filter((token) => !text.includes(token));
+  if (missing.length) {
+    throw new Error(`out/_headers missing required directives: ${missing.join(', ')}`);
+  }
+  console.log(`OK edge headers present out/_headers (${bytes} bytes)`);
 }
 
 try {
