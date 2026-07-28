@@ -1,0 +1,185 @@
+{
+  "schema": "reality-engine-snapshot-v0",
+  "engine": "reality-engine-v0",
+  "timestamp": "2026-07-28T16:52:39Z",
+  "policy": {
+    "read_only": true,
+    "no_sign": true,
+    "no_broadcast": true,
+    "no_doc_auto_rewrite": true,
+    "markdown_is_lowest_trust": true
+  },
+  "chain": {
+    "expected_chain_id": 16661,
+    "rpc_url": "https://evmrpc.0g.ai",
+    "rpc_url_source": "expected-config"
+  },
+  "collectors": {
+    "rpc": {
+      "source": "rpc",
+      "collector": "rpc",
+      "timestamp": "2026-07-28T16:52:39Z",
+      "rpc_url": "https://evmrpc.0g.ai",
+      "rpc_url_source": "expected-config",
+      "status": "PASS",
+      "chainId": 16661,
+      "block": 40077326,
+      "chain_ok": true,
+      "contracts": {
+        "set_a_broadcast": {
+          "label": "broadcast_create_set",
+          "roles": {
+            "token": {
+              "name": "set_a_broadcast.token",
+              "address": "0x709f23c7a7172e137427576abb5eb8959e2a57c1",
+              "status": "PASS",
+              "has_code": true,
+              "code_bytes": 2280,
+              "code_sha256": "87391a8139de32a697c683561c667dc28bb6d59291dcdd0e6148f9e7e677ea66",
+              "owner": "0x335651bd160fda89c9e7a095df9dc1bb9f3cf4dc",
+              "owner_status": "OK",
+              "error": null
+            },
+            "registry": {
+              "name": "set_a_broadcast.registry",
+              "address": "0x25a9c5a244eaf688e078c387616e2380a0589562",
+              "status": "PASS",
+              "has_code": true,
+              "code_bytes": 9710,
+              "code_sha256": "d83520b20ce0516e21a8e5722bb9614f412c749a9492c046c17edbc2c6015bde",
+              "owner": "0x335651bd160fda89c9e7a095df9dc1bb9f3cf4dc",
+              "owner_status": "OK",
+              "error": null
+            },
+            "heartbeat": {
+              "name": "set_a_broadcast.heartbeat",
+              "address": "0xd1d5147f38e74855a133cd75ce7b040ebe6324a0",
+              "status": "PASS",
+              "has_code": true,
+              "code_bytes": 2571,
+              "code_sha256": "a9bd181e26eef8fd509e049a8785c4fdfb895fb1dec14487e766c3cd7ace13c2",
+              "owner": "0x335651bd160fda89c9e7a095df9dc1bb9f3cf4dc",
+              "owner_status": "OK",
+              "error": null
+            }
+          }
+        },
+        "set_b_docs_mint": {
+          "label": "docs_public_mint_set",
+          "roles": {
+            "token": {
+              "name": "set_b_docs_mint.token",
+              "address": "0x75995ec0fdf881189850aed864cb3f43c0dfcb58",
+              "status": "PASS",
+              "has_code": true,
+              "code_bytes": 2281,
+              "code_sha256": "3eeffb8f440a4db41722f4570a521e70fcfcf6b0464c858fb46bf9e8a57e95cf",
+              "owner": "0x335651bd160fda89c9e7a095df9dc1bb9f3cf4dc",
+              "owner_status": "OK",
+              "error": null
+            },
+            "registry": {
+              "name": "set_b_docs_mint.registry",
+              "address": "0x67ad7169184581f23d1e10b39d4eb4e98293e87a",
+              "status": "PASS",
+              "has_code": true,
+              "code_bytes": 9850,
+              "code_sha256": "b6312fc5f01c754957b4e58c0b17baf2a803232d57586145ef0916ef7c5c52a0",
+              "owner": "0x335651bd160fda89c9e7a095df9dc1bb9f3cf4dc",
+              "owner_status": "OK",
+              "error": null
+            },
+            "heartbeat": {
+              "name": "set_b_docs_mint.heartbeat",
+              "address": "0x5e50b92e57e854659f7d98c733088aabd551c49f",
+              "status": "PASS",
+              "has_code": true,
+              "code_bytes": 2571,
+              "code_sha256": "9c0a62c95d3eff926d6ba986d4e7ef51250803d85246d4666c76e508c31503c1",
+              "owner": "0x335651bd160fda89c9e7a095df9dc1bb9f3cf4dc",
+              "owner_status": "OK",
+              "error": null
+            }
+          }
+        }
+      },
+      "bindings": {
+        "set_a_broadcast": {
+          "registry": "0x25a9c5a244eaf688e078c387616e2380a0589562",
+          "getter": "OINIO_TOKEN()",
+          "token": "0x709f23c7a7172e137427576abb5eb8959e2a57c1",
+          "status": "PASS",
+          "error": null,
+          "matches_expected_token": true
+        },
+        "set_b_docs_mint": {
+          "registry": "0x67ad7169184581f23d1e10b39d4eb4e98293e87a",
+          "getter": "oinioToken()",
+          "token": "0x75995ec0fdf881189850aed864cb3f43c0dfcb58",
+          "status": "PASS",
+          "error": null,
+          "matches_expected_token": true
+        }
+      },
+      "balances": [],
+      "errors": [],
+      "payload_sha256": "33134efb5008d5881c211585aa4014c3a979532ed513b9f211dd85702e66d936"
+    },
+    "safe": {
+      "source": "safe_rpc",
+      "collector": "safe",
+      "timestamp": "2026-07-28T16:52:39Z",
+      "chainId": null,
+      "block": null,
+      "safe": null,
+      "status": "NOT_CONFIGURED",
+      "owners": null,
+      "threshold": null,
+      "nonce": null,
+      "balance_native": null,
+      "balance_wei": null,
+      "has_code": null,
+      "pending": null,
+      "expected_compare": null,
+      "note": "Guardian Safe address not configured in expected-config (or GUARDIAN_SAFE_ADDRESS). Valid negative reality.",
+      "error": null,
+      "payload_sha256": "78f379b4e9b1f34fdec039e0d8fa7cf05040b59641665e5baadfbd3567d67797"
+    },
+    "git": {
+      "source": "git",
+      "collector": "git",
+      "timestamp": "2026-07-28T16:52:39Z",
+      "status": "PASS",
+      "head": "8f4f6a13cbec339ebd087560e05d542f48518707",
+      "branch": "fix/site-pair-and-pi-rpc-clean",
+      "dirty": true,
+      "dirty_count": 307,
+      "dirty_sample": [
+        "M cache/compile-cache.json",
+        " M deploy/_headers",
+        " M docs/activation/living-forge/HUMAN_ACTION_QUEUE_V1.md",
+        " M docs/activation/living-forge/heartbeats/heartbeat-2026-07-17T0319.json",
+        " M docs/activation/living-forge/monitors/funding-monitor-state-v1.json",
+        " M docs/activation/living-forge/monitors/last-event-wake.json",
+        " M docs/activation/living-forge/queue/queue-state-v1.json",
+        " M package.json",
+        " M scripts/build.js",
+        " M scripts/living-forge/scheduler.cjs",
+        "?? docs/activation/ACTIVATION_RUNBOOK_V1.md",
+        "?? docs/activation/liquidity/PLACEHOLDER_CALLDATA_OPTION1_V1.json",
+        "?? docs/activation/living-forge/heartbeats/dirty-tree-2026-07-17T0919.json",
+        "?? docs/activation/living-forge/heartbeats/dirty-tree-2026-07-17T1152.json",
+        "?? docs/activation/living-forge/heartbeats/dirty-tree-2026-07-17T1753.json",
+        "?? docs/activation/living-forge/heartbeats/dirty-tree-2026-07-17T2354.json",
+        "?? docs/activation/living-forge/heartbeats/dirty-tree-2026-07-18T0017.json",
+        "?? docs/activation/living-forge/heartbeats/dirty-tree-2026-07-18T0617.json",
+        "?? docs/activation/living-forge/heartbeats/dirty-tree-2026-07-18T1217.json",
+        "?? docs/activation/living-forge/heartbeats/dirty-tree-2026-07-18T1817.json"
+      ],
+      "recent_commits": [],
+      "error": null,
+      "payload_sha256": "05242042b10989816784b5b5a7bac334f330f75478a00389f18f3ef8dc166fc6"
+    }
+  },
+  "payload_sha256": "86870846cbc72ff960219801565555f94ef5a70018fb1b296248ca67b915da96"
+}

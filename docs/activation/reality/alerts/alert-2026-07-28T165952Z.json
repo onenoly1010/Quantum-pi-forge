@@ -1,0 +1,39 @@
+{
+  "timestamp": "2026-07-28T16:59:52Z",
+  "alert_count": 2,
+  "alerts": [
+    {
+      "severity": "alert",
+      "category": "balances",
+      "code": "LOW_GAS",
+      "message": "Low native balance: EOA Signer 2 (0)",
+      "detail": {
+        "label": "EOA Signer 2",
+        "address": "0x353663cd664bb3e034dc0f308d8896c0a242e4cd",
+        "role": "eoa_signer",
+        "gas_critical": true,
+        "wei": "0",
+        "native": "0",
+        "status": "LOW_GAS",
+        "low_gas": true
+      }
+    },
+    {
+      "severity": "alert",
+      "category": "balances",
+      "code": "EXECUTION_CHAIN_GAS_RISK",
+      "message": "1 gas-critical address(es) below warn threshold — nested Safe execution may stall",
+      "detail": {
+        "alerts": [
+          {
+            "label": "EOA Signer 2",
+            "address": "0x353663cd664bb3e034dc0f308d8896c0a242e4cd",
+            "native": "0",
+            "wei": "0",
+            "warn_wei": "1000000000000000"
+          }
+        ]
+      }
+    }
+  ]
+}

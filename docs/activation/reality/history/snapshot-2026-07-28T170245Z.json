@@ -1,0 +1,346 @@
+{
+  "schema": "reality-engine-snapshot-v0",
+  "engine": "reality-engine-v0",
+  "timestamp": "2026-07-28T17:02:45Z",
+  "policy": {
+    "read_only": true,
+    "no_sign": true,
+    "no_broadcast": true,
+    "no_doc_auto_rewrite": true,
+    "markdown_is_lowest_trust": true
+  },
+  "chain": {
+    "expected_chain_id": 16661,
+    "rpc_url": "https://evmrpc.0g.ai",
+    "rpc_url_source": "expected-config"
+  },
+  "collectors": {
+    "rpc": {
+      "source": "rpc",
+      "collector": "rpc",
+      "timestamp": "2026-07-28T17:02:45Z",
+      "rpc_url": "https://evmrpc.0g.ai",
+      "rpc_url_source": "expected-config",
+      "status": "LOW_GAS",
+      "chainId": 16661,
+      "block": 40077971,
+      "chain_ok": true,
+      "contracts": {
+        "set_a_broadcast": {
+          "label": "broadcast_create_set",
+          "roles": {
+            "token": {
+              "name": "set_a_broadcast.token",
+              "address": "0x709f23c7a7172e137427576abb5eb8959e2a57c1",
+              "status": "PASS",
+              "has_code": true,
+              "code_bytes": 2280,
+              "code_sha256": "87391a8139de32a697c683561c667dc28bb6d59291dcdd0e6148f9e7e677ea66",
+              "owner": "0x335651bd160fda89c9e7a095df9dc1bb9f3cf4dc",
+              "owner_status": "OK",
+              "error": null
+            },
+            "registry": {
+              "name": "set_a_broadcast.registry",
+              "address": "0x25a9c5a244eaf688e078c387616e2380a0589562",
+              "status": "PASS",
+              "has_code": true,
+              "code_bytes": 9710,
+              "code_sha256": "d83520b20ce0516e21a8e5722bb9614f412c749a9492c046c17edbc2c6015bde",
+              "owner": "0x335651bd160fda89c9e7a095df9dc1bb9f3cf4dc",
+              "owner_status": "OK",
+              "error": null
+            },
+            "heartbeat": {
+              "name": "set_a_broadcast.heartbeat",
+              "address": "0xd1d5147f38e74855a133cd75ce7b040ebe6324a0",
+              "status": "PASS",
+              "has_code": true,
+              "code_bytes": 2571,
+              "code_sha256": "a9bd181e26eef8fd509e049a8785c4fdfb895fb1dec14487e766c3cd7ace13c2",
+              "owner": "0x335651bd160fda89c9e7a095df9dc1bb9f3cf4dc",
+              "owner_status": "OK",
+              "error": null
+            }
+          }
+        },
+        "set_b_docs_mint": {
+          "label": "docs_public_mint_set",
+          "roles": {
+            "token": {
+              "name": "set_b_docs_mint.token",
+              "address": "0x75995ec0fdf881189850aed864cb3f43c0dfcb58",
+              "status": "PASS",
+              "has_code": true,
+              "code_bytes": 2281,
+              "code_sha256": "3eeffb8f440a4db41722f4570a521e70fcfcf6b0464c858fb46bf9e8a57e95cf",
+              "owner": "0x335651bd160fda89c9e7a095df9dc1bb9f3cf4dc",
+              "owner_status": "OK",
+              "error": null
+            },
+            "registry": {
+              "name": "set_b_docs_mint.registry",
+              "address": "0x67ad7169184581f23d1e10b39d4eb4e98293e87a",
+              "status": "PASS",
+              "has_code": true,
+              "code_bytes": 9850,
+              "code_sha256": "b6312fc5f01c754957b4e58c0b17baf2a803232d57586145ef0916ef7c5c52a0",
+              "owner": "0x335651bd160fda89c9e7a095df9dc1bb9f3cf4dc",
+              "owner_status": "OK",
+              "error": null
+            },
+            "heartbeat": {
+              "name": "set_b_docs_mint.heartbeat",
+              "address": "0x5e50b92e57e854659f7d98c733088aabd551c49f",
+              "status": "PASS",
+              "has_code": true,
+              "code_bytes": 2571,
+              "code_sha256": "9c0a62c95d3eff926d6ba986d4e7ef51250803d85246d4666c76e508c31503c1",
+              "owner": "0x335651bd160fda89c9e7a095df9dc1bb9f3cf4dc",
+              "owner_status": "OK",
+              "error": null
+            }
+          }
+        }
+      },
+      "bindings": {
+        "set_a_broadcast": {
+          "registry": "0x25a9c5a244eaf688e078c387616e2380a0589562",
+          "getter": "OINIO_TOKEN()",
+          "token": "0x709f23c7a7172e137427576abb5eb8959e2a57c1",
+          "status": "PASS",
+          "error": null,
+          "matches_expected_token": true
+        },
+        "set_b_docs_mint": {
+          "registry": "0x67ad7169184581f23d1e10b39d4eb4e98293e87a",
+          "getter": "oinioToken()",
+          "token": "0x75995ec0fdf881189850aed864cb3f43c0dfcb58",
+          "status": "PASS",
+          "error": null,
+          "matches_expected_token": true
+        }
+      },
+      "balances": [
+        {
+          "label": "EOA Signer 1",
+          "address": "0x335651bd160fda89c9e7a095df9dc1bb9f3cf4dc",
+          "role": "eoa_signer",
+          "gas_critical": true,
+          "wei": "3088916027761596762",
+          "native": "3.088916027761596762",
+          "status": "PASS",
+          "low_gas": false
+        },
+        {
+          "label": "EOA Signer 2",
+          "address": "0x353663cd664bb3e034dc0f308d8896c0a242e4cd",
+          "role": "eoa_signer",
+          "gas_critical": true,
+          "wei": "0",
+          "native": "0",
+          "status": "LOW_GAS",
+          "low_gas": true
+        },
+        {
+          "label": "F69 Safe",
+          "address": "0xf69ba0ddaa323b07f57fb02e0835391ba9dd08de",
+          "role": "nested_safe",
+          "gas_critical": true,
+          "wei": "2816084000000000000",
+          "native": "2.816084",
+          "status": "PASS",
+          "low_gas": false
+        },
+        {
+          "label": "F50F Safe",
+          "address": "0xf50fee9d77f5161581a47f48874fb3f99a9edbd1",
+          "role": "nested_safe",
+          "gas_critical": true,
+          "wei": "2990000000000000000",
+          "native": "2.99",
+          "status": "PASS",
+          "low_gas": false
+        },
+        {
+          "label": "Guardian Safe",
+          "address": "0x8d088b88219d072ab035502065ee2410c2cb4389",
+          "role": "guardian_safe",
+          "gas_critical": true,
+          "wei": "996000000000000000",
+          "native": "0.996",
+          "status": "PASS",
+          "low_gas": false
+        }
+      ],
+      "gas_alerts": [
+        {
+          "label": "EOA Signer 2",
+          "address": "0x353663cd664bb3e034dc0f308d8896c0a242e4cd",
+          "native": "0",
+          "wei": "0",
+          "warn_wei": "1000000000000000"
+        }
+      ],
+      "errors": [],
+      "payload_sha256": "f8e1a2c7c989bab67814cbb322c13549f137958924529ff6787b520f67675e22"
+    },
+    "safe": {
+      "source": "safe_rpc",
+      "collector": "safe",
+      "timestamp": "2026-07-28T17:02:45Z",
+      "chainId": 16661,
+      "block": 40077971,
+      "safe": "0x8d088b88219d072ab035502065ee2410c2cb4389",
+      "label": "Guardian Safe",
+      "status": "PASS",
+      "owners": [
+        "0x335651bd160fda89c9e7a095df9dc1bb9f3cf4dc",
+        "0xf69ba0ddaa323b07f57fb02e0835391ba9dd08de",
+        "0xf50fee9d77f5161581a47f48874fb3f99a9edbd1",
+        "0x353663cd664bb3e034dc0f308d8896c0a242e4cd"
+      ],
+      "threshold": 3,
+      "nonce": 10,
+      "balance_native": "0.996",
+      "balance_wei": "996000000000000000",
+      "has_code": true,
+      "nested_owners": [
+        {
+          "address": "0x335651bd160fda89c9e7a095df9dc1bb9f3cf4dc",
+          "label": null,
+          "has_code": false,
+          "code_bytes": 0,
+          "code_sha256": null,
+          "owners": null,
+          "threshold": null,
+          "nonce": null,
+          "balance_wei": "3088916027761596762",
+          "balance_native": "3.088916027761596762",
+          "looks_like_safe": false,
+          "status": "EOA_OR_EMPTY",
+          "error": null
+        },
+        {
+          "address": "0xf69ba0ddaa323b07f57fb02e0835391ba9dd08de",
+          "label": "F69 Safe",
+          "has_code": true,
+          "code_bytes": 171,
+          "code_sha256": "a8a0fbd3cdf49e751346664e01b529a58322a814cf8df8d85deb20e63bd6415e",
+          "owners": [
+            "0x9588fed230b62e36b3880cfda0cc4cc242969c2e",
+            "0x353663cd664bb3e034dc0f308d8896c0a242e4cd"
+          ],
+          "threshold": 2,
+          "nonce": 2,
+          "balance_wei": "2816084000000000000",
+          "balance_native": "2.816084",
+          "looks_like_safe": true,
+          "status": "PASS",
+          "error": null
+        },
+        {
+          "address": "0xf50fee9d77f5161581a47f48874fb3f99a9edbd1",
+          "label": "F50F Safe",
+          "has_code": true,
+          "code_bytes": 171,
+          "code_sha256": "a8a0fbd3cdf49e751346664e01b529a58322a814cf8df8d85deb20e63bd6415e",
+          "owners": [
+            "0x353663cd664bb3e034dc0f308d8896c0a242e4cd",
+            "0x335651bd160fda89c9e7a095df9dc1bb9f3cf4dc"
+          ],
+          "threshold": 2,
+          "nonce": 16,
+          "balance_wei": "2990000000000000000",
+          "balance_native": "2.99",
+          "looks_like_safe": true,
+          "status": "PASS",
+          "error": null
+        },
+        {
+          "address": "0x353663cd664bb3e034dc0f308d8896c0a242e4cd",
+          "label": null,
+          "has_code": true,
+          "code_bytes": 23,
+          "code_sha256": "a0f74f36176c8432a6afadc113e701c2c34050509c74d07e160aee74b27fa224",
+          "owners": null,
+          "threshold": null,
+          "nonce": null,
+          "balance_wei": "0",
+          "balance_native": "0",
+          "looks_like_safe": false,
+          "status": "CODE_NOT_SAFE_VIEWS",
+          "error": "RPC eth_call: execution reverted"
+        }
+      ],
+      "nested_architecture": true,
+      "pending": {
+        "status": "NOT_CONFIGURED",
+        "note": "safe_tx_service_url not set; pending txs not queried (no invented API)",
+        "results": null
+      },
+      "expected_compare": {
+        "status": "PASS",
+        "owner_compare": {
+          "status": "PASS",
+          "mode": "exact",
+          "expected": [
+            "0x335651bd160fda89c9e7a095df9dc1bb9f3cf4dc",
+            "0x353663cd664bb3e034dc0f308d8896c0a242e4cd",
+            "0xf50fee9d77f5161581a47f48874fb3f99a9edbd1",
+            "0xf69ba0ddaa323b07f57fb02e0835391ba9dd08de"
+          ],
+          "measured": [
+            "0x335651bd160fda89c9e7a095df9dc1bb9f3cf4dc",
+            "0x353663cd664bb3e034dc0f308d8896c0a242e4cd",
+            "0xf50fee9d77f5161581a47f48874fb3f99a9edbd1",
+            "0xf69ba0ddaa323b07f57fb02e0835391ba9dd08de"
+          ]
+        },
+        "drift": [],
+        "nested_architecture": true
+      },
+      "note": null,
+      "error": null,
+      "code_bytes": 171,
+      "code_sha256": "a8a0fbd3cdf49e751346664e01b529a58322a814cf8df8d85deb20e63bd6415e",
+      "payload_sha256": "68562873b294a1cbc9d37dfa6f3173fb452cc3fb37604dcf2d5753d0f5cbdc67"
+    },
+    "git": {
+      "source": "git",
+      "collector": "git",
+      "timestamp": "2026-07-28T17:02:45Z",
+      "status": "PASS",
+      "head": "8f4f6a13cbec339ebd087560e05d542f48518707",
+      "branch": "fix/site-pair-and-pi-rpc-clean",
+      "dirty": true,
+      "dirty_count": 314,
+      "dirty_sample": [
+        "M 0G_SOCIAL_RECOVERY_SETUP_GUIDE.md",
+        " M cache/compile-cache.json",
+        " M deploy/_headers",
+        " M docs/activation/living-forge/HUMAN_ACTION_QUEUE_V1.md",
+        " M docs/activation/living-forge/heartbeats/heartbeat-2026-07-17T0319.json",
+        " M docs/activation/living-forge/monitors/funding-monitor-state-v1.json",
+        " M docs/activation/living-forge/monitors/last-event-wake.json",
+        " M docs/activation/living-forge/queue/queue-state-v1.json",
+        " M package.json",
+        " M scripts/build.js",
+        " M scripts/living-forge/scheduler.cjs",
+        "?? docs/activation/ACTIVATION_RUNBOOK_V1.md",
+        "?? docs/activation/liquidity/PLACEHOLDER_CALLDATA_OPTION1_V1.json",
+        "?? docs/activation/living-forge/heartbeats/dirty-tree-2026-07-17T0919.json",
+        "?? docs/activation/living-forge/heartbeats/dirty-tree-2026-07-17T1152.json",
+        "?? docs/activation/living-forge/heartbeats/dirty-tree-2026-07-17T1753.json",
+        "?? docs/activation/living-forge/heartbeats/dirty-tree-2026-07-17T2354.json",
+        "?? docs/activation/living-forge/heartbeats/dirty-tree-2026-07-18T0017.json",
+        "?? docs/activation/living-forge/heartbeats/dirty-tree-2026-07-18T0617.json",
+        "?? docs/activation/living-forge/heartbeats/dirty-tree-2026-07-18T1217.json"
+      ],
+      "recent_commits": [],
+      "error": null,
+      "payload_sha256": "3b9d13f78f165d0293b17a1220b3fcef08a55ecef6ebfe78642094cc00f24552"
+    }
+  },
+  "payload_sha256": "bdc711b67ff7345ddbc4fe8261f2ee2e688bb91c969df90b835bb5e0a249e813"
+}

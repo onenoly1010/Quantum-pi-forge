@@ -1,0 +1,174 @@
+{
+  "schema": "reality-engine-claim-map-v0",
+  "timestamp": "2026-07-28T17:02:52Z",
+  "state_timestamp": "2026-07-28T17:02:45Z",
+  "state_payload_sha256": "bdc711b67ff7345ddbc4fe8261f2ee2e688bb91c969df90b835bb5e0a249e813",
+  "chainId": 16661,
+  "block": 40077971,
+  "summary": {
+    "findings": 5,
+    "doc_drift": 1,
+    "alerts": 0,
+    "warns": 1,
+    "ok": 4
+  },
+  "nested_architecture": true,
+  "guardian_safe": "0x8d088b88219d072ab035502065ee2410c2cb4389",
+  "threshold": 3,
+  "owners": [
+    "0x335651bd160fda89c9e7a095df9dc1bb9f3cf4dc",
+    "0xf69ba0ddaa323b07f57fb02e0835391ba9dd08de",
+    "0xf50fee9d77f5161581a47f48874fb3f99a9edbd1",
+    "0x353663cd664bb3e034dc0f308d8896c0a242e4cd"
+  ],
+  "findings": [
+    {
+      "id": "safe-expected-nested-signers-on-chain",
+      "severity": "info",
+      "status": "DOC_OK",
+      "claim": "Expected nested Safe signers (F69, F50F) are Guardian owners on-chain",
+      "measured": {
+        "expected": [
+          "0x335651bd160fda89c9e7a095df9dc1bb9f3cf4dc",
+          "0xf69ba0ddaa323b07f57fb02e0835391ba9dd08de",
+          "0xf50fee9d77f5161581a47f48874fb3f99a9edbd1",
+          "0x353663cd664bb3e034dc0f308d8896c0a242e4cd"
+        ],
+        "measured_owners": [
+          "0x335651bd160fda89c9e7a095df9dc1bb9f3cf4dc",
+          "0xf69ba0ddaa323b07f57fb02e0835391ba9dd08de",
+          "0xf50fee9d77f5161581a47f48874fb3f99a9edbd1",
+          "0x353663cd664bb3e034dc0f308d8896c0a242e4cd"
+        ],
+        "missing": [],
+        "extra": []
+      },
+      "docs": [],
+      "recommendation": "Nested signers confirmed on-chain."
+    },
+    {
+      "id": "safe-nested-architecture-measured",
+      "severity": "info",
+      "status": "DOC_OK",
+      "claim": "On-chain nested architecture detected (one or more Guardian owners are Safes)",
+      "measured": {
+        "nested_safe_owners": [
+          {
+            "address": "0xf69ba0ddaa323b07f57fb02e0835391ba9dd08de",
+            "label": "F69 Safe",
+            "threshold": 2,
+            "nonce": 2,
+            "owners": [
+              "0x9588fed230b62e36b3880cfda0cc4cc242969c2e",
+              "0x353663cd664bb3e034dc0f308d8896c0a242e4cd"
+            ],
+            "balance_native": "2.816084"
+          },
+          {
+            "address": "0xf50fee9d77f5161581a47f48874fb3f99a9edbd1",
+            "label": "F50F Safe",
+            "threshold": 2,
+            "nonce": 16,
+            "owners": [
+              "0x353663cd664bb3e034dc0f308d8896c0a242e4cd",
+              "0x335651bd160fda89c9e7a095df9dc1bb9f3cf4dc"
+            ],
+            "balance_native": "2.99"
+          }
+        ]
+      },
+      "docs": [],
+      "recommendation": null
+    },
+    {
+      "id": "contract-owner-vs-guardian:0G_SOCIAL_RECOVERY_SETUP_GUIDE.md",
+      "severity": "warn",
+      "status": "DOC_DRIFT",
+      "claim": "- **Target:** `FeeCollector` owner set to the Guardian Safe (verify with RPC before asserting)",
+      "measured": {
+        "contract_owners": [
+          "0x335651bd160fda89c9e7a095df9dc1bb9f3cf4dc"
+        ],
+        "guardian_safe": "0x8d088b88219d072ab035502065ee2410c2cb4389",
+        "note": "Ownable OINIO contracts still resolve to untrusted EOA, not Guardian Safe"
+      },
+      "docs": [
+        {
+          "path": "0G_SOCIAL_RECOVERY_SETUP_GUIDE.md",
+          "line": 163,
+          "text": "- **Target:** `FeeCollector` owner set to the Guardian Safe (verify with RPC before asserting)"
+        }
+      ],
+      "recommendation": "Clarify aspirational vs live ownership. Do not claim Guardian controls OINIO Ownable until transfer."
+    },
+    {
+      "id": "deployed-addresses-untrusted-owner-honest",
+      "severity": "info",
+      "status": "DOC_OK",
+      "claim": "Deployed addresses inventory should record untrusted owner residual",
+      "measured": {
+        "contract_owners": [
+          "0x335651bd160fda89c9e7a095df9dc1bb9f3cf4dc"
+        ]
+      },
+      "docs": [
+        {
+          "path": "contracts/DEPLOYED_ADDRESSES.md",
+          "line": 26,
+          "text": "3. **Owner** on checked Ownable contracts resolves to `0x335651bd160fda89c9e7a095df9dc1bb9f3cf4dc` — the address already documented as **untrusted / frozen** in `docs/security/ETH_MAINNET_OLD_WALLET_U"
+        },
+        {
+          "path": "contracts/DEPLOYED_ADDRESSES.md",
+          "line": 36,
+          "text": "Deployer (`from` on CREATE txs): `0x335651bd160fda89c9e7a095df9dc1bb9f3cf4dc`"
+        },
+        {
+          "path": "contracts/DEPLOYED_ADDRESSES.md",
+          "line": 40,
+          "text": "| OINIOToken | `0x709f23C7A7172E137427576abB5Eb8959E2A57c1` | `0x78e0247ec5381290fe6059c29df25794dc9aadaa4ae2863979406f63a43c5d55` | 36824379 | **2280 bytes** | **MATCH** (`contracts/out/OINIOToken.so"
+        },
+        {
+          "path": "contracts/DEPLOYED_ADDRESSES.md",
+          "line": 41,
+          "text": "| OINIOModelRegistry | `0x25A9C5A244EAf688E078C387616e2380A0589562` | `0x24a33a32d4a1131e079ea39380506fc9a4e3d52523dd67a3d9fa89830814c751` | 36824380 | **9710 bytes** | **NO MATCH** (size equal 9710; "
+        },
+        {
+          "path": "contracts/DEPLOYED_ADDRESSES.md",
+          "line": 42,
+          "text": "| HeartbeatMonitor | `0xd1d5147f38E74855a133Cd75cE7b040eBE6324a0` | `0xd1cc6e7e97e4c4f20dc10141d80036218a5ea50083bbca8dd13a2d63f9d911c4` | 36824380 | **2571 bytes** | **NO MATCH** (size equal 2571; ha"
+        },
+        {
+          "path": "contracts/DEPLOYED_ADDRESSES.md",
+          "line": 56,
+          "text": "| OINIOToken (docs) | `0x75995EC0fdf881189850aeD864cB3f43c0DFCb58` | **2281 bytes** | **NO MATCH** | `0x335651bd160fda89c9e7a095df9dc1bb9f3cf4dc` | **CODE_PRESENT; BYTECODE_MISMATCH; NOT_IN_BROADCAST_"
+        },
+        {
+          "path": "contracts/DEPLOYED_ADDRESSES.md",
+          "line": 57,
+          "text": "| OINIOModelRegistry (docs) | `0x67aD7169184581f23D1E10B39d4eb4e98293E87a` | **9850 bytes** | **NO MATCH** | `0x335651bd160fda89c9e7a095df9dc1bb9f3cf4dc` | **CODE_PRESENT; BYTECODE_MISMATCH; NOT_IN_BR"
+        },
+        {
+          "path": "contracts/DEPLOYED_ADDRESSES.md",
+          "line": 58,
+          "text": "| HeartbeatMonitor (docs) | `0x5E50b92E57e854659f7D98c733088aABd551C49F` | **2571 bytes** | **NO MATCH** | `0x335651bd160fda89c9e7a095df9dc1bb9f3cf4dc` | **CODE_PRESENT; BYTECODE_MISMATCH; NOT_IN_BROA"
+        }
+      ],
+      "recommendation": null
+    },
+    {
+      "id": "dual-sets-tracked",
+      "severity": "info",
+      "status": "DOC_OK",
+      "claim": "Reality Engine tracks both broadcast and docs/mint contract sets",
+      "measured": {
+        "sets": [
+          "set_a_broadcast",
+          "set_b_docs_mint"
+        ]
+      },
+      "docs": [],
+      "recommendation": null
+    }
+  ],
+  "payload_sha256": "72efbe32eaf3538afdc2456ca559101416522fff35a0f3e333c66360f467c56b"
+}

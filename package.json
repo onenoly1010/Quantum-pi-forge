@@ -12,6 +12,7 @@
     "verify:claim-map": "node scripts/verify-claim-map.cjs",
     "claim-map:check": "node scripts/check-claim-map.cjs",
     "verify:evidence": "node scripts/verify-evidence.cjs",
+    "activation:preflight": "node scripts/activation-preflight.mjs",
     "governance:public-mint-execution-path-review:v1:check": "node scripts/review/public-mint-execution-path-review-v1.cjs",
     "governance:phase-30-final-execution-review-reopen:v1:check": "node scripts/review/verify-phase-30-final-execution-review-reopen-v1.cjs",
     "governance:human-wallet-prompt-inspection:v1:check": "node scripts/review/human-wallet-prompt-inspection-v1.cjs",
@@ -245,7 +246,13 @@
     "living-forge:drain": "node scripts/living-forge/scheduler.cjs --drain",
     "living-forge:human-queue": "node scripts/living-forge/scheduler.cjs --human-queue",
     "living-forge:monitor-funding": "node scripts/living-forge/monitor-funding-signals.cjs",
-    "living-forge:event-loop": "bash scripts/living-forge/event-loop.sh"
+    "living-forge:event-loop": "bash scripts/living-forge/event-loop.sh",
+    "reality:run": "node scripts/reality-engine/run.mjs",
+    "reality:collect": "node scripts/reality-engine/run.mjs --collect-only",
+    "reality:diff": "node scripts/reality-engine/run.mjs --diff-only",
+    "reality:brief": "node scripts/reality-engine/run.mjs --brief-only",
+    "reality:claim-map": "node scripts/reality-engine/claim-map.mjs",
+    "reality:full": "node scripts/reality-engine/run.mjs --with-claim-map"
   },
   "dependencies": {
     "@nomicfoundation/hardhat-foundry": "^3.0.4",

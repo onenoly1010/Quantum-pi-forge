@@ -1,0 +1,48 @@
+{
+  "schema": "reality-engine-diff-v0",
+  "timestamp": "2026-07-28T16:52:45Z",
+  "previous_run_at": "2026-07-28T16:52:38Z",
+  "current_run_at": "2026-07-28T16:52:39Z",
+  "previous_payload_sha256": "e66daab0dec62ea891731e0a0e382263a7a6b3da848389efbad607e87f90aebe",
+  "current_payload_sha256": "86870846cbc72ff960219801565555f94ef5a70018fb1b296248ca67b915da96",
+  "first_run": false,
+  "alert_count": 0,
+  "change_count": 0,
+  "events": [
+    {
+      "severity": "info",
+      "category": "rpc",
+      "code": "CHAIN_REACHABLE",
+      "message": "Chain reachable (id 16661, block 40077326)",
+      "detail": null
+    },
+    {
+      "severity": "info",
+      "category": "safe",
+      "code": "SAFE_NOT_CONFIGURED",
+      "message": "Guardian Safe address not configured (unchanged valid negative reality)",
+      "detail": null
+    },
+    {
+      "severity": "info",
+      "category": "git",
+      "code": "GIT_HEAD_UNCHANGED",
+      "message": "HEAD unchanged (8f4f6a13cbec…) on fix/site-pair-and-pi-rpc-clean",
+      "detail": null
+    },
+    {
+      "severity": "info",
+      "category": "git",
+      "code": "GIT_DIRTY_TREE",
+      "message": "Working tree dirty (307 paths)",
+      "detail": null
+    }
+  ],
+  "summary_lines": [
+    "✓ [rpc] Chain reachable (id 16661, block 40077326)",
+    "✓ [safe] Guardian Safe address not configured (unchanged valid negative reality)",
+    "✓ [git] HEAD unchanged (8f4f6a13cbec…) on fix/site-pair-and-pi-rpc-clean",
+    "✓ [git] Working tree dirty (307 paths)"
+  ],
+  "payload_sha256": "6755111d14d6c6aadc23b93e58cb2c71a6f4101be4355187d7721aefc6229b6d"
+}
