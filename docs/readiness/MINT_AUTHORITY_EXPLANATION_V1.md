@@ -1,7 +1,6 @@
-# Mint Authority Explanation v1 (readiness index)
+# Mint Authority Explanation v1 (index)
 
-Canonical document:
+Canonical: [`docs/governance/MINT_AUTHORITY_EXPLANATION_V1.md`](../governance/MINT_AUTHORITY_EXPLANATION_V1.md)
 
-**[docs/governance/MINT_AUTHORITY_EXPLANATION_V1.md](../governance/MINT_AUTHORITY_EXPLANATION_V1.md)**
-
-Phase **8.3** — explain authority, do not exercise it.
+**Seal:** `PHASE_8_3_MINT_AUTHORITY_EXPLANATION_SEALED`  
+**Mode:** explain only — not activation.

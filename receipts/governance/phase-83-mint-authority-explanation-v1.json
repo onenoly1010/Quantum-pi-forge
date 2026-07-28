@@ -1,31 +1,37 @@
 {
   "receipt": "phase-83-mint-authority-explanation-v1",
-  "created_at": "2026-07-28T17:49:00Z",
+  "schema_status": "PHASE_8_3_MINT_AUTHORITY_EXPLANATION_SEALED",
+  "created_at": "2026-07-28T17:51:30Z",
   "phase": "8.3",
   "title": "Mint Authority Explanation v1",
   "status": "SEALED",
   "mode": "EXPLAIN_AUTHORITY_NOT_EXERCISE",
-  "purpose": "Explain mint capability vs permission, controllers, thresholds, pre-activation conditions, and required evidence — without enabling mint or providing an activation path.",
+  "purpose": "Narrow explanation of mint capability vs permission vs activation. No activation path.",
   "canonical_posture": "Technical activation verified. Commercial activation pending governance authorization.",
+  "tag": "PHASE_8_3_MINT_AUTHORITY_EXPLANATION_SEALED",
   "branch": "phase83/mint-authority-explanation-v1",
-  "base_main_head": "56877e373ff5777448955a99ee9e406e8871d778",
-  "depends_on": {
-    "phase_82_post_merge": "receipts/governance/phase-82-safe-governance-policy-post-merge-v1.json",
-    "phase_82_tag": "PHASE_8_2_SAFE_GOVERNANCE_POLICY_SEALED",
-    "pr_630": 630
-  },
   "deliverable": "docs/governance/MINT_AUTHORITY_EXPLANATION_V1.md",
-  "answers": {
-    "mint_capability_present": true,
-    "public_mint_permission_open": false,
-    "live_execution_authorized_by_this_receipt": false,
-    "controllers": [
-      "human_principal_sealed_receipts",
-      "guardian_safe_designated_identity",
-      "policy_and_execution_gates"
-    ],
-    "safe_threshold_public": "NEEDS_SAFE_UI_VERIFICATION",
-    "activation_path_included": false
+  "current_status": {
+    "mint_activation": "NOT_AUTHORIZED",
+    "liquidity_activation": "NOT_AUTHORIZED",
+    "economic_launch": "NOT_AUTHORIZED"
+  },
+  "separation": {
+    "capability": "PRESENT_ON_CHAIN_REGISTER_MODEL",
+    "permission": "NOT_OPEN",
+    "activation": "NOT_AUTHORIZED"
+  },
+  "verification": {
+    "npm_run_build": {
+      "exit_code": 0,
+      "edge_headers": "out/_headers present"
+    },
+    "npm_run_verify_evidence": {
+      "exit_code": 0,
+      "result": "OK evidence verification bundle passed"
+    },
+    "output_path": "reports/evidence/phase-83-verification-output-v1.txt",
+    "timestamp": "2026-07-28T17:52:08.829Z"
   },
   "boundaries": {
     "signing": false,
@@ -37,7 +43,16 @@
     "liquidity": false,
     "token_distribution": false,
     "permission_changes": false,
-    "wallet_actions": false
+    "wallet_actions": false,
+    "activation_path": false
   },
-  "next": "External verification / controlled activation review only under separate GO — not this package"
+  "next_milestone": {
+    "id": "FIRST_EXTERNAL_VERIFICATION_EVENT",
+    "not": "additional_activation_policy_docs",
+    "meaning": "Someone outside the core build process reads the verification portal, inspects addresses, understands governance boundaries, and independently confirms system state."
+  },
+  "depends_on": {
+    "phase_82": "PHASE_8_2_SAFE_GOVERNANCE_POLICY_SEALED",
+    "pr_630": 630
+  }
 }

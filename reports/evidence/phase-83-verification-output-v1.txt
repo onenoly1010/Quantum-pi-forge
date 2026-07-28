@@ -1,8 +1,12 @@
-timestamp: 2026-07-28T17:50:01Z
+timestamp: 2026-07-28T17:52:08Z
 branch: phase83/mint-authority-explanation-v1
-base_main: 56877e3
+tag: PHASE_8_3_MINT_AUTHORITY_EXPLANATION_SEALED
+build_exit: 0
+verify_evidence_exit: 0
 
-=== npm run build ===
+=== npm run build (tail) ===
+OK pruned dev artifact out/frontend/example.html
+OK generated version manifest for 2d8e408
 OK edge headers present out/_headers (2267 bytes)
 
 Build completed: /home/kris/Quantum-pi-forge/out
@@ -10,13 +14,16 @@ Build completed: /home/kris/Quantum-pi-forge/out
 OK copied run-guardian.sh -> out/run-guardian.sh
 OK copied api/ -> out/api
 
-=== npm run verify:evidence ===
+=== npm run verify:evidence (tail) ===
+=== Verify evidence snapshot ===
+
+> verify:snapshot
 > node scripts/verify-snapshot.cjs
 
 OK evidence snapshot verified.
 snapshotVersion=1.0.0
 canonicalCommit=7e6281d
-currentHead=209198e
+currentHead=2d8e408
 baselineReceiptHash=b720d54e7a07b89edd4e7dd20ce6631d5d252bef273e8c59ab62cffa2fd27fb1
 currentReceiptHash=a63dc16e5f577c808fd495e5a18e87f25006980cf0d84d23b61f5beca57e58fa
 proofCommand=npm run verify:evidence
