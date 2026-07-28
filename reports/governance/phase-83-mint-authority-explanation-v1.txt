@@ -1,0 +1,15 @@
+PHASE 8.3 MINT AUTHORITY EXPLANATION v1
+created_at=2026-07-28T17:49:04Z
+head=56877e3
+branch=phase83/mint-authority-explanation-v1
+status=MINT_AUTHORITY_EXPLANATION_V1_SEALED
+mode=EXPLANATORY_ONLY
+mechanism_exists_on_chain=true
+public_mint_authorized=false
+live_execution_authorized=false
+commercial_mint_dormant=true
+mint_activation_authorized=false
+liquidity_activation_authorized=false
+economic_launch_authorized=false
+document=docs/governance/MINT_AUTHORITY_EXPLANATION_V1.md
+depends_on=PHASE_8_2_SAFE_GOVERNANCE_POLICY_SEALED
