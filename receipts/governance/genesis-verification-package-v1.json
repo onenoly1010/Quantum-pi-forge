@@ -1,0 +1,40 @@
+{
+  "receipt": "genesis-verification-package-v1",
+  "created_at": "2026-07-28T17:40:29Z",
+  "title": "QPF Genesis Verification Package V1",
+  "mode": "EVIDENCE_ONLY",
+  "status": "SEALED",
+  "purpose": "Publish stranger-verifiable documentation converting technical activation into externally inspectable adoption without commercial activation.",
+  "network": {
+    "name": "0G Aristotle Mainnet",
+    "chain_id": 16661,
+    "rpc": "https://evmrpc.0g.ai",
+    "explorer": "https://chainscan.0g.ai"
+  },
+  "documents": [
+    "docs/GENESIS_VERIFICATION_V1.md",
+    "docs/CONTRACT_REGISTRY_V1.md",
+    "docs/SECURITY_BOUNDARIES_V1.md",
+    "docs/BUILDER_QUICKSTART.md",
+    "docs/ACTIVATION_ROADMAP.md",
+    "docs/evidence/PUBLIC_READINESS_REPORT_V1.md"
+  ],
+  "public_surface_update": "deploy/deployed-addresses.html verification portal section",
+  "posture": {
+    "technical_presence": "LIVE",
+    "commercial_activation": "NOT_ACTIVE",
+    "public_mint": "GOVERNANCE_GATED_NO_GO",
+    "liquidity": "PAIR_EXISTS_RESERVES_ZERO",
+    "restraint": "INTENTIONAL"
+  },
+  "boundaries": {
+    "signing": false,
+    "broadcast": false,
+    "public_mint_open": false,
+    "liquidity": false,
+    "staking": false,
+    "bridge": false,
+    "treasury": false,
+    "yield": false
+  }
+}
