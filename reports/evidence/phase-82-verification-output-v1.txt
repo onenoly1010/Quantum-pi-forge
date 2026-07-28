@@ -1,0 +1,48 @@
+=== npm run build (exit 0) ===
+
+Copying static directories
+OK copied frontend/ -> out/frontend/
+OK copied deploy/trust/ -> out/trust/
+OK copied receipts/human-cockpit/ -> out/receipts/human-cockpit/
+OK copied metadata/ -> out/metadata/
+OK pruned dev artifact out/frontend/README.md
+OK pruned dev artifact out/frontend/example.html
+OK generated version manifest for 4a8e66b
+OK edge headers present out/_headers (2267 bytes)
+
+Build completed: /home/kris/Quantum-pi-forge/out
+
+OK copied run-guardian.sh -> out/run-guardian.sh
+OK copied api/ -> out/api
+
+=== npm run verify:evidence (exit 0) ===
+> node scripts/check-claim-map.cjs
+
+
+> verify:claim-map
+> node scripts/verify-claim-map.cjs
+
+
+> verify:evidence-index
+> node scripts/verify-evidence-index.cjs
+
+OK evidence index verified: 3 lanes, 6 paths checked.
+OK claim map verified: 3 claims checked.
+OK claim map drift check passed.
+claims=3
+
+=== Verify evidence snapshot ===
+
+> verify:snapshot
+> node scripts/verify-snapshot.cjs
+
+OK evidence snapshot verified.
+snapshotVersion=1.0.0
+canonicalCommit=7e6281d
+currentHead=4a8e66b
+baselineReceiptHash=b720d54e7a07b89edd4e7dd20ce6631d5d252bef273e8c59ab62cffa2fd27fb1
+currentReceiptHash=a63dc16e5f577c808fd495e5a18e87f25006980cf0d84d23b61f5beca57e58fa
+proofCommand=npm run verify:evidence
+
+OK evidence verification bundle passed.
+steps=5
