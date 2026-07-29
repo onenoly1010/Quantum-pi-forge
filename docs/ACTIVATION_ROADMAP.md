@@ -3,6 +3,8 @@
 **Purpose:** Ordered unlock conditions.  
 **Not** a schedule of automatic activation.
 
+**Public wording:** Prefer “Phase 8 establishes the project's trust foundation; progress is now independent reproducible verification.” Avoid presenting internal “sealed” milestones as industry certifications. Multi-report consensus is **evidence for governance**, not economic authorization.
+
 ## Posture today
 
 > **Technical activation verified. Commercial activation pending governance authorization.**
