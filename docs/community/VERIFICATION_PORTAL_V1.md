@@ -15,6 +15,8 @@ Now:    Can others verify what was built without trusting the creator?
 
 **Internal vs external language:** Receipts may record project milestones as “sealed.” That is **project governance terminology**, not an external certification. Multi-report consensus is **verification evidence** for later governance review—not an auto-mint unlock.
 
+**Reproducibility and governance (scoped claim):** Reproducible verification is a strong technical maturity signal. “Other people, other machines, same conclusions” provides a **strong technical foundation** for future governance discussions about economic activation—it does **not** determine whether or when economics should be enabled. Adoption, funding, and community trust remain separate questions beyond technical quality alone.
+
 **Refinement:** completing 8.4 does **not** require a single magical external report. 8.4 delivers the **public surface**. **Phase 8.5** runs a **multi-report** architecture (quorum, diversity, conflict resolution, SLA) so verification is consensus-driven before Phase 9.0 — not a second single gatekeeper.
 
 ---
