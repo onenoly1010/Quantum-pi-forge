@@ -3,7 +3,7 @@
 **Purpose:** Ordered unlock conditions.  
 **Not** a schedule of automatic activation.
 
-**Public wording:** Prefer “Phase 8 establishes the project's trust foundation; progress is now independent reproducible verification.” Avoid presenting internal “sealed” milestones as industry certifications. Multi-report consensus is **evidence for governance**, not economic authorization.
+**Public wording:** Prefer “Phase 8 establishes the project's trust foundation; progress is now independent reproducible verification.” Avoid presenting internal “sealed” milestones as industry certifications. Multi-report consensus and “other people, other machines, same conclusions” provide a **strong technical foundation** and shared evidence base for later governance discussion—they do **not** determine whether or when economic features are enabled. Adoption and funding remain separate outcomes.
 
 ## Posture today
 
