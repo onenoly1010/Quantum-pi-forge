@@ -54,36 +54,37 @@
   </div>
 
   <h1>Deployed Addresses</h1>
-  <p class="subtitle">Canonical inventory for <strong>what is deployed</strong> — not a claim that the project is economically live</p>
+  <p class="subtitle">Authoritative inventory of <strong>deployed protocol components</strong> — grounded in observables, not an economic activation announcement</p>
 
-  <!-- PURPOSE: what is deployed? ≠ is economics live? -->
+  <!-- PURPOSE: facts vs interpretation -->
   <section>
     <div class="network-card" style="border-color:rgba(147,197,253,.25);">
       <h3 style="color:#e0f2fe;">Purpose of this page</h3>
       <p style="color:#cbd5e1;font-size:.95rem;margin:.5rem 0 0;">
-        This page is the <strong>canonical starting point</strong> for answering
-        <strong style="color:#f8fafc;">“What is deployed?”</strong>
-        It lists deployment addresses for Quantum Pi Forge components so anyone can inspect contracts on a block explorer,
-        compare them with published source and registry documentation, and reproduce verification results.
+        This page is the <strong>authoritative inventory of deployed protocol components</strong> for Quantum Pi Forge.
+        It answers <strong style="color:#f8fafc;">“What is deployed?”</strong> using observable on-chain and repository evidence
+        (addresses, explorers, registry digests, source links). It is
+        <strong style="color:#f8fafc;">not an announcement of economic activation.</strong>
       </p>
       <p style="color:#cbd5e1;font-size:.95rem;margin:.75rem 0 0;">
-        It is intended to support <strong>independent technical verification</strong> and
-        <strong style="color:#f8fafc;">should not be interpreted as an indication that economic features are active or authorized.</strong>
+        <strong>Observables</strong> (addresses, transactions, bytecode, source, verification artifacts)
+        are distinct from <strong>interpretation</strong> (whether the protocol is economically active or launch-ready).
         Minting, liquidity, and related economic functionality remain subject to separate governance requirements—and are currently
         <strong>intentionally disabled</strong>.
       </p>
       <p style="color:#94a3b8;font-size:.85rem;margin:.75rem 0 0;">
-        <strong style="color:#e0f2fe;">Reviewer journey (grounded in observables):</strong>
+        <strong style="color:#e0f2fe;">Reviewer journey:</strong>
+        Architecture → <strong>Deployment inventory (this page)</strong> → Verification → Independent reproduction → Governance decisions
       </p>
       <ol style="color:#94a3b8;font-size:.85rem;margin:.4rem 0 0;padding-left:1.25rem;">
-        <li><strong style="color:#cbd5e1;">What is this project?</strong> — Overview &amp; architecture docs</li>
-        <li><strong style="color:#cbd5e1;">What is actually deployed?</strong> — <em>This page</em></li>
-        <li><strong style="color:#cbd5e1;">Can I verify it myself?</strong> — Explorer links, source repo, verification portal, evidence receipts</li>
-        <li><strong style="color:#cbd5e1;">What is the current operational status?</strong> — Status section below (verification available; mint/liquidity disabled)</li>
-        <li><strong style="color:#cbd5e1;">What would need to change before economic activation?</strong> — Governance criteria &amp; separate authorization (roadmap)</li>
+        <li><strong style="color:#cbd5e1;">What is this project?</strong> — Overview &amp; architecture</li>
+        <li><strong style="color:#cbd5e1;">What is actually deployed?</strong> — This inventory</li>
+        <li><strong style="color:#cbd5e1;">Can I verify it myself?</strong> — Explorer, source, registry, receipts</li>
+        <li><strong style="color:#cbd5e1;">Operational status?</strong> — Status section (mint/liquidity disabled)</li>
+        <li><strong style="color:#cbd5e1;">Before economic activation?</strong> — Separate governance authorization</li>
       </ol>
       <p style="color:#64748b;font-size:.8rem;margin:.75rem 0 0;">
-        Claim → deployment → evidence. Prefer observables over narrative alone.
+        Prefer claim → evidence → verification over marketing language.
       </p>
     </div>
   </section>
@@ -101,144 +102,168 @@
     </div>
   </section>
 
-  <!-- CONTRACT ADDRESSES -->
+  <!-- DEPLOYMENT INVENTORY (uniform evidence pattern) -->
   <section>
-    <h2>Smart Contract Addresses</h2>
+    <h2>Deployment Inventory</h2>
     <p style="color:#94a3b8;font-size:.9rem;">
-      All addresses below are on <strong>0G Aristotle Mainnet (Chain ID 16661)</strong>.
-      Use explorer links for on-chain inspection. Canonical digests and probe notes:
-      <a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/CONTRACT_REGISTRY_V1.md">docs/CONTRACT_REGISTRY_V1.md</a>.
-      Source repository:
+      Each entry follows the same evidence pattern so you can move claim → evidence → verification.
+      Network for all core rows: <strong>0G Aristotle Mainnet · Chain ID 16661</strong>.
+      Bytecode digests &amp; probe notes:
+      <a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/CONTRACT_REGISTRY_V1.md">docs/CONTRACT_REGISTRY_V1.md</a>
+      (probe 2026-07-28). Source:
       <a href="https://github.com/onenoly1010/Quantum-pi-forge">github.com/onenoly1010/Quantum-pi-forge</a>.
+      Exact per-address deploy commits are not all pinned on this page—prefer explorer + registry digests as primary observables.
     </p>
 
-    <table class="contract-table">
-      <thead>
-        <tr>
-          <th>Contract</th>
-          <th>Address</th>
-          <th>Status</th>
-          <th>Explorer</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>OINIO Token</strong></td>
-          <td><code>0x75995EC0fdf881189850aeD864cB3f43c0DFCb58</code></td>
-          <td><span class="badge badge-live">Live</span></td>
-          <td><a href="https://chainscan.0g.ai/address/0x75995EC0fdf881189850aeD864cB3f43c0DFCb58" target="_blank" rel="noopener">🔍 View</a></td>
-        </tr>
-        <tr>
-          <td><strong>OINIO Model Registry</strong></td>
-          <td><code>0x67aD7169184581f23D1E10B39d4eb4e98293E87a</code></td>
-          <td><span class="badge badge-live">Live</span></td>
-          <td><a href="https://chainscan.0g.ai/address/0x67aD7169184581f23D1E10B39d4eb4e98293E87a" target="_blank" rel="noopener">🔍 View</a></td>
-        </tr>
-        <tr>
-          <td><strong>Heartbeat Monitor</strong></td>
-          <td><code>0x5E50b92E57e854659f7D98c733088aABd551C49F</code></td>
-          <td><span class="badge badge-live">Live</span></td>
-          <td><a href="https://chainscan.0g.ai/address/0x5E50b92E57e854659f7D98c733088aABd551C49F" target="_blank" rel="noopener">🔍 View</a></td>
-        </tr>
-        <tr>
-          <td><strong>ForgeRegistry</strong></td>
-          <td><code>0x6011c341a01c80f489a5c3Ab751987A55142F04e</code></td>
-          <td><span class="badge badge-live">Live</span></td>
-          <td><a href="https://chainscan.0g.ai/address/0x6011c341a01c80f489a5c3Ab751987A55142F04e" target="_blank" rel="noopener">🔍 View</a></td>
-        </tr>
-        <tr>
-          <td><strong>DEX Factory</strong></td>
-          <td><code>0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8</code></td>
-          <td><span class="badge badge-live">Live</span></td>
-          <td><a href="https://chainscan.0g.ai/address/0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8" target="_blank" rel="noopener">🔍 View</a></td>
-        </tr>
-        <tr>
-          <td><strong>DEX Router</strong></td>
-          <td><code>0x2c70129E50BF88eCD59b89d63af2e8920aCF3951</code></td>
-          <td><span class="badge badge-live">Live</span></td>
-          <td><a href="https://chainscan.0g.ai/address/0x2c70129E50BF88eCD59b89d63af2e8920aCF3951" target="_blank" rel="noopener">🔍 View</a></td>
-        </tr>
-        <tr>
-          <td><strong>DEX Pair (W0G/USDC.e)</strong></td>
-          <td><code>0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE</code></td>
-          <td><span class="badge badge-pending">Empty pool</span></td>
-          <td><a href="https://chainscan.0g.ai/address/0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE" target="_blank" rel="noopener">🔍 View</a></td>
-        </tr>
-        <tr>
-          <td><strong>OINIO Token (ERC20, not a pair)</strong></td>
-          <td><code>0x709f23C7A7172E137427576abB5Eb8959E2A57c1</code></td>
-          <td><span class="badge badge-live">Live</span></td>
-          <td><a href="https://chainscan.0g.ai/address/0x709f23C7A7172E137427576abB5Eb8959E2A57c1" target="_blank" rel="noopener">🔍 View</a></td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <!-- GUARDIAN / GOVERNANCE -->
-  <section>
-    <h2>Governance Addresses</h2>
     <div class="network-card">
-      <div class="detail">
-        <span class="label">Safe Guardian</span>
-        <span class="value">
-          <code>0x8d088B88219D072aB035502065ee2410c2cb4389</code>
-          <button class="copy-btn" onclick="navigator.clipboard.writeText('0x8d088B88219D072aB035502065ee2410c2cb4389');this.textContent='Copied!'">Copy</button>
-        </span>
-      </div>
-      <p style="color:#94a3b8;font-size:.85rem;margin-top:.5rem;">
-        This Safe wallet serves as the QPF guardian governance address on 0G Aristotle Mainnet.
-        Bytecode confirmed. Owner addresses remain private.
-      </p>
+      <h3>OINIO Token <span class="badge badge-live">Code live</span></h3>
+      <div class="detail"><span class="label">Component</span> <span class="value">OINIO ERC-20 token</span></div>
+      <div class="detail"><span class="label">Network</span> <span class="value">0G Aristotle · 16661</span></div>
+      <div class="detail"><span class="label">Address</span> <span class="value"><code>0x75995EC0fdf881189850aeD864cB3f43c0DFCb58</code></span></div>
+      <div class="detail"><span class="label">Explorer</span> <span class="value"><a href="https://chainscan.0g.ai/address/0x75995EC0fdf881189850aeD864cB3f43c0DFCb58" target="_blank" rel="noopener">chainscan.0g.ai</a></span></div>
+      <div class="detail"><span class="label">Verification</span> <span class="value">Bytecode present (2281 B · digest in registry)</span></div>
+      <div class="detail"><span class="label">Operational</span> <span class="value">Contract deployed · public mint path NOT AUTHORIZED</span></div>
+      <div class="detail"><span class="label">Notes</span> <span class="value">Primary public token address in registry</span></div>
+    </div>
+
+    <div class="network-card">
+      <h3>OINIO Model Registry <span class="badge badge-live">Code live</span></h3>
+      <div class="detail"><span class="label">Component</span> <span class="value">Model registration / mint path contract</span></div>
+      <div class="detail"><span class="label">Network</span> <span class="value">0G Aristotle · 16661</span></div>
+      <div class="detail"><span class="label">Address</span> <span class="value"><code>0x67aD7169184581f23D1E10B39d4eb4e98293E87a</code></span></div>
+      <div class="detail"><span class="label">Explorer</span> <span class="value"><a href="https://chainscan.0g.ai/address/0x67aD7169184581f23D1E10B39d4eb4e98293E87a" target="_blank" rel="noopener">chainscan.0g.ai</a></span></div>
+      <div class="detail"><span class="label">Verification</span> <span class="value">Bytecode present (9850 B · digest in registry)</span></div>
+      <div class="detail"><span class="label">Operational</span> <span class="value">Deployed · public mint / registerModel path NOT AUTHORIZED</span></div>
+      <div class="detail"><span class="label">Notes</span> <span class="value">Capability ≠ permission; see mint authority docs</span></div>
+    </div>
+
+    <div class="network-card">
+      <h3>Heartbeat Monitor <span class="badge badge-live">Code live</span></h3>
+      <div class="detail"><span class="label">Component</span> <span class="value">On-chain heartbeat monitor</span></div>
+      <div class="detail"><span class="label">Network</span> <span class="value">0G Aristotle · 16661</span></div>
+      <div class="detail"><span class="label">Address</span> <span class="value"><code>0x5E50b92E57e854659f7D98c733088aABd551C49F</code></span></div>
+      <div class="detail"><span class="label">Explorer</span> <span class="value"><a href="https://chainscan.0g.ai/address/0x5E50b92E57e854659f7D98c733088aABd551C49F" target="_blank" rel="noopener">chainscan.0g.ai</a></span></div>
+      <div class="detail"><span class="label">Verification</span> <span class="value">Bytecode present (2571 B · digest in registry)</span></div>
+      <div class="detail"><span class="label">Operational</span> <span class="value">Deployed (confirm activity via explorer events)</span></div>
+      <div class="detail"><span class="label">Notes</span> <span class="value">—</span></div>
+    </div>
+
+    <div class="network-card">
+      <h3>ForgeRegistry <span class="badge badge-live">Code live</span></h3>
+      <div class="detail"><span class="label">Component</span> <span class="value">Forge / genesis registry</span></div>
+      <div class="detail"><span class="label">Network</span> <span class="value">0G Aristotle · 16661</span></div>
+      <div class="detail"><span class="label">Address</span> <span class="value"><code>0x6011c341a01c80f489a5c3Ab751987A55142F04e</code></span></div>
+      <div class="detail"><span class="label">Explorer</span> <span class="value"><a href="https://chainscan.0g.ai/address/0x6011c341a01c80f489a5c3Ab751987A55142F04e" target="_blank" rel="noopener">chainscan.0g.ai</a></span></div>
+      <div class="detail"><span class="label">Verification</span> <span class="value">Bytecode present (4132 B · digest in registry)</span></div>
+      <div class="detail"><span class="label">Operational</span> <span class="value">Deployed</span></div>
+      <div class="detail"><span class="label">Notes</span> <span class="value">Genesis ceremony references in evidence section</span></div>
+    </div>
+
+    <div class="network-card">
+      <h3>DEX Factory <span class="badge badge-live">Code live</span></h3>
+      <div class="detail"><span class="label">Component</span> <span class="value">Uniswap V2-style factory</span></div>
+      <div class="detail"><span class="label">Network</span> <span class="value">0G Aristotle · 16661</span></div>
+      <div class="detail"><span class="label">Address</span> <span class="value"><code>0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8</code></span></div>
+      <div class="detail"><span class="label">Explorer</span> <span class="value"><a href="https://chainscan.0g.ai/address/0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8" target="_blank" rel="noopener">chainscan.0g.ai</a></span></div>
+      <div class="detail"><span class="label">Verification</span> <span class="value">Bytecode present (18951 B · digest in registry)</span></div>
+      <div class="detail"><span class="label">Operational</span> <span class="value">Deployed · commercial liquidity NOT AUTHORIZED</span></div>
+      <div class="detail"><span class="label">Notes</span> <span class="value">Technical readiness only</span></div>
+    </div>
+
+    <div class="network-card">
+      <h3>DEX Router <span class="badge badge-live">Code live</span></h3>
+      <div class="detail"><span class="label">Component</span> <span class="value">Uniswap V2-style router</span></div>
+      <div class="detail"><span class="label">Network</span> <span class="value">0G Aristotle · 16661</span></div>
+      <div class="detail"><span class="label">Address</span> <span class="value"><code>0x2c70129E50BF88eCD59b89d63af2e8920aCF3951</code></span></div>
+      <div class="detail"><span class="label">Explorer</span> <span class="value"><a href="https://chainscan.0g.ai/address/0x2c70129E50BF88eCD59b89d63af2e8920aCF3951" target="_blank" rel="noopener">chainscan.0g.ai</a></span></div>
+      <div class="detail"><span class="label">Verification</span> <span class="value">Bytecode present (18953 B · digest in registry)</span></div>
+      <div class="detail"><span class="label">Operational</span> <span class="value">Deployed · commercial use NOT AUTHORIZED on site</span></div>
+      <div class="detail"><span class="label">Notes</span> <span class="value">—</span></div>
+    </div>
+
+    <div class="network-card">
+      <h3>DEX Pair W0G/USDC.e <span class="badge badge-pending">Empty pool</span></h3>
+      <div class="detail"><span class="label">Component</span> <span class="value">First pair (W0G / USDC.e)</span></div>
+      <div class="detail"><span class="label">Network</span> <span class="value">0G Aristotle · 16661</span></div>
+      <div class="detail"><span class="label">Address</span> <span class="value"><code>0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE</code></span></div>
+      <div class="detail"><span class="label">Explorer</span> <span class="value"><a href="https://chainscan.0g.ai/address/0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE" target="_blank" rel="noopener">chainscan.0g.ai</a></span></div>
+      <div class="detail"><span class="label">Verification</span> <span class="value">Bytecode present · CreatePair tx linked below</span></div>
+      <div class="detail"><span class="label">Operational</span> <span class="value">Pair exists · reserves 0/0 · liquidity NOT AUTHORIZED</span></div>
+      <div class="detail"><span class="label">Notes</span> <span class="value">Empty pool is intentional restraint, not missing infrastructure</span></div>
+    </div>
+
+    <div class="network-card">
+      <h3>Safe Guardian <span class="badge badge-live">Code live</span></h3>
+      <div class="detail"><span class="label">Component</span> <span class="value">Designated governance multisig</span></div>
+      <div class="detail"><span class="label">Network</span> <span class="value">0G Aristotle · 16661</span></div>
+      <div class="detail"><span class="label">Address</span> <span class="value"><code>0x8d088B88219D072aB035502065ee2410c2cb4389</code>
+        <button class="copy-btn" type="button" onclick="navigator.clipboard.writeText('0x8d088B88219D072aB035502065ee2410c2cb4389');this.textContent='Copied!'">Copy</button>
+      </span></div>
+      <div class="detail"><span class="label">Explorer</span> <span class="value"><a href="https://chainscan.0g.ai/address/0x8d088B88219D072aB035502065ee2410c2cb4389" target="_blank" rel="noopener">chainscan.0g.ai</a></span></div>
+      <div class="detail"><span class="label">Verification</span> <span class="value">Bytecode present (proxy footprint · digest in registry)</span></div>
+      <div class="detail"><span class="label">Operational</span> <span class="value">Accepted governance identity · not auto-mint authority</span></div>
+      <div class="detail"><span class="label">Notes</span> <span class="value">Owner EOAs private; threshold verify in Safe UI</span></div>
+    </div>
+
+    <div class="network-card">
+      <h3>OINIO Token (secondary listing) <span class="badge badge-live">Code live</span></h3>
+      <div class="detail"><span class="label">Component</span> <span class="value">Alternate / secondary OINIO ERC-20 listing</span></div>
+      <div class="detail"><span class="label">Network</span> <span class="value">0G Aristotle · 16661</span></div>
+      <div class="detail"><span class="label">Address</span> <span class="value"><code>0x709f23C7A7172E137427576abB5Eb8959E2A57c1</code></span></div>
+      <div class="detail"><span class="label">Explorer</span> <span class="value"><a href="https://chainscan.0g.ai/address/0x709f23C7A7172E137427576abB5Eb8959E2A57c1" target="_blank" rel="noopener">chainscan.0g.ai</a></span></div>
+      <div class="detail"><span class="label">Verification</span> <span class="value">Code present — confirm role before integration</span></div>
+      <div class="detail"><span class="label">Operational</span> <span class="value">Listed for transparency · dual-set history documented in registry</span></div>
+      <div class="detail"><span class="label">Notes</span> <span class="value">Prefer primary token address above unless you know why you need this one</span></div>
     </div>
   </section>
 
-  <!-- STATUS OF ONBOARDING FEATURES -->
+  <!-- OPERATIONAL STATUS (distinct from "what is deployed") -->
   <section>
-    <h2>Feature Status</h2>
+    <h2>Current Operational Status</h2>
+    <p style="color:#94a3b8;font-size:.9rem;">
+      Answers <strong style="color:#e0f2fe;">“What is the current operational status?”</strong> —
+      separate from the inventory of addresses above.
+    </p>
     <div class="status-section">
       <div class="status-row">
         <span class="status-dot dot-live"></span>
-        <span>OINIO Token — Live, transferable, public</span>
+        <span><strong>Independent verification</strong> — Available (this page + registry + explorers + repo docs)</span>
       </div>
       <div class="status-row">
         <span class="status-dot dot-live"></span>
-        <span>OINIO Model Registry — Live, registration open</span>
+        <span><strong>Core contracts on chain 16661</strong> — Bytecode present at listed addresses (confirm via explorer)</span>
       </div>
       <div class="status-row">
         <span class="status-dot dot-live"></span>
-        <span>Heartbeat Monitor — Live, on-chain pings active</span>
-      </div>
-      <div class="status-row">
-        <span class="status-dot dot-live"></span>
-        <span>ForgeRegistry — Live, genesis anchor committed</span>
-      </div>
-      <div class="status-row">
-        <span class="status-dot dot-live"></span>
-        <span>DEX Factory + W0G/USDC.e pair — Live, reserves zero (no liquidity seeded)</span>
-      </div>
-      <div class="status-row">
-        <span class="status-dot dot-live"></span>
-        <span>Safe Guardian — Live, governance address active</span>
-      </div>
-      <div class="status-row">
-        <span class="status-dot dot-pending"></span>
-        <span>Social Recovery — Created, not production-authorized</span>
-      </div>
-      <div class="status-row">
-        <span class="status-dot dot-pending"></span>
-        <span>Threshold Gate — Pending final governance decision</span>
-      </div>
-      <div class="status-row">
-        <span class="status-dot dot-pending"></span>
-        <span>Earnings / Yield — Proposed or gated unless live tx evidence exists</span>
-      </div>
-      <div class="status-row">
-        <span class="status-dot dot-private"></span>
-        <span>Owner Addresses — Private, never published</span>
+        <span><strong>DEX pair (W0G/USDC.e)</strong> — Deployed; reserves zero (no liquidity seeded)</span>
       </div>
       <div class="status-row">
         <span class="status-dot dot-na"></span>
-        <span>Wallet Signing / Staking / Minting / Broadcast — Disabled on this page</span>
+        <span><strong>Public minting</strong> — Disabled / NOT AUTHORIZED (governance gated)</span>
+      </div>
+      <div class="status-row">
+        <span class="status-dot dot-na"></span>
+        <span><strong>Liquidity / commercial DEX open</strong> — Disabled / NOT AUTHORIZED</span>
+      </div>
+      <div class="status-row">
+        <span class="status-dot dot-na"></span>
+        <span><strong>Wallet signing / staking / broadcast on this site</strong> — Disabled</span>
+      </div>
+      <div class="status-row">
+        <span class="status-dot dot-pending"></span>
+        <span><strong>Social recovery</strong> — Created, not production-authorized</span>
+      </div>
+      <div class="status-row">
+        <span class="status-dot dot-pending"></span>
+        <span><strong>Earnings / yield</strong> — Gated unless live tx evidence exists</span>
+      </div>
+      <div class="status-row">
+        <span class="status-dot dot-private"></span>
+        <span><strong>Owner EOAs</strong> — Private; not published on this page</span>
+      </div>
+      <div class="status-row">
+        <span class="status-dot dot-pending"></span>
+        <span><strong>Governance state</strong> — Economic activation requires separate authorization (see roadmap)</span>
       </div>
     </div>
   </section>
@@ -272,14 +297,20 @@
     </div>
   </section>
 
-  <!-- DEPLOYMENT REFERENCE -->
+  <!-- DEPLOYMENT REFERENCE (claim → evidence) -->
   <section>
-    <h2>Deployment Reference</h2>
+    <h2>Deployment Evidence</h2>
+    <p style="color:#94a3b8;font-size:.9rem;">
+      Supporting artifacts for the inventory above — move from claim to evidence yourself.
+    </p>
     <div class="network-card">
-      <p><strong>Birth Ceremony Transaction:</strong> <code>0xac4e8f...</code> (ForgeRegistry genesis)</p>
-      <p><strong>DEX CreatePair Transaction:</strong> <code>0x4f887876313a5085337ce22eac9418725558a91225096191057dd6d7d2e2f6a2</code></p>
-      <p><strong>DEX CreatePair Block:</strong> 36,238,884</p>
-      <p><strong>Full receipt index:</strong> <code>receipts/</code> in the <a href="https://github.com/onenoly1010/Quantum-pi-forge">repository</a></p>
+      <div class="detail"><span class="label">Source repo</span> <span class="value"><a href="https://github.com/onenoly1010/Quantum-pi-forge">github.com/onenoly1010/Quantum-pi-forge</a></span></div>
+      <div class="detail"><span class="label">Contract registry</span> <span class="value"><a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/CONTRACT_REGISTRY_V1.md">docs/CONTRACT_REGISTRY_V1.md</a> (addresses + bytecode digests)</span></div>
+      <div class="detail"><span class="label">Activation status</span> <span class="value"><a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/ACTIVATION_STATUS.md">docs/ACTIVATION_STATUS.md</a></span></div>
+      <div class="detail"><span class="label">CreatePair tx</span> <span class="value"><a href="https://chainscan.0g.ai/tx/0x4f887876313a5085337ce22eac9418725558a91225096191057dd6d7d2e2f6a2" target="_blank" rel="noopener"><code>0x4f887876…e2f6a2</code></a> · block 36238884</span></div>
+      <div class="detail"><span class="label">Birth / genesis ref</span> <span class="value"><code>0xac4e8f…</code> (ForgeRegistry ceremony — confirm on explorer / receipts)</span></div>
+      <div class="detail"><span class="label">Receipt index</span> <span class="value"><code>receipts/</code> in the <a href="https://github.com/onenoly1010/Quantum-pi-forge">repository</a></span></div>
+      <div class="detail"><span class="label">Before economics</span> <span class="value"><a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/ACTIVATION_ROADMAP.md">docs/ACTIVATION_ROADMAP.md</a> · multi-report verification · separate GO</span></div>
     </div>
   </section>
 
