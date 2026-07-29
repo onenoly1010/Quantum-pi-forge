@@ -1,0 +1,55 @@
+{
+  "receipt": "phase-84-verification-portal-v1",
+  "schema_status": "PHASE_8_4_VERIFICATION_PORTAL_PACKAGED",
+  "created_at": "2026-07-29T05:55:00Z",
+  "phase": "8.4",
+  "title": "Verification Portal & First Independent Verification — package",
+  "status": "PACKAGED",
+  "mode": "PUBLIC_WORKFLOW_NOT_ACTIVATION",
+  "purpose": "Publish a public verification workflow so an independent person can verify deployed state without builder assistance. Success is independent confirmation, not a transaction.",
+  "success_metric": "Someone unfamiliar with QPF can independently reproduce the published state.",
+  "not_success": "transaction executed",
+  "deliverables": [
+    "docs/community/VERIFICATION_PORTAL_V1.md",
+    "docs/community/KNOWN_LIMITATIONS_V1.md",
+    "docs/community/VERIFICATION_REPORT_TEMPLATE_V1.md",
+    "docs/community/FIRST_VERIFICATION_EVENT_V1.md",
+    "docs/ACTIVATION_ROADMAP.md",
+    "deploy/deployed-addresses.html"
+  ],
+  "portal_map": [
+    "deployed_addresses",
+    "contract_registry",
+    "verification_guide",
+    "builder_quickstart",
+    "governance_boundaries",
+    "known_limitations",
+    "submit_verification_report"
+  ],
+  "roadmap": {
+    "8.4": "Verification portal & first independent verification",
+    "8.5": "Builder experience / reproducibility",
+    "8.6": "Community validation",
+    "8.7": "Operational readiness exercises (no token economics)",
+    "9.0": "Governance review before any economic activation discussion"
+  },
+  "expected_state": {
+    "mint_activation": "NOT_AUTHORIZED",
+    "liquidity_activation": "NOT_AUTHORIZED",
+    "economic_launch": "NOT_AUTHORIZED"
+  },
+  "boundaries": {
+    "signing": false,
+    "broadcast": false,
+    "public_mint_open": false,
+    "liquidity": false,
+    "staking": false,
+    "bridge": false,
+    "treasury": false,
+    "activation_policy_docs_paused": true
+  },
+  "next": {
+    "complete_8_4": "At least one independent verification report (GitHub issue using template)",
+    "then": "8.5 Builder experience"
+  }
+}
