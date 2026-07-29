@@ -1,0 +1,42 @@
+{
+  "receipt": "phase-85-multi-report-verification-architecture-v1",
+  "schema_status": "PHASE_8_5_MULTI_REPORT_ARCHITECTURE_DEFINED",
+  "created_at": "2026-07-29T06:10:00Z",
+  "phase": "8.5",
+  "title": "Multi-Report Verification Architecture v1",
+  "status": "DEFINED",
+  "mode": "GOVERNANCE_PROCESS_NOT_ONCHAIN_MINT_GATE",
+  "purpose": "Define quorum, diversity, conflict resolution, and time-to-verify so Phase 8.5 is consensus-of-evidence rather than a single external gatekeeper. Does not enable mint or liquidity.",
+  "rationale": [
+    "single_verification_vulnerable_to_single_point_of_failure",
+    "single_verification_vulnerable_to_collusion",
+    "single_verification_vulnerable_to_local_environment_error",
+    "one_external_verifier_replaces_one_trusted_party_with_another"
+  ],
+  "parameters_proposed_v1": {
+    "m_quorum_agreements": 3,
+    "single_report_sufficient_for_9_0": false,
+    "maintainer_reports_count_toward_m": false,
+    "soft_sla_days": 14,
+    "hard_sla_days_announced_round": 30,
+    "rolling_lookback_days": 90,
+    "on_timeout": "FAIL_CLOSED_FOR_EXTERNALLY_SETTLED_CLAIM",
+    "on_critical_conflict": "HALT_CONSENSUS_MANUAL_REVIEW_NO_AUTO_ACTIVATE"
+  },
+  "document": "docs/community/MULTI_REPORT_VERIFICATION_ARCHITECTURE_V1.md",
+  "related": [
+    "docs/community/INDEPENDENT_VERIFICATION_PROCESS_V1.md",
+    "docs/community/VERIFICATION_REPORT_TEMPLATE_V1.md",
+    "docs/community/VERIFICATION_PORTAL_V1.md",
+    "docs/ACTIVATION_ROADMAP.md"
+  ],
+  "boundaries": {
+    "signing": false,
+    "broadcast": false,
+    "public_mint_open": false,
+    "liquidity": false,
+    "auto_mint_on_quorum": false,
+    "on_chain_unlock_from_reports": false
+  },
+  "next": "Accumulate eligible independent reports after 8.4 portal is live; index for Phase 9.0 evidence pack"
+}

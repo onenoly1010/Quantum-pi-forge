@@ -37,7 +37,7 @@ Future activation decisions (if approved) — separate GO only
 
 Internal activation-policy docs after 8.3 are **paused**. Momentum shifts from **creating documentation** to **gathering external evidence**.
 
-**Refinement:** one independent verification is valuable; **multiple independent verifications** are the stronger signal. Do not treat a single report as the only gate for 8.5.
+**Refinement:** one independent verification is valuable but **vulnerable** to single-point failure, collusion, or local env error. Phase **8.5** uses a **multi-report** model (proposed quorum \(m=3\), diversity, conflict protocol, SLA) — see [MULTI_REPORT_VERIFICATION_ARCHITECTURE_V1.md](./community/MULTI_REPORT_VERIFICATION_ARCHITECTURE_V1.md). A single report is **not** sufficient to treat verification as externally settled for Phase 9.0.
 
 ## Current phase map
 
@@ -49,7 +49,7 @@ Internal activation-policy docs after 8.3 are **paused**. Momentum shifts from *
 | 8.2 Safe governance policy | Control constraints documented | Policy sealed | ✅ main (#630) |
 | 8.3 Mint authority explanation | Capability ≠ permission ≠ activation | Explanation sealed | ✅ main (#631) |
 | **8.4 Public verification** | Portal + registry + guides consistent | Third party can locate contracts, reproduce steps, docs consistent | **Active (PR #633)** |
-| **8.5 Independent verification reports** | Repeatable external process | **Multiple** reports over time (addresses, bytecode, docs, receipts, build) | After 8.4 portal live |
+| **8.5 Independent verification reports** | Multi-report consensus architecture | ≥ \(m\) independent agreements (proposed \(m=3\)); diversity + conflict SLA; not single-gate | After 8.4 portal live |
 | **8.6 Builder reproducibility** | Clean clone experience | Never-seen-QPF developer gets verify path running | After 8.5 underway |
 | **8.7 Operational readiness** | Monitoring, recovery, incident, release | Procedures documented/exercised **without** enabling token economics | After 8.6 |
 | **9.0 Governance decision** | Pre-economic evaluation | Decision based on **8.4–8.7 evidence**, not calendar | After 8.7 |
