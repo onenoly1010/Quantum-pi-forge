@@ -22,22 +22,37 @@ One-screen status: [ACTIVATION_STATUS.md](./ACTIVATION_STATUS.md)
 ```text
 Phase 8.0–8.3   Prove the system (internal seals)
         ↓
-Phase 8.4       Public verification portal (make it independently verifiable)
+Phase 8.4       Public Verification Portal
         ↓
-Phase 8.5       Independent verification reports (accumulate multiple — not a single-gate)
+Phase 8.5       Multi-Report Independent Verification  (consensus, not single-gatekeeper)
         ↓
-Phase 8.6       Builder reproducibility (fresh clone / tooling)
+Phase 8.6       Builder Reproduction
         ↓
-Phase 8.7       Operational readiness (no token economics)
+Phase 8.7       Ops Readiness
         ↓
-Phase 9.0       Governance review (evidence-based — not schedule-based)
+Phase 9.0       Governance Decision (Network Genesis review)
         ↓
 Future activation decisions (if approved) — separate GO only
 ```
 
 Internal activation-policy docs after 8.3 are **paused**. Momentum shifts from **creating documentation** to **gathering external evidence**.
 
-**Refinement:** one independent verification is valuable but **vulnerable** to single-point failure, collusion, or local env error. Phase **8.5** uses a **multi-report** model (proposed quorum \(m=3\), diversity, conflict protocol, SLA) — see [MULTI_REPORT_VERIFICATION_ARCHITECTURE_V1.md](./community/MULTI_REPORT_VERIFICATION_ARCHITECTURE_V1.md). A single report is **not** sufficient to treat verification as externally settled for Phase 9.0.
+### Phase 8: Edge-to-Mint Trust Validation
+
+* **8.0–8.3 (complete on main):** Edge readiness, public readiness, genesis package, Safe governance policy, mint authority explanation — capability ≠ permission ≠ activation.
+* **8.4 Public Verification Portal:** Deploy / publish the static verification surface (Cloudflare Pages + repo docs) so deployed contracts, registry, builder path, governance boundaries, and operational status are publicly inspectable. Includes sealed DEX pair readiness (empty pool intentional). Does **not** open mint or liquidity.
+* **8.5 Multi-Report Independent Verification:** Transition from a single-gatekeeper model to a **consensus-driven** pipeline.
+  * **Why multi-report:** One independent verifier is still a single point of failure (collusion, local env error, or “trust verifier A instead of the builder”).
+  * **Threshold requirement:** A Phase 9.0 claim that “external verification is settled” requires a **minimum quorum of independent verification reports** that **agree** on the published state (proposed default **\(m = 3\)** eligible agreements; governance may reseal **2-of-3** or **3-of-5** style thresholds). Optional cryptographic attestation (e.g. signed verification digest) strengthens identity — **does not** auto-execute mint.
+  * **Conflict resolution:** If reports **conflict**, fail Sybil/diversity checks, or **fail to meet the threshold within the SLA window**, the verification pipeline **halts** for that round, **fails closed** on any “externally settled” claim, and **flags for manual governance review**. No automatic mint, liquidity, or economic launch.
+  * **SLA (proposed v1):** soft 14 days / hard 30 days per announced round; or rolling 90-day lookback — see architecture doc.
+  * **Architecture:** [MULTI_REPORT_VERIFICATION_ARCHITECTURE_V1.md](./community/MULTI_REPORT_VERIFICATION_ARCHITECTURE_V1.md)
+* **8.6 Builder Reproduction:** Third-party replication of the deterministic verify path (clean clone, deps, documented outputs) against a multi-report consensus baseline where available.
+* **8.7 Ops Readiness:** Final systems check of monitoring, recovery, incident, and release/fallback procedures **without** enabling token economics.
+
+### Phase 9: Network Genesis (governance review — not auto-mint)
+
+* **9.0 Governance Decision:** Final human/governance transition decision based on **aggregate evidence** from Phases **8.4–8.7** (portal consistency + multi-report consensus + builder repro + ops readiness). Multi-report quorum is **necessary evidence**, not a substitute for a sealed GO receipt. Economic activation (mint/liquidity/yield) remains **separate explicit authorization** after 9.0 if approved.
 
 ## Current phase map
 
@@ -48,14 +63,15 @@ Internal activation-policy docs after 8.3 are **paused**. Momentum shifts from *
 | Genesis package | Stranger-verifiable docs | Package on main | ✅ main (#629) |
 | 8.2 Safe governance policy | Control constraints documented | Policy sealed | ✅ main (#630) |
 | 8.3 Mint authority explanation | Capability ≠ permission ≠ activation | Explanation sealed | ✅ main (#631) |
-| **8.4 Public verification** | Portal + registry + guides consistent | Third party can locate contracts, reproduce steps, docs consistent | **Active (PR #633)** |
-| **8.5 Independent verification reports** | Multi-report consensus architecture | ≥ \(m\) independent agreements (proposed \(m=3\)); diversity + conflict SLA; not single-gate | After 8.4 portal live |
-| **8.6 Builder reproducibility** | Clean clone experience | Never-seen-QPF developer gets verify path running | After 8.5 underway |
-| **8.7 Operational readiness** | Monitoring, recovery, incident, release | Procedures documented/exercised **without** enabling token economics | After 8.6 |
-| **9.0 Governance decision** | Pre-economic evaluation | Decision based on **8.4–8.7 evidence**, not calendar | After 8.7 |
+| **8.4 Public verification portal** | Portal + registry + guides consistent | Third party can locate contracts, reproduce steps, docs consistent | **Active (PR #633)** |
+| **8.5 Multi-report independent verification** | Consensus pipeline (quorum + diversity + SLA) | ≥ \(m\) independent agreements (proposed \(m=3\)); conflict → halt + manual review | Architecture defined; reports after 8.4 live |
+| **8.6 Builder reproduction** | Clean clone experience | Never-seen-QPF developer reproduces verify path | After 8.5 underway |
+| **8.7 Ops readiness** | Monitoring, recovery, incident, release | Procedures exercised **without** token economics | After 8.6 |
+| **9.0 Governance decision** | Pre-economic evaluation | Decision on **8.4–8.7 aggregate evidence**, not calendar | After 8.7 |
 | Future mint / liquidity / yield | Economic activation | Separate explicit GO only | ⛔ Blocked |
 
 Portal index: [docs/community/VERIFICATION_PORTAL_V1.md](./community/VERIFICATION_PORTAL_V1.md)  
+Multi-report architecture: [docs/community/MULTI_REPORT_VERIFICATION_ARCHITECTURE_V1.md](./community/MULTI_REPORT_VERIFICATION_ARCHITECTURE_V1.md)  
 Report process: [docs/community/INDEPENDENT_VERIFICATION_PROCESS_V1.md](./community/INDEPENDENT_VERIFICATION_PROCESS_V1.md)
 
 ## Unlock checklist (high level)
@@ -105,7 +121,4 @@ It shows **restraint**: DEX technical readiness without premature market activat
 - [GENESIS_VERIFICATION_V1.md](./GENESIS_VERIFICATION_V1.md)  
 - [SECURITY_BOUNDARIES_V1.md](./SECURITY_BOUNDARIES_V1.md)  
 - [evidence/PUBLIC_READINESS_REPORT_V1.md](./evidence/PUBLIC_READINESS_REPORT_V1.md)  
-
----
-
-*Activation Roadmap V1 — conditions, not a launch button.*
+- [community/MULTI_REPORT_VERIFICATION_ARCHITECTURE_V1.md](./commun
