@@ -28,6 +28,33 @@
 
 These guide documentation; they do not guarantee adoption or external validation.
 
+### Verification boundary model (governing rule)
+
+```text
+Technical truth layer
+        ↓
+Deployment evidence layer
+        ↓
+Independent verification layer
+        ↓
+Governance decision layer
+        ↓
+Economic activation layer
+```
+
+| Layer | Question answered |
+| --- | --- |
+| Architecture | What was designed? |
+| Deployment inventory | What exists on-chain? |
+| Evidence | What proves the claim? |
+| Verification | Can someone else reproduce the result? |
+| Governance | Who/what authorizes changes? |
+| Economic activation | What functionality is actually enabled? |
+
+**Public message at this stage:** *Here is what exists. Here is the evidence. Here is how to verify it. Here is what remains intentionally disabled.*
+
+Do not collapse: deployed contract → launched → valuable. Prefer: deployed contract → observable artifact → independently verifiable state → separate governance decision.
+
 ---
 
 ## Critical distinction (do not collapse)
