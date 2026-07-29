@@ -20,37 +20,34 @@ One-screen status: [ACTIVATION_STATUS.md](./ACTIVATION_STATUS.md)
 ## Phase order (do not invert)
 
 ```text
-Evidence / verifiability
-   ↓
-Governance clarity (who can act, under what constraints)
-   ↓
-Safe / recovery policy packaging
-   ↓
-Controlled mint path (B) — if/when human GO
-   ↓
-Public mint open (A) — only after constraints are public
-   ↓
-DEX prep complete → liquidity authorization + funding (F)
-   ↓
-Yield / earnings (last)
+Phase 8.0–8.3   Prove the system (edge, readiness, genesis, Safe, mint authority explanation)
+        ↓
+Phase 8.4–8.7   Prove others can verify the system (external validation lane)
+        ↓
+Phase 9.0       Governance review (before any economic activation discussion)
+        ↓
+Controlled mint (B) / public mint (A) / liquidity (F) / yield — only with separate GO
 ```
+
+Internal activation-policy docs after 8.3 are **paused**. Effort shifts to independent evidence.
 
 ## Current phase map
 
-| Phase | Goal | Status |
-|-------|------|--------|
-| 8.0 Edge readiness | Headers + preflight | On main (PR #627) |
-| 8.1 Public readiness evidence | Single inspectable truth layer | On main (PR #628) |
-| Genesis verification package | Stranger-verifiable docs | This package (PR #629) |
-| 8.2 Safe / social recovery policy | Governance credibility | Next (docs only) |
-| 8.3 Mint authority explanation | Explain gates — not enable mint | After 8.2 |
-| Builder onboarding | 10-minute verify path | BUILDER_QUICKSTART |
-| First external participant | Non-Kris verification/contribution | Not yet proven |
-| Funding lane | Grants / ecosystem | After A–C credibility |
-| Controlled mint | Explicit GO only | Historical controlled mint verified; public open NO-GO |
-| Public mint open | Policy flip only after GO chain | Blocked |
-| Liquidity event | Commercial, separate receipt | Blocked (empty pool intentional) |
-| Yield | Downstream of liquidity + controls | Blocked |
+| Phase | Objective | Success criterion | Status |
+|-------|-----------|-------------------|--------|
+| 8.0 Edge readiness | Headers + preflight | EDGE_READY | ✅ main (#627) |
+| 8.1 Public readiness | Inspectable truth layer | Report + probes | ✅ main (#628) |
+| Genesis package | Stranger-verifiable docs | Package on main | ✅ main (#629) |
+| 8.2 Safe governance policy | Control constraints documented | Policy sealed | ✅ main (#630) |
+| 8.3 Mint authority explanation | Capability ≠ permission ≠ activation | Explanation sealed | ✅ main (#631) |
+| **8.4 Verification portal & first verification** | Public workflow; independent verify | Outsider confirms published state without builder help | **Active** |
+| **8.5 Builder experience** | Fresh clone + tooling | Developer reproduces documented results | After 8.4 |
+| **8.6 Community validation** | External reports | Issues / verification reports from outside | After 8.5 |
+| **8.7 Operational readiness** | Safe/recovery/monitoring exercises | Procedures exercised **without** token economics | After 8.6 |
+| **9.0 Governance review** | Pre-economic gate | Technical + operational + community evidence reviewed | After 8.7 |
+| Controlled mint / public mint / liquidity / yield | Economic activation | Separate explicit GO only | ⛔ Blocked |
+
+Portal index: [docs/community/VERIFICATION_PORTAL_V1.md](./community/VERIFICATION_PORTAL_V1.md)
 
 ## Unlock checklist (high level)
 
