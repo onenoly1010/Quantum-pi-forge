@@ -9,6 +9,12 @@ Before: Can the creator prove what was built?
 Now:    Can others verify what was built without trusting the creator?
 ```
 
+### Public conclusion
+
+> Phase 8 establishes the project's trust foundation. From this point, progress is measured less by new internal documentation and more by independent, reproducible verification. The next milestone is demonstrating that different reviewers, on different systems, can execute the same verification process and reach the same conclusions. Economic functionality—including minting and liquidity—remains intentionally disabled until a separate governance authorization is satisfied.
+
+**Internal vs external language:** Receipts may record project milestones as “sealed.” That is **project governance terminology**, not an external certification. Multi-report consensus is **verification evidence** for later governance review—not an auto-mint unlock.
+
 **Refinement:** completing 8.4 does **not** require a single magical external report. 8.4 delivers the **public surface**. **Phase 8.5** runs a **multi-report** architecture (quorum, diversity, conflict resolution, SLA) so verification is consensus-driven before Phase 9.0 — not a second single gatekeeper.
 
 ---

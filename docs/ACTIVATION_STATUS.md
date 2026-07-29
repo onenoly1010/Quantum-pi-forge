@@ -6,6 +6,14 @@
 
 ---
 
+## Public conclusion (preferred wording)
+
+> **Phase 8 establishes the project's trust foundation. From this point, progress is measured less by new internal documentation and more by independent, reproducible verification. The next milestone is demonstrating that different reviewers, on different systems, can execute the same verification process and reach the same conclusions. Economic functionality—including minting and liquidity—remains intentionally disabled until a separate governance authorization is satisfied.**
+
+**Language note:** Project-internal receipts may say “sealed” for a governance milestone. That is **not** an industry certification. Externally, prefer the conclusion above: distinguish **project governance milestones** from **externally verified facts**.
+
+---
+
 ## Critical distinction (do not collapse)
 
 > **Technical activation verified. Commercial activation pending governance authorization.**
@@ -14,6 +22,8 @@
 | --- | --- | --- |
 | **Technical activation** | **Verified** | Core contracts live on chain 16661; bytecode probeable; website/registry surfaces exist |
 | **Commercial activation** | **Pending governance authorization** | Public mint, liquidity seeding, yield, staking, bridge, treasury remain gated |
+| **Verification evidence** | In progress (multi-report) | Independent reviewers can check published state; does **not** equal activation permission |
+| **Governance authorization** | Not granted for economics | Separate decision; not automatic from docs or consensus reports |
 
 Empty pool and disabled mint are **intentional restraint**, not unfinished accidents.
 
@@ -44,6 +54,17 @@ RESTRAINT = INTENTIONAL
 | Safe guardian address with bytecode | Ownership residual remediation complete |
 
 ---
+
+## Progress metric (current)
+
+| Measure less | Measure more |
+| --- | --- |
+| New internal design docs | Independent, reproducible verification |
+| “Trust the builders” | “Other people, other machines, same conclusions” |
+| Documentation alone as readiness | Explicit governance GO for any economic open |
+
+Portal: [community/VERIFICATION_PORTAL_V1.md](./community/VERIFICATION_PORTAL_V1.md)  
+Multi-report process: [community/MULTI_REPORT_VERIFICATION_ARCHITECTURE_V1.md](./community/MULTI_REPORT_VERIFICATION_ARCHITECTURE_V1.md)
 
 ## Where to go next
 
