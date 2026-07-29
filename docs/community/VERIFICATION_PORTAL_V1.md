@@ -9,7 +9,7 @@ Before: Can the creator prove what was built?
 Now:    Can others verify what was built without trusting the creator?
 ```
 
-**Refinement:** completing 8.4 does **not** require a single magical external report. 8.4 delivers the **public surface**. **Phase 8.5** accumulates **multiple** independent verification reports over time.
+**Refinement:** completing 8.4 does **not** require a single magical external report. 8.4 delivers the **public surface**. **Phase 8.5** runs a **multi-report** architecture (quorum, diversity, conflict resolution, SLA) so verification is consensus-driven before Phase 9.0 — not a second single gatekeeper.
 
 ---
 
@@ -88,17 +88,31 @@ Capability  ≠  Permission  ≠  Activation
 
 ---
 
-## Phase roadmap (external validation lane)
+## Phase roadmap (external evidence lane)
+
+```text
+Phase 8.4  Public Verification Portal
+        ↓
+Phase 8.5  Independent Verification Reports  (multiple over time)
+        ↓
+Phase 8.6  Builder Reproducibility
+        ↓
+Phase 8.7  Operational Readiness
+        ↓
+Phase 9.0  Governance Decision
+        ↓
+Future activation decisions (if approved)
+```
 
 | Phase | Objective | Success criterion |
 | --- | --- | --- |
-| **8.4** | Verification portal & first verification | Independent person follows public docs and verifies deployed state without builder assistance |
-| **8.5** | Builder experience | Fresh clone + documented tooling reproduce published results |
-| **8.6** | Community validation | External issues, bug reports, doc improvements, or verification reports |
-| **8.7** | Operational readiness | Recovery, Safe process, monitoring, incident docs **without** enabling token economics |
-| **9.0** | Governance review | All technical, operational, and community gates reviewed **before** any economic activation discussion |
+| **8.4** | Public verification | Locate contracts; reproduce steps; docs consistent |
+| **8.5** | Independent reports | Multi-report consensus (proposed \(m=3\)); diversity; conflict protocol; SLA — see architecture doc |
+| **8.6** | Builder reproducibility | Clean clone; deps; docs; expected outputs match |
+| **8.7** | Operational readiness | Monitoring, recovery, incident, release — **no** token economics |
+| **9.0** | Governance decision | Based on **evidence from 8.4–8.7**, not schedule alone |
 
-Internal activation-policy docs after 8.3 are **paused**. Effort shifts to independent evidence.
+Internal activation-policy docs after 8.3 are **paused**.
 
 ---
 

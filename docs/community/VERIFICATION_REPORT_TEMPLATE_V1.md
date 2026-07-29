@@ -6,10 +6,12 @@
 ```markdown
 ## External verification report
 
-- **Verifier:** (name or handle)
+- **Verifier:** (name or handle — distinct identity for multi-report quorum)
 - **Date (UTC):**
 - **Affiliation:** (optional; “independent” is fine)
+- **Independence note:** (confirm not a core maintainer counted toward m; disclose if related to another report)
 - **Method:** browser + explorer / RPC curls / git clone + scripts
+- **Optional anti-Sybil:** (wallet signature of verification digest / account age note — no funds moved)
 
 ### Network
 

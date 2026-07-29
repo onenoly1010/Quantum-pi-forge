@@ -2,7 +2,8 @@
 
 **Phase:** 8.5 (process definition; reports accumulate after 8.4 portal is public)  
 **Mode:** REPEATABLE EXTERNAL PROCESS — not a transaction  
-**Principle:** One independent verification is valuable. **Multiple** independent verifications are the stronger signal. A single report is **not** the only gate.
+**Principle:** One independent verification is valuable but **fragile** (single point of failure, collusion, local env error). **Multiple independent reports** move 8.5 from a gatekeeper model toward consensus-of-evidence before Phase 9.0.  
+**Architecture:** [MULTI_REPORT_VERIFICATION_ARCHITECTURE_V1.md](./MULTI_REPORT_VERIFICATION_ARCHITECTURE_V1.md) — quorum \(m\), diversity, conflict resolution, SLA.
 
 ---
 
@@ -13,6 +14,7 @@ Define how independent reviewers verify QPF without builder hand-holding, and ho
 ```text
 SUCCESS: external confirmation of published reality (or honest drift)
 NOT SUCCESS: activation transaction executed
+NOT SUFFICIENT FOR 9.0: a single external report alone
 ```
 
 ---
@@ -59,16 +61,19 @@ External verification: YYYY-MM-DD
 
 ---
 
-## Accumulation (not a single gate)
+## Accumulation (multi-report — not a single gate)
 
 | Signal | Meaning |
 | --- | --- |
-| 0 reports | 8.4 infrastructure may exist; 8.5 not yet evidenced |
-| 1 report | Valuable first signal — keep inviting more |
-| 2+ independent reports | Stronger evidence for later 9.0 review |
-| Drift reports | Successful verification events if method + timestamps are clear |
+| 0 eligible reports | 8.4 may be live; 8.5 consensus not started |
+| 1 eligible report | Valuable **but** single-point risk — keep inviting; does **not** alone settle 9.0 verification evidence |
+| \(m\) agreeing independent reports (proposed **\(m = 3\)**) | **CONSENSUS_CONFIRMED** (or **CONSENSUS_DRIFT**) — see architecture doc |
+| Conflicting reports | **Halt** consensus claim; conflict-resolution protocol; never auto-activate |
+| Window expired without \(m\) | Fail closed for that round’s “externally settled” claim |
 
-Project maintainers may index reports in `docs/community/verification-reports/` or link issues from a short index when volume warrants — without inventing verifiers.
+**Proposed quorum (v1):** minimum **3** independent, diversity-eligible agreements. Full parameters (diversity, SLA, conflicts): [MULTI_REPORT_VERIFICATION_ARCHITECTURE_V1.md](./MULTI_REPORT_VERIFICATION_ARCHITECTURE_V1.md).
+
+Project maintainers may index reports in `docs/community/verification-reports/` or link issues from a short index when volume warrants — without inventing verifiers or counting Sybils toward \(m\).
 
 ---
 
@@ -79,16 +84,20 @@ Reviewers and maintainers **do not** use this process to:
 - open mint or seed liquidity  
 - request seed phrases or private keys  
 - treat a single PASS as economic authorization  
+- treat multi-report consensus as automatic mint unlock (Phase 9.0 is still a separate human governance decision)  
 
 ---
 
 ## Related
 
+- **Multi-report architecture:** [MULTI_REPORT_VERIFICATION_ARCHITECTURE_V1.md](./MULTI_REPORT_VERIFICATION_ARCHITECTURE_V1.md)  
 - Portal: [VERIFICATION_PORTAL_V1.md](./VERIFICATION_PORTAL_V1.md)  
 - Guide: [FIRST_VERIFICATION_EVENT_V1.md](./FIRST_VERIFICATION_EVENT_V1.md)  
+- Template: [VERIFICATION_REPORT_TEMPLATE_V1.md](./VERIFICATION_REPORT_TEMPLATE_V1.md)  
 - Limitations: [KNOWN_LIMITATIONS_V1.md](./KNOWN_LIMITATIONS_V1.md)  
 - Roadmap: [ACTIVATION_ROADMAP.md](../ACTIVATION_ROADMAP.md)  
 
 ---
 
-*Phase 8.5 process — measurable external evidence over internal assertion.*
+*Phase 8.5 process — consensus of independent evidence; fail closed on activation claims.*
+
