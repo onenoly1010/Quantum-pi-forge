@@ -63,47 +63,55 @@
       <p style="color:#cbd5e1;font-size:.95rem;margin:.5rem 0 0;">
         This page is the <strong>canonical reference for “What is deployed?”</strong>
         Each entry follows a <strong style="color:#f8fafc;">claim → evidence → verification</strong> structure so that
-        readers can <strong>independently validate</strong> deployed components (addresses, explorers, registry digests, source links).
+        readers can <strong>independently validate</strong> deployed components.
       </p>
       <p style="color:#cbd5e1;font-size:.95rem;margin:.75rem 0 0;">
-        The page <strong style="color:#f8fafc;">documents deployment state and does not, by itself, indicate economic activation or readiness.</strong>
-        Observables (on-chain and repository evidence) are distinct from governance or market interpretation.
-        Minting, liquidity, and related economic functionality remain subject to separate authorization—and are currently
+        The public site is intended to <strong>reflect the project’s documented verification model</strong>:
+        the <strong>live site</strong>, this <strong>deployment inventory</strong>, and
+        <strong>supporting evidence</strong> (explorers, registry digests, source repo, receipts) are aligned so reviewers can
+        inspect what is deployed and follow the evidence
+        <strong style="color:#f8fafc;">without that being interpreted as an announcement of economic activation</strong>.
+        Minting, liquidity, and related features remain subject to separate authorization—and are currently
         <strong>intentionally disabled</strong>.
       </p>
       <p style="color:#94a3b8;font-size:.85rem;margin:.75rem 0 0;">
-        <strong style="color:#e0f2fe;">Public narrative arc:</strong>
+        <strong style="color:#e0f2fe;">What a reviewer can do here:</strong>
+      </p>
+      <ol style="color:#94a3b8;font-size:.85rem;margin:.4rem 0 0;padding-left:1.25rem;">
+        <li><strong style="color:#cbd5e1;">Understand the architecture</strong> — linked overview &amp; docs</li>
+        <li><strong style="color:#cbd5e1;">See what is actually deployed</strong> — inventory entries below</li>
+        <li><strong style="color:#cbd5e1;">Inspect supporting evidence</strong> — explorers, registry, txs, receipts</li>
+        <li><strong style="color:#cbd5e1;">Reproduce or verify findings</strong> — verification portal &amp; builder path</li>
+        <li><strong style="color:#cbd5e1;">Read operational &amp; governance status</strong> — what is enabled vs what decisions remain</li>
+      </ol>
+      <p style="color:#94a3b8;font-size:.85rem;margin:.75rem 0 0;">
+        <strong style="color:#e0f2fe;">Keep these states separate:</strong>
       </p>
       <table class="contract-table" style="margin-top:.5rem;font-size:.85rem;">
         <thead>
           <tr>
-            <th>Stage</th>
-            <th>Primary question</th>
+            <th>State</th>
+            <th>Meaning</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Architecture</td>
-            <td>What was designed?</td>
+            <td><strong>Technical</strong></td>
+            <td>What exists and can be verified (addresses, bytecode, explorers)</td>
           </tr>
           <tr>
-            <td>Deployment inventory</td>
-            <td>What is actually deployed? <em>(this page)</em></td>
+            <td><strong>Operational</strong></td>
+            <td>What is currently enabled (mint/liquidity disabled by design)</td>
           </tr>
           <tr>
-            <td>Evidence</td>
-            <td>What supports those claims?</td>
-          </tr>
-          <tr>
-            <td>Independent verification</td>
-            <td>Can someone else reproduce the results?</td>
-          </tr>
-          <tr>
-            <td>Governance</td>
-            <td>What decisions remain before any economic features are enabled?</td>
+            <td><strong>Governance</strong></td>
+            <td>What decisions remain before any economic functionality is authorized</td>
           </tr>
         </tbody>
       </table>
+      <p style="color:#64748b;font-size:.8rem;margin:.75rem 0 0;">
+        Process over conclusion: claim → evidence → verification. Prefer observables over narrative alone.
+      </p>
     </div>
   </section>
 
