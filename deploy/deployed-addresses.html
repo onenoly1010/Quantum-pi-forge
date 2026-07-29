@@ -54,38 +54,56 @@
   </div>
 
   <h1>Deployed Addresses</h1>
-  <p class="subtitle">Authoritative inventory of <strong>deployed protocol components</strong> — grounded in observables, not an economic activation announcement</p>
+  <p class="subtitle">Canonical reference for <strong>what is deployed</strong> — deployment state, not economic readiness</p>
 
-  <!-- PURPOSE: facts vs interpretation -->
+  <!-- PURPOSE: reviewer-centric; claim → evidence → verification -->
   <section>
     <div class="network-card" style="border-color:rgba(147,197,253,.25);">
       <h3 style="color:#e0f2fe;">Purpose of this page</h3>
       <p style="color:#cbd5e1;font-size:.95rem;margin:.5rem 0 0;">
-        This page is the <strong>authoritative inventory of deployed protocol components</strong> for Quantum Pi Forge.
-        It answers <strong style="color:#f8fafc;">“What is deployed?”</strong> using observable on-chain and repository evidence
-        (addresses, explorers, registry digests, source links). It is
-        <strong style="color:#f8fafc;">not an announcement of economic activation.</strong>
+        This page is the <strong>canonical reference for “What is deployed?”</strong>
+        Each entry follows a <strong style="color:#f8fafc;">claim → evidence → verification</strong> structure so that
+        readers can <strong>independently validate</strong> deployed components (addresses, explorers, registry digests, source links).
       </p>
       <p style="color:#cbd5e1;font-size:.95rem;margin:.75rem 0 0;">
-        <strong>Observables</strong> (addresses, transactions, bytecode, source, verification artifacts)
-        are distinct from <strong>interpretation</strong> (whether the protocol is economically active or launch-ready).
-        Minting, liquidity, and related economic functionality remain subject to separate governance requirements—and are currently
+        The page <strong style="color:#f8fafc;">documents deployment state and does not, by itself, indicate economic activation or readiness.</strong>
+        Observables (on-chain and repository evidence) are distinct from governance or market interpretation.
+        Minting, liquidity, and related economic functionality remain subject to separate authorization—and are currently
         <strong>intentionally disabled</strong>.
       </p>
       <p style="color:#94a3b8;font-size:.85rem;margin:.75rem 0 0;">
-        <strong style="color:#e0f2fe;">Reviewer journey:</strong>
-        Architecture → <strong>Deployment inventory (this page)</strong> → Verification → Independent reproduction → Governance decisions
+        <strong style="color:#e0f2fe;">Public narrative arc:</strong>
       </p>
-      <ol style="color:#94a3b8;font-size:.85rem;margin:.4rem 0 0;padding-left:1.25rem;">
-        <li><strong style="color:#cbd5e1;">What is this project?</strong> — Overview &amp; architecture</li>
-        <li><strong style="color:#cbd5e1;">What is actually deployed?</strong> — This inventory</li>
-        <li><strong style="color:#cbd5e1;">Can I verify it myself?</strong> — Explorer, source, registry, receipts</li>
-        <li><strong style="color:#cbd5e1;">Operational status?</strong> — Status section (mint/liquidity disabled)</li>
-        <li><strong style="color:#cbd5e1;">Before economic activation?</strong> — Separate governance authorization</li>
-      </ol>
-      <p style="color:#64748b;font-size:.8rem;margin:.75rem 0 0;">
-        Prefer claim → evidence → verification over marketing language.
-      </p>
+      <table class="contract-table" style="margin-top:.5rem;font-size:.85rem;">
+        <thead>
+          <tr>
+            <th>Stage</th>
+            <th>Primary question</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Architecture</td>
+            <td>What was designed?</td>
+          </tr>
+          <tr>
+            <td>Deployment inventory</td>
+            <td>What is actually deployed? <em>(this page)</em></td>
+          </tr>
+          <tr>
+            <td>Evidence</td>
+            <td>What supports those claims?</td>
+          </tr>
+          <tr>
+            <td>Independent verification</td>
+            <td>Can someone else reproduce the results?</td>
+          </tr>
+          <tr>
+            <td>Governance</td>
+            <td>What decisions remain before any economic features are enabled?</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </section>
 
