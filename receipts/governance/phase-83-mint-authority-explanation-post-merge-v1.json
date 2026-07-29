@@ -1,0 +1,40 @@
+{
+  "receipt": "phase-83-mint-authority-explanation-post-merge-v1",
+  "schema_status": "PHASE_8_3_MINT_AUTHORITY_EXPLANATION_SEALED",
+  "created_at": "2026-07-29T05:46:18Z",
+  "phase": "8.3",
+  "title": "Mint Authority Explanation — post-merge seal",
+  "status": "SEALED_ON_MAIN",
+  "mode": "EXPLAIN_AUTHORITY_NOT_EXERCISE",
+  "tag": "PHASE_8_3_MINT_AUTHORITY_EXPLANATION_SEALED",
+  "record": {
+    "commit": "c4a98d7f88bc5cc893fc5fadf53ff2602180da34",
+    "commit_short": "c4a98d7",
+    "pr": 631,
+    "pr_url": "https://github.com/onenoly1010/Quantum-pi-forge/pull/631",
+    "merged_at": "2026-07-28T17:52:02Z",
+    "verification": {
+      "npm_run_verify_evidence": "exit 0 at seal (authoring)",
+      "output": "reports/evidence/phase-83-verification-output-v1.txt"
+    },
+    "build": {
+      "npm_run_build": "exit 0 at seal (authoring)"
+    },
+    "timestamp": "2026-07-29T05:46:18Z",
+    "ci_at_merge": {
+      "healthcheck": "SUCCESS",
+      "cloudflare_pages_check": "SUCCESS",
+      "lint_and_test": "SUCCESS",
+      "build_and_package": "SUCCESS",
+      "api_health_check": "SUCCESS",
+      "verify_evidence_and_audit": "FAILURE_PREEXISTING_NPM_AUDIT_HIGH"
+    }
+  },
+  "current_status": {
+    "mint_activation": "NOT_AUTHORIZED",
+    "liquidity_activation": "NOT_AUTHORIZED",
+    "economic_launch": "NOT_AUTHORIZED"
+  },
+  "next_milestone": "FIRST_EXTERNAL_VERIFICATION_EVENT",
+  "stop_activation_docs": true
+}
