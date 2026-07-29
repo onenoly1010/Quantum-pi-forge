@@ -12,6 +12,22 @@
 
 **Language note:** Project-internal receipts may say “sealed” for a governance milestone. That is **not** an industry certification. Externally, prefer the conclusion above: distinguish **project governance milestones** from **externally verified facts**.
 
+### Communication principles (public narrative)
+
+| Principle | Meaning |
+| --- | --- |
+| **Process over conclusion** | Show how results are obtained (claim → evidence → verification) instead of asking readers to accept them |
+| **Observables over narrative** | Prefer deployed artifacts, repository history, transactions, and reproducible evidence over descriptive claims |
+| **Deployment inventory is not economic readiness** | Publishing what is deployed is distinct from authorizing economic functionality; a deployment inventory is not an economic activation announcement |
+
+| State | Meaning |
+| --- | --- |
+| **Technical** | What exists and can be independently inspected |
+| **Operational** | What is currently enabled for users |
+| **Governance** | What is authorized to operate; what decisions remain before economic features |
+
+These guide documentation; they do not guarantee adoption or external validation.
+
 ---
 
 ## Critical distinction (do not collapse)
