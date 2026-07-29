@@ -20,16 +20,24 @@ One-screen status: [ACTIVATION_STATUS.md](./ACTIVATION_STATUS.md)
 ## Phase order (do not invert)
 
 ```text
-Phase 8.0–8.3   Prove the system (edge, readiness, genesis, Safe, mint authority explanation)
+Phase 8.0–8.3   Prove the system (internal seals)
         ↓
-Phase 8.4–8.7   Prove others can verify the system (external validation lane)
+Phase 8.4       Public verification portal (make it independently verifiable)
         ↓
-Phase 9.0       Governance review (before any economic activation discussion)
+Phase 8.5       Independent verification reports (accumulate multiple — not a single-gate)
         ↓
-Controlled mint (B) / public mint (A) / liquidity (F) / yield — only with separate GO
+Phase 8.6       Builder reproducibility (fresh clone / tooling)
+        ↓
+Phase 8.7       Operational readiness (no token economics)
+        ↓
+Phase 9.0       Governance review (evidence-based — not schedule-based)
+        ↓
+Future activation decisions (if approved) — separate GO only
 ```
 
-Internal activation-policy docs after 8.3 are **paused**. Effort shifts to independent evidence.
+Internal activation-policy docs after 8.3 are **paused**. Momentum shifts from **creating documentation** to **gathering external evidence**.
+
+**Refinement:** one independent verification is valuable; **multiple independent verifications** are the stronger signal. Do not treat a single report as the only gate for 8.5.
 
 ## Current phase map
 
@@ -40,14 +48,15 @@ Internal activation-policy docs after 8.3 are **paused**. Effort shifts to indep
 | Genesis package | Stranger-verifiable docs | Package on main | ✅ main (#629) |
 | 8.2 Safe governance policy | Control constraints documented | Policy sealed | ✅ main (#630) |
 | 8.3 Mint authority explanation | Capability ≠ permission ≠ activation | Explanation sealed | ✅ main (#631) |
-| **8.4 Verification portal & first verification** | Public workflow; independent verify | Outsider confirms published state without builder help | **Active** |
-| **8.5 Builder experience** | Fresh clone + tooling | Developer reproduces documented results | After 8.4 |
-| **8.6 Community validation** | External reports | Issues / verification reports from outside | After 8.5 |
-| **8.7 Operational readiness** | Safe/recovery/monitoring exercises | Procedures exercised **without** token economics | After 8.6 |
-| **9.0 Governance review** | Pre-economic gate | Technical + operational + community evidence reviewed | After 8.7 |
-| Controlled mint / public mint / liquidity / yield | Economic activation | Separate explicit GO only | ⛔ Blocked |
+| **8.4 Public verification** | Portal + registry + guides consistent | Third party can locate contracts, reproduce steps, docs consistent | **Active (PR #633)** |
+| **8.5 Independent verification reports** | Repeatable external process | **Multiple** reports over time (addresses, bytecode, docs, receipts, build) | After 8.4 portal live |
+| **8.6 Builder reproducibility** | Clean clone experience | Never-seen-QPF developer gets verify path running | After 8.5 underway |
+| **8.7 Operational readiness** | Monitoring, recovery, incident, release | Procedures documented/exercised **without** enabling token economics | After 8.6 |
+| **9.0 Governance decision** | Pre-economic evaluation | Decision based on **8.4–8.7 evidence**, not calendar | After 8.7 |
+| Future mint / liquidity / yield | Economic activation | Separate explicit GO only | ⛔ Blocked |
 
-Portal index: [docs/community/VERIFICATION_PORTAL_V1.md](./community/VERIFICATION_PORTAL_V1.md)
+Portal index: [docs/community/VERIFICATION_PORTAL_V1.md](./community/VERIFICATION_PORTAL_V1.md)  
+Report process: [docs/community/INDEPENDENT_VERIFICATION_PROCESS_V1.md](./community/INDEPENDENT_VERIFICATION_PROCESS_V1.md)
 
 ## Unlock checklist (high level)
 

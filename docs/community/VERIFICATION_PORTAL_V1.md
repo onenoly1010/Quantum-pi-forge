@@ -1,15 +1,34 @@
 # Verification Portal v1
 
-**Phase:** 8.4 — Verification Portal & First Independent Verification  
+**Phase:** 8.4 — Public Verification (current)  
 **Mode:** PUBLIC WORKFLOW — not an activation path  
-**Success metric:** Someone unfamiliar with QPF can independently reproduce the published state.
+**Objective:** Make the project independently verifiable.
 
 ```text
-Before Phase 8.x: Can the creator prove what was built?
-Phase 8.4:        Can someone else verify what was built without trusting the creator?
+Before: Can the creator prove what was built?
+Now:    Can others verify what was built without trusting the creator?
 ```
 
+**Refinement:** completing 8.4 does **not** require a single magical external report. 8.4 delivers the **public surface**. **Phase 8.5** accumulates **multiple** independent verification reports over time.
+
 ---
+
+## Phase 8.4 deliverables
+
+| Deliverable | Location |
+| --- | --- |
+| Public verification portal | https://quantumpiforge.com/deployed-addresses · this pack |
+| Deployed contract registry | [CONTRACT_REGISTRY_V1.md](../CONTRACT_REGISTRY_V1.md) |
+| Builder quickstart | [BUILDER_QUICKSTART.md](../BUILDER_QUICKSTART.md) |
+| Governance documentation | Safe policy · security boundaries |
+| Mint authority explanation | [MINT_AUTHORITY_EXPLANATION_V1.md](../governance/MINT_AUTHORITY_EXPLANATION_V1.md) |
+| Clear operational status | [ACTIVATION_STATUS.md](../ACTIVATION_STATUS.md) — mint/liquidity/launch **NOT AUTHORIZED** |
+
+## Phase 8.4 success criteria
+
+- [ ] A third party can **locate** every deployed contract (portal + registry).  
+- [ ] A third party can **reproduce** the published verification steps.  
+- [ ] Documentation is **internally consistent** (site ↔ registry ↔ receipts posture).  
 
 ## Portal map
 
@@ -17,7 +36,7 @@ Phase 8.4:        Can someone else verify what was built without trusting the cr
 Verification Portal
 ├── Deployed addresses (live site)
 ├── Contract registry
-├── Verification guide (this phase)
+├── Verification guide
 ├── Builder quickstart
 ├── Governance boundaries
 ├── Known limitations
@@ -27,15 +46,16 @@ Verification Portal
 | Piece | Link |
 | --- | --- |
 | **Live portal** | https://quantumpiforge.com/deployed-addresses |
-| **Deployed addresses (source)** | `deploy/deployed-addresses.html` |
+| **Portal index** | this document |
 | **Contract registry** | [docs/CONTRACT_REGISTRY_V1.md](../CONTRACT_REGISTRY_V1.md) |
-| **Verification guide** | [docs/community/FIRST_VERIFICATION_EVENT_V1.md](./FIRST_VERIFICATION_EVENT_V1.md) |
+| **Verification guide** | [FIRST_VERIFICATION_EVENT_V1.md](./FIRST_VERIFICATION_EVENT_V1.md) |
+| **Independent process (8.5)** | [INDEPENDENT_VERIFICATION_PROCESS_V1.md](./INDEPENDENT_VERIFICATION_PROCESS_V1.md) |
 | **Builder quickstart** | [docs/BUILDER_QUICKSTART.md](../BUILDER_QUICKSTART.md) |
 | **Genesis entry** | [docs/GENESIS_VERIFICATION_V1.md](../GENESIS_VERIFICATION_V1.md) |
 | **Activation status** | [docs/ACTIVATION_STATUS.md](../ACTIVATION_STATUS.md) |
-| **Governance boundaries** | [docs/SECURITY_BOUNDARIES_V1.md](../SECURITY_BOUNDARIES_V1.md) · [SAFE_GOVERNANCE_POLICY_V1.md](../governance/SAFE_GOVERNANCE_POLICY_V1.md) · [MINT_AUTHORITY_EXPLANATION_V1.md](../governance/MINT_AUTHORITY_EXPLANATION_V1.md) |
-| **Known limitations** | [docs/community/KNOWN_LIMITATIONS_V1.md](./KNOWN_LIMITATIONS_V1.md) |
-| **Submit a report** | [VERIFICATION_REPORT_TEMPLATE_V1.md](./VERIFICATION_REPORT_TEMPLATE_V1.md) → open a GitHub issue |
+| **Governance boundaries** | [SECURITY_BOUNDARIES_V1.md](../SECURITY_BOUNDARIES_V1.md) · [SAFE_GOVERNANCE_POLICY_V1.md](../governance/SAFE_GOVERNANCE_POLICY_V1.md) · [MINT_AUTHORITY_EXPLANATION_V1.md](../governance/MINT_AUTHORITY_EXPLANATION_V1.md) |
+| **Known limitations** | [KNOWN_LIMITATIONS_V1.md](./KNOWN_LIMITATIONS_V1.md) |
+| **Submit a report** | [VERIFICATION_REPORT_TEMPLATE_V1.md](./VERIFICATION_REPORT_TEMPLATE_V1.md) → [open issue](https://github.com/onenoly1010/Quantum-pi-forge/issues/new) |
 
 ---
 
