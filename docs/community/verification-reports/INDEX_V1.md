@@ -31,6 +31,8 @@ Consensus does NOT open mint, liquidity, or economic launch
 | Status JSON | https://quantumpiforge.com/verification-status-v1.json |
 | One-command | `npm run verify:public-portal` (read-only) |
 | Latest consistency probe | `docs/evidence/PORTAL_CONSISTENCY_PROBE_20260730T154047Z.json` (PASS; not eligible for \(m\)) |
+| Maintainer baseline issue | [#648](https://github.com/onenoly1010/Quantum-pi-forge/issues/648) · `ROLE=MAINTAINER_BASELINE` · **not** eligible for \(m\) · closed |
+| Distance to economics | [DISTANCE_TO_ECONOMIC_ACTIVATION_V1.md](../../DISTANCE_TO_ECONOMIC_ACTIVATION_V1.md) (status only) |
 
 ## Expected findings (published posture)
 
@@ -47,16 +49,18 @@ Consensus does NOT open mint, liquidity, or economic launch
 
 | # | Date (UTC) | Reviewer | Method | Eligible for \(m\)? | Core finding | Issue / link | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| — | — | — | — | — | *no eligible reports yet* | — | Round 1 open |
+| B1 | 2026-07-30 | Kris Olofson / @onenoly11 | portal + status JSON + RPC curls + `verify:public-portal` | **no** | agree published state (16661, code present, empty pair, mint/liquidity NOT AUTHORIZED) | [#648](https://github.com/onenoly1010/Quantum-pi-forge/issues/648) (closed) | `ROLE=MAINTAINER_BASELINE` — excluded from quorum |
+| — | — | — | — | — | *no eligible external reports yet* | — | Round 1 open · Slot A/B/C READY_TO_SEND |
 
 **Counts (update when indexing):**
 
 | Metric | Value |
 | --- | --- |
 | \(n\) accepted eligible | **0** |
-| Agreeing on published state | **0** |
+| Agreeing on published state | **0** (eligible only; baseline B1 does not count) |
 | Critical conflicts | **0** |
 | Round consensus | **NOT_STARTED** |
+| Maintainer baselines indexed | **1** (#648) — not toward \(m\) |
 
 ## How maintainers index a report
 
