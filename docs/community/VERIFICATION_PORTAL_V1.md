@@ -91,11 +91,13 @@ Capability  ≠  Permission  ≠  Activation
 
 ## Minimal independent path (no project knowledge required)
 
-1. Open https://quantumpiforge.com/deployed-addresses  
-2. Note chain ID **16661**, RPC `https://evmrpc.0g.ai`, disabled mint/signing  
-3. Pick one token address → check code on https://chainscan.0g.ai  
-4. Optionally re-run the RPC curls in [FIRST_VERIFICATION_EVENT_V1.md](./FIRST_VERIFICATION_EVENT_V1.md)  
+1. Open https://quantumpiforge.com/deployed-addresses#verify-now  
+2. Run the on-page RPC curls (chain ID **16661**, token code, empty pair reserves)  
+3. Or: clone repo and run `npm run verify:public-portal`  
+4. Optionally cross-check https://chainscan.0g.ai and [FIRST_VERIFICATION_EVENT_V1.md](./FIRST_VERIFICATION_EVENT_V1.md)  
 5. File a report using [VERIFICATION_REPORT_TEMPLATE_V1.md](./VERIFICATION_REPORT_TEMPLATE_V1.md)  
+6. Machine-readable posture: https://quantumpiforge.com/verification-status-v1.json  
+7. Round 1 invitation: https://github.com/onenoly1010/Quantum-pi-forge/issues/636  
 
 **Success:** independent confirmation (or honest drift report).  
 **Not success:** a transaction executed.

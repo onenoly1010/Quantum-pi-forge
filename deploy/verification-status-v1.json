@@ -1,0 +1,75 @@
+{
+  "schema": "qpf-verification-status-v1",
+  "updated_at_utc": "2026-07-30T15:42:00Z",
+  "portal_url": "https://quantumpiforge.com/deployed-addresses",
+  "network": {
+    "name": "0G Aristotle mainnet",
+    "chain_id": 16661,
+    "chain_id_hex": "0x4115",
+    "rpc": "https://evmrpc.0g.ai",
+    "explorer": "https://chainscan.0g.ai"
+  },
+  "phase": {
+    "8_4_public_verification_portal": "COMPLETE",
+    "8_5_multi_report_round": 1,
+    "8_5_status": "OPEN",
+    "8_5_quorum_m": 3,
+    "8_5_eligible_reports_n": 0,
+    "8_5_consensus": "NOT_STARTED",
+    "8_5_soft_sla_utc": "2026-08-13T15:02:00Z",
+    "8_5_hard_sla_utc": "2026-08-29T15:02:00Z",
+    "invitation_issue": "https://github.com/onenoly1010/Quantum-pi-forge/issues/636"
+  },
+  "economic": {
+    "public_mint": "NOT_AUTHORIZED",
+    "liquidity": "NOT_AUTHORIZED",
+    "yield_staking_bridge": "NOT_AUTHORIZED",
+    "site_signing_broadcast": "DISABLED"
+  },
+  "core_contracts": [
+    {
+      "name": "OINIO Token",
+      "address": "0x75995EC0fdf881189850aeD864cB3f43c0DFCb58"
+    },
+    {
+      "name": "OINIO Model Registry",
+      "address": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a"
+    },
+    {
+      "name": "Heartbeat Monitor",
+      "address": "0x5E50b92E57e854659f7D98c733088aABd551C49F"
+    },
+    {
+      "name": "ForgeRegistry",
+      "address": "0x6011c341a01c80f489a5c3Ab751987A55142F04e"
+    },
+    {
+      "name": "DEX Factory",
+      "address": "0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8"
+    },
+    {
+      "name": "DEX Router",
+      "address": "0x2c70129E50BF88eCD59b89d63af2e8920aCF3951"
+    },
+    {
+      "name": "DEX Pair W0G/USDC.e",
+      "address": "0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE",
+      "reserves_expected": "0/0"
+    },
+    {
+      "name": "Safe Guardian",
+      "address": "0x8d088B88219D072aB035502065ee2410c2cb4389"
+    }
+  ],
+  "how_to_verify": {
+    "builder_quickstart": "https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/BUILDER_QUICKSTART.md",
+    "first_verification_event": "https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/community/FIRST_VERIFICATION_EVENT_V1.md",
+    "report_template": "https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/community/VERIFICATION_REPORT_TEMPLATE_V1.md",
+    "report_index": "https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/community/verification-reports/INDEX_V1.md",
+    "npm_script": "npm run verify:public-portal"
+  },
+  "boundaries": {
+    "this_file_authorizes_economics": false,
+    "auto_mint_on_quorum": false
+  }
+}

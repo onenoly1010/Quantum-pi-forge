@@ -40,6 +40,13 @@
     .copy-btn{background:transparent;border:1px solid rgba(148,163,184,.2);color:#93c5fd;padding:.1rem .4rem;border-radius:4px;cursor:pointer;font-size:.75rem;margin-left:.4rem}
     .copy-btn:hover{background:rgba(147,197,253,.1)}
     .gap-4{display:flex;gap:1rem;flex-wrap:wrap}
+    pre.verify-cmd{background:rgba(0,0,0,.35);border:1px solid rgba(148,163,184,.2);border-radius:8px;padding:.85rem 1rem;overflow-x:auto;font-size:.78rem;line-height:1.45;color:#e2e8f0;margin:.5rem 0 0}
+    .cta-row{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:.85rem}
+    .cta{display:inline-block;padding:.45rem .9rem;border-radius:8px;font-size:.88rem;font-weight:600;text-decoration:none}
+    .cta-primary{background:rgba(59,130,246,.2);border:1px solid rgba(96,165,250,.45);color:#bfdbfe}
+    .cta-primary:hover{background:rgba(59,130,246,.32)}
+    .cta-secondary{background:rgba(30,41,59,.7);border:1px solid rgba(148,163,184,.25);color:#cbd5e1}
+    .cta-secondary:hover{background:rgba(51,65,85,.7)}
     @media(max-width:600px){.contract-table th,.contract-table td{padding:.35rem .4rem;font-size:.8rem}}
   </style>
 </head>
@@ -50,11 +57,18 @@
     <a href="/what-it-does.html">What It Does</a>
     <a href="/for-builders.html">For Builders</a>
     <a href="/deployed-addresses.html">Contracts</a>
+    <a href="#verify-now">Verify now</a>
+    <a href="https://github.com/onenoly1010/Quantum-pi-forge/issues/636">Round 1</a>
     <a href="https://github.com/onenoly1010/Quantum-pi-forge">GitHub</a>
   </div>
 
   <h1>Deployed Addresses</h1>
   <p class="subtitle">Canonical reference for <strong>what is deployed</strong> — deployment state, not economic readiness</p>
+  <p style="margin:-1rem 0 1.5rem;font-size:.9rem;">
+    <span class="badge badge-live">Phase 8.4 COMPLETE</span>
+    <span class="badge badge-pending" style="margin-left:.4rem;">Phase 8.5 Round 1 OPEN · m=3</span>
+    <span class="badge badge-private" style="margin-left:.4rem;">Mint / liquidity NOT AUTHORIZED</span>
+  </p>
 
   <!-- PURPOSE: reviewer-centric; claim → evidence → verification -->
   <section>
@@ -267,6 +281,10 @@
         <span><strong>Independent verification</strong> — Available (this page + registry + explorers + repo docs)</span>
       </div>
       <div class="status-row">
+        <span class="status-dot dot-pending"></span>
+        <span><strong>Phase 8.5 Round 1</strong> — OPEN · collecting independent reports (quorum m=3) · <a href="https://github.com/onenoly1010/Quantum-pi-forge/issues/636">invitation #636</a></span>
+      </div>
+      <div class="status-row">
         <span class="status-dot dot-live"></span>
         <span><strong>Core contracts on chain 16661</strong> — Bytecode present at listed addresses (confirm via explorer)</span>
       </div>
@@ -305,6 +323,48 @@
     </div>
   </section>
 
+  <!-- VERIFY NOW (Phase 8.5 Round 1 — not activation) -->
+  <section id="verify-now">
+    <h2>Verify now (5 minutes)</h2>
+    <p style="color:#94a3b8;font-size:.9rem;">
+      <strong style="color:#e0f2fe;">Phase 8.5 Round 1 is open.</strong>
+      Reproduce the published state without trusting the builders — no wallet, no transaction.
+      Soft target 2026-08-13 · hard close 2026-08-29 · quorum <strong>m=3</strong> independent reports.
+    </p>
+    <div class="network-card" style="border-color:rgba(234,179,8,.35);">
+      <h3 style="color:#fde68a;">1. Confirm network</h3>
+      <pre class="verify-cmd">curl -s -X POST https://evmrpc.0g.ai \
+  -H 'content-type: application/json' \
+  -d '{"jsonrpc":"2.0","id":1,"method":"eth_chainId","params":[]}'
+# expect: "result":"0x4115"  (decimal 16661)</pre>
+      <h3 style="color:#fde68a;margin-top:1.25rem;">2. Confirm code at primary token</h3>
+      <pre class="verify-cmd">curl -s -X POST https://evmrpc.0g.ai \
+  -H 'content-type: application/json' \
+  -d '{"jsonrpc":"2.0","id":1,"method":"eth_getCode","params":["0x75995EC0fdf881189850aeD864cB3f43c0DFCb58","latest"]}'
+# expect: result longer than "0x"</pre>
+      <h3 style="color:#fde68a;margin-top:1.25rem;">3. Confirm pair reserves empty</h3>
+      <pre class="verify-cmd">curl -s -X POST https://evmrpc.0g.ai \
+  -H 'content-type: application/json' \
+  -d '{"jsonrpc":"2.0","id":1,"method":"eth_call","params":[{"to":"0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE","data":"0x0902f1ac"},"latest"]}'
+# expect: all-zero reserves (liquidity NOT AUTHORIZED)</pre>
+      <h3 style="color:#fde68a;margin-top:1.25rem;">4. File a report</h3>
+      <p style="color:#94a3b8;font-size:.88rem;margin:.4rem 0 0;">
+        Open a GitHub issue titled <code>External verification: YYYY-MM-DD</code> using the template.
+        Honest drift (docs ≠ chain) is a successful verification event.
+      </p>
+      <div class="cta-row">
+        <a class="cta cta-primary" href="https://github.com/onenoly1010/Quantum-pi-forge/issues/new?title=External%20verification%3A%20YYYY-MM-DD">Submit verification report</a>
+        <a class="cta cta-secondary" href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/community/VERIFICATION_REPORT_TEMPLATE_V1.md">Report template</a>
+        <a class="cta cta-secondary" href="https://github.com/onenoly1010/Quantum-pi-forge/issues/636">Round 1 invitation #636</a>
+        <a class="cta cta-secondary" href="/verification-status-v1.json">Machine-readable status</a>
+      </div>
+      <p style="color:#64748b;font-size:.8rem;margin:.85rem 0 0;">
+        Optional one-command (clone repo): <code>npm run verify:public-portal</code>
+        · Full guide: <a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/BUILDER_QUICKSTART.md">BUILDER_QUICKSTART</a>
+      </p>
+    </div>
+  </section>
+
   <!-- VERIFICATION PORTAL (Phase 8.4 complete · 8.5 Round 1 open — not activation) -->
   <section>
     <h2>Verification Portal</h2>
@@ -312,7 +372,7 @@
       <strong style="color:#e0f2fe;">Phase 8.4:</strong> COMPLETE — someone unfamiliar with QPF can independently
       reproduce the published state without builder assistance and without executing a transaction.
       <br/><strong style="color:#e0f2fe;">Phase 8.5 Round 1:</strong> OPEN — multi-report independent verification collecting
-      (proposed quorum \(m=3\); soft 14d / hard 30d). Empty DEX pool and disabled mint remain
+      (proposed quorum m=3; soft 14d / hard 30d). Empty DEX pool and disabled mint remain
       <strong>intentional gates</strong>, not missing infrastructure.
     </p>
     <div class="network-card">
@@ -323,8 +383,9 @@
       <div class="detail"><span class="label">Builder quickstart</span> <span class="value"><a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/BUILDER_QUICKSTART.md">docs/BUILDER_QUICKSTART.md</a></span></div>
       <div class="detail"><span class="label">Governance boundaries</span> <span class="value"><a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/SECURITY_BOUNDARIES_V1.md">SECURITY_BOUNDARIES</a> · <a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/governance/SAFE_GOVERNANCE_POLICY_V1.md">Safe policy</a> · <a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/governance/MINT_AUTHORITY_EXPLANATION_V1.md">Mint authority</a></span></div>
       <div class="detail"><span class="label">Known limitations</span> <span class="value"><a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/community/KNOWN_LIMITATIONS_V1.md">docs/community/KNOWN_LIMITATIONS_V1.md</a></span></div>
-      <div class="detail"><span class="label">8.5 report index</span> <span class="value"><a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/community/verification-reports/INDEX_V1.md">verification-reports/INDEX_V1.md</a> · <a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/community/PHASE_8_5_ROUND1_ACTIVATION_V1.md">Round 1 activation</a></span></div>
-      <div class="detail"><span class="label">Submit a report</span> <span class="value"><a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/community/VERIFICATION_REPORT_TEMPLATE_V1.md">Report template</a> · <a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/community/INDEPENDENT_VERIFICATION_PROCESS_V1.md">8.5 process</a> · <a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/community/MULTI_REPORT_VERIFICATION_ARCHITECTURE_V1.md">multi-report architecture</a> → <a href="https://github.com/onenoly1010/Quantum-pi-forge/issues/new">open issue</a></span></div>
+      <div class="detail"><span class="label">8.5 Round 1</span> <span class="value"><a href="https://github.com/onenoly1010/Quantum-pi-forge/issues/636">invitation #636</a> · <a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/community/verification-reports/INDEX_V1.md">report index</a> · <a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/community/PHASE_8_5_ROUND1_ACTIVATION_V1.md">activation</a></span></div>
+      <div class="detail"><span class="label">Submit a report</span> <span class="value"><a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/community/VERIFICATION_REPORT_TEMPLATE_V1.md">Report template</a> · <a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/community/INDEPENDENT_VERIFICATION_PROCESS_V1.md">8.5 process</a> · <a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/community/MULTI_REPORT_VERIFICATION_ARCHITECTURE_V1.md">multi-report architecture</a> → <a href="https://github.com/onenoly1010/Quantum-pi-forge/issues/new?title=External%20verification%3A%20YYYY-MM-DD">open issue</a></span></div>
+      <div class="detail"><span class="label">Status JSON</span> <span class="value"><a href="/verification-status-v1.json">/verification-status-v1.json</a></span></div>
       <div class="detail"><span class="label">Genesis pack</span> <span class="value"><a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/GENESIS_VERIFICATION_V1.md">docs/GENESIS_VERIFICATION_V1.md</a></span></div>
       <div class="detail"><span class="label">Roadmap (8.4–9.0)</span> <span class="value"><a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/ACTIVATION_ROADMAP.md">docs/ACTIVATION_ROADMAP.md</a></span></div>
       <div class="detail"><span class="label">RPC</span> <span class="value">https://evmrpc.0g.ai · chainId 16661</span></div>
