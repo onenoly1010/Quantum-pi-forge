@@ -1,0 +1,77 @@
+{
+  "schema": "qpf-portal-consistency-probe-v1",
+  "probed_at_utc": "2026-07-30T15:40:47Z",
+  "portal_url": "https://quantumpiforge.com/deployed-addresses",
+  "rpc": "https://evmrpc.0g.ai",
+  "chain_id_hex": "0x4115",
+  "chain_id": 16661,
+  "block": 40256482,
+  "contracts": [
+    {
+      "name": "OINIO Token",
+      "address": "0x75995EC0fdf881189850aeD864cB3f43c0DFCb58",
+      "code_bytes": 2281,
+      "on_portal": true,
+      "ok": true
+    },
+    {
+      "name": "Model Registry",
+      "address": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+      "code_bytes": 9850,
+      "on_portal": true,
+      "ok": true
+    },
+    {
+      "name": "Heartbeat",
+      "address": "0x5E50b92E57e854659f7D98c733088aABd551C49F",
+      "code_bytes": 2571,
+      "on_portal": true,
+      "ok": true
+    },
+    {
+      "name": "ForgeRegistry",
+      "address": "0x6011c341a01c80f489a5c3Ab751987A55142F04e",
+      "code_bytes": 4132,
+      "on_portal": true,
+      "ok": true
+    },
+    {
+      "name": "DEX Factory",
+      "address": "0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8",
+      "code_bytes": 18951,
+      "on_portal": true,
+      "ok": true
+    },
+    {
+      "name": "DEX Router",
+      "address": "0x2c70129E50BF88eCD59b89d63af2e8920aCF3951",
+      "code_bytes": 18953,
+      "on_portal": true,
+      "ok": true
+    },
+    {
+      "name": "DEX Pair",
+      "address": "0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE",
+      "code_bytes": 14954,
+      "on_portal": true,
+      "ok": true
+    },
+    {
+      "name": "Safe Guardian",
+      "address": "0x8d088B88219D072aB035502065ee2410c2cb4389",
+      "code_bytes": 171,
+      "on_portal": true,
+      "ok": true
+    }
+  ],
+  "pair_reserves_zero": true,
+  "html_checks": {
+    "phase84_complete": true,
+    "phase85_round1": true,
+    "mint_not_authorized": true,
+    "report_index_link": true
+  },
+  "all_core_contracts_ok": true,
+  "economic_activation": "NOT_AUTHORIZED",
+  "portal_body_sha256_excl_cf_scripts": "f7e591341f8c35eb471f15bb1ec62d4b464c0e952120be58ad198d01aca6932c"
+}

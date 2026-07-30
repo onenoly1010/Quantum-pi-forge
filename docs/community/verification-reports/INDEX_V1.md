@@ -27,6 +27,10 @@ Consensus does NOT open mint, liquidity, or economic launch
 | Public copy | [ROUND1_PUBLIC_INVITATION_COPY_V1.md](../ROUND1_PUBLIC_INVITATION_COPY_V1.md) |
 | Receipt | `receipts/governance/phase-85-round1-open-v1.json` |
 | On main | PR #635 merged `0fcab13` · portal live deploy 2026-07-30 |
+| Verify now | https://quantumpiforge.com/deployed-addresses#verify-now |
+| Status JSON | https://quantumpiforge.com/verification-status-v1.json |
+| One-command | `npm run verify:public-portal` (read-only) |
+| Latest consistency probe | `docs/evidence/PORTAL_CONSISTENCY_PROBE_20260730T154047Z.json` (PASS; not eligible for \(m\)) |
 
 ## Expected findings (published posture)
 

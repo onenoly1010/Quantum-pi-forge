@@ -1,0 +1,24 @@
+{
+  "receipt": "portal-consistency-probe-20260730-v1",
+  "schema_status": "PORTAL_CONSISTENCY_PASS",
+  "created_at": "2026-07-30T15:40:47Z",
+  "portal_url": "https://quantumpiforge.com/deployed-addresses",
+  "result": "PASS",
+  "evidence": "docs/evidence/PORTAL_CONSISTENCY_PROBE_20260730T154047Z.json",
+  "findings": {
+    "chain_id": 16661,
+    "all_core_contracts_ok": true,
+    "pair_reserves_zero": true,
+    "phase_8_4_complete_wording": true,
+    "phase_8_5_round1_wording": true,
+    "mint_not_authorized_wording": true
+  },
+  "boundaries": {
+    "signing": false,
+    "broadcast": false,
+    "public_mint_open": false,
+    "liquidity": false,
+    "counts_toward_quorum_m": false
+  },
+  "note": "Maintainer/agent probe — not an independent external report for m"
+}
