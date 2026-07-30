@@ -13,6 +13,7 @@ The index is not a runtime system. It does not grant wallet, deployment, posting
 | QPF-HERMES-RECEIPT-REPLAY-v1 | Local Hermes/Ollama inference receipt replay | Active | `scripts/hermes-run.sh`, `scripts/hermes-write-receipt.cjs`, `scripts/verify-hermes-receipt.cjs`, `evidence/hermes/schemas/receipt-v1.schema.json` | `npm run verify:receipt -- <receipt.json>` |
 | QPF-HERMES-RETENTION-POLICY-v1 | Receipt retention and commit eligibility policy | Active | `docs/evidence/HERMES_RECEIPT_RETENTION_POLICY.md` | Documentation review |
 | QPF-LOCAL-CI-SURROGATE-v1 | Local build and verification substitute while hosted checks are unavailable | Active | `scripts/local-ci-surrogate.sh` | `bash scripts/local-ci-surrogate.sh` |
+| QPF-OINIO-CUSTODY-POLICY-v1 | OINIO owner custody decision: temporary freeze; hardened custody design path | Active | `evidence/contract-authority/OINIO_CUSTODY_POLICY_FRAMEWORK.md`, `evidence/custody-target/README.md` | Documentation review |
 
 ## Deferred Evidence Lanes
 
@@ -185,4 +186,17 @@ Expected bundle steps:
 5. Evidence snapshot
 
 Authority boundary: read-only local evidence verification only; no wallet signing, deployment, posting, governance execution, custody transfer, token minting, staking, or chain mutation.
+
+## OINIO Custody Policy v1
+
+Formal custody policy for OINIO owner authority. Current posture is temporary freeze while a hardened hardware-wallet custody target is designed.
+
+- `evidence/contract-authority/OINIO_CUSTODY_POLICY_FRAMEWORK.md`
+- `evidence/custody-target/README.md`
+
+Verification:
+
+Documentation review.
+
+Authority boundary: read-only custody policy documentation only; no wallet signing, ownership transfer, renounceOwnership, token minting, staking, or chain mutation.
 
