@@ -32,6 +32,7 @@ Mode: Ops summary (no financial activation)
 | `npm run build` | PASS → `out/` |
 | `npm audit --audit-level=high` | Target: **0** via wrangler/hardhat bumps + overrides (`adm-zip@0.6.0`, `brace-expansion@5.0.9`) |
 | Residual risk | Transitive hardhat/storacha trees need ongoing Dependabot watch |
+| Copilot job `90943836107` | **Cancelled post-merge; not a regression** — see `docs/ops/COPILOT_JOB_90943836107_NOTE_V1.md` |
 
 ## Human queue (not executed by agents)
 
