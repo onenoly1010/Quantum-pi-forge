@@ -26,12 +26,12 @@ If **any** box is false → **no Slot A/B/C send**.
 Strict go/no-go (all true):
 - [x] Old keys revoked at providers (7 leak classes)
 - [x] New secrets set only in secure store / Actions (names only in docs)
-- [x] quantum-pi-forge-fixed secret-scanning alerts 1–7: Revoked/resolved
+- [x] quantum-pi-forge-fixed secret-scanning alerts 1–7: Resolved (revoked)
 - [x] Fresh Actions run green after updates: <link to run>
 - [x] Local leaked file copies cleaned
 
 Unfreeze:
-- Slot A/B/C private outreach may proceed using ROUND1_REVIEWER_SHARE_PACKET_V1.md
+- Slot A/B/C private outreach may proceed using `docs/community/ROUND1_REVIEWER_SHARE_PACKET_V1.md`
 - Formal Guild application remains PARKED until guild.0gfoundation.ai reopens
 - Mint / liquidity / staking / bridge remain NOT AUTHORIZED
 

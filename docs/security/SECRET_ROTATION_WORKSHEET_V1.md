@@ -208,9 +208,9 @@ gh secret set OPENAI_API_KEY -R onenoly1010/quantum-pi-forge-fixed
 **Live alert poll (GitHub API, 2026-07-30):**  
 Dashboard: https://github.com/onenoly1010/quantum-pi-forge-fixed/security/secret-scanning  
 
-| Alert # | Type | API state |
+| Alert # | Type | GitHub state (resolution) |
 |---:|---|---|
-| 7 | vercel_api_key | **resolved / revoked** |
+| 7 | vercel_api_key | **resolved (revoked)** |
 | 6 | deepseek_api_key | open |
 | 5 | github_personal_access_token | open |
 | 4 | supabase_secret_key | open |
