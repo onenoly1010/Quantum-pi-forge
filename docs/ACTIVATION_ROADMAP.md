@@ -137,6 +137,7 @@ It shows **restraint**: DEX technical readiness without premature market activat
 - [GENESIS_VERIFICATION_V1.md](./GENESIS_VERIFICATION_V1.md)  
 - [SECURITY_BOUNDARIES_V1.md](./SECURITY_BOUNDARIES_V1.md)  
 - [evidence/PUBLIC_READINESS_REPORT_V1.md](./evidence/PUBLIC_READINESS_REPORT_V1.md)  
+- [DISTANCE_TO_ECONOMIC_ACTIVATION_V1.md](./DISTANCE_TO_ECONOMIC_ACTIVATION_V1.md) — phases × gates × capital × “when wallets earn?”  
 - [community/MULTI_REPORT_VERIFICATION_ARCHITECTURE_V1.md](./community/MULTI_REPORT_VERIFICATION_ARCHITECTURE_V1.md)  
 - [community/VERIFICATION_PORTAL_V1.md](./community/VERIFICATION_PORTAL_V1.md)  
 - [community/verification-reports/INDEX_V1.md](./community/verification-reports/INDEX_V1.md)  
