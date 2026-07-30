@@ -23,21 +23,31 @@ test -f artifacts/kpi/admin/grant-tracker-diff-latest.json
 echo OK_admin_artifacts
 
 echo "=== Day3: scheduler claims admin tasks ==="
-# force open admin tasks and clear backoff
+# Force only admin P3 open; park other P3 so claim order is deterministic
 node -e '
 const fs=require("fs");
 const p="docs/activation/living-forge/queue/queue-state-v1.json";
 const q=JSON.parse(fs.readFileSync(p,"utf8"));
 const ids=["P3-stale-doc-scan","P3-open-pr-classify","P3-grant-tracker-diff"];
+const now=new Date().toISOString().replace(/\.\d{3}Z$/,"Z");
 for (const t of q.tasks) {
+  if (t.priority !== 3) continue;
   if (ids.includes(t.id)) {
     t.status="open";
     t.next_eligible_at_utc=null;
     t.risk="low";
+    t.consecutive_failures=0;
+    t.recurring=false; // prevent reopen thrash during verify
+  } else {
+    // park non-admin P3 for this verify pass only
+    t.status="done";
+    t.outcome=t.outcome||"success";
+    t.finished_at_utc=now;
+    t.recurring=false;
   }
 }
 fs.writeFileSync(p, JSON.stringify(q,null,2)+"\n");
-console.log("admin tasks forced open");
+console.log("admin tasks forced open; other P3 parked");
 '
 for i in 1 2 3; do
   node scripts/living-forge/scheduler.cjs
