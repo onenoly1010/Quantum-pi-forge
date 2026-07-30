@@ -23,12 +23,13 @@ A developer who has never seen QPF can:
 
 | Item | Status | Notes |
 | --- | --- | --- |
-| Public portal live | ✅ | https://quantumpiforge.com/deployed-addresses |
+| Public portal live | ✅ | https://quantumpiforge.com/deployed-addresses (Round 1 wording live 2026-07-30) |
 | Registry on main | ✅ | [CONTRACT_REGISTRY_V1.md](../CONTRACT_REGISTRY_V1.md) |
 | Builder quickstart on main | ✅ | [BUILDER_QUICKSTART.md](../BUILDER_QUICKSTART.md) |
 | First verification path | ✅ | [FIRST_VERIFICATION_EVENT_V1.md](./FIRST_VERIFICATION_EVENT_V1.md) |
 | Report template | ✅ | [VERIFICATION_REPORT_TEMPLATE_V1.md](./VERIFICATION_REPORT_TEMPLATE_V1.md) |
-| Multi-report baseline | ⏳ | Needs ≥ 1 eligible external report preferred; full 8.6 after consensus window preferred |
+| Maintainer clean-clone dry run | ✅ | [BUILDER_REPRODUCTION_DRY_RUN_20260730.md](../evidence/BUILDER_REPRODUCTION_DRY_RUN_20260730.md) — RPC/portal PASS; shallow `verify:evidence` FAIL (history) |
+| Multi-report baseline | ⏳ | Needs ≥ 1 eligible **external** report (maintainer dry run does not count toward \(m\)) |
 | Clean-machine dry run by non-maintainer | ⏳ | Phase 8.6 success criterion |
 | Documented expected outputs freeze | ⏳ | After Round 1 soft target or first 2 reports |
 

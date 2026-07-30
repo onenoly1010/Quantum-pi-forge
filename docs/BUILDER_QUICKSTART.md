@@ -76,10 +76,14 @@ receipts/execution/first-controlled-mint-verification-v1.json
 Optional local checks (from repo root, no keys):
 
 ```bash
+# Prefer a full clone (or: git fetch --unshallow) so snapshot ancestor checks pass.
+# Shallow clones may fail verify:snapshot with “canonicalCommit is not an ancestor of HEAD”.
 npm run verify:evidence
 npm run security:wallet-preflight-gate:v1:check
 # must report private_key_used=false, transaction_broadcast=false
 ```
+
+Maintainer dry-run note (2026-07-30): [docs/evidence/BUILDER_REPRODUCTION_DRY_RUN_20260730.md](./evidence/BUILDER_REPRODUCTION_DRY_RUN_20260730.md)
 
 ## 6. Metadata (mint preview only) (1 min)
 

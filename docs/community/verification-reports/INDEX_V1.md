@@ -20,10 +20,13 @@ Consensus does NOT open mint, liquidity, or economic launch
 | Soft SLA close | 2026-08-13T15:02:00Z (14 days) |
 | Hard close | 2026-08-29T15:02:00Z (30 days) |
 | Portal | https://quantumpiforge.com/deployed-addresses |
+| Invitation issue | [#636](https://github.com/onenoly1010/Quantum-pi-forge/issues/636) |
 | Submit | [Open issue](https://github.com/onenoly1010/Quantum-pi-forge/issues/new) titled `External verification: YYYY-MM-DD` |
 | Template | [VERIFICATION_REPORT_TEMPLATE_V1.md](../VERIFICATION_REPORT_TEMPLATE_V1.md) |
 | Architecture | [MULTI_REPORT_VERIFICATION_ARCHITECTURE_V1.md](../MULTI_REPORT_VERIFICATION_ARCHITECTURE_V1.md) |
+| Public copy | [ROUND1_PUBLIC_INVITATION_COPY_V1.md](../ROUND1_PUBLIC_INVITATION_COPY_V1.md) |
 | Receipt | `receipts/governance/phase-85-round1-open-v1.json` |
+| On main | PR #635 merged `0fcab13` · portal live deploy 2026-07-30 |
 
 ## Expected findings (published posture)
 

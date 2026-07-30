@@ -1,0 +1,34 @@
+{
+  "receipt": "phase-85-r1-ops-complete-v1",
+  "schema_status": "PHASE_8_5_ROUND_1_OPS_PACKAGED",
+  "created_at": "2026-07-30T15:15:00Z",
+  "phase": "8.5",
+  "title": "Round 1 operationalization after main merge",
+  "status": "COMPLETE_AGENT_LANE",
+  "completed": {
+    "pr_635_merged": true,
+    "merge_commit": "0fcab13a95fe5fbf6d2e8fc1c98df5c6ba40bda7",
+    "invitation_issue": 636,
+    "builder_dry_run_doc": "docs/evidence/BUILDER_REPRODUCTION_DRY_RUN_20260730.md",
+    "portal_live_round1_wording": true,
+    "pages_deployment": "6f44baa7",
+    "public_invitation_copy": "docs/community/ROUND1_PUBLIC_INVITATION_COPY_V1.md",
+    "gas_alert_doc": "docs/ops/GAS_CRITICAL_SIGNER2_ALERT_V1.md"
+  },
+  "not_completed_human_or_external": [
+    "fill_receiving_destination",
+    "AUTHORIZE_TO_RECEIVE_phrase",
+    "send_guild_followup_email",
+    "post_x_or_hall_invitation",
+    "fund_eoa_signer_2",
+    "rotate_github_cloudflare_api_token",
+    "external_verification_reports_m_of_3"
+  ],
+  "boundaries": {
+    "public_mint_open": false,
+    "liquidity": false,
+    "signing": false,
+    "broadcast": false,
+    "funds_transferred": false
+  }
+}
