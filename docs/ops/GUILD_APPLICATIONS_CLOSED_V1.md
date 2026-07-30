@@ -16,7 +16,7 @@ Date: 2026-07-30
 |-------|--------|
 | Formal Guild grant application | **Blocked** until program reopens |
 | Phase 8.5 independent verification outreach | **Unaffected** (not a Guild form) |
-| Funding receive authorize / gas top-up | Human-only ops; independent of Guild |
+| Funding receive authorization / gas top-up | Human-only ops; independent of Guild |
 
 ## Practical split
 
