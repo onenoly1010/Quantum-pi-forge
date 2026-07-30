@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # Day-3 verification — retries schema + 3 admin P3 tasks. NO_WALLET_TOUCH.
 set -euo pipefail
-ROOT="/home/kris/Quantum-pi-forge"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
 cd "$ROOT"
 export NO_WALLET_TOUCH=true
 export PATH="${HOME}/.nvm/versions/node/v22.22.3/bin:${PATH}:/usr/local/bin:/usr/bin"
