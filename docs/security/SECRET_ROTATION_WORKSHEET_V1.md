@@ -205,17 +205,36 @@ gh secret set OPENAI_API_KEY -R onenoly1010/quantum-pi-forge-fixed
 
 ## Status tracker (fill during rotation)
 
+**Live alert poll (GitHub API, 2026-07-30):**  
+Dashboard: https://github.com/onenoly1010/quantum-pi-forge-fixed/security/secret-scanning  
+
+| Alert # | Type | GitHub state (resolution) |
+|---:|---|---|
+| 7 | vercel_api_key | **resolved (revoked)** |
+| 6 | deepseek_api_key | open |
+| 5 | github_personal_access_token | open |
+| 4 | supabase_secret_key | open |
+| 3 | openai_api_key | open |
+| 2 | openai_api_key | open |
+| 1 | xai_api_key | open |
+
 | Row | Provider | Rotated | Secrets updated | Validated | Alert closed as Revoked |
 |---:|---|:---:|:---:|:---:|:---:|
 | 1 | GitHub PAT | ☐ | ☐ | ☐ | ☐ #5 |
-| 2 | Vercel | ☐ | ☐ | ☐ | ☐ #7 |
+| 2 | Vercel | ☑ (mark only if you revoked at vercel.com) | ☑ N/A if unused | ☑ N/A if CF-only | **☑ #7 resolved/revoked** |
 | 3 | Supabase | ☐ | ☐ | ☐ | ☐ #4 |
 | 4 | OpenAI #1 | ☐ | ☐ | ☐ | ☐ #2 |
 | 5 | OpenAI #2 | ☐ | ☐ | ☐ | ☐ #3 |
 | 6 | xAI | ☐ | ☐ | ☐ | ☐ #1 |
 | 7 | DeepSeek | ☐ | ☐ | ☐ | ☐ #6 |
 
-**Outreach unlock when:** all 7 “Alert closed” = yes.
+**Progress:** **1 / 7** alerts resolved on GitHub (Vercel). **6 remain open** — provider rotation still required.  
+
+**HEAD check (fixed, 2026-07-30):** leak source files (`.env.local`, `.env.launch`, `updatedsecets.env`, `supabase.txt`, `deepseek_key_check.py`) **absent** from current tree — history still requires revoke.  
+
+**Outreach unlock when:** all 7 “Alert closed” = yes **and** go/no-go gate in `docs/security/ROTATION_COMPLETE_UNFREEZE_CHECKLIST_V1.md` is satisfied.
+
+**Agent cannot** open OpenAI/xAI/DeepSeek/Supabase/GitHub token UIs for you. Complete rows 1 and 3–7 in browser; then mark alerts **Revoked**.
 
 ---
 
