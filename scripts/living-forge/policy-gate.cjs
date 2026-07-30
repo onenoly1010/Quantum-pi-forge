@@ -81,17 +81,12 @@ function evaluate(task = {}) {
     };
   }
 
-  // Keyword scan (wallet_preflight is explicitly allowed as non-executing gate only)
+  // Keyword scan — word-boundary only so "signal" does not match "sign"
   for (const kw of cfg.sensitive_keywords) {
-    if (!blob.includes(kw)) continue;
-    // Safe exception: wallet_preflight title/id contains "wallet" but not spend keywords
-    if (action === "wallet_preflight" && ["transfer", "sign", "broadcast", "spend", "withdraw", "send_funds", "wallet_send"].every((k) => !blob.includes(k))) {
-      // "wallet" alone in title is ok for preflight
-      if (kw === "transfer" || kw === "sign" || kw === "broadcast") continue;
-      // allow "wallet" substring via preflight title — keywords list doesn't include bare "wallet"
-      continue;
-    }
-    // If keyword matches and action is wallet_preflight without dangerous ops, skip pure noise
+    const escaped = String(kw).replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/_/g, "[_-]?");
+    const re = new RegExp(`\\b${escaped}\\b`, "i");
+    if (!re.test(blob)) continue;
+    // Safe exception: wallet_preflight non-executing gate
     if (action === "wallet_preflight") continue;
 
     return {
