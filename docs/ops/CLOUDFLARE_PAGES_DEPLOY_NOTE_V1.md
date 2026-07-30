@@ -37,7 +37,8 @@ This is a **credentials** issue only. It often appears after mass key rotation i
 ~/.qpf-secrets/set-gh-secrets.sh
 
 # Or one-shot (your terminal — paste at prompt, not in chat):
-read -rs VAL
+read -rsp 'CLOUDFLARE_API_TOKEN: ' VAL
+echo
 printf '%s' "$VAL" | gh secret set CLOUDFLARE_API_TOKEN -R onenoly1010/Quantum-pi-forge
 unset VAL
 printf '%s' '76b9f438eebe177707af447f29172e98' | \
