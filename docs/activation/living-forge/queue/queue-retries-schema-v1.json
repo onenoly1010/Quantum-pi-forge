@@ -1,0 +1,38 @@
+{
+  "schema": "qpf.queue_retries.v1",
+  "no_wallet_touch": true,
+  "status_enum": ["open", "in_progress", "done", "failed", "dead_letter"],
+  "risk_enum": ["low", "medium", "high"],
+  "outcome_enum": ["success", "fail", "blocked", "escalated", "dead_letter"],
+  "defaults": {
+    "risk": "low",
+    "max_attempts": 5,
+    "backoff_sec": 60,
+    "max_backoff_sec": 3600
+  },
+  "retry_policy": {
+    "low": { "auto_retry": true, "dead_letter_after_max": true },
+    "medium": { "auto_retry": true, "max_auto_retries": 1, "then": "escalate" },
+    "high": { "auto_retry": false, "auto_run": false }
+  },
+  "claim_requires": [
+    "status_open",
+    "priority_3",
+    "risk_low_or_unset",
+    "eligible_time",
+    "depends_on_satisfied",
+    "not_dead_letter"
+  ],
+  "required_task_fields": ["id", "priority", "status", "action", "title"],
+  "recommended_task_fields": [
+    "risk",
+    "max_attempts",
+    "backoff_sec",
+    "depends_on",
+    "outcome",
+    "next_eligible_at_utc",
+    "consecutive_failures",
+    "idempotency_key",
+    "claim_lease_until_utc"
+  ]
+}
