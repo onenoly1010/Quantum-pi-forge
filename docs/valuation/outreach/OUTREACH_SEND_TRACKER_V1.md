@@ -2,6 +2,8 @@
 
 Status: OPEN
 
+**2026-07-30 public action:** #636 reopened + Round 1 boost comment posted (agent). Slot A/B/C private still **human** READY_TO_SEND.
+
 Base commit: bbf4293
 
 ## Purpose
