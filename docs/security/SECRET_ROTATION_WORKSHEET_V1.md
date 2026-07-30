@@ -221,7 +221,7 @@ Dashboard: https://github.com/onenoly1010/quantum-pi-forge-fixed/security/secret
 | Row | Provider | Rotated | Secrets updated | Validated | Alert closed as Revoked |
 |---:|---|:---:|:---:|:---:|:---:|
 | 1 | GitHub PAT | ☐ | ☐ | ☐ | ☐ #5 |
-| 2 | Vercel | ☑ (mark only if you revoked at vercel.com) | ☑ N/A if unused | ☑ N/A if CF-only | **☑ #7 resolved/revoked** |
+| 2 | Vercel | ☑ (mark only if you revoked at vercel.com) | ☑ N/A if unused | ☑ N/A if CF-only | **☑ #7 resolved (revoked)** |
 | 3 | Supabase | ☐ | ☐ | ☐ | ☐ #4 |
 | 4 | OpenAI #1 | ☐ | ☐ | ☐ | ☐ #2 |
 | 5 | OpenAI #2 | ☐ | ☐ | ☐ | ☐ #3 |
