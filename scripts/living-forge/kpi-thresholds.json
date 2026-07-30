@@ -1,0 +1,50 @@
+{
+  "schema": "qpf.kpi_thresholds.v1",
+  "no_wallet_touch": true,
+  "claim_lease_ms": 900000,
+  "claim_stale_ms": 900000,
+  "max_attempts_before_dead_letter": 5,
+  "recurring_ttl_ms": 900000,
+  "alerts": {
+    "open_p3_max": 12,
+    "open_p0_p1_warn": 8,
+    "failure_rate_24h_max": 0.35,
+    "stale_claims_max": 0,
+    "queue_growth_delta_warn": 5,
+    "oldest_job_age_hours_warn": 48
+  },
+  "allowed_actions": [
+    "verify_evidence_index",
+    "wallet_preflight",
+    "npm_build",
+    "offline_inventory",
+    "dirty_tree_classify",
+    "funding_snapshot",
+    "write_human_queue",
+    "funding_monitor",
+    "reality_engine",
+    "stale_doc_scan",
+    "open_pr_classify",
+    "grant_tracker_diff"
+  ],
+  "default_task_risk": "low",
+  "default_backoff_sec": 60,
+  "max_backoff_sec": 3600,
+  "sensitive_keywords": [
+    "transfer",
+    "sign",
+    "broadcast",
+    "private_key",
+    "mnemonic",
+    "seed_phrase",
+    "spend",
+    "withdraw",
+    "liquidity",
+    "mint",
+    "stake",
+    "bridge",
+    "send_email",
+    "send_funds",
+    "wallet_send"
+  ]
+}

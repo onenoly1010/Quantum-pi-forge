@@ -201,3 +201,31 @@ local-autonomy/state/latest-pre-unpark-observer-report.md
 # Generated env stubs — never commit secrets
 .env.generated
 **/.env.generated
+
+# Day-2 KPI pulse history (keep latest tracked optionally)
+artifacts/kpi/history/
+artifacts/kpi/events/events.jsonl
+
+# Living Forge runtime pulse noise (Day 1–3)
+docs/activation/living-forge/heartbeats/
+docs/activation/living-forge/monitors/funding-monitor-20*.json
+docs/activation/reality/alerts/
+docs/activation/reality/briefs/brief-*.md
+docs/activation/reality/diffs/diff-*.json
+docs/activation/reality/history/
+artifacts/kpi/admin/
+artifacts/kpi/eod/
+artifacts/kpi/latest.json
+artifacts/kpi/alerts-latest.json
+artifacts/kpi/operator-view.*
+artifacts/kpi/prev-open-p3.json
+artifacts/kpi/dead-letter.jsonl
+artifacts/kpi/events/
+
+# Living Forge runtime queue (seed is tracked: queue-state.seed.json)
+docs/activation/living-forge/queue/queue-state-v1.json
+
+# Generated KPI / EOD reports (regenerate with npm run kpi:snapshot / autonomy:eod)
+docs/activation/living-forge/reports/kpi-latest.md
+docs/activation/living-forge/reports/eod-*.md
+docs/activation/living-forge/reports/eod-latest.md

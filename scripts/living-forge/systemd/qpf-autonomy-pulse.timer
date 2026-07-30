@@ -1,0 +1,12 @@
+[Unit]
+Description=QPF autonomy pulse every 15 minutes (Day 2)
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=15min
+AccuracySec=30s
+Persistent=true
+Unit=qpf-autonomy-pulse.service
+
+[Install]
+WantedBy=timers.target
