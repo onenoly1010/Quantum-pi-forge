@@ -14,9 +14,9 @@ Use any channel (0G Hall comment, X, Discord, email). Keep factual. No economic 
 QPF Phase 8.5 Round 1 is open: independent verification of contracts on
 0G Aristotle (16661). Mint/liquidity still NOT authorized.
 
-Portal: https://quantumpiforge.com/deployed-addresses
-Guide: github.com/onenoly1010/Quantum-pi-forge (docs/community/FIRST_VERIFICATION_EVENT_V1.md)
-File: “External verification: YYYY-MM-DD” issue
+5-min path: https://quantumpiforge.com/deployed-addresses#verify-now
+Status JSON: https://quantumpiforge.com/verification-status-v1.json
+File report: github.com/onenoly1010/Quantum-pi-forge/issues/636
 
 Quorum target m=3. No transactions required.
 ```
