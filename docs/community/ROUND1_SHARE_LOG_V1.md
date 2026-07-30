@@ -16,3 +16,5 @@ Track actual shares of the #verify-now path. Do not invent recipients.
 | 2026-07-30 | Guild | guild.0gfoundation.ai | formal grant application | **PARKED_APPLICATIONS_CLOSED** | Live page: Applications Closed |
 
 Eligible reports indexed: **0** (until external issues arrive)
+
+**Human easy path:** [ROUND1_HUMAN_SEND_CHECKLIST_V1.md](./ROUND1_HUMAN_SEND_CHECKLIST_V1.md) — paste Message A 2×, optional B/C, reply `SENT A | channel | handle`.
