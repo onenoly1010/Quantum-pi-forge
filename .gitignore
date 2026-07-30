@@ -197,3 +197,7 @@ runtime/autonomous/
 local-autonomy/reports/
 local-autonomy/state/latest-pre-unpark-observer-report.md
 .qpf-autonomy/autonomy-run-state-v1.json
+
+# Generated env stubs — never commit secrets
+.env.generated
+**/.env.generated

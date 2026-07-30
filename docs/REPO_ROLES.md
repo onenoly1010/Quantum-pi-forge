@@ -56,7 +56,7 @@ Vercel is **not required** for production. Historical `*.vercel.app` links are a
 
 | Dimension | Ownership |
 |-----------|-----------|
-| **Status** | ARCHIVED — historical genesis compendium |
+| **Status** | ARCHIVED — historical genesis compendium (GitHub **archived** flag set 2026-07-30) |
 | **Owns** | Historical narrative, old multi-app layout, past demos |
 | **Does not own** | New features, production deploy, live API, financial activation |
 | **Homepage** | Points at quantumpiforge.com for discoverability; code is archive |

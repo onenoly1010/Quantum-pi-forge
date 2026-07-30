@@ -260,19 +260,21 @@
     "chai": "^6.2.2",
     "dotenv": "^17.4.2",
     "ethers": "^6.17.0",
-    "hardhat": "^3.9.1"
+    "hardhat": "^3.11.1"
   },
   "devDependencies": {
     "@storacha/client": "^2.1.4",
     "@uniswap/v2-core": "^1.0.1",
     "@uniswap/v2-periphery": "^1.1.0-beta.0",
     "solc": "^0.8.36",
-    "wrangler": "^4.107.0"
+    "wrangler": "^4.115.0"
   },
   "overrides": {
     "ws": "^8.21.0",
     "tmp": "^0.2.4",
     "uuid": "^11.1.1",
-    "esbuild": "0.28.1"
+    "esbuild": "0.28.1",
+    "adm-zip": "0.6.0",
+    "brace-expansion": "5.0.9"
   }
 }
