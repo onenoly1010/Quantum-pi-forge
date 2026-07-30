@@ -1,0 +1,20 @@
+{
+  "receipt": "phase-84-post-merge-main-v1",
+  "schema_status": "PHASE_8_4_ON_MAIN",
+  "created_at": "2026-07-30T15:08:00Z",
+  "phase": "8.4",
+  "title": "Phase 8.4 live seal on main (PR #635)",
+  "status": "MERGED",
+  "pr": 635,
+  "merge_commit": "0fcab13a95fe5fbf6d2e8fc1c98df5c6ba40bda7",
+  "merged_at": "2026-07-30T15:05:57Z",
+  "live_seal": "receipts/governance/phase-84-verification-portal-live-v1.json",
+  "round_1_open": "receipts/governance/phase-85-round1-open-v1.json",
+  "invitation_issue": 636,
+  "boundaries": {
+    "public_mint_open": false,
+    "liquidity": false,
+    "signing": false,
+    "broadcast": false
+  }
+}

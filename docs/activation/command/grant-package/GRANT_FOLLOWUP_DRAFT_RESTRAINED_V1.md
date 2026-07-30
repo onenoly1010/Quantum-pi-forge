@@ -1,8 +1,10 @@
 # Grant follow-up draft (restrained) — READY TO SEND BY HUMAN
 
-**Status:** DRAFT ONLY — agent does not send mail  
+**Status:** READY TO SEND BY HUMAN (2026-07-30 refresh)  
+**Agent does not send mail** — create draft in your application mailbox and send yourself  
 **Replace:** overclaiming language in root `0G_GRANT_FOLLOWUP_EMAIL.md`  
 **Before send:** confirm hall post still loads; attach only listed evidence  
+**Also link (new):** public verification portal + Phase 8.5 Round 1 invitation #636
 
 ---
 
@@ -37,7 +39,8 @@ We treat the application as **awaiting your review**. We are not claiming a gran
 
 4. **Reviewer orientation (evidence-first)**  
    - `REVIEWER_START_HERE.md`  
-   - `docs/review/VERIFICATION_STATUS_TABLE_V1.md`  
+   - Public verification portal: https://quantumpiforge.com/deployed-addresses  
+   - Phase 8.5 Round 1 invitation: https://github.com/onenoly1010/Quantum-pi-forge/issues/636  
    - Economic features (public mint, liquidity, staking) remain **gated / not claimed live**
 
 **Ask:**  
