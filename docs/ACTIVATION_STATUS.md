@@ -143,6 +143,7 @@ Report index (Round 1): [community/verification-reports/INDEX_V1.md](./community
 | Addresses + digests | [CONTRACT_REGISTRY_V1.md](./CONTRACT_REGISTRY_V1.md) |
 | Forbidden / gated matrix | [SECURITY_BOUNDARIES_V1.md](./SECURITY_BOUNDARIES_V1.md) |
 | Ordered unlock conditions | [ACTIVATION_ROADMAP.md](./ACTIVATION_ROADMAP.md) |
+| Distance to mint / LP / yield / staking | [DISTANCE_TO_ECONOMIC_ACTIVATION_V1.md](./DISTANCE_TO_ECONOMIC_ACTIVATION_V1.md) |
 | 10-minute independent verify | [BUILDER_QUICKSTART.md](./BUILDER_QUICKSTART.md) |
 | Phase 8.1 consolidation | [evidence/PUBLIC_READINESS_REPORT_V1.md](./evidence/PUBLIC_READINESS_REPORT_V1.md) |
 | Submit / track Round 1 reports | [community/verification-reports/INDEX_V1.md](./community/verification-reports/INDEX_V1.md) · [PHASE_8_5_ROUND1_ACTIVATION_V1.md](./community/PHASE_8_5_ROUND1_ACTIVATION_V1.md) |
