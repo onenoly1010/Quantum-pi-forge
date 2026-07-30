@@ -4,7 +4,9 @@
   "created_at": "2026-07-29T06:10:00Z",
   "phase": "8.5",
   "title": "Multi-Report Verification Architecture v1",
-  "status": "DEFINED",
+  "status": "DEFINED_AND_ROUND_1_ACTIVE",
+  "round_1_receipt": "receipts/governance/phase-85-round1-open-v1.json",
+  "round_1_opened_at": "2026-07-30T15:02:00Z",
   "mode": "GOVERNANCE_PROCESS_NOT_ONCHAIN_MINT_GATE",
   "purpose": "Define quorum, diversity, conflict resolution, and time-to-verify so Phase 8.5 is consensus-of-evidence rather than a single external gatekeeper. Does not enable mint or liquidity.",
   "rationale": [
@@ -38,5 +40,5 @@
     "auto_mint_on_quorum": false,
     "on_chain_unlock_from_reports": false
   },
-  "next": "Accumulate eligible independent reports after 8.4 portal is live; index for Phase 9.0 evidence pack"
+  "next": "Round 1 OPEN: accumulate eligible independent reports into docs/community/verification-reports/INDEX_V1.md; claim CONSENSUS only at m=3"
 }

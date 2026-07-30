@@ -1,0 +1,60 @@
+{
+  "receipt": "phase-85-round1-open-v1",
+  "schema_status": "PHASE_8_5_ROUND_1_OPEN",
+  "created_at": "2026-07-30T15:02:00Z",
+  "phase": "8.5",
+  "round": 1,
+  "title": "Multi-Report Independent Verification — Round 1 open",
+  "status": "OPEN",
+  "mode": "GOVERNANCE_PROCESS_NOT_ONCHAIN_MINT_GATE",
+  "purpose": "Activate Phase 8.5 operationally: announce Round 1 collection window for independent verification reports. Architecture already DEFINED; this receipt opens the first announced round.",
+  "depends_on": [
+    "receipts/governance/phase-84-verification-portal-live-v1.json",
+    "receipts/governance/phase-85-multi-report-verification-architecture-v1.json"
+  ],
+  "portal": "https://quantumpiforge.com/deployed-addresses",
+  "report_index": "docs/community/verification-reports/INDEX_V1.md",
+  "architecture": "docs/community/MULTI_REPORT_VERIFICATION_ARCHITECTURE_V1.md",
+  "process": "docs/community/INDEPENDENT_VERIFICATION_PROCESS_V1.md",
+  "template": "docs/community/VERIFICATION_REPORT_TEMPLATE_V1.md",
+  "parameters_v1": {
+    "m_quorum_agreements": 3,
+    "soft_sla_days": 14,
+    "hard_sla_days": 30,
+    "round_opened_utc": "2026-07-30T15:02:00Z",
+    "soft_target_close_utc": "2026-08-13T15:02:00Z",
+    "hard_close_utc": "2026-08-29T15:02:00Z",
+    "maintainer_reports_count_toward_m": false,
+    "on_timeout": "FAIL_CLOSED_FOR_EXTERNALLY_SETTLED_CLAIM",
+    "on_critical_conflict": "HALT_CONSENSUS_MANUAL_REVIEW_NO_AUTO_ACTIVATE"
+  },
+  "state_at_open": {
+    "eligible_reports_n": 0,
+    "agreeing_reports": 0,
+    "consensus": "NOT_STARTED",
+    "published_economic_gates": {
+      "mint": "NOT_AUTHORIZED",
+      "liquidity": "NOT_AUTHORIZED",
+      "economic_launch": "NOT_AUTHORIZED"
+    }
+  },
+  "how_to_submit": {
+    "issue_title_pattern": "External verification: YYYY-MM-DD",
+    "issue_url": "https://github.com/onenoly1010/Quantum-pi-forge/issues/new",
+    "template": "docs/community/VERIFICATION_REPORT_TEMPLATE_V1.md"
+  },
+  "boundaries": {
+    "signing": false,
+    "broadcast": false,
+    "public_mint_open": false,
+    "liquidity": false,
+    "auto_mint_on_quorum": false,
+    "on_chain_unlock_from_reports": false,
+    "phase_9_0_auto_from_consensus": false
+  },
+  "next": [
+    "Index each eligible external report in docs/community/verification-reports/INDEX_V1.md",
+    "Do not claim CONSENSUS_CONFIRMED until m=3 diversity-eligible agreements",
+    "Phase 8.6 builder reproduction may start in parallel after first eligible report (optional prep)"
+  ]
+}

@@ -1,9 +1,11 @@
 # First External Verification Event V1
 
-**Status:** `FIRST_EXTERNAL_VERIFICATION_READY`  
+**Status:** `FIRST_EXTERNAL_VERIFICATION_READY` · **Phase 8.5 Round 1 OPEN**  
 **Mode:** INVITATION + REPRODUCIBLE PATH — not a transaction  
 **Created:** 2026-07-29T05:46:36Z  
+**Updated:** 2026-07-30T15:02:00Z (Round 1 open after 8.4 live seal)  
 **Main at authoring:** `c4a98d7` (PR #631 mint authority explanation on main)  
+**8.4 live seal head:** `a757581` · Round 1 report index: [verification-reports/INDEX_V1.md](./verification-reports/INDEX_V1.md)
 
 ```text
 SUCCESS_CONDITION:

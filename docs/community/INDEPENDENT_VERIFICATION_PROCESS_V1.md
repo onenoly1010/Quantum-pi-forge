@@ -1,9 +1,10 @@
 # Independent Verification Process v1
 
-**Phase:** 8.5 (process definition; reports accumulate after 8.4 portal is public)  
+**Phase:** 8.5 **Round 1 OPEN** (process active; reports accumulate into the ledger)  
 **Mode:** REPEATABLE EXTERNAL PROCESS — not a transaction  
 **Principle:** One independent verification is valuable but **fragile** (single point of failure, collusion, local env error). **Multiple independent reports** move 8.5 from a gatekeeper model toward consensus-of-evidence before Phase 9.0.  
-**Architecture:** [MULTI_REPORT_VERIFICATION_ARCHITECTURE_V1.md](./MULTI_REPORT_VERIFICATION_ARCHITECTURE_V1.md) — quorum \(m\), diversity, conflict resolution, SLA.
+**Architecture:** [MULTI_REPORT_VERIFICATION_ARCHITECTURE_V1.md](./MULTI_REPORT_VERIFICATION_ARCHITECTURE_V1.md) — quorum \(m\), diversity, conflict resolution, SLA.  
+**Report index:** [verification-reports/INDEX_V1.md](./verification-reports/INDEX_V1.md) · **Round 1:** [PHASE_8_5_ROUND1_ACTIVATION_V1.md](./PHASE_8_5_ROUND1_ACTIVATION_V1.md)
 
 ---
 
@@ -65,7 +66,7 @@ External verification: YYYY-MM-DD
 
 | Signal | Meaning |
 | --- | --- |
-| 0 eligible reports | 8.4 may be live; 8.5 consensus not started |
+| 0 eligible reports | 8.4 complete; Round 1 open; 8.5 consensus **NOT_STARTED** |
 | 1 eligible report | Valuable **but** single-point risk — keep inviting; does **not** alone settle 9.0 verification evidence |
 | \(m\) agreeing independent reports (proposed **\(m = 3\)**) | **CONSENSUS_CONFIRMED** (or **CONSENSUS_DRIFT**) — see architecture doc |
 | Conflicting reports | **Halt** consensus claim; conflict-resolution protocol; never auto-activate |
