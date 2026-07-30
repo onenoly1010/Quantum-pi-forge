@@ -27,9 +27,8 @@ npm run autonomy:day2:verify
 # Simulate stuck claim recovery
 npm run living-forge:simulate-stuck-recovery
 
-# Enable continuous 15m (user systemd)
-systemctl --user daemon-reload
-systemctl --user enable --now qpf-autonomy-pulse.timer
+# Enable continuous 15m (user systemd examples in-repo)
+bash scripts/living-forge/systemd/install-user-units.sh
 systemctl --user status qpf-autonomy-pulse.timer
 ```
 

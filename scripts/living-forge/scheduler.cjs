@@ -11,6 +11,7 @@
  *   node scripts/living-forge/scheduler.cjs --human-queue
  *   node scripts/living-forge/scheduler.cjs --unstick-claims
  *   node scripts/living-forge/scheduler.cjs --simulate-stuck-claim
+ *   node scripts/living-forge/scheduler.cjs --seed-reset   # restore seed queue (wipes runtime)
  */
 "use strict";
 
@@ -23,6 +24,7 @@ process.env.NO_WALLET_TOUCH = "true";
 
 const ROOT = path.resolve(__dirname, "../..");
 const QUEUE_PATH = path.join(ROOT, "docs/activation/living-forge/queue/queue-state-v1.json");
+const QUEUE_SEED_PATH = path.join(ROOT, "docs/activation/living-forge/queue/queue-state.seed.json");
 const HEARTBEAT_DIR = path.join(ROOT, "docs/activation/living-forge/heartbeats");
 const HUMAN_QUEUE_PATH = path.join(ROOT, "docs/activation/living-forge/HUMAN_ACTION_QUEUE_V1.md");
 const DEAD_LETTER_PATH = path.join(ROOT, "artifacts/kpi/dead-letter.jsonl");
@@ -63,7 +65,21 @@ function now() {
 }
 
 function loadQueue() {
+  if (!fs.existsSync(QUEUE_PATH)) {
+    if (!fs.existsSync(QUEUE_SEED_PATH)) {
+      throw new Error(`missing queue state and seed: ${QUEUE_PATH} / ${QUEUE_SEED_PATH}`);
+    }
+    fs.mkdirSync(path.dirname(QUEUE_PATH), { recursive: true });
+    fs.copyFileSync(QUEUE_SEED_PATH, QUEUE_PATH);
+  }
   return JSON.parse(fs.readFileSync(QUEUE_PATH, "utf8"));
+}
+
+/** Optional: restore seed (wipes local runtime residue). --seed-reset */
+function resetQueueFromSeed() {
+  if (!fs.existsSync(QUEUE_SEED_PATH)) throw new Error("missing " + QUEUE_SEED_PATH);
+  fs.copyFileSync(QUEUE_SEED_PATH, QUEUE_PATH);
+  return loadQueue();
 }
 
 function saveQueue(q) {
@@ -710,26 +726,30 @@ function finishTask(q, task, result) {
     q.metrics.autonomous_completed = (q.metrics.autonomous_completed || 0) + 1;
     emit("completed", { task_id: task.id, claim_id: task.claim_id, summary: result.summary });
   } else if (escalated) {
+    // True policy/safety escalate only (ESCALATE: prefix) — do not inflate human_interruptions
     task.status = "open";
     task.outcome = "escalated";
     task.escalated_at_utc = now();
     const delay = computeBackoffSec(task);
     task.next_eligible_at_utc = new Date(Date.now() + delay * 1000).toISOString().replace(/\.\d{3}Z$/, "Z");
-    q.metrics.human_interruptions_this_session = (q.metrics.human_interruptions_this_session || 0) + 1;
+    if (String(result.summary || "").startsWith("ESCALATE:")) {
+      q.metrics.human_interruptions_this_session = (q.metrics.human_interruptions_this_session || 0) + 1;
+    }
     emit("escalated", { task_id: task.id, summary: result.summary, next_eligible_at_utc: task.next_eligible_at_utc });
   } else {
     task.consecutive_failures = (task.consecutive_failures || 0) + 1;
     task.outcome = "fail";
 
-    // medium risk: one auto-retry then escalate (leave open for human attention)
+    // medium risk: one auto-retry then mark blocked (not a human_interruptions bump)
     if (task.risk === "medium" && task.consecutive_failures > 1) {
       task.status = "open";
-      task.outcome = "escalated";
+      task.outcome = "blocked";
       task.escalated_at_utc = now();
       emit("escalated", {
         task_id: task.id,
         summary: "medium risk max auto-retries exhausted",
         consecutive_failures: task.consecutive_failures,
+        human_interrupt: false,
       });
     } else if (task.consecutive_failures >= maxAttempts) {
       task.status = "dead_letter";
@@ -773,6 +793,15 @@ function finishTask(q, task, result) {
 
 function main() {
   const args = process.argv.slice(2);
+  if (args.includes("--seed-reset")) {
+    let q = resetQueueFromSeed();
+    q = seed(q);
+    saveQueue(q);
+    writeHumanQueue(q);
+    console.log(JSON.stringify({ phase: "seed_reset", path: QUEUE_PATH, tasks: q.tasks.length, no_wallet_touch: true }));
+    return;
+  }
+
   let q = loadQueue();
   if (!q.metrics) q.metrics = {};
   const drain = args.includes("--drain");

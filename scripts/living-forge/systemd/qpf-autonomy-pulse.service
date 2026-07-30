@@ -1,0 +1,15 @@
+[Unit]
+Description=QPF Day-2 autonomy 15m pulse (KPI + claim unstick + one P3)
+After=network-online.target
+
+[Service]
+Type=oneshot
+# Set WorkingDirectory to your clone, or install via install-user-units.sh
+WorkingDirectory=%h/Quantum-pi-forge
+Environment=NO_WALLET_TOUCH=true
+# Prefer repo-relative ExecStart after install-user-units.sh rewrites paths
+ExecStart=%h/Quantum-pi-forge/scripts/living-forge/pulse-15m.sh
+Nice=10
+
+[Install]
+WantedBy=default.target

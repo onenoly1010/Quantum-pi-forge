@@ -12,8 +12,8 @@ test -f docs/activation/living-forge/QUEUE_RETRIES_SCHEMA_V1.md
 test -f docs/activation/living-forge/queue/queue-retries-schema-v1.json
 echo OK_schema
 
-echo "=== Day3: seed queue (includes admin P3) ==="
-node scripts/living-forge/scheduler.cjs --seed
+echo "=== Day3: seed-reset clean queue (includes admin P3) ==="
+node scripts/living-forge/scheduler.cjs --seed-reset
 
 echo "=== Day3: admin runners ==="
 node scripts/living-forge/admin-tasks.cjs all | tail -c 2000

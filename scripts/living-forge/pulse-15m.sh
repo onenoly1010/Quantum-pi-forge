@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 # Day-2 15-minute autonomy pulse — NO_WALLET_TOUCH, no secrets, no spend.
 # 1) unstick expired claims
-# 2) light scheduler cycle (one P3 or drain-light)
+# 2) light scheduler cycle (one P3)
 # 3) KPI snapshot + operator view
 set -euo pipefail
 
-ROOT="/home/kris/Quantum-pi-forge"
-LOG_DIR="/home/kris/.forge-daemon"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
+LOG_DIR="${QPF_FORGE_DAEMON_DIR:-$HOME/.forge-daemon}"
 LOG="$LOG_DIR/autonomy-pulse.log"
 mkdir -p "$LOG_DIR" "$ROOT/artifacts/kpi"
 
@@ -25,7 +26,7 @@ if ! command -v node >/dev/null 2>&1; then
   exit 1
 fi
 
-log "PULSE_START no_wallet_touch=true"
+log "PULSE_START no_wallet_touch=true root=$ROOT"
 
 # Structured pulse event
 node -e "process.env.NO_WALLET_TOUCH='true'; require('./scripts/living-forge/events.cjs').emit('pulse',{source:'pulse-15m'})" >>"$LOG" 2>&1 || true
@@ -33,7 +34,7 @@ node -e "process.env.NO_WALLET_TOUCH='true'; require('./scripts/living-forge/eve
 # 1) recover expired leases
 node scripts/living-forge/scheduler.cjs --unstick-claims >>"$LOG" 2>&1 || true
 
-# 2) one safe P3 cycle (avoid thrash; full drain stays on living-forge.timer optional)
+# 2) one safe P3 cycle
 node scripts/living-forge/scheduler.cjs >>"$LOG" 2>&1 || true
 
 # 3) KPI + operator view

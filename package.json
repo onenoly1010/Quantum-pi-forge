@@ -242,6 +242,7 @@
     "cockpit:status": "node scripts/human-cockpit-status.cjs",
     "cockpit:pipeline": "npm run verify:evidence && npm run build && npm run cockpit:status",
     "living-forge:seed": "node scripts/living-forge/scheduler.cjs --seed",
+    "living-forge:seed-reset": "NO_WALLET_TOUCH=true node scripts/living-forge/scheduler.cjs --seed-reset",
     "living-forge:once": "node scripts/living-forge/scheduler.cjs",
     "living-forge:drain": "node scripts/living-forge/scheduler.cjs --drain",
     "living-forge:human-queue": "node scripts/living-forge/scheduler.cjs --human-queue",

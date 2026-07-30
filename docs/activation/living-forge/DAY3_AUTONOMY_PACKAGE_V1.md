@@ -24,7 +24,10 @@
 ## Commands
 
 ```bash
-# Seed new admin tasks into queue
+# Restore clean seed queue (wipes local runtime residue)
+npm run living-forge:seed-reset
+
+# Seed/merge task definitions into existing queue
 npm run living-forge:seed
 
 # Run admin runners directly
@@ -36,6 +39,9 @@ npm run living-forge:admin:all
 # Full Day-3 verify
 npm run autonomy:day3:verify
 ```
+
+Canonical seed: `docs/activation/living-forge/queue/queue-state.seed.json`  
+Runtime state `queue-state-v1.json` is gitignored (bootstrapped from seed).
 
 ## Non-claims
 

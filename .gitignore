@@ -221,3 +221,11 @@ artifacts/kpi/operator-view.*
 artifacts/kpi/prev-open-p3.json
 artifacts/kpi/dead-letter.jsonl
 artifacts/kpi/events/
+
+# Living Forge runtime queue (seed is tracked: queue-state.seed.json)
+docs/activation/living-forge/queue/queue-state-v1.json
+
+# Generated KPI / EOD reports (regenerate with npm run kpi:snapshot / autonomy:eod)
+docs/activation/living-forge/reports/kpi-latest.md
+docs/activation/living-forge/reports/eod-*.md
+docs/activation/living-forge/reports/eod-latest.md

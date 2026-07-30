@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # Living Forge heartbeat — non-interactive, no secrets, no wallet moves.
 set -euo pipefail
-ROOT="/home/kris/Quantum-pi-forge"
-LOG_DIR="/home/kris/.forge-daemon"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
+LOG_DIR="${QPF_FORGE_DAEMON_DIR:-$HOME/.forge-daemon}"
 mkdir -p "$LOG_DIR"
 cd "$ROOT"
 export NO_WALLET_TOUCH=true
@@ -12,6 +13,6 @@ if ! command -v node >/dev/null 2>&1; then
   echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) ERROR: node not found" >> "$LOG_DIR/living-forge.log"
   exit 1
 fi
-echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) START living-forge drain no_wallet_touch=true" >> "$LOG_DIR/living-forge.log"
+echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) START living-forge drain no_wallet_touch=true root=$ROOT" >> "$LOG_DIR/living-forge.log"
 node scripts/living-forge/scheduler.cjs --drain >> "$LOG_DIR/living-forge.log" 2>&1
 echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) END exit=$?" >> "$LOG_DIR/living-forge.log"
