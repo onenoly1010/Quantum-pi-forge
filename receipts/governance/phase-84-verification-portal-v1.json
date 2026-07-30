@@ -5,7 +5,9 @@
   "updated_at": "2026-07-29T06:00:00Z",
   "phase": "8.4",
   "title": "Public Verification Portal — package",
-  "status": "PACKAGED",
+  "status": "SUPERSEDED_BY_LIVE_SEAL",
+  "superseded_by": "receipts/governance/phase-84-verification-portal-live-v1.json",
+  "live_sealed_at": "2026-07-30T15:02:00Z",
   "mode": "PUBLIC_WORKFLOW_NOT_ACTIVATION",
   "purpose": "Make QPF independently verifiable: portal, registry, guides, governance docs, mint authority explanation, clear operational status. Does not require a single external report as the only gate.",
   "success_criteria_8_4": [
@@ -58,8 +60,8 @@
     "single_report_as_only_gate": false
   },
   "next": {
-    "complete_8_4": "Portal live; docs consistent; third party can locate contracts and steps",
-    "then": "8.5 accumulate independent verification reports (prefer multiple)"
+    "complete_8_4": "DONE — see phase-84-verification-portal-live-v1.json",
+    "then": "8.5 Round 1 OPEN — see phase-85-round1-open-v1.json"
   }
 }
 

@@ -1,6 +1,6 @@
 # Verification Portal v1
 
-**Phase:** 8.4 — Public Verification (current)  
+**Phase:** 8.4 COMPLETE · 8.5 Round 1 OPEN  
 **Mode:** PUBLIC WORKFLOW — not an activation path  
 **Objective:** Make the project independently verifiable.
 
@@ -36,9 +36,11 @@ Now:    Can others verify what was built without trusting the creator?
 
 ## Phase 8.4 success criteria
 
-- [ ] A third party can **locate** every deployed contract (portal + registry).  
-- [ ] A third party can **reproduce** the published verification steps.  
-- [ ] Documentation is **internally consistent** (site ↔ registry ↔ receipts posture).  
+- [x] A third party can **locate** every deployed contract (portal + registry).  
+- [x] A third party can **reproduce** the published verification steps.  
+- [x] Documentation is **internally consistent** (site ↔ registry ↔ receipts posture).  
+
+**Seal:** `receipts/governance/phase-84-verification-portal-live-v1.json` (2026-07-30). Live probe: chain `0x4115`, core registry code sizes match, portal HTTP 200.
 
 ## Portal map
 
@@ -66,6 +68,8 @@ Verification Portal
 | **Governance boundaries** | [SECURITY_BOUNDARIES_V1.md](../SECURITY_BOUNDARIES_V1.md) · [SAFE_GOVERNANCE_POLICY_V1.md](../governance/SAFE_GOVERNANCE_POLICY_V1.md) · [MINT_AUTHORITY_EXPLANATION_V1.md](../governance/MINT_AUTHORITY_EXPLANATION_V1.md) |
 | **Known limitations** | [KNOWN_LIMITATIONS_V1.md](./KNOWN_LIMITATIONS_V1.md) |
 | **Submit a report** | [VERIFICATION_REPORT_TEMPLATE_V1.md](./VERIFICATION_REPORT_TEMPLATE_V1.md) → [open issue](https://github.com/onenoly1010/Quantum-pi-forge/issues/new) |
+| **Report index (8.5 R1)** | [verification-reports/INDEX_V1.md](./verification-reports/INDEX_V1.md) |
+| **8.5 Round 1 activation** | [PHASE_8_5_ROUND1_ACTIVATION_V1.md](./PHASE_8_5_ROUND1_ACTIVATION_V1.md) |
 
 ---
 
@@ -101,9 +105,9 @@ Capability  ≠  Permission  ≠  Activation
 ## Phase roadmap (external evidence lane)
 
 ```text
-Phase 8.4  Public Verification Portal
+Phase 8.4  Public Verification Portal          ✅ COMPLETE
         ↓
-Phase 8.5  Independent Verification Reports  (multiple over time)
+Phase 8.5  Independent Verification Reports    ● ROUND 1 OPEN
         ↓
 Phase 8.6  Builder Reproducibility
         ↓
@@ -114,13 +118,13 @@ Phase 9.0  Governance Decision
 Future activation decisions (if approved)
 ```
 
-| Phase | Objective | Success criterion |
-| --- | --- | --- |
-| **8.4** | Public verification | Locate contracts; reproduce steps; docs consistent |
-| **8.5** | Independent reports | Multi-report consensus (proposed \(m=3\)); diversity; conflict protocol; SLA — see architecture doc |
-| **8.6** | Builder reproducibility | Clean clone; deps; docs; expected outputs match |
-| **8.7** | Operational readiness | Monitoring, recovery, incident, release — **no** token economics |
-| **9.0** | Governance decision | Based on **evidence from 8.4–8.7**, not schedule alone |
+| Phase | Objective | Success criterion | Status |
+| --- | --- | --- | --- |
+| **8.4** | Public verification | Locate contracts; reproduce steps; docs consistent | ✅ COMPLETE |
+| **8.5** | Independent reports | Multi-report consensus (proposed \(m=3\)); diversity; conflict protocol; SLA | ● Round 1 OPEN |
+| **8.6** | Builder reproducibility | Clean clone; deps; docs; expected outputs match | Pending |
+| **8.7** | Operational readiness | Monitoring, recovery, incident, release — **no** token economics | Pending |
+| **9.0** | Governance decision | Based on **evidence from 8.4–8.7**, not schedule alone | Pending |
 
 Internal activation-policy docs after 8.3 are **paused**.
 
@@ -128,10 +132,12 @@ Internal activation-policy docs after 8.3 are **paused**.
 
 ## Related seals
 
+- `PHASE_8_4_PUBLIC_VERIFICATION_PORTAL_LIVE` — portal complete (2026-07-30)  
+- `PHASE_8_5_ROUND_1_OPEN` — multi-report Round 1 collecting  
 - `FIRST_EXTERNAL_VERIFICATION_READY` — invitation sealed  
 - `PHASE_8_3_MINT_AUTHORITY_EXPLANATION_SEALED` — authority explained, not exercised  
 - `PHASE_8_2_SAFE_GOVERNANCE_POLICY_SEALED` — control constraints  
 
 ---
 
-*Phase 8.4 — public verification workflow. Restraint remains the evidence.*
+*Phase 8.4 complete · Phase 8.5 Round 1 open. Restraint remains the evidence.*

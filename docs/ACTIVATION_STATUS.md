@@ -65,8 +65,9 @@ Do not collapse: deployed contract → launched → valuable. Prefer: deployed c
 | --- | --- | --- |
 | **Technical activation** | **Verified** | Core contracts live on chain 16661; bytecode probeable; website/registry surfaces exist |
 | **Commercial activation** | **Pending governance authorization** | Public mint, liquidity seeding, yield, staking, bridge, treasury remain gated |
-| **Verification evidence** | In progress (multi-report) | Independent reviewers can check published state; does **not** equal activation permission |
+| **Verification evidence** | **Phase 8.5 Round 1 OPEN** (\(n=0\), \(m=3\)) | Independent reviewers can check published state; does **not** equal activation permission |
 | **Governance authorization** | Not granted for economics | Separate decision; not automatic from docs or consensus reports |
+| **Phase 8.4 portal** | **COMPLETE** (2026-07-30) | Live portal + registry + reproducible steps sealed |
 
 Empty pool and disabled mint are **intentional restraint**, not unfinished accidents.
 
@@ -121,7 +122,18 @@ Keep these layers separate:
 | **Adoption, funding, community trust** | Separate outcomes; depend on ecosystem interest, communication, partnerships, usability, market conditions, and more—not technical quality alone |
 
 Portal: [community/VERIFICATION_PORTAL_V1.md](./community/VERIFICATION_PORTAL_V1.md)  
-Multi-report process: [community/MULTI_REPORT_VERIFICATION_ARCHITECTURE_V1.md](./community/MULTI_REPORT_VERIFICATION_ARCHITECTURE_V1.md)
+Multi-report process: [community/MULTI_REPORT_VERIFICATION_ARCHITECTURE_V1.md](./community/MULTI_REPORT_VERIFICATION_ARCHITECTURE_V1.md)  
+Report index (Round 1): [community/verification-reports/INDEX_V1.md](./community/verification-reports/INDEX_V1.md)
+
+## Current phase activation
+
+| Phase | State |
+| --- | --- |
+| 8.0–8.3 | ✅ Complete on main |
+| **8.4** Public verification portal | ✅ **COMPLETE** — live seal 2026-07-30 |
+| **8.5** Multi-report verification | ● **Round 1 OPEN** — soft 2026-08-13 / hard 2026-08-29 |
+| 8.6–8.7 | Pending (after reports accumulate) |
+| 9.0 + economic | ⛔ Not authorized |
 
 ## Where to go next
 
@@ -133,6 +145,7 @@ Multi-report process: [community/MULTI_REPORT_VERIFICATION_ARCHITECTURE_V1.md](.
 | Ordered unlock conditions | [ACTIVATION_ROADMAP.md](./ACTIVATION_ROADMAP.md) |
 | 10-minute independent verify | [BUILDER_QUICKSTART.md](./BUILDER_QUICKSTART.md) |
 | Phase 8.1 consolidation | [evidence/PUBLIC_READINESS_REPORT_V1.md](./evidence/PUBLIC_READINESS_REPORT_V1.md) |
+| Submit / track Round 1 reports | [community/verification-reports/INDEX_V1.md](./community/verification-reports/INDEX_V1.md) · [PHASE_8_5_ROUND1_ACTIVATION_V1.md](./community/PHASE_8_5_ROUND1_ACTIVATION_V1.md) |
 
 ---
 

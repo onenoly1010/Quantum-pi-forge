@@ -1,0 +1,88 @@
+{
+  "receipt": "phase-84-verification-portal-live-v1",
+  "schema_status": "PHASE_8_4_PUBLIC_VERIFICATION_PORTAL_LIVE",
+  "created_at": "2026-07-30T15:02:00Z",
+  "phase": "8.4",
+  "title": "Public Verification Portal — live completion seal",
+  "status": "COMPLETE",
+  "mode": "PUBLIC_WORKFLOW_NOT_ACTIVATION",
+  "purpose": "Record that Phase 8.4 success criteria are met: portal live, registry consistent, verification path reproducible via public RPC. Does not open mint, liquidity, or economic launch.",
+  "prior_receipt": "receipts/governance/phase-84-verification-portal-v1.json",
+  "prior_status": "PACKAGED",
+  "main_head_at_seal": "a757581434f6c97fbbb9ca9794a172e3aaf30a54",
+  "merged_prs": [
+    {"pr": 627, "note": "Edge readiness"},
+    {"pr": 628, "note": "Public readiness"},
+    {"pr": 629, "note": "Genesis package"},
+    {"pr": 630, "note": "Safe governance policy"},
+    {"pr": 631, "note": "Mint authority explanation"},
+    {"pr": 632, "note": "First verification event"},
+    {"pr": 633, "note": "Portal link first verification"},
+    {"pr": 634, "note": "External-facing Phase 8 wording"}
+  ],
+  "success_criteria_8_4": {
+    "third_party_can_locate_every_deployed_contract": {
+      "met": true,
+      "evidence": [
+        "https://quantumpiforge.com/deployed-addresses HTTP 200",
+        "docs/CONTRACT_REGISTRY_V1.md",
+        "deploy/deployed-addresses.html on main"
+      ]
+    },
+    "third_party_can_reproduce_published_verification_steps": {
+      "met": true,
+      "evidence": [
+        "docs/community/FIRST_VERIFICATION_EVENT_V1.md",
+        "docs/BUILDER_QUICKSTART.md",
+        "RPC eth_chainId → 0x4115 (16661) at probe"
+      ]
+    },
+    "documentation_internally_consistent": {
+      "met": true,
+      "evidence": [
+        "portal, registry, and live page list same core addresses",
+        "mint/liquidity stated NOT AUTHORIZED on portal and ACTIVATION_STATUS",
+        "pair reserves described as empty / intentional"
+      ]
+    }
+  },
+  "live_probe_2026_07_30T15_01_55Z": {
+    "rpc": "https://evmrpc.0g.ai",
+    "chain_id": "0x4115",
+    "chain_id_decimal": 16661,
+    "block_number_hex": "0x2663a3d",
+    "block_number_decimal": 40254013,
+    "portal_http": 200,
+    "code_bytes": {
+      "0x75995EC0fdf881189850aeD864cB3f43c0DFCb58": 2281,
+      "0x67aD7169184581f23D1E10B39d4eb4e98293E87a": 9850,
+      "0x5E50b92E57e854659f7D98c733088aABd551C49F": 2571,
+      "0x6011c341a01c80f489a5c3Ab751987A55142F04e": 4132,
+      "0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8": 18951,
+      "0x2c70129E50BF88eCD59b89d63af2e8920aCF3951": 18953,
+      "0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE": 14954,
+      "0x8d088B88219D072aB035502065ee2410c2cb4389": 171
+    },
+    "code_bytes_match_registry_v1": true
+  },
+  "expected_state": {
+    "mint_activation": "NOT_AUTHORIZED",
+    "liquidity_activation": "NOT_AUTHORIZED",
+    "economic_launch": "NOT_AUTHORIZED",
+    "technical_contracts_live": true
+  },
+  "boundaries": {
+    "signing": false,
+    "broadcast": false,
+    "public_mint_open": false,
+    "liquidity": false,
+    "staking": false,
+    "bridge": false,
+    "treasury": false,
+    "auto_economic_unlock": false
+  },
+  "next": {
+    "phase": "8.5",
+    "action": "Open multi-report Round 1; accumulate independent verification reports (m=3 proposed)"
+  }
+}
