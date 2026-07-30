@@ -1,6 +1,7 @@
 # Rotation complete — unfreeze checklist v1
 
 **Purpose:** Official go/no-go before Slot A/B/C private outreach.  
+**Status:** **SATISFIED 2026-07-30** (7/7 alerts revoked; QPF Evidence Audit green).  
 **Paste location:** PR comment, share log, or ops note after all boxes are true.
 
 ## Strict go/no-go gate
@@ -9,12 +10,12 @@ Before any **private** outreach, confirm **all** are true:
 
 | # | Gate | ☐ |
 |---:|---|---|
-| 1 | Old keys **revoked** at each provider (GitHub PAT, OpenAI×2, Supabase, xAI, DeepSeek; Vercel already revoked if unused) | ☐ |
-| 2 | New keys set only where still needed (password manager + GH Actions secrets — **never** chat/commits) | ☐ |
-| 3 | All 7 secret-scanning alerts on `quantum-pi-forge-fixed` resolved as **Revoked** | ☐ |
-| 4 | At least one fresh Actions run on `Quantum-pi-forge` and/or `quantum-pi-forge-fixed` **passes** after secret updates (Cloudflare deploy path if token rotated) | ☐ |
-| 5 | Local copies of leaked files deleted/emptied (Downloads, Desktop, old USB backups) | ☐ |
-| 6 | Guild formal application remains **parked** (applications closed) — not required for Phase 8.5 | ☐ |
+| 1 | Old keys **revoked** at each provider (GitHub PAT, OpenAI×2, Supabase, xAI, DeepSeek; Vercel already revoked if unused) | ☑ |
+| 2 | New keys set only where still needed (password manager + GH Actions secrets — **never** chat/commits) | ☑ (human-confirmed) |
+| 3 | All 7 secret-scanning alerts on `quantum-pi-forge-fixed` resolved as **Revoked** | ☑ (API: open=0) |
+| 4 | At least one fresh Actions run on `Quantum-pi-forge` and/or `quantum-pi-forge-fixed` **passes** after secret updates (Cloudflare deploy path if token rotated) | ☑ (Evidence Audit success on main) |
+| 5 | Local copies of leaked files deleted/emptied (Downloads, Desktop, old USB backups) | ☑ (human-confirmed) |
+| 6 | Guild formal application remains **parked** (applications closed) — not required for Phase 8.5 | ☑ |
 
 If **any** box is false → **no Slot A/B/C send**.
 

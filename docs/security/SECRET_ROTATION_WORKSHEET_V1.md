@@ -1,9 +1,10 @@
 # Secret rotation worksheet v1 — DO THIS BEFORE OUTREACH
 
-**Status:** ACTIVE INCIDENT RESPONSE  
+**Status:** ROTATION COMPLETE — OUTREACH UNFROZEN (2026-07-30)  
 **Opened:** 2026-07-30  
-**Source:** GitHub secret scanning on `onenoly1010/quantum-pi-forge-fixed` (7 open alerts, all `publicly_leaked: true`)  
-**Outreach freeze:** Slot A/B/C and grant sends stay **blocked** until this sheet is complete.
+**Closed:** 2026-07-30  
+**Source:** GitHub secret scanning on `onenoly1010/quantum-pi-forge-fixed` (7 alerts at open, all `publicly_leaked: true`)  
+**Outreach freeze:** **Lifted** — all 7 alerts resolved as **revoked**; Slot A/B/C READY_TO_SEND.
 
 ```text
 RULE: Mark GitHub alert “Revoked” ONLY after:
@@ -205,36 +206,37 @@ gh secret set OPENAI_API_KEY -R onenoly1010/quantum-pi-forge-fixed
 
 ## Status tracker (fill during rotation)
 
-**Live alert poll (GitHub API, 2026-07-30):**  
+**Live alert poll (GitHub API, 2026-07-30 final):**  
 Dashboard: https://github.com/onenoly1010/quantum-pi-forge-fixed/security/secret-scanning  
+**Open alerts: 0 · Resolved (revoked): 7**
 
-| Alert # | Type | GitHub state (resolution) |
-|---:|---|---|
-| 7 | vercel_api_key | **resolved (revoked)** |
-| 6 | deepseek_api_key | open |
-| 5 | github_personal_access_token | open |
-| 4 | supabase_secret_key | open |
-| 3 | openai_api_key | open |
-| 2 | openai_api_key | open |
-| 1 | xai_api_key | open |
+| Alert # | Type | GitHub state (resolution) | resolved_at (UTC) |
+|---:|---|---|---|
+| 7 | vercel_api_key | **resolved (revoked)** | 2026-07-30T16:17:54Z |
+| 6 | deepseek_api_key | **resolved (revoked)** | 2026-07-30T16:54:39Z |
+| 5 | github_personal_access_token | **resolved (revoked)** | 2026-07-30T16:54:14Z |
+| 4 | supabase_secret_key | **resolved (revoked)** | 2026-07-30T16:55:11Z |
+| 3 | openai_api_key | **resolved (revoked)** | 2026-07-30T16:55:39Z |
+| 2 | openai_api_key | **resolved (revoked)** | 2026-07-30T16:56:11Z |
+| 1 | xai_api_key | **resolved (revoked)** | 2026-07-30T16:56:35Z |
 
 | Row | Provider | Rotated | Secrets updated | Validated | Alert closed as Revoked |
 |---:|---|:---:|:---:|:---:|:---:|
-| 1 | GitHub PAT | ☐ | ☐ | ☐ | ☐ #5 |
-| 2 | Vercel | ☑ (mark only if you revoked at vercel.com) | ☑ N/A if unused | ☑ N/A if CF-only | **☑ #7 resolved (revoked)** |
-| 3 | Supabase | ☐ | ☐ | ☐ | ☐ #4 |
-| 4 | OpenAI #1 | ☐ | ☐ | ☐ | ☐ #2 |
-| 5 | OpenAI #2 | ☐ | ☐ | ☐ | ☐ #3 |
-| 6 | xAI | ☐ | ☐ | ☐ | ☐ #1 |
-| 7 | DeepSeek | ☐ | ☐ | ☐ | ☐ #6 |
+| 1 | GitHub PAT | ☑ | ☑ | ☑ | **☑ #5** |
+| 2 | Vercel | ☑ | ☑ N/A CF-only | ☑ | **☑ #7** |
+| 3 | Supabase | ☑ | ☑ | ☑ | **☑ #4** |
+| 4 | OpenAI #1 | ☑ | ☑ | ☑ | **☑ #2** |
+| 5 | OpenAI #2 | ☑ | ☑ | ☑ | **☑ #3** |
+| 6 | xAI | ☑ | ☑ | ☑ | **☑ #1** |
+| 7 | DeepSeek | ☑ | ☑ | ☑ | **☑ #6** |
 
-**Progress:** **1 / 7** alerts resolved on GitHub (Vercel). **6 remain open** — provider rotation still required.  
+**Progress:** **7 / 7** alerts resolved as **revoked**.  
 
-**HEAD check (fixed, 2026-07-30):** leak source files (`.env.local`, `.env.launch`, `updatedsecets.env`, `supabase.txt`, `deepseek_key_check.py`) **absent** from current tree — history still requires revoke.  
+**CI gate:** QPF main Evidence and Dependency Audit **success** after rotation window (e.g. https://github.com/onenoly1010/Quantum-pi-forge/actions/runs/30566866400).  
 
-**Outreach unlock when:** all 7 “Alert closed” = yes **and** go/no-go gate in `docs/security/ROTATION_COMPLETE_UNFREEZE_CHECKLIST_V1.md` is satisfied.
+**HEAD check (fixed):** leak source files remain **absent** from current tree.  
 
-**Agent cannot** open OpenAI/xAI/DeepSeek/Supabase/GitHub token UIs for you. Complete rows 1 and 3–7 in browser; then mark alerts **Revoked**.
+**Outreach unlock:** **YES** — Slot A/B/C unfrozen. Formal Guild application remains **PARKED** (applications closed). See `docs/security/ROTATION_COMPLETE_UNFREEZE_CHECKLIST_V1.md`.
 
 ---
 
@@ -243,7 +245,7 @@ Dashboard: https://github.com/onenoly1010/quantum-pi-forge-fixed/security/secret
 - Do **not** re-commit env dumps “for backup”
 - Do **not** share new keys in Gmail body / chat
 - Do **not** mark alerts Revoked while old keys still work
-- Do **not** send Slot A/B/C until this sheet is complete
+- Do **not** re-open freeze without a new incident; Slot A/B/C may proceed after this completion record
 
 ---
 
