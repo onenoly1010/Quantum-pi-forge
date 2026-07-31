@@ -15,7 +15,7 @@ Machine work is done. Progress is now **founder-controlled** or **external**.
 | ---: | ---: | --- | --- | --- |
 | 1 | 10–15 | **Designate receive destination** | `docs/activation/command/funding-receiving-form-v1.json` → `fill_by_kris` | Blocks `READY_TO_RECEIVE`; form still `TBD_HUMAN` |
 | 2 | 2 | **AUTHORIZE TO RECEIVE** | Paste phrase + ownership per `AUTHORIZE_TO_RECEIVE_READY_V1.md` | Founder authority is ACTIVE; destination still missing |
-| 3 | ~~Merge PR #614~~ | **Done** | Merged 2026-07-17 | Remove from mental queue |
+| 3 | — | ~~Merge PR #614~~ (**Done**) | https://github.com/onenoly1010/Quantum-pi-forge/pull/614 | Merged 2026-07-17; remove from mental queue |
 | 4 | 15 | **Send Guild follow-up #789** | Draft ready: `grant-package/GRANT_FOLLOWUP_DRAFT_RESTRAINED_V1.md` | M1–M3 evidence packaged; waiting on review |
 | 5 | 10 | **Send revenue / audit walkthrough offer** | `revenue/OFFER_ONE_PAGER_AUDIT_WALKTHROUGH_V1.md` | Only path to client payment without grant |
 | 6 | later | Spiral deadline + M-01…M-04 | spiral-return state | Physical / calendar; not automation |
