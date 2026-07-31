@@ -1,11 +1,11 @@
 {
   "objective": "SPIRAL_RETURN_JULY_2026",
-  "version": "1.6",
+  "version": "1.7",
   "protocol": "docs/activation/spiral-return/SPIRAL_RETURN_JULY_2026_V1.md",
   "closeout": "docs/activation/spiral-return/SPIRAL_RETURN_JULY_2026_CLOSEOUT.md",
   "root_awareness": "docs/activation/ROOT_AWARENESS_VERIFICATION_PROTOCOL_V1.md",
   "created_at_utc": "2026-07-16",
-  "updated_at_utc": "2026-07-31T20:00:00Z",
+  "updated_at_utc": "2026-07-31T20:30:00Z",
   "july_disposition": {
     "status": "MISSED",
     "rolled_to": "2026-08",
@@ -60,8 +60,11 @@
     },
     "M-04": {
       "name": "Equipment/power tested",
-      "status": "UNKNOWN",
-      "evidence": null
+      "status": "WAIVED",
+      "evidence": "docs/activation/spiral-return/evidence/DAY-20260731-M-04-waive.md",
+      "authorization": "Authorize Spiral Return WAIVE: M-04 because remote-only ops through 2026-08-15; no field power/equipment departure kit required",
+      "reason": "remote-only ops through 2026-08-15; no field power/equipment departure kit required",
+      "authorized_at_utc": "2026-07-31"
     },
     "M-05": {
       "name": "Offline capability",
@@ -109,7 +112,7 @@
       "P-01": "WAIVED",
       "P-02": "WAIVED",
       "P-03": "WAIVED",
-      "P-04": "UNKNOWN",
+      "P-04": "WAIVED",
       "P-05": "UNKNOWN"
     },
     "operational": {
@@ -204,9 +207,11 @@
     "receiving_path_incomplete"
   ],
   "next_human_actions": [
-    "Authorize Spiral Return PASS/WAIVE: M-04 (equipment/power smoke test or N/A)",
+    "Close remaining M-gates: M-05, M-07, M-08, M-09, M-12",
+    "Optional: reduce need CAD 4550 if remote-only permanently",
     "If funds arrive: Funding secured CAD <amount> proven by <proof>",
-    "Grant status dated note"
+    "Grant status dated note",
+    "Merge PR #670 when ready"
   ],
   "next_agent_actions_when_asked": [
     "August objective scaffold when deadline pinned",
@@ -223,6 +228,16 @@
     "m02": "WAIVED",
     "m02_reason": "remote-only ops through 2026-08-15; no travel fuel budget required",
     "m03": "WAIVED",
-    "m03_reason": "remote-only ops through 2026-08-15; no lodging/camp required"
-  }
+    "m03_reason": "remote-only ops through 2026-08-15; no lodging/camp required",
+    "m04": "WAIVED",
+    "m04_reason": "remote-only ops through 2026-08-15; no field power/equipment departure kit required",
+    "physical_M01_to_M04": "ALL_WAIVED_REMOTE_ONLY"
+  },
+  "open_m_gates": [
+    "M-05",
+    "M-07",
+    "M-08",
+    "M-09",
+    "M-12"
+  ]
 }
