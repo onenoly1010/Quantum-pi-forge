@@ -1,7 +1,7 @@
 # HUMAN ACTION QUEUE v1
 
 Updated: 2026-07-30T23:48:22Z
-Mode: Event-driven standby + 15m pulse (Day 2)
+Mode: Event-driven standby + 15m pulse
 
 Local autonomous prep is complete when P3=0. Agent wakes on repo/docs changes.
 
