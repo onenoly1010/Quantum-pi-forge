@@ -1,6 +1,6 @@
 # Living Forge — Safe to Run vs Still Forbidden
 
-**Release tag:** `autonomy-day3-stable` → **`d034537`**  
+**Release tag:** `autonomy-day3-stable` (pinned to commit `d034537`)  
 **Commits:** `c67739f` (#665), `4ae0bfe` (#666), `d034537` (#667)  
 **Standing boundary:** `NO_WALLET_TOUCH=true`
 
