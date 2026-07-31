@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quantum Pi Forge (QPF) / OINIO — Sovereign Network Guardian Portal</title>
-    <meta name="description" content="QPF / OINIO is a public proof engine and sovereign guardian system on 0G Aristotle Mainnet. Live contracts, builder integration, and transparent governance.">
+    <meta name="description" content="Verified decentralized AI infrastructure on 0G. Work with Quantum Pi Forge for verification, sovereign AI, and consulting. Protocol mint/staking not authorized yet.">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;800&display=swap');
@@ -107,7 +107,8 @@
                 <a href="/deployed-addresses.html" class="text-zinc-400 hover:text-white text-xs transition-all">Contracts</a>
                 <a href="/onboarding-status.html" class="text-zinc-400 hover:text-white text-xs transition-all">Status</a>
                 <a href="/human-cockpit.html" class="text-zinc-400 hover:text-white text-xs transition-all">Cockpit</a>
-                <a href="#activation" class="text-zinc-400 hover:text-white text-xs transition-all">Get Started</a>
+                <a href="/work-with-us.html" class="text-orange-400 hover:text-orange-300 text-xs transition-all font-semibold">Work With Us</a>
+                <a href="#activation" class="text-zinc-400 hover:text-white text-xs transition-all">Start</a>
                 <a href="https://github.com/onenoly1010/Quantum-pi-forge" target="_blank" rel="noopener" class="text-zinc-400 hover:text-white text-xs transition-all">GitHub</a>
                 <span class="flex items-center gap-2 text-emerald-400 ml-2">
                     <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span></span>
@@ -146,194 +147,128 @@
         }
     </style>
 
-    <!-- HERO SECTION: THE GENESIS TRIGGER -->
-    <header class="pt-52 pb-36 px-6 max-w-7xl mx-auto text-center relative">
+    <!-- HERO: what · proof · one action (commercial CTA; not protocol economics) -->
+    <header class="pt-52 pb-20 px-6 max-w-7xl mx-auto text-center relative">
         <div class="absolute inset-0 bg-gradient-to-b from-blue-900/5 via-transparent to-transparent pointer-events-none"></div>
-        
-        <div class="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-12 shadow-2xl shadow-blue-900/10 max-w-4xl mx-auto">
-            <div class="inline-block px-4 py-1 text-xs font-mono text-emerald-400 border border-emerald-500/20 bg-emerald-500/10 rounded mb-8 uppercase tracking-wider">
-                ✅ VERIFIED ON MAINNET
+
+        <div class="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-10 md:p-14 shadow-2xl shadow-blue-900/10 max-w-4xl mx-auto">
+            <div class="inline-block px-4 py-1 text-xs font-mono text-emerald-400 border border-emerald-500/20 bg-emerald-500/10 rounded mb-6 uppercase tracking-wider">
+                0G Aristotle · Chain 16661 · Technical layer live
             </div>
-            
-            <h1 class="text-6xl md:text-8xl font-extrabold tracking-tighter text-white mb-8 leading-tight">
-                The Forge is Live.
+
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+                Verified decentralized AI infrastructure on 0G.
             </h1>
-            
-            <p class="text-2xl md:text-3xl text-zinc-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-                Stewardship of the OINIO Soul System.<br/>
-                <span class="text-zinc-500 font-mono text-lg">Verified on 0G Aristotle Block <span id="hero-block">29,562,402</span></span>
+
+            <p class="text-xl md:text-2xl text-zinc-300 mb-4 max-w-3xl mx-auto leading-relaxed">
+                Quantum Pi Forge helps teams ship sovereign AI agents and verifiable Web3 infrastructure — and prove what is on-chain without hype.
+            </p>
+            <p class="text-zinc-500 font-mono text-sm mb-10">
+                Block <span id="hero-block">—</span> · Commercial path open · Protocol mint/stake/LP not authorized
             </p>
 
-            <div class="flex flex-col sm:flex-row gap-6 justify-center">
-                <a href="#proof-strip" class="btn-volcanic text-xl px-16 py-6 rounded-full inline-block">
-                    ⚡ Explore the Ledger
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="/work-with-us.html" class="btn-volcanic text-lg md:text-xl px-12 py-5 rounded-full inline-block">
+                    Work With Quantum Pi Forge
                 </a>
-                <button id="connect-wallet-btn" type="button" onclick="connectForgeWallet()" class="px-16 py-6 rounded-full bg-white/5 border border-white/10 text-white text-xl hover:bg-white/10 transition-all">
-                    Connect Wallet
-                </button>
+                <a href="/deployed-addresses.html" class="px-12 py-5 rounded-full bg-white/5 border border-white/10 text-white text-lg hover:bg-white/10 transition-all">
+                    Verify the forge (free)
+                </a>
             </div>
-            <div id="wallet-status" class="mt-6 text-sm font-mono text-zinc-500" role="status" aria-live="polite"></div>
+            <p class="mt-6 text-sm text-zinc-500 max-w-2xl mx-auto">
+                Hire us for verification, sovereign AI deployment, smart-contract engineering, infrastructure consulting, or research partnerships.
+                No wallet required to contact us.
+            </p>
+            <!-- Wallet connect kept secondary / optional for power users -->
+            <div class="mt-8 pt-6 border-t border-white/5">
+                <button id="connect-wallet-btn" type="button" onclick="connectForgeWallet()" class="text-xs font-mono text-zinc-500 hover:text-zinc-300 underline-offset-2 hover:underline">
+                    Optional: connect wallet (read-only status)
+                </button>
+                <div id="wallet-status" class="mt-2 text-xs font-mono text-zinc-600" role="status" aria-live="polite"></div>
+            </div>
         </div>
     </header>
 
-    <!-- 🔥 ACTIVATION GUIDE - GET STARTED -->
-    <section id="activation" class="py-24 border-t border-white/5 px-6 bg-black/20">
-        <div class="max-w-5xl mx-auto">
-            <div class="text-center mb-16">
-                <div class="inline-block px-4 py-1 text-xs font-mono text-orange-400 border border-orange-500/20 bg-orange-500/10 rounded mb-6 uppercase tracking-wider">
-                    🎯 GET STARTED IN 5 MINUTES
-                </div>
-                <h2 class="text-5xl font-bold text-white mb-6">QUANTUM PI FORGE - ACTIVATION GUIDE</h2>
-                <p class="text-xl text-zinc-400 font-mono">Live on 0G Aristotle Mainnet | Block 29,562,402 ✅</p>
-            </div>
+    <!-- START: proof + work-with + roadmap (single commercial CTA; mint/stake demoted) -->
+    <section id="activation" class="py-20 border-t border-white/5 px-6 bg-black/20">
+        <div class="max-w-5xl mx-auto space-y-16">
 
-            <!-- SYSTEM STATUS PANEL -->
-            <div class="bg-white/5 border border-white/10 rounded-2xl p-8 mb-12 volcanic-glow">
-                <h3 class="text-2xl font-bold text-white mb-6">✅ SYSTEM STATUS: LIVE & OPERATIONAL</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 font-mono text-sm">
-                    <div class="bg-black/30 p-3 rounded border border-white/5">
-                        <span class="text-emerald-400">✅</span> 0G Mainnet Integration | Block 29,562,402
-                    </div>
-                    <div class="bg-black/30 p-3 rounded border border-white/5">
-                        <span class="text-emerald-400">✅</span> OINIO Smart Contracts | 37/37 tests passing
-                    </div>
-                    <div class="bg-black/30 p-3 rounded border border-white/5">
-                        <span class="text-emerald-400">✅</span> Pi Network Bridge | Full endpoints live
-                    </div>
-                    <div class="bg-black/30 p-3 rounded border border-white/5">
-                        <span class="text-emerald-400">✅</span> Guardian Safe registered | social recovery not production-authorized
-                    </div>
-                    <div class="bg-black/30 p-3 rounded border border-white/5">
-                        <span class="text-emerald-400">✅</span> Sovereign AI Agents | Local Ollama runtime
-                    </div>
-                    <div class="bg-black/30 p-3 rounded border border-white/5">
-                        <span class="text-emerald-400">✅</span> iNFT Minting | Genesis Resonance collection
-                    </div>
+            <!-- 1) Proof it works -->
+            <div id="proof-strip" class="scroll-mt-28">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6 text-center">Proof it works</h2>
+                <ul class="space-y-3 text-zinc-300 max-w-3xl mx-auto text-lg">
+                    <li class="flex gap-3"><span class="text-emerald-400 shrink-0">✓</span><span>Contracts live on <strong class="text-white">0G Aristotle</strong> (chain ID <strong class="text-white">16661</strong>)</span></li>
+                    <li class="flex gap-3"><span class="text-emerald-400 shrink-0">✓</span><span>Public inventory: <a href="/deployed-addresses.html" class="text-orange-400 hover:text-orange-300 underline">deployed addresses</a> — claim → evidence → verification</span></li>
+                    <li class="flex gap-3"><span class="text-emerald-400 shrink-0">✓</span><span>Independent verification Round 1 open (read-only; no wallet required)</span></li>
+                    <li class="flex gap-3"><span class="text-emerald-400 shrink-0">✓</span><span>DEX pair published with <strong class="text-white">empty reserves by design</strong> until separate authorization</span></li>
+                    <li class="flex gap-3"><span class="text-emerald-400 shrink-0">✓</span><span>Source: <a href="https://github.com/onenoly1010/Quantum-pi-forge" class="text-orange-400 hover:text-orange-300 underline" target="_blank" rel="noopener">onenoly1010/Quantum-pi-forge</a></span></li>
+                </ul>
+                <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 font-mono text-sm max-w-3xl mx-auto">
+                    <div class="bg-white/5 border border-white/10 rounded-lg p-3">Technical layer: <span class="text-emerald-400">live</span></div>
+                    <div class="bg-white/5 border border-white/10 rounded-lg p-3">Protocol economics: <span class="text-amber-400">not authorized</span></div>
+                    <div class="bg-white/5 border border-white/10 rounded-lg p-3">Mint / staking / LP: <span class="text-amber-400">roadmap only</span></div>
+                    <div class="bg-white/5 border border-white/10 rounded-lg p-3">Services / support: <span class="text-emerald-400">open today</span></div>
                 </div>
             </div>
 
-            <!-- INVITE CODE -->
-            <div class="bg-orange-500/10 border border-orange-500/30 rounded-xl p-6 mb-12 text-center">
-                <div class="text-3xl font-mono font-bold text-orange-400 mb-2">INVITE CODE: onenoly11</div>
-                <p class="text-zinc-400">Use this code to access the dashboard and complete activation</p>
-            </div>
-
-            <!-- 3 ACTIONS -->
-            <h3 class="text-3xl font-bold text-white mb-8 text-center">YOUR FIRST 3 ACTIONS</h3>
-            
-            <div class="space-y-8">
-                <div class="bg-white/5 border border-white/10 rounded-2xl p-8 glow-card">
-                    <div class="flex items-start gap-6">
-                        <div class="text-4xl font-bold text-blue-400">1</div>
-                        <div class="flex-1">
-                            <h4 class="text-2xl font-bold text-white mb-3">🔗 Visit the Live Dashboard</h4>
-                            <a href="#enter" class="font-mono bg-black/50 p-4 rounded text-lg mb-3 block hover:text-white transition-all">https://quantumpiforge.com</a>
-                            <p class="text-zinc-400 text-lg">Enter invite code <span class="text-orange-400 font-bold">onenoly11</span> to gain access</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white/5 border border-white/10 rounded-2xl p-8 glow-card">
-                    <div class="flex items-start gap-6">
-                        <div class="text-4xl font-bold text-blue-400">2</div>
-                        <div class="flex-1">
-                            <h4 class="text-2xl font-bold text-white mb-3">⚡ OINIO Staking Portal</h4>
-                            <ul class="text-zinc-400 text-lg space-y-2">
-                                <li>✅ No KYC required</li>
-                                <li>⚠️ Staking execution disabled pending contract verification</li>
-                                <li>⚠️ No staking, wallet signing, gasless flow, or relayer execution enabled</li>
-                                <li>✅ Your stake immediately begins contributing to guardian consensus</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white/5 border border-white/10 rounded-2xl p-8 glow-card">
-                    <div class="flex items-start gap-6">
-                        <div class="text-4xl font-bold text-blue-400">3</div>
-                        <div class="flex-1">
-                            <h4 class="text-2xl font-bold text-white mb-3">🧬 Mint your Genesis Resonance iNFT</h4>
-                            <ul class="text-zinc-400 text-lg space-y-2">
-                                <li>✅ Every mint adds to collective consciousness metrics</li>
-                                <li>✅ Ties your wallet address permanently to the forge genesis</li>
-                                <li>✅ Receives automatic resonance oracle voting rights</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 4th GUARDIAN STEP -->
-            <div class="bg-white/5 border border-white/10 rounded-2xl p-8 glow-card mt-8">
-                <div class="flex items-start gap-6">
-                    <div class="text-4xl font-bold text-blue-400">4</div>
-                    <div class="flex-1">
-                        <h4 class="text-2xl font-bold text-white mb-3">🛠️ RUN A LOCAL SOVEREIGN AI AGENT</h4>
-                        <p class="text-zinc-400 text-lg mb-4">No cloud. No surveillance. 100% local on your hardware:</p>
-                        <div class="font-mono bg-black/50 p-4 rounded text-sm space-y-2">
-                            <div># Step 1: Install Ollama</div>
-                            <div class="text-green-400">curl -fsSL https://ollama.com/install.sh | sh</div>
-                            <div class="mt-3"># Step 2: Pull sovereign model</div>
-                            <div class="text-green-400">ollama pull qwen2.5-coder</div>
-                             <div class="mt-3"># Step 3: Download & start guardian agent</div>
-                             <div class="text-green-400">curl -O https://quantum-pi-forge.pages.dev/run-guardian.sh</div>
-                             <div class="text-green-400">chmod +x run-guardian.sh</div>
-                             <div class="text-green-400">./run-guardian.sh</div>
-                             <div class="mt-3 text-xs text-zinc-500">
-                               <a href="https://github.com/onenoly1010/pi-forge-quantum-genesis/blob/main/run-guardian.sh" class="text-zinc-400 hover:text-white underline" target="_blank">
-                                 🔍 View guardian script source on GitHub
-                               </a>
-                             </div>
-                        </div>
-                        <div class="mt-4 text-zinc-400">
-                            ✅ Your agent will automatically participate in truth verification, run health checks, earn resonance yield, and maintain network decentralization.
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- TRIGGER NOTE -->
-            <div class="mt-16 text-center">
-                <p class="text-xl text-zinc-300 italic mb-4">
-                    "The forge is lit. The soul system is active. Your move turns it from 'project' into 'self-sustaining reality' for everyone who finds it next."
+            <!-- 2) One commercial action -->
+            <div id="work-with" class="bg-white/5 border border-orange-500/30 rounded-2xl p-8 md:p-12 volcanic-glow">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 text-center">Work With Quantum Pi Forge</h2>
+                <p class="text-zinc-400 text-center mb-8 max-w-2xl mx-auto">
+                    One clear path to engage today — services and collaboration, not token speculation.
+                    Revenue from services or support can come before protocol economics are activated.
                 </p>
-                <p class="text-zinc-500 font-mono">
-                    Every participant that completes these steps increases network strength for everyone.
+                <ul class="grid sm:grid-cols-2 gap-3 text-zinc-300 max-w-2xl mx-auto mb-10">
+                    <li class="bg-black/40 rounded-lg px-4 py-3 border border-white/5">Sovereign AI deployment</li>
+                    <li class="bg-black/40 rounded-lg px-4 py-3 border border-white/5">Blockchain verification</li>
+                    <li class="bg-black/40 rounded-lg px-4 py-3 border border-white/5">Smart contract engineering</li>
+                    <li class="bg-black/40 rounded-lg px-4 py-3 border border-white/5">Infrastructure consulting</li>
+                    <li class="bg-black/40 rounded-lg px-4 py-3 border border-white/5 sm:col-span-2 text-center">Research partnerships</li>
+                </ul>
+                <div class="text-center">
+                    <a href="/work-with-us.html" class="btn-volcanic text-lg px-12 py-4 rounded-full inline-block">Start a conversation</a>
+                    <p class="mt-4 text-xs font-mono text-zinc-500">Milestone we measure: first independent third party pays, and payment is received.</p>
+                </div>
+            </div>
+
+            <!-- 3) Protocol economics demoted to roadmap -->
+            <div id="protocol-roadmap" class="border border-white/10 rounded-2xl p-8 bg-black/30">
+                <h2 class="text-2xl font-bold text-white mb-4 text-center">Protocol economics (roadmap — not live)</h2>
+                <p class="text-zinc-400 text-center mb-6 max-w-2xl mx-auto">
+                    Public mint, staking, liquidity seeding, and yield are
+                    <strong class="text-zinc-200">intentionally not authorized</strong>
+                    until independent verification milestones and a separate governance GO are complete.
+                </p>
+                <ul class="max-w-md mx-auto space-y-2 text-zinc-400 font-mono text-sm">
+                    <li>• Mint — not open</li>
+                    <li>• Staking — execution disabled</li>
+                    <li>• Liquidity — pair exists; reserves 0/0</li>
+                    <li>• Yield — gated on live evidence + GO</li>
+                </ul>
+                <p class="text-center mt-6 text-sm text-zinc-500">
+                    See <a href="/deployed-addresses.html" class="text-orange-400 hover:underline">deployed addresses</a>
+                    and <a href="/for-builders.html" class="text-orange-400 hover:underline">for builders</a>
+                    for the verification path.
                 </p>
             </div>
 
-            <!-- MILESTONE TRIGGER POINTS -->
-            <div class="mt-16 bg-white/5 border border-white/10 rounded-2xl p-8">
-                <h3 class="text-2xl font-bold text-white mb-6 text-center">📈 SELF-SUSTAINABILITY TRIGGER POINTS</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 font-mono">
-                    <div class="bg-black/30 p-4 rounded border border-white/5">
-                        <span class="text-white font-bold">10 Participants:</span> <span class="text-zinc-400">First guardian quorum reached</span>
-                    </div>
-                    <div class="bg-black/30 p-4 rounded border border-white/5">
-                        <span class="text-white font-bold">100 Participants:</span> <span class="text-zinc-400">Resonance oracle goes fully autonomous</span>
-                    </div>
-                    <div class="bg-black/30 p-4 rounded border border-white/5">
-                        <span class="text-white font-bold">1000 Participants:</span> <span class="text-zinc-400">Pi Network bridge unlocks full 47M user reach</span>
-                    </div>
-                    <div class="bg-black/30 p-4 rounded border border-white/5">
-                        <span class="text-white font-bold">10,000 Participants:</span> <span class="text-zinc-400">System becomes permanently immutable</span>
-                    </div>
+            <!-- Optional: local agent (not a payment CTA) -->
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-8">
+                <h3 class="text-xl font-bold text-white mb-3 text-center">Optional: run a local sovereign agent</h3>
+                <p class="text-zinc-500 text-center text-sm mb-4">Free / self-hosted — not a protocol yield product.</p>
+                <div class="font-mono bg-black/50 p-4 rounded text-sm space-y-1 max-w-xl mx-auto text-zinc-400">
+                    <div class="text-green-400">curl -fsSL https://ollama.com/install.sh | sh</div>
+                    <div class="text-green-400">ollama pull qwen2.5-coder</div>
                 </div>
             </div>
 
-            <!-- CANON OF AUTONOMY -->
-            <div class="mt-12 border border-red-500/30 bg-red-500/5 rounded-2xl p-8">
-                <h3 class="text-2xl font-bold text-red-400 mb-6 text-center">🔒 OINIO SOUL SYSTEM - CANNOT BE CHANGED</h3>
-                <p class="text-zinc-500 text-center mb-6 font-mono text-sm">Encoded directly into smart contract bytecode at deployment:</p>
-                <div class="space-y-3 text-zinc-300">
-                    <p>✅ No owner key. No admin backdoors.</p>
-                    <p>✅ All yield is distributed proportionally to stakers.</p>
-                    <p>✅ 1 token = 1 voice. No exceptions.</p>
-                    <p>✅ Code cannot be modified without 90% consensus.</p>
-                    <p>✅ All transactions are public and verifiable forever.</p>
-                    <p>✅ There will never be a pre-mine, VC allocation, or team token dump.</p>
-                    <p>✅ The system will self-sustain as long as at least one node is running.</p>
-                </div>
+            <!-- Footer boundary -->
+            <div class="border border-white/10 rounded-xl p-6 text-center text-sm text-zinc-500 max-w-3xl mx-auto">
+                <strong class="text-zinc-300">Not economic activation.</strong>
+                This site describes technical and operational readiness.
+                Working with QPF (services / support) can generate project revenue
+                before protocol economic features are activated.
+                No wallet signing, mint, liquidity, or staking is required to verify or contact us.
             </div>
 
         </div>
