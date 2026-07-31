@@ -598,7 +598,7 @@ function writeHumanQueue(q) {
     "# HUMAN ACTION QUEUE v1",
     "",
     `Updated: ${now()}`,
-    "Mode: Event-driven standby + 15m pulse (Day 2)",
+    "Mode: Event-driven standby + 15m pulse",
     "",
     "Local autonomous prep is complete when P3=0. Agent wakes on repo/docs changes.",
     "",
