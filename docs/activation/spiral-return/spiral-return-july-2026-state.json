@@ -1,11 +1,11 @@
 {
   "objective": "SPIRAL_RETURN_JULY_2026",
-  "version": "1.4",
+  "version": "1.5",
   "protocol": "docs/activation/spiral-return/SPIRAL_RETURN_JULY_2026_V1.md",
   "closeout": "docs/activation/spiral-return/SPIRAL_RETURN_JULY_2026_CLOSEOUT.md",
   "root_awareness": "docs/activation/ROOT_AWARENESS_VERIFICATION_PROTOCOL_V1.md",
   "created_at_utc": "2026-07-16",
-  "updated_at_utc": "2026-07-31T19:00:00Z",
+  "updated_at_utc": "2026-07-31T19:30:00Z",
   "july_disposition": {
     "status": "MISSED",
     "rolled_to": "2026-08",
@@ -44,8 +44,11 @@
     },
     "M-02": {
       "name": "Fuel/energy/budget secured",
-      "status": "UNKNOWN",
-      "evidence": null
+      "status": "WAIVED",
+      "evidence": "docs/activation/spiral-return/evidence/DAY-20260731-M-02-waive.md",
+      "authorization": "Authorize Spiral Return WAIVE: M-02 because remote-only ops through 2026-08-15; no travel fuel budget required",
+      "reason": "remote-only ops through 2026-08-15; no travel fuel budget required",
+      "authorized_at_utc": "2026-07-31"
     },
     "M-03": {
       "name": "Lodging/camp confirmed",
@@ -101,7 +104,7 @@
   "checklist": {
     "physical": {
       "P-01": "WAIVED",
-      "P-02": "UNKNOWN",
+      "P-02": "WAIVED",
       "P-03": "UNKNOWN",
       "P-04": "UNKNOWN",
       "P-05": "UNKNOWN"
@@ -198,10 +201,9 @@
     "receiving_path_incomplete"
   ],
   "next_human_actions": [
-    "Authorize Spiral Return PASS/WAIVE: M-02 (fuel/budget or N/A under remote-only)",
-    "Authorize Spiral Return PASS/WAIVE: M-03",
-    "Authorize Spiral Return PASS/WAIVE: M-04",
-    "If funds arrive: Funding secured CAD <amount> proven by <proof> (replaces zero)",
+    "Authorize Spiral Return PASS/WAIVE: M-03 (lodging/camp or N/A remote-only)",
+    "Authorize Spiral Return PASS/WAIVE: M-04 (equipment/power)",
+    "If funds arrive: Funding secured CAD <amount> proven by <proof>",
     "Grant status dated note"
   ],
   "next_agent_actions_when_asked": [
@@ -215,6 +217,8 @@
     "m01": "WAIVED",
     "funding_proof": "VERIFIED_ZERO",
     "m01_reason": "remote-only ops through 2026-08-15; no physical departure required",
-    "secured_cad": 0
+    "secured_cad": 0,
+    "m02": "WAIVED",
+    "m02_reason": "remote-only ops through 2026-08-15; no travel fuel budget required"
   }
 }
