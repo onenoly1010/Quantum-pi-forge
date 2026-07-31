@@ -64,5 +64,8 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: quantumpiforge
-          directory: out
+          # Run from the static output so Wrangler does not load the root
+          # Worker configuration, whose [assets] section is invalid for Pages.
+          workingDirectory: out
+          directory: .
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
