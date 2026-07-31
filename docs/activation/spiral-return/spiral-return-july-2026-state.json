@@ -1,11 +1,11 @@
 {
   "objective": "SPIRAL_RETURN_JULY_2026",
-  "version": "1.2",
+  "version": "1.3",
   "protocol": "docs/activation/spiral-return/SPIRAL_RETURN_JULY_2026_V1.md",
   "closeout": "docs/activation/spiral-return/SPIRAL_RETURN_JULY_2026_CLOSEOUT.md",
   "root_awareness": "docs/activation/ROOT_AWARENESS_VERIFICATION_PROTOCOL_V1.md",
   "created_at_utc": "2026-07-16",
-  "updated_at_utc": "2026-07-31T12:00:00Z",
+  "updated_at_utc": "2026-07-31T18:00:00Z",
   "july_disposition": {
     "status": "MISSED",
     "rolled_to": "2026-08",
@@ -36,8 +36,11 @@
   "minimum_must_be_true": {
     "M-01": {
       "name": "Transportation confirmed",
-      "status": "UNKNOWN",
-      "evidence": null
+      "status": "WAIVED",
+      "evidence": "docs/activation/spiral-return/evidence/DAY-20260731-M-01-waive.md",
+      "authorization": "Authorize Spiral Return WAIVE: M-01 because remote-only ops through 2026-08-15; no physical departure required",
+      "reason": "remote-only ops through 2026-08-15; no physical departure required",
+      "authorized_at_utc": "2026-07-31"
     },
     "M-02": {
       "name": "Fuel/energy/budget secured",
@@ -97,7 +100,7 @@
   },
   "checklist": {
     "physical": {
-      "P-01": "UNKNOWN",
+      "P-01": "WAIVED",
       "P-02": "UNKNOWN",
       "P-03": "UNKNOWN",
       "P-04": "UNKNOWN",
@@ -187,9 +190,9 @@
     "receiving_path_incomplete"
   ],
   "next_human_actions": [
-    "Authorize Spiral Return PASS: M-01 + evidence path: <real path> OR WAIVE with reason",
-    "Funding secured CAD <real amount> proven by <real proof> (or remain 0)",
-    "Continue M-02..M-04 PASS or WAIVE before 2026-08-15",
+    "Funding secured CAD <real amount> proven by <real proof> (or remain 0 explicitly)",
+    "Authorize Spiral Return PASS/WAIVE: M-02 (fuel/budget) \u2014 still required even if remote-only if M-02 is travel fuel; or WAIVE if N/A",
+    "Authorize Spiral Return PASS/WAIVE: M-03, M-04 as applicable under remote-only",
     "Grant status dated note"
   ],
   "next_agent_actions_when_asked": [
@@ -200,7 +203,8 @@
   "august_window": {
     "status": "OPEN",
     "deadline": "2026-08-15",
-    "m01": "UNKNOWN",
-    "funding_proof": "NOT_SET"
+    "m01": "WAIVED",
+    "funding_proof": "NOT_SET",
+    "m01_reason": "remote-only ops through 2026-08-15; no physical departure required"
   }
 }
