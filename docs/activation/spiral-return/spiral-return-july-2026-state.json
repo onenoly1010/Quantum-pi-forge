@@ -1,11 +1,11 @@
 {
   "objective": "SPIRAL_RETURN_JULY_2026",
-  "version": "1.10",
+  "version": "1.11",
   "protocol": "docs/activation/spiral-return/SPIRAL_RETURN_JULY_2026_V1.md",
   "closeout": "docs/activation/spiral-return/SPIRAL_RETURN_JULY_2026_CLOSEOUT.md",
   "root_awareness": "docs/activation/ROOT_AWARENESS_VERIFICATION_PROTOCOL_V1.md",
   "created_at_utc": "2026-07-16",
-  "updated_at_utc": "2026-07-31T22:00:00Z",
+  "updated_at_utc": "2026-07-31T22:30:00Z",
   "july_disposition": {
     "status": "MISSED",
     "rolled_to": "2026-08",
@@ -98,8 +98,12 @@
     },
     "M-09": {
       "name": "Receipts/docs offline",
-      "status": "PARTIAL",
-      "evidence": "critical paths exist on disk; uncommitted evidence not in remote"
+      "status": "WAIVED",
+      "evidence": "docs/activation/spiral-return/evidence/DAY-20260731-M-09-waive.md",
+      "authorization": "Authorize Spiral Return WAIVE: M-09 because remote-only ops through 2026-08-15; receipts/docs offline index remains partial and acceptable for this window",
+      "reason": "remote-only ops through 2026-08-15; receipts/docs offline index remains partial and acceptable for this window",
+      "authorized_at_utc": "2026-07-31",
+      "prior_status": "PARTIAL"
     },
     "M-10": {
       "name": "System snapshot + deploy matrix known",
@@ -130,7 +134,7 @@
       "O-02": "PASS",
       "O-03": "WAIVED",
       "O-04": "WAIVED",
-      "O-05": "UNKNOWN"
+      "O-05": "WAIVED"
     },
     "evidence": {
       "E-01": "PARTIAL",
@@ -217,7 +221,7 @@
     "receiving_path_incomplete"
   ],
   "next_human_actions": [
-    "Close remaining M-gates: M-09, M-12",
+    "Close remaining M-gates: M-12",
     "If funds arrive: Funding secured CAD <amount> proven by <proof>",
     "Grant status dated note",
     "Merge PR #670 when ready"
@@ -246,10 +250,11 @@
     "m07": "WAIVED",
     "m07_reason": "remote-only ops through 2026-08-15; full restore drill deferred to post-window",
     "m05": "WAIVED",
-    "m05_reason": "remote-only ops through 2026-08-15; offline pack remains partial and acceptable for this window"
+    "m05_reason": "remote-only ops through 2026-08-15; offline pack remains partial and acceptable for this window",
+    "m09": "WAIVED",
+    "m09_reason": "remote-only ops through 2026-08-15; receipts/docs offline index remains partial and acceptable for this window"
   },
   "open_m_gates": [
-    "M-09",
     "M-12"
   ]
 }
