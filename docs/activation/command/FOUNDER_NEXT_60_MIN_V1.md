@@ -1,7 +1,7 @@
 # Founder next 60 minutes — post `autonomy-day3-stable`
 
 **As of:** 2026-07-30  
-**Tag:** `autonomy-day3-stable` → `d034537`  
+**Tag:** `autonomy-day3-stable` (pinned to commit `d034537`)  
 **Autonomy status:** Day 1–3 **stable**; open P3 = 0; local pulse + event loop **active**  
 **Boundary:** `NO_WALLET_TOUCH=true` — agent does **not** fill destination, send mail, or move funds
 
