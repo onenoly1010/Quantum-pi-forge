@@ -1,17 +1,29 @@
 {
   "objective": "SPIRAL_RETURN_JULY_2026",
-  "version": "1",
+  "version": "2.0",
   "protocol": "docs/activation/spiral-return/SPIRAL_RETURN_JULY_2026_V1.md",
+  "closeout": "docs/activation/spiral-return/SPIRAL_RETURN_JULY_2026_CLOSEOUT.md",
   "root_awareness": "docs/activation/ROOT_AWARENESS_VERIFICATION_PROTOCOL_V1.md",
   "created_at_utc": "2026-07-16",
-  "updated_at_utc": "2026-07-16T20:27:52Z",
-  "deadline": {
-    "date": null,
-    "status": "UNKNOWN",
-    "candidate_default_utc": "2026-07-31T23:59:59Z",
-    "note": "Not valid until human: Authorize Spiral Return deadline: YYYY-MM-DD"
+  "updated_at_utc": "2026-07-31T23:00:00Z",
+  "july_disposition": {
+    "status": "MISSED",
+    "rolled_to": "2026-08",
+    "sealed_at_utc": "2026-07-31",
+    "authorization": "seal closeout",
+    "departure_ready": false,
+    "note": "July MISSED; August OPEN; deadline authorized 2026-08-15"
   },
-  "departure_ready": false,
+  "deadline": {
+    "date": "2026-08-15",
+    "status": "AUTHORIZED",
+    "authorized_at_utc": "2026-07-31",
+    "authorization": "Authorize Spiral Return deadline: 2026-08-15",
+    "candidate_default_utc": "2026-07-31T23:59:59Z",
+    "july_candidate_expired": true,
+    "note": "Human-authorized August deadline. departure_ready remains false until M-gates + funding clear."
+  },
+  "departure_ready": true,
   "optimization_target": "verified_state_transition",
   "daily_artifact_required": true,
   "execution_loop": [
@@ -24,28 +36,44 @@
   "minimum_must_be_true": {
     "M-01": {
       "name": "Transportation confirmed",
-      "status": "UNKNOWN",
-      "evidence": null
+      "status": "WAIVED",
+      "evidence": "docs/activation/spiral-return/evidence/DAY-20260731-M-01-waive.md",
+      "authorization": "Authorize Spiral Return WAIVE: M-01 because remote-only ops through 2026-08-15; no physical departure required",
+      "reason": "remote-only ops through 2026-08-15; no physical departure required",
+      "authorized_at_utc": "2026-07-31"
     },
     "M-02": {
       "name": "Fuel/energy/budget secured",
-      "status": "UNKNOWN",
-      "evidence": null
+      "status": "WAIVED",
+      "evidence": "docs/activation/spiral-return/evidence/DAY-20260731-M-02-waive.md",
+      "authorization": "Authorize Spiral Return WAIVE: M-02 because remote-only ops through 2026-08-15; no travel fuel budget required",
+      "reason": "remote-only ops through 2026-08-15; no travel fuel budget required",
+      "authorized_at_utc": "2026-07-31"
     },
     "M-03": {
       "name": "Lodging/camp confirmed",
-      "status": "UNKNOWN",
-      "evidence": null
+      "status": "WAIVED",
+      "evidence": "docs/activation/spiral-return/evidence/DAY-20260731-M-03-waive.md",
+      "authorization": "Authorize Spiral Return WAIVE: M-03 because remote-only ops through 2026-08-15; no lodging/camp required",
+      "reason": "remote-only ops through 2026-08-15; no lodging/camp required",
+      "authorized_at_utc": "2026-07-31"
     },
     "M-04": {
       "name": "Equipment/power tested",
-      "status": "UNKNOWN",
-      "evidence": null
+      "status": "WAIVED",
+      "evidence": "docs/activation/spiral-return/evidence/DAY-20260731-M-04-waive.md",
+      "authorization": "Authorize Spiral Return WAIVE: M-04 because remote-only ops through 2026-08-15; no field power/equipment departure kit required",
+      "reason": "remote-only ops through 2026-08-15; no field power/equipment departure kit required",
+      "authorized_at_utc": "2026-07-31"
     },
     "M-05": {
       "name": "Offline capability",
-      "status": "PARTIAL",
-      "evidence": "path inventory in EXECUTION-TEST-20260716T202752Z.md \u2014 local paths exist; full offline pack not sealed in git"
+      "status": "WAIVED",
+      "evidence": "docs/activation/spiral-return/evidence/DAY-20260731-M-05-waive.md",
+      "authorization": "Authorize Spiral Return WAIVE: M-05 because remote-only ops through 2026-08-15; offline pack remains partial and acceptable for this window",
+      "reason": "remote-only ops through 2026-08-15; offline pack remains partial and acceptable for this window",
+      "authorized_at_utc": "2026-07-31",
+      "prior_status": "PARTIAL"
     },
     "M-06": {
       "name": "Local AI stack functional",
@@ -54,18 +82,28 @@
     },
     "M-07": {
       "name": "Backups restore-verified",
-      "status": "UNKNOWN",
-      "evidence": null
+      "status": "WAIVED",
+      "evidence": "docs/activation/spiral-return/evidence/DAY-20260731-M-07-waive.md",
+      "authorization": "Authorize Spiral Return WAIVE: M-07 because remote-only ops through 2026-08-15; full restore drill deferred to post-window",
+      "reason": "remote-only ops through 2026-08-15; full restore drill deferred to post-window",
+      "authorized_at_utc": "2026-07-31"
     },
     "M-08": {
       "name": "Wallet access verified no key exposure",
-      "status": "UNKNOWN",
-      "evidence": null
+      "status": "WAIVED",
+      "evidence": "docs/activation/spiral-return/evidence/DAY-20260731-M-08-waive.md",
+      "authorization": "Authorize Spiral Return WAIVE: M-08 because remote-only ops through 2026-08-15; no wallet access operation required in this window",
+      "reason": "remote-only ops through 2026-08-15; no wallet access operation required in this window",
+      "authorized_at_utc": "2026-07-31"
     },
     "M-09": {
       "name": "Receipts/docs offline",
-      "status": "PARTIAL",
-      "evidence": "critical paths exist on disk; uncommitted evidence not in remote"
+      "status": "WAIVED",
+      "evidence": "docs/activation/spiral-return/evidence/DAY-20260731-M-09-waive.md",
+      "authorization": "Authorize Spiral Return WAIVE: M-09 because remote-only ops through 2026-08-15; receipts/docs offline index remains partial and acceptable for this window",
+      "reason": "remote-only ops through 2026-08-15; receipts/docs offline index remains partial and acceptable for this window",
+      "authorized_at_utc": "2026-07-31",
+      "prior_status": "PARTIAL"
     },
     "M-10": {
       "name": "System snapshot + deploy matrix known",
@@ -79,24 +117,28 @@
     },
     "M-12": {
       "name": "No unclassified dirty tree",
-      "status": "PARTIAL",
-      "evidence": "EXECUTION-TEST-20260716T202752Z.md porcelain inventory: AI evidence classified; commit requires Authorize commit; cache=artifact"
+      "status": "WAIVED",
+      "evidence": "docs/activation/spiral-return/evidence/DAY-20260731-M-12-waive.md",
+      "authorization": "Authorize Spiral Return WAIVE: M-12 because remote-only ops through 2026-08-15; dirty-tree classification remains partial and acceptable for this window",
+      "reason": "remote-only ops through 2026-08-15; dirty-tree classification remains partial and acceptable for this window",
+      "authorized_at_utc": "2026-07-31",
+      "prior_status": "PARTIAL"
     }
   },
   "checklist": {
     "physical": {
-      "P-01": "UNKNOWN",
-      "P-02": "UNKNOWN",
-      "P-03": "UNKNOWN",
-      "P-04": "UNKNOWN",
-      "P-05": "UNKNOWN"
+      "P-01": "WAIVED",
+      "P-02": "WAIVED",
+      "P-03": "WAIVED",
+      "P-04": "WAIVED",
+      "P-05": "WAIVED"
     },
     "operational": {
       "O-01": "UNKNOWN",
       "O-02": "PASS",
-      "O-03": "UNKNOWN",
-      "O-04": "UNKNOWN",
-      "O-05": "UNKNOWN"
+      "O-03": "WAIVED",
+      "O-04": "WAIVED",
+      "O-05": "WAIVED"
     },
     "evidence": {
       "E-01": "PARTIAL",
@@ -105,7 +147,7 @@
       "E-04": "PASS"
     },
     "financial": {
-      "F-01": "UNKNOWN",
+      "F-01": "VERIFIED_ZERO",
       "F-02": "UNKNOWN",
       "F-03": "UNKNOWN",
       "wallet_event_complete_only_if": [
@@ -159,7 +201,15 @@
       }
     ],
     "rule": "No claim of funds without on-chain completeness gate",
-    "funding_status": "PENDING"
+    "funding_status": "VERIFIED_ZERO",
+    "funding_proof": {
+      "amount_cad": 0,
+      "status": "VERIFIED_ZERO",
+      "authorization": "Funding secured CAD 0 proven by receipts/spiral-return/spiral-return-secured-source-ledger-v1.json confirmed_secured_total=0 as of 2026-07-31",
+      "proven_by": "receipts/spiral-return/spiral-return-secured-source-ledger-v1.json confirmed_secured_total=0 as of 2026-07-31",
+      "authorized_at_utc": "2026-07-31",
+      "evidence": "docs/activation/spiral-return/evidence/DAY-20260731-funding-zero.md"
+    }
   },
   "activation_lane": {
     "economic_activation_ready": false,
@@ -167,14 +217,58 @@
     "do_not_restart_pass_gates": true,
     "blockers_ref": "docs/activation/final/REMAINING_BLOCKERS_V1.md"
   },
+  "blockers_carry_forward": [
+    "funding_gap_cad_4550",
+    "deadline_unpinned_august",
+    "physical_M-01_to_M-04",
+    "grant_review_pending",
+    "receiving_path_incomplete"
+  ],
   "next_human_actions": [
-    "Authorize Spiral Return deadline: YYYY-MM-DD",
-    "Fill M-01..M-03 physical facts with evidence paths",
-    "Optional: Authorize commit for activation evidence freeze"
+    "Merge PR #670 to land seals on main",
+    "Optional: reduce estimated need CAD 4550 if remote-only permanent",
+    "If funds arrive: Funding secured CAD <amount> proven by <proof>",
+    "Grant status dated note",
+    "Round 1 external reports (issue #636) still independent track"
   ],
   "next_agent_actions_when_asked": [
-    "Root state snapshot receipt",
-    "M-06 local non-mutating verify + evidence",
-    "Update this state JSON only when evidence exists"
-  ]
+    "No further M-gate seals needed for this window",
+    "Support August ops / Round 1 / funding updates on phrase only"
+  ],
+  "august_window": {
+    "status": "OPEN",
+    "deadline": "2026-08-15",
+    "m01": "WAIVED",
+    "funding_proof": "VERIFIED_ZERO",
+    "m01_reason": "remote-only ops through 2026-08-15; no physical departure required",
+    "secured_cad": 0,
+    "m02": "WAIVED",
+    "m02_reason": "remote-only ops through 2026-08-15; no travel fuel budget required",
+    "m03": "WAIVED",
+    "m03_reason": "remote-only ops through 2026-08-15; no lodging/camp required",
+    "m04": "WAIVED",
+    "m04_reason": "remote-only ops through 2026-08-15; no field power/equipment departure kit required",
+    "physical_M01_to_M04": "ALL_WAIVED_REMOTE_ONLY",
+    "m08": "WAIVED",
+    "m08_reason": "remote-only ops through 2026-08-15; no wallet access operation required in this window",
+    "m07": "WAIVED",
+    "m07_reason": "remote-only ops through 2026-08-15; full restore drill deferred to post-window",
+    "m05": "WAIVED",
+    "m05_reason": "remote-only ops through 2026-08-15; offline pack remains partial and acceptable for this window",
+    "m09": "WAIVED",
+    "m09_reason": "remote-only ops through 2026-08-15; receipts/docs offline index remains partial and acceptable for this window",
+    "m12": "WAIVED",
+    "m12_reason": "remote-only ops through 2026-08-15; dirty-tree classification remains partial and acceptable for this window",
+    "all_m_gates_closed": true,
+    "departure_ready": true
+  },
+  "open_m_gates": [],
+  "departure_ready_semantics": {
+    "value": true,
+    "mode": "REMOTE_ONLY_WAIVER_WINDOW",
+    "deadline": "2026-08-15",
+    "physical_travel": false,
+    "funded_runway_cad": 0,
+    "note": "departure_ready=true means all M-gates are PASS or WAIVED for this window only. It does NOT authorize mint, liquidity, economic activation, grant award, or funded physical travel."
+  }
 }
