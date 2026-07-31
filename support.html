@@ -2,52 +2,124 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Support / Build With Quantum Pi Forge</title>
+  <title>Support the Forge — Quantum Pi Forge</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;max-width:900px;margin:40px auto;padding:0 20px;line-height:1.6}
-    code{background:#f2f2f2;padding:2px 5px;border-radius:4px}
-    .box{border:1px solid #ddd;border-radius:12px;padding:18px;margin:18px 0}
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+      background: #050505;
+      color: #e0e0e0;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+      line-height: 1.7;
+    }
+    a { color: #fb923c; }
+    a:hover { color: #fdba74; }
+    h1 { font-size: 2.5rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
+    h2 { font-size: 1.25rem; font-weight: 600; color: #fff; margin-bottom: 0.75rem; }
+    .subtitle { color: #71717a; font-size: 1.1rem; margin-bottom: 3rem; }
+    .box {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin: 20px 0;
+      background: rgba(255,255,255,0.03);
+    }
+    .box ul { padding-left: 1.2rem; color: #a1a1aa; }
+    .box ul li { margin-bottom: 0.4rem; }
+    .highlight { border-color: rgba(251,146,60,0.3); background: rgba(251,146,60,0.04); }
+    .rule { border-color: rgba(239,68,68,0.2); background: rgba(239,68,68,0.03); }
+    code { background: rgba(255,255,255,0.07); padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
+    .back { display: inline-block; margin-bottom: 2rem; font-size: 0.9rem; color: #71717a; text-decoration: none; }
+    .back:hover { color: #a1a1aa; }
+    .tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-family: monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 1.5rem;
+      color: #4ade80;
+      border: 1px solid rgba(74,222,128,0.2);
+      background: rgba(74,222,128,0.05);
+    }
   </style>
 </head>
 <body>
-  <h1>Support / Build With Quantum Pi Forge</h1>
 
-  <p>Quantum Pi Forge is a human-led, AI-supported verification and community-building system. The goal is to make technical systems understandable, transparent, and useful for real people.</p>
+  <a class="back" href="index.html">← Back to Quantum Pi Forge</a>
 
-  <div class="box">
-    <h2>What support helps with</h2>
+  <div class="tag">Public infrastructure</div>
+  <h1>Support the Forge</h1>
+  <p class="subtitle">
+    Quantum Pi Forge is human-led, AI-supported public infrastructure for sovereign AI.<br>
+    It runs because real people choose to sustain it.
+  </p>
+
+  <div class="box highlight">
+    <h2>Your contribution keeps:</h2>
     <ul>
-      <li>keeping the human builder stable</li>
-      <li>maintaining public documentation and verification</li>
-      <li>supporting builders, testers, and community onboarding</li>
-      <li>turning verified systems into usable public tools</li>
-      <li>reducing overcomplexity so everyday people can participate</li>
+      <li>Verification public and free to use</li>
+      <li>Documentation open and maintained</li>
+      <li>Local AI tools free to download and run</li>
+      <li>Governance independent of any funder</li>
+      <li>Infrastructure running for the next person who finds this</li>
     </ul>
   </div>
 
   <div class="box">
-    <h2>Human custody rule</h2>
-    <p>AI supports visibility, proposals, receipts, and explanation only. AI does not hold private keys, sign transactions, approve spending, or move funds.</p>
+    <h2>How support is used</h2>
+    <ul>
+      <li>Node infrastructure and hosting costs</li>
+      <li>Independent audit fees</li>
+      <li>Documentation and onboarding work</li>
+      <li>Community builder support</li>
+      <li>Open-source tooling maintenance</li>
+    </ul>
+    <p style="color:#52525b; font-size:0.85rem; margin-top:1rem; font-family:monospace;">
+      All treasury activity is on-chain and publicly verifiable.
+      No funds move without human approval. AI never holds keys.
+    </p>
   </div>
 
   <div class="box">
     <h2>Ways to help</h2>
     <ul>
-      <li>builder sponsorship</li>
-      <li>grant or bounty opportunities</li>
-      <li>technical review</li>
-      <li>plain-language feedback</li>
-      <li>community onboarding support</li>
-      <li>infrastructure or hardware support</li>
+      <li>Direct patronage or builder sponsorship</li>
+      <li>Grant or bounty opportunities</li>
+      <li>Technical review and independent verification</li>
+      <li>Plain-language feedback and documentation</li>
+      <li>Community onboarding and outreach</li>
+      <li>Infrastructure or hardware support</li>
     </ul>
   </div>
 
-  <div class="box">
-    <h2>Current boundary</h2>
-    <p>QPF does not ask for seed phrases, private keys, blind approvals, or custody over anyone else's funds. Any financial action must be human-reviewed and transparent.</p>
+  <div class="box rule">
+    <h2>Human custody rule</h2>
+    <p style="color:#a1a1aa;">
+      AI supports visibility, proposals, receipts, and explanation only.
+      AI does not hold private keys, sign transactions, approve spending, or move funds.
+      Any financial action must be human-reviewed and transparent.
+    </p>
   </div>
 
-  <p>This page exists so support can move from abstract documentation into real human and community benefit.</p>
+  <div class="box rule">
+    <h2>What we will never ask for</h2>
+    <ul>
+      <li>Seed phrases or private keys</li>
+      <li>Blind approvals or unsigned transactions</li>
+      <li>Custody over anyone else's funds</li>
+    </ul>
+  </div>
+
+  <p style="color:#52525b; margin-top:3rem; font-family:monospace; font-size:0.85rem;">
+    This page exists so support can move from abstract documentation into real human and community benefit.
+    The forge is a public good. Sustaining it is voluntary — and meaningful.
+  </p>
+
 </body>
 </html>
