@@ -1,11 +1,11 @@
 {
   "objective": "SPIRAL_RETURN_JULY_2026",
-  "version": "1.5",
+  "version": "1.6",
   "protocol": "docs/activation/spiral-return/SPIRAL_RETURN_JULY_2026_V1.md",
   "closeout": "docs/activation/spiral-return/SPIRAL_RETURN_JULY_2026_CLOSEOUT.md",
   "root_awareness": "docs/activation/ROOT_AWARENESS_VERIFICATION_PROTOCOL_V1.md",
   "created_at_utc": "2026-07-16",
-  "updated_at_utc": "2026-07-31T19:30:00Z",
+  "updated_at_utc": "2026-07-31T20:00:00Z",
   "july_disposition": {
     "status": "MISSED",
     "rolled_to": "2026-08",
@@ -52,8 +52,11 @@
     },
     "M-03": {
       "name": "Lodging/camp confirmed",
-      "status": "UNKNOWN",
-      "evidence": null
+      "status": "WAIVED",
+      "evidence": "docs/activation/spiral-return/evidence/DAY-20260731-M-03-waive.md",
+      "authorization": "Authorize Spiral Return WAIVE: M-03 because remote-only ops through 2026-08-15; no lodging/camp required",
+      "reason": "remote-only ops through 2026-08-15; no lodging/camp required",
+      "authorized_at_utc": "2026-07-31"
     },
     "M-04": {
       "name": "Equipment/power tested",
@@ -105,7 +108,7 @@
     "physical": {
       "P-01": "WAIVED",
       "P-02": "WAIVED",
-      "P-03": "UNKNOWN",
+      "P-03": "WAIVED",
       "P-04": "UNKNOWN",
       "P-05": "UNKNOWN"
     },
@@ -201,8 +204,7 @@
     "receiving_path_incomplete"
   ],
   "next_human_actions": [
-    "Authorize Spiral Return PASS/WAIVE: M-03 (lodging/camp or N/A remote-only)",
-    "Authorize Spiral Return PASS/WAIVE: M-04 (equipment/power)",
+    "Authorize Spiral Return PASS/WAIVE: M-04 (equipment/power smoke test or N/A)",
     "If funds arrive: Funding secured CAD <amount> proven by <proof>",
     "Grant status dated note"
   ],
@@ -219,6 +221,8 @@
     "m01_reason": "remote-only ops through 2026-08-15; no physical departure required",
     "secured_cad": 0,
     "m02": "WAIVED",
-    "m02_reason": "remote-only ops through 2026-08-15; no travel fuel budget required"
+    "m02_reason": "remote-only ops through 2026-08-15; no travel fuel budget required",
+    "m03": "WAIVED",
+    "m03_reason": "remote-only ops through 2026-08-15; no lodging/camp required"
   }
 }
