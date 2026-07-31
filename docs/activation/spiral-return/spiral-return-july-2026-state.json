@@ -1,11 +1,11 @@
 {
   "objective": "SPIRAL_RETURN_JULY_2026",
-  "version": "1.7",
+  "version": "1.8",
   "protocol": "docs/activation/spiral-return/SPIRAL_RETURN_JULY_2026_V1.md",
   "closeout": "docs/activation/spiral-return/SPIRAL_RETURN_JULY_2026_CLOSEOUT.md",
   "root_awareness": "docs/activation/ROOT_AWARENESS_VERIFICATION_PROTOCOL_V1.md",
   "created_at_utc": "2026-07-16",
-  "updated_at_utc": "2026-07-31T20:30:00Z",
+  "updated_at_utc": "2026-07-31T21:00:00Z",
   "july_disposition": {
     "status": "MISSED",
     "rolled_to": "2026-08",
@@ -83,8 +83,11 @@
     },
     "M-08": {
       "name": "Wallet access verified no key exposure",
-      "status": "UNKNOWN",
-      "evidence": null
+      "status": "WAIVED",
+      "evidence": "docs/activation/spiral-return/evidence/DAY-20260731-M-08-waive.md",
+      "authorization": "Authorize Spiral Return WAIVE: M-08 because remote-only ops through 2026-08-15; no wallet access operation required in this window",
+      "reason": "remote-only ops through 2026-08-15; no wallet access operation required in this window",
+      "authorized_at_utc": "2026-07-31"
     },
     "M-09": {
       "name": "Receipts/docs offline",
@@ -119,7 +122,7 @@
       "O-01": "UNKNOWN",
       "O-02": "PASS",
       "O-03": "UNKNOWN",
-      "O-04": "UNKNOWN",
+      "O-04": "WAIVED",
       "O-05": "UNKNOWN"
     },
     "evidence": {
@@ -207,8 +210,7 @@
     "receiving_path_incomplete"
   ],
   "next_human_actions": [
-    "Close remaining M-gates: M-05, M-07, M-08, M-09, M-12",
-    "Optional: reduce need CAD 4550 if remote-only permanently",
+    "Close remaining M-gates: M-05, M-07, M-09, M-12",
     "If funds arrive: Funding secured CAD <amount> proven by <proof>",
     "Grant status dated note",
     "Merge PR #670 when ready"
@@ -231,12 +233,13 @@
     "m03_reason": "remote-only ops through 2026-08-15; no lodging/camp required",
     "m04": "WAIVED",
     "m04_reason": "remote-only ops through 2026-08-15; no field power/equipment departure kit required",
-    "physical_M01_to_M04": "ALL_WAIVED_REMOTE_ONLY"
+    "physical_M01_to_M04": "ALL_WAIVED_REMOTE_ONLY",
+    "m08": "WAIVED",
+    "m08_reason": "remote-only ops through 2026-08-15; no wallet access operation required in this window"
   },
   "open_m_gates": [
     "M-05",
     "M-07",
-    "M-08",
     "M-09",
     "M-12"
   ]
