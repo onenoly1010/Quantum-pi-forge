@@ -1,11 +1,11 @@
 {
   "objective": "SPIRAL_RETURN_JULY_2026",
-  "version": "1.9",
+  "version": "1.10",
   "protocol": "docs/activation/spiral-return/SPIRAL_RETURN_JULY_2026_V1.md",
   "closeout": "docs/activation/spiral-return/SPIRAL_RETURN_JULY_2026_CLOSEOUT.md",
   "root_awareness": "docs/activation/ROOT_AWARENESS_VERIFICATION_PROTOCOL_V1.md",
   "created_at_utc": "2026-07-16",
-  "updated_at_utc": "2026-07-31T21:30:00Z",
+  "updated_at_utc": "2026-07-31T22:00:00Z",
   "july_disposition": {
     "status": "MISSED",
     "rolled_to": "2026-08",
@@ -68,8 +68,12 @@
     },
     "M-05": {
       "name": "Offline capability",
-      "status": "PARTIAL",
-      "evidence": "path inventory in EXECUTION-TEST-20260716T202752Z.md \u2014 local paths exist; full offline pack not sealed in git"
+      "status": "WAIVED",
+      "evidence": "docs/activation/spiral-return/evidence/DAY-20260731-M-05-waive.md",
+      "authorization": "Authorize Spiral Return WAIVE: M-05 because remote-only ops through 2026-08-15; offline pack remains partial and acceptable for this window",
+      "reason": "remote-only ops through 2026-08-15; offline pack remains partial and acceptable for this window",
+      "authorized_at_utc": "2026-07-31",
+      "prior_status": "PARTIAL"
     },
     "M-06": {
       "name": "Local AI stack functional",
@@ -119,7 +123,7 @@
       "P-02": "WAIVED",
       "P-03": "WAIVED",
       "P-04": "WAIVED",
-      "P-05": "UNKNOWN"
+      "P-05": "WAIVED"
     },
     "operational": {
       "O-01": "UNKNOWN",
@@ -213,7 +217,7 @@
     "receiving_path_incomplete"
   ],
   "next_human_actions": [
-    "Close remaining M-gates: M-05, M-09, M-12",
+    "Close remaining M-gates: M-09, M-12",
     "If funds arrive: Funding secured CAD <amount> proven by <proof>",
     "Grant status dated note",
     "Merge PR #670 when ready"
@@ -240,10 +244,11 @@
     "m08": "WAIVED",
     "m08_reason": "remote-only ops through 2026-08-15; no wallet access operation required in this window",
     "m07": "WAIVED",
-    "m07_reason": "remote-only ops through 2026-08-15; full restore drill deferred to post-window"
+    "m07_reason": "remote-only ops through 2026-08-15; full restore drill deferred to post-window",
+    "m05": "WAIVED",
+    "m05_reason": "remote-only ops through 2026-08-15; offline pack remains partial and acceptable for this window"
   },
   "open_m_gates": [
-    "M-05",
     "M-09",
     "M-12"
   ]
