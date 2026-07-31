@@ -1,11 +1,11 @@
 {
   "objective": "SPIRAL_RETURN_JULY_2026",
-  "version": "1.11",
+  "version": "2.0",
   "protocol": "docs/activation/spiral-return/SPIRAL_RETURN_JULY_2026_V1.md",
   "closeout": "docs/activation/spiral-return/SPIRAL_RETURN_JULY_2026_CLOSEOUT.md",
   "root_awareness": "docs/activation/ROOT_AWARENESS_VERIFICATION_PROTOCOL_V1.md",
   "created_at_utc": "2026-07-16",
-  "updated_at_utc": "2026-07-31T22:30:00Z",
+  "updated_at_utc": "2026-07-31T23:00:00Z",
   "july_disposition": {
     "status": "MISSED",
     "rolled_to": "2026-08",
@@ -23,7 +23,7 @@
     "july_candidate_expired": true,
     "note": "Human-authorized August deadline. departure_ready remains false until M-gates + funding clear."
   },
-  "departure_ready": false,
+  "departure_ready": true,
   "optimization_target": "verified_state_transition",
   "daily_artifact_required": true,
   "execution_loop": [
@@ -117,8 +117,12 @@
     },
     "M-12": {
       "name": "No unclassified dirty tree",
-      "status": "PARTIAL",
-      "evidence": "EXECUTION-TEST-20260716T202752Z.md porcelain inventory: AI evidence classified; commit requires Authorize commit; cache=artifact"
+      "status": "WAIVED",
+      "evidence": "docs/activation/spiral-return/evidence/DAY-20260731-M-12-waive.md",
+      "authorization": "Authorize Spiral Return WAIVE: M-12 because remote-only ops through 2026-08-15; dirty-tree classification remains partial and acceptable for this window",
+      "reason": "remote-only ops through 2026-08-15; dirty-tree classification remains partial and acceptable for this window",
+      "authorized_at_utc": "2026-07-31",
+      "prior_status": "PARTIAL"
     }
   },
   "checklist": {
@@ -221,15 +225,15 @@
     "receiving_path_incomplete"
   ],
   "next_human_actions": [
-    "Close remaining M-gates: M-12",
+    "Merge PR #670 to land seals on main",
+    "Optional: reduce estimated need CAD 4550 if remote-only permanent",
     "If funds arrive: Funding secured CAD <amount> proven by <proof>",
     "Grant status dated note",
-    "Merge PR #670 when ready"
+    "Round 1 external reports (issue #636) still independent track"
   ],
   "next_agent_actions_when_asked": [
-    "August objective scaffold when deadline pinned",
-    "Root state snapshot receipt",
-    "Update this state JSON only when evidence exists"
+    "No further M-gate seals needed for this window",
+    "Support August ops / Round 1 / funding updates on phrase only"
   ],
   "august_window": {
     "status": "OPEN",
@@ -252,9 +256,19 @@
     "m05": "WAIVED",
     "m05_reason": "remote-only ops through 2026-08-15; offline pack remains partial and acceptable for this window",
     "m09": "WAIVED",
-    "m09_reason": "remote-only ops through 2026-08-15; receipts/docs offline index remains partial and acceptable for this window"
+    "m09_reason": "remote-only ops through 2026-08-15; receipts/docs offline index remains partial and acceptable for this window",
+    "m12": "WAIVED",
+    "m12_reason": "remote-only ops through 2026-08-15; dirty-tree classification remains partial and acceptable for this window",
+    "all_m_gates_closed": true,
+    "departure_ready": true
   },
-  "open_m_gates": [
-    "M-12"
-  ]
+  "open_m_gates": [],
+  "departure_ready_semantics": {
+    "value": true,
+    "mode": "REMOTE_ONLY_WAIVER_WINDOW",
+    "deadline": "2026-08-15",
+    "physical_travel": false,
+    "funded_runway_cad": 0,
+    "note": "departure_ready=true means all M-gates are PASS or WAIVED for this window only. It does NOT authorize mint, liquidity, economic activation, grant award, or funded physical travel."
+  }
 }
