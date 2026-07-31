@@ -1,6 +1,7 @@
 # FUNDING RECEIVING SPEC v1
 
-**Status:** `AWAITING_KRIS_FILL` → then `AUTHORIZE TO RECEIVE`  
+**Status:** `READY_TO_RECEIVE` — authorization recorded 2026-07-31T21:11:17Z
+
 **Companion form:** [`funding-receiving-form-v1.json`](./funding-receiving-form-v1.json)  
 **One-pager:** [`AUTHORIZE_TO_RECEIVE_READY_V1.md`](./AUTHORIZE_TO_RECEIVE_READY_V1.md)  
 **Rule:** Never commit private keys, seeds, or full bank account numbers. Public identifiers only.
@@ -34,18 +35,18 @@
 
 | Field | Value (edit) |
 | --- | --- |
-| Accept CAD fiat? | `YES` / `NO` |
-| Accept crypto? | `YES` / `NO` |
-| If crypto, asset | e.g. `native 0G` / `USDC` / `none` |
+| Accept CAD fiat? | `YES` |
+| Accept crypto? | `YES` |
+| If crypto, asset | `0G` |
 
 ### Destination (PUBLIC ONLY)
 
 | Channel | Your value | Status |
 | --- | --- | --- |
-| Fiat e-Transfer / display name | `_paste here_` | **UNSET** |
-| Fiat rails | e.g. Interac CAD | **UNSET** |
-| EVM public address (if crypto) | `0x…` | **UNSET** |
-| Chain ID (if crypto) | `16661` (default) | Documented |
+| Fiat e-Transfer / display name | `onenoly11@wealthsimple.me` | **CONFIGURED** |
+| Fiat rails | `Interac e-Transfer Autodeposit` | **CONFIGURED** |
+| EVM public address (if crypto) | `0x0fbBd408A419E96F592A61824168903E179B3397` | **CONFIGURED** |
+| Chain ID (if crypto) | `16661` (0G Aristotle Mainnet) | **CONFIGURED** |
 
 Also update the same fields in `funding-receiving-form-v1.json`.
 
@@ -53,8 +54,29 @@ Also update the same fields in `funding-receiving-form-v1.json`.
 
 | Field | Value |
 | --- | --- |
-| Statement | `I control this destination` (or stronger) |
-| Date (UTC) | `YYYY-MM-DD` |
+| Statement | `I control the Interac e-Transfer Autodeposit destination onenoly11@wealthsimple.me and the 0G Aristotle Mainnet destination 0x0fbBd408A419E96F592A61824168903E179B3397.` |
+| Date (UTC) | `2026-07-31` |
+
+### Receiving lanes
+
+```yaml
+fiat_receiving:
+  currency: CAD
+  method: Interac e-Transfer Autodeposit
+  status: configured
+
+crypto_receiving:
+  network: 0G Aristotle Mainnet
+  asset: 0G
+  address: 0x0fbBd408A419E96F592A61824168903E179B3397
+  purpose: Public receiving address for approved 0G project payments, grants, or transfers.
+  status: configured
+
+authorization:
+  transfers_enabled: false
+  signing_required: true
+  approval_required: true
+```
 
 ---
 
@@ -88,10 +110,10 @@ Date (UTC): ________
 
 ## Checklist
 
-- [ ] Assets chosen (CAD / crypto)  
-- [ ] Destination filled (public-safe)  
-- [ ] Network/rails set  
-- [ ] Owner statement + date  
-- [ ] Paste **AUTHORIZE TO RECEIVE**  
+- [x] Assets chosen (CAD / crypto)
+- [x] Destination filled (public-safe)
+- [x] Network/rails set
+- [x] Owner statement + date
+- [x] **AUTHORIZE TO RECEIVE** recorded by Kris Olofson (authorized project operator) at `2026-07-31T21:11:17Z`
 
-**After that phrase:** agent marks gate `READY_TO_RECEIVE` only — still no spend, no vehicle purchase automation.
+**Current gate:** `READY_TO_RECEIVE` only — still no spend, no vehicle purchase automation.
