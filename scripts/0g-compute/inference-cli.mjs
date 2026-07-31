@@ -26,8 +26,6 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const REPO_ROOT = path.resolve(__dirname, "../..");
-
 const MAINNET_RPC = process.env.OG_RPC_URL || "https://evmrpc.0g.ai";
 const TESTNET_RPC = process.env.OG_TESTNET_RPC_URL || "https://evmrpc-testnet.0g.ai";
 const NETWORK = (process.env.OG_NETWORK || "mainnet").toLowerCase();
