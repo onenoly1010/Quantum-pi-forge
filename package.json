@@ -221,6 +221,13 @@
     "verify:0g-storage-evidence-dry-run:v1": "node scripts/verify-0g-storage-evidence-dry-run-gate-v1.cjs",
     "public:verification-demo:v1": "node scripts/public/verify-public-verification-demo-gate-v1.cjs",
     "integration:0g-compute-inference-evidence-dry-run-gate:v1": "npm run verify:0g-compute-inference-evidence-dry-run-gate:v1",
+    "0g:compute:review": "NO_WALLET_TOUCH=true node scripts/0g-compute/inference-cli.mjs review",
+    "0g:compute:list": "NO_WALLET_TOUCH=true node scripts/0g-compute/inference-cli.mjs list",
+    "0g:compute:list:detail": "NO_WALLET_TOUCH=true node scripts/0g-compute/inference-cli.mjs list --detail",
+    "0g:compute:chat-token": "NO_WALLET_TOUCH=true node scripts/0g-compute/inference-cli.mjs chat-token",
+    "0g:compute:chat-sdk": "node scripts/0g-compute/inference-cli.mjs chat-sdk",
+    "0g:compute:fund": "node scripts/0g-compute/inference-cli.mjs fund",
+    "0g:compute:help": "node scripts/0g-compute/inference-cli.mjs help",
     "governance:live-canary-gate:v1:check": "node scripts/verify-live-canary-gate-v1.cjs",
     "verify:0g-compute-inference-evidence-dry-run-gate:v1": "node scripts/verify-0g-compute-inference-evidence-dry-run-gate-v1.cjs",
     "governance:bounded-activation-readiness-gate:v1": "node scripts/create-bounded-activation-readiness-gate-v1.cjs",
@@ -273,6 +280,7 @@
     "verify:public-portal": "node scripts/verify-public-portal.mjs"
   },
   "dependencies": {
+    "@0gfoundation/0g-compute-ts-sdk": "^0.8.4",
     "@nomicfoundation/hardhat-foundry": "^3.0.4",
     "chai": "^6.2.2",
     "dotenv": "^17.4.2",
