@@ -10,9 +10,9 @@
 
 | Layer | Location | Purpose |
 | --- | --- | --- |
-| **Primary (local runtime)** | OS keychain / secret service **or** gitignored local env file | Delivery layer processes running on the operator machine |
+| **Primary (local runtime)** | OS keychain / secret service, encrypted secret manager, or dotenv file outside the repository | Delivery layer processes running on the operator machine |
 | **Secondary (CI only)** | GitHub Actions repository secrets | Automated Discord diagnostics and non-outreach CI jobs |
-| **Forbidden** | Any file inside the git working tree (including `.env` that is tracked) | Prevents accidental commit / exposure |
+| **Forbidden** | A tracked or committed secret file, including a tracked `.env` | Prevents accidental commit / exposure |
 
 **Preferred local mechanisms (in order):**
 
@@ -21,7 +21,7 @@
    - macOS: Keychain Access  
    - Windows: Credential Manager  
 2. Encrypted secret manager loaded at process start (e.g. age / sops decrypted into memory only)  
-3. Gitignored dotenv file **outside** the repository root or explicitly listed in `.gitignore` (already covers `.env`, `.env.*`, `.env.generated`)
+3. Gitignored dotenv file **outside** the repository root. Do not place credential files in the working tree, even when ignored.
 
 Applications **must** load credentials only through the approved loader path. They must never hard-code, print, or log secret values.
 
@@ -38,9 +38,12 @@ Presence is required for the corresponding channel to be considered **configured
 | `TWITTER_API_SECRET` | X (Twitter) | Non-empty string | Yes for X channel |
 | `TWITTER_ACCESS_TOKEN` | X (Twitter) | Non-empty string | Yes for X channel |
 | `TWITTER_ACCESS_SECRET` | X (Twitter) | Non-empty string | Yes for X channel |
-| `EMAIL_PROVIDER_API_KEY` | Email | Non-empty string (provider-specific) | Yes for email channel |
+| `EMAIL_PROVIDER` | Email | Provider identifier | Yes for email channel |
+| `EMAIL_API_KEY` | Email | Non-empty string (provider-specific) | Yes for email channel |
 | `EMAIL_FROM` | Email | Valid email address format | Yes for email channel |
-| `CONTACT_FORM_ENDPOINT` | Contact form | HTTPS URL | Optional (if contact-form path is used) |
+| `CONTACT_FORM_PROVIDER` | Contact form | Provider identifier | Yes for contact-form channel |
+| `CONTACT_FORM_ENDPOINT` | Contact form | HTTPS URL | Yes for contact-form channel |
+| `CONTACT_FORM_API_KEY` | Contact form | Non-empty string | Yes for contact-form channel |
 
 **Notes**
 
@@ -61,8 +64,11 @@ Presence is required for the corresponding channel to be considered **configured
 Reference health-check command (presence only):
 
 ```bash
-node scripts/delivery-credential-health-check.mjs
+node scripts/delivery-credential-health-check.mjs --channel x
 ```
+
+Supported channels are `discord`, `x`, `email`, and `contact_form`. With no
+channel argument, the command checks every channel.
 
 ---
 
@@ -104,24 +110,26 @@ Rotation is a **human-controlled** action. No automated rotation scripts that wr
 ### 7.1 Presence-only health check
 
 ```bash
-node scripts/delivery-credential-health-check.mjs
+node scripts/delivery-credential-health-check.mjs --channel x
 ```
 
 Expected output shape (example):
 
 ```
-DISCORD_WEBHOOK_URL          configured
-TWITTER_API_KEY              missing
-TWITTER_API_SECRET           missing
-TWITTER_ACCESS_TOKEN         missing
-TWITTER_ACCESS_SECRET        missing
-EMAIL_PROVIDER_API_KEY       missing
-EMAIL_FROM                   missing
-CONTACT_FORM_ENDPOINT        missing
-
-SUMMARY: 1 configured, 7 missing, 0 invalid_format
-EXIT: 1   # non-zero while any required channel is incomplete
 ```
+x:
+  TWITTER_API_KEY            configured
+  TWITTER_API_SECRET         configured
+  TWITTER_ACCESS_TOKEN       configured
+  TWITTER_ACCESS_SECRET      configured
+
+SUMMARY: 4 configured, 0 missing, 0 invalid_format
+EXIT: 0
+```
+
+Email and contact-form credentials are only evaluated when their respective
+channel is selected. An X-only check therefore does not require an email or
+contact-form provider.
 
 ### 7.2 Format checks (non-secret)
 
@@ -144,12 +152,12 @@ No cryptographic or provider-side validation is performed by the health check (t
    # paste value when prompted; never echo it into shell history
    ```
 3. Alternatively, create a file **outside** the repo or ensure it is covered by `.gitignore`, then export or load it only for the delivery process.
-4. Run the health check until the channels you intend to enable report `configured`.
+4. Run the health check for each channel you intend to enable until it reports `configured`.
 5. Keep human-send as the default for the first revenue expedition targets.
 
 ---
 
-## 9. Current known state (as of credential path audit)
+## 9. Current known state (at credential path audit)
 
 - Local runtime configuration: **absent**
 - GitHub Actions: only `DISCORD_WEBHOOK_URL` present
