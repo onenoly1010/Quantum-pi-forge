@@ -9,7 +9,7 @@ economics, wallet operations, or financial transactions.
 | Field | Record |
 | --- | --- |
 | Inquiry date | `YYYY-MM-DD` |
-| Contact and organization | `TBD_HUMAN` |
+| Organization or public contact alias | `TBD_HUMAN` |
 | Source page or referral | `TBD_HUMAN` |
 | Relevant repo, deployment, or documents | `TBD_HUMAN` |
 | Stated need | `TBD_HUMAN` |
@@ -62,4 +62,5 @@ Record only non-sensitive operational facts:
 - Next follow-up date.
 
 Do not record credentials, private keys, payment-card data, or transaction
-instructions in the repository.
+instructions or personal contact details in the repository. Keep personal
+contact details in the operator's private contact system.

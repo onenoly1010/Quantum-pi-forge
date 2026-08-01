@@ -36,7 +36,7 @@ Planned experiment for next week:
 ## Collection rules
 
 1. Confirm `https://quantumpiforge.com/work-with-us.html` and
-   `/deployed-addresses` return HTTP 200 before reporting traffic or inquiry
+   `/deployed-addresses.html` return HTTP 200 before reporting traffic or inquiry
    conclusions.
 2. Count an inquiry only after a human receives an email or direct message.
    A `mailto:` link cannot prove that an email was sent.
