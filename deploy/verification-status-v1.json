@@ -1,6 +1,6 @@
 {
   "schema": "qpf-verification-status-v1",
-  "updated_at_utc": "2026-07-30T15:42:00Z",
+  "updated_at_utc": "2026-08-01T19:03:00Z",
   "portal_url": "https://quantumpiforge.com/deployed-addresses",
   "network": {
     "name": "0G Aristotle mainnet",
@@ -61,6 +61,13 @@
       "address": "0x8d088B88219D072aB035502065ee2410c2cb4389"
     }
   ],
+  "address_verification_report": {
+    "artifact": "/deployed-addresses-verification.json",
+    "issue_tracker": "https://github.com/onenoly1010/Quantum-pi-forge/issues/673",
+    "verdict": "PASS_WITH_WARNINGS",
+    "verified_at_utc": "2026-08-01T19:03:00Z",
+    "audit_boundary": "NO_WALLET_TOUCH=true"
+  },
   "how_to_verify": {
     "builder_quickstart": "https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/BUILDER_QUICKSTART.md",
     "first_verification_event": "https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/community/FIRST_VERIFICATION_EVENT_V1.md",
