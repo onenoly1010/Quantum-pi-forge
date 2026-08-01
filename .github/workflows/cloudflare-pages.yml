@@ -66,4 +66,5 @@ jobs:
         run: |
           "${GITHUB_WORKSPACE}/node_modules/.bin/wrangler" pages deploy \
             "${GITHUB_WORKSPACE}/out" \
-            --project-name=quantumpiforge
+            --project-name=quantumpiforge \
+            --branch="${GITHUB_REF_NAME}"
