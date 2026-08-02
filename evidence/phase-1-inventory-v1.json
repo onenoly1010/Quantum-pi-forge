@@ -1,0 +1,155 @@
+{
+  "schemaVersion": "qpf-phase-1-inventory-v1",
+  "generatedAt": "2026-08-02T21:39:17Z",
+  "sourceCommit": "307c498",
+  "purpose": "Reference-only inventory view over canonical evidence sources. This file does not replace, normalize, or duplicate evidence.",
+  "authorityBoundary": "read-only evidence inventory; no wallet signing, deployment, posting, governance execution, custody transfer, token minting, staking, or chain mutation",
+  "canonicalSources": [
+    {
+      "id": "evidence-index",
+      "path": "evidence/INDEX.md",
+      "role": "Canonical lane registry and verification entry point",
+      "reusedFields": [
+        "Evidence ID",
+        "Scope",
+        "Status",
+        "Primary Files",
+        "Verification"
+      ],
+      "verification": "npm run verify:evidence-index"
+    },
+    {
+      "id": "legacy-evidence-manifest",
+      "path": "evidence-manifest.json",
+      "role": "Historical component provenance and path-reference inventory",
+      "reusedFields": [
+        "component",
+        "reference_type",
+        "commit_abbrev",
+        "full_sha",
+        "file_path",
+        "evidence_type",
+        "description",
+        "content_hash",
+        "provenance"
+      ],
+      "verification": "Repository path existence review"
+    },
+    {
+      "id": "evidence-receipt",
+      "path": "evidence/receipt.json",
+      "role": "Index hash and verifier-result receipt",
+      "reusedFields": [
+        "generatedAt",
+        "gitCommit",
+        "gitBranch",
+        "indexPath",
+        "indexSha256",
+        "verifier",
+        "authorityBoundary"
+      ],
+      "verification": "npm run evidence:receipt:check"
+    },
+    {
+      "id": "claim-map",
+      "path": "evidence/claim-map.json",
+      "role": "Machine-readable claim-to-evidence mapping",
+      "reusedFields": [
+        "id",
+        "description",
+        "evidence",
+        "status",
+        "verification",
+        "authorityBoundary"
+      ],
+      "verification": "npm run verify:claim-map"
+    },
+    {
+      "id": "evidence-snapshot",
+      "path": "evidence/snapshot-v1.json",
+      "role": "Reviewer-proof baseline checkpoint",
+      "reusedFields": [
+        "snapshotVersion",
+        "timestamp",
+        "canonicalCommit",
+        "receiptHash",
+        "proofCommand",
+        "proofStatus",
+        "authorityBoundary"
+      ],
+      "verification": "npm run verify:snapshot"
+    }
+  ],
+  "derivedViews": [
+    {
+      "id": "lane-registry",
+      "source": "evidence/INDEX.md",
+      "category": "Active and deferred evidence lanes"
+    },
+    {
+      "id": "component-provenance",
+      "source": "evidence-manifest.json",
+      "category": "Historical component and external dependency references"
+    },
+    {
+      "id": "index-integrity",
+      "source": "evidence/receipt.json",
+      "category": "Current evidence-index hash verification"
+    },
+    {
+      "id": "claim-coverage",
+      "source": "evidence/claim-map.json",
+      "category": "Verified machine-readable claims"
+    },
+    {
+      "id": "reviewer-baseline",
+      "source": "evidence/snapshot-v1.json",
+      "category": "Canonical reviewer-proof baseline"
+    }
+  ],
+  "knownGaps": [
+    {
+      "id": "current-head-inventory-view",
+      "status": "addressed-by-this-artifact",
+      "description": "The canonical sources had no single reference-only inventory view for the current branch."
+    },
+    {
+      "id": "legacy-manifest-provenance",
+      "status": "preserved-not-corrected",
+      "description": "The legacy manifest references an earlier soul-feed repository context and contains unresolved external references; this inventory reports rather than alters those historical records."
+    },
+    {
+      "id": "legacy-manifest-local-paths",
+      "status": "requires-future-source-owner-decision",
+      "description": "Two local manifest paths are absent at this commit. No replacement path is asserted without source-owner verification."
+    }
+  ],
+  "unknowns": [
+    {
+      "id": "legacy-manifest-circuit-breaker-source",
+      "status": "UNKNOWN",
+      "source": "evidence-manifest.json",
+      "referencedPath": "src/circuit-do/index.js",
+      "reason": "The path is absent at sourceCommit; no replacement is inferred."
+    },
+    {
+      "id": "legacy-manifest-circuit-breaker-test",
+      "status": "UNKNOWN",
+      "source": "evidence-manifest.json",
+      "referencedPath": "test/circuit-breaker.test.ts",
+      "reason": "The path is absent at sourceCommit; no replacement is inferred."
+    },
+    {
+      "id": "legacy-manifest-external-dependencies",
+      "status": "UNKNOWN",
+      "source": "evidence-manifest.json",
+      "reason": "Four external-commit entries retain PENDING provenance and content-hash fields."
+    }
+  ],
+  "verification": {
+    "command": "npm run verify:evidence",
+    "result": "passed",
+    "verifiedAtCommit": "307c498",
+    "scope": "Evidence index, receipt, claim map, claim-map drift guard, and snapshot"
+  }
+}
