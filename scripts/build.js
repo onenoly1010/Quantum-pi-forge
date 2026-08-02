@@ -166,6 +166,9 @@ function build() {
     throw new Error('deploy/ directory is required for the public landing bundle');
   }
 
+  console.log('Generating capability manifest');
+  execSync('node scripts/generate-capability-manifest.cjs', { cwd: rootDir, stdio: 'inherit' });
+
   fs.rmSync(outputDir, { recursive: true, force: true });
   fs.mkdirSync(outputDir, { recursive: true });
 

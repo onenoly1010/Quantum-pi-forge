@@ -25,6 +25,9 @@ function parseEvidenceLanes(index) {
     .filter((line) => line.startsWith("| QPF-"))
     .map((row) => {
       const cells = row.split("|").map((cell) => cell.trim());
+      if (cells.length < 6) {
+        fail(`Invalid evidence lane (too few columns): ${row}`);
+      }
       const primaryFiles = [...cells[4].matchAll(/`([^`]+)`/g)].map((match) => match[1]);
 
       if (!cells[1] || !cells[2] || !cells[3] || primaryFiles.length === 0 || !cells[5]) {

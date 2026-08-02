@@ -58,7 +58,7 @@
     `).join("");
 
     document.getElementById("authority").textContent = manifest.authorityBoundary;
-    document.getElementById("unknowns").innerHTML = manifest.unavailableCategories.map((category) => `
+    document.getElementById("unknowns").innerHTML = (manifest.unavailableCategories || []).map((category) => `
       <p class="unknown"><strong>${escapeHtml(category.id)}: ${escapeHtml(category.status)}</strong> — ${escapeHtml(category.reason)}</p>
     `).join("");
   }

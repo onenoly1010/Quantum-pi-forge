@@ -44,6 +44,9 @@ for (const capability of manifest.capabilities) {
   }
 
   for (const file of capability.primaryFiles) {
+    if (path.isAbsolute(file) || file.split("/").includes("..")) {
+      fail(`unsafe path in primaryFiles: ${file}`);
+    }
     if (!fs.existsSync(path.join(root, file))) fail(`missing source file: ${file}`);
   }
 }
