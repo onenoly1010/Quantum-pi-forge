@@ -8,6 +8,8 @@
     "deploy:cf": "bash scripts/deploy-cloudflare-pages.sh",
     "verify:receipt": "node scripts/verify-hermes-receipt.cjs",
     "verify:evidence-index": "node scripts/verify-evidence-index.cjs",
+    "generate:capability-manifest": "node scripts/generate-capability-manifest.cjs",
+    "verify:capability-manifest": "node scripts/verify-capability-manifest.cjs",
     "evidence:receipt": "node scripts/generate-evidence-receipt.cjs",
     "evidence:receipt:check": "node scripts/check-evidence-receipt.cjs",
     "verify:claim-map": "node scripts/verify-claim-map.cjs",

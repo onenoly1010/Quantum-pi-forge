@@ -27,5 +27,8 @@ jobs:
       - name: Verify evidence bundle
         run: npm run verify:evidence
 
+      - name: Verify capability manifest
+        run: npm run verify:capability-manifest
+
       - name: Enforce high-severity audit gate
         run: npm audit --audit-level=high

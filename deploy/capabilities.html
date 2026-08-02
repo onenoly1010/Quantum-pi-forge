@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quantum Pi Forge Capabilities</title>
+  <meta name="description" content="A read-only view of capabilities backed by Quantum Pi Forge evidence." />
+  <style>
+    body{margin:0;min-height:100vh;background:linear-gradient(180deg,#050816,#0b1020 55%,#111827);color:#f8fafc;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    main{max-width:980px;margin:0 auto;padding:48px 20px}
+    .eyebrow{color:#93c5fd;font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.82rem}
+    h1{font-size:clamp(2.2rem,6vw,4.5rem);line-height:1;margin:18px 0;letter-spacing:-.05em}
+    .intro{max-width:760px;color:#cbd5e1;font-size:1.15rem;line-height:1.55}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:34px}
+    .card{padding:22px;border-radius:22px;background:rgba(15,23,42,.8);border:1px solid rgba(148,163,184,.2)}
+    .card h2{margin:0 0 10px;color:#e0f2fe;font-size:1.25rem}
+    .card p{color:#cbd5e1;line-height:1.55}
+    .meta{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.8rem;color:#94a3b8;word-break:break-word}
+    .status{display:inline-block;border-radius:999px;padding:4px 9px;background:rgba(34,197,94,.15);color:#86efac;font-size:.75rem;font-weight:700}
+    .boundary{margin-top:34px;padding:22px;border-radius:22px;background:rgba(30,41,59,.72);border:1px solid rgba(148,163,184,.22)}
+    .unknown{margin-top:12px;color:#fcd34d}
+    .error{color:#fca5a5}
+    a{color:#bfdbfe}
+  </style>
+</head>
+<body>
+<main>
+  <p class="eyebrow">Evidence-derived capability view</p>
+  <h1>What Quantum Pi Forge can verify today</h1>
+  <p class="intro">This page is generated from the Phase 1 inventory and its canonical evidence sources. It reports verified capabilities only; unavailable categories and unresolved records remain explicitly unknown.</p>
+  <section id="capabilities" class="grid" aria-live="polite"></section>
+  <section class="boundary">
+    <h2>Authority boundary</h2>
+    <p id="authority">Loading manifest boundary...</p>
+    <div id="unknowns"></div>
+    <p class="meta"><a href="/capability-manifest.json">Open the capability manifest</a></p>
+  </section>
+</main>
+<script>
+  const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (character) => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;"
+  })[character]);
+
+  async function renderCapabilities() {
+    const response = await fetch("/capability-manifest.json");
+    if (!response.ok) throw new Error("Capability manifest is unavailable");
+
+    const manifest = await response.json();
+    const container = document.getElementById("capabilities");
+    container.innerHTML = manifest.capabilities.map((capability) => `
+      <article class="card">
+        <span class="status">${escapeHtml(capability.status)}</span>
+        <h2>${escapeHtml(capability.capability)}</h2>
+        <p class="meta">${escapeHtml(capability.id)}</p>
+        <p>Verification: <code>${escapeHtml(capability.verification)}</code></p>
+        <p class="meta">Sources: ${capability.primaryFiles.map(escapeHtml).join(", ")}</p>
+      </article>
+    `).join("");
+
+    document.getElementById("authority").textContent = manifest.authorityBoundary;
+    document.getElementById("unknowns").innerHTML = manifest.unavailableCategories.map((category) => `
+      <p class="unknown"><strong>${escapeHtml(category.id)}: ${escapeHtml(category.status)}</strong> — ${escapeHtml(category.reason)}</p>
+    `).join("");
+  }
+
+  renderCapabilities().catch((error) => {
+    document.getElementById("capabilities").innerHTML = `<p class="error">${escapeHtml(error.message)}</p>`;
+    document.getElementById("authority").textContent = "The capability manifest could not be loaded.";
+  });
+</script>
+</body>
+</html>
