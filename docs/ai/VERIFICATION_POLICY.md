@@ -12,7 +12,7 @@ Every production-relevant change must identify:
 
 ## 0G verification
 
-Use 0gskills for implementation guidance, but independently verify
+Use `0gskills.com` for implementation guidance, but independently verify
 production-critical facts against `https://docs.0g.ai/`. Record the consulted
 URLs or version identifiers in the relevant deployment or verification report.
 
