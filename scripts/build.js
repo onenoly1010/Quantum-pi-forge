@@ -31,6 +31,7 @@ const staticFiles = [
   { src: 'deploy/capabilities.html', dest: 'capabilities.html' },
   { src: 'deploy/verification-status-v1.json', dest: 'verification-status-v1.json' },
   { src: 'deploy/capability-manifest.json', dest: 'capability-manifest.json' },
+  { src: 'deploy/capability-registry-v1.json', dest: 'capability-registry-v1.json' },
   { src: 'deploy/deployed-addresses-verification.json', dest: 'deployed-addresses-verification.json' },
   { src: 'deploy/onboarding-status.html', dest: 'onboarding-status.html' },
   { src: 'deploy/manifest.json', dest: 'manifest.json' },
@@ -168,6 +169,10 @@ function build() {
 
   console.log('Generating capability manifest');
   execSync('node scripts/generate-capability-manifest.cjs', {
+    cwd: rootDir,
+    stdio: 'inherit',
+  });
+  execSync('node scripts/generate-capability-registry.cjs', {
     cwd: rootDir,
     stdio: 'inherit',
   });
