@@ -33,6 +33,10 @@ const manifest = readJson(manifestPath);
 const registry = readJson(registryPath);
 const requiredFields = ["id", "name", "description", "sourceReference", "verification", "confidence", "owner", "unknownFields"];
 
+if (manifest.schemaVersion !== "qpf-capability-manifest-v1") fail("invalid Phase 2 manifest schemaVersion");
+if (!Array.isArray(manifest.capabilities) || manifest.capabilities.length === 0) {
+  fail("Phase 2 manifest capabilities must be non-empty");
+}
 if (registry.schemaVersion !== "qpf-capability-registry-v1") fail("invalid schemaVersion");
 if (!Array.isArray(registry.entries) || registry.entries.length === 0) fail("entries must be non-empty");
 

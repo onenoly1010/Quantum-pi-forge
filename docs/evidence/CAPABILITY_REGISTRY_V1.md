@@ -17,6 +17,7 @@ Phase 2 manifest, evidence index, or any implementation repository.
 
 Every entry contains:
 
+- `id`
 - `name`
 - `description`
 - `sourceReference`
