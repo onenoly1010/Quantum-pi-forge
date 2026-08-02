@@ -19,18 +19,26 @@ function readJson(filePath) {
   }
 }
 
+function isSafeRepoRelativePath(value) {
+  return typeof value === "string"
+    && value.length > 0
+    && !path.isAbsolute(value)
+    && !path.win32.isAbsolute(value)
+    && !value.split(/[\\/]+/).includes("..");
+}
+
 function parseEvidenceLanes(index) {
   return index
     .split(/\r?\n/)
     .filter((line) => line.startsWith("| QPF-"))
     .map((row) => {
       const cells = row.split("|").map((cell) => cell.trim());
-      if (cells.length < 6) {
-        fail(`Invalid evidence lane (too few columns): ${row}`);
+      if (!cells[1] || !cells[2] || !cells[3] || typeof cells[4] !== "string" || !cells[5]) {
+        fail(`Invalid evidence lane: ${row}`);
       }
-      const primaryFiles = [...cells[4].matchAll(/`([^`]+)`/g)].map((match) => match[1]);
 
-      if (!cells[1] || !cells[2] || !cells[3] || primaryFiles.length === 0 || !cells[5]) {
+      const primaryFiles = [...cells[4].matchAll(/`([^`]+)`/g)].map((match) => match[1]);
+      if (primaryFiles.length === 0 || primaryFiles.some((file) => !isSafeRepoRelativePath(file))) {
         fail(`Invalid evidence lane: ${row}`);
       }
 

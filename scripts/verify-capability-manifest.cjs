@@ -11,6 +11,14 @@ function fail(message) {
   process.exit(1);
 }
 
+function isSafeRepoRelativePath(value) {
+  return typeof value === "string"
+    && value.length > 0
+    && !path.isAbsolute(value)
+    && !path.win32.isAbsolute(value)
+    && !value.split(/[\\/]+/).includes("..");
+}
+
 try {
   childProcess.execFileSync("node", ["scripts/generate-capability-manifest.cjs"], {
     cwd: root,
@@ -44,14 +52,16 @@ for (const capability of manifest.capabilities) {
   }
 
   for (const file of capability.primaryFiles) {
-    if (path.isAbsolute(file) || file.split("/").includes("..")) {
-      fail(`unsafe path in primaryFiles: ${file}`);
-    }
+    if (!isSafeRepoRelativePath(file)) fail(`unsafe source file: ${file}`);
     if (!fs.existsSync(path.join(root, file))) fail(`missing source file: ${file}`);
   }
 }
 
-for (const category of manifest.unavailableCategories || []) {
+if (!Array.isArray(manifest.unavailableCategories) || manifest.unavailableCategories.length === 0) {
+  fail("unavailable categories must be non-empty");
+}
+
+for (const category of manifest.unavailableCategories) {
   if (category.status !== "UNKNOWN") fail(`unavailable category must be UNKNOWN: ${category.id}`);
 }
 

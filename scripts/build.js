@@ -167,7 +167,10 @@ function build() {
   }
 
   console.log('Generating capability manifest');
-  execSync('node scripts/generate-capability-manifest.cjs', { cwd: rootDir, stdio: 'inherit' });
+  execSync('node scripts/generate-capability-manifest.cjs', {
+    cwd: rootDir,
+    stdio: 'inherit',
+  });
 
   fs.rmSync(outputDir, { recursive: true, force: true });
   fs.mkdirSync(outputDir, { recursive: true });

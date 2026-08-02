@@ -47,6 +47,9 @@
 
     const manifest = await response.json();
     const container = document.getElementById("capabilities");
+    const unavailableCategories = Array.isArray(manifest.unavailableCategories)
+      ? manifest.unavailableCategories
+      : [];
     container.innerHTML = manifest.capabilities.map((capability) => `
       <article class="card">
         <span class="status">${escapeHtml(capability.status)}</span>
@@ -58,7 +61,7 @@
     `).join("");
 
     document.getElementById("authority").textContent = manifest.authorityBoundary;
-    document.getElementById("unknowns").innerHTML = (manifest.unavailableCategories || []).map((category) => `
+    document.getElementById("unknowns").innerHTML = unavailableCategories.map((category) => `
       <p class="unknown"><strong>${escapeHtml(category.id)}: ${escapeHtml(category.status)}</strong> — ${escapeHtml(category.reason)}</p>
     `).join("");
   }
