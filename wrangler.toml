@@ -13,5 +13,3 @@ ENVIRONMENT = "production"
 binding = "SOUL_METADATA"
 id = "c2ee9447ec994c5d9ef09020c24ff887"
 
-[assets]
-directory = "./out"
