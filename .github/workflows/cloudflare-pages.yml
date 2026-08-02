@@ -19,6 +19,7 @@ on:
       - 'next.config.mjs'
       - 'vite.config.ts'
       - 'wrangler.toml'
+      - 'wrangler.pages.toml'
       - '.github/workflows/cloudflare-pages.yml'
   workflow_dispatch:
 
@@ -57,6 +58,9 @@ jobs:
           test -f out/index.html
           test -f out/_redirects
           find out -maxdepth 2 -type f | sort | sed -n '1,120p'
+
+      - name: Prepare Pages-specific Wrangler config
+        run: cp wrangler.pages.toml out/wrangler.toml
 
       - name: Deploy to Cloudflare Pages
         working-directory: ${{ runner.temp }}
