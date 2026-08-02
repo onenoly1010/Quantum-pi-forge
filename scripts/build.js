@@ -28,7 +28,9 @@ const staticFiles = [
   { src: 'deploy/why-this-matters.html', dest: 'why-this-matters.html' },
   { src: 'deploy/human-onboarding.html', dest: 'human-onboarding.html' },
   { src: 'deploy/deployed-addresses.html', dest: 'deployed-addresses.html' },
+  { src: 'deploy/capabilities.html', dest: 'capabilities.html' },
   { src: 'deploy/verification-status-v1.json', dest: 'verification-status-v1.json' },
+  { src: 'deploy/capability-manifest.json', dest: 'capability-manifest.json' },
   { src: 'deploy/deployed-addresses-verification.json', dest: 'deployed-addresses-verification.json' },
   { src: 'deploy/onboarding-status.html', dest: 'onboarding-status.html' },
   { src: 'deploy/manifest.json', dest: 'manifest.json' },
@@ -163,6 +165,12 @@ function build() {
   if (!fs.existsSync(deployDir)) {
     throw new Error('deploy/ directory is required for the public landing bundle');
   }
+
+  console.log('Generating capability manifest');
+  execSync('node scripts/generate-capability-manifest.cjs', {
+    cwd: rootDir,
+    stdio: 'inherit',
+  });
 
   fs.rmSync(outputDir, { recursive: true, force: true });
   fs.mkdirSync(outputDir, { recursive: true });

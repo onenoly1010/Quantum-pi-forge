@@ -1,0 +1,89 @@
+{
+  "schemaVersion": "qpf-capability-manifest-v1",
+  "purpose": "Derived public capability view. Canonical evidence remains in the Phase 1 inventory sources.",
+  "sourceInventory": {
+    "path": "evidence/phase-1-inventory-v1.json",
+    "sourceCommit": "307c498"
+  },
+  "authorityBoundary": "read-only evidence inventory; no wallet signing, deployment, posting, governance execution, custody transfer, token minting, staking, or chain mutation",
+  "capabilities": [
+    {
+      "id": "QPF-HERMES-RECEIPT-REPLAY-v1",
+      "capability": "Local Hermes/Ollama inference receipt replay",
+      "status": "Active",
+      "source": "evidence/INDEX.md",
+      "primaryFiles": [
+        "scripts/hermes-run.sh",
+        "scripts/hermes-write-receipt.cjs",
+        "scripts/verify-hermes-receipt.cjs",
+        "evidence/hermes/schemas/receipt-v1.schema.json"
+      ],
+      "verification": "`npm run verify:receipt -- <receipt.json>`"
+    },
+    {
+      "id": "QPF-HERMES-RETENTION-POLICY-v1",
+      "capability": "Receipt retention and commit eligibility policy",
+      "status": "Active",
+      "source": "evidence/INDEX.md",
+      "primaryFiles": [
+        "docs/evidence/HERMES_RECEIPT_RETENTION_POLICY.md"
+      ],
+      "verification": "Documentation review"
+    },
+    {
+      "id": "QPF-LOCAL-CI-SURROGATE-v1",
+      "capability": "Local build and verification substitute while hosted checks are unavailable",
+      "status": "Active",
+      "source": "evidence/INDEX.md",
+      "primaryFiles": [
+        "scripts/local-ci-surrogate.sh"
+      ],
+      "verification": "`bash scripts/local-ci-surrogate.sh`"
+    },
+    {
+      "id": "QPF-OINIO-CUSTODY-POLICY-v1",
+      "capability": "OINIO owner custody decision: temporary freeze; hardened custody design path",
+      "status": "Active",
+      "source": "evidence/INDEX.md",
+      "primaryFiles": [
+        "evidence/contract-authority/OINIO_CUSTODY_POLICY_FRAMEWORK.md",
+        "evidence/custody-target/README.md"
+      ],
+      "verification": "Documentation review"
+    }
+  ],
+  "unavailableCategories": [
+    {
+      "id": "contracts",
+      "status": "UNKNOWN",
+      "reason": "No contract registry is included in the verified Phase 1 inventory."
+    },
+    {
+      "id": "deployments",
+      "status": "UNKNOWN",
+      "reason": "No deployment registry is included in the verified Phase 1 inventory."
+    }
+  ],
+  "unknowns": [
+    {
+      "id": "legacy-manifest-circuit-breaker-source",
+      "status": "UNKNOWN",
+      "source": "evidence-manifest.json",
+      "reason": "The path is absent at sourceCommit; no replacement is inferred.",
+      "referencedPath": "src/circuit-do/index.js"
+    },
+    {
+      "id": "legacy-manifest-circuit-breaker-test",
+      "status": "UNKNOWN",
+      "source": "evidence-manifest.json",
+      "reason": "The path is absent at sourceCommit; no replacement is inferred.",
+      "referencedPath": "test/circuit-breaker.test.ts"
+    },
+    {
+      "id": "legacy-manifest-external-dependencies",
+      "status": "UNKNOWN",
+      "source": "evidence-manifest.json",
+      "reason": "Four external-commit entries retain PENDING provenance and content-hash fields."
+    }
+  ]
+}
