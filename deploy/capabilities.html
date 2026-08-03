@@ -11,12 +11,17 @@
     .eyebrow{color:#93c5fd;font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.82rem}
     h1{font-size:clamp(2.2rem,6vw,4.5rem);line-height:1;margin:18px 0;letter-spacing:-.05em}
     .intro{max-width:760px;color:#cbd5e1;font-size:1.15rem;line-height:1.55}
+    .controls{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+    input,select{border:1px solid rgba(148,163,184,.35);border-radius:10px;background:#0f172a;color:#f8fafc;padding:10px 12px;font:inherit}
+    input{flex:1 1 280px}
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:34px}
     .card{padding:22px;border-radius:22px;background:rgba(15,23,42,.8);border:1px solid rgba(148,163,184,.2)}
     .card h2{margin:0 0 10px;color:#e0f2fe;font-size:1.25rem}
     .card p{color:#cbd5e1;line-height:1.55}
     .meta{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.8rem;color:#94a3b8;word-break:break-word}
     .status{display:inline-block;border-radius:999px;padding:4px 9px;background:rgba(34,197,94,.15);color:#86efac;font-size:.75rem;font-weight:700}
+    .status-unknown{background:rgba(245,158,11,.15);color:#fcd34d}
+    .empty{color:#cbd5e1;margin-top:34px}
     .boundary{margin-top:34px;padding:22px;border-radius:22px;background:rgba(30,41,59,.72);border:1px solid rgba(148,163,184,.22)}
     .unknown{margin-top:12px;color:#fcd34d}
     .error{color:#fca5a5}
@@ -27,13 +32,21 @@
 <main>
   <p class="eyebrow">Evidence-derived capability view</p>
   <h1>What Quantum Pi Forge can verify today</h1>
-  <p class="intro">This page is generated from the Phase 1 inventory and its canonical evidence sources. It reports verified capabilities only; unavailable categories and unresolved records remain explicitly unknown.</p>
+  <p class="intro">This read-only view is generated from the Phase 3 capability registry. It keeps verified capabilities and unresolved records distinct, with source links for every entry.</p>
+  <div class="controls">
+    <input id="capability-search" type="search" placeholder="Search capabilities or sources" aria-label="Search capabilities" />
+    <select id="status-filter" aria-label="Filter by verification status">
+      <option value="ALL">All statuses</option>
+      <option value="VERIFIED">Verified</option>
+      <option value="UNKNOWN">Unknown</option>
+    </select>
+  </div>
   <section id="capabilities" class="grid" aria-live="polite"></section>
   <section class="boundary">
     <h2>Authority boundary</h2>
     <p id="authority">Loading manifest boundary...</p>
     <div id="unknowns"></div>
-    <p class="meta"><a href="/capability-manifest.json">Open the capability manifest</a></p>
+    <p class="meta"><a href="/capability-registry-v1.json">Open the capability registry</a></p>
   </section>
 </main>
 <script>
@@ -41,34 +54,84 @@
     "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;"
   })[character]);
 
-  async function renderCapabilities() {
-    const response = await fetch("/capability-manifest.json");
-    if (!response.ok) throw new Error("Capability manifest is unavailable");
+  const isSafeRepositoryPath = (value) => typeof value === "string"
+    && value.length > 0
+    && !value.startsWith("/")
+    && !value.includes("..")
+    && !value.includes("\\");
 
-    const manifest = await response.json();
+  const repositoryLink = (file) => isSafeRepositoryPath(file)
+    ? `https://github.com/onenoly1010/Quantum-pi-forge/blob/main/${encodeURI(file)}`
+    : null;
+
+  function renderEntries(registry) {
     const container = document.getElementById("capabilities");
-    const unavailableCategories = Array.isArray(manifest.unavailableCategories)
-      ? manifest.unavailableCategories
-      : [];
-    container.innerHTML = manifest.capabilities.map((capability) => `
-      <article class="card">
-        <span class="status">${escapeHtml(capability.status)}</span>
-        <h2>${escapeHtml(capability.capability)}</h2>
-        <p class="meta">${escapeHtml(capability.id)}</p>
-        <p>Verification: <code>${escapeHtml(capability.verification)}</code></p>
-        <p class="meta">Sources: ${capability.primaryFiles.map(escapeHtml).join(", ")}</p>
-      </article>
-    `).join("");
+    const search = document.getElementById("capability-search").value.trim().toLowerCase();
+    const status = document.getElementById("status-filter").value;
+    const entries = registry.entries.filter((entry) => {
+      const searchable = [entry.name, entry.description, entry.id, entry.sourceReference.canonicalSource]
+        .filter(Boolean)
+        .join(" ")
+        .toLowerCase();
+      return (status === "ALL" || entry.verification.status === status)
+        && (!search || searchable.includes(search));
+    });
 
-    document.getElementById("authority").textContent = manifest.authorityBoundary;
-    document.getElementById("unknowns").innerHTML = unavailableCategories.map((category) => `
-      <p class="unknown"><strong>${escapeHtml(category.id)}: ${escapeHtml(category.status)}</strong> — ${escapeHtml(category.reason)}</p>
-    `).join("");
+    if (entries.length === 0) {
+      container.innerHTML = '<p class="empty">No registry entries match the current filters.</p>';
+      return;
+    }
+
+    container.innerHTML = entries.map((entry) => {
+      const source = entry.sourceReference.canonicalSource;
+      const sourceUrl = repositoryLink(source);
+      const sourceLabel = sourceUrl
+        ? `<a href="${escapeHtml(sourceUrl)}">${escapeHtml(source)}</a>`
+        : escapeHtml(source || "UNKNOWN");
+      const primaryFiles = Array.isArray(entry.sourceReference.primaryFiles)
+        ? entry.sourceReference.primaryFiles
+        : [];
+      const sources = primaryFiles.map((file) => {
+        const url = repositoryLink(file);
+        return url ? `<a href="${escapeHtml(url)}">${escapeHtml(file)}</a>` : escapeHtml(file);
+      }).join(", ") || "UNKNOWN";
+      const isUnknown = entry.verification.status === "UNKNOWN";
+
+      return `
+      <article class="card">
+        <span class="status${isUnknown ? " status-unknown" : ""}">${escapeHtml(entry.verification.status)}</span>
+        <h2>${escapeHtml(entry.name)}</h2>
+        <p>${escapeHtml(entry.description)}</p>
+        <p class="meta">${escapeHtml(entry.id)}</p>
+        <p>Confidence: <code>${escapeHtml(entry.confidence)}</code></p>
+        <p>Verification: <code>${escapeHtml(entry.verification.method)}</code></p>
+        <p>Owner: <code>${escapeHtml(entry.owner.repository)}</code></p>
+        <p class="meta">Canonical source: ${sourceLabel}</p>
+        <p class="meta">Evidence: ${sources}</p>
+      </article>`;
+    }).join("");
   }
 
-  renderCapabilities().catch((error) => {
+  async function loadRegistry() {
+    const response = await fetch("/capability-registry-v1.json");
+    if (!response.ok) throw new Error("Capability registry is unavailable");
+
+    const registry = await response.json();
+    if (!Array.isArray(registry.entries)) throw new Error("Capability registry has invalid entries");
+
+    document.getElementById("authority").textContent = registry.authorityBoundary;
+    document.getElementById("unknowns").innerHTML = registry.entries
+      .filter((entry) => entry.verification.status === "UNKNOWN")
+      .map((entry) => `<p class="unknown"><strong>${escapeHtml(entry.name)}: UNKNOWN</strong> — ${escapeHtml(entry.description)}</p>`)
+      .join("");
+    document.getElementById("capability-search").addEventListener("input", () => renderEntries(registry));
+    document.getElementById("status-filter").addEventListener("change", () => renderEntries(registry));
+    renderEntries(registry);
+  }
+
+  loadRegistry().catch((error) => {
     document.getElementById("capabilities").innerHTML = `<p class="error">${escapeHtml(error.message)}</p>`;
-    document.getElementById("authority").textContent = "The capability manifest could not be loaded.";
+    document.getElementById("authority").textContent = "The capability registry could not be loaded.";
   });
 </script>
 </body>
