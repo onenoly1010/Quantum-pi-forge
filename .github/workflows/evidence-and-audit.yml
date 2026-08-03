@@ -33,5 +33,8 @@ jobs:
       - name: Verify capability registry
         run: npm run verify:capability-registry
 
+      - name: Verify evidence completeness
+        run: npm run verify:evidence-completeness
+
       - name: Enforce high-severity audit gate
         run: npm audit --audit-level=high

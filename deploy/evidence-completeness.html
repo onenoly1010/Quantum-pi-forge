@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quantum Pi Forge Evidence Completeness</title>
+  <meta name="description" content="A read-only evidence completeness surface for Quantum Pi Forge capabilities." />
+  <style>
+    body{margin:0;min-height:100vh;background:linear-gradient(180deg,#050816,#0b1020 55%,#111827);color:#f8fafc;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    main{max-width:980px;margin:0 auto;padding:48px 20px}.eyebrow{color:#93c5fd;font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.82rem}
+    h1{font-size:clamp(2.2rem,6vw,4.5rem);line-height:1;margin:18px 0;letter-spacing:-.05em}.intro{max-width:760px;color:#cbd5e1;font-size:1.15rem;line-height:1.55}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:34px}.card{padding:22px;border-radius:22px;background:rgba(15,23,42,.8);border:1px solid rgba(148,163,184,.2)}
+    .card h2{margin:10px 0;color:#e0f2fe;font-size:1.25rem}.card p{color:#cbd5e1;line-height:1.55}.meta{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.8rem;color:#94a3b8;word-break:break-word}
+    .state{display:inline-block;border-radius:999px;padding:4px 9px;background:rgba(34,197,94,.15);color:#86efac;font-size:.75rem;font-weight:700}.unknown{background:rgba(245,158,11,.15);color:#fcd34d}.error{color:#fca5a5}a{color:#bfdbfe}
+  </style>
+</head>
+<body>
+<main>
+  <p class="eyebrow">Read-only verification surface</p>
+  <h1>Evidence completeness</h1>
+  <p class="intro">Each entry links a capability to its available evidence, verification method, provenance, and unresolved gaps. Deployment matching remains UNKNOWN until a verified deployment source is included in the inventory.</p>
+  <section id="entries" class="grid" aria-live="polite"></section>
+</main>
+<script>
+  const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (character) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"})[character]);
+  const isSafeRepositoryPath = (value) => typeof value === "string"
+    && value.length > 0
+    && !value.startsWith("/")
+    && !value.includes("..")
+    && !/[\\%?#]/.test(value);
+  const sourceLink = (source) => isSafeRepositoryPath(source)
+    ? `https://github.com/onenoly1010/Quantum-pi-forge/blob/main/${source.split("/").map(encodeURIComponent).join("/")}`
+    : null;
+
+  async function renderEvidence() {
+    const response = await fetch("/evidence-completeness-v1.json");
+    if (!response.ok) throw new Error("Evidence completeness data is unavailable");
+    const surface = await response.json();
+    if (!Array.isArray(surface.entries)) throw new Error("Evidence completeness data has invalid entries");
+
+    document.getElementById("entries").innerHTML = surface.entries.map((entry) => {
+      const unknown = entry.evidenceState === "UNKNOWN";
+      const source = entry.provenance.canonicalSource;
+      const link = sourceLink(source);
+      return `<article class="card">
+        <span class="state${unknown ? " unknown" : ""}">${escapeHtml(entry.evidenceState)}</span>
+        <h2>${escapeHtml(entry.name)}</h2>
+        <p class="meta">${escapeHtml(entry.id)}</p>
+        <p>Confidence: <code>${escapeHtml(entry.confidence)}</code></p>
+        <p>Verification: <code>${escapeHtml(entry.verification.method)}</code></p>
+        <p>Commit reference: <code>${escapeHtml(entry.referenceCommit)}</code></p>
+        <p>Deployment match: <code>${escapeHtml(entry.deploymentMatch.state)}</code></p>
+        <p class="meta">Source: ${link ? `<a href="${escapeHtml(link)}">${escapeHtml(source)}</a>` : "UNKNOWN"}</p>
+        <p class="meta">Gaps: ${entry.gaps.length ? escapeHtml(entry.gaps.join(", ")) : "None recorded"}</p>
+      </article>`;
+    }).join("");
+  }
+
+  renderEvidence().catch((error) => {
+    document.getElementById("entries").innerHTML = `<p class="error">${escapeHtml(error.message)}</p>`;
+  });
+</script>
+</body>
+</html>

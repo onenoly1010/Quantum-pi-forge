@@ -1,0 +1,277 @@
+{
+  "schemaVersion": "qpf-evidence-completeness-v1",
+  "purpose": "Derived read-only evidence completeness surface. Canonical evidence remains in the referenced sources.",
+  "sourceRegistry": "deploy/capability-registry-v1.json",
+  "authorityBoundary": "read-only evidence inventory; no wallet signing, deployment, posting, governance execution, custody transfer, token minting, staking, or chain mutation",
+  "entries": [
+    {
+      "id": "QPF-HERMES-RECEIPT-REPLAY-v1",
+      "name": "Local Hermes/Ollama inference receipt replay",
+      "evidenceState": "VERIFIED",
+      "confidence": "HIGH",
+      "provenance": {
+        "phaseOneInventory": "evidence/phase-1-inventory-v1.json",
+        "phaseTwoManifest": "deploy/capability-manifest.json",
+        "canonicalSource": "evidence/INDEX.md",
+        "primaryFiles": [
+          "scripts/hermes-run.sh",
+          "scripts/hermes-write-receipt.cjs",
+          "scripts/verify-hermes-receipt.cjs",
+          "evidence/hermes/schemas/receipt-v1.schema.json"
+        ]
+      },
+      "verification": {
+        "status": "VERIFIED",
+        "method": "`npm run verify:receipt -- <receipt.json>`"
+      },
+      "referenceCommit": "307c498",
+      "evidenceReceipt": {
+        "path": "evidence/receipt.json",
+        "generatedAt": "2026-07-30T17:34:10.712Z",
+        "gitCommit": "580e8a7"
+      },
+      "deploymentMatch": {
+        "state": "UNKNOWN",
+        "reason": "No verified deployment registry is included in the Phase 1 inventory."
+      },
+      "gaps": []
+    },
+    {
+      "id": "QPF-HERMES-RETENTION-POLICY-v1",
+      "name": "Receipt retention and commit eligibility policy",
+      "evidenceState": "VERIFIED",
+      "confidence": "HIGH",
+      "provenance": {
+        "phaseOneInventory": "evidence/phase-1-inventory-v1.json",
+        "phaseTwoManifest": "deploy/capability-manifest.json",
+        "canonicalSource": "evidence/INDEX.md",
+        "primaryFiles": [
+          "docs/evidence/HERMES_RECEIPT_RETENTION_POLICY.md"
+        ]
+      },
+      "verification": {
+        "status": "VERIFIED",
+        "method": "Documentation review"
+      },
+      "referenceCommit": "307c498",
+      "evidenceReceipt": {
+        "path": "evidence/receipt.json",
+        "generatedAt": "2026-07-30T17:34:10.712Z",
+        "gitCommit": "580e8a7"
+      },
+      "deploymentMatch": {
+        "state": "UNKNOWN",
+        "reason": "No verified deployment registry is included in the Phase 1 inventory."
+      },
+      "gaps": []
+    },
+    {
+      "id": "QPF-LOCAL-CI-SURROGATE-v1",
+      "name": "Local build and verification substitute while hosted checks are unavailable",
+      "evidenceState": "VERIFIED",
+      "confidence": "HIGH",
+      "provenance": {
+        "phaseOneInventory": "evidence/phase-1-inventory-v1.json",
+        "phaseTwoManifest": "deploy/capability-manifest.json",
+        "canonicalSource": "evidence/INDEX.md",
+        "primaryFiles": [
+          "scripts/local-ci-surrogate.sh"
+        ]
+      },
+      "verification": {
+        "status": "VERIFIED",
+        "method": "`bash scripts/local-ci-surrogate.sh`"
+      },
+      "referenceCommit": "307c498",
+      "evidenceReceipt": {
+        "path": "evidence/receipt.json",
+        "generatedAt": "2026-07-30T17:34:10.712Z",
+        "gitCommit": "580e8a7"
+      },
+      "deploymentMatch": {
+        "state": "UNKNOWN",
+        "reason": "No verified deployment registry is included in the Phase 1 inventory."
+      },
+      "gaps": []
+    },
+    {
+      "id": "QPF-OINIO-CUSTODY-POLICY-v1",
+      "name": "OINIO owner custody decision: temporary freeze; hardened custody design path",
+      "evidenceState": "VERIFIED",
+      "confidence": "HIGH",
+      "provenance": {
+        "phaseOneInventory": "evidence/phase-1-inventory-v1.json",
+        "phaseTwoManifest": "deploy/capability-manifest.json",
+        "canonicalSource": "evidence/INDEX.md",
+        "primaryFiles": [
+          "evidence/contract-authority/OINIO_CUSTODY_POLICY_FRAMEWORK.md",
+          "evidence/custody-target/README.md"
+        ]
+      },
+      "verification": {
+        "status": "VERIFIED",
+        "method": "Documentation review"
+      },
+      "referenceCommit": "307c498",
+      "evidenceReceipt": {
+        "path": "evidence/receipt.json",
+        "generatedAt": "2026-07-30T17:34:10.712Z",
+        "gitCommit": "580e8a7"
+      },
+      "deploymentMatch": {
+        "state": "UNKNOWN",
+        "reason": "No verified deployment registry is included in the Phase 1 inventory."
+      },
+      "gaps": []
+    },
+    {
+      "id": "contracts",
+      "name": "contracts",
+      "evidenceState": "UNKNOWN",
+      "confidence": "UNKNOWN",
+      "provenance": {
+        "phaseOneInventory": "evidence/phase-1-inventory-v1.json",
+        "phaseTwoManifest": "deploy/capability-manifest.json",
+        "canonicalSource": "evidence/phase-1-inventory-v1.json",
+        "primaryFiles": []
+      },
+      "verification": {
+        "status": "UNKNOWN",
+        "method": "No verification assertion is available."
+      },
+      "referenceCommit": "UNKNOWN",
+      "evidenceReceipt": {
+        "path": "evidence/receipt.json",
+        "generatedAt": "2026-07-30T17:34:10.712Z",
+        "gitCommit": "580e8a7"
+      },
+      "deploymentMatch": {
+        "state": "UNKNOWN",
+        "reason": "No verified deployment registry is included in the Phase 1 inventory."
+      },
+      "gaps": [
+        "owner.repository"
+      ]
+    },
+    {
+      "id": "deployments",
+      "name": "deployments",
+      "evidenceState": "UNKNOWN",
+      "confidence": "UNKNOWN",
+      "provenance": {
+        "phaseOneInventory": "evidence/phase-1-inventory-v1.json",
+        "phaseTwoManifest": "deploy/capability-manifest.json",
+        "canonicalSource": "evidence/phase-1-inventory-v1.json",
+        "primaryFiles": []
+      },
+      "verification": {
+        "status": "UNKNOWN",
+        "method": "No verification assertion is available."
+      },
+      "referenceCommit": "UNKNOWN",
+      "evidenceReceipt": {
+        "path": "evidence/receipt.json",
+        "generatedAt": "2026-07-30T17:34:10.712Z",
+        "gitCommit": "580e8a7"
+      },
+      "deploymentMatch": {
+        "state": "UNKNOWN",
+        "reason": "No verified deployment registry is included in the Phase 1 inventory."
+      },
+      "gaps": [
+        "owner.repository"
+      ]
+    },
+    {
+      "id": "legacy-manifest-circuit-breaker-source",
+      "name": "legacy-manifest-circuit-breaker-source",
+      "evidenceState": "UNKNOWN",
+      "confidence": "UNKNOWN",
+      "provenance": {
+        "phaseOneInventory": "evidence/phase-1-inventory-v1.json",
+        "phaseTwoManifest": "deploy/capability-manifest.json",
+        "canonicalSource": "evidence-manifest.json",
+        "primaryFiles": [
+          "src/circuit-do/index.js"
+        ]
+      },
+      "verification": {
+        "status": "UNKNOWN",
+        "method": "No verification assertion is available."
+      },
+      "referenceCommit": "UNKNOWN",
+      "evidenceReceipt": {
+        "path": "evidence/receipt.json",
+        "generatedAt": "2026-07-30T17:34:10.712Z",
+        "gitCommit": "580e8a7"
+      },
+      "deploymentMatch": {
+        "state": "UNKNOWN",
+        "reason": "No verified deployment registry is included in the Phase 1 inventory."
+      },
+      "gaps": [
+        "owner.repository"
+      ]
+    },
+    {
+      "id": "legacy-manifest-circuit-breaker-test",
+      "name": "legacy-manifest-circuit-breaker-test",
+      "evidenceState": "UNKNOWN",
+      "confidence": "UNKNOWN",
+      "provenance": {
+        "phaseOneInventory": "evidence/phase-1-inventory-v1.json",
+        "phaseTwoManifest": "deploy/capability-manifest.json",
+        "canonicalSource": "evidence-manifest.json",
+        "primaryFiles": [
+          "test/circuit-breaker.test.ts"
+        ]
+      },
+      "verification": {
+        "status": "UNKNOWN",
+        "method": "No verification assertion is available."
+      },
+      "referenceCommit": "UNKNOWN",
+      "evidenceReceipt": {
+        "path": "evidence/receipt.json",
+        "generatedAt": "2026-07-30T17:34:10.712Z",
+        "gitCommit": "580e8a7"
+      },
+      "deploymentMatch": {
+        "state": "UNKNOWN",
+        "reason": "No verified deployment registry is included in the Phase 1 inventory."
+      },
+      "gaps": [
+        "owner.repository"
+      ]
+    },
+    {
+      "id": "legacy-manifest-external-dependencies",
+      "name": "legacy-manifest-external-dependencies",
+      "evidenceState": "UNKNOWN",
+      "confidence": "UNKNOWN",
+      "provenance": {
+        "phaseOneInventory": "evidence/phase-1-inventory-v1.json",
+        "phaseTwoManifest": "deploy/capability-manifest.json",
+        "canonicalSource": "evidence-manifest.json",
+        "primaryFiles": []
+      },
+      "verification": {
+        "status": "UNKNOWN",
+        "method": "No verification assertion is available."
+      },
+      "referenceCommit": "UNKNOWN",
+      "evidenceReceipt": {
+        "path": "evidence/receipt.json",
+        "generatedAt": "2026-07-30T17:34:10.712Z",
+        "gitCommit": "580e8a7"
+      },
+      "deploymentMatch": {
+        "state": "UNKNOWN",
+        "reason": "No verified deployment registry is included in the Phase 1 inventory."
+      },
+      "gaps": [
+        "owner.repository"
+      ]
+    }
+  ]
+}
