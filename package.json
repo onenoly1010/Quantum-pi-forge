@@ -19,6 +19,8 @@
     "collect:live-rpc-correspondence": "node scripts/collect-live-rpc-correspondence.cjs",
     "generate:live-rpc-correspondence": "node scripts/generate-live-rpc-correspondence.cjs",
     "verify:live-rpc-correspondence": "node scripts/verify-live-rpc-correspondence.cjs",
+    "generate:source-identity-correspondence": "node scripts/generate-source-identity-correspondence.cjs",
+    "verify:source-identity-correspondence": "node scripts/verify-source-identity-correspondence.cjs",
     "evidence:receipt": "node scripts/generate-evidence-receipt.cjs",
     "evidence:receipt:check": "node scripts/check-evidence-receipt.cjs",
     "verify:claim-map": "node scripts/verify-claim-map.cjs",

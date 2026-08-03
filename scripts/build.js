@@ -36,6 +36,7 @@ const staticFiles = [
   { src: 'deploy/evidence-completeness-v1.json', dest: 'evidence-completeness-v1.json' },
   { src: 'deploy/deployment-provenance-v1.json', dest: 'deployment-provenance-v1.json' },
   { src: 'deploy/live-rpc-correspondence-v1.json', dest: 'live-rpc-correspondence-v1.json' },
+  { src: 'deploy/source-identity-correspondence-v1.json', dest: 'source-identity-correspondence-v1.json' },
   { src: 'deploy/deployed-addresses-verification.json', dest: 'deployed-addresses-verification.json' },
   { src: 'evidence/live-rpc-correspondence-v1.json', dest: 'evidence/live-rpc-correspondence-v1.json' },
   { src: 'deploy/onboarding-status.html', dest: 'onboarding-status.html' },
@@ -190,6 +191,10 @@ function build() {
     stdio: 'inherit',
   });
   execSync('node scripts/generate-live-rpc-correspondence.cjs', {
+    cwd: rootDir,
+    stdio: 'inherit',
+  });
+  execSync('node scripts/generate-source-identity-correspondence.cjs', {
     cwd: rootDir,
     stdio: 'inherit',
   });
