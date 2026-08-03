@@ -1,0 +1,5 @@
+{
+  "schemaVersion": "qpf-artifact-deployment-mapping-v1",
+  "purpose": "Explicit artifact-to-deployment mappings only. Contract names and hash candidates do not create mappings.",
+  "mappings": []
+}
