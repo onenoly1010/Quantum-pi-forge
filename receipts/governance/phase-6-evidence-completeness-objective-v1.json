@@ -1,0 +1,39 @@
+{
+  "governance_version": "v1",
+  "receipt": "phase-6-evidence-completeness-objective-v1",
+  "phase": 6,
+  "title": "Evidence Completeness and Verification Surface",
+  "status": "PHASE_6_EXECUTION_AUTHORIZED",
+  "mode": "read_only_evidence_derivation",
+  "branch": "phase-6-evidence-completeness-layer",
+  "objective": "Map every capability registry entry to its available evidence, verification state, provenance, and unresolved gaps without changing authoritative sources.",
+  "included_scope": [
+    "Read-only evidence indexing and presentation",
+    "Capability-to-evidence relationships",
+    "Verification state, confidence, and provenance display",
+    "Explicit UNKNOWN and deployment-match visibility",
+    "Static build and CI validation"
+  ],
+  "excluded_scope": [
+    "Wallet actions",
+    "Transactions or contract mutations",
+    "Token, liquidity, or minting actions",
+    "External system mutations",
+    "Automated trust assertions beyond verified evidence",
+    "Authoritative source mutation"
+  ],
+  "success_criteria": [
+    "Every registry entry has an evidence state and source reference.",
+    "Every entry includes a verification method and commit reference or explicit UNKNOWN.",
+    "Remaining gaps are machine-readable.",
+    "CI rejects missing evidence references and unsupported provenance.",
+    "The static build passes."
+  ],
+  "authorization_boundary": {
+    "implementation": true,
+    "deployment_initiation": false,
+    "wallet_or_contract_actions": false,
+    "external_communications": false,
+    "credential_use": false
+  }
+}
