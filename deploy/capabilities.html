@@ -44,7 +44,7 @@
   <section id="capabilities" class="grid" aria-live="polite"></section>
   <section class="boundary">
     <h2>Authority boundary</h2>
-    <p id="authority">Loading manifest boundary...</p>
+    <p id="authority">Loading registry boundary...</p>
     <div id="unknowns"></div>
     <p class="meta"><a href="/capability-registry-v1.json">Open the capability registry</a></p>
   </section>
@@ -58,10 +58,11 @@
     && value.length > 0
     && !value.startsWith("/")
     && !value.includes("..")
-    && !value.includes("\\");
+    && !value.includes("\\")
+    && !value.includes("%");
 
   const repositoryLink = (file) => isSafeRepositoryPath(file)
-    ? `https://github.com/onenoly1010/Quantum-pi-forge/blob/main/${encodeURI(file)}`
+    ? `https://github.com/onenoly1010/Quantum-pi-forge/blob/main/${file.split("/").map(encodeURIComponent).join("/")}`
     : null;
 
   function renderEntries(registry) {
