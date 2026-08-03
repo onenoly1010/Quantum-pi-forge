@@ -58,8 +58,7 @@
     && value.length > 0
     && !value.startsWith("/")
     && !value.includes("..")
-    && !value.includes("\\")
-    && !value.includes("%");
+    && !/[\\%?#]/.test(value);
 
   const repositoryLink = (file) => isSafeRepositoryPath(file)
     ? `https://github.com/onenoly1010/Quantum-pi-forge/blob/main/${file.split("/").map(encodeURIComponent).join("/")}`
