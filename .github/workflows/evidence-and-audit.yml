@@ -45,5 +45,8 @@ jobs:
       - name: Verify source identity correspondence
         run: npm run verify:source-identity-correspondence
 
+      - name: Verify build artifact manifest
+        run: npm run verify:build-artifact-manifest
+
       - name: Enforce high-severity audit gate
         run: npm audit --audit-level=high
