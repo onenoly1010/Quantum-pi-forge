@@ -1,0 +1,67 @@
+{
+  "schemaVersion": "qpf-live-rpc-correspondence-evidence-v1",
+  "purpose": "Read-only eth_getCode observations pinned to a block. This does not validate source code, ownership, or contract behavior.",
+  "rpcUrl": "https://evmrpc.0g.ai",
+  "expectedChainId": "0x4115",
+  "chainId": "0x4115",
+  "blockTag": "0x26b38e4",
+  "collectedAt": "2026-08-03T04:28:35.338Z",
+  "sourceReference": "deploy/deployed-addresses-verification.json",
+  "method": "eth_chainId, eth_blockNumber, then eth_getCode(address, blockTag)",
+  "entries": [
+    {
+      "address": "0x75995ec0fdf881189850aed864cb3f43c0dfcb58",
+      "blockTag": "0x26b38e4",
+      "codeByteLength": 2281,
+      "codeSha256": "dd6c1d967c51052cb6b38c9e5e4faec80ffffa000d4d2f1956fba8bac4902c8b"
+    },
+    {
+      "address": "0x67ad7169184581f23d1e10b39d4eb4e98293e87a",
+      "blockTag": "0x26b38e4",
+      "codeByteLength": 9850,
+      "codeSha256": "cd1a676da5aef0a764c67929b26bf2aff9d005445f516da22b6cf2da33080db8"
+    },
+    {
+      "address": "0x5e50b92e57e854659f7d98c733088aabd551c49f",
+      "blockTag": "0x26b38e4",
+      "codeByteLength": 2571,
+      "codeSha256": "a9e8eec5f2d5efa8504a1aae0485340cb4af5373ee54440307450c40f54de53f"
+    },
+    {
+      "address": "0x6011c341a01c80f489a5c3ab751987a55142f04e",
+      "blockTag": "0x26b38e4",
+      "codeByteLength": 4132,
+      "codeSha256": "e50727e108691c2e835e3a35f83bff06f2023c9026122635c65bc0a36c7dfbd2"
+    },
+    {
+      "address": "0x215e28f94f68c70ea5b79d9fc062def4f7b7d3f8",
+      "blockTag": "0x26b38e4",
+      "codeByteLength": 18951,
+      "codeSha256": "e86acfd8b68a5fa55719387ad3856a92fefc1fd7fe16d7c3b22e951658bb543a"
+    },
+    {
+      "address": "0x2c70129e50bf88ecd59b89d63af2e8920acf3951",
+      "blockTag": "0x26b38e4",
+      "codeByteLength": 18953,
+      "codeSha256": "b5123996cff2578788ac9072e3ec815c60cc42fc3d1f1c97df8540de0b9559a1"
+    },
+    {
+      "address": "0x2067319dc61ccdcdcdc13abe0c72ea3d7318aaee",
+      "blockTag": "0x26b38e4",
+      "codeByteLength": 14954,
+      "codeSha256": "04b519e6f70efe1db6411973d335ed4f52a2f10092e10c87f2efe769cd080328"
+    },
+    {
+      "address": "0x8d088b88219d072ab035502065ee2410c2cb4389",
+      "blockTag": "0x26b38e4",
+      "codeByteLength": 171,
+      "codeSha256": "c7404fa90f9417f24a7f3e1ee736d3f7843f419188a98921fa385dac0e8a693b"
+    },
+    {
+      "address": "0x709f23c7a7172e137427576abb5eb8959e2a57c1",
+      "blockTag": "0x26b38e4",
+      "codeByteLength": 2280,
+      "codeSha256": "31394bbb3e75a9de2b10c92a43ce23aaf8898d43305926308e85a6bc4638ac1f"
+    }
+  ]
+}

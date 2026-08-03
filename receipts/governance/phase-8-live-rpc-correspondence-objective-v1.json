@@ -1,0 +1,24 @@
+{
+  "governance_version": "v1",
+  "receipt": "phase-8-live-rpc-correspondence-objective-v1",
+  "phase": 8,
+  "title": "Reproducible Live-RPC Deployment Correspondence",
+  "status": "PHASE_8_EXECUTION_AUTHORIZED",
+  "mode": "read_only_independent_verification",
+  "objective": "Produce reproducible, read-only evidence that compares declared deployments with independently observed on-chain data and assigns a correspondence state only when the defined evidence criteria support it.",
+  "included_scope": ["Read-only live-RPC evidence collection", "Reproducible declared-to-observed deployment comparison", "Machine-readable correspondence evidence and verification method", "Explicit VERIFIED, PARTIAL, and UNKNOWN state definitions", "Static build and CI validation"],
+  "excluded_scope": ["Wallet actions", "Transactions or contract mutations", "Deployment initiation", "Token, liquidity, minting, or asset actions", "Credential use", "External system mutations", "Unsupported verification claims", "Authoritative source mutation"],
+  "state_definitions": {
+    "VERIFIED": "A declared deployment has non-empty code independently observed with eth_getCode at the recorded block on the expected chain.",
+    "PARTIAL": "A declared deployment exists, but the required live-RPC evidence is missing or inconclusive.",
+    "UNKNOWN": "No declared deployment reference exists for the observed address."
+  },
+  "success_criteria": ["Every evaluated deployment has a machine-readable correspondence state and source references.", "Every VERIFIED state includes reproducible declared and independently observed evidence.", "PARTIAL and UNKNOWN states preserve the specific missing or inconclusive evidence.", "CI rejects unsupported state transitions and incomplete provenance.", "The static build and verification checks pass."],
+  "authorization_boundary": {
+    "implementation": true,
+    "deployment_initiation": false,
+    "wallet_or_contract_actions": false,
+    "external_communications": false,
+    "credential_use": false
+  }
+}
