@@ -3,7 +3,7 @@
   "purpose": "Derived read-only deployment correspondence from block-pinned eth_getCode evidence.",
   "evidenceReference": "evidence/live-rpc-correspondence-v1.json",
   "chainId": "0x4115",
-  "blockTag": "0x26b38e4",
+  "blockTag": "0x26b3ec8",
   "entries": [
     {
       "id": "0x75995ec0fdf881189850aed864cb3f43c0dfcb58",
@@ -13,8 +13,8 @@
       "declaredReference": "deploy/verification-status-v1.json",
       "observedReference": "evidence/live-rpc-correspondence-v1.json",
       "verificationMethod": "eth_chainId, eth_blockNumber, then eth_getCode(address, blockTag)",
-      "observedAt": "2026-08-03T04:28:35.338Z",
-      "blockTag": "0x26b38e4",
+      "observedAt": "2026-08-03T04:52:18.398Z",
+      "blockTag": "0x26b3ec8",
       "codeByteLength": 2281,
       "codeSha256": "dd6c1d967c51052cb6b38c9e5e4faec80ffffa000d4d2f1956fba8bac4902c8b",
       "gap": "Deployment correspondence verified by non-empty code at the declared address; source, ownership, and behavior remain outside this check."
@@ -27,8 +27,8 @@
       "declaredReference": "deploy/verification-status-v1.json",
       "observedReference": "evidence/live-rpc-correspondence-v1.json",
       "verificationMethod": "eth_chainId, eth_blockNumber, then eth_getCode(address, blockTag)",
-      "observedAt": "2026-08-03T04:28:35.338Z",
-      "blockTag": "0x26b38e4",
+      "observedAt": "2026-08-03T04:52:18.398Z",
+      "blockTag": "0x26b3ec8",
       "codeByteLength": 9850,
       "codeSha256": "cd1a676da5aef0a764c67929b26bf2aff9d005445f516da22b6cf2da33080db8",
       "gap": "Deployment correspondence verified by non-empty code at the declared address; source, ownership, and behavior remain outside this check."
@@ -41,8 +41,8 @@
       "declaredReference": "deploy/verification-status-v1.json",
       "observedReference": "evidence/live-rpc-correspondence-v1.json",
       "verificationMethod": "eth_chainId, eth_blockNumber, then eth_getCode(address, blockTag)",
-      "observedAt": "2026-08-03T04:28:35.338Z",
-      "blockTag": "0x26b38e4",
+      "observedAt": "2026-08-03T04:52:18.398Z",
+      "blockTag": "0x26b3ec8",
       "codeByteLength": 2571,
       "codeSha256": "a9e8eec5f2d5efa8504a1aae0485340cb4af5373ee54440307450c40f54de53f",
       "gap": "Deployment correspondence verified by non-empty code at the declared address; source, ownership, and behavior remain outside this check."
@@ -55,8 +55,8 @@
       "declaredReference": "deploy/verification-status-v1.json",
       "observedReference": "evidence/live-rpc-correspondence-v1.json",
       "verificationMethod": "eth_chainId, eth_blockNumber, then eth_getCode(address, blockTag)",
-      "observedAt": "2026-08-03T04:28:35.338Z",
-      "blockTag": "0x26b38e4",
+      "observedAt": "2026-08-03T04:52:18.398Z",
+      "blockTag": "0x26b3ec8",
       "codeByteLength": 4132,
       "codeSha256": "e50727e108691c2e835e3a35f83bff06f2023c9026122635c65bc0a36c7dfbd2",
       "gap": "Deployment correspondence verified by non-empty code at the declared address; source, ownership, and behavior remain outside this check."
@@ -69,8 +69,8 @@
       "declaredReference": "deploy/verification-status-v1.json",
       "observedReference": "evidence/live-rpc-correspondence-v1.json",
       "verificationMethod": "eth_chainId, eth_blockNumber, then eth_getCode(address, blockTag)",
-      "observedAt": "2026-08-03T04:28:35.338Z",
-      "blockTag": "0x26b38e4",
+      "observedAt": "2026-08-03T04:52:18.398Z",
+      "blockTag": "0x26b3ec8",
       "codeByteLength": 18951,
       "codeSha256": "e86acfd8b68a5fa55719387ad3856a92fefc1fd7fe16d7c3b22e951658bb543a",
       "gap": "Deployment correspondence verified by non-empty code at the declared address; source, ownership, and behavior remain outside this check."
@@ -83,8 +83,8 @@
       "declaredReference": "deploy/verification-status-v1.json",
       "observedReference": "evidence/live-rpc-correspondence-v1.json",
       "verificationMethod": "eth_chainId, eth_blockNumber, then eth_getCode(address, blockTag)",
-      "observedAt": "2026-08-03T04:28:35.338Z",
-      "blockTag": "0x26b38e4",
+      "observedAt": "2026-08-03T04:52:18.398Z",
+      "blockTag": "0x26b3ec8",
       "codeByteLength": 18953,
       "codeSha256": "b5123996cff2578788ac9072e3ec815c60cc42fc3d1f1c97df8540de0b9559a1",
       "gap": "Deployment correspondence verified by non-empty code at the declared address; source, ownership, and behavior remain outside this check."
@@ -97,8 +97,8 @@
       "declaredReference": "deploy/verification-status-v1.json",
       "observedReference": "evidence/live-rpc-correspondence-v1.json",
       "verificationMethod": "eth_chainId, eth_blockNumber, then eth_getCode(address, blockTag)",
-      "observedAt": "2026-08-03T04:28:35.338Z",
-      "blockTag": "0x26b38e4",
+      "observedAt": "2026-08-03T04:52:18.398Z",
+      "blockTag": "0x26b3ec8",
       "codeByteLength": 14954,
       "codeSha256": "04b519e6f70efe1db6411973d335ed4f52a2f10092e10c87f2efe769cd080328",
       "gap": "Deployment correspondence verified by non-empty code at the declared address; source, ownership, and behavior remain outside this check."
@@ -111,8 +111,8 @@
       "declaredReference": "deploy/verification-status-v1.json",
       "observedReference": "evidence/live-rpc-correspondence-v1.json",
       "verificationMethod": "eth_chainId, eth_blockNumber, then eth_getCode(address, blockTag)",
-      "observedAt": "2026-08-03T04:28:35.338Z",
-      "blockTag": "0x26b38e4",
+      "observedAt": "2026-08-03T04:52:18.398Z",
+      "blockTag": "0x26b3ec8",
       "codeByteLength": 171,
       "codeSha256": "c7404fa90f9417f24a7f3e1ee736d3f7843f419188a98921fa385dac0e8a693b",
       "gap": "Deployment correspondence verified by non-empty code at the declared address; source, ownership, and behavior remain outside this check."
@@ -125,8 +125,8 @@
       "declaredReference": "UNKNOWN",
       "observedReference": "evidence/live-rpc-correspondence-v1.json",
       "verificationMethod": "eth_chainId, eth_blockNumber, then eth_getCode(address, blockTag)",
-      "observedAt": "2026-08-03T04:28:35.338Z",
-      "blockTag": "0x26b38e4",
+      "observedAt": "2026-08-03T04:52:18.398Z",
+      "blockTag": "0x26b3ec8",
       "codeByteLength": 2280,
       "codeSha256": "31394bbb3e75a9de2b10c92a43ce23aaf8898d43305926308e85a6bc4638ac1f",
       "gap": "No matching declared core-contract entry is available."

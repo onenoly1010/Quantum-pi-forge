@@ -42,6 +42,13 @@ function normalizeAddress(value, index) {
   return value.toLowerCase();
 }
 
+function normalizeBytecode(value, address) {
+  if (typeof value !== "string" || !/^0x[0-9a-fA-F]*$/.test(value) || (value.length - 2) % 2 !== 0) {
+    fail(`Invalid bytecode response for ${address}`);
+  }
+  return value.toLowerCase();
+}
+
 async function main() {
   const source = readJson(sourcePath);
   const contracts = source.phase_b_address_extraction?.contracts;
@@ -57,8 +64,7 @@ async function main() {
   const entries = [];
   for (const [index, contract] of contracts.entries()) {
     const address = normalizeAddress(contract?.address, index);
-    const code = await rpc("eth_getCode", [contract.address, blockTag]);
-    if (!/^0x[0-9a-f]*$/i.test(code)) fail(`Invalid bytecode response for ${contract.address}`);
+    const code = normalizeBytecode(await rpc("eth_getCode", [address, blockTag]), address);
     entries.push({
       address,
       blockTag,
