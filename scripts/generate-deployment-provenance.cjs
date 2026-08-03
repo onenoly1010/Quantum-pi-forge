@@ -19,6 +19,13 @@ function readJson(filePath) {
   }
 }
 
+function normalizeAddress(value, source, index) {
+  if (typeof value !== "string" || value.trim() === "") {
+    fail(`Invalid address in ${source} at index ${index}`);
+  }
+  return value.toLowerCase();
+}
+
 const verification = readJson(verificationPath);
 const status = readJson(statusPath);
 const contracts = verification.phase_b_address_extraction?.contracts;
@@ -31,11 +38,14 @@ if (status.schema !== "qpf-verification-status-v1" || !Array.isArray(declared)) 
   fail("Invalid verification status source");
 }
 
-const declaredAddresses = new Set(declared.map((contract) => contract.address.toLowerCase()));
-const entries = contracts.map((contract) => {
-  const declaredMatch = declaredAddresses.has(contract.address.toLowerCase());
+const declaredAddresses = new Set(declared.map((contract, index) =>
+  normalizeAddress(contract?.address, "verification status source", index)
+));
+const entries = contracts.map((contract, index) => {
+  const address = normalizeAddress(contract?.address, "deployed-addresses verification source", index);
+  const declaredMatch = declaredAddresses.has(address);
   return {
-    id: contract.address.toLowerCase(),
+    id: address,
     name: contract.name,
     address: contract.address,
     correspondenceState: declaredMatch ? "PARTIAL" : "UNKNOWN",

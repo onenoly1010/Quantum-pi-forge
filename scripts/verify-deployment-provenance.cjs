@@ -26,8 +26,11 @@ if (surface.schemaVersion !== "qpf-deployment-provenance-v1" || !Array.isArray(s
   fail("invalid provenance surface");
 }
 for (const entry of surface.entries) {
-  if (!["PARTIAL", "UNKNOWN"].includes(entry.correspondenceState)) fail(`unsupported correspondence state: ${entry.id}`);
+  if (!["PARTIAL", "UNKNOWN"].includes(entry.correspondenceState)) fail(`unsupported correspondence state "${entry.correspondenceState}": ${entry.id}`);
   if (!entry.observedReference || !entry.verificationMethod || !entry.observedAt || !entry.gap) fail(`incomplete provenance: ${entry.id}`);
-  if (entry.correspondenceState === "PARTIAL" && entry.declaredReference === "UNKNOWN") fail(`partial entry lacks declared reference: ${entry.id}`);
+  if (entry.correspondenceState === "PARTIAL" &&
+      (typeof entry.declaredReference !== "string" || entry.declaredReference.trim() === "" || entry.declaredReference === "UNKNOWN")) {
+    fail(`partial entry lacks declared reference: ${entry.id}`);
+  }
 }
 console.log(`OK deployment provenance verified: ${surface.entries.length} entries.`);
