@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "qpf-independent-verification-v1",
+  "phase": 11,
+  "authorityBoundary": {
+    "externalVerifierAuthority": false,
+    "mutations": false
+  },
+  "inputs": [
+    "evidence/live-rpc-correspondence-v1.json",
+    "evidence/build-artifact-manifest-v1.json",
+    "deploy/source-identity-correspondence-v1.json"
+  ],
+  "checks": [
+    {
+      "input": "evidence/live-rpc-correspondence-v1.json",
+      "result": "PASS"
+    },
+    {
+      "input": "evidence/build-artifact-manifest-v1.json",
+      "result": "PASS"
+    },
+    {
+      "input": "deploy/source-identity-correspondence-v1.json",
+      "result": "PASS"
+    }
+  ],
+  "result": "PASS"
+}

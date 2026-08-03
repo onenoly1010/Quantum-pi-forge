@@ -37,6 +37,7 @@ const staticFiles = [
   { src: 'deploy/deployment-provenance-v1.json', dest: 'deployment-provenance-v1.json' },
   { src: 'deploy/live-rpc-correspondence-v1.json', dest: 'live-rpc-correspondence-v1.json' },
   { src: 'deploy/source-identity-correspondence-v1.json', dest: 'source-identity-correspondence-v1.json' },
+  { src: 'deploy/independent-verification-v1.json', dest: 'independent-verification-v1.json' },
   { src: 'deploy/deployed-addresses-verification.json', dest: 'deployed-addresses-verification.json' },
   { src: 'evidence/live-rpc-correspondence-v1.json', dest: 'evidence/live-rpc-correspondence-v1.json' },
   { src: 'evidence/build-artifact-manifest-v1.json', dest: 'evidence/build-artifact-manifest-v1.json' },

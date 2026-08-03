@@ -23,6 +23,7 @@
     "verify:source-identity-correspondence": "node scripts/verify-source-identity-correspondence.cjs",
     "generate:build-artifact-manifest": "node scripts/generate-build-artifact-manifest.cjs",
     "verify:build-artifact-manifest": "node scripts/verify-build-artifact-manifest.cjs",
+    "verify:independent": "node scripts/verify-independent.cjs",
     "evidence:receipt": "node scripts/generate-evidence-receipt.cjs",
     "evidence:receipt:check": "node scripts/check-evidence-receipt.cjs",
     "verify:claim-map": "node scripts/verify-claim-map.cjs",
