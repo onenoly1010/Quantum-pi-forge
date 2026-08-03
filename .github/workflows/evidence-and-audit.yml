@@ -42,5 +42,8 @@ jobs:
       - name: Verify live RPC correspondence
         run: npm run verify:live-rpc-correspondence
 
+      - name: Verify source identity correspondence
+        run: npm run verify:source-identity-correspondence
+
       - name: Enforce high-severity audit gate
         run: npm audit --audit-level=high
