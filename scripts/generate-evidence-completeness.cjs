@@ -52,6 +52,11 @@ function buildSurface() {
   if (manifest.schemaVersion !== "qpf-capability-manifest-v1") fail("Unsupported capability manifest schema");
   if (!Array.isArray(registry.entries) || registry.entries.length === 0) fail("Registry entries must be non-empty");
   if (typeof manifest.sourceInventory?.sourceCommit !== "string") fail("Capability manifest source commit is missing");
+  if (receipt.schemaVersion !== "qpf-evidence-receipt-v1"
+    || typeof receipt.generatedAt !== "string"
+    || typeof receipt.gitCommit !== "string") {
+    fail("Evidence receipt is missing required provenance fields");
+  }
 
   return {
     schemaVersion: "qpf-evidence-completeness-v1",

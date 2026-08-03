@@ -48,6 +48,7 @@ for (const entry of surface.entries) {
     fail(`missing evidence receipt reference: ${entry.id}`);
   }
   if (entry.deploymentMatch?.state !== "UNKNOWN") fail(`unsupported deployment assertion: ${entry.id}`);
+  if (!Array.isArray(entry.gaps)) fail(`invalid gaps: ${entry.id}`);
 
   if (registryEntry.verification.status === "VERIFIED") {
     if (entry.evidenceState !== "VERIFIED" || !entry.referenceCommit || entry.referenceCommit === "UNKNOWN") {
