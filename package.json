@@ -10,6 +10,8 @@
     "verify:evidence-index": "node scripts/verify-evidence-index.cjs",
     "generate:capability-manifest": "node scripts/generate-capability-manifest.cjs",
     "verify:capability-manifest": "node scripts/verify-capability-manifest.cjs",
+    "generate:capability-registry": "node scripts/generate-capability-registry.cjs",
+    "verify:capability-registry": "node scripts/verify-capability-registry.cjs",
     "evidence:receipt": "node scripts/generate-evidence-receipt.cjs",
     "evidence:receipt:check": "node scripts/check-evidence-receipt.cjs",
     "verify:claim-map": "node scripts/verify-claim-map.cjs",
