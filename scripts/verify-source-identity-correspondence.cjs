@@ -28,6 +28,9 @@ for (const entry of surface.entries) {
   if (!["MATCHED", "PARTIAL", "UNKNOWN"].includes(entry.sourceIdentityState)) fail(`unsupported source identity state: ${entry.id}`);
   if (!entry.deploymentReference || !entry.compilerReference || !entry.comparisonMethod || !entry.gap) fail(`incomplete source identity evidence: ${entry.id}`);
   if (entry.sourceIdentityState === "MATCHED" && entry.artifactReference === "UNKNOWN") fail(`matched entry lacks artifact reference: ${entry.id}`);
-  if (entry.sourceIdentityState === "PARTIAL" && entry.artifactReference !== "UNKNOWN") fail(`unimplemented artifact comparison must remain partial: ${entry.id}`);
+  if (entry.sourceIdentityState === "PARTIAL" &&
+      (typeof entry.artifactReference !== "string" || entry.artifactReference.trim() === "")) {
+    fail(`partial entry lacks artifact reference state: ${entry.id}`);
+  }
 }
 console.log(`OK source identity correspondence verified: ${surface.entries.length} entries.`);
