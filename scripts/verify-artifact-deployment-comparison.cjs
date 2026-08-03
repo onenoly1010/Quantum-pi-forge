@@ -25,10 +25,11 @@ if (surface.schemaVersion !== "qpf-artifact-deployment-comparison-v1" || !Array.
   fail("invalid artifact deployment comparison surface");
 }
 for (const entry of surface.entries) {
-  if (!["MATCHED", "PARTIAL", "UNKNOWN"].includes(entry.comparisonState)) fail(`unsupported comparison state: ${entry.id}`);
+  if (!["MATCHED", "PARTIAL", "UNKNOWN"].includes(entry.comparisonState)) fail(`unsupported comparison state: ${entry.comparisonState} (entry: ${entry.id})`);
   if (!entry.deploymentReference || !entry.mappingReference || !entry.gap || !Array.isArray(entry.candidateArtifactIds)) {
     fail(`incomplete comparison evidence: ${entry.id}`);
   }
-  if (entry.comparisonState === "MATCHED" && entry.artifactReference === "UNKNOWN") fail(`matched entry lacks artifact reference: ${entry.id}`);
+  if (typeof entry.artifactReference !== "string") fail(`missing or invalid artifactReference: ${entry.id}`);
+  if (entry.comparisonState === "MATCHED" && (entry.artifactReference === "UNKNOWN" || entry.artifactReference === "")) fail(`matched entry lacks artifact reference: ${entry.id}`);
 }
 console.log(`OK artifact deployment comparison verified: ${surface.entries.length} entries.`);
