@@ -1,0 +1,867 @@
+{
+  "schemaVersion": "qpf-build-artifact-manifest-v1",
+  "purpose": "Versioned metadata and normalized runtime-bytecode hashes derived from a local Foundry build. Artifact binaries remain reproducible generated outputs.",
+  "buildCommand": "cd contracts && forge build",
+  "compilerConfiguration": "contracts/foundry.toml",
+  "entries": [
+    {
+      "artifactId": "CommonBase",
+      "sourcePath": "lib/forge-std/src/Base.sol",
+      "artifactPath": "contracts/out/Base.sol/CommonBase.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "a54942c8e365f3784f38b8d437f9d708290db60738b00cdcfb934c32d1be97f3",
+      "runtimeBytecodeLength": 0
+    },
+    {
+      "artifactId": "ScriptBase",
+      "sourcePath": "lib/forge-std/src/Base.sol",
+      "artifactPath": "contracts/out/Base.sol/ScriptBase.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "a54942c8e365f3784f38b8d437f9d708290db60738b00cdcfb934c32d1be97f3",
+      "runtimeBytecodeLength": 0
+    },
+    {
+      "artifactId": "TestBase",
+      "sourcePath": "lib/forge-std/src/Base.sol",
+      "artifactPath": "contracts/out/Base.sol/TestBase.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "a54942c8e365f3784f38b8d437f9d708290db60738b00cdcfb934c32d1be97f3",
+      "runtimeBytecodeLength": 0
+    },
+    {
+      "artifactId": "BirthGenesisHeartbeat",
+      "sourcePath": "heartbeat/HeartbeatMonitor.sol",
+      "artifactPath": "contracts/out/BirthGenesisHeartbeat.s.sol/BirthGenesisHeartbeat.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "d52cd045242bde31f38586a0674308d46f83edb504372efeb906310195e7dcc8",
+      "runtimeBytecodeLength": 20046
+    },
+    {
+      "artifactId": "Context",
+      "sourcePath": "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+      "artifactPath": "contracts/out/Context.sol/Context.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "a54942c8e365f3784f38b8d437f9d708290db60738b00cdcfb934c32d1be97f3",
+      "runtimeBytecodeLength": 0
+    },
+    {
+      "artifactId": "Deploy",
+      "sourcePath": "lib/forge-std/src/Base.sol",
+      "artifactPath": "contracts/out/Deploy.s.sol/Deploy.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "2698a984be46c74024d0fdde764c559b24c8a54fdae435e6ce170113ac9bafd1",
+      "runtimeBytecodeLength": 17673
+    },
+    {
+      "artifactId": "DeploySocialRecovery",
+      "sourcePath": "ZeroGSocialRecovery.sol",
+      "artifactPath": "contracts/out/DeploySocialRecovery.s.sol/DeploySocialRecovery.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "b5071d6570510bc42c29ec70df9c184a4da417d819b9dfa7db9bce95ccf4e1ab",
+      "runtimeBytecodeLength": 8705
+    },
+    {
+      "artifactId": "DeployYieldRouter",
+      "sourcePath": "lib/forge-std/src/Base.sol",
+      "artifactPath": "contracts/out/DeployYieldRouter.s.sol/DeployYieldRouter.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "f6ef08b4e047342439f2e87cafa48255531d8d73439cd8d1c9473a49104684ef",
+      "runtimeBytecodeLength": 12456
+    },
+    {
+      "artifactId": "ERC165",
+      "sourcePath": "lib/openzeppelin-contracts/contracts/utils/introspection/ERC165.sol",
+      "artifactPath": "contracts/out/ERC165.sol/ERC165.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "a54942c8e365f3784f38b8d437f9d708290db60738b00cdcfb934c32d1be97f3",
+      "runtimeBytecodeLength": 0
+    },
+    {
+      "artifactId": "ERC20",
+      "sourcePath": "lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol",
+      "artifactPath": "contracts/out/ERC20.sol/ERC20.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "a54942c8e365f3784f38b8d437f9d708290db60738b00cdcfb934c32d1be97f3",
+      "runtimeBytecodeLength": 0
+    },
+    {
+      "artifactId": "ERC20Burnable",
+      "sourcePath": "lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol",
+      "artifactPath": "contracts/out/ERC20Burnable.sol/ERC20Burnable.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "a54942c8e365f3784f38b8d437f9d708290db60738b00cdcfb934c32d1be97f3",
+      "runtimeBytecodeLength": 0
+    },
+    {
+      "artifactId": "ERC721",
+      "sourcePath": "lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol",
+      "artifactPath": "contracts/out/ERC721.sol/ERC721.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "a54942c8e365f3784f38b8d437f9d708290db60738b00cdcfb934c32d1be97f3",
+      "runtimeBytecodeLength": 0
+    },
+    {
+      "artifactId": "ERC721Burnable",
+      "sourcePath": "lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol",
+      "artifactPath": "contracts/out/ERC721Burnable.sol/ERC721Burnable.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "a54942c8e365f3784f38b8d437f9d708290db60738b00cdcfb934c32d1be97f3",
+      "runtimeBytecodeLength": 0
+    },
+    {
+      "artifactId": "ERC721URIStorage",
+      "sourcePath": "lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol",
+      "artifactPath": "contracts/out/ERC721URIStorage.sol/ERC721URIStorage.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "a54942c8e365f3784f38b8d437f9d708290db60738b00cdcfb934c32d1be97f3",
+      "runtimeBytecodeLength": 0
+    },
+    {
+      "artifactId": "FeeCollector",
+      "sourcePath": "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+      "artifactPath": "contracts/out/FeeCollector.sol/FeeCollector.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "4505dfcfc575d93545a2ec1914ff4e5cf3c74bf45ec1caabd551470579d3ebad",
+      "runtimeBytecodeLength": 2792
+    },
+    {
+      "artifactId": "FeeCollectorTest",
+      "sourcePath": "lib/forge-std/src/Base.sol",
+      "artifactPath": "contracts/out/FeeCollector.t.sol/FeeCollectorTest.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "fd69dd11aa1aca88d561bd657ce47065f99bb7ab08c9e402895217464f833224",
+      "runtimeBytecodeLength": 15240
+    },
+    {
+      "artifactId": "HeartbeatMonitor",
+      "sourcePath": "heartbeat/HeartbeatMonitor.sol",
+      "artifactPath": "contracts/out/HeartbeatMonitor.sol/HeartbeatMonitor.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "e0efebc8af4868f5af1331fe6c33d03ff5d29e3f4569d67099e297af7afcbd8a",
+      "runtimeBytecodeLength": 2571
+    },
+    {
+      "artifactId": "IERC165",
+      "sourcePath": "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
+      "artifactPath": "contracts/out/IERC165.sol/IERC165.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "a54942c8e365f3784f38b8d437f9d708290db60738b00cdcfb934c32d1be97f3",
+      "runtimeBytecodeLength": 0
+    },
+    {
+      "artifactId": "IERC20",
+      "sourcePath": "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+      "artifactPath": "contracts/out/IERC20.sol/IERC20.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "a54942c8e365f3784f38b8d437f9d708290db60738b00cdcfb934c32d1be97f3",
+      "runtimeBytecodeLength": 0
+    },
+    {
+      "artifactId": "IERC20Metadata",
+      "sourcePath": "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+      "artifactPath": "contracts/out/IERC20Metadata.sol/IERC20Metadata.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "a54942c8e365f3784f38b8d437f9d708290db60738b00cdcfb934c32d1be97f3",
+      "runtimeBytecodeLength": 0
+    },
+    {
+      "artifactId": "IERC4906",
+      "sourcePath": "lib/openzeppelin-contracts/contracts/interfaces/IERC165.sol",
+      "artifactPath": "contracts/out/IERC4906.sol/IERC4906.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "a54942c8e365f3784f38b8d437f9d708290db60738b00cdcfb934c32d1be97f3",
+      "runtimeBytecodeLength": 0
+    },
+    {
+      "artifactId": "IERC721",
+      "sourcePath": "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol",
+      "artifactPath": "contracts/out/IERC721.sol/IERC721.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "a54942c8e365f3784f38b8d437f9d708290db60738b00cdcfb934c32d1be97f3",
+      "runtimeBytecodeLength": 0
+    },
+    {
+      "artifactId": "IERC721Metadata",
+      "sourcePath": "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol",
+      "artifactPath": "contracts/out/IERC721Metadata.sol/IERC721Metadata.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "a54942c8e365f3784f38b8d437f9d708290db60738b00cdcfb934c32d1be97f3",
+      "runtimeBytecodeLength": 0
+    },
+    {
+      "artifactId": "IERC721Receiver",
+      "sourcePath": "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721Receiver.sol",
+      "artifactPath": "contracts/out/IERC721Receiver.sol/IERC721Receiver.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "a54942c8e365f3784f38b8d437f9d708290db60738b00cdcfb934c32d1be97f3",
+      "runtimeBytecodeLength": 0
+    },
+    {
+      "artifactId": "IMulticall3",
+      "sourcePath": "lib/forge-std/src/interfaces/IMulticall3.sol",
+      "artifactPath": "contracts/out/IMulticall3.sol/IMulticall3.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "a54942c8e365f3784f38b8d437f9d708290db60738b00cdcfb934c32d1be97f3",
+      "runtimeBytecodeLength": 0
+    },
+    {
+      "artifactId": "LegacyVault",
+      "sourcePath": "src/LegacyVault.sol",
+      "artifactPath": "contracts/out/LegacyVault.sol/LegacyVault.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "e05c8b1c9b5a72430b76d78cea8319d040d0cf671a1e82899583ff05a7d1eb3b",
+      "runtimeBytecodeLength": 1105
+    },
+    {
+      "artifactId": "LegacyVaultTest",
+      "sourcePath": "lib/forge-std/src/Base.sol",
+      "artifactPath": "contracts/out/LegacyVault.t.sol/LegacyVaultTest.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "f52d492809a848b429f6e9f7d1c85fb33d12016cef8fcb5b94a1becc138529ff",
+      "runtimeBytecodeLength": 9833
+    },
+    {
+      "artifactId": "Math",
+      "sourcePath": "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
+      "artifactPath": "contracts/out/Math.sol/Math.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "57bd7bfdf953f80df4818229b333058a8f755c92d72c41471447621976c863bb",
+      "runtimeBytecodeLength": 85
+    },
+    {
+      "artifactId": "OINIOModelRegistry",
+      "sourcePath": "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+      "artifactPath": "contracts/out/OINIOModelRegistry.sol/OINIOModelRegistry.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "fe2e045fa4a817bd78e888102485c7eb5136bab66abee1b8a78d80a1024d54c1",
+      "runtimeBytecodeLength": 9710
+    },
+    {
+      "artifactId": "OINIOToken",
+      "sourcePath": "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+      "artifactPath": "contracts/out/OINIOToken.sol/OINIOToken.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "31394bbb3e75a9de2b10c92a43ce23aaf8898d43305926308e85a6bc4638ac1f",
+      "runtimeBytecodeLength": 2280
+    },
+    {
+      "artifactId": "OperationalTreasury",
+      "sourcePath": "src/OperationalTreasury.sol",
+      "artifactPath": "contracts/out/OperationalTreasury.sol/OperationalTreasury.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "ebe2d7c585795b47b6b19b05aa1856f79b38747ac278ebeff6425d3c1bdb1782",
+      "runtimeBytecodeLength": 2597
+    },
+    {
+      "artifactId": "OperationalTreasuryTest",
+      "sourcePath": "lib/forge-std/src/Base.sol",
+      "artifactPath": "contracts/out/OperationalTreasury.t.sol/OperationalTreasuryTest.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "fc584b83f65b3d9f5ca174df1af068a64633fdcbee3a3723a3d57d0ec1441ab7",
+      "runtimeBytecodeLength": 18634
+    },
+    {
+      "artifactId": "Ownable",
+      "sourcePath": "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+      "artifactPath": "contracts/out/Ownable.sol/Ownable.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "a54942c8e365f3784f38b8d437f9d708290db60738b00cdcfb934c32d1be97f3",
+      "runtimeBytecodeLength": 0
+    },
+    {
+      "artifactId": "PioneerRewards",
+      "sourcePath": "lib/openzeppelin-contracts/contracts/utils/ReentrancyGuard.sol",
+      "artifactPath": "contracts/out/PioneerRewards.sol/PioneerRewards.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "36acd820c7fbad710e2f72293ab154e23868128586d5ac165f3079697ff8fed5",
+      "runtimeBytecodeLength": 2153
+    },
+    {
+      "artifactId": "PioneerRewardsTest",
+      "sourcePath": "lib/forge-std/src/Base.sol",
+      "artifactPath": "contracts/out/PioneerRewards.t.sol/PioneerRewardsTest.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "4e74a95a9098317b03f0a7f64e9e4e650ad70d2c8caf069a64711df46b33325e",
+      "runtimeBytecodeLength": 14016
+    },
+    {
+      "artifactId": "ReentrancyGuard",
+      "sourcePath": "lib/openzeppelin-contracts/contracts/utils/ReentrancyGuard.sol",
+      "artifactPath": "contracts/out/ReentrancyGuard.sol/ReentrancyGuard.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "a54942c8e365f3784f38b8d437f9d708290db60738b00cdcfb934c32d1be97f3",
+      "runtimeBytecodeLength": 0
+    },
+    {
+      "artifactId": "RegisterGenesisAgent",
+      "sourcePath": "lib/forge-std/src/Base.sol",
+      "artifactPath": "contracts/out/RegisterGenesisAgent.s.sol/RegisterGenesisAgent.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "1ad6dae364b887f172a6503185eea63e5ad6761039e51d1d1f2272eae692c5f9",
+      "runtimeBytecodeLength": 1730
+    },
+    {
+      "artifactId": "Script",
+      "sourcePath": "lib/forge-std/src/Base.sol",
+      "artifactPath": "contracts/out/Script.sol/Script.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "a54942c8e365f3784f38b8d437f9d708290db60738b00cdcfb934c32d1be97f3",
+      "runtimeBytecodeLength": 0
+    },
+    {
+      "artifactId": "SignedMath",
+      "sourcePath": "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol",
+      "artifactPath": "contracts/out/SignedMath.sol/SignedMath.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "699e88b06bf32c5233489a3691563097ba84b1eb3a4b495abf17254a30e77e39",
+      "runtimeBytecodeLength": 85
+    },
+    {
+      "artifactId": "StdAssertions",
+      "sourcePath": "lib/forge-std/src/StdAssertions.sol",
+      "artifactPath": "contracts/out/StdAssertions.sol/StdAssertions.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "a54942c8e365f3784f38b8d437f9d708290db60738b00cdcfb934c32d1be97f3",
+      "runtimeBytecodeLength": 0
+    },
+    {
+      "artifactId": "StdChains",
+      "sourcePath": "lib/forge-std/src/StdChains.sol",
+      "artifactPath": "contracts/out/StdChains.sol/StdChains.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "a54942c8e365f3784f38b8d437f9d708290db60738b00cdcfb934c32d1be97f3",
+      "runtimeBytecodeLength": 0
+    },
+    {
+      "artifactId": "StdCheats",
+      "sourcePath": "lib/forge-std/src/StdCheats.sol",
+      "artifactPath": "contracts/out/StdCheats.sol/StdCheats.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "a54942c8e365f3784f38b8d437f9d708290db60738b00cdcfb934c32d1be97f3",
+      "runtimeBytecodeLength": 0
+    },
+    {
+      "artifactId": "StdCheatsSafe",
+      "sourcePath": "lib/forge-std/src/StdCheats.sol",
+      "artifactPath": "contracts/out/StdCheats.sol/StdCheatsSafe.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "a54942c8e365f3784f38b8d437f9d708290db60738b00cdcfb934c32d1be97f3",
+      "runtimeBytecodeLength": 0
+    },
+    {
+      "artifactId": "StdConstants",
+      "sourcePath": "lib/forge-std/src/StdConstants.sol",
+      "artifactPath": "contracts/out/StdConstants.sol/StdConstants.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "32df070dc0a3292a8d6c341a8cde744080a1f3ce078b2ac77b34a7f396bccdf4",
+      "runtimeBytecodeLength": 85
+    },
+    {
+      "artifactId": "stdError",
+      "sourcePath": "lib/forge-std/src/StdError.sol",
+      "artifactPath": "contracts/out/StdError.sol/stdError.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "266d80f59f592d704d41a2c4e4ccd4394c679133f612e3b4fafd6ce6f8d64234",
+      "runtimeBytecodeLength": 586
+    },
+    {
+      "artifactId": "StdInvariant",
+      "sourcePath": "lib/forge-std/src/StdInvariant.sol",
+      "artifactPath": "contracts/out/StdInvariant.sol/StdInvariant.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "a54942c8e365f3784f38b8d437f9d708290db60738b00cdcfb934c32d1be97f3",
+      "runtimeBytecodeLength": 0
+    },
+    {
+      "artifactId": "stdJson",
+      "sourcePath": "lib/forge-std/src/StdJson.sol",
+      "artifactPath": "contracts/out/StdJson.sol/stdJson.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "7008bc727384885db654a0f8e9473730fc9e17c610f526882cef1e7277f2f715",
+      "runtimeBytecodeLength": 85
+    },
+    {
+      "artifactId": "stdMath",
+      "sourcePath": "lib/forge-std/src/StdMath.sol",
+      "artifactPath": "contracts/out/StdMath.sol/stdMath.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "ce5e08422e75501bf47d36747bce8691e088f61c1c6f6dff72c2e9ed81643ac0",
+      "runtimeBytecodeLength": 85
+    },
+    {
+      "artifactId": "stdStorage",
+      "sourcePath": "lib/forge-std/src/StdStorage.sol",
+      "artifactPath": "contracts/out/StdStorage.sol/stdStorage.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "fc3ac6e5e1f91a1887f3741060ccb89e2fe42c829bb805d7db13c761155d4d09",
+      "runtimeBytecodeLength": 85
+    },
+    {
+      "artifactId": "stdStorageSafe",
+      "sourcePath": "lib/forge-std/src/StdStorage.sol",
+      "artifactPath": "contracts/out/StdStorage.sol/stdStorageSafe.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "5fc45439238d22b599c4c784053960610f68c04e82fc2ab160b3f3c69bea116f",
+      "runtimeBytecodeLength": 85
+    },
+    {
+      "artifactId": "StdStyle",
+      "sourcePath": "lib/forge-std/src/StdStyle.sol",
+      "artifactPath": "contracts/out/StdStyle.sol/StdStyle.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "2a7779a5f5d8c01a3563ce4a81c17c7fb91f30a8678a0a0f85b76a60df8132d2",
+      "runtimeBytecodeLength": 85
+    },
+    {
+      "artifactId": "stdToml",
+      "sourcePath": "lib/forge-std/src/StdToml.sol",
+      "artifactPath": "contracts/out/StdToml.sol/stdToml.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "0c8600a4ee83e463d1740ba69e1c2653833c0c97baff8828e6aaa7c0bcdf0f41",
+      "runtimeBytecodeLength": 85
+    },
+    {
+      "artifactId": "StdUtils",
+      "sourcePath": "lib/forge-std/src/StdConstants.sol",
+      "artifactPath": "contracts/out/StdUtils.sol/StdUtils.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "a54942c8e365f3784f38b8d437f9d708290db60738b00cdcfb934c32d1be97f3",
+      "runtimeBytecodeLength": 0
+    },
+    {
+      "artifactId": "Strings",
+      "sourcePath": "lib/openzeppelin-contracts/contracts/utils/Strings.sol",
+      "artifactPath": "contracts/out/Strings.sol/Strings.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "0e554699c0c249eb0f788f17016593edd83e5d14251cb23346b185b14bc0a804",
+      "runtimeBytecodeLength": 85
+    },
+    {
+      "artifactId": "Test",
+      "sourcePath": "lib/forge-std/src/Base.sol",
+      "artifactPath": "contracts/out/Test.sol/Test.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "a54942c8e365f3784f38b8d437f9d708290db60738b00cdcfb934c32d1be97f3",
+      "runtimeBytecodeLength": 0
+    },
+    {
+      "artifactId": "Vm",
+      "sourcePath": "lib/forge-std/src/Vm.sol",
+      "artifactPath": "contracts/out/Vm.sol/Vm.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "a54942c8e365f3784f38b8d437f9d708290db60738b00cdcfb934c32d1be97f3",
+      "runtimeBytecodeLength": 0
+    },
+    {
+      "artifactId": "VmSafe",
+      "sourcePath": "lib/forge-std/src/Vm.sol",
+      "artifactPath": "contracts/out/Vm.sol/VmSafe.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "a54942c8e365f3784f38b8d437f9d708290db60738b00cdcfb934c32d1be97f3",
+      "runtimeBytecodeLength": 0
+    },
+    {
+      "artifactId": "YieldRouterFactory",
+      "sourcePath": "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+      "artifactPath": "contracts/out/YieldRouterFactory.sol/YieldRouterFactory.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "2816976c156aa93c05f205fa12678c875b0ed6c60705d25971f050596e0f759b",
+      "runtimeBytecodeLength": 11433
+    },
+    {
+      "artifactId": "YieldRouterFactoryTest",
+      "sourcePath": "lib/forge-std/src/Base.sol",
+      "artifactPath": "contracts/out/YieldRouterFactory.t.sol/YieldRouterFactoryTest.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "4623834d5fe56974d174b4e10ac23365195369dda8aaadd42ff1bddedbfbb395",
+      "runtimeBytecodeLength": 21939
+    },
+    {
+      "artifactId": "IForgeRegistry",
+      "sourcePath": "ZeroGSocialRecovery.sol",
+      "artifactPath": "contracts/out/ZeroGSocialRecovery.sol/IForgeRegistry.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "a54942c8e365f3784f38b8d437f9d708290db60738b00cdcfb934c32d1be97f3",
+      "runtimeBytecodeLength": 0
+    },
+    {
+      "artifactId": "ZeroGSocialRecovery",
+      "sourcePath": "ZeroGSocialRecovery.sol",
+      "artifactPath": "contracts/out/ZeroGSocialRecovery.sol/ZeroGSocialRecovery.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "e1e7f1eeadaea3b3f5d9e9b75e73c827ace56c16c18a8003de8588247c89b753",
+      "runtimeBytecodeLength": 5905
+    },
+    {
+      "artifactId": "console",
+      "sourcePath": "lib/forge-std/src/console.sol",
+      "artifactPath": "contracts/out/console.sol/console.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "4285228fce6a7f8fbdac369cfcdf5827c7beb9a4061cef6fb7caade32d8f0911",
+      "runtimeBytecodeLength": 85
+    },
+    {
+      "artifactId": "IERC1155Errors",
+      "sourcePath": "lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol",
+      "artifactPath": "contracts/out/draft-IERC6093.sol/IERC1155Errors.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "a54942c8e365f3784f38b8d437f9d708290db60738b00cdcfb934c32d1be97f3",
+      "runtimeBytecodeLength": 0
+    },
+    {
+      "artifactId": "IERC20Errors",
+      "sourcePath": "lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol",
+      "artifactPath": "contracts/out/draft-IERC6093.sol/IERC20Errors.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "a54942c8e365f3784f38b8d437f9d708290db60738b00cdcfb934c32d1be97f3",
+      "runtimeBytecodeLength": 0
+    },
+    {
+      "artifactId": "IERC721Errors",
+      "sourcePath": "lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol",
+      "artifactPath": "contracts/out/draft-IERC6093.sol/IERC721Errors.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "a54942c8e365f3784f38b8d437f9d708290db60738b00cdcfb934c32d1be97f3",
+      "runtimeBytecodeLength": 0
+    },
+    {
+      "artifactId": "safeconsole",
+      "sourcePath": "lib/forge-std/src/safeconsole.sol",
+      "artifactPath": "contracts/out/safeconsole.sol/safeconsole.json",
+      "compilerVersion": "0.8.24+commit.e11b9ed9",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "evmVersion": "cancun",
+      "normalizedRuntimeBytecodeSha256": "413c5def838d4ea290f8488bc62b1f3e5aaa9aea99779deb4c1a190f2f894c68",
+      "runtimeBytecodeLength": 85
+    }
+  ],
+  "excludedArtifacts": []
+}

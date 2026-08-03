@@ -39,6 +39,7 @@ const staticFiles = [
   { src: 'deploy/source-identity-correspondence-v1.json', dest: 'source-identity-correspondence-v1.json' },
   { src: 'deploy/deployed-addresses-verification.json', dest: 'deployed-addresses-verification.json' },
   { src: 'evidence/live-rpc-correspondence-v1.json', dest: 'evidence/live-rpc-correspondence-v1.json' },
+  { src: 'evidence/build-artifact-manifest-v1.json', dest: 'evidence/build-artifact-manifest-v1.json' },
   { src: 'deploy/onboarding-status.html', dest: 'onboarding-status.html' },
   { src: 'deploy/manifest.json', dest: 'manifest.json' },
   { src: 'mint.html', dest: 'mint.html' },
