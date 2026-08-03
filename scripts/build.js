@@ -34,6 +34,7 @@ const staticFiles = [
   { src: 'deploy/capability-manifest.json', dest: 'capability-manifest.json' },
   { src: 'deploy/capability-registry-v1.json', dest: 'capability-registry-v1.json' },
   { src: 'deploy/evidence-completeness-v1.json', dest: 'evidence-completeness-v1.json' },
+  { src: 'deploy/deployment-provenance-v1.json', dest: 'deployment-provenance-v1.json' },
   { src: 'deploy/deployed-addresses-verification.json', dest: 'deployed-addresses-verification.json' },
   { src: 'deploy/onboarding-status.html', dest: 'onboarding-status.html' },
   { src: 'deploy/manifest.json', dest: 'manifest.json' },
@@ -179,6 +180,10 @@ function build() {
     stdio: 'inherit',
   });
   execSync('node scripts/generate-evidence-completeness.cjs', {
+    cwd: rootDir,
+    stdio: 'inherit',
+  });
+  execSync('node scripts/generate-deployment-provenance.cjs', {
     cwd: rootDir,
     stdio: 'inherit',
   });

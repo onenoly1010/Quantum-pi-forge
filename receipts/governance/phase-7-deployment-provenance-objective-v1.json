@@ -1,0 +1,10 @@
+{
+  "governance_version": "v1",
+  "receipt": "phase-7-deployment-provenance-objective-v1",
+  "phase": 7,
+  "status": "PHASE_7_EXECUTION_AUTHORIZED",
+  "mode": "read_only_deployment_correspondence",
+  "objective": "Derive declared-versus-observed deployment correspondence without asserting live RPC proof where it is unavailable.",
+  "excluded_scope": ["deployment initiation", "wallet actions", "contract mutation", "credential use", "external mutation"],
+  "authorization_boundary": { "implementation": true, "deployment_initiation": false, "wallet_or_contract_actions": false }
+}
