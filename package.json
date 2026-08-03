@@ -24,6 +24,8 @@
     "generate:build-artifact-manifest": "node scripts/generate-build-artifact-manifest.cjs",
     "verify:build-artifact-manifest": "node scripts/verify-build-artifact-manifest.cjs",
     "verify:independent": "node scripts/verify-independent.cjs",
+    "generate:artifact-deployment-comparison": "node scripts/generate-artifact-deployment-comparison.cjs",
+    "verify:artifact-deployment-comparison": "node scripts/verify-artifact-deployment-comparison.cjs",
     "evidence:receipt": "node scripts/generate-evidence-receipt.cjs",
     "evidence:receipt:check": "node scripts/check-evidence-receipt.cjs",
     "verify:claim-map": "node scripts/verify-claim-map.cjs",

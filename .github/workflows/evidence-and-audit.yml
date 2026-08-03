@@ -51,5 +51,8 @@ jobs:
       - name: Verify independent surface
         run: npm run verify:independent
 
+      - name: Verify artifact deployment comparison
+        run: npm run verify:artifact-deployment-comparison
+
       - name: Enforce high-severity audit gate
         run: npm audit --audit-level=high

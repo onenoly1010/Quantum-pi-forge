@@ -38,9 +38,11 @@ const staticFiles = [
   { src: 'deploy/live-rpc-correspondence-v1.json', dest: 'live-rpc-correspondence-v1.json' },
   { src: 'deploy/source-identity-correspondence-v1.json', dest: 'source-identity-correspondence-v1.json' },
   { src: 'deploy/independent-verification-v1.json', dest: 'independent-verification-v1.json' },
+  { src: 'deploy/artifact-deployment-comparison-v1.json', dest: 'artifact-deployment-comparison-v1.json' },
   { src: 'deploy/deployed-addresses-verification.json', dest: 'deployed-addresses-verification.json' },
   { src: 'evidence/live-rpc-correspondence-v1.json', dest: 'evidence/live-rpc-correspondence-v1.json' },
   { src: 'evidence/build-artifact-manifest-v1.json', dest: 'evidence/build-artifact-manifest-v1.json' },
+  { src: 'evidence/artifact-deployment-mapping-v1.json', dest: 'evidence/artifact-deployment-mapping-v1.json' },
   { src: 'deploy/onboarding-status.html', dest: 'onboarding-status.html' },
   { src: 'deploy/manifest.json', dest: 'manifest.json' },
   { src: 'mint.html', dest: 'mint.html' },
@@ -197,6 +199,10 @@ function build() {
     stdio: 'inherit',
   });
   execSync('node scripts/generate-source-identity-correspondence.cjs', {
+    cwd: rootDir,
+    stdio: 'inherit',
+  });
+  execSync('node scripts/generate-artifact-deployment-comparison.cjs', {
     cwd: rootDir,
     stdio: 'inherit',
   });
