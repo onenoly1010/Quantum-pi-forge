@@ -14,6 +14,8 @@
     "verify:capability-registry": "node scripts/verify-capability-registry.cjs",
     "generate:evidence-completeness": "node scripts/generate-evidence-completeness.cjs",
     "verify:evidence-completeness": "node scripts/verify-evidence-completeness.cjs",
+    "generate:deployment-provenance": "node scripts/generate-deployment-provenance.cjs",
+    "verify:deployment-provenance": "node scripts/verify-deployment-provenance.cjs",
     "evidence:receipt": "node scripts/generate-evidence-receipt.cjs",
     "evidence:receipt:check": "node scripts/check-evidence-receipt.cjs",
     "verify:claim-map": "node scripts/verify-claim-map.cjs",
