@@ -1,52 +1,83 @@
-# First External Attempt Receipt
+# FIRST_EXTERNAL_ATTEMPT_V1
 
-**Milestone:** Exit **Recruitment** → enter **Observation**  
-**Mode:** External validation (post–#717 operating model)  
-**Locks:** held — do not imply adoption, open economics, or invent traction  
+**Boundary object:** next evidence after internal build + governance locks + public surface  
+**Rule:** The receipt is written **after** the attempt — never before. Captures **reality**, not intention.  
+**Locks:** held — this proof is **usability + truthful feedback**, not mint, liquidity, or chain activation  
 
 ```text
-Bottleneck is no longer: can this system be built?
-Bottleneck is now: can an outside person understand and use it
-without the creator present?
-
-Chain:
-  attempt → observation → receipt → decision → implementation
+INTERNAL BUILD EVIDENCE
+        ↓
+VERIFICATION / GOVERNANCE LOCKS
+        ↓
+PUBLIC AVAILABILITY
+        ↓
+FIRST_EXTERNAL_ATTEMPT_V1   ← current target
+        ↓
+OBSERVED RESULT
+        ↓
+EVIDENCE-BACKED CHANGE
 ```
 
-**Seal only after a real outside attempt.** Empty template ≠ milestone met.
+```text
+Not:  Can we build it?
+But:  Can someone who did not build it successfully use it?
+```
+
+Do **not** remove locks because of this gate. Locks are part of the value proposition.
 
 ---
 
-## Receipt
+## Seal only after a real attempt
+
+| Invalid | Valid |
+| --- | --- |
+| Filled in before anyone tries | Filled from what actually happened |
+| “They said they will try” | They attempted a concrete entry point |
+| Invented success | Positive **or** negative outcome recorded honestly |
+
+---
+
+## Receipt body
 
 ```text
 FIRST_EXTERNAL_ATTEMPT_V1
 
-1. Who attempted?
-   Category (not private identity required):
-     [ ] Pi builder  [ ] 0G developer  [ ] Local AI / OSS  [ ] Other: ____
-   External (not creator/maintainer core loop)?  YES / NO  ← must be YES
-   Code / handle (optional):
+Identity:
+- External participant (not builder / not creator core loop): YES / NO
+- Category: Pi builder | 0G developer | Local AI/OSS | Other: ____
+- Code / handle (optional; privacy OK):
 
-2. What task did they attempt?
+Timestamp:
+- UTC:
 
-3. Did they complete it?
-   [ ] yes  [ ] partially  [ ] blocked
+Entry point:
+- URL / feature / workflow attempted:
 
-4. Where did they succeed?
+Task:
+- What they tried to accomplish:
 
-5. Where did they become confused / blocked?
+Expected:
+- What the system was supposed to enable:
 
-6. What did they request next?
+Observed:
+- What actually happened:
 
-7. What evidence was produced?
-   (notes, issue link, screenshot path, report path — none is OK)
+Friction:
+- Confusion, failure, delay, missing information:
 
-8. What change is justified by the evidence?
-   (docs / onboarding / product — or "none yet, need more attempts")
-   Positive or negative outcome: both are useful. Do not invent traction.
+Evidence:
+- Screenshot / log / transaction-free proof / feedback link:
+- (none is OK if stated)
 
-Date (UTC):
+Decision:
+- [ ] Change (what):
+- [ ] Defer (why):
+- [ ] Preserve current state
+- Justification from this attempt only:
+
+Completion:
+- [ ] yes  [ ] partially  [ ] blocked
+
 Facilitator present?  yes / no / remote
 Permission to summarize publicly?  yes / no
 ```
@@ -55,22 +86,25 @@ Permission to summarize publicly?  yes / no
 
 ## Gate update after seal
 
-| Gate | Action |
+| Area | State |
 | --- | --- |
-| Recruitment exit | **MET** (first external attempt occurred) |
-| Observation | **ACTIVE** |
-| Planning / new strategy packaging | **PAUSED** until actionable findings from this or further attempts |
+| Recruitment exit | MET (external attempt occurred) |
+| Observation | ACTIVE |
+| Planning packaging | Paused unless findings require a specific doc/UX fix |
 | Locks | **HELD** |
-
-Do **not** open another planning loop until this receipt exists (or a subsequent attempt produces findings).
 
 ---
 
-## What this is not
+## Current gate status (pre-attempt)
 
-| Not | Why |
-| --- | --- |
-| Market validation | One attempt ≠ product-market fit |
-| Permission to claim “users love it” | Single data point |
-| Activation of mint/LP | Separate AUTHORIZATION only |
-| End of engineering forever | Iteration follows evidence only |
+```text
+ENGINEERING        ✅ SEALED (enough for pilot)
+GOVERNANCE         ✅ CONTROLLED
+SAFETY BOUNDARY    ✅ HELD
+PUBLIC SURFACE     ✅ AVAILABLE (after #717 merge / deploy)
+EXTERNAL EVIDENCE  ⏳ WAITING
+```
+
+```text
+Next meaningful state change: real human interaction, not another document.
+```

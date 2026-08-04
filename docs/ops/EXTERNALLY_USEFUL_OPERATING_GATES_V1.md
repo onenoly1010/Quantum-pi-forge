@@ -57,9 +57,20 @@ RECEIPT TEMPLATE → docs/ops/templates/FIRST_EXTERNAL_ATTEMPT_RECEIPT_V1.md
 LOCKS → held
 ```
 
-**Next measurable milestone:** seal **First External Attempt Receipt** (who / task / complete? / friction / justified change).
+**Next measurable milestone:** seal **`FIRST_EXTERNAL_ATTEMPT_V1`**  
+(template: [FIRST_EXTERNAL_ATTEMPT_RECEIPT_V1.md](./templates/FIRST_EXTERNAL_ATTEMPT_RECEIPT_V1.md))  
+**After the attempt only** — identity category · entry point · expected · observed · friction · evidence · decision.
 
-Do not re-enter **Planning** as the primary state without a reason from **Observation** findings.
+```text
+ENGINEERING        ✅ SEALED
+GOVERNANCE         ✅ CONTROLLED
+SAFETY BOUNDARY    ✅ HELD
+PUBLIC SURFACE     ✅ AVAILABLE (post merge/deploy)
+EXTERNAL EVIDENCE  ⏳ WAITING
+```
+
+Do not re-enter **Planning** as the primary state without Observation findings.  
+Do **not** interpret this gate as a signal to remove locks.
 
 ---
 
