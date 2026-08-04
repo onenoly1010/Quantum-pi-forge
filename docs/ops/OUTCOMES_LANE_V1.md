@@ -5,10 +5,12 @@
 **Public portal:** https://quantumpiforge.com/deployed-addresses  
 **Rule:** Capability ≠ Permission ≠ Activation ≠ Revenue  
 **Outcome map:** [OUTCOME_READINESS_MAP_V1.md](./OUTCOME_READINESS_MAP_V1.md) — READY_NOW inventory, ledger (A0/B0), shortest path  
+**Execution plan:** [OUTCOME_EXECUTION_PLAN_V1.md](./OUTCOME_EXECUTION_PLAN_V1.md) — front door (private AI), E1 first user outcome, utility revenue  
 
 ```text
 verified infrastructure ≠ authorized activation
 foundation → outcomes, without collapsing ready into live
+building the machine → putting the machine to work (E1)
 ```
 
 ---

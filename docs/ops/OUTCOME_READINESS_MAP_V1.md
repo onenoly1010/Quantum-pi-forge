@@ -5,6 +5,7 @@
 **Generated (UTC):** 2026-08-04  
 **Sealed tip:** `0cd896a` (main, post #713–#716)  
 **Companion plan:** [OUTCOMES_LANE_V1.md](./OUTCOMES_LANE_V1.md)  
+**Execution plan:** [OUTCOME_EXECUTION_PLAN_V1.md](./OUTCOME_EXECUTION_PLAN_V1.md) — front door + E1 delivery  
 **Rule:** Capability ≠ Permission ≠ Activation ≠ Revenue  
 
 ```text
@@ -361,16 +362,20 @@ Any later activation requires a **new, scoped AUTHORIZATION RECORD**, separate f
 
 ## 11. Immediate next commands (after this map)
 
+Outcome **execution** is defined in [OUTCOME_EXECUTION_PLAN_V1.md](./OUTCOME_EXECUTION_PLAN_V1.md).
+
 | Priority | Command / action | Who |
 | --- | --- | --- |
-| **1** | Human: send Slot A messages from share packet (2–3 people) | Human |
-| **2** | Human: fill shortlist TBD → 3 named targets | Human |
-| **3** | Optional: merge #717 (docs only) | Human merge GO |
-| **4** | When first report lands: index + status freshness GO | Human + agent under GO |
+| **1** | **E1:** book external private AI operator session (front door) | Human |
+| **2** | Parallel: send Slot A verify invites (trust KPI \(n \rightarrow 1\)) | Human |
+| **3** | Docs: E1 checklist when GO | Agent + human |
+| **4** | Optional: merge #717 (docs only) | Human merge GO |
 | **Do not** | `EXECUTE_18_8` / mint / LP | Anyone |
 
 ```text
 FOUNDATION VERIFIED → OUTCOMES IN PROGRESS
-Primary KPI: n = 0 → 1
+Product KPI: E1 external AI operator experience complete
+Trust KPI: n = 0 → 1
 Locks: held
 ```
+
