@@ -217,20 +217,33 @@ Talk to one potential user
 
 ## 6. Weekly operating cadence (one founder)
 
+**Primary weekly goal (replaces “build another feature”):**
+
+| Track | Conversations / week |
+| --- | --- |
+| Pi ecosystem builders | **5** |
+| 0G developers | **5** |
+| Local AI / OSS developers | **5** |
+| **Total** | **15 discovery touches** |
+
+Detail: [WEEKLY_CONVERSATION_CADENCE_V1.md](./WEEKLY_CONVERSATION_CADENCE_V1.md)
+
 | Cadence | Action |
 | --- | --- |
-| **Mon** | Pick 3 people from the 10 / extended list; send discovery or pilot ask |
-| **Wed** | 1 conversation or session; capture notes same day |
-| **Fri** | Update private ledger; seal any receipts; list one friction fix (docs only) |
-| **Monthly** | Review: who would miss this? which track produces signal? double down |
+| **Mon** | Queue 5 Pi + 5 0G + 5 AI-dev touches; send discovery / 15-min why |
+| **Wed** | Deepen replies; 1 session if someone engages |
+| **Fri** | Log pains; seal receipts; one docs-only friction fix if needed |
+| **Monthly** | Which track + which pain repeated 2–3×? double down |
 
-**Volume targets (realistic):**
+**Volume targets:**
 
-| Week | Conversations | Sessions | Receipts (stretch) |
+| Week | Discovery touches | Sessions | Receipts (stretch) |
 | --- | --- | --- | --- |
-| 1 | 3 | 1 | 1 |
-| 2–4 | 2–4/week | 1–2/week | cumulative 3–5 by day 30 |
-| 5–12 | 2/week steady | as quality allows | pattern → pilot group |
+| 1 | up to 15 (or 10 names if starting smaller) | ≥1 | 1 |
+| 2–4 | 15/week target | 1–2/week | cumulative 3–5 by day 30 |
+| 5–12 | 15/week steady | as quality allows | pattern → pilot group |
+
+**First question to answer in every outreach:** *Why should I spend 15 minutes trying this?*
 
 ---
 
