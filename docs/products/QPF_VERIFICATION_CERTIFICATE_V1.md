@@ -140,11 +140,12 @@ Delivery package:
 
 | Tier | Price | For |
 | --- | --- | --- |
-| **Early adopter** | **$500 CAD** | First external certificates · learning + willingness to pay |
+| **Founder validation (#001–#003)** | **$250–500 CAD** | First external certs · learning · testimonials |
+| **Early adopter** | **$500 CAD** | After first three · willingness to pay |
 | **Standard** | **$1,500 CAD** | Full Pre-Activation Verification Certificate |
 | **Continuous monitoring** | **$500–1,000 CAD/month** | Recurring re-check window |
 
-Goal of first sales: **prove willingness to pay**, not maximize revenue.  
+Goal of first sales: **prove exchange of value**, not maximize revenue.  
 Payment: **off-chain invoice**. Not a token purchase.
 
 ---
@@ -168,7 +169,7 @@ We built a public verification system and are testing the first external
 certificates. Would you like your deployment independently verified and
 receive a public evidence report?
 
-Early adopter: $500 CAD · Standard: $1,500 CAD
+Founder launch (#001–#003): $250–500 CAD · then $500 / $1,500 CAD
 We state what is verified AND what is not (roadmap, token value, adoption).
 No wallet required to engage.
 ```
