@@ -9,32 +9,32 @@
   "source_states": [
     {
       "receipt": "receipts/governance/phase-19-final-human-execution-decision-v1.json",
-      "status": "PREPARE_FOR_ACTIVATION_PREFLIGHT_ONLY",
+      "state": "PREPARE_FOR_ACTIVATION_PREFLIGHT_ONLY",
       "authority": "Final execution preflight only; signing and broadcast remain false."
     },
     {
       "receipt": "receipts/governance/phase-25-public-mint-execution-preflight-v1.json",
-      "status": "PHASE_25_EXECUTION_PREFLIGHT_OPEN_REVIEW_ONLY",
+      "state": "PHASE_25_EXECUTION_PREFLIGHT_OPEN_REVIEW_ONLY",
       "authority": "Identify an exact path only; execution, signing, and broadcast remain false."
     },
     {
       "receipt": "receipts/governance/phase-27-public-mint-execution-script-review-findings-v1.json",
-      "status": "NO_GO_EXECUTION_PATH_INCOMPLETE",
+      "state": "NO_GO_EXECUTION_PATH_INCOMPLETE",
       "authority": "No complete execution script, wallet path, gas harness, receipt generator, or wired abort conditions exist."
     },
     {
       "receipt": "receipts/governance/phase-28-final-public-mint-execution-decision-gate-v1.json",
-      "status": "NO_GO_PUBLIC_MINT_EXECUTION_NOT_READY",
+      "state": "NO_GO_PUBLIC_MINT_EXECUTION_NOT_READY",
       "authority": "No final signing authority exists while the execution path remains incomplete."
     },
     {
       "receipt": "receipts/governance/phase-32-human-signing-approval-v1.json",
-      "status": "KRIS_EXPLICIT_SIGNING_APPROVAL_RECORDED",
+      "state": "KRIS_EXPLICIT_SIGNING_APPROVAL_RECORDED",
       "authority": "Historically scoped prompt approval only; no signing or broadcast was performed and Phase 33 remains required."
     },
     {
       "receipt": "receipts/governance/phase-33-public-mint-execution-gate-v1.json",
-      "status": "NO_GO_PUBLIC_MINT_EXECUTION_NOT_AUTHORIZED",
+      "state": "NO_GO_PUBLIC_MINT_EXECUTION_NOT_AUTHORIZED",
       "authority": "No explicit live execution approval is recorded."
     }
   ],
