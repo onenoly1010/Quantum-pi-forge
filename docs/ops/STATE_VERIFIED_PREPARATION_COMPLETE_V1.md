@@ -3,6 +3,7 @@
 **Recorded (UTC):** 2026-08-04T22:32:02Z  
 **Mode:** Controlled readiness boundary — **not** activation  
 **Source:** Convergence of human operating model + Grok + Copilot verification  
+**Final pre-observation checklist:** [EXTERNAL_OBSERVATION_READINESS_CHECKLIST_V1.md](./EXTERNAL_OBSERVATION_READINESS_CHECKLIST_V1.md)  
 
 ```text
 STATE: VERIFIED_PREPARATION_COMPLETE
