@@ -1,0 +1,76 @@
+{
+  "schema": "qpf.phase_track_reconciliation.v1",
+  "receipt": "phase-track-reconciliation-v1",
+  "created_at": "2026-08-04T11:51:57Z",
+  "status": "RECONCILIATION_PREPARED",
+  "mode": "read_only_governance_mapping",
+  "purpose": "Prevent ambiguous phase references by preserving independently numbered governance tracks without renumbering or changing any historical claim.",
+  "decision": {
+    "strategy": "namespace_phase_identifiers",
+    "rule": "A bare phase number is not a globally unique project identifier.",
+    "canonical_identifier_pattern": "qpf.<namespace>.phase-<number>.<slug>.v<version>"
+  },
+  "tracks": [
+    {
+      "namespace": "public-ready",
+      "scope": "Public activation readiness and gated ecosystem lanes",
+      "source": "docs/status/ROADMAP_COMPLETION_AND_FOLLOWING_PHASE_V1.md",
+      "source_receipt": "receipts/governance/roadmap-completion-and-following-phase-v1.json",
+      "source_commit": "0fb8543259036ed8f7ad0c2ed62ae73be1135ec5",
+      "phase_range": "8-18",
+      "status_summary": "Phases 8-17 record public-ready and authorization-gated lanes; Phase 18 is open for review only.",
+      "financial_actions": false
+    },
+    {
+      "namespace": "evidence",
+      "scope": "Reproducible deployment and artifact verification surfaces",
+      "phase_range": "8-12",
+      "sealed_phase_tags": [
+        "phase-8-live-rpc-correspondence-complete",
+        "phase-9-source-identity-correspondence-complete",
+        "phase-10-reproducible-build-artifacts-complete",
+        "phase-11-independent-verification-surface-complete",
+        "phase-12-artifact-deployment-comparison-complete"
+      ],
+      "status_summary": "Phases 8-12 are separately sealed, read-only evidence work and do not change public activation state.",
+      "financial_actions": false
+    },
+    {
+      "namespace": "execution",
+      "scope": "Public mint execution-path design and final decision gates",
+      "source_receipts": [
+        "receipts/governance/phase-26-public-mint-execution-path-design-v1.json",
+        "receipts/governance/phase-28-final-public-mint-execution-decision-gate-v1.json"
+      ],
+      "phase_range": "26+",
+      "status_summary": "Phase 28 records NO_GO_PUBLIC_MINT_EXECUTION_NOT_READY; no signing or broadcast is authorized.",
+      "financial_actions": false
+    }
+  ],
+  "reconciliation_rules": [
+    "Do not rewrite or delete historical receipts to make phase numbers appear globally unique.",
+    "Every future phase receipt must include a namespace and canonical identifier.",
+    "A phase claim must cite its source receipt, tag, or commit.",
+    "Phase 26 and later execution records remain distinct from public-ready and evidence records.",
+    "No reconciliation record authorizes wallet signing, broadcasts, token transfers, minting, liquidity, staking, bridging, or custody changes."
+  ],
+  "acceptance_criteria": [
+    "Each identified track has one immutable namespace.",
+    "Existing phase numbers and source records remain unchanged.",
+    "Future phase objectives use a namespace-qualified canonical identifier.",
+    "The public-ready Phase 18 review-only gate and execution Phase 28 NO-GO decision remain visible.",
+    "The reconciliation is validated as JSON and by existing evidence/build checks."
+  ],
+  "authorization_boundary": {
+    "repository_documentation": true,
+    "wallet_actions": false,
+    "signing": false,
+    "broadcast": false,
+    "token_transfer": false,
+    "public_mint": false,
+    "liquidity": false,
+    "staking": false,
+    "bridge": false,
+    "external_communications": false
+  }
+}
