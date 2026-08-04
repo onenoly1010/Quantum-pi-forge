@@ -1,14 +1,14 @@
 {
   "schema": "qpf-verification-status-v1",
   "schema_version": "1.1",
-  "updated_at_utc": "2026-08-04T19:49:42Z",
+  "updated_at_utc": "2026-08-04T20:30:00Z",
   "portal_url": "https://quantumpiforge.com/deployed-addresses",
   "source": {
     "repository": "https://github.com/onenoly1010/Quantum-pi-forge",
-    "main_commit": "9cbda41f785edc3e1d69f03f0e96efe6c7618c6c",
-    "main_commit_short": "9cbda41",
-    "related_prs": ["#713", "#714"],
-    "note": "Status freshness / public documentation metadata only. Does not authorize economics, mint, liquidity, wallet, or chain execution."
+    "main_commit": "22f30281518ba4a477e500ae425e47be323f6a9a",
+    "main_commit_short": "22f3028",
+    "related_prs": ["#713", "#714", "#715"],
+    "note": "Status freshness / public documentation metadata only. Does not authorize economics, mint, liquidity, wallet, or chain execution. Pin aligned to verified main tip after #715."
   },
   "network": {
     "name": "0G Aristotle mainnet",
