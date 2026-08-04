@@ -9,20 +9,21 @@ Not: customers · investors · cold strangers (first)
 Yes: friends · former coworkers · online contacts · community peers
 ```
 
-**Categories:** A = AI power user · B = information overload · C = builder like you
+**Categories:** A = AI power user · B = information overload · C = builder like you  
+**Community (Pioneer Circle default):** Pi × 5 · 0G × 5 — see [OINIO_PIONEER_CIRCLE_001_V1.md](../OINIO_PIONEER_CIRCLE_001_V1.md)
 
-| # | Name / handle (private) | Cat (A/B/C) | How you know them | Suspected pain | Priority (1–3) | Sent? | Date | Reply? | Notes |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | | | | | | ☐ | | | |
-| 2 | | | | | | ☐ | | | |
-| 3 | | | | | | ☐ | | | |
-| 4 | | | | | | ☐ | | | |
-| 5 | | | | | | ☐ | | | |
-| 6 | | | | | | ☐ | | | |
-| 7 | | | | | | ☐ | | | |
-| 8 | | | | | | ☐ | | | |
-| 9 | | | | | | ☐ | | | |
-| 10 | | | | | | ☐ | | | |
+| # | Name / handle (private) | Community (Pi/0G/other) | Cat (A/B/C) | How you know them | Suspected pain | Priority | Sent? | Date | Reply? | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | | Pi | | | | | ☐ | | | |
+| 2 | | Pi | | | | | ☐ | | | |
+| 3 | | Pi | | | | | ☐ | | | |
+| 4 | | Pi | | | | | ☐ | | | |
+| 5 | | Pi | | | | | ☐ | | | |
+| 6 | | 0G | | | | | ☐ | | | |
+| 7 | | 0G | | | | | ☐ | | | |
+| 8 | | 0G | | | | | ☐ | | | |
+| 9 | | 0G | | | | | ☐ | | | |
+| 10 | | 0G | | | | | ☐ | | | |
 
 ## Backups (optional 11–15)
 
@@ -34,18 +35,20 @@ Yes: friends · former coworkers · online contacts · community peers
 | 14 | | | |
 | 15 | | | |
 
-## Problem-first openers (paste)
+## Openers (paste)
+
+**Primary (20-minute test):**
 
 ```text
-Hey — I'm not selling anything. I'm trying to learn whether a private AI
-setup actually saves someone time on real work.
-
-What's one repetitive task that wastes your time that you wish was easier?
-If you're open, I'd take 30 minutes to understand that workflow and try
-one small part with you — honest feedback only.
+Hey, I'm testing a workflow system I've been building. I'm not looking to
+sell anything — I'm looking for one person willing to try a small task and
+tell me honestly if it saves time. Would you be open to a 20-minute test?
 ```
 
+**Problem-first (if they ask what it's about):**
+
 ```text
-Quick reality check: what's a weekly task that eats your time?
-I'm testing something I built and want 30 min of honest feedback — no pitch.
+What's one repetitive task that wastes your time that you wish was easier?
+I'd take 20 minutes to understand that workflow and try one small part —
+honest feedback only, no pitch.
 ```

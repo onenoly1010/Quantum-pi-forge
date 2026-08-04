@@ -4,6 +4,7 @@
 **State:** READY-TO-TEST (market validation still **missing**)  
 **Command:** Operationalize “find and book Pilot #001”  
 **Links:** [Connector lane](./PILOT_CONNECTOR_LANE_V1.md) · [E1](./E1_PRIVATE_AI_OPERATOR_CHECKLIST_V1.md) · [Evidence loop](./PILOT_EVIDENCE_LOOP_V1.md)  
+**Founding circle:** [OINIO_PIONEER_CIRCLE_001_V1.md](./OINIO_PIONEER_CIRCLE_001_V1.md) — 5 Pi + 5 0G validation partners  
 **Templates:** [Invitation list](./templates/PILOT_001_INVITATION_LIST_TEMPLATE.md) · [Evidence card](./templates/PILOT_001_EVIDENCE_CARD_TEMPLATE.md) · [Conversation log](./templates/PILOT_001_CONVERSATION_LOG_TEMPLATE.md)  
 
 ```text
