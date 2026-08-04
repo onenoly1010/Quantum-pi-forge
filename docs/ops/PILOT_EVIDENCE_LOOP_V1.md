@@ -9,6 +9,10 @@
 Limiting factor is no longer intelligence or architecture.
 Limiting factor is contact with reality.
 
+AI review loops no longer list engineering blockers.
+They repeatedly point at the same missing evidence:
+  external proof of value
+
 Next artifacts are not:
   PR numbers · commits · architecture docs
 
@@ -16,6 +20,28 @@ Next artifacts are:
   pilot user · task completed · time saved
   repeat usage · testimonial · retention
 ```
+
+### Front door (user-facing — keep simple)
+
+| Do not lead with | Lead with |
+| --- | --- |
+| “Sovereign AI ecosystem with post-quantum secure autonomous agents…” | **“A private AI assistant that saves you time on your real work.”** |
+
+The deeper ecosystem stays underneath. Narrow the message; do not pivot the whole project away.
+
+### Next milestone (small — first market signal)
+
+```text
+Not: 1,000 users
+Not: finish the entire ecosystem
+
+Yes:
+  One external person
+  completes one meaningful task
+  and says they want to repeat it.
+```
+
+One such card beats another large technical milestone.
 
 ---
 

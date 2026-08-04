@@ -77,16 +77,18 @@ We do not yet have (public, undeniable):
 ### Decision (v1)
 
 ```text
-FRONT DOOR (public experience):
-  Private AI operator stack
-  Tagline intent:
-    “Your private AI assistants — under your control, with proof of what they did.”
+FRONT DOOR (public experience — simple):
+  “A private AI assistant that saves you time on your real work.”
+
+  Supporting line (optional):
+  under your control, with a clear boundary of what it may not do.
 
 TRUST SUBSTRATE (always visible, never the first sentence):
   Deterministic verification, receipts, locked economics, public portal.
 
 FUTURE (not first UX):
   Token, LP, DAO economics.
+  Do not lead with ecosystem / post-quantum / multi-agent marketing copy.
 ```
 
 **Why AI leads**
