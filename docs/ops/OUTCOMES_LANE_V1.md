@@ -4,9 +4,11 @@
 **Anchored tip:** `0cd896a` (main, post #713–#716)  
 **Public portal:** https://quantumpiforge.com/deployed-addresses  
 **Rule:** Capability ≠ Permission ≠ Activation ≠ Revenue  
+**Outcome map:** [OUTCOME_READINESS_MAP_V1.md](./OUTCOME_READINESS_MAP_V1.md) — READY_NOW inventory, ledger (A0/B0), shortest path  
 
 ```text
 verified infrastructure ≠ authorized activation
+foundation → outcomes, without collapsing ready into live
 ```
 
 ---
