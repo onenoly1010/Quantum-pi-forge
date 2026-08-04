@@ -88,19 +88,69 @@ Once the feedback loop operates, it informs:
 
 ---
 
-## Locks held (discipline)
+## Operating principle (constraint + priority)
+
+```text
+LOCKS: held
+
+NEXT WORK:
+• Put the existing product in front of real users.
+• Observe them completing real tasks.
+• Record what succeeds and what fails.
+• Change the product or documentation only when the evidence justifies it.
+```
+
+### Packaging default (not absolute)
+
+```text
+DEFAULT:
+  No further strategy packaging is needed until an outside person
+  attempts a real task, shares honest feedback, and that feedback
+  can be used to guide the next iteration.
+
+EXCEPTION (evidence-driven, not speculative):
+  If multiple pilot users get stuck at the same point,
+  improve that documentation / onboarding / UX.
+  That is a response to evidence — not more packaging for its own sake.
+```
+
+Objective is not collecting opinions. It is collecting **evidence that informs decisions**.
+
+### Locks held (discipline)
 
 | Hold | Why |
 | --- | --- |
 | No mint / LP / wallet activation as “growth” | Wrong layer; confuses learning |
 | No major architecture rewrites pre-feedback | Speculative complexity |
 | No invented pilots or wall-of-receipts rows | Evidence integrity |
+| No speculative strategy docs while zero external attempts exist | Packaging without evidence |
 
-When the same gap appears across independent users → **then** build.
+When the same gap appears across independent users → **then** change product or docs.
+
+---
+
+## Focus shift (practical framework)
+
+| Phase | Focus |
+| --- | --- |
+| **Past** | Build, design, architect, document |
+| **Transition** | Freeze unnecessary changes; invite outside use |
+| **Next** | Learn from real usage |
+| **After that** | Observed evidence determines what gets built next |
+
+```text
+Not:  "What should we build next?"
+Yes:  "What did users actually show us they need next?"
+
+Engineering, documentation, and outreach become
+responses to observed behavior — not assumptions.
+```
 
 ```text
 MILESTONE LANGUAGE: built → externally useful
 CYCLE: build → use → evidence → prioritize → build
 LIMITING FACTOR: real-user learning
 LOCKS: held
+NEXT WORK: real users; change only when evidence justifies it
+PACKAGING: default off until external attempt + honest feedback guides iteration
 ```
