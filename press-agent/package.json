@@ -7,7 +7,8 @@
     "start": "node src/server.js",
     "dev": "node --watch src/server.js",
     "test": "node --test src/tests/*.test.js",
-    "lint": "eslint src/"
+    "lint": "eslint src/",
+    "check:delivery-credentials": "node scripts/check-delivery-credentials.js"
   },
   "keywords": [
     "quantum",
