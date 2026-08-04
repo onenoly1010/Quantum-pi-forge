@@ -3,6 +3,7 @@
 **Product posture:** Productize **existing** capability — do not build a new company.  
 **Hierarchy:** QPF = verification service **first** · OINIO = long-term ecosystem vision  
 **Locks:** Mint / LP / chain activation remain **NOT AUTHORIZED** — this is an **off-chain services** product  
+**Canonical commercial bridge (GitHub → revenue):** [../products/QPF_VERIFICATION_CERTIFICATE_V1.md](../products/QPF_VERIFICATION_CERTIFICATE_V1.md)  
 **Related:** [EXTERNAL_OBSERVATION_READINESS_CHECKLIST_V1.md](./EXTERNAL_OBSERVATION_READINESS_CHECKLIST_V1.md) · Offer A evidence walkthrough  
 
 ```text

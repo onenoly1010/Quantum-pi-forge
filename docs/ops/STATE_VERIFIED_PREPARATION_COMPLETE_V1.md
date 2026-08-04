@@ -8,10 +8,15 @@
 ```text
 STATE: VERIFIED_PREPARATION_COMPLETE
 LOCKS: HELD
-EXECUTION: NOT_AUTHORIZED
+EXECUTION: NOT_AUTHORIZED (protocol / chain)
 EXTERNAL_VALIDATION: PENDING
-NEXT_TRANSITION: FIRST_REAL_INTERACTION
+COMMERCIAL_VALIDATION_PHASE: BEGINS
+  productize verification service · first certificate · first payment
+NEXT_TRANSITION: FIRST_REAL_INTERACTION / FIRST CERTIFICATE DELIVERY
 ```
+
+Genesis infrastructure: **credible**.  
+Commercial validation: **begins now** (services; not mint/LP).
 
 ```text
 PREPARATION ≠ AUTHORIZATION ≠ EXECUTION ≠ VERIFICATION
