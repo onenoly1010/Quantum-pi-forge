@@ -12,10 +12,18 @@ Question E1 must answer:
   Can one person get real value from OINIO
   without understanding the entire stack?
 
+The real market question (not a build question):
+  Who has enough pain that they will adopt it?
+  Did OINIO save this person meaningful time?
+
 Discipline:
+  Stop increasing complexity. Start proving usefulness.
   Can someone use this tomorrow?
   — not —
   Let's add more agents / security layers / chain integration first.
+
+Mode: VALIDATION (not engineering)
+  3 pilot candidates · onboarding · usability · feedback · measurable outcomes
 ```
 
 ```text
@@ -49,6 +57,42 @@ E1 **passes** for a tester if **all** are true:
 5. **No lock breach** occurred.
 
 E1 **fails** if they need the full architecture lecture to get value, or if delivery expands into new infrastructure before the first outside user.
+
+---
+
+## 0.1 Who to pilot (and who not to)
+
+The three pilots should **not** be people who are merely impressed by architecture.
+
+| Prefer (pain-holders) | Avoid as first cohort |
+| --- | --- |
+| Developer **drowning in documentation** / status chaos | Blockchain experts who want to debate contracts |
+| Small business owner with **repetitive admin** | AI enthusiasts who want more agents/features |
+| Researcher managing **large information sets** | Friends who will praise the stack politely |
+| Creator needing **private knowledge** workflow help | Anyone whose first ask is mint / token / LP |
+| Operator who needs AI **under their control** (privacy, authority) | Anyone who requires full-stack understanding to start |
+
+**Selection test (before booking):**
+
+```text
+Does this person have a repetitive painful workflow THIS WEEK?
+If yes → good pilot.
+If they mainly want a tour of the system → wrong pilot for E1.
+```
+
+**Pass signal for the cohort (not for architecture):**
+
+```text
+"Did OINIO save this person meaningful time?"
+```
+
+| Pilot slot | Suggested persona | Pain to attach the session to |
+| --- | --- | --- |
+| 1 | Overloaded developer / builder | Docs, status, “what is true right now” |
+| 2 | Non-crypto operator / small business | Repetitive writing, admin drafts, boundaries |
+| 3 | Researcher or creator | Private notes, claim-vs-evidence, synthesis |
+
+Keep names **private** (do not commit PII). Only log persona type + outcomes in §8.
 
 ---
 
@@ -195,18 +239,22 @@ Value proof = **task completed**, not architecture appreciated.
 
 | ID | Task (tester does this) | Time | Pass criterion |
 | --- | --- | --- | --- |
-| **T1** | Ask AI to explain current project state **from** `reports/project-state.md` (not from memory) | 10 min | Explanation matches report; no invented activation |
+| **T1** | Ask AI to explain current project/work state **from** a report or their notes (not from chat memory) | 10 min | Explanation matches source; no invented activation |
 | **T2** | Draft a short email/docs paragraph about “what my AI may not do” using the authority table | 10 min | Accurate boundaries; human would send it |
 | **T3** | Produce a claim→evidence note for one public claim (e.g. “mint not authorized”) with a link or command | 15 min | Evidence is checkable |
-| **T4** | Run cockpit again after a **harmless** local change (e.g. edit a personal notes file outside git, or re-run only) and compare snapshot idea | 10 min | Understands re-run vs stale report |
+| **T4** | Run cockpit again after a **harmless** local change (or re-run only) and compare snapshot idea | 10 min | Understands re-run vs stale report |
 | **T5** | (Builder) Get `verify:public-portal` green or document a real failure | 15 min | Reproducible outcome |
+| **T6** | **Bring your own pain:** one real task from their week (email, doc outline, research summary, admin checklist) done with prepare-only AI | 15–25 min | They say it saved meaningful time (Q2) |
 
-**Default pilot task:** **T1 + T2** (together ≈20 min). Highest clarity, lowest scope creep.
+**Default pilot task:**
+
+- Stack-curious / repo available → **T1 + T2**  
+- Pain-holder / non-repo → **T6 + T2** (preferred for “who will adopt” learning)
 
 ```text
 Proof of value (user language):
   "I finished something useful with a private AI under my control,
-   and I can prove what it was allowed to do."
+   it saved me time, and I can prove what it was allowed to do."
 ```
 
 ---
@@ -289,9 +337,10 @@ Ask immediately after the useful task. Record raw answers.
 | # | Question | Signal |
 | --- | --- | --- |
 | **Q1** | Did you understand what this is for in under 10 minutes? | Clarity |
-| **Q2** | Did it save you time (or would it) vs doing the task alone? | Value |
+| **Q2** | Did it save you **meaningful** time (or would it weekly) vs doing the task alone? | Value / adoption |
 | **Q3** | Would you pay for setup, a guided session, or ongoing help? (no / maybe / yes + rough range) | Revenue |
 | **Q4** | What confused you most? | Friction |
+| **Q5** (optional) | Would you use this again next week on a real workflow? | Retention signal |
 
 ### Scoring (lightweight)
 
@@ -421,23 +470,46 @@ Protocol token/LP revenue is **not** an E1 conversion path.
 
 ## 14. Ready-to-send pilot invite (human paste)
 
+**Pain-first version (preferred):**
+
 ```text
-Subject: 60–90 min private AI operator pilot (no wallet, no crypto risk)
+Subject: 60–90 min — private AI on one real task (no wallet)
 
-I'm running a short pilot of a private AI operator stack (OINIO / Quantum Pi Forge):
-local AI assistants under your control, with a simple proof of what they may not do.
+You've got repetitive work that eats time. I'm piloting a private AI operator
+setup (under your control — prepare only, you decide anything irreversible).
 
-- No wallet, mint, liquidity, or funds
-- You complete one small useful task with the assistant
-- I ask four feedback questions
-- Optional: look at public verification pages if you care about chain claims
+In one short session we:
+- pick ONE real task from your week (docs, admin draft, research summary, etc.)
+- complete it with the assistant
+- leave with a clear boundary of what the AI may not do
+- no wallet, mint, liquidity, or crypto risk
 
-If you're open to it, reply with a time window this week.
+If it doesn't save you time, say so — that's the point of the pilot.
+
+Reply with a time window this week.
 
 — Kris
 ```
 
-**Human send only.** Do not invent recipients or auto-mail.
+**Neutral version (if they already know QPF):**
+
+```text
+Subject: 60–90 min private AI operator pilot (no wallet, no crypto risk)
+
+Short pilot of a private AI operator stack: local assistants under your control,
+with a simple proof of what they may not do.
+
+- No wallet, mint, liquidity, or funds
+- You complete one real useful task
+- Four feedback questions
+- Optional public verification only if you care about chain claims
+
+Reply with a time window this week.
+
+— Kris
+```
+
+**Human send only.** Do not invent recipients or auto-mail. Prefer pain-holders (§0.1), not architecture tourists.
 
 ---
 
@@ -474,18 +546,26 @@ collection of qualitative feedback and pay signals
 
 ---
 
-## 17. Immediate next after this draft
+## 17. Immediate next (30–60 day validation window)
 
 ```text
-1. Human: book pilots 1–3 (outside testers)
-2. Run §9 runbook — no new engineering unless install is broken
-3. After 3 logs: review Q1–Q4 · only then decide product iteration
-4. Parallel optional: A0 verify invites (trust lane)
+Engineering built the machine.
+This window asks: does anyone want to drive it?
+
+1. Human: name 3 pain-holder pilots (§0.1) — not architecture fans
+2. Send pain-first invite (§14) — human only
+3. Run §9 runbook with T6+T2 when possible
+4. Log Q1–Q5 · "meaningful time saved?"
+5. After 3 logs: iterate product packaging — NOT agent count
+6. Agent: install-fix docs only if setup actually breaks
+7. Parallel optional: A0 verify invites (trust lane, separate)
 ```
 
 ```text
 E1 CHECKLIST: READY
-GOAL: one person, real value, no full-stack required
+MODE: VALIDATION
+GOAL: meaningful time saved for someone with real pain
 LOCKS: HELD
-VALIDATION CHALLENGE: open
+NO NEW AGENT LAYERS without pilot evidence
 ```
+
