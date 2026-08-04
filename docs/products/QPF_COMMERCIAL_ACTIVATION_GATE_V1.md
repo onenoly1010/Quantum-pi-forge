@@ -54,20 +54,29 @@ Copy: see [QPF_VERIFICATION_SERVICE_V1.md](./QPF_VERIFICATION_SERVICE_V1.md)
 
 ---
 
-## Gate 4 — Certificate #001
+## Gate 4 — Certificate #001 (canonical artifact)
+
+**Template:** [examples/QPF_VERIFICATION_CERTIFICATE_001_TEMPLATE.md](./examples/QPF_VERIFICATION_CERTIFICATE_001_TEMPLATE.md)
 
 | Deliver | Status |
 | --- | --- |
 | Verification result | ☐ after client |
 | Evidence bundle | ☐ |
 | Public artifact (optional permission) | ☐ |
-| Feedback request | ☐ |
+| Limitations section (always) | required |
+| Feedback: “This helped me because ______.” | ☐ |
 
-**Most valuable output:** not the PDF/page — the sentence:
+**Most valuable output:** not the file — the sentence:
 
 > “This helped me because ______.”
 
 That is product-market evidence. Then ideally **payment**.
+
+```text
+#001 is a trust exchange block, not a code block.
+First external user only needs to believe:
+  "This verification artifact is useful to me."
+```
 
 **Status:** **blocked on Gate 3**  
 

@@ -56,7 +56,8 @@ Contact:
 - Deployment / state summary  
 - Risk labels: `verified` · `unverified` · `gated` · `unknown`  
 
-Example format: Certificate **#000** (QPF applied to itself — internal demo only).
+Example format: Certificate **#000** (QPF self — internal demo only).  
+External delivery format: Certificate **#001** template — [examples/QPF_VERIFICATION_CERTIFICATE_001_TEMPLATE.md](./examples/QPF_VERIFICATION_CERTIFICATE_001_TEMPLATE.md).
 
 ---
 
