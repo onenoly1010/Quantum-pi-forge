@@ -2,6 +2,8 @@
 
 **Mode:** Evidence-driven distribution · **not** sales · **not** engineering  
 **State:** READY-TO-TEST (market validation still **missing**)  
+**Engineering:** **FROZEN — System ready**  
+**Active 10/10 checkpoint:** [Obtain External Proof Receipt #001](./EXTERNAL_PROOF_RECEIPT_001_OBJECTIVE_V1.md)  
 **Command:** Operationalize “find and book Pilot #001”  
 **Links:** [Connector lane](./PILOT_CONNECTOR_LANE_V1.md) · [E1](./E1_PRIVATE_AI_OPERATOR_CHECKLIST_V1.md) · [Evidence loop](./PILOT_EVIDENCE_LOOP_V1.md)  
 **Founding circle:** [OINIO_PIONEER_CIRCLE_001_V1.md](./OINIO_PIONEER_CIRCLE_001_V1.md) — 5 Pi + 5 0G validation partners  
@@ -245,16 +247,21 @@ HUMAN: every name, every send, every relationship, every seal
 ## Today’s mission (the whole game)
 
 ```text
-10 potential pilot contacts
+10 potential pilot contacts   (default channel: Pioneer Circle = 5 Pi + 5 0G)
         ↓
 3 honest conversations
         ↓
 1 person says "this helped me"
         ↓
-Pilot #001 evidence card  (engineering-style receipt)
+Pilot #001 evidence card  (EXTERNAL PROOF RECEIPT)
 ```
 
-Not: launch campaign · investors · thousands of users.
+```text
+Community → Pilot → Evidence → Trust → Community growth
+NOT: Community → Announcement → Hope
+```
+
+Not: launch campaign · investors · thousands of users · hype posts.
 
 ### Who to approach (categories)
 

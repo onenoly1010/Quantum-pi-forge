@@ -7,6 +7,7 @@
 **Outcome map:** [OUTCOME_READINESS_MAP_V1.md](./OUTCOME_READINESS_MAP_V1.md) — READY_NOW inventory, ledger (A0/B0), shortest path  
 **Execution plan:** [OUTCOME_EXECUTION_PLAN_V1.md](./OUTCOME_EXECUTION_PLAN_V1.md) — front door (private AI), E1 first user outcome, utility revenue  
 **E1 checklist:** [E1_PRIVATE_AI_OPERATOR_CHECKLIST_V1.md](./E1_PRIVATE_AI_OPERATOR_CHECKLIST_V1.md) — pilot path · Q1–Q4 validation · no activation  
+**Active objective:** [EXTERNAL_PROOF_RECEIPT_001_OBJECTIVE_V1.md](./EXTERNAL_PROOF_RECEIPT_001_OBJECTIVE_V1.md) — engineering frozen · receipt #001 is the checkpoint  
 
 ```text
 verified infrastructure ≠ authorized activation
