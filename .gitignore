@@ -170,6 +170,8 @@ contracts/lib/
 
 # Verification Reports
 reports/*.json
+reports/*.md
+reports/archive/
 reports/*.html
 .env.verification
 
