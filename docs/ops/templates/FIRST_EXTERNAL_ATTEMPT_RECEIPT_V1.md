@@ -20,24 +20,31 @@ Chain:
 ## Receipt
 
 ```text
-FIRST EXTERNAL ATTEMPT RECEIPT
+FIRST_EXTERNAL_ATTEMPT_V1
 
 1. Who attempted?
-   (identity optional / anonymous code OK)
+   Category (not private identity required):
+     [ ] Pi builder  [ ] 0G developer  [ ] Local AI / OSS  [ ] Other: ____
    External (not creator/maintainer core loop)?  YES / NO  ← must be YES
+   Code / handle (optional):
 
-2. What task did they try?
+2. What task did they attempt?
 
 3. Did they complete it?
-   [ ] yes
-   [ ] partially
-   [ ] blocked
+   [ ] yes  [ ] partially  [ ] blocked
 
-4. Where was friction encountered?
+4. Where did they succeed?
 
-5. What change is justified by the evidence?
+5. Where did they become confused / blocked?
+
+6. What did they request next?
+
+7. What evidence was produced?
+   (notes, issue link, screenshot path, report path — none is OK)
+
+8. What change is justified by the evidence?
    (docs / onboarding / product — or "none yet, need more attempts")
-   If none: say so. Do not invent a feature.
+   Positive or negative outcome: both are useful. Do not invent traction.
 
 Date (UTC):
 Facilitator present?  yes / no / remote
