@@ -69,7 +69,7 @@ an actual independent interaction happens.
 | Fact | Value |
 | --- | --- |
 | Branch (typical) | `docs/outcomes-lane-v1` |
-| Main tip (recorded) | `0cd896a` · branch tip `4ecd9fd` · ~32 commits ahead (re-verify before merge) |
+| Main tip (recorded) | `0cd896a` · branch tip includes this checkpoint (re-verify: `git rev-parse` / PR #717 head) |
 | PR | [#717](https://github.com/onenoly1010/Quantum-pi-forge/pull/717) — transition packaging; still internal |
 | Sealed external attempt receipt | **None** until real attempt |
 
