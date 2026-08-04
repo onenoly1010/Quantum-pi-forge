@@ -1,8 +1,8 @@
 # Externally Useful — Operating Gates v1
 
-**Role:** Governance rule for when to plan vs execute vs package  
-**Companion:** [EXTERNALLY_USEFUL_CYCLE_V1.md](./EXTERNALLY_USEFUL_CYCLE_V1.md)  
-**PR context:** Outcomes / pilot lane (#717 and successors)  
+**Role:** Governance rule for when to plan vs execute vs package
+**Companion:** [EXTERNALLY_USEFUL_CYCLE_V1.md](./EXTERNALLY_USEFUL_CYCLE_V1.md)
+**PR context:** Outcomes / pilot lane (#717 and successors)
 
 ```text
 Distinguish PREPARATION from EXECUTION.
@@ -57,8 +57,8 @@ RECEIPT TEMPLATE → docs/ops/templates/FIRST_EXTERNAL_ATTEMPT_RECEIPT_V1.md
 LOCKS → held
 ```
 
-**Next measurable milestone:** seal **`FIRST_EXTERNAL_ATTEMPT_V1`**  
-(template: [FIRST_EXTERNAL_ATTEMPT_RECEIPT_V1.md](./templates/FIRST_EXTERNAL_ATTEMPT_RECEIPT_V1.md))  
+**Next measurable milestone:** seal **`FIRST_EXTERNAL_ATTEMPT_V1`**
+(template: [FIRST_EXTERNAL_ATTEMPT_RECEIPT_V1.md](./templates/FIRST_EXTERNAL_ATTEMPT_RECEIPT_V1.md))
 **After the attempt only** — identity category · entry point · expected · observed · friction · evidence · decision.
 
 ```text
@@ -69,7 +69,7 @@ PUBLIC SURFACE     ✅ AVAILABLE (post merge/deploy)
 EXTERNAL EVIDENCE  ⏳ WAITING
 ```
 
-Do not re-enter **Planning** as the primary state without Observation findings.  
+Do not re-enter **Planning** as the primary state without Observation findings.
 Do **not** interpret this gate as a signal to remove locks.
 
 ---
@@ -109,10 +109,10 @@ YES: packaging is a response to evidence, not a substitute for progress
 
 ## Evidence questions (every Observation session)
 
-1. Did another person try it?  
-2. What blocked them?  
-3. What did they accomplish?  
-4. What changed because of what they reported?  
+1. Did another person try it?
+2. What blocked them?
+3. What did they accomplish?
+4. What changed because of what they reported?
 
 If (4) is always “nothing / more docs with no users,” the project has slipped back into Planning without exit.
 

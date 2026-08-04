@@ -1,15 +1,15 @@
 # Objective: Obtain External Proof Receipt #001
 
-**Checkpoint:** Proof-of-value transition  
-**Engineering objective:** **FROZEN — System ready**  
-**Active objective:** **Obtain External Proof Receipt #001 in 7 days**  
+**Checkpoint:** Proof-of-value transition
+**Engineering objective:** **FROZEN — System ready**
+**Active objective:** **Obtain External Proof Receipt #001 in 7 days**
 **Success quote (smallest unit of traction):**
 
 ```text
 "I used this. It helped. I want it again."
 ```
 
-Not followers · not likes · not another repository · not another audit.  
+Not followers · not likes · not another repository · not another audit.
 **A repeat user.**
 
 ```text
@@ -27,7 +27,7 @@ HUMAN: conversations → one painful task → receipt #001
 LOCKS: held
 ```
 
-**Ops:** [PILOT_001_OPERATIONS_V1.md](./PILOT_001_OPERATIONS_V1.md) · [OINIO_PIONEER_CIRCLE_001_V1.md](./OINIO_PIONEER_CIRCLE_001_V1.md) · [E1](./E1_PRIVATE_AI_OPERATOR_CHECKLIST_V1.md)  
+**Ops:** [PILOT_001_OPERATIONS_V1.md](./PILOT_001_OPERATIONS_V1.md) · [OINIO_PIONEER_CIRCLE_001_V1.md](./OINIO_PIONEER_CIRCLE_001_V1.md) · [E1](./E1_PRIVATE_AI_OPERATOR_CHECKLIST_V1.md)
 **90-day plan:** [QPF_OINIO_90_DAY_USER_ACQUISITION_PLAN_V1.md](./QPF_OINIO_90_DAY_USER_ACQUISITION_PLAN_V1.md) — right first users · 3 tracks · no paid ads
 
 ---
@@ -74,7 +74,7 @@ They gave it a problem. It saved them time.
 
 ## Phase 1 — Find the first 10 **conversations**
 
-Not “users.” Conversations.  
+Not “users.” Conversations.
 **Use communities — do not advertise to them.** Help existing members; do not ask for attention.
 
 ### Aligned audiences (not random)
@@ -122,11 +122,11 @@ Do **not** show the whole ecosystem.
 
 They must **not** need to understand:
 
-- OINIO architecture  
-- tokenomics  
-- blockchain  
-- governance  
-- quantum security  
+- OINIO architecture
+- tokenomics
+- blockchain
+- governance
+- quantum security
 
 They should only experience:
 
@@ -161,7 +161,7 @@ That is the entire ask. No pitch deck. No architecture dump.
 
 > OINIO helps Pi ecosystem builders turn ideas into working verified applications.
 
-Connects: Pi community energy · 0G AI infrastructure · your verification/governance work.  
+Connects: Pi community energy · 0G AI infrastructure · your verification/governance work.
 Arrive **helping members**, not asking for attention.
 
 ---
@@ -222,7 +222,7 @@ Agents automate repeat workflows
 Network effect
 ```
 
-Agents do not create the first trust signal.  
+Agents do not create the first trust signal.
 **Humans do.** Agents amplify later.
 
 Instinct that “AI agents could grow this” is valid **after** human receipts exist.

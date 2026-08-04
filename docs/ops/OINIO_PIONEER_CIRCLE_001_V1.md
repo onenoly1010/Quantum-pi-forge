@@ -1,8 +1,8 @@
 # OINIO Pioneer Circle #001
 
-**Mode:** Founding pilot circle · validation partners · **not** community growth campaign  
-**Parent:** [PILOT_001_OPERATIONS_V1.md](./PILOT_001_OPERATIONS_V1.md)  
-**State:** READY-TO-TEST · market proof still **missing** until cards are sealed  
+**Mode:** Founding pilot circle · validation partners · **not** community growth campaign
+**Parent:** [PILOT_001_OPERATIONS_V1.md](./PILOT_001_OPERATIONS_V1.md)
+**State:** READY-TO-TEST · market proof still **missing** until cards are sealed
 
 ```text
 Sequence (correct):
@@ -46,9 +46,9 @@ Still Circle-1 preferred when you already know them inside those communities. Co
 
 ## Validation partner job (only three things)
 
-1. Try **one** workflow  
-2. Report what happened  
-3. Say whether they would use it again  
+1. Try **one** workflow
+2. Report what happened
+3. Say whether they would use it again
 
 That is the full contract. No investment pitch. No hype.
 
@@ -75,7 +75,7 @@ honest feedback on whether it saves time. No investment pitch, no hype.
 Would you be open to a 20–30 minute test?
 ```
 
-**Pi wedge (one line):** OINIO helps Pi ecosystem builders turn ideas into working verified applications.  
+**Pi wedge (one line):** OINIO helps Pi ecosystem builders turn ideas into working verified applications.
 **Avoid:** “Check out our AI project” (promotion). Arrive **helping**, not asking for attention.
 
 ### 0G-leaning frame
@@ -178,11 +178,11 @@ Engineering discipline becomes the **trust layer** under the conversation — no
 
 ## Immediate human steps
 
-1. Fill the **5 Pi + 5 0G** private roster.  
-2. Send **shared-core or community-leaning** invite to **3** people (mix Pi/0G if possible).  
-3. Run investigator / 20-min test when someone accepts.  
-4. Seal **EXTERNAL PROOF RECEIPT #001** same day if a session succeeds.  
-5. Only then: ask who else has the same problem (trust → growth).  
+1. Fill the **5 Pi + 5 0G** private roster.
+2. Send **shared-core or community-leaning** invite to **3** people (mix Pi/0G if possible).
+3. Run investigator / 20-min test when someone accepts.
+4. Seal **EXTERNAL PROOF RECEIPT #001** same day if a session succeeds.
+5. Only then: ask who else has the same problem (trust → growth).
 
 ```text
 NEXT COMMIT: not GitHub

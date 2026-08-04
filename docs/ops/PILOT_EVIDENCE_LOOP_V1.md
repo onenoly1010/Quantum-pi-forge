@@ -1,10 +1,10 @@
 # Pilot Evidence Loop v1
 
-**Mode:** Proof of value · **not** construction  
-**Phase:** 3 — Prove usefulness  
-**Companion:** [E1_PRIVATE_AI_OPERATOR_CHECKLIST_V1.md](./E1_PRIVATE_AI_OPERATOR_CHECKLIST_V1.md)  
-**Connector lane:** [PILOT_CONNECTOR_LANE_V1.md](./PILOT_CONNECTOR_LANE_V1.md) — conversations, scripts, Week 1 × 10  
-**Agent posture:** Stand down on architecture · assist drafts/tracking when asked · human owns every send  
+**Mode:** Proof of value · **not** construction
+**Phase:** 3 — Prove usefulness
+**Companion:** [E1_PRIVATE_AI_OPERATOR_CHECKLIST_V1.md](./E1_PRIVATE_AI_OPERATOR_CHECKLIST_V1.md)
+**Connector lane:** [PILOT_CONNECTOR_LANE_V1.md](./PILOT_CONNECTOR_LANE_V1.md) — conversations, scripts, Week 1 × 10
+**Agent posture:** Stand down on architecture · assist drafts/tracking when asked · human owns every send
 
 ```text
 Limiting factor is no longer intelligence or architecture.
@@ -172,7 +172,7 @@ Keep **private** if PII appears. Public summary may later drop names.
 - Next week? yes / maybe / no
 - Pay signal? no / maybe / yes (range if any)
 - Quote (optional testimonial, with permission):
-  > 
+  >
 
 ## Fixes (only what they hit)
 - Issue 1 → fix (docs/UX only unless install hard-broken):
@@ -225,16 +225,16 @@ More intelligence is not the limiting factor.
 Contact with reality is the limiting factor.
 ```
 
-Human owns: recruit, observe, fill cards, decide Scenario A focus.  
+Human owns: recruit, observe, fill cards, decide Scenario A focus.
 Agent owns: optional install-fix docs when a pilot actually fails setup.
 
 ---
 
 ## Immediate human steps
 
-1. Name 3 pain-holder users (private).  
-2. Run E1 + fill one **Evidence Card** each.  
-3. Fix only observed struggle points.  
+1. Name 3 pain-holder users (private).
+2. Run E1 + fill one **Evidence Card** each.
+3. Fix only observed struggle points.
 4. After 3 cards: pick the narrow use case that worked — stop expanding surface area.
 
 ```text

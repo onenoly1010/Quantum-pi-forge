@@ -1,8 +1,8 @@
 # Three-Audience Growth Flywheel v1
 
-**Mode:** Strategy for the proof-of-value phase · **not** new product architecture  
-**Engineering:** System ready — frozen except pilot-blocking fixes  
-**Parent outcomes:** [OUTCOMES_LANE_V1.md](./OUTCOMES_LANE_V1.md) · [USER_ADOPTION_VERIFICATION_V1.md](./USER_ADOPTION_VERIFICATION_V1.md) · [FOUNDING_BUILDERS_PILOT_PROGRAM_V1.md](./FOUNDING_BUILDERS_PILOT_PROGRAM_V1.md)  
+**Mode:** Strategy for the proof-of-value phase · **not** new product architecture
+**Engineering:** System ready — frozen except pilot-blocking fixes
+**Parent outcomes:** [OUTCOMES_LANE_V1.md](./OUTCOMES_LANE_V1.md) · [USER_ADOPTION_VERIFICATION_V1.md](./USER_ADOPTION_VERIFICATION_V1.md) · [FOUNDING_BUILDERS_PILOT_PROGRAM_V1.md](./FOUNDING_BUILDERS_PILOT_PROGRAM_V1.md)
 
 ```text
 Bigger opportunity than "more human users only":
@@ -59,7 +59,7 @@ Pi  → community & applications
 QPF → where AI-assisted building meets verifiable, locked, honest systems
 ```
 
-Avoid leading with: full token/governance/quantum stack.  
+Avoid leading with: full token/governance/quantum stack.
 Lead with: **useful capability + inspectable proof + human authority.**
 
 ---
@@ -153,14 +153,14 @@ both get stronger — because they have something concrete to point to.
 
 Keep:
 
-- 5 Pi + 5 0G + 5 AI-dev discovery conversations  
-- Pilot page + feedback wall + feedback roadmap  
-- Seal receipts when real  
+- 5 Pi + 5 0G + 5 AI-dev discovery conversations
+- Pilot page + feedback wall + feedback roadmap
+- Seal receipts when real
 
 Add (lightweight):
 
-- One improvement per week that makes the **repo easier for an AI to explain correctly** (README blurb, example, FAQ “what this is not”)  
-- Never invent usage so that “AI recommends” a fake story  
+- One improvement per week that makes the **repo easier for an AI to explain correctly** (README blurb, example, FAQ “what this is not”)
+- Never invent usage so that “AI recommends” a fake story
 
 ---
 

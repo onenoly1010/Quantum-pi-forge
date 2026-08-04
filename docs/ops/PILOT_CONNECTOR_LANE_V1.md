@@ -1,10 +1,10 @@
 # Pilot Connector Lane v1
 
-**Mode:** Distribution bridge · **not** engineering  
-**Status:** READY-TO-TEST (not validated-market)  
-**Human command:** Find and book Pilot #001  
-**Ops system:** [PILOT_001_OPERATIONS_V1.md](./PILOT_001_OPERATIONS_V1.md) — invitation list, tracking, problem-first outreach  
-**Companions:** [E1 checklist](./E1_PRIVATE_AI_OPERATOR_CHECKLIST_V1.md) · [Evidence loop](./PILOT_EVIDENCE_LOOP_V1.md)  
+**Mode:** Distribution bridge · **not** engineering
+**Status:** READY-TO-TEST (not validated-market)
+**Human command:** Find and book Pilot #001
+**Ops system:** [PILOT_001_OPERATIONS_V1.md](./PILOT_001_OPERATIONS_V1.md) — invitation list, tracking, problem-first outreach
+**Companions:** [E1 checklist](./E1_PRIVATE_AI_OPERATOR_CHECKLIST_V1.md) · [Evidence loop](./PILOT_EVIDENCE_LOOP_V1.md)
 
 ```text
 The skill required changed.
@@ -71,7 +71,7 @@ HUMAN: owns every send and every relationship
 
 **Message frame (not sales):**
 
-> I built something and I need a reality check.  
+> I built something and I need a reality check.
 > Would you spend 30 minutes trying it on a real problem?
 
 ### Circle 2 — only after Circle 1 is moving
@@ -186,8 +186,8 @@ You are not pitching. You are learning.
 
 **Listen for:**
 
-- pain that **repeats weekly**  
-- willingness to try again  
+- pain that **repeats weekly**
+- willingness to try again
 - friction that is **docs/UX** (fix) vs **missing fantasy features** (defer)
 
 ---
@@ -289,11 +289,11 @@ Technical readiness can still be high.
 
 ## 13. Immediate human steps (today)
 
-1. Open a private note: **15 Circle 1 names**.  
-2. Send **Script A** to 3 people before optimizing the product.  
-3. Track rows in §6.  
-4. When someone books: run §7 or §8.  
-5. When a session ends: seal evidence card the same day.  
+1. Open a private note: **15 Circle 1 names**.
+2. Send **Script A** to 3 people before optimizing the product.
+3. Track rows in §6.
+4. When someone books: run §7 or §8.
+5. When a session ends: seal evidence card the same day.
 
 ```text
 ROLE: connector (this phase)

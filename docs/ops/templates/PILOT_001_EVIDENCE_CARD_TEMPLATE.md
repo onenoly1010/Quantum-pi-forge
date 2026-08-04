@@ -1,6 +1,6 @@
 # Pilot Evidence Card (template)
 
-**Seal only after a real outside session.** Empty template ≠ Pilot #001 complete.  
+**Seal only after a real outside session.** Empty template ≠ Pilot #001 complete.
 Copy to a private path if the card includes identifying details.
 
 ```text

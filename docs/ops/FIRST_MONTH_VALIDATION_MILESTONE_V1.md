@@ -1,9 +1,9 @@
 # First-Month Validation Milestone v1
 
-**Mode:** Healthy synthesis — bottleneck has shifted  
-**Preferred milestone:** **built → externally useful** (observable; not overclaimed “market validated”)  
-**Engineering:** Not “stop forever” — **evidence-driven** via continuous cycle  
-**Validation source:** Independent users’ time, not AI summaries  
+**Mode:** Healthy synthesis — bottleneck has shifted
+**Preferred milestone:** **built → externally useful** (observable; not overclaimed “market validated”)
+**Engineering:** Not “stop forever” — **evidence-driven** via continuous cycle
+**Validation source:** Independent users’ time, not AI summaries
 
 ```text
 Bottleneck shifted:

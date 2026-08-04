@@ -1,13 +1,13 @@
 # Pilot #001 Operations — Outreach + Tracking v1
 
-**Mode:** Evidence-driven distribution · **not** sales · **not** engineering  
-**State:** READY-TO-TEST (market validation still **missing**)  
-**Engineering:** **FROZEN — System ready**  
-**Active 10/10 checkpoint:** [Obtain External Proof Receipt #001](./EXTERNAL_PROOF_RECEIPT_001_OBJECTIVE_V1.md)  
-**Command:** Operationalize “find and book Pilot #001”  
-**Links:** [Connector lane](./PILOT_CONNECTOR_LANE_V1.md) · [E1](./E1_PRIVATE_AI_OPERATOR_CHECKLIST_V1.md) · [Evidence loop](./PILOT_EVIDENCE_LOOP_V1.md)  
-**Founding circle:** [OINIO_PIONEER_CIRCLE_001_V1.md](./OINIO_PIONEER_CIRCLE_001_V1.md) — 5 Pi + 5 0G validation partners  
-**Templates:** [Invitation list](./templates/PILOT_001_INVITATION_LIST_TEMPLATE.md) · [Evidence card](./templates/PILOT_001_EVIDENCE_CARD_TEMPLATE.md) · [Conversation log](./templates/PILOT_001_CONVERSATION_LOG_TEMPLATE.md)  
+**Mode:** Evidence-driven distribution · **not** sales · **not** engineering
+**State:** READY-TO-TEST (market validation still **missing**)
+**Engineering:** **FROZEN — System ready**
+**Active 10/10 checkpoint:** [Obtain External Proof Receipt #001](./EXTERNAL_PROOF_RECEIPT_001_OBJECTIVE_V1.md)
+**Command:** Operationalize “find and book Pilot #001”
+**Links:** [Connector lane](./PILOT_CONNECTOR_LANE_V1.md) · [E1](./E1_PRIVATE_AI_OPERATOR_CHECKLIST_V1.md) · [Evidence loop](./PILOT_EVIDENCE_LOOP_V1.md)
+**Founding circle:** [OINIO_PIONEER_CIRCLE_001_V1.md](./OINIO_PIONEER_CIRCLE_001_V1.md) — 5 Pi + 5 0G validation partners
+**Templates:** [Invitation list](./templates/PILOT_001_INVITATION_LIST_TEMPLATE.md) · [Evidence card](./templates/PILOT_001_EVIDENCE_CARD_TEMPLATE.md) · [Conversation log](./templates/PILOT_001_CONVERSATION_LOG_TEMPLATE.md)
 
 ```text
 Prove first, activate second — same pattern as the rest of the project.
@@ -65,10 +65,10 @@ The product attaches to **existing pain**.
 
 **Investigator questions (copy):**
 
-1. What do you do every week that feels like a grind?  
-2. How long does that usually take?  
-3. What have you tried (tools, AI, nothing)?  
-4. If one small part got easier this week, which part?  
+1. What do you do every week that feels like a grind?
+2. How long does that usually take?
+3. What have you tried (tools, AI, nothing)?
+4. If one small part got easier this week, which part?
 
 ---
 
@@ -150,18 +150,18 @@ Outreach gets easier when you have **evidence**, not promises.
 
 People who can give **honest feedback** (Circle 1):
 
-- friends, former coworkers, online contacts  
-- communities you already use  
-- people who followed the project  
+- friends, former coworkers, online contacts
+- communities you already use
+- people who followed the project
 
 **How:**
 
-1. Copy [PILOT_001_INVITATION_LIST_TEMPLATE.md](./templates/PILOT_001_INVITATION_LIST_TEMPLATE.md)  
-2. Fill **privately** (do not commit real names to git)  
-3. Suggested private paths:  
-   - local note / password manager note  
-   - `reports/pilot-001-invitation-list.md` (often gitignored under `reports/*.md`)  
-   - any path outside the repo  
+1. Copy [PILOT_001_INVITATION_LIST_TEMPLATE.md](./templates/PILOT_001_INVITATION_LIST_TEMPLATE.md)
+2. Fill **privately** (do not commit real names to git)
+3. Suggested private paths:
+   - local note / password manager note
+   - `reports/pilot-001-invitation-list.md` (often gitignored under `reports/*.md`)
+   - any path outside the repo
 
 ### B — Outreach (problem-first)
 
@@ -200,7 +200,7 @@ Template: [PILOT_001_CONVERSATION_LOG_TEMPLATE.md](./templates/PILOT_001_CONVERS
 
 ### D — Session (if they agree)
 
-Use E1 min path + **their** problem (T6). Measure before/after.  
+Use E1 min path + **their** problem (T6). Measure before/after.
 If install breaks → fix docs only. No new agents.
 
 ### E — Seal evidence
@@ -271,7 +271,7 @@ Not: launch campaign · investors · thousands of users · hype posts.
 | **B — Information overload** | Consultants, small business owners, creators, analysts | Drowning in docs/admin/research |
 | **C — Builders like you** | OSS contributors, crypto/Web3 builders, solo founders | Can give sharp technical honesty |
 
-**Do not open with:** “Would you use my AI system?”  
+**Do not open with:** “Would you use my AI system?”
 **Open with:** “Can I watch how you currently solve this problem and see if this helps?”
 
 ### First message (20-minute test — prefer this)
@@ -320,8 +320,8 @@ NOT:
 
 ## Authorization / honesty
 
-- No mint, LP, wallet, chain activation as part of pilots.  
-- No claiming market validation without cards.  
+- No mint, LP, wallet, chain activation as part of pilots.
+- No claiming market validation without cards.
 - This doc is an **ops workflow**, not proof that pilots ran.
 
 ```text

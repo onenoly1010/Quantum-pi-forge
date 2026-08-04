@@ -37,14 +37,14 @@ without increasing external truth.
 
 Any of:
 
-- outside person attempts onboarding  
-- outside developer reviews or runs a workflow  
-- outside user interacts with a public surface  
-- outside party reports success, failure, confusion, or a request  
+- outside person attempts onboarding
+- outside developer reviews or runs a workflow
+- outside user interacts with a public surface
+- outside party reports success, failure, confusion, or a request
 
 Then record **`FIRST_EXTERNAL_ATTEMPT_V1`** (after the attempt only):
 
-- timestamp · interaction type · observed result · evidence reference · follow-up decision  
+- timestamp · interaction type · observed result · evidence reference · follow-up decision
 
 Template: [templates/FIRST_EXTERNAL_ATTEMPT_RECEIPT_V1.md](./templates/FIRST_EXTERNAL_ATTEMPT_RECEIPT_V1.md)
 

@@ -1,8 +1,8 @@
 # FIRST_EXTERNAL_ATTEMPT_V1
 
-**Boundary object:** next evidence after internal build + governance locks + public surface  
-**Rule:** The receipt is written **after** the attempt — never before. Captures **reality**, not intention.  
-**Locks:** held — this proof is **usability + truthful feedback**, not mint, liquidity, or chain activation  
+**Boundary object:** next evidence after internal build + governance locks + public surface
+**Rule:** The receipt is written **after** the attempt — never before. Captures **reality**, not intention.
+**Locks:** held — this proof is **usability + truthful feedback**, not mint, liquidity, or chain activation
 
 ```text
 INTERNAL BUILD EVIDENCE
@@ -45,11 +45,11 @@ First external attempt tests what cannot be simulated:
 
 ### Discipline
 
-- Do not create a “success receipt” before success.  
-- Do not create an “adoption receipt” before adoption.  
-- Do not treat visitors, impressions, or internal tests as users.  
-- Do not change architecture to avoid the market signal.  
-- **Restraint is the next engineering action** until reality is captured.  
+- Do not create a “success receipt” before success.
+- Do not create an “adoption receipt” before adoption.
+- Do not treat visitors, impressions, or internal tests as users.
+- Do not change architecture to avoid the market signal.
+- **Restraint is the next engineering action** until reality is captured.
 
 ### Seal only after a real attempt
 
@@ -125,7 +125,7 @@ Capture **after** the attempt. No conclusions in the JSON.
 }
 ```
 
-Optional private path after seal (do not invent files early):  
+Optional private path after seal (do not invent files early):
 `receipts/ops/first-external-attempt-v1-<UTC>.json`
 
 ---

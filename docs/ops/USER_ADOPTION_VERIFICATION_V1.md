@@ -1,7 +1,7 @@
 # User Adoption Verification v1
 
-**Mode:** Adoption as **verification** — not marketing  
-**Rule:** Same discipline as engineering receipts and evidence  
+**Mode:** Adoption as **verification** — not marketing
+**Rule:** Same discipline as engineering receipts and evidence
 
 ```text
 The next bottleneck is not more engineering.
@@ -11,12 +11,12 @@ Do not think of it as "marketing."
 Think of it as verification.
 ```
 
-**Program:** [FOUNDING_BUILDERS_PILOT_PROGRAM_V1.md](./FOUNDING_BUILDERS_PILOT_PROGRAM_V1.md)  
-**Flywheel (humans + AI multiplier):** [THREE_AUDIENCE_GROWTH_FLYWHEEL_V1.md](./THREE_AUDIENCE_GROWTH_FLYWHEEL_V1.md)  
-**Month-1 milestone:** [FIRST_MONTH_VALIDATION_MILESTONE_V1.md](./FIRST_MONTH_VALIDATION_MILESTONE_V1.md) — **10 contacted · 3 try · 1 unprompted return**  
-**Wall of receipts:** https://quantumpiforge.com/pilot-receipts (after deploy)  
-**Feedback roadmap:** https://quantumpiforge.com/pilot-feedback-roadmap (after deploy)  
-**Issue template:** `.github/ISSUE_TEMPLATE/founding-builder-feedback.yml`  
+**Program:** [FOUNDING_BUILDERS_PILOT_PROGRAM_V1.md](./FOUNDING_BUILDERS_PILOT_PROGRAM_V1.md)
+**Flywheel (humans + AI multiplier):** [THREE_AUDIENCE_GROWTH_FLYWHEEL_V1.md](./THREE_AUDIENCE_GROWTH_FLYWHEEL_V1.md)
+**Month-1 milestone:** [FIRST_MONTH_VALIDATION_MILESTONE_V1.md](./FIRST_MONTH_VALIDATION_MILESTONE_V1.md) — **10 contacted · 3 try · 1 unprompted return**
+**Wall of receipts:** https://quantumpiforge.com/pilot-receipts (after deploy)
+**Feedback roadmap:** https://quantumpiforge.com/pilot-feedback-roadmap (after deploy)
+**Issue template:** `.github/ISSUE_TEMPLATE/founding-builder-feedback.yml`
 
 ```text
 Discover → try → succeed or report stuck → return because it solved a problem
@@ -80,12 +80,12 @@ Successful OSS/dev projects grow because people **repeatedly find them useful**,
 
 ## How to advance a proof level
 
-1. Builder completes path (E1 / one task).  
-2. Capture receipt (template).  
-3. File feedback issue if public-safe.  
-4. Update roadmap “from feedback” row if a change ships.  
-5. Add redacted card to wall of receipts (with permission).  
-6. Bump ladder status in this file only with evidence links.  
+1. Builder completes path (E1 / one task).
+2. Capture receipt (template).
+3. File feedback issue if public-safe.
+4. Update roadmap “from feedback” row if a change ships.
+5. Add redacted card to wall of receipts (with permission).
+6. Bump ladder status in this file only with evidence links.
 
 ```text
 ENGINEERING: system ready (frozen)

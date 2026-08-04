@@ -1,10 +1,10 @@
 # Founding Builders Pilot Program v1
 
-**Program name:** OINIO / Quantum Pi Forge — Founding Builders Pilot  
-**Goal:** **10 builders** who genuinely use the system and say what works  
-**Not the goal:** thousands of users, launch hype, token marketing  
-**Engineering:** System ready — frozen except pilot-blocking fixes  
-**Acquisition model:** Engineering-style feedback loop (not sporadic promotion)  
+**Program name:** OINIO / Quantum Pi Forge — Founding Builders Pilot
+**Goal:** **10 builders** who genuinely use the system and say what works
+**Not the goal:** thousands of users, launch hype, token marketing
+**Engineering:** System ready — frozen except pilot-blocking fixes
+**Acquisition model:** Engineering-style feedback loop (not sporadic promotion)
 
 ```text
 E) Build a pilot program.
@@ -18,15 +18,15 @@ Not:
   "Look at my project."
 ```
 
-**Live page (after merge/deploy):** https://quantumpiforge.com/founding-builders-pilot  
-**Source:** `deploy/founding-builders-pilot.html`  
-**Adoption as verification:** [USER_ADOPTION_VERIFICATION_V1.md](./USER_ADOPTION_VERIFICATION_V1.md) — Proof #1–#5  
-**Feedback roadmap:** `/pilot-feedback-roadmap` · **Wall of receipts:** `/pilot-receipts`  
-**Demo script:** [templates/DEMO_SCRIPT_60S_FOUNDING_BUILDERS_V1.md](./templates/DEMO_SCRIPT_60S_FOUNDING_BUILDERS_V1.md)  
-**Issue template:** `.github/ISSUE_TEMPLATE/founding-builder-feedback.yml`  
-**Receipts:** [EXTERNAL_PROOF_RECEIPT_001_OBJECTIVE_V1.md](./EXTERNAL_PROOF_RECEIPT_001_OBJECTIVE_V1.md)  
-**Weekly cadence:** [WEEKLY_CONVERSATION_CADENCE_V1.md](./WEEKLY_CONVERSATION_CADENCE_V1.md)  
-**Drafts:** [templates/FOUNDING_BUILDERS_OUTREACH_DRAFTS_V1.md](./templates/FOUNDING_BUILDERS_OUTREACH_DRAFTS_V1.md)  
+**Live page (after merge/deploy):** https://quantumpiforge.com/founding-builders-pilot
+**Source:** `deploy/founding-builders-pilot.html`
+**Adoption as verification:** [USER_ADOPTION_VERIFICATION_V1.md](./USER_ADOPTION_VERIFICATION_V1.md) — Proof #1–#5
+**Feedback roadmap:** `/pilot-feedback-roadmap` · **Wall of receipts:** `/pilot-receipts`
+**Demo script:** [templates/DEMO_SCRIPT_60S_FOUNDING_BUILDERS_V1.md](./templates/DEMO_SCRIPT_60S_FOUNDING_BUILDERS_V1.md)
+**Issue template:** `.github/ISSUE_TEMPLATE/founding-builder-feedback.yml`
+**Receipts:** [EXTERNAL_PROOF_RECEIPT_001_OBJECTIVE_V1.md](./EXTERNAL_PROOF_RECEIPT_001_OBJECTIVE_V1.md)
+**Weekly cadence:** [WEEKLY_CONVERSATION_CADENCE_V1.md](./WEEKLY_CONVERSATION_CADENCE_V1.md)
+**Drafts:** [templates/FOUNDING_BUILDERS_OUTREACH_DRAFTS_V1.md](./templates/FOUNDING_BUILDERS_OUTREACH_DRAFTS_V1.md)
 
 ---
 
@@ -58,10 +58,10 @@ Not:
 
 ## 3. What we ask for (feedback contract)
 
-1. Try **one** real task from their work.  
-2. Report: before time · after · friction · would use again.  
-3. Answer: if it doesn’t help, **why**.  
-4. Optional: allow a public quote / GitHub Discussion comment.  
+1. Try **one** real task from their work.
+2. Report: before time · after · friction · would use again.
+3. Answer: if it doesn’t help, **why**.
+4. Optional: allow a public quote / GitHub Discussion comment.
 
 ```text
 Their job is not to praise the stack.

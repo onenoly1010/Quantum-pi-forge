@@ -1,7 +1,7 @@
 # Founding Builders — Outreach & Post Drafts v1
 
-**Human send only.** Collaboration frame, not “look at my project.”  
-**Program:** [FOUNDING_BUILDERS_PILOT_PROGRAM_V1.md](../FOUNDING_BUILDERS_PILOT_PROGRAM_V1.md)  
+**Human send only.** Collaboration frame, not “look at my project.”
+**Program:** [FOUNDING_BUILDERS_PILOT_PROGRAM_V1.md](../FOUNDING_BUILDERS_PILOT_PROGRAM_V1.md)
 **Page:** `/founding-builders-pilot` (after deploy)
 
 ---
@@ -24,19 +24,19 @@ Not a launch announcement. A small pilot.
 **Quantum Pi Forge / OINIO** is open-source AI + verification infrastructure (0G-aligned, Pi-ecosystem-friendly utility focus). Engineering is far enough along that the next uncertainty is **whether builders find real value** — not whether more architecture exists.
 
 ### Who this is for
-- **0G developers** building AI infra / agents / apps  
-- **Pi ecosystem builders** (apps, utility — not casual promo)  
+- **0G developers** building AI infra / agents / apps
+- **Pi ecosystem builders** (apps, utility — not casual promo)
 - **Local AI / OSS** folks (Ollama, coding agents, MCP, etc.)
 
 ### What you get
-- 15–30 min guided path: private AI operator under your control  
-- One task from *your* work  
-- Direct feedback to the maintainer  
-- No wallet, mint, or investment pitch  
+- 15–30 min guided path: private AI operator under your control
+- One task from *your* work
+- Direct feedback to the maintainer
+- No wallet, mint, or investment pitch
 
 ### What we ask
-1. Try one workflow  
-2. Report time / friction / would you use again?  
+1. Try one workflow
+2. Report time / friction / would you use again?
 3. If it doesn’t help — **why**
 
 ### Why 15 minutes?
@@ -44,15 +44,15 @@ You leave knowing if it saved time on a problem you already have — or not. Hon
 
 ### How to join
 Comment below with:
-- What you’re building  
-- Community (0G / Pi / local AI / other)  
-- One task that wastes your time  
+- What you’re building
+- Community (0G / Pi / local AI / other)
+- One task that wastes your time
 
 Or email: `Founding Builders Pilot` via the site contact on the pilot page.
 
-**Pilot page:** https://quantumpiforge.com/founding-builders-pilot  
-**Repo:** this repository  
-**Verify (read-only):** https://quantumpiforge.com/deployed-addresses  
+**Pilot page:** https://quantumpiforge.com/founding-builders-pilot
+**Repo:** this repository
+**Verify (read-only):** https://quantumpiforge.com/deployed-addresses
 
 Economic activation (mint/LP) is **not** part of this pilot and remains not authorized.
 ```

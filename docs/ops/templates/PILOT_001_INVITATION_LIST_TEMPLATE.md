@@ -1,7 +1,7 @@
 # Pilot #001 — Invitation list (template)
 
-**Instructions:** Copy this file to a **private** location. Fill real names only in the private copy.  
-**Do not commit** personal contact data to the public repository.  
+**Instructions:** Copy this file to a **private** location. Fill real names only in the private copy.
+**Do not commit** personal contact data to the public repository.
 **Goal:** 10 people who can give honest feedback (Circle 1 first).
 
 ```text
@@ -9,7 +9,7 @@ Not: customers · investors · cold strangers (first)
 Yes: friends · former coworkers · online contacts · community peers
 ```
 
-**Categories:** A = AI power user · B = information overload · C = builder like you  
+**Categories:** A = AI power user · B = information overload · C = builder like you
 **Community (Pioneer Circle default):** Pi × 5 · 0G × 5 — see [OINIO_PIONEER_CIRCLE_001_V1.md](../OINIO_PIONEER_CIRCLE_001_V1.md)
 
 | # | Name / handle (private) | Community (Pi/0G/other) | Cat (A/B/C) | How you know them | Suspected pain | Priority | Sent? | Date | Reply? | Notes |

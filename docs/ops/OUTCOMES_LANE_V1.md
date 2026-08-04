@@ -1,23 +1,23 @@
 # Outcomes Lane v1
 
-**Mode:** Operating plan after sealed infrastructure — **not** activation  
-**Anchored tip:** `0cd896a` (main, post #713–#716)  
-**Public portal:** https://quantumpiforge.com/deployed-addresses  
-**Rule:** Capability ≠ Permission ≠ Activation ≠ Revenue  
-**Outcome map:** [OUTCOME_READINESS_MAP_V1.md](./OUTCOME_READINESS_MAP_V1.md) — READY_NOW inventory, ledger (A0/B0), shortest path  
-**Execution plan:** [OUTCOME_EXECUTION_PLAN_V1.md](./OUTCOME_EXECUTION_PLAN_V1.md) — front door (private AI), E1 first user outcome, utility revenue  
-**E1 checklist:** [E1_PRIVATE_AI_OPERATOR_CHECKLIST_V1.md](./E1_PRIVATE_AI_OPERATOR_CHECKLIST_V1.md) — pilot path · Q1–Q4 validation · no activation  
-**Active objective:** [EXTERNAL_PROOF_RECEIPT_001_OBJECTIVE_V1.md](./EXTERNAL_PROOF_RECEIPT_001_OBJECTIVE_V1.md) — engineering frozen · receipt #001 is the checkpoint  
-**90-day acquisition:** [QPF_OINIO_90_DAY_USER_ACQUISITION_PLAN_V1.md](./QPF_OINIO_90_DAY_USER_ACQUISITION_PLAN_V1.md) — Pi / 0G / AI-dev tracks · customer discovery  
-**Weekly cadence:** [WEEKLY_CONVERSATION_CADENCE_V1.md](./WEEKLY_CONVERSATION_CADENCE_V1.md) — 5 Pi + 5 0G + 5 AI-dev · “why 15 minutes?”  
-**Pilot program:** [FOUNDING_BUILDERS_PILOT_PROGRAM_V1.md](./FOUNDING_BUILDERS_PILOT_PROGRAM_V1.md) — 10 founding builders · acquisition as feedback loop  
-**Adoption verification:** [USER_ADOPTION_VERIFICATION_V1.md](./USER_ADOPTION_VERIFICATION_V1.md) — Proof #1–#5 · wall of receipts · feedback roadmap  
-**Growth flywheel:** [THREE_AUDIENCE_GROWTH_FLYWHEEL_V1.md](./THREE_AUDIENCE_GROWTH_FLYWHEEL_V1.md) — humans · orgs · AI agents as multiplier  
-**Month-1 milestone:** [FIRST_MONTH_VALIDATION_MILESTONE_V1.md](./FIRST_MONTH_VALIDATION_MILESTONE_V1.md) — 10 contacted · 3 try · 1 unprompted return  
-**Cycle language:** [EXTERNALLY_USEFUL_CYCLE_V1.md](./EXTERNALLY_USEFUL_CYCLE_V1.md) — built → externally useful · locks held · evidence-driven change only  
-**Operating gates:** [EXTERNALLY_USEFUL_OPERATING_GATES_V1.md](./EXTERNALLY_USEFUL_OPERATING_GATES_V1.md) — phase exit conditions · prep ≠ execution  
-**Next milestone:** [FIRST_EXTERNAL_ATTEMPT_RECEIPT_V1.md](./templates/FIRST_EXTERNAL_ATTEMPT_RECEIPT_V1.md) — exit Recruitment; no new planning loop until sealed  
-**Observation channel:** [EXTERNAL_OBSERVATION_CHANNEL_READY_V1.md](./EXTERNAL_OBSERVATION_CHANNEL_READY_V1.md) — Phase B waiting · checklist · no assumed evidence  
+**Mode:** Operating plan after sealed infrastructure — **not** activation
+**Anchored tip:** `0cd896a` (main, post #713–#716)
+**Public portal:** https://quantumpiforge.com/deployed-addresses
+**Rule:** Capability ≠ Permission ≠ Activation ≠ Revenue
+**Outcome map:** [OUTCOME_READINESS_MAP_V1.md](./OUTCOME_READINESS_MAP_V1.md) — READY_NOW inventory, ledger (A0/B0), shortest path
+**Execution plan:** [OUTCOME_EXECUTION_PLAN_V1.md](./OUTCOME_EXECUTION_PLAN_V1.md) — front door (private AI), E1 first user outcome, utility revenue
+**E1 checklist:** [E1_PRIVATE_AI_OPERATOR_CHECKLIST_V1.md](./E1_PRIVATE_AI_OPERATOR_CHECKLIST_V1.md) — pilot path · Q1–Q4 validation · no activation
+**Active objective:** [EXTERNAL_PROOF_RECEIPT_001_OBJECTIVE_V1.md](./EXTERNAL_PROOF_RECEIPT_001_OBJECTIVE_V1.md) — engineering frozen · receipt #001 is the checkpoint
+**90-day acquisition:** [QPF_OINIO_90_DAY_USER_ACQUISITION_PLAN_V1.md](./QPF_OINIO_90_DAY_USER_ACQUISITION_PLAN_V1.md) — Pi / 0G / AI-dev tracks · customer discovery
+**Weekly cadence:** [WEEKLY_CONVERSATION_CADENCE_V1.md](./WEEKLY_CONVERSATION_CADENCE_V1.md) — 5 Pi + 5 0G + 5 AI-dev · “why 15 minutes?”
+**Pilot program:** [FOUNDING_BUILDERS_PILOT_PROGRAM_V1.md](./FOUNDING_BUILDERS_PILOT_PROGRAM_V1.md) — 10 founding builders · acquisition as feedback loop
+**Adoption verification:** [USER_ADOPTION_VERIFICATION_V1.md](./USER_ADOPTION_VERIFICATION_V1.md) — Proof #1–#5 · wall of receipts · feedback roadmap
+**Growth flywheel:** [THREE_AUDIENCE_GROWTH_FLYWHEEL_V1.md](./THREE_AUDIENCE_GROWTH_FLYWHEEL_V1.md) — humans · orgs · AI agents as multiplier
+**Month-1 milestone:** [FIRST_MONTH_VALIDATION_MILESTONE_V1.md](./FIRST_MONTH_VALIDATION_MILESTONE_V1.md) — 10 contacted · 3 try · 1 unprompted return
+**Cycle language:** [EXTERNALLY_USEFUL_CYCLE_V1.md](./EXTERNALLY_USEFUL_CYCLE_V1.md) — built → externally useful · locks held · evidence-driven change only
+**Operating gates:** [EXTERNALLY_USEFUL_OPERATING_GATES_V1.md](./EXTERNALLY_USEFUL_OPERATING_GATES_V1.md) — phase exit conditions · prep ≠ execution
+**Next milestone:** [FIRST_EXTERNAL_ATTEMPT_RECEIPT_V1.md](./templates/FIRST_EXTERNAL_ATTEMPT_RECEIPT_V1.md) — exit Recruitment; no new planning loop until sealed
+**Observation channel:** [EXTERNAL_OBSERVATION_CHANNEL_READY_V1.md](./EXTERNAL_OBSERVATION_CHANNEL_READY_V1.md) — Phase B waiting · checklist · no assumed evidence
 
 ```text
 verified infrastructure ≠ authorized activation
@@ -127,18 +127,18 @@ Convert foundation into **measurable external outcomes** without unlocking mint,
 
 ## Explicit non-goals (this lane)
 
-- Re-opening #716 merge/hold discussion  
-- Wallet signing, mint open, LP seed, bridge, treasury moves  
-- Treating soft SLA pressure as permission to unlock economics  
+- Re-opening #716 merge/hold discussion
+- Wallet signing, mint open, LP seed, bridge, treasury moves
+- Treating soft SLA pressure as permission to unlock economics
 - Collapsing “we have code on main” into “we’re live for money”
 
 ---
 
 ## First human actions (this week)
 
-1. **Share** portal verify-now + issue #636 with 2–3 independent builders/reviewers.  
-2. **Open** outreach shortlist and mark 3 targets for manual contact (human send).  
-3. **Run** `./scripts/ai-cockpit.sh` once and keep the report as session baseline.  
+1. **Share** portal verify-now + issue #636 with 2–3 independent builders/reviewers.
+2. **Open** outreach shortlist and mark 3 targets for manual contact (human send).
+3. **Run** `./scripts/ai-cockpit.sh` once and keep the report as session baseline.
 4. **Do not** issue 18.8 or mint/LP GO.
 
 ---

@@ -1,10 +1,10 @@
 # QPF / OINIO — 90-Day User Acquisition Plan v1
 
-**Mode:** Customer discovery + community utility · **not** paid ads · **not** a marketing team  
-**Audience:** one founder (Kris) can execute this  
-**Engineering:** **System ready — frozen** except pilot-blocking install fixes  
-**Active near-term objective:** [External Proof Receipt #001](./EXTERNAL_PROOF_RECEIPT_001_OBJECTIVE_V1.md)  
-**Companions:** [Pioneer Circle](./OINIO_PIONEER_CIRCLE_001_V1.md) · [Pilot ops](./PILOT_001_OPERATIONS_V1.md) · [E1](./E1_PRIVATE_AI_OPERATOR_CHECKLIST_V1.md)  
+**Mode:** Customer discovery + community utility · **not** paid ads · **not** a marketing team
+**Audience:** one founder (Kris) can execute this
+**Engineering:** **System ready — frozen** except pilot-blocking install fixes
+**Active near-term objective:** [External Proof Receipt #001](./EXTERNAL_PROOF_RECEIPT_001_OBJECTIVE_V1.md)
+**Companions:** [Pioneer Circle](./OINIO_PIONEER_CIRCLE_001_V1.md) · [Pilot ops](./PILOT_001_OPERATIONS_V1.md) · [E1](./E1_PRIVATE_AI_OPERATOR_CHECKLIST_V1.md)
 
 ```text
 You do not need to become a marketer.
@@ -120,7 +120,7 @@ Run **all three lightly** in parallel. Do not expand into a campaign.
 | Local AI enthusiasts | Private AI + authority boundaries demo |
 | Open-source developers | Docs + one cloneable path; ask for feedback |
 
-**Ask:** Does this save you time in a real agent/dev workflow?  
+**Ask:** Does this save you time in a real agent/dev workflow?
 **Output:** notes + optional receipt if they complete a task.
 
 ### Track 2 — 0G ecosystem
@@ -130,7 +130,7 @@ Run **all three lightly** in parallel. Do not expand into a campaign.
 | 0G builders / grant-adjacent | Small examples, technical notes, **ask for feedback** (not sell) |
 | Agent / compute / data participants | One workflow on their problem |
 
-**Ask:** Help validate a real user-facing app around decentralized AI workflows.  
+**Ask:** Help validate a real user-facing app around decentralized AI workflows.
 **Avoid:** token pitch, investment language.
 
 ### Track 3 — Pi ecosystem
@@ -141,7 +141,7 @@ Run **all three lightly** in parallel. Do not expand into a campaign.
 | Moderators, Discord/X contributors | Participation where rules allow |
 | Hackathon-style builders | One task, honest feedback |
 
-**Wedge:** OINIO helps Pi builders turn ideas into working **verified** applications.  
+**Wedge:** OINIO helps Pi builders turn ideas into working **verified** applications.
 **Avoid:** promoting a token/project for attention. **Help existing members.**
 
 ---
@@ -181,9 +181,9 @@ Talk to one potential user
 | Task completed | ≥ 1 |
 | “Use again” / miss-if-gone | ≥ 1 |
 
-**Artifacts:** sealed [receipt #001](./EXTERNAL_PROOF_RECEIPT_001_OBJECTIVE_V1.md)  
-**Channels:** quiet DMs / existing contacts in Pi, 0G, AI-dev circles  
-**Not:** launch posts, ads, “get users” campaigns  
+**Artifacts:** sealed [receipt #001](./EXTERNAL_PROOF_RECEIPT_001_OBJECTIVE_V1.md)
+**Channels:** quiet DMs / existing contacts in Pi, 0G, AI-dev circles
+**Not:** launch posts, ads, “get users” campaigns
 
 ### Days 8–30 — 3–5 right-fit receipts + pattern
 
@@ -284,7 +284,7 @@ Would miss if gone tomorrow?  Yes / No / Maybe
 Quote:
 ```
 
-**Strong receipt:** real problem + use again next week + right community.  
+**Strong receipt:** real problem + use again next week + right community.
 **Weak “proof”:** generic compliment, no task, no repeat intent.
 
 ---
@@ -322,11 +322,11 @@ and a clear story of what they use it for.
 
 ## 11. Immediate (today / this week)
 
-1. Private list of **10 right-fit** names across tracks (Pi / 0G / AI-dev).  
-2. Send pilot or discovery message to **3**.  
-3. Run **one** painful task with whoever engages.  
-4. Seal **External Proof Receipt #001** if they complete and would return.  
-5. Do **not** start a community-wide announcement.  
+1. Private list of **10 right-fit** names across tracks (Pi / 0G / AI-dev).
+2. Send pilot or discovery message to **3**.
+3. Run **one** painful task with whoever engages.
+4. Seal **External Proof Receipt #001** if they complete and would return.
+5. Do **not** start a community-wide announcement.
 
 ```text
 90-DAY ENGINE: customer discovery protocol

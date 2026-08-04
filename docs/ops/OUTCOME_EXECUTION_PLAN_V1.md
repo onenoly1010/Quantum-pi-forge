@@ -1,11 +1,11 @@
 # Outcome Execution Plan v1
 
-**Command:** `CREATE_OUTCOME_EXECUTION_PLAN`  
-**Mode:** Put the machine to work · **not** activation  
-**Generated (UTC):** 2026-08-04  
-**Sealed tip:** `0cd896a` (main, post #713–#716)  
-**Depends on:** [OUTCOME_READINESS_MAP_V1.md](./OUTCOME_READINESS_MAP_V1.md) · [OUTCOMES_LANE_V1.md](./OUTCOMES_LANE_V1.md)  
-**Rule:** Capability ≠ Permission ≠ Activation ≠ Revenue  
+**Command:** `CREATE_OUTCOME_EXECUTION_PLAN`
+**Mode:** Put the machine to work · **not** activation
+**Generated (UTC):** 2026-08-04
+**Sealed tip:** `0cd896a` (main, post #713–#716)
+**Depends on:** [OUTCOME_READINESS_MAP_V1.md](./OUTCOME_READINESS_MAP_V1.md) · [OUTCOMES_LANE_V1.md](./OUTCOMES_LANE_V1.md)
+**Rule:** Capability ≠ Permission ≠ Activation ≠ Revenue
 
 ```text
 CONSTRAINTS (hard):
@@ -93,10 +93,10 @@ FUTURE (not first UX):
 
 **Why AI leads**
 
-1. Users already have a mental model for “private AI assistant.”  
-2. The stack **exists** (cockpit, Ollama path, Grok prepare-only, soul-core pattern).  
-3. `/work-with-us` already sells “sovereign AI deployment / Ollama-style stacks.”  
-4. Service catalog already has **Offer C — Sovereign-AI boundary review.**  
+1. Users already have a mental model for “private AI assistant.”
+2. The stack **exists** (cockpit, Ollama path, Grok prepare-only, soul-core pattern).
+3. `/work-with-us` already sells “sovereign AI deployment / Ollama-style stacks.”
+4. Service catalog already has **Offer C — Sovereign-AI boundary review.**
 5. Verification becomes the *differentiator* (“prove what the AI did / did not touch”) rather than the *first sentence*.
 
 **Why verification does not lead the landing sentence**
@@ -133,7 +133,7 @@ Protocol mint/LP remain locked and separate.
 | **5** | Enterprise / private deployment of soul-core style loop | `soul-core/README.md` | Project-scoped | No |
 | later | Token / LP / DAO mechanisms | Separate GOs only | Multi-gate | Yes |
 
-**First money milestone (already on live page):**  
+**First money milestone (already on live page):**
 `/work-with-us` — *“first independent third party pays QPF for a product or service, and payment is received.”*
 
 That milestone is **orthogonal** to mint. Preserve it.
@@ -161,10 +161,10 @@ That milestone is **orthogonal** to mint. Preserve it.
 
 All of the following must be true:
 
-1. **External identity** — not only maintainer baseline.  
-2. **Defined experience completed** — checklist in § Execution steps.  
-3. **Durable artifact** — report/brief stored (client copy + optional redacted receipt in-repo if public-safe).  
-4. **Authority understood** — user can state: AI prepare-only; human decides irreversible actions.  
+1. **External identity** — not only maintainer baseline.
+2. **Defined experience completed** — checklist in § Execution steps.
+3. **Durable artifact** — report/brief stored (client copy + optional redacted receipt in-repo if public-safe).
+4. **Authority understood** — user can state: AI prepare-only; human decides irreversible actions.
 5. **No lock breach** — no mint/LP/wallet/chain execution performed as part of E1.
 
 Optional upgrade (does not block E1):
@@ -202,11 +202,11 @@ Not:
 
 **Explicit non-build list for E1**
 
-- No new chain contracts  
-- No mint UI  
-- No hosted multi-tenant agent platform  
-- No payment-rail productization inside the protocol  
-- No Guild-form thrash while closed  
+- No new chain contracts
+- No mint UI
+- No hosted multi-tenant agent platform
+- No payment-rail productization inside the protocol
+- No Guild-form thrash while closed
 
 If something is missing for E1, prefer **docs checklist + human-guided session** over new code.
 
@@ -216,11 +216,11 @@ If something is missing for E1, prefer **docs checklist + human-guided session**
 
 ### Step 0 — Preconditions (already true)
 
-- [x] Foundation sealed (`0cd896a`)  
-- [x] Public site live  
-- [x] Cockpit scripts on main  
-- [x] Service language on `/work-with-us`  
-- [x] Locks public  
+- [x] Foundation sealed (`0cd896a`)
+- [x] Public site live
+- [x] Cockpit scripts on main
+- [x] Service language on `/work-with-us`
+- [x] Locks public
 
 ### Step 1 — Package the experience — **DONE**
 
@@ -374,12 +374,12 @@ If any check fails → stop, remediate docs, do not “finish” by unlocking ec
 
 ## Explicit non-goals
 
-- More foundation infrastructure “just in case”  
-- Homepage redesign as a blocker for first user  
-- Merging everything open on GitHub as a substitute for usage  
-- Token narrative as the adoption path  
-- Expanding soul-core to multi-tenant production before E1  
-- Treating soft 8.5 SLA as permission to open economics  
+- More foundation infrastructure “just in case”
+- Homepage redesign as a blocker for first user
+- Merging everything open on GitHub as a substitute for usage
+- Token narrative as the adoption path
+- Expanding soul-core to multi-tenant production before E1
+- Treating soft 8.5 SLA as permission to open economics
 
 ---
 

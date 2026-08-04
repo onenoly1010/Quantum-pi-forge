@@ -1,8 +1,8 @@
 # One-minute demo script — Founding Builders (real workflow)
 
-**Length:** ~60–90 seconds  
-**Goal:** Answer “Why should I spend 15 minutes?” with a *real* task, not an architecture tour  
-**Record when:** Screen share of cockpit + optional portal; no wallet, no mint  
+**Length:** ~60–90 seconds
+**Goal:** Answer “Why should I spend 15 minutes?” with a *real* task, not an architecture tour
+**Record when:** Screen share of cockpit + optional portal; no wallet, no mint
 
 ---
 
@@ -47,23 +47,23 @@ Try it, tell us if it helped, or why it didn't.
 
 ## B-roll alternatives (if cockpit is slow)
 
-1. Open https://quantumpiforge.com/deployed-addresses#verify-now  
-2. Show status JSON: mint/LP **NOT AUTHORIZED**  
-3. Say: “Verification is public; the pilot is private AI on *your* task.”  
+1. Open https://quantumpiforge.com/deployed-addresses#verify-now
+2. Show status JSON: mint/LP **NOT AUTHORIZED**
+3. Say: “Verification is public; the pilot is private AI on *your* task.”
 
 ---
 
 ## Do not show in the first minute
 
-- Tokenomics, mint UI, LP  
-- Full multi-agent architecture lecture  
-- Long grant history  
+- Tokenomics, mint UI, LP
+- Full multi-agent architecture lecture
+- Long grant history
 
 ---
 
 ## Captions / title options
 
-- `Private AI operator for builders — 60s workflow (no wallet)`  
-- `Founding Builders pilot: one task, honest feedback`  
+- `Private AI operator for builders — 60s workflow (no wallet)`
+- `Founding Builders pilot: one task, honest feedback`
 
 When recorded, link from pilot page and GitHub Discussion.

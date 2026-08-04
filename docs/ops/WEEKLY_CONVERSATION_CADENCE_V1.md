@@ -1,9 +1,9 @@
 # Weekly Conversation Cadence v1
 
-**Mode:** Customer discovery · not sales · not feature factory  
-**Engineering:** System ready — frozen  
-**Parent:** [90-day plan](./QPF_OINIO_90_DAY_USER_ACQUISITION_PLAN_V1.md) · [Receipt #001 objective](./EXTERNAL_PROOF_RECEIPT_001_OBJECTIVE_V1.md)  
-**Pilot program (E):** [FOUNDING_BUILDERS_PILOT_PROGRAM_V1.md](./FOUNDING_BUILDERS_PILOT_PROGRAM_V1.md) · page `/founding-builders-pilot`  
+**Mode:** Customer discovery · not sales · not feature factory
+**Engineering:** System ready — frozen
+**Parent:** [90-day plan](./QPF_OINIO_90_DAY_USER_ACQUISITION_PLAN_V1.md) · [Receipt #001 objective](./EXTERNAL_PROOF_RECEIPT_001_OBJECTIVE_V1.md)
+**Pilot program (E):** [FOUNDING_BUILDERS_PILOT_PROGRAM_V1.md](./FOUNDING_BUILDERS_PILOT_PROGRAM_V1.md) · page `/founding-builders-pilot`
 
 ```text
 The next uncertainty is not whether the software works.
@@ -40,10 +40,10 @@ A “conversation” can be: DM reply thread, voice call, Discord reply, or shor
 
 ### Discovery questions (use these)
 
-1. What are you building?  
-2. What’s your biggest workflow pain?  
-3. Would this help?  
-4. If not, what would?  
+1. What are you building?
+2. What’s your biggest workflow pain?
+3. Would this help?
+4. If not, what would?
 
 If **2–3 conversations** surface the **same pain**, that is a stronger product signal than another AI review cycle.
 

@@ -1,8 +1,8 @@
 # Built → Externally Useful (continuous cycle) v1
 
-**Preferred milestone language:** **built → externally useful**  
-**Avoid overclaiming:** “proof-of-value” can sound like the market already validated the product  
-**Phase gates (governance):** [EXTERNALLY_USEFUL_OPERATING_GATES_V1.md](./EXTERNALLY_USEFUL_OPERATING_GATES_V1.md) — Planning → Recruitment → Observation → Iteration → Repeat  
+**Preferred milestone language:** **built → externally useful**
+**Avoid overclaiming:** “proof-of-value” can sound like the market already validated the product
+**Phase gates (governance):** [EXTERNALLY_USEFUL_OPERATING_GATES_V1.md](./EXTERNALLY_USEFUL_OPERATING_GATES_V1.md) — Planning → Recruitment → Observation → Iteration → Repeat
 
 ```text
 Externally useful is observable:
@@ -15,7 +15,7 @@ Externally useful is observable:
 That produces evidence you can build on.
 ```
 
-**Not:** internal assessment alone · AI-generated evaluation alone  
+**Not:** internal assessment alone · AI-generated evaluation alone
 
 ---
 
@@ -63,16 +63,16 @@ then engineering changes are driven by observed usage
 
 ## Practical objective (unchanged, clearer)
 
-1. Find a handful of people in the intended audience (Pi builders, 0G builders, local AI/OSS).  
-2. Ask them to perform a **concrete task**.  
-3. Observe success and struggle.  
-4. Record results (receipts, issues).  
-5. Improve from **recurring** patterns.  
-6. Repeat.  
+1. Find a handful of people in the intended audience (Pi builders, 0G builders, local AI/OSS).
+2. Ask them to perform a **concrete task**.
+3. Observe success and struggle.
+4. Record results (receipts, issues).
+5. Improve from **recurring** patterns.
+6. Repeat.
 
-**Month-1 numbers:** [FIRST_MONTH_VALIDATION_MILESTONE_V1.md](./FIRST_MONTH_VALIDATION_MILESTONE_V1.md) — 10 contacted · 3 try · 1 unprompted return  
+**Month-1 numbers:** [FIRST_MONTH_VALIDATION_MILESTONE_V1.md](./FIRST_MONTH_VALIDATION_MILESTONE_V1.md) — 10 contacted · 3 try · 1 unprompted return
 
-**Proof ladder:** [USER_ADOPTION_VERIFICATION_V1.md](./USER_ADOPTION_VERIFICATION_V1.md)  
+**Proof ladder:** [USER_ADOPTION_VERIFICATION_V1.md](./USER_ADOPTION_VERIFICATION_V1.md)
 
 ---
 

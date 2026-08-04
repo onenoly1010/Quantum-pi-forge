@@ -1,12 +1,12 @@
 # Outcome Readiness Map v1
 
-**Command:** `GENERATE_OUTCOME_READINESS_MAP` / `FOUNDATION_TO_REVENUE_PATH_AUDIT`  
-**Mode:** Foundation → outcomes · **not** activation  
-**Generated (UTC):** 2026-08-04  
-**Sealed tip:** `0cd896a` (main, post #713–#716)  
-**Companion plan:** [OUTCOMES_LANE_V1.md](./OUTCOMES_LANE_V1.md)  
-**Execution plan:** [OUTCOME_EXECUTION_PLAN_V1.md](./OUTCOME_EXECUTION_PLAN_V1.md) — front door + E1 delivery  
-**Rule:** Capability ≠ Permission ≠ Activation ≠ Revenue  
+**Command:** `GENERATE_OUTCOME_READINESS_MAP` / `FOUNDATION_TO_REVENUE_PATH_AUDIT`
+**Mode:** Foundation → outcomes · **not** activation
+**Generated (UTC):** 2026-08-04
+**Sealed tip:** `0cd896a` (main, post #713–#716)
+**Companion plan:** [OUTCOMES_LANE_V1.md](./OUTCOMES_LANE_V1.md)
+**Execution plan:** [OUTCOME_EXECUTION_PLAN_V1.md](./OUTCOME_EXECUTION_PLAN_V1.md) — front door + E1 delivery
+**Rule:** Capability ≠ Permission ≠ Activation ≠ Revenue
 
 ```text
 STATE: FOUNDATION VERIFIED
@@ -339,12 +339,12 @@ Suggested PR body addendum: attach this map as the audit product of `FOUNDATION_
 
 ## 9. Explicit non-goals
 
-- Another #716 merge/hold discussion  
-- Soft SLA pressure used as mint permission  
-- Collapsing ready into live  
-- Auto-send, scraping, or invented contacts  
-- Binding protocol revenue forecasts to 8.5 completion  
-- Opening Guild forms while program closed  
+- Another #716 merge/hold discussion
+- Soft SLA pressure used as mint permission
+- Collapsing ready into live
+- Auto-send, scraping, or invented contacts
+- Binding protocol revenue forecasts to 8.5 completion
+- Opening Guild forms while program closed
 
 ---
 

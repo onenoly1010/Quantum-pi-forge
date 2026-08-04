@@ -1,6 +1,6 @@
 # Pilot #001 — Conversation log (template)
 
-**Copy privately.** Track outreach and conversations.  
+**Copy privately.** Track outreach and conversations.
 Do not invent rows. Do not mark Pilot #001 complete without a sealed evidence card.
 
 ## Pipeline
@@ -33,8 +33,8 @@ Do not invent rows. Do not mark Pilot #001 complete without a sealed evidence ca
 
 ### Call ____
 
-- Workflow understood:  
-- Small part tried:  
-- Did it help?:  
-- Quote:  
-- Follow-up:  
+- Workflow understood:
+- Small part tried:
+- Did it help?:
+- Quote:
+- Follow-up:
