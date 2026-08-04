@@ -378,4 +378,3 @@ Product KPI: E1 external AI operator experience complete
 Trust KPI: n = 0 → 1
 Locks: held
 ```
-
