@@ -17,7 +17,8 @@
 **Cycle language:** [EXTERNALLY_USEFUL_CYCLE_V1.md](./EXTERNALLY_USEFUL_CYCLE_V1.md) — built → externally useful · locks held · evidence-driven change only
 **Operating gates:** [EXTERNALLY_USEFUL_OPERATING_GATES_V1.md](./EXTERNALLY_USEFUL_OPERATING_GATES_V1.md) — phase exit conditions · prep ≠ execution
 **State checkpoint:** [STATE_VERIFIED_PREPARATION_COMPLETE_V1.md](./STATE_VERIFIED_PREPARATION_COMPLETE_V1.md) — VERIFIED_PREPARATION_COMPLETE · locks held · external pending  
-**Pre-observation checklist:** [EXTERNAL_OBSERVATION_READINESS_CHECKLIST_V1.md](./EXTERNAL_OBSERVATION_READINESS_CHECKLIST_V1.md) — final freeze gate · landing truth audit
+**Pre-observation checklist:** [EXTERNAL_OBSERVATION_READINESS_CHECKLIST_V1.md](./EXTERNAL_OBSERVATION_READINESS_CHECKLIST_V1.md) — final freeze gate · landing truth audit  
+**First commercial product:** [QPF_VERIFICATION_CERTIFICATE_V1.md](./QPF_VERIFICATION_CERTIFICATE_V1.md) — verification service · 30-day KPI = use + pay
 **Next milestone:** [FIRST_EXTERNAL_ATTEMPT_RECEIPT_V1.md](./templates/FIRST_EXTERNAL_ATTEMPT_RECEIPT_V1.md) — exit Recruitment; no new planning loop until sealed
 **Observation channel:** [EXTERNAL_OBSERVATION_CHANNEL_READY_V1.md](./EXTERNAL_OBSERVATION_CHANNEL_READY_V1.md) — Phase B waiting · checklist · no assumed evidence
 

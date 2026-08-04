@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>QPF Verification Certificate — Prove what is actually deployed</title>
+  <meta name="description" content="We verify what your system actually does on-chain, not what your documentation says. Evidence receipt, state summary, risk labels. No wallet required to engage.">
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.65;margin:0;background:#0b0f14;color:#eef4ff}
+    main{max-width:720px;margin:0 auto;padding:48px 22px 80px}
+    a{color:#8fd3ff}
+    .eyebrow{color:#a8b3c7;text-transform:uppercase;letter-spacing:.12em;font-size:.75rem}
+    h1{font-size:clamp(1.85rem,5vw,2.75rem);line-height:1.12;margin:.3em 0}
+    h2{font-size:1.2rem;margin-top:2rem}
+    .lead{font-size:1.2rem;color:#d9e7ff}
+    .card{border:1px solid #263142;background:#111824;border-radius:16px;padding:22px;margin:18px 0}
+    .cta{display:inline-block;margin:8px 8px 0 0;padding:14px 20px;border-radius:999px;text-decoration:none;font-weight:700}
+    .cta-primary{background:#8fd3ff;color:#0b0f14}
+    .cta-secondary{border:1px solid #8fd3ff;color:#8fd3ff}
+    .muted{color:#a8b3c7;font-size:.95rem}
+    .price{font-family:ui-monospace,monospace;color:#fde68a}
+    .nav{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:1.75rem;padding-bottom:.75rem;border-bottom:1px solid #263142;font-size:.9rem}
+    .nav a{text-decoration:none}
+    .label{display:inline-block;font-size:.75rem;border:1px solid #263142;border-radius:6px;padding:2px 8px;margin:2px;color:#a8b3c7}
+    .lock{border-left:3px solid #f59e0b;padding:12px 16px;margin:1.5rem 0;background:rgba(245,158,11,.08);border-radius:0 12px 12px 0;font-size:.95rem}
+    ol,ul{padding-left:1.2rem}
+  </style>
+</head>
+<body>
+<main>
+  <nav class="nav">
+    <a href="/">Home</a>
+    <a href="/work-with-us.html">Work With Us</a>
+    <a href="/deployed-addresses.html">Our public verify surface</a>
+    <a href="/for-builders.html">For Builders</a>
+    <a href="https://github.com/onenoly1010/Quantum-pi-forge">GitHub</a>
+  </nav>
+
+  <p class="eyebrow">QPF service · not protocol mint</p>
+  <h1>We verify what your system actually does — not what your docs say it does.</h1>
+  <p class="lead">Send your deployment claims. Receive a checkable proof package: evidence receipt, state summary, and honest risk labels.</p>
+
+  <p>
+    <a class="cta cta-primary" href="mailto:onenoly@proton.me?subject=QPF%20Verification%20Certificate&body=Name%20%2F%20project%3A%0ANetwork%20%2F%20chain%20ID%3A%0AContract%20address(es)%3A%0ADeployment%20claims%20(what%20you%20say%20is%20live)%3A%0AAdmin%20%2F%20ownership%20claims%3A%0ADocs%20or%20repo%20link%3A%0ATier%20interest%20(Starter%20%2F%20Professional)%3A%0A">
+      Request a verification
+    </a>
+    <a class="cta cta-secondary" href="/deployed-addresses.html#verify-now">See a free public example</a>
+  </p>
+  <p class="muted">No wallet required to engage. Off-chain service. Protocol mint/LP remain locked by design.</p>
+
+  <section class="card">
+    <h2>1. Problem</h2>
+    <p>Reviewers, partners, and grant desks cannot trust README claims alone. They need to know what is <strong>actually deployed</strong> — and what is still gated or unknown.</p>
+  </section>
+
+  <section class="card">
+    <h2>2. Verification service</h2>
+    <p><strong>Input:</strong> addresses · network · deployment claims · ownership claims · optional agent config · docs links.</p>
+    <p><strong>Process:</strong> inspect live state · verify addresses · check code/permissions where public · compare claims to chain truth · produce evidence bundle.</p>
+    <p><strong>Output:</strong></p>
+    <ol>
+      <li>Verification summary (public or client-scoped)</li>
+      <li>Evidence receipt (timestamped methods + results)</li>
+      <li>Deployment / state summary</li>
+      <li>Risk labels:
+        <span class="label">verified</span>
+        <span class="label">unverified</span>
+        <span class="label">gated</span>
+        <span class="label">unknown</span>
+      </li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h2>3. Pricing (test tiers · CAD)</h2>
+    <p><span class="price">Starter · $250–500</span> — indie / small deploy / grant applicants · basic report + receipt + summary</p>
+    <p><span class="price">Professional · $1,500–3,000</span> — protocols / AI agents / orgs · deeper review · optional continuous check notes</p>
+    <p><span class="price">Partner · monthly retainer</span> — recurring proof window · priority turnaround</p>
+    <p class="muted">Final quote confirmed before work. Payment off-chain (invoice). Not a token purchase.</p>
+  </section>
+
+  <section class="card">
+    <h2>4. Example / evidence demo</h2>
+    <p>QPF publishes its own locked posture on 0G Aristotle (chain 16661): contracts present, mint/liquidity <strong>not authorized</strong>, pair reserves intentionally empty until separate GO.</p>
+    <p><a href="/deployed-addresses.html">Public verification portal</a> · <a href="/verification-status-v1.json">status JSON</a></p>
+    <p class="muted">Your certificate uses the same discipline: claim → check → label → timestamp.</p>
+  </section>
+
+  <section class="card">
+    <h2>5. Technical docs</h2>
+    <ul>
+      <li><a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/BUILDER_QUICKSTART.md">Builder quickstart</a> — reproduce network and code checks</li>
+      <li><a href="https://github.com/onenoly1010/Quantum-pi-forge">Repository</a> — methods and evidence tooling</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>6. Who this is for (first customers)</h2>
+    <p>Solo builders · open-source founders · Web3 developers · AI agent developers — people who need proof for grants, partners, or diligence without a full formal audit.</p>
+  </section>
+
+  <div class="lock">
+    <strong>Not protocol activation.</strong> This page sells a verification <em>service</em>. Public mint, liquidity, staking, and site signing remain locked. Philosophy and longer-term OINIO vision live in the docs — after the product, not before it.
+  </div>
+
+  <p>
+    <a class="cta cta-primary" href="mailto:onenoly@proton.me?subject=QPF%20Verification%20Certificate&body=Name%20%2F%20project%3A%0ANetwork%3A%0AAddresses%3A%0AClaims%3A%0ADocs%3A%0A">
+      Start with Starter Verification
+    </a>
+  </p>
+</main>
+</body>
+</html>
