@@ -100,21 +100,47 @@ NEXT WORK:
 • Change the product or documentation only when the evidence justifies it.
 ```
 
-### Packaging default (not absolute)
+### Decision rule (endpoint of this planning cycle)
 
 ```text
-DEFAULT:
-  No further strategy packaging is needed until an outside person
-  attempts a real task, shares honest feedback, and that feedback
-  can be used to guide the next iteration.
+Pause strategic packaging until there is external evidence to respond to.
 
-EXCEPTION (evidence-driven, not speculative):
-  If multiple pilot users get stuck at the same point,
-  improve that documentation / onboarding / UX.
-  That is a response to evidence — not more packaging for its own sake.
+FULL RULE:
+  No further strategic packaging until an external attempt produces
+  actionable feedback.
+
+  Continue only the work that increases the likelihood or quality
+  of external validation.
+
+NOT "do nothing."
 ```
 
-Objective is not collecting opinions. It is collecting **evidence that informs decisions**.
+### While waiting for feedback — allowed (serves validation)
+
+| Continue | Why |
+| --- | --- |
+| Recruit a small number of pilot users | Generates attempts |
+| Make onboarding easier **if it blocks participation** | Raises likelihood of attempts |
+| Fix defects discovered during pilot attempts | Raises quality of evidence |
+| Instrument / observe where users struggle | Higher-quality evidence |
+| Docs/UX fixes when **same stuck point** repeats | Evidence-driven, not speculative |
+
+### Still paused (inside-out refinement)
+
+| Pause | Why |
+| --- | --- |
+| More strategy docs, messaging frameworks, architecture narratives | No external need demonstrated |
+| Speculative features “for growth” | Not evidence-driven |
+| Major redesign without user friction | Inside-out optimization |
+
+Objective is not collecting opinions. It is collecting **actionable evidence that informs decisions**.
+
+```text
+Inside-out (past tendency):  improve our story / plans in isolation
+Outside-in (now):            learn from real use
+
+Healthier criterion for genuine adoption.
+```
 
 ### Locks held (discipline)
 
