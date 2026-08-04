@@ -4,6 +4,7 @@
 **Mode:** Product-definition artifact · **not** activation  
 **Status:** READY FOR HUMAN-GUIDED PILOTS  
 **Parent plan:** [OUTCOME_EXECUTION_PLAN_V1.md](./OUTCOME_EXECUTION_PLAN_V1.md)  
+**Evidence loop:** [PILOT_EVIDENCE_LOOP_V1.md](./PILOT_EVIDENCE_LOOP_V1.md) — User → Problem → Result → time saved → use again  
 **Cockpit manual:** [LOCAL_MULTI_AGENT_COCKPIT_V1.md](./LOCAL_MULTI_AGENT_COCKPIT_V1.md)  
 **Sealed tip (foundation):** `0cd896a`  
 
@@ -374,6 +375,7 @@ Copy into a working log (private is fine). Public redacted summary optional late
 | Confusion notes | |
 | Follow-up | none / docs fix / paid offer / A0 verify invite |
 | Lock breach? | **no** (required) |
+| Evidence card | filled in [PILOT_EVIDENCE_LOOP_V1.md](./PILOT_EVIDENCE_LOOP_V1.md)? yes / no |
 
 ### Cohort target
 
