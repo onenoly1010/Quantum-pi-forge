@@ -27,13 +27,38 @@ Do **not** remove locks because of this gate. Locks are part of the value propos
 
 ---
 
-## Seal only after a real attempt
+## Internal vs external evidence
+
+| Internal (have) | External (waiting) |
+| --- | --- |
+| Code compiles · builds pass | Independent person discovers it |
+| Governance / safety locks exist | Independent person interacts with it |
+| Deployment surfaces · coherent architecture | Independent person produces observable outcome |
+| Builder can use it | Outcome recorded **without interpretation** |
+
+```text
+Builder is biased toward understanding the system.
+First external attempt tests what cannot be simulated:
+  Can someone who did not create it understand, access,
+  and derive value from it?
+```
+
+### Discipline
+
+- Do not create a “success receipt” before success.  
+- Do not create an “adoption receipt” before adoption.  
+- Do not treat visitors, impressions, or internal tests as users.  
+- Do not change architecture to avoid the market signal.  
+- **Restraint is the next engineering action** until reality is captured.  
+
+### Seal only after a real attempt
 
 | Invalid | Valid |
 | --- | --- |
 | Filled in before anyone tries | Filled from what actually happened |
 | “They said they will try” | They attempted a concrete entry point |
 | Invented success | Positive **or** negative outcome recorded honestly |
+| Conclusions dressed as observation | Facts only; `no_interpretation: true` |
 
 ---
 
@@ -80,6 +105,37 @@ Completion:
 
 Facilitator present?  yes / no / remote
 Permission to summarize publicly?  yes / no
+```
+
+### Machine-readable form (facts only)
+
+Capture **after** the attempt. No conclusions in the JSON.
+
+```json
+{
+  "schema": "FIRST_EXTERNAL_ATTEMPT_V1",
+  "participant": "external human",
+  "relationship": "not builder",
+  "entry_point": "",
+  "timestamp": "",
+  "action_taken": "",
+  "result_observed": "",
+  "feedback": "",
+  "no_interpretation": true
+}
+```
+
+Optional private path after seal (do not invent files early):  
+`receipts/ops/first-external-attempt-v1-<UTC>.json`
+
+---
+
+## Phase state
+
+```text
+PHASE A — BUILD / CONTROL     COMPLETE
+PHASE B — OBSERVE             ACTIVE (waiting for attempt)
+PHASE C — ADAPT               ONLY AFTER EVIDENCE
 ```
 
 ---
