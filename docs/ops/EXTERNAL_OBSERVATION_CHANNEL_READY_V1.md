@@ -1,23 +1,25 @@
 # External Observation Channel — Ready Checklist v1
 
-**Current state (honest):**
+**Waiting is not a failure state — it is a controlled state.**
 
 ```text
-PHASE A — INTERNAL VALIDATION     ✅ complete enough
-PHASE B — EXTERNAL OBSERVATION    ⏳ WAITING
-PHASE C — EVIDENCE-BASED DECISION  (after observed facts only)
+PHASE A — PROOF BUILD            ✅
+PHASE B — OBSERVATION GATE       ⏳ WAITING FOR first external attempt
+PHASE C — EVIDENCE PROCESSING    after observed facts only
 
 EXTERNAL EVIDENCE  ⏳ WAITING
-Next state change: real human interaction, not another document.
+NEXT DOCUMENT: none until after an attempt
 LOCKS: held
 ```
 
 ```text
 The absence of external evidence is itself the current state.
 Do not fill that gap with assumptions.
+Do not create polished internal artifacts that increase packaging
+without increasing external truth.
 ```
 
-**Highest-value work now:** controlled path for the first outside interaction + observation channel ready when it happens — **not** technical expansion or a new packaging cycle.
+**Next useful action:** a **recruitment channel** that makes the first interaction possible and observable — not a PR, architecture expansion, or readiness essay.
 
 ---
 
