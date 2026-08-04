@@ -12,7 +12,12 @@ const { DeliveryService } = require('../delivery/service');
 
 const tempDirs = [];
 
-function createService({ adapters, config, env = {} } = {}) {
+function createService({
+  adapters,
+  config,
+  env = {},
+  now = () => '2026-07-31T23:55:00.000Z',
+} = {}) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'qpf-delivery-'));
   tempDirs.push(dir);
   const resolvedConfig = {
@@ -27,7 +32,7 @@ function createService({ adapters, config, env = {} } = {}) {
     config: resolvedConfig,
     env,
     evidenceStore: new EvidenceStore(dir),
-    now: () => '2026-07-31T23:55:00.000Z',
+    now,
   });
 }
 
@@ -76,6 +81,25 @@ describe('DeliveryService', () => {
     assert.strictEqual(result.delivered, false);
     assert.strictEqual(result.reason, 'MISSING_REQUIRED_CREDENTIALS');
     assert.strictEqual(delivery.state, 'AUTHORIZED');
+  });
+
+  it('updates the durable delivery timestamp when recording a blocked attempt', () => {
+    const timestamps = [
+      '2026-07-31T23:55:00.000Z',
+      '2026-07-31T23:55:01.000Z',
+      '2026-07-31T23:55:02.000Z',
+      '2026-07-31T23:55:03.000Z',
+      '2026-07-31T23:55:04.000Z',
+      '2026-07-31T23:55:05.000Z',
+    ];
+    const service = createService({
+      now: () => timestamps.shift(),
+    });
+    const delivery = preparedDelivery(service);
+    service.authorize(delivery.id, 'receipts/outreach/approval.json');
+    service.send(delivery.id);
+
+    assert.strictEqual(delivery.updatedAtUtc, '2026-07-31T23:55:05.000Z');
   });
 
   it('requires a live gate before invoking an adapter', () => {

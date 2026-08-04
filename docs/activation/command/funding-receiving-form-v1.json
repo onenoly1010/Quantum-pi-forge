@@ -20,13 +20,13 @@
     "accept_cad_fiat": true,
     "accept_crypto": true,
     "crypto_asset": "0G",
-    "fiat_destination_public": "onenoly11@wealthsimple.me",
-    "fiat_rails": "Interac e-Transfer Autodeposit",
+    "fiat_destination_public": "WITHHELD_FROM_PUBLIC_REPOSITORY",
+    "fiat_rails": "Interac e-Transfer Autodeposit (operator-controlled destination)",
     "evm_receive_address_public": "0x0fbBd408A419E96F592A61824168903E179B3397",
     "evm_chain_id": 16661,
     "evm_network_name": "0G Aristotle Mainnet",
     "crypto_receiving_purpose": "Public receiving address for approved 0G project payments, grants, or transfers.",
-    "owner_statement": "I control the Interac e-Transfer Autodeposit destination onenoly11@wealthsimple.me and the 0G Aristotle Mainnet destination 0x0fbBd408A419E96F592A61824168903E179B3397.",
+    "owner_statement": "The authorized project operator controls the separately maintained fiat receiving destination and the 0G Aristotle Mainnet destination 0x0fbBd408A419E96F592A61824168903E179B3397.",
     "filled_date_utc": "2026-07-31",
     "notes": ""
   },
@@ -41,7 +41,7 @@
     "authorized_at_utc": "2026-07-31T21:11:17Z",
     "authorized_by": "Kris Olofson (authorized project operator)",
     "founder_receiving_authority_active": true,
-    "note": "Founder authorized receiving readiness process; READY_TO_RECEIVE needs designated destination + ownership statement"
+    "note": "Founder authorized receiving readiness process; designated destination and ownership statement are maintained in operator-controlled configuration, with personal contact details excluded from source control."
   },
   "after_authorize": {
     "gate_status_target": "READY_TO_RECEIVE",

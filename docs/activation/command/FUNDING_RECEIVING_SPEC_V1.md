@@ -43,8 +43,8 @@
 
 | Channel | Your value | Status |
 | --- | --- | --- |
-| Fiat e-Transfer / display name | `onenoly11@wealthsimple.me` | **CONFIGURED** |
-| Fiat rails | `Interac e-Transfer Autodeposit` | **CONFIGURED** |
+| Fiat e-Transfer / display name | Withheld from public repository | **CONFIGURED** |
+| Fiat rails | `Interac e-Transfer Autodeposit` (operator-controlled destination) | **CONFIGURED** |
 | EVM public address (if crypto) | `0x0fbBd408A419E96F592A61824168903E179B3397` | **CONFIGURED** |
 | Chain ID (if crypto) | `16661` (0G Aristotle Mainnet) | **CONFIGURED** |
 
@@ -54,7 +54,7 @@ Also update the same fields in `funding-receiving-form-v1.json`.
 
 | Field | Value |
 | --- | --- |
-| Statement | `I control the Interac e-Transfer Autodeposit destination onenoly11@wealthsimple.me and the 0G Aristotle Mainnet destination 0x0fbBd408A419E96F592A61824168903E179B3397.` |
+| Statement | The authorized project operator controls the separately maintained fiat receiving destination and the 0G Aristotle Mainnet destination. |
 | Date (UTC) | `2026-07-31` |
 
 ### Receiving lanes

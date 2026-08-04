@@ -179,10 +179,13 @@ class DeliveryService {
   }
 
   record(delivery, event, details = {}) {
+    const atUtc = this.now();
+    delivery.updatedAtUtc = atUtc;
+
     return this.evidenceStore.write({
       schema: 'qpf.delivery_evidence.v1',
       event,
-      atUtc: this.now(),
+      atUtc,
       deliveryId: delivery.id,
       delivery,
       details,
