@@ -27,7 +27,8 @@ HUMAN: conversations → one painful task → receipt #001
 LOCKS: held
 ```
 
-**Ops:** [PILOT_001_OPERATIONS_V1.md](./PILOT_001_OPERATIONS_V1.md) · [OINIO_PIONEER_CIRCLE_001_V1.md](./OINIO_PIONEER_CIRCLE_001_V1.md) · [E1](./E1_PRIVATE_AI_OPERATOR_CHECKLIST_V1.md)
+**Ops:** [PILOT_001_OPERATIONS_V1.md](./PILOT_001_OPERATIONS_V1.md) · [OINIO_PIONEER_CIRCLE_001_V1.md](./OINIO_PIONEER_CIRCLE_001_V1.md) · [E1](./E1_PRIVATE_AI_OPERATOR_CHECKLIST_V1.md)  
+**90-day plan:** [QPF_OINIO_90_DAY_USER_ACQUISITION_PLAN_V1.md](./QPF_OINIO_90_DAY_USER_ACQUISITION_PLAN_V1.md) — right first users · 3 tracks · no paid ads
 
 ---
 
@@ -73,26 +74,43 @@ They gave it a problem. It saved them time.
 
 ## Phase 1 — Find the first 10 **conversations**
 
-Not “users.” Conversations.
+Not “users.” Conversations.  
+**Use communities — do not advertise to them.** Help existing members; do not ask for attention.
 
-### OINIO Pioneer Candidates (role list)
+### Aligned audiences (not random)
 
-Fill privately with real people (names not committed):
+| Community | Already cares about |
+| --- | --- |
+| **Pi** | Accessible Web3, utility, everyday participation |
+| **0G** | Decentralized AI infra, compute, agents, data availability |
 
-| # | Role archetype | Community lean | Name / handle (private) | Sent? | Talked? |
-| --- | --- | --- | --- | --- | --- |
-| 1 | Pi community member | Pi | | ☐ | ☐ |
-| 2 | Pi developer | Pi | | ☐ | ☐ |
-| 3 | 0G builder | 0G | | ☐ | ☐ |
-| 4 | AI researcher | any | | ☐ | ☐ |
-| 5 | Small business owner | B | | ☐ | ☐ |
-| 6 | Developer needing automation | A | | ☐ | ☐ |
-| 7 | Content creator | B | | ☐ | ☐ |
-| 8 | Data / research person | B | | ☐ | ☐ |
-| 9 | Community organizer | Pi/0G | | ☐ | ☐ |
-| 10 | Open-source contributor | C | | ☐ | ☐ |
+### Concrete target types (fill privately)
 
-**Goal of each conversation is discovery, not conviction:**
+**Pi side**
+
+| # | Target type | Name / handle (private) | Sent? | Talked? |
+| --- | --- | --- | --- | --- |
+| 1 | Pi ecosystem app developer | | ☐ | ☐ |
+| 2 | Pi community moderator | | ☐ | ☐ |
+| 3 | Pi utility builder | | ☐ | ☐ |
+| 4 | Pi hackathon participant | | ☐ | ☐ |
+| 5 | Pi Discord / X contributor | | ☐ | ☐ |
+
+**0G side**
+
+| # | Target type | Name / handle (private) | Sent? | Talked? |
+| --- | --- | --- | --- | --- |
+| 6 | 0G grant recipient / applicant | | ☐ | ☐ |
+| 7 | 0G builder | | ☐ | ☐ |
+| 8 | AI agent developer | | ☐ | ☐ |
+| 9 | Compute / data ecosystem participant | | ☐ | ☐ |
+| 10 | Open-source / 0G-adjacent contributor | | ☐ | ☐ |
+
+**Ask (not invest):**
+
+> Can I give you 30 minutes of access and see if this saves you time?
+
+**Discover (not convince):**
 
 > What task do you wish AI handled better?
 
@@ -120,27 +138,58 @@ One task. One session. One measurement.
 
 ---
 
-## Phase 3 — Capture the evidence (your advantage)
-
-Every pilot becomes a receipt — same discipline as engineering evidence:
+## Phase 2b — First outreach (entire ask)
 
 ```text
-Pilot Receipt #00N
+Hey, I'm building OINIO, a sovereign AI assistant layer connected to the
+0G ecosystem. I'm looking for a few builders to test a private pilot.
+No sales pitch — I just want to see if it actually saves you time on real
+tasks. Would you be open to trying one workflow?
+```
 
-Person:
-Community:
-Problem:
-Task completed:
-Time before:
-Time after:
-Would repeat:     YES / NO / MAYBE
-Permission to share: YES / NO
-Quote (optional):
+Pi-leaning variant (utility / contribution):
+
+```text
+Hey — testing practical AI utility for builders (Pi/0G-friendly).
+Private pilot: one real workflow, honest feedback, no investment pitch.
+Would you try one task for ~30 minutes and tell me if it saved time?
+```
+
+That is the entire ask. No pitch deck. No architecture dump.
+
+### Pi wedge (when you need one sentence of positioning)
+
+> OINIO helps Pi ecosystem builders turn ideas into working verified applications.
+
+Connects: Pi community energy · 0G AI infrastructure · your verification/governance work.  
+Arrive **helping members**, not asking for attention.
+
+---
+
+## Phase 3 — Capture the receipt (not a GitHub commit)
+
+```text
+External Proof Receipt #001
+
+User:
+Role:
 Date:
+Task attempted:
+Problem:
+OINIO used:
+Result:
+Would they use again?  Yes / No
+Quote:
+```
+
+Golden sentence:
+
+```text
+"I used this. It helped. I want it again."
 ```
 
 ```text
-One real receipt > 100 technical claims.
+One real receipt > 100 technical claims > another 100 commits.
 ```
 
 Templates: [PILOT_001_EVIDENCE_CARD_TEMPLATE.md](./templates/PILOT_001_EVIDENCE_CARD_TEMPLATE.md)
@@ -192,18 +241,36 @@ Instinct that “AI agents could grow this” is valid **after** human receipts 
 
 ---
 
-## Immediate human checklist
+## 7-day mission checklist
 
-| # | Action | ☐ |
+**Mission: External Proof Receipt #001 in 7 days**
+
+| Target | Number |
+| --- | --- |
+| Names on list | **10** |
+| Conversations | **3** |
+| Person completes a task | **1** |
+| Person asks to use again | **1** |
+
+| Day | Action | ☐ |
 | --- | --- | --- |
-| 1 | Fill candidate table (10 roles → real people, private) | |
-| 2 | Start conversations: “What task do you wish AI handled better?” | |
-| 3 | Run **one** task test with whoever engages | |
-| 4 | Seal **External Proof Receipt #001** same day | |
-| 5 | Only then consider #002–#005 and pull messaging | |
+| 1 | Fill 10 private names (5 Pi-side + 5 0G-side types) | |
+| 1–2 | Send simple pilot message to 3–5 people | |
+| 2–5 | Hold conversations; discover one painful task each | |
+| 3–7 | Run one workflow with whoever engages | |
+| Same day as win | Seal External Proof Receipt #001 | |
+
+Treat this like another protocol:
+
+```text
+discovery → interaction → execution → evidence → repeat
+```
+
+That is a **human feedback loop** around what already exists — not a marketing org.
 
 ```text
 ENGINEERING OBJECTIVE: System ready (frozen)
-10/10 CHECKPOINT:     Obtain External Proof Receipt #001
-TRACTION UNIT:        "I used this. It helped. I want it again."
+7-DAY MISSION:         External Proof Receipt #001
+TRACTION UNIT:         "I used this. It helped. I want it again."
+BRIDGE:                people with the problem ↔ thing you built
 ```
