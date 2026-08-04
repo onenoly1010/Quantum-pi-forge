@@ -3,6 +3,7 @@
 **Mode:** Distribution bridge · **not** engineering  
 **Status:** READY-TO-TEST (not validated-market)  
 **Human command:** Find and book Pilot #001  
+**Ops system:** [PILOT_001_OPERATIONS_V1.md](./PILOT_001_OPERATIONS_V1.md) — invitation list, tracking, problem-first outreach  
 **Companions:** [E1 checklist](./E1_PRIVATE_AI_OPERATOR_CHECKLIST_V1.md) · [Evidence loop](./PILOT_EVIDENCE_LOOP_V1.md)  
 
 ```text
