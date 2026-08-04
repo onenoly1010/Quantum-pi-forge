@@ -1,0 +1,33 @@
+{
+  "schema": "qpf.ai_assisted_outreach_authorization.v1",
+  "receipt": "talus-ai-assisted-outreach-authorization-v1",
+  "authorized_at_utc": "2026-07-31T22:13:06Z",
+  "authorized_by": "Kris Olofson",
+  "target": {
+    "organization": "Talus Network",
+    "channel": "https://x.com/TalusNetwork",
+    "channel_type": "official public X account"
+  },
+  "message_reference": "docs/activation/command/revenue/TALUS_ARCHITECTURE_REVIEW_OUTREACH_V1.md",
+  "authorization": {
+    "workflow": "AI-assisted outreach with explicit human authorization",
+    "explicit_human_authorization_granted": true,
+    "human_delivered_send_limit": 1,
+    "automated_bulk_sending": false,
+    "external_delivery_completed": false,
+    "outreach_status": "AUTHORIZED_FOR_HUMAN_DELIVERY"
+  },
+  "evidence_boundary": {
+    "partnership_claimed": false,
+    "engagement_claimed": false,
+    "revenue_claimed": false,
+    "delivery_evidence_required_to_mark_sent": true
+  },
+  "safety_boundary": {
+    "wallet_actions": false,
+    "signing": false,
+    "transaction_broadcast": false,
+    "token_transfer": false,
+    "payment_execution": false
+  }
+}

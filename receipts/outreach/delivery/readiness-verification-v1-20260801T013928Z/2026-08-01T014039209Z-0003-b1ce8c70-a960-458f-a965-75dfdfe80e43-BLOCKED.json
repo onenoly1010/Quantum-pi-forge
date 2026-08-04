@@ -1,0 +1,27 @@
+{
+  "schema": "qpf.delivery_evidence.v1",
+  "event": "BLOCKED",
+  "atUtc": "2026-08-01T01:40:39.209Z",
+  "deliveryId": "b1ce8c70-a960-458f-a965-75dfdfe80e43",
+  "delivery": {
+    "id": "b1ce8c70-a960-458f-a965-75dfdfe80e43",
+    "state": "AUTHORIZED",
+    "target": {
+      "name": "Delivery activation readiness simulation",
+      "channel": "no external channel"
+    },
+    "channel": "approved_other",
+    "channelConfigReference": "dry-run-only",
+    "messageReference": "delivery-activation-readiness-verification-v1",
+    "messageSha256": "cd07d93980d098399549239b73d56a940c22635e52679eaaf45b85d751739ccb",
+    "authorizationReference": "delivery-activation-readiness-verification-v1",
+    "providerConfirmation": null,
+    "verificationReference": null,
+    "createdAtUtc": "2026-08-01T01:40:39.194Z",
+    "updatedAtUtc": "2026-08-01T01:40:39.204Z"
+  },
+  "details": {
+    "reason": "LIVE_DELIVERY_GATE_NOT_ENABLED",
+    "mode": "dry_run"
+  }
+}
