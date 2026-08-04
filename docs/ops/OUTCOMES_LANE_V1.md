@@ -17,6 +17,7 @@
 **Cycle language:** [EXTERNALLY_USEFUL_CYCLE_V1.md](./EXTERNALLY_USEFUL_CYCLE_V1.md) — built → externally useful · locks held · evidence-driven change only  
 **Operating gates:** [EXTERNALLY_USEFUL_OPERATING_GATES_V1.md](./EXTERNALLY_USEFUL_OPERATING_GATES_V1.md) — phase exit conditions · prep ≠ execution  
 **Next milestone:** [FIRST_EXTERNAL_ATTEMPT_RECEIPT_V1.md](./templates/FIRST_EXTERNAL_ATTEMPT_RECEIPT_V1.md) — exit Recruitment; no new planning loop until sealed  
+**Observation channel:** [EXTERNAL_OBSERVATION_CHANNEL_READY_V1.md](./EXTERNAL_OBSERVATION_CHANNEL_READY_V1.md) — Phase B waiting · checklist · no assumed evidence  
 
 ```text
 verified infrastructure ≠ authorized activation
