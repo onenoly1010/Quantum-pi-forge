@@ -4,7 +4,8 @@
 **Prior phase:** Genesis infrastructure — **credible** (locks held)  
 **Bridge:** GitHub / public surfaces → **offer → customer → artifact → payment → testimonial**  
 **Ops detail:** [../ops/QPF_VERIFICATION_CERTIFICATE_V1.md](../ops/QPF_VERIFICATION_CERTIFICATE_V1.md)  
-**Public page (after deploy):** `/verification-certificate`  
+**Public page (after deploy):** `/verification` → `/verification-certificate`  
+**Example certificate:** [examples/QPF_VERIFICATION_CERTIFICATE_000.md](./examples/QPF_VERIFICATION_CERTIFICATE_000.md) (**#000** = QPF self, not external #001)  
 
 ```text
 Boring operational layer = the hard-to-fake asset
