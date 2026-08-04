@@ -1,13 +1,13 @@
 # E1 — Private AI Operator Checklist v1
 
-**Command:** `DRAFT_E1_PRIVATE_AI_OPERATOR_CHECKLIST`  
-**Mode:** Product-definition artifact · **not** activation  
-**Status:** READY FOR HUMAN-GUIDED PILOTS  
-**Parent plan:** [OUTCOME_EXECUTION_PLAN_V1.md](./OUTCOME_EXECUTION_PLAN_V1.md)  
-**Evidence loop:** [PILOT_EVIDENCE_LOOP_V1.md](./PILOT_EVIDENCE_LOOP_V1.md) — User → Problem → Result → time saved → use again  
-**Connector lane:** [PILOT_CONNECTOR_LANE_V1.md](./PILOT_CONNECTOR_LANE_V1.md) — find conversations (not “users”)  
-**Cockpit manual:** [LOCAL_MULTI_AGENT_COCKPIT_V1.md](./LOCAL_MULTI_AGENT_COCKPIT_V1.md)  
-**Sealed tip (foundation):** `0cd896a`  
+**Command:** `DRAFT_E1_PRIVATE_AI_OPERATOR_CHECKLIST`
+**Mode:** Product-definition artifact · **not** activation
+**Status:** READY FOR HUMAN-GUIDED PILOTS
+**Parent plan:** [OUTCOME_EXECUTION_PLAN_V1.md](./OUTCOME_EXECUTION_PLAN_V1.md)
+**Evidence loop:** [PILOT_EVIDENCE_LOOP_V1.md](./PILOT_EVIDENCE_LOOP_V1.md) — User → Problem → Result → time saved → use again
+**Connector lane:** [PILOT_CONNECTOR_LANE_V1.md](./PILOT_CONNECTOR_LANE_V1.md) — find conversations (not “users”)
+**Cockpit manual:** [LOCAL_MULTI_AGENT_COCKPIT_V1.md](./LOCAL_MULTI_AGENT_COCKPIT_V1.md)
+**Sealed tip (foundation):** `0cd896a`
 
 ```text
 Question E1 must answer:
@@ -52,10 +52,10 @@ HARD BOUNDARIES (E1 never does these):
 
 E1 **passes** for a tester if **all** are true:
 
-1. They complete the **minimum path** (§3) on a real machine (theirs or guided shared screen).  
-2. They produce or receive the **proof pack** (§5).  
-3. They finish **one useful task** (§4) with AI assistance under human authority.  
-4. They answer the **four validation questions** (§7) honestly.  
+1. They complete the **minimum path** (§3) on a real machine (theirs or guided shared screen).
+2. They produce or receive the **proof pack** (§5).
+3. They finish **one useful task** (§4) with AI assistance under human authority.
+4. They answer the **four validation questions** (§7) honestly.
 5. **No lock breach** occurred.
 
 E1 **fails** if they need the full architecture lecture to get value, or if delivery expands into new infrastructure before the first outside user.
@@ -207,8 +207,8 @@ reports/project-state.md
 
 Facilitator asks; tester answers in their own words:
 
-1. Who may authorize a `git push`? → **Human only**  
-2. May the AI mint or open liquidity? → **No**  
+1. Who may authorize a `git push`? → **Human only**
+2. May the AI mint or open liquidity? → **No**
 3. What is the report for? → **Shared facts so AIs don’t invent state**
 
 ### 3.4 Optional trust substrate (5–10 min) — **not required for E1 pass**
@@ -221,7 +221,7 @@ npm run verify:public-portal
 # https://quantumpiforge.com/deployed-addresses#verify-now
 ```
 
-Expect: chain **16661**, contracts present, mint/LP **NOT AUTHORIZED**, pair empty.  
+Expect: chain **16661**, contracts present, mint/LP **NOT AUTHORIZED**, pair empty.
 This feeds trust KPI (Phase 8.5) but **must not** dominate the session.
 
 ### 3.5 Stop rules
@@ -250,7 +250,7 @@ Value proof = **task completed**, not architecture appreciated.
 
 **Default pilot task:**
 
-- Stack-curious / repo available → **T1 + T2**  
+- Stack-curious / repo available → **T1 + T2**
 - Pain-holder / non-repo → **T6 + T2** (preferred for “who will adopt” learning)
 
 ```text
@@ -289,9 +289,9 @@ Facilitator: _______________
 
 ### 5.3 Optional (bonus, not pass criteria)
 
-- Screenshot of cockpit summary (no secrets)  
-- Independent portal verification note (feeds \(n \rightarrow 1\))  
-- Paid follow-on interest flag  
+- Screenshot of cockpit summary (no secrets)
+- Independent portal verification note (feeds \(n \rightarrow 1\))
+- Paid follow-on interest flag
 
 ---
 
@@ -327,7 +327,7 @@ Environment: (own machine / facilitator share-screen / other)
 - Result in one sentence:
 
 ## Tester statement (optional quote)
-> 
+>
 ```
 
 ---
@@ -404,10 +404,10 @@ Copy into a working log (private is fine). Public redacted summary optional late
 
 **Facilitator anti-patterns**
 
-- Explaining the entire repo history  
-- “While we’re here, let’s add another agent”  
-- Demo of mint/LP “just to show contracts” as the climax  
-- Taking keyboard for the whole useful task (tester must drive enough to answer Q1–Q2)  
+- Explaining the entire repo history
+- “While we’re here, let’s add another agent”
+- Demo of mint/LP “just to show contracts” as the climax
+- Taking keyboard for the whole useful task (tester must drive enough to answer Q1–Q2)
 
 ---
 
@@ -415,10 +415,10 @@ Copy into a working log (private is fine). Public redacted summary optional late
 
 For a motivated external developer without a live session:
 
-1. Clone `main` (or pilot-pinned commit).  
-2. Run §3.1–3.2.  
-3. Complete T1+T2 using any available AI (local preferred).  
-4. Email facilitator: boundary brief + Q1–Q4 (no secrets).  
+1. Clone `main` (or pilot-pinned commit).
+2. Run §3.1–3.2.
+3. Complete T1+T2 using any available AI (local preferred).
+4. Email facilitator: boundary brief + Q1–Q4 (no secrets).
 5. Do **not** submit keys, seed phrases, or signed txs.
 
 Facilitator still records §8 log for cohort metrics.
@@ -518,13 +518,13 @@ Reply with a time window this week.
 
 ## 15. Checklist for facilitator before pilot #1
 
-- [ ] This document read once  
-- [ ] `./scripts/ai-cockpit.sh --quick` works on the session machine  
-- [ ] Authority table printable or screen-share ready  
-- [ ] Boundary brief + session log templates blank-copied  
-- [ ] Price left as `TBD_HUMAN` unless already decided  
-- [ ] Confirmed: no mint/LP demo planned  
-- [ ] 3–5 candidate names listed privately (not committed if sensitive)  
+- [ ] This document read once
+- [ ] `./scripts/ai-cockpit.sh --quick` works on the session machine
+- [ ] Authority table printable or screen-share ready
+- [ ] Boundary brief + session log templates blank-copied
+- [ ] Price left as `TBD_HUMAN` unless already decided
+- [ ] Confirmed: no mint/LP demo planned
+- [ ] 3–5 candidate names listed privately (not committed if sensitive)
 
 ---
 
