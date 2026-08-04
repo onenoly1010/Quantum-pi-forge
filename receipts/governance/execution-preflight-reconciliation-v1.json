@@ -1,0 +1,68 @@
+{
+  "schema": "qpf.execution_preflight_reconciliation.v1",
+  "receipt": "execution-preflight-reconciliation-v1",
+  "canonical_identifier": "qpf.execution.preflight-reconciliation.v1",
+  "created_at": "2026-08-04T15:06:08Z",
+  "status": "EXECUTION_PREFLIGHT_RECONCILED_NO_GO",
+  "mode": "read_only_governance_reconciliation",
+  "purpose": "Reconcile execution-namespace receipts into one current no-execution posture without signing, broadcasting, prompting a wallet, or invoking any activation script.",
+  "source_states": [
+    {
+      "receipt": "receipts/governance/phase-19-final-human-execution-decision-v1.json",
+      "status": "PREPARE_FOR_ACTIVATION_PREFLIGHT_ONLY",
+      "authority": "Final execution preflight only; signing and broadcast remain false."
+    },
+    {
+      "receipt": "receipts/governance/phase-25-public-mint-execution-preflight-v1.json",
+      "status": "PHASE_25_EXECUTION_PREFLIGHT_OPEN_REVIEW_ONLY",
+      "authority": "Identify an exact path only; execution, signing, and broadcast remain false."
+    },
+    {
+      "receipt": "receipts/governance/phase-27-public-mint-execution-script-review-findings-v1.json",
+      "status": "NO_GO_EXECUTION_PATH_INCOMPLETE",
+      "authority": "No complete execution script, wallet path, gas harness, receipt generator, or wired abort conditions exist."
+    },
+    {
+      "receipt": "receipts/governance/phase-28-final-public-mint-execution-decision-gate-v1.json",
+      "status": "NO_GO_PUBLIC_MINT_EXECUTION_NOT_READY",
+      "authority": "No final signing authority exists while the execution path remains incomplete."
+    },
+    {
+      "receipt": "receipts/governance/phase-32-human-signing-approval-v1.json",
+      "status": "KRIS_EXPLICIT_SIGNING_APPROVAL_RECORDED",
+      "authority": "Historically scoped prompt approval only; no signing or broadcast was performed and Phase 33 remains required."
+    },
+    {
+      "receipt": "receipts/governance/phase-33-public-mint-execution-gate-v1.json",
+      "status": "NO_GO_PUBLIC_MINT_EXECUTION_NOT_AUTHORIZED",
+      "authority": "No explicit live execution approval is recorded."
+    }
+  ],
+  "current_preflight_result": {
+    "exact_executable_path_complete": false,
+    "live_execution_approved": false,
+    "signing_approved": false,
+    "broadcast_approved": false,
+    "wallet_prompt_allowed": false,
+    "activation_scripts_invoked": false
+  },
+  "required_before_reconsidering_execution": [
+    "A complete, reviewable execution path with exact contract, function, arguments, value, gas behavior, receipt path, and abort conditions.",
+    "A separate explicit human approval for the exact live execution after reviewing that path.",
+    "A new governance receipt that supersedes this NO-GO result without rewriting historical receipts."
+  ],
+  "execution_boundaries": {
+    "wallet_actions": false,
+    "wallet_prompt": false,
+    "signing": false,
+    "broadcast": false,
+    "public_mint_execution": false,
+    "token_transfer": false,
+    "liquidity": false,
+    "staking": false,
+    "bridge": false,
+    "private_key_access": false,
+    "seed_phrase_request": false
+  },
+  "reconciliation_reference": "receipts/governance/phase-track-reconciliation-v1.json"
+}
