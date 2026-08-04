@@ -136,16 +136,16 @@ Delivery package:
 
 ---
 
-## 6. Pricing (CAD · test)
+## 6. Pricing (CAD · locked test)
 
 | Tier | Price | For |
 | --- | --- | --- |
-| **Starter** | **$250–500** | Indie, small deploy, grant applicants |
-| **Professional** | **$1,500–3,000** | Protocols, AI agent projects, orgs |
-| **Partner** | Monthly retainer `TBD_HUMAN` | Recurring proof window |
+| **Early adopter** | **$500 CAD** | First external certificates · learning + willingness to pay |
+| **Standard** | **$1,500 CAD** | Full Pre-Activation Verification Certificate |
+| **Continuous monitoring** | **$500–1,000 CAD/month** | Recurring re-check window |
 
-Payment: **off-chain invoice**. Not a token purchase.  
-Operator fills exact prices before outbound: `TBD_HUMAN` if not set.
+Goal of first sales: **prove willingness to pay**, not maximize revenue.  
+Payment: **off-chain invoice**. Not a token purchase.
 
 ---
 
@@ -161,6 +161,18 @@ Operator fills exact prices before outbound: `TBD_HUMAN` if not set.
 7. Record: time/risk/proof quote · payment yes/no
 ```
 
+### Invite message (5–10 candidates)
+
+```text
+We built a public verification system and are testing the first external
+certificates. Would you like your deployment independently verified and
+receive a public evidence report?
+
+Early adopter: $500 CAD · Standard: $1,500 CAD
+We state what is verified AND what is not (roadmap, token value, adoption).
+No wallet required to engage.
+```
+
 **AI may:** prepare drafts, checklists, report shells.  
 **Human must:** authorize customer commitment, send offer, accept payment terms, publish public certificates.
 
@@ -171,7 +183,7 @@ Operator fills exact prices before outbound: `TBD_HUMAN` if not set.
 | KPI | Target |
 | --- | --- |
 | 1 | External person: “saved time / reduced risk / helped prove something” |
-| 2 | **One paid** Starter or Professional |
+| 2 | **One paid** Early adopter or Standard |
 
 Not scored: commits, docs volume, architecture, internal receipts.
 
