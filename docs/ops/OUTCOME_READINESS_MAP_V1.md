@@ -366,9 +366,9 @@ Outcome **execution** is defined in [OUTCOME_EXECUTION_PLAN_V1.md](./OUTCOME_EXE
 
 | Priority | Command / action | Who |
 | --- | --- | --- |
-| **1** | **E1:** book external private AI operator session (front door) | Human |
+| **1** | **E1:** book external private AI operator pilots (checklist ready) | Human |
 | **2** | Parallel: send Slot A verify invites (trust KPI \(n \rightarrow 1\)) | Human |
-| **3** | Docs: E1 checklist when GO | Agent + human |
+| **3** | Run E1 runbook · log Q1–Q4 · no new infra unless broken | Human |
 | **4** | Optional: merge #717 (docs only) | Human merge GO |
 | **Do not** | `EXECUTE_18_8` / mint / LP | Anyone |
 

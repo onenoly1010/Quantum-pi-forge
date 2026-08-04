@@ -220,24 +220,17 @@ If something is missing for E1, prefer **docs checklist + human-guided session**
 - [x] Service language on `/work-with-us`  
 - [x] Locks public  
 
-### Step 1 — Package the experience (docs-only, ~half day)
-
-Create or finalize a single checklist artifact (suggested path):
+### Step 1 — Package the experience — **DONE**
 
 ```text
 docs/ops/E1_PRIVATE_AI_OPERATOR_CHECKLIST_V1.md
 ```
 
-Contents (minimum):
+Includes: prerequisites, minimum path, authority table, useful task catalog,
+boundary brief, attestation, validation Q1–Q4, 3–5 pilot cohort log,
+facilitator runbook, non-goals (anti-scope-creep).
 
-1. Prerequisites (machine, Ollama optional, Grok/CLI as available)  
-2. Commands: `./scripts/ai-cockpit.sh` · expected report locations  
-3. Authority table (copy from cockpit doc — prepare only)  
-4. Optional: `npm run verify:public-portal` if user cares about chain claims  
-5. Deliverable template: boundary brief (what leaves machine / what does not)  
-6. Explicit “we did not mint / sign / open LP” attestation  
-
-**Auth:** docs PR only · SITE_CONTENT / docs GO if required by policy.
+**Next:** human books outside pilots — prefer **zero** new engineering.
 
 ### Step 2 — Position the front door (copy only)
 
