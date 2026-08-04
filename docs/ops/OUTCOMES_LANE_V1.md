@@ -16,6 +16,7 @@
 **Month-1 milestone:** [FIRST_MONTH_VALIDATION_MILESTONE_V1.md](./FIRST_MONTH_VALIDATION_MILESTONE_V1.md) — 10 contacted · 3 try · 1 unprompted return
 **Cycle language:** [EXTERNALLY_USEFUL_CYCLE_V1.md](./EXTERNALLY_USEFUL_CYCLE_V1.md) — built → externally useful · locks held · evidence-driven change only
 **Operating gates:** [EXTERNALLY_USEFUL_OPERATING_GATES_V1.md](./EXTERNALLY_USEFUL_OPERATING_GATES_V1.md) — phase exit conditions · prep ≠ execution
+**State checkpoint:** [STATE_VERIFIED_PREPARATION_COMPLETE_V1.md](./STATE_VERIFIED_PREPARATION_COMPLETE_V1.md) — VERIFIED_PREPARATION_COMPLETE · locks held · external pending
 **Next milestone:** [FIRST_EXTERNAL_ATTEMPT_RECEIPT_V1.md](./templates/FIRST_EXTERNAL_ATTEMPT_RECEIPT_V1.md) — exit Recruitment; no new planning loop until sealed
 **Observation channel:** [EXTERNAL_OBSERVATION_CHANNEL_READY_V1.md](./EXTERNAL_OBSERVATION_CHANNEL_READY_V1.md) — Phase B waiting · checklist · no assumed evidence
 
