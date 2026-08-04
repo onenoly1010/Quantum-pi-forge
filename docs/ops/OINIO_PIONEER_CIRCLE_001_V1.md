@@ -56,26 +56,27 @@ That is the full contract. No investment pitch. No hype.
 
 ## Invitation language (use this)
 
-### Shared core (both communities)
+### Primary ask (preferred — entire message)
 
 ```text
-We are testing whether a verified AI workflow system can save real people time.
-We are looking for early participants willing to try one task and provide honest
-feedback. No investment pitch. No hype. Just testing utility.
+Hey, I'm building OINIO, a sovereign AI assistant layer connected to the
+0G ecosystem. I'm looking for a few builders to test a private pilot.
+No sales pitch — I just want to see if it actually saves you time on real
+tasks. Would you be open to trying one workflow?
 ```
 
-### Pi-leaning frame
+### Pi-leaning frame (utility / contribution)
 
 ```text
 Help us test practical AI utility for the Pi ecosystem.
 
 I'm looking for early validation partners — not customers. One small task,
 honest feedback on whether it saves time. No investment pitch, no hype.
-Would you be open to a 20-minute test?
+Would you be open to a 20–30 minute test?
 ```
 
-**Why this works on Pi:** invites **contribution** and practical utility.  
-**Avoid:** “Check out our AI project” (sounds like promotion).
+**Pi wedge (one line):** OINIO helps Pi ecosystem builders turn ideas into working verified applications.  
+**Avoid:** “Check out our AI project” (promotion). Arrive **helping**, not asking for attention.
 
 ### 0G-leaning frame
 
@@ -83,19 +84,24 @@ Would you be open to a 20-minute test?
 Help validate a real user-facing application built around decentralized AI workflows.
 
 I'm looking for early validation partners on 0G-adjacent work — one task,
-honest feedback, no investment pitch. 20-minute test if you're open.
+honest feedback, no investment pitch. 20–30 minute test if you're open.
 ```
 
-**Why this works on 0G:** builders care about decentralized AI, agent infrastructure, verifiable execution, data ownership — framed as **validation**, not a token pitch.
+**Why 0G:** decentralized AI, agents, verifiable execution, data ownership — as **validation**, not a token pitch.
 
 ### Ultra-short DM
 
 ```text
-Testing real utility (not hype) — one task, 20 min, honest feedback.
-Pi/0G-friendly validation partner, not a sales pitch. Open?
+Private pilot: one workflow, honest feedback if it saves time. No pitch. Open?
 ```
 
-**Human send only.** No auto-blast.
+**Human send only.** No auto-blast. Use communities; do not advertise at them.
+
+### Pilot #001 positioning (when they ask what it is)
+
+> A private AI assistant that helps Pi/0G builders understand, verify, and automate Web3 tasks.
+
+One win examples: understand a contract · verify a deployment · summarize docs · automate a repetitive step.
 
 ---
 

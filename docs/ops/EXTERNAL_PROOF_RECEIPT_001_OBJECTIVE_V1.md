@@ -2,7 +2,7 @@
 
 **Checkpoint:** Proof-of-value transition  
 **Engineering objective:** **FROZEN — System ready**  
-**Active objective:** **Obtain External Proof Receipt #001**  
+**Active objective:** **Obtain External Proof Receipt #001 in 7 days**  
 **Success quote (smallest unit of traction):**
 
 ```text
@@ -11,6 +11,15 @@
 
 Not followers · not likes · not another repository · not another audit.  
 **A repeat user.**
+
+```text
+You do NOT need to become a marketer.
+You need a repeatable bridge between people who already have the problem
+and the thing you built.
+
+Phase A — "Can we build this?"     ✅ done
+Phase B — "Does anyone outside the creator actually care?"  ← current
+```
 
 ```text
 AGENT: stand down on engineering (system ready)
@@ -27,9 +36,38 @@ LOCKS: held
 | Layer | State |
 | --- | --- |
 | System ready (build / verify / deploy / governance) | **Yes — freeze expansion** |
-| External proof receipt #001 | **Missing — active goal** |
+| External proof receipt #001 | **Missing — active goal (7 days)** |
 | 3–5 receipts (community pull language) | Later |
 | Agent-to-agent amplification | After human trust exists |
+
+---
+
+## Pilot #001 wedge (one tiny offer — not the universe)
+
+**Builder story (do not lead with):** quantum security, full agent stack, governance, bridges, tokens, whole architecture.
+
+**User story (lead with):**
+
+```text
+I had this problem. This tool solved it. Want to try it?
+```
+
+### OINIO AI Pilot #001 (positioning)
+
+> A private AI assistant that helps Pi/0G builders understand, verify, and automate Web3 tasks.
+
+First user needs **one win**, not the architecture. Example tasks:
+
+| Tiny win | User experience |
+| --- | --- |
+| Understand this contract | Saved reading time / clarity |
+| Verify this deployment | Confidence without guessing |
+| Summarize my project docs | Hours → minutes |
+| Automate a repetitive workflow | Less manual grind |
+
+```text
+They gave it a problem. It saved them time.
+```
 
 ---
 
