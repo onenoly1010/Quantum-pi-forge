@@ -20,6 +20,10 @@ Not:
 
 **Live page (after merge/deploy):** https://quantumpiforge.com/founding-builders-pilot  
 **Source:** `deploy/founding-builders-pilot.html`  
+**Adoption as verification:** [USER_ADOPTION_VERIFICATION_V1.md](./USER_ADOPTION_VERIFICATION_V1.md) — Proof #1–#5  
+**Feedback roadmap:** `/pilot-feedback-roadmap` · **Wall of receipts:** `/pilot-receipts`  
+**Demo script:** [templates/DEMO_SCRIPT_60S_FOUNDING_BUILDERS_V1.md](./templates/DEMO_SCRIPT_60S_FOUNDING_BUILDERS_V1.md)  
+**Issue template:** `.github/ISSUE_TEMPLATE/founding-builder-feedback.yml`  
 **Receipts:** [EXTERNAL_PROOF_RECEIPT_001_OBJECTIVE_V1.md](./EXTERNAL_PROOF_RECEIPT_001_OBJECTIVE_V1.md)  
 **Weekly cadence:** [WEEKLY_CONVERSATION_CADENCE_V1.md](./WEEKLY_CONVERSATION_CADENCE_V1.md)  
 **Drafts:** [templates/FOUNDING_BUILDERS_OUTREACH_DRAFTS_V1.md](./templates/FOUNDING_BUILDERS_OUTREACH_DRAFTS_V1.md)  

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Pilot Feedback Roadmap | Quantum Pi Forge / OINIO</title>
+  <meta name="description" content="Public roadmap showing how founding builder feedback influences priorities. Adoption as verification.">
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;line-height:1.6;margin:0;background:#0b0f14;color:#eef4ff}
+    main{max-width:800px;margin:0 auto;padding:48px 22px 72px}
+    a{color:#8fd3ff}
+    .eyebrow{color:#a8b3c7;text-transform:uppercase;letter-spacing:.12em;font-size:.8rem}
+    h1{font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.15}
+    h2{margin-top:2rem;font-size:1.2rem}
+    .card{border:1px solid #263142;background:#111824;border-radius:18px;padding:22px;margin:18px 0}
+    table{width:100%;border-collapse:collapse;font-size:.95rem}
+    th,td{border-bottom:1px solid #263142;padding:10px 8px;text-align:left;vertical-align:top}
+    th{color:#a8b3c7;font-weight:600}
+    .nav-links{margin-bottom:2rem;padding:.5rem 0;border-bottom:1px solid #263142;display:flex;gap:1.25rem;font-size:.9rem;flex-wrap:wrap}
+    .nav-links a{color:#8fd3ff;text-decoration:none}
+    .muted{color:#a8b3c7}
+    .status{font-family:ui-monospace,monospace;font-size:.85rem}
+    .open{color:#86efac}
+    .queued{color:#fde68a}
+    .done{color:#8fd3ff}
+  </style>
+</head>
+<body>
+<main>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/founding-builders-pilot.html">Founding Builders</a>
+    <a href="/pilot-receipts.html">Wall of Receipts</a>
+    <a href="/for-builders.html">For Builders</a>
+    <a href="https://github.com/onenoly1010/Quantum-pi-forge/issues/new?template=founding-builder-feedback.yml">Feedback issue</a>
+  </div>
+
+  <p class="eyebrow">Adoption as verification</p>
+  <h1>Pilot feedback roadmap</h1>
+  <p class="muted">Community feedback influences priorities. This page is the public loop: try → feedback → change → receipt. Empty rows mean we have not earned them yet — we do not invent engagement.</p>
+
+  <section class="card">
+    <h2>How a theme gets here</h2>
+    <ol>
+      <li>Founding builder tries one real workflow.</li>
+      <li>Feedback via <a href="https://github.com/onenoly1010/Quantum-pi-forge/issues/new?template=founding-builder-feedback.yml">issue template</a> or pilot session notes.</li>
+      <li>If the same pain appears more than once, it is queued here.</li>
+      <li>When we ship a docs/UX fix (or later a scoped feature), status moves to done and a receipt can reference it.</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h2>From founder builders (live board)</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Theme from feedback</th>
+          <th>Source</th>
+          <th>Priority</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="4" class="muted"><em>No external themes yet.</em> First repeated pain from founding builders will appear here. Maintainers do not pre-fill marketing rows.</td>
+        </tr>
+        <!-- Example row format when real:
+        <tr>
+          <td>Onboarding: unclear first command</td>
+          <td>FB feedback #N / receipt #001</td>
+          <td>P0</td>
+          <td class="status queued">QUEUED</td>
+        </tr>
+        -->
+      </tbody>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>Standing product principles (not from a single pitch)</h2>
+    <table>
+      <thead>
+        <tr><th>Principle</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Private AI operator under human authority (prepare only)</td><td class="status done">ACTIVE</td></tr>
+        <tr><td>Public verification portal; mint/LP not authorized</td><td class="status done">ACTIVE</td></tr>
+        <tr><td>Founding Builders pilot (10 seats)</td><td class="status open">OPEN</td></tr>
+        <tr><td>Prioritize only from repeated external feedback</td><td class="status open">PROCESS</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>Adoption proof ladder</h2>
+    <p class="muted">Same idea as engineering gates — evidence required.</p>
+    <table>
+      <thead>
+        <tr><th>Proof</th><th>Meaning</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>#1</td><td>One developer completes a task + feedback</td><td class="status queued">PENDING</td></tr>
+        <tr><td>#2</td><td>Same developer returns a second time</td><td class="status queued">PENDING</td></tr>
+        <tr><td>#3</td><td>Second independent developer joins</td><td class="status queued">PENDING</td></tr>
+        <tr><td>#4</td><td>Unprompted recommendation</td><td class="status queued">PENDING</td></tr>
+        <tr><td>#5</td><td>Someone builds something unanticipated</td><td class="status queued">PENDING</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <p class="muted"><a href="/founding-builders-pilot.html">Join the Founding Builders pilot</a> · No mint/LP required · Locks held</p>
+</main>
+</body>
+</html>

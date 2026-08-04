@@ -11,6 +11,7 @@
 **90-day acquisition:** [QPF_OINIO_90_DAY_USER_ACQUISITION_PLAN_V1.md](./QPF_OINIO_90_DAY_USER_ACQUISITION_PLAN_V1.md) — Pi / 0G / AI-dev tracks · customer discovery  
 **Weekly cadence:** [WEEKLY_CONVERSATION_CADENCE_V1.md](./WEEKLY_CONVERSATION_CADENCE_V1.md) — 5 Pi + 5 0G + 5 AI-dev · “why 15 minutes?”  
 **Pilot program:** [FOUNDING_BUILDERS_PILOT_PROGRAM_V1.md](./FOUNDING_BUILDERS_PILOT_PROGRAM_V1.md) — 10 founding builders · acquisition as feedback loop  
+**Adoption verification:** [USER_ADOPTION_VERIFICATION_V1.md](./USER_ADOPTION_VERIFICATION_V1.md) — Proof #1–#5 · wall of receipts · feedback roadmap  
 
 ```text
 verified infrastructure ≠ authorized activation
