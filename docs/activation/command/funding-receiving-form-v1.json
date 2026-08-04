@@ -1,6 +1,6 @@
 {
   "form": "FUNDING_RECEIVING_FORM_V1",
-  "status": "AWAITING_DESTINATION_DESIGNATION",
+  "status": "READY_TO_RECEIVE",
   "purpose": "Public-safe inbound destination so Kris can AUTHORIZE TO RECEIVE",
   "secured_total_remains_zero_until_payment_proof": true,
   "agent_may_sign_or_spend": false,
@@ -17,24 +17,31 @@
     "governance_safe_note": "0x8d088B\u2026 is Guardian Safe \u2014 only use as receive if you intentionally want Safe custody"
   },
   "fill_by_kris": {
-    "accept_cad_fiat": null,
-    "accept_crypto": null,
-    "crypto_asset": "TBD_HUMAN",
-    "fiat_destination_public": "TBD_HUMAN",
-    "fiat_rails": "TBD_HUMAN",
-    "evm_receive_address_public": "TBD_HUMAN",
+    "accept_cad_fiat": true,
+    "accept_crypto": true,
+    "crypto_asset": "0G",
+    "fiat_destination_public": "WITHHELD_FROM_PUBLIC_REPOSITORY",
+    "fiat_rails": "Interac e-Transfer Autodeposit (operator-controlled destination)",
+    "evm_receive_address_public": "0x0fbBd408A419E96F592A61824168903E179B3397",
     "evm_chain_id": 16661,
-    "owner_statement": "TBD_HUMAN",
-    "filled_date_utc": "TBD_HUMAN",
+    "evm_network_name": "0G Aristotle Mainnet",
+    "crypto_receiving_purpose": "Public receiving address for approved 0G project payments, grants, or transfers.",
+    "owner_statement": "The authorized project operator controls the separately maintained fiat receiving destination and the 0G Aristotle Mainnet destination 0x0fbBd408A419E96F592A61824168903E179B3397.",
+    "filled_date_utc": "2026-07-31",
     "notes": ""
+  },
+  "receiving_policy": {
+    "transfers_enabled": false,
+    "signing_required": true,
+    "approval_required": true
   },
   "authorization": {
     "phrase_required": "AUTHORIZE TO RECEIVE",
-    "status": "AWAITING_DESTINATION_AND_OWNERSHIP",
-    "authorized_at_utc": null,
-    "authorized_by": null,
+    "status": "READY_TO_RECEIVE",
+    "authorized_at_utc": "2026-07-31T21:11:17Z",
+    "authorized_by": "Kris Olofson (authorized project operator)",
     "founder_receiving_authority_active": true,
-    "note": "Founder authorized receiving readiness process; READY_TO_RECEIVE needs designated destination + ownership statement"
+    "note": "Founder authorized receiving readiness process; designated destination and ownership statement are maintained in operator-controlled configuration, with personal contact details excluded from source control."
   },
   "after_authorize": {
     "gate_status_target": "READY_TO_RECEIVE",
@@ -44,6 +51,6 @@
   "note": "Agent may prepare everything; Kris fills destination and AUTHORIZE TO RECEIVE; agent never spends.",
   "founder_receiving_authority": "docs/activation/living-forge/FOUNDER_RECEIVING_AUTHORITY_V1.md",
   "operational_mode": "RECEIVING_READINESS_AUTHORIZED",
-  "ready_to_receive": false,
+  "ready_to_receive": true,
   "verified_available_funds_cad": 0
 }

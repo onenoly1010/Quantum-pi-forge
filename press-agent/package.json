@@ -7,7 +7,8 @@
     "start": "node src/server.js",
     "dev": "node --watch src/server.js",
     "test": "node --test src/tests/*.test.js",
-    "lint": "eslint src/"
+    "lint": "eslint src/ scripts/",
+    "check:delivery-credentials": "node scripts/check-delivery-credentials.js"
   },
   "keywords": [
     "quantum",
@@ -27,7 +28,8 @@
     "winston": "^3.11.0"
   },
   "devDependencies": {
-    "eslint": "^9.32.0"
+    "eslint": "^9.32.0",
+    "globals": "^14.0.0"
   },
   "engines": {
     "node": ">=18.0.0"

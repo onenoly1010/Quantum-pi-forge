@@ -45,7 +45,7 @@ const memoryStream = new Writable({
             if (logBuffer.length > MAX_LOG_BUFFER) {
                 logBuffer.shift();
             }
-        } catch (e) {
+        } catch {
             // If parsing fails, store raw message
             logBuffer.push({
                 timestamp: new Date().toISOString(),
