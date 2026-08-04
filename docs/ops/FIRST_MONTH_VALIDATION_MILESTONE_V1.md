@@ -1,7 +1,8 @@
 # First-Month Validation Milestone v1
 
 **Mode:** Healthy synthesis — bottleneck has shifted  
-**Engineering:** Not “stop forever” — **diminishing returns** vs real user interaction  
+**Preferred milestone:** **built → externally useful** (observable; not overclaimed “market validated”)  
+**Engineering:** Not “stop forever” — **evidence-driven** via continuous cycle  
 **Validation source:** Independent users’ time, not AI summaries  
 
 ```text
@@ -12,10 +13,15 @@ Bottleneck shifted:
 AI summaries can suggest next steps.
 They are NOT market validation.
 
-Genuine validation:
-  independent users choose to spend their own time
-  and return because it provides value.
+Externally useful (observable):
+  outside person uses it · completes a task · gives feedback
+  · preferably returns because it solved a problem
+
+Continuous cycle (not a one-shot transition):
+  Build → External use → Evidence → Prioritize → Build
 ```
+
+See [EXTERNALLY_USEFUL_CYCLE_V1.md](./EXTERNALLY_USEFUL_CYCLE_V1.md).
 
 ---
 

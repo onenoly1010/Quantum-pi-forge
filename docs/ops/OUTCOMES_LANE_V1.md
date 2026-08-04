@@ -14,6 +14,7 @@
 **Adoption verification:** [USER_ADOPTION_VERIFICATION_V1.md](./USER_ADOPTION_VERIFICATION_V1.md) — Proof #1–#5 · wall of receipts · feedback roadmap  
 **Growth flywheel:** [THREE_AUDIENCE_GROWTH_FLYWHEEL_V1.md](./THREE_AUDIENCE_GROWTH_FLYWHEEL_V1.md) — humans · orgs · AI agents as multiplier  
 **Month-1 milestone:** [FIRST_MONTH_VALIDATION_MILESTONE_V1.md](./FIRST_MONTH_VALIDATION_MILESTONE_V1.md) — 10 contacted · 3 try · 1 unprompted return  
+**Cycle language:** [EXTERNALLY_USEFUL_CYCLE_V1.md](./EXTERNALLY_USEFUL_CYCLE_V1.md) — built → externally useful (continuous, evidence-driven)  
 
 ```text
 verified infrastructure ≠ authorized activation
