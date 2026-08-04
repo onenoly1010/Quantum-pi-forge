@@ -102,12 +102,16 @@ This certificate DOES claim only:
 
 ## Feedback (product-market evidence)
 
-| Question | Answer |
-| --- | --- |
-| This helped me because… | |
-| Would use again? | yes / no / maybe |
-| Paid tier? | yes / no · amount CAD |
-| Requested improvements | |
+| # | Question | Answer |
+| --- | --- | --- |
+| 1 | Outside QPF requested verification? | yes / no |
+| 2 | Existing process handled the case? | yes / partial / no |
+| 3 | Understood the artifact? | yes / partial / no |
+| 4 | Reduced uncertainty? | yes / no / unclear |
+| 5 | Would recommend or pay? | recommend / pay / neither |
+| — | This helped me because… | |
+| — | Time we spent / confusing bits | |
+| — | Paid amount CAD (if any) | |
 
 ---
 

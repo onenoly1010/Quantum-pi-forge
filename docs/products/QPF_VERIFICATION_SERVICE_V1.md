@@ -94,12 +94,14 @@ Verified AND not verified — always both.
 
 | Certificates | Price |
 | --- | --- |
-| **#001–#003** (founder validation) | **$250–500 CAD** |
-| Early adopter (after first three) | **$500 CAD** |
+| **First external (#001)** optional free founder cert | **$0** in exchange for **feedback** (5 criteria below) |
+| **#001–#003** paid founder validation | **$250–500 CAD** |
+| Early adopter | **$500 CAD** |
 | Standard | **$1,500 CAD** |
 | Continuous monitoring | **$500–1,000 CAD/month** |
 
-First goal: **prove exchange of value** (use + willingness to pay), not max revenue.
+First goal: **prove exchange of value** (use · recommend · pay), not max revenue.  
+A free #001 that yields honest feedback is still a win. Payment is the stronger win.
 
 Payment: off-chain invoice. Not mint/LP/token purchase.
 

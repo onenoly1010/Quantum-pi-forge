@@ -66,16 +66,29 @@ Copy: see [QPF_VERIFICATION_SERVICE_V1.md](./QPF_VERIFICATION_SERVICE_V1.md)
 | Limitations section (always) | required |
 | Feedback: “This helped me because ______.” | ☐ |
 
-**Most valuable output:** not the file — the sentence:
+### Certificate #001 success criteria (not perfection)
+
+Answer these five after delivery:
+
+| # | Question | Answer |
+| --- | --- | --- |
+| 1 | Did someone **outside QPF** request verification? | yes / no |
+| 2 | Could the **existing process** handle their case? | yes / partial / no |
+| 3 | Did they **understand** the delivered artifact? | yes / partial / no |
+| 4 | Did the artifact **reduce uncertainty** for them? | yes / no / unclear |
+| 5 | Would they **recommend or pay** for the service? | recommend / pay / neither |
+
+Those answers > another internal milestone.
+
+**Most valuable line:**
 
 > “This helped me because ______.”
 
-That is product-market evidence. Then ideally **payment**.
+Then: recommend / pay / learning only.
 
 ```text
 #001 is a trust exchange block, not a code block.
-First external user only needs to believe:
-  "This verification artifact is useful to me."
+From proving the machine exists → proving someone wants to use the machine.
 ```
 
 **Status:** **blocked on Gate 3**  
