@@ -12,6 +12,7 @@ Think of it as verification.
 ```
 
 **Program:** [FOUNDING_BUILDERS_PILOT_PROGRAM_V1.md](./FOUNDING_BUILDERS_PILOT_PROGRAM_V1.md)  
+**Flywheel (humans + AI multiplier):** [THREE_AUDIENCE_GROWTH_FLYWHEEL_V1.md](./THREE_AUDIENCE_GROWTH_FLYWHEEL_V1.md)  
 **Wall of receipts:** https://quantumpiforge.com/pilot-receipts (after deploy)  
 **Feedback roadmap:** https://quantumpiforge.com/pilot-feedback-roadmap (after deploy)  
 **Issue template:** `.github/ISSUE_TEMPLATE/founding-builder-feedback.yml`  
