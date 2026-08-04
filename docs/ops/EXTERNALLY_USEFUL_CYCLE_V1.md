@@ -2,6 +2,7 @@
 
 **Preferred milestone language:** **built → externally useful**  
 **Avoid overclaiming:** “proof-of-value” can sound like the market already validated the product  
+**Phase gates (governance):** [EXTERNALLY_USEFUL_OPERATING_GATES_V1.md](./EXTERNALLY_USEFUL_OPERATING_GATES_V1.md) — Planning → Recruitment → Observation → Iteration → Repeat  
 
 ```text
 Externally useful is observable:
@@ -177,6 +178,12 @@ MILESTONE LANGUAGE: built → externally useful
 CYCLE: build → use → evidence → prioritize → build
 LIMITING FACTOR: real-user learning
 LOCKS: held
-NEXT WORK: real users; change only when evidence justifies it
-PACKAGING: default off until external attempt + honest feedback guides iteration
+
+DECISION RULE:
+  Pause strategic packaging until external evidence exists.
+  Continue only work that raises likelihood or quality of external validation.
+
+ALLOWED WHILE WAITING: recruit · unblock onboarding · pilot defect fixes · observe struggle
+PAUSED: more strategy packaging · speculative features · redesign without friction
+WORKFLOW: outside-in (learn from real use)
 ```

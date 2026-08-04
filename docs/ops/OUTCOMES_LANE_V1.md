@@ -15,6 +15,7 @@
 **Growth flywheel:** [THREE_AUDIENCE_GROWTH_FLYWHEEL_V1.md](./THREE_AUDIENCE_GROWTH_FLYWHEEL_V1.md) — humans · orgs · AI agents as multiplier  
 **Month-1 milestone:** [FIRST_MONTH_VALIDATION_MILESTONE_V1.md](./FIRST_MONTH_VALIDATION_MILESTONE_V1.md) — 10 contacted · 3 try · 1 unprompted return  
 **Cycle language:** [EXTERNALLY_USEFUL_CYCLE_V1.md](./EXTERNALLY_USEFUL_CYCLE_V1.md) — built → externally useful · locks held · evidence-driven change only  
+**Operating gates:** [EXTERNALLY_USEFUL_OPERATING_GATES_V1.md](./EXTERNALLY_USEFUL_OPERATING_GATES_V1.md) — phase exit conditions · prep ≠ execution  
 
 ```text
 verified infrastructure ≠ authorized activation
