@@ -35,17 +35,31 @@ Each phase has a clear exit condition.
 That prevents slipping back into endless planning.
 ```
 
-### Current default state (post-packaging)
+### Mode transition (#717 as boundary marker)
+
+| Before #717 (internal validation) | After #717 merge (external validation) |
+| --- | --- |
+| Architecture, docs, governance receipts | Someone **outside** the creator loop attempts a task |
+| Deployment verification, safety, reproducibility | Path observed · friction recorded · evidence-driven improve |
 
 ```text
-Planning exit: largely MET for Founding Builders pilot
-  (criteria, page, feedback path, receipts, month-1 targets documented)
-
-PRIMARY STATE NOW → Recruitment
-EXIT → first external attempt (then Observation)
+#717 (and its operating model) = boundary marker.
+Avoid opening another planning loop until the first external signal exists.
 ```
 
-Do not re-enter **Planning** as the primary state without a reason from **Observation** findings (e.g. pilot criteria wrong, onboarding definition broken).
+### Current default state
+
+```text
+Planning exit: MET for Founding Builders pilot pack
+PRIMARY STATE → Recruitment
+EXIT TO OBSERVATION → first external attempt
+RECEIPT TEMPLATE → docs/ops/templates/FIRST_EXTERNAL_ATTEMPT_RECEIPT_V1.md
+LOCKS → held
+```
+
+**Next measurable milestone:** seal **First External Attempt Receipt** (who / task / complete? / friction / justified change).
+
+Do not re-enter **Planning** as the primary state without a reason from **Observation** findings.
 
 ---
 
