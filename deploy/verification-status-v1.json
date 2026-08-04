@@ -1,7 +1,15 @@
 {
   "schema": "qpf-verification-status-v1",
-  "updated_at_utc": "2026-08-01T19:03:00Z",
+  "schema_version": "1.1",
+  "updated_at_utc": "2026-08-04T19:49:42Z",
   "portal_url": "https://quantumpiforge.com/deployed-addresses",
+  "source": {
+    "repository": "https://github.com/onenoly1010/Quantum-pi-forge",
+    "main_commit": "9cbda41f785edc3e1d69f03f0e96efe6c7618c6c",
+    "main_commit_short": "9cbda41",
+    "related_prs": ["#713", "#714"],
+    "note": "Status freshness / public documentation metadata only. Does not authorize economics, mint, liquidity, wallet, or chain execution."
+  },
   "network": {
     "name": "0G Aristotle mainnet",
     "chain_id": 16661,
@@ -18,6 +26,8 @@
     "8_5_consensus": "NOT_STARTED",
     "8_5_soft_sla_utc": "2026-08-13T15:02:00Z",
     "8_5_hard_sla_utc": "2026-08-29T15:02:00Z",
+    "8_5_soft_sla_status": "OPEN",
+    "8_5_display": "OPEN · 0/3 eligible reports",
     "invitation_issue": "https://github.com/onenoly1010/Quantum-pi-forge/issues/636"
   },
   "economic": {
@@ -25,6 +35,18 @@
     "liquidity": "NOT_AUTHORIZED",
     "yield_staking_bridge": "NOT_AUTHORIZED",
     "site_signing_broadcast": "DISABLED"
+  },
+  "operational_panel": {
+    "contracts_deployed": true,
+    "source_verified": true,
+    "governance_receipts_available": true,
+    "mint_activation": "LOCKED",
+    "liquidity_activation": "LOCKED",
+    "financial_execution": "LOCKED"
+  },
+  "lifecycle": {
+    "deployment_equals_activation": false,
+    "summary": "Deployment places verified code on-chain. Activation requires separate governance authorization."
   },
   "core_contracts": [
     {
@@ -73,10 +95,12 @@
     "first_verification_event": "https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/community/FIRST_VERIFICATION_EVENT_V1.md",
     "report_template": "https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/community/VERIFICATION_REPORT_TEMPLATE_V1.md",
     "report_index": "https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/community/verification-reports/INDEX_V1.md",
-    "npm_script": "npm run verify:public-portal"
+    "npm_script": "npm run verify:public-portal",
+    "ops_cockpit": "npm run ops:ai-cockpit"
   },
   "boundaries": {
     "this_file_authorizes_economics": false,
-    "auto_mint_on_quorum": false
+    "auto_mint_on_quorum": false,
+    "this_update_is_status_freshness_only": true
   }
 }
