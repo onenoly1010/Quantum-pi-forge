@@ -3,7 +3,8 @@
 **Mode:** Proof of value · **not** construction  
 **Phase:** 3 — Prove usefulness  
 **Companion:** [E1_PRIVATE_AI_OPERATOR_CHECKLIST_V1.md](./E1_PRIVATE_AI_OPERATOR_CHECKLIST_V1.md)  
-**Agent posture:** Stand down unless install breaks  
+**Connector lane:** [PILOT_CONNECTOR_LANE_V1.md](./PILOT_CONNECTOR_LANE_V1.md) — conversations, scripts, Week 1 × 10  
+**Agent posture:** Stand down on architecture · assist drafts/tracking when asked · human owns every send  
 
 ```text
 Limiting factor is no longer intelligence or architecture.
@@ -100,6 +101,36 @@ Would they use again?
 ```
 
 Those feel productive. They do not answer usefulness.
+
+---
+
+## First market signal (Pilot #001 shape)
+
+A good first card looks like this (fill with real outside-user data):
+
+```text
+Pilot #001
+
+User:
+  (non-team participant)
+
+Problem:
+  "I spend X hours doing..."
+
+OINIO used for:
+  ...
+
+Result:
+  Completed task in X minutes
+
+Measured improvement:
+  Saved X time
+
+User response:
+  "I would use this again."
+```
+
+That single card is more valuable than another sealed technical milestone.
 
 ---
 

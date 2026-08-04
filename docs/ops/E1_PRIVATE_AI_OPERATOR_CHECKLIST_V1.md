@@ -5,6 +5,7 @@
 **Status:** READY FOR HUMAN-GUIDED PILOTS  
 **Parent plan:** [OUTCOME_EXECUTION_PLAN_V1.md](./OUTCOME_EXECUTION_PLAN_V1.md)  
 **Evidence loop:** [PILOT_EVIDENCE_LOOP_V1.md](./PILOT_EVIDENCE_LOOP_V1.md) — User → Problem → Result → time saved → use again  
+**Connector lane:** [PILOT_CONNECTOR_LANE_V1.md](./PILOT_CONNECTOR_LANE_V1.md) — find conversations (not “users”)  
 **Cockpit manual:** [LOCAL_MULTI_AGENT_COCKPIT_V1.md](./LOCAL_MULTI_AGENT_COCKPIT_V1.md)  
 **Sealed tip (foundation):** `0cd896a`  
 
