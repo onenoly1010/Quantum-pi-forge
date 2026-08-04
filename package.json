@@ -295,7 +295,11 @@
     "reality:brief": "node scripts/reality-engine/run.mjs --brief-only",
     "reality:claim-map": "node scripts/reality-engine/claim-map.mjs",
     "reality:full": "node scripts/reality-engine/run.mjs --with-claim-map",
-    "verify:public-portal": "node scripts/verify-public-portal.mjs"
+    "verify:public-portal": "node scripts/verify-public-portal.mjs",
+    "ops:verify-report": "bash scripts/local-verify-report.sh",
+    "ops:project-state": "node scripts/project-state.cjs --prefer-report",
+    "ops:ai-cockpit": "bash scripts/ai-cockpit.sh",
+    "ops:ai-cockpit:quick": "bash scripts/ai-cockpit.sh --quick"
   },
   "dependencies": {
     "@0gfoundation/0g-compute-ts-sdk": "^0.8.4",
