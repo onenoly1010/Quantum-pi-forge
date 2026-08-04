@@ -241,13 +241,61 @@ HUMAN: every name, every send, every relationship, every seal
 
 ---
 
+## Today’s mission (the whole game)
+
+```text
+10 potential pilot contacts
+        ↓
+3 honest conversations
+        ↓
+1 person says "this helped me"
+        ↓
+Pilot #001 evidence card  (engineering-style receipt)
+```
+
+Not: launch campaign · investors · thousands of users.
+
+### Who to approach (categories)
+
+| Category | Who | Why |
+| --- | --- | --- |
+| **A — AI power users** | Developers, researchers, automation builders, technical operators | Already feel the pain of tools + workflows |
+| **B — Information overload** | Consultants, small business owners, creators, analysts | Drowning in docs/admin/research |
+| **C — Builders like you** | OSS contributors, crypto/Web3 builders, solo founders | Can give sharp technical honesty |
+
+**Do not open with:** “Would you use my AI system?”  
+**Open with:** “Can I watch how you currently solve this problem and see if this helps?”
+
+### First message (20-minute test — prefer this)
+
+```text
+Hey, I'm testing a workflow system I've been building. I'm not looking to
+sell anything — I'm looking for one person willing to try a small task and
+tell me honestly if it saves time. Would you be open to a 20-minute test?
+```
+
+No pitch deck. No huge explanation. No architecture dump. Let the result speak.
+
+### Longer-term bridge (do not invert the order)
+
+```text
+human uses OINIO
+  → human trusts OINIO
+  → human lets their AI workflow use OINIO
+  → later: agent-to-agent adoption
+```
+
+Agent growth is real ambition. **First bridge is still one human.**
+
+---
+
 ## Immediate actions (today)
 
 | # | Action | Done? |
 | --- | --- | --- |
 | 1 | Copy invitation list template → private file | ☐ |
-| 2 | Write **10 names** (honest feedback people) | ☐ |
-| 3 | Send problem-first message to **3** of them | ☐ |
+| 2 | Write **10 names** (mix A / B / C; Circle 1 first) | ☐ |
+| 3 | Send **20-minute test** message to **3** of them | ☐ |
 | 4 | Log sends in conversation log | ☐ |
 | 5 | When someone replies: investigator spine (§ Stage 3) | ☐ |
 | 6 | After a real session: seal evidence card same day | ☐ |

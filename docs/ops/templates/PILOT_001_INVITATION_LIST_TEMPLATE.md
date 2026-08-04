@@ -9,18 +9,20 @@ Not: customers · investors · cold strangers (first)
 Yes: friends · former coworkers · online contacts · community peers
 ```
 
-| # | Name / handle (private) | How you know them | Suspected pain (if known) | Priority (1–3) | Message sent? | Date sent | Reply? | Notes |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | | | | | ☐ | | | |
-| 2 | | | | | ☐ | | | |
-| 3 | | | | | ☐ | | | |
-| 4 | | | | | ☐ | | | |
-| 5 | | | | | ☐ | | | |
-| 6 | | | | | ☐ | | | |
-| 7 | | | | | ☐ | | | |
-| 8 | | | | | ☐ | | | |
-| 9 | | | | | ☐ | | | |
-| 10 | | | | | ☐ | | | |
+**Categories:** A = AI power user · B = information overload · C = builder like you
+
+| # | Name / handle (private) | Cat (A/B/C) | How you know them | Suspected pain | Priority (1–3) | Sent? | Date | Reply? | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | | | | | | ☐ | | | |
+| 2 | | | | | | ☐ | | | |
+| 3 | | | | | | ☐ | | | |
+| 4 | | | | | | ☐ | | | |
+| 5 | | | | | | ☐ | | | |
+| 6 | | | | | | ☐ | | | |
+| 7 | | | | | | ☐ | | | |
+| 8 | | | | | | ☐ | | | |
+| 9 | | | | | | ☐ | | | |
+| 10 | | | | | | ☐ | | | |
 
 ## Backups (optional 11–15)
 
