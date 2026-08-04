@@ -1,0 +1,58 @@
+{
+  "schema": "qpf.ops.local_cockpit_readiness_audit.v1",
+  "receipt": "local-cockpit-readiness-audit-v1",
+  "canonical_identifier": "qpf.ops.local-cockpit-readiness-audit.v1",
+  "created_at": "2026-08-04T16:32:00Z",
+  "mode": "read_only_local_audit",
+  "head": "38246c3",
+  "branch": "main",
+  "authority": "human_controlled",
+  "agent_roles": {
+    "grok": "architect_planner_orchestrator",
+    "copilot": "code_assistant_non_blocking",
+    "ollama": "local_persistent_worker",
+    "human": "authorization_boundary"
+  },
+  "checks": {
+    "agent_health_exit": 2,
+    "agent_health_summary": "DEGRADED_COPILOT_SESSION_LOGS_NON_BLOCKING",
+    "verify_evidence": "PASS",
+    "build": "PASS",
+    "evidence_receipt_hash": "4c1bf7129d32eb0aebbd86fe05d4ede72959651e1b76d4534da7d0efbce3dd7a",
+    "node": "v22.22.3",
+    "npm": "10.9.8",
+    "python": "3.12.3",
+    "copilot_dns": "RESOLVES",
+    "copilot_http_head": "404_HOST_REACHABLE",
+    "github_api": "200"
+  },
+  "go_nogo_matrix": {
+    "repository_readiness": "GO",
+    "evidence_build": "GO",
+    "local_grok": "GO",
+    "ollama": "GO",
+    "copilot_continuity": "DEGRADED_NON_BLOCKING",
+    "execution_path_prepared": "PREPARED",
+    "external_execution": "NO_GO",
+    "signing": "NO_GO",
+    "broadcast": "NO_GO",
+    "public_mint": "NO_GO",
+    "liquidity": "NO_GO",
+    "staking": "NO_GO",
+    "bridge": "NO_GO",
+    "treasury": "NO_GO"
+  },
+  "handoff_doc": "docs/ops/LOCAL_AGENT_HANDOFF_STATE_V1.md",
+  "execution_boundaries": {
+    "wallet_actions": false,
+    "signing": false,
+    "broadcast": false,
+    "public_mint_execution": false,
+    "liquidity": false,
+    "staking": false,
+    "bridge": false,
+    "token_transfer": false,
+    "private_key_access": false
+  },
+  "note": "Baseline local cockpit audit. Does not supersede execution-preflight-reconciliation NO-GO."
+}

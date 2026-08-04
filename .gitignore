@@ -229,3 +229,11 @@ docs/activation/living-forge/queue/queue-state-v1.json
 docs/activation/living-forge/reports/kpi-latest.md
 docs/activation/living-forge/reports/eod-*.md
 docs/activation/living-forge/reports/eod-latest.md
+
+# Local multi-agent verify contract (regenerate with scripts/local-verify-report.sh)
+reports/local-verify-report.md
+reports/local-verify-report.json
+reports/archive/
+
+reports/project-state.json
+reports/project-state.md
