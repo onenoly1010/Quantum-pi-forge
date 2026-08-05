@@ -102,20 +102,82 @@ Do not blur:
 
 ---
 
+## Authorization boundary (narrow)
+
+```text
+Not: "launch a business"
+Yes:
+  Authorize merge
+    → deploy public surfaces
+    → verify they are live (correct titles, not SPA homepage)
+    → observe what happens
+```
+
+State machine:
+
+```text
+Foundation → Verification/evidence → Packaging
+  → #718 enablement → [external observation begins]
+  → validation → iteration
+```
+
+### Before merge authorization
+
+| Check | Required |
+| --- | --- |
+| Scope bounded | ☑ |
+| No unsupported claims (mint/LP/adoption as fact) | ☑ |
+| Safety/governance locks remain | ☑ |
+| Pages prepared | ☑ on branch |
+| Build/evidence checks pass | re-check on PR |
+
+### After merge/deploy
+
+| Check | Pass criterion |
+| --- | --- |
+| `/` | Loads; truth about locks intact |
+| `/problems/` | Reachable; problem-page titles (not homepage title) |
+| `/try` or `/try.html` | Self-serve walkthrough content |
+| `/verification` or certificate page | Service capability + request path |
+| Descriptions | Match actual capability |
+| No hidden unfinished critical paths | Or clearly marked |
+
+### Then freeze packaging and measure
+
+A freeze is **not** “project done.”  
+It is a **stable experiment** so results can be attributed.
+
+```text
+If you change explanation, pages, workflow, and offer every day,
+you cannot tell what caused a result.
+
+Stable version → information
+```
+
+---
+
 ## Operator sequence
 
 ```text
-1. AUTHORIZE publish (human GO on merge)
-2. Merge outcomes-lane / #717 (or equivalent)
-3. Confirm CF deploy: /problems/ /try /verification return intended content
+1. AUTHORIZE publish (human GO on merge of #718 or equivalent)
+2. Merge + CF deploy
+3. Verify live surfaces (checklist above)
 4. Freeze packaging
 5. Measure (Phase B) — empty metrics are honest data
 6. Change only from observed behavior
 ```
 
 ```text
-Highest-value work now:
-  not another internal document
-  → available public entry points
-  → learning from actual usage
+Known:  built · prepared · authorized-or-not · locked
+Unknown: how external people react
+  → cannot be solved by more internal reasoning
+
+Highest-value work:
+  public entry points → learning from actual usage
+Not: another internal document
+
+#718 = Phase A enablement, not "funnel works"
+Locks: held
+Construction certainty → market uncertainty
+  (outside evidence becomes most valuable signal)
 ```
