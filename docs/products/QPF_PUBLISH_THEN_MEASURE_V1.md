@@ -12,9 +12,23 @@ Deployment is not the finish line.
 
 ---
 
-## Two distinct phases
+## Three gates (do not collapse)
 
-### Phase A — Publish
+| Gate | Success criterion | Evidence |
+| --- | --- | --- |
+| **Enablement** | People can access pages and complete the intended flow | Deploy, build checks, routing, correct titles (not SPA homepage fallback) |
+| **Discovery** | People actually arrive | Traffic, referrals, search, direct visits |
+| **Validation** | Some visitors find enough value to continue | Requests, follow-ups, repeat use, later willingness to pay |
+
+```text
+Passing Gate 1 ≠ passed Gates 2 or 3.
+Cannot evaluate Gates 2–3 until Gate 1 exists.
+
+#718 (or equivalent deploy) = beginning of evidence collection
+#718 ≠ evidence that the funnel already works
+```
+
+### Phase A — Publish (Enablement)
 
 **Objective:** Make entry points available.
 
