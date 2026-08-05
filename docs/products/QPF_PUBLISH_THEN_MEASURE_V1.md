@@ -1,7 +1,7 @@
 # Publish then Measure v1
 
 **Operational recommendation (not another conceptual layer):**  
-Merge/deploy so `/problems/`, `/try`, and `/verification` are live — **then watch the funnel**.
+Merge/deploy so `/problems/`, `/try.html`, and `/verification` are live — **then watch the funnel**.
 
 ```text
 Creating  →  Observing
@@ -37,7 +37,7 @@ Cannot evaluate Gates 2–3 until Gate 1 exists.
 | `/` | What the project is (truthful; locks held) |
 | `/problems/` | People recognize their own problem |
 | `/verification` | What the service is · request path |
-| `/try` | Bounded self-serve engagement |
+| `/try.html` | Bounded self-serve engagement |
 
 At the end of Phase A you have created the **opportunity** for interaction — not proof that the funnel works.
 
@@ -52,7 +52,7 @@ At the end of Phase A you have created the **opportunity** for interaction — n
 | --- | --- |
 | Which pages are visited? | Analytics / logs / CF if available |
 | Which problems attract attention? | Path hits on `/problems/*` |
-| How many continue to `/try`? | Path transitions |
+| How many continue to `/try.html`? | Path transitions |
 | Where do they stop? | Drop-off |
 | What do they ask repeatedly? | Email / issues / support |
 
@@ -137,7 +137,7 @@ Foundation → Verification/evidence → Packaging
 | --- | --- |
 | `/` | Loads; truth about locks intact |
 | `/problems/` | Reachable; problem-page titles (not homepage title) |
-| `/try` or `/try.html` | Self-serve walkthrough content |
+| `/try.html` | Self-serve walkthrough content |
 | `/verification` or certificate page | Service capability + request path |
 | Descriptions | Match actual capability |
 | No hidden unfinished critical paths | Or clearly marked |

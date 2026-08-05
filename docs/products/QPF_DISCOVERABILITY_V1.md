@@ -181,7 +181,7 @@ Live only after merge/deploy of the outcomes-lane branch.
 
 ## Operator priority (next energy)
 
-1. **Merge/deploy** so problem pages + `/try` are public.  
+1. **Merge/deploy** so problem pages + `/try.html` are public.  
 2. Optional: SEO/share links to problem titles (search-shaped).  
 3. Measure the four questions honestly — empty is data.  
 4. Paid path only after people consistently reach 1–3.  
