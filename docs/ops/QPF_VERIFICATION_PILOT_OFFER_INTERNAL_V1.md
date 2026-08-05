@@ -25,6 +25,12 @@ QPF prepares an evidence-backed verification summary of a bounded public
 technical claim, clearly labeling verified, unverified, gated, and unknown
 findings.
 
+## Participant-facing explanation (draft only)
+
+Give QPF one public technical claim and the references needed to inspect it.
+You receive a concise package showing what the available evidence supports,
+what it cannot establish, and how each conclusion was reached.
+
 ## Intended first participant
 
 One maintainer of a public software, AI-agent, or blockchain project who can
@@ -44,6 +50,14 @@ Before any work begins, the participant would supply:
 
 If the claim, scope, or evidence source is ambiguous, the pilot must be
 paused rather than inferred.
+
+## Delivery boundary
+
+The first pilot is limited to one public technical claim and one coherent set
+of supporting references. The internal delivery target is five business days
+after complete inputs are accepted. A request that exceeds this boundary must
+be declined or separately authorized; the target is not a participant-facing
+commitment until a human approves it.
 
 ## Pilot deliverable
 
