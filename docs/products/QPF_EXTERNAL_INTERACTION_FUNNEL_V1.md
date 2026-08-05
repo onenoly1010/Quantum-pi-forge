@@ -86,7 +86,43 @@ No fake tallies. Empty cells are honest.
 | Pay | Later stage; not required for first value proof |
 
 ```text
-Foundation: trusted (correctness + proof discipline)
-Next: legible + touched by reality
-Freeze packaging. Climb the funnel.
+Foundation: sufficiently mature to test externally
+  (solid, not "complete" — external contact will still reveal gaps)
+
+Next: legible + climbed by external steps
+No leap to self-sustaining in one move
+No sales org required
+Climb the funnel — with real people entering it
 ```
+
+---
+
+## Caution: funnel ≠ new internal loop
+
+A funnel only exists if **real people enter it**.
+
+If weeks go to redesigning the funnel without publishing or inviting, you have recreated packaging under a new name.
+
+### Guard: every iteration must answer one of
+
+| Question | If answer is “we don’t know yet” |
+| --- | --- |
+| Did this increase **understanding**? | Gather evidence — don’t redesign in the dark |
+| Did this increase **submissions**? | Publish / invite — don’t polish the form endlessly |
+| Did this improve **completion**? | Watch a real delivery — don’t invent edge cases alone |
+| Did this improve **satisfaction**? | Ask the person — don’t assume |
+
+```text
+Unknown → collect evidence
+Do not: another redesign to answer a question you haven't asked the world
+```
+
+---
+
+## Phase shift (honest)
+
+| From | To |
+| --- | --- |
+| Engineering + governance dominated | **Communication + learning from users** |
+
+Different work. Necessary work. The only work that can show whether others recognize and want the value already built.
