@@ -176,8 +176,11 @@ Then review before any external action.
 **Do** (when authorized): one person · one claim · one result · record honestly.
 
 ```text
-Human outcome first.
+Human outcome is the high bar — not the only first step.
+External interaction is a funnel: visit → request → deliver → help → pay.
 Revenue later, if grounded.
 Sales org: no.
 Instrument meeting a human: yes.
 ```
+
+**Funnel detail:** [QPF_EXTERNAL_INTERACTION_FUNNEL_V1.md](./QPF_EXTERNAL_INTERACTION_FUNNEL_V1.md)
