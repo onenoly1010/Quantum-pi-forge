@@ -161,18 +161,35 @@ It must **not** depend on a model you’ve already rejected: repeatedly asking i
 
 ---
 
+## Concrete deliverables (built)
+
+| Deliverable | Path |
+| --- | --- |
+| Problem hub | `/problems/` |
+| Verify GitHub before use | `/problems/verify-github-repo.html` |
+| Prove deploy matches source | `/problems/prove-deployment-matches-source.html` |
+| Evidence package for AI result | `/problems/evidence-package-ai-result.html` |
+| Audit smart contract release | `/problems/audit-smart-contract-release.html` |
+| Self-serve try (one useful thing) | `/try.html` |
+| Paid path (after value) | `/verification.html` |
+
+Pattern per page: **problem → how addressed → real example → clear next step.**
+
+Live only after merge/deploy of the outcomes-lane branch.
+
+---
+
 ## Operator priority (next energy)
 
-1. **Publish** the smallest clear surface (`/verification` when merged).  
-2. **Lead with human problem**, not “evidence package.”  
-3. Keep **#000** and free self-serve verify as always-on demos.  
-4. Optional: one public “we verified X (public project)” example (with permission or public data only).  
-5. Measure the four questions honestly — empty is data.  
+1. **Merge/deploy** so problem pages + `/try` are public.  
+2. Optional: SEO/share links to problem titles (search-shaped).  
+3. Measure the four questions honestly — empty is data.  
+4. Paid path only after people consistently reach 1–3.  
 
 ```text
 Foundation: stable enough
 Next: discoverable + understandable + self-serve action
 Then: paid path because those work
 Not: sales org · not invite-dependent · not another draft as main work
-Yes: pages and examples that answer problems people already have
+Yes: problem pages + try.html (built)
 ```

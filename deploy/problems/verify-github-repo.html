@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>How do I verify a GitHub repository before using it?</title>
+  <meta name="description" content="Practical steps to check if a GitHub project's on-chain claims match live deployment. Free self-serve path and optional QPF verification certificate.">
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.65;margin:0;background:#0b0f14;color:#eef4ff}
+    main{max-width:680px;margin:0 auto;padding:48px 22px 72px}
+    a{color:#8fd3ff}
+    h1{font-size:clamp(1.5rem,4vw,2rem);line-height:1.2}
+    h2{font-size:1.1rem;margin-top:1.75rem}
+    .card{border:1px solid #263142;background:#111824;border-radius:14px;padding:18px;margin:16px 0}
+    .muted{color:#a8b3c7;font-size:.92rem}
+    .nav{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:1px solid #263142;font-size:.9rem}
+    .nav a{text-decoration:none}
+    .cta{display:inline-block;margin:8px 8px 0 0;padding:12px 18px;border-radius:999px;text-decoration:none;font-weight:700}
+    .primary{background:#8fd3ff;color:#0b0f14}
+    .secondary{border:1px solid #8fd3ff;color:#8fd3ff}
+    code,pre{background:#0a0e14;border:1px solid #263142;border-radius:8px;padding:.15rem .4rem;font-size:.85rem}
+    pre{padding:14px;overflow:auto;display:block}
+    ol{padding-left:1.2rem}
+  </style>
+</head>
+<body>
+<main>
+  <nav class="nav">
+    <a href="/problems/">All problems</a>
+    <a href="/try.html">Try free</a>
+    <a href="/verification.html">Request certificate</a>
+  </nav>
+
+  <h1>How do I verify a GitHub repository before using it?</h1>
+  <p class="muted">When a README claims “deployed on X” or lists contract addresses, you need more than trust.</p>
+
+  <div class="card">
+    <h2>1. The problem</h2>
+    <p>Repos publish addresses, screenshots, and marketing. You still need to know: is code actually at that address on the claimed network? Is mint or admin still open when they say it is locked?</p>
+  </div>
+
+  <div class="card">
+    <h2>2. What you can check yourself</h2>
+    <ol>
+      <li>Find claimed <strong>chain ID</strong> and <strong>contract addresses</strong> in the repo.</li>
+      <li>Call public RPC: <code>eth_chainId</code> matches the claim.</li>
+      <li>Call <code>eth_getCode</code> on each address — empty means not deployed (or wrong chain).</li>
+      <li>Compare docs to live state: mint open? liquidity? often <strong>gated</strong> even when code exists.</li>
+    </ol>
+    <p class="muted">That is the core of independent verification — claims vs re-checkable facts.</p>
+  </div>
+
+  <div class="card">
+    <h2>3. Real example</h2>
+    <p>Quantum Pi Forge publishes its own addresses and status. You can re-run the same checks:</p>
+    <ul>
+      <li><a href="/deployed-addresses.html#verify-now">Public verify portal</a></li>
+      <li><a href="/verification-status-v1.json">Status JSON</a> (mint/LP marked not authorized)</li>
+      <li>Internal example write-up: Certificate #000 in the repo</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>4. Next step</h2>
+    <p><strong>Free:</strong> follow the self-serve path and check any public address yourself.</p>
+    <p><strong>Optional paid:</strong> QPF Verification Certificate — we produce the evidence package and label what we did <em>not</em> verify.</p>
+    <p>
+      <a class="cta primary" href="/try.html">Try free self-serve</a>
+      <a class="cta secondary" href="/verification.html">Request certificate</a>
+    </p>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Try QPF — Verify a public deployment in minutes (self-serve)</title>
+  <meta name="description" content="One useful thing without talking to anyone: verify network and contract code on a public address. Free self-serve walkthrough.">
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.65;margin:0;background:#0b0f14;color:#eef4ff}
+    main{max-width:680px;margin:0 auto;padding:48px 22px 72px}
+    a{color:#8fd3ff}
+    h1{font-size:clamp(1.5rem,4vw,2.1rem);line-height:1.2}
+    h2{font-size:1.1rem;margin-top:1.75rem}
+    .card{border:1px solid #263142;background:#111824;border-radius:14px;padding:18px;margin:16px 0}
+    .muted{color:#a8b3c7;font-size:.92rem}
+    .nav{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:1px solid #263142;font-size:.9rem}
+    .nav a{text-decoration:none}
+    pre{background:#0a0e14;border:1px solid #263142;border-radius:10px;padding:14px;overflow:auto;font-size:.8rem}
+    .cta{display:inline-block;margin:8px 8px 0 0;padding:12px 18px;border-radius:999px;text-decoration:none;font-weight:700}
+    .primary{background:#8fd3ff;color:#0b0f14}
+    .secondary{border:1px solid #8fd3ff;color:#8fd3ff}
+    .ok{color:#86efac}
+  </style>
+</head>
+<body>
+<main>
+  <nav class="nav">
+    <a href="/">Home</a>
+    <a href="/problems/">Problem pages</a>
+    <a href="/deployed-addresses.html#verify-now">Portal</a>
+    <a href="/verification.html">Paid / full certificate</a>
+  </nav>
+
+  <h1>Try: verify a public deployment yourself</h1>
+  <p class="muted">One useful thing. No account. No wallet. No architecture tour. About 5–10 minutes if you have <code>curl</code>.</p>
+
+  <div class="card">
+    <h2>What you will accomplish</h2>
+    <p>Confirm the network and that code exists at a claimed contract address — the core of “is this real?”</p>
+  </div>
+
+  <div class="card">
+    <h2>Step 1 — Network</h2>
+    <p>RPC: <code>https://evmrpc.0g.ai</code> (0G Aristotle example)</p>
+    <pre>curl -s -X POST https://evmrpc.0g.ai \
+  -H 'content-type: application/json' \
+  -d '{"jsonrpc":"2.0","id":1,"method":"eth_chainId","params":[]}'
+
+# expect result "0x4115" (decimal 16661)</pre>
+  </div>
+
+  <div class="card">
+    <h2>Step 2 — Code at address</h2>
+    <p>Example public address (QPF OINIO Token — for demo only):</p>
+    <pre>curl -s -X POST https://evmrpc.0g.ai \
+  -H 'content-type: application/json' \
+  -d '{"jsonrpc":"2.0","id":1,"method":"eth_getCode","params":["0x75995EC0fdf881189850aeD864cB3f43c0DFCb58","latest"]}'
+
+# result longer than "0x" → code present (verified presence)
+# "0x" only → empty (not deployed or wrong chain)</pre>
+  </div>
+
+  <div class="card">
+    <h2>Step 3 — Read the public status (honesty)</h2>
+    <p>Open <a href="/verification-status-v1.json">verification-status-v1.json</a> and note economic fields: mint/liquidity <span class="ok">NOT_AUTHORIZED</span> / LOCKED.</p>
+    <p class="muted">Code present ≠ economy open. That distinction is the product.</p>
+  </div>
+
+  <div class="card">
+    <h2>Step 4 — Optional portal UI</h2>
+    <p><a href="/deployed-addresses.html#verify-now">#verify-now</a> on the public portal — same facts without inventing activation.</p>
+  </div>
+
+  <div class="card">
+    <h2>If that helped</h2>
+    <p>You just did the core of a QPF-style check. For a full evidence package on <em>your</em> project (report + labels + optional public summary):</p>
+    <p>
+      <a class="cta primary" href="/verification.html">Request a certificate</a>
+      <a class="cta secondary" href="/problems/">More problem guides</a>
+    </p>
+  </div>
+</main>
+</body>
+</html>

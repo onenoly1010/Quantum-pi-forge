@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>How can I prove a deployment matches the source code?</title>
+  <meta name="description" content="Prove deployment claims against live chain state: network, address, bytecode presence, and honest unknowns. Free try + optional QPF certificate.">
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.65;margin:0;background:#0b0f14;color:#eef4ff}
+    main{max-width:680px;margin:0 auto;padding:48px 22px 72px}
+    a{color:#8fd3ff;text-decoration:none}
+    h1{font-size:clamp(1.5rem,4vw,2rem);line-height:1.2}
+    h2{font-size:1.1rem;margin-top:1.75rem}
+    .card{border:1px solid #263142;background:#111824;border-radius:14px;padding:18px;margin:16px 0}
+    .muted{color:#a8b3c7;font-size:.92rem}
+    .nav{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:1px solid #263142;font-size:.9rem}
+    .cta{display:inline-block;margin:8px 8px 0 0;padding:12px 18px;border-radius:999px;text-decoration:none;font-weight:700}
+    .primary{background:#8fd3ff;color:#0b0f14}
+    .secondary{border:1px solid #8fd3ff;color:#8fd3ff}
+  </style>
+</head>
+<body>
+<main>
+  <nav class="nav">
+    <a href="/problems/">All problems</a>
+    <a href="/try.html">Try free</a>
+    <a href="/verification.html">Request certificate</a>
+  </nav>
+  <h1>How can I prove a deployment matches the source code?</h1>
+  <p class="muted">“Matches” is a spectrum. Be honest about what you checked.</p>
+
+  <div class="card">
+    <h2>1. The problem</h2>
+    <p>Teams say “this repo is what’s on chain.” Reviewers need a re-checkable link: network, address, code present, and preferably bytecode or explorer verification — not only a screenshot.</p>
+  </div>
+
+  <div class="card">
+    <h2>2. What QPF-style verification does</h2>
+    <ul>
+      <li>Confirm network identity</li>
+      <li>Confirm code at claimed addresses</li>
+      <li>Label documentation match vs drift</li>
+      <li>Mark full formal source-to-bytecode audit as <strong>out of scope</strong> unless expanded</li>
+    </ul>
+    <p class="muted">Labels: verified · unverified · gated · unknown. Unknown is allowed.</p>
+  </div>
+
+  <div class="card">
+    <h2>3. Real example</h2>
+    <p>QPF publishes addresses and a public portal. You can re-run <code>eth_chainId</code> and <code>eth_getCode</code> without trusting marketing.</p>
+    <p><a href="/deployed-addresses.html#verify-now">Open verify-now</a> · <a href="/try.html">Self-serve walkthrough</a></p>
+  </div>
+
+  <div class="card">
+    <h2>4. Next step</h2>
+    <p>
+      <a class="cta primary" href="/try.html">Run the free check</a>
+      <a class="cta secondary" href="/verification.html">Get a certificate for your deploy</a>
+    </p>
+  </div>
+</main>
+</body>
+</html>
