@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request a Verification Review | Quantum Pi Forge</title>
+  <meta name="description" content="Request an evidence-backed review of one public technical claim. QPF clearly separates verified, unverified, gated, and unknown findings.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { background: #050505; color: #d4d4d8; font-family: system-ui, -apple-system, sans-serif; }
+    .font-mono { font-family: ui-monospace, "Fira Code", monospace; }
+    .btn-volcanic {
+      display: inline-block;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, #ff4500, #ff8c00);
+      color: white;
+      font-weight: 700;
+      padding: 12px 24px;
+      text-decoration: none;
+    }
+    .btn-volcanic:hover { box-shadow: 0 4px 12px rgba(255, 69, 0, .3); }
+  </style>
+</head>
+<body class="antialiased">
+  <nav class="border-b border-white/5 bg-black/70">
+    <div class="max-w-3xl mx-auto px-6 py-4 flex justify-between items-center text-sm font-mono text-zinc-400">
+      <a href="/" class="font-bold text-zinc-200">← Quantum Pi Forge</a>
+      <a href="/deployed-addresses.html" class="hover:text-white">View public evidence</a>
+    </div>
+  </nav>
+
+  <main class="max-w-3xl mx-auto px-6 py-16">
+    <p class="text-xs font-mono text-orange-400 uppercase tracking-wider mb-4">Evidence-backed technical review</p>
+    <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-6">Know what your public technical claim actually supports.</h1>
+    <p class="text-xl text-zinc-300 leading-relaxed mb-10">
+      Submit one public claim and its supporting references. QPF prepares a concise evidence package that shows what the available evidence verifies, what it does not establish, and what remains unknown.
+    </p>
+
+    <section class="grid gap-4 md:grid-cols-3 mb-12" aria-label="Request process">
+      <div class="border border-white/10 rounded-xl p-5 bg-white/5">
+        <p class="text-orange-400 font-mono text-sm mb-2">1. Submit</p>
+        <h2 class="text-lg font-bold text-white mb-2">One claim</h2>
+        <p class="text-sm text-zinc-400">Share the claim and public source, documentation, or deployment links needed to inspect it.</p>
+      </div>
+      <div class="border border-white/10 rounded-xl p-5 bg-white/5">
+        <p class="text-orange-400 font-mono text-sm mb-2">2. Review</p>
+        <h2 class="text-lg font-bold text-white mb-2">Clear scope</h2>
+        <p class="text-sm text-zinc-400">QPF reviews whether the evidence is public and the request fits a bounded technical review.</p>
+      </div>
+      <div class="border border-white/10 rounded-xl p-5 bg-white/5">
+        <p class="text-orange-400 font-mono text-sm mb-2">3. Receive</p>
+        <h2 class="text-lg font-bold text-white mb-2">Evidence package</h2>
+        <p class="text-sm text-zinc-400">Receive the claim, checks, sources, findings, and limits in one inspectable summary.</p>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-white mb-4">What the package tells you</h2>
+      <ul class="space-y-3 text-zinc-300">
+        <li class="border border-white/10 rounded-lg px-4 py-3 bg-white/5"><strong class="text-white">Verified</strong> — what the reviewed public evidence supports.</li>
+        <li class="border border-white/10 rounded-lg px-4 py-3 bg-white/5"><strong class="text-white">Unverified</strong> — what the available evidence does not establish.</li>
+        <li class="border border-white/10 rounded-lg px-4 py-3 bg-white/5"><strong class="text-white">Gated or unknown</strong> — what cannot be checked from the accessible evidence.</li>
+        <li class="border border-white/10 rounded-lg px-4 py-3 bg-white/5"><strong class="text-white">Method and limits</strong> — the references, checks, and conclusions the review does not support.</li>
+      </ul>
+    </section>
+
+    <section class="mb-12 border border-orange-500/30 rounded-2xl p-8 bg-orange-500/5">
+      <h2 class="text-2xl font-bold text-white mb-3">Request a review</h2>
+      <p class="text-zinc-400 mb-6">
+        The request opens a prefilled email. Include one claim and the relevant public links. QPF will confirm fit before any work begins.
+      </p>
+      <a class="btn-volcanic" href="mailto:onenoly@proton.me?subject=QPF%20verification%20review%20request&body=Project%20name%3A%0A%0APublic%20technical%20claim%20to%20review%3A%0A%0APublic%20source%2C%20documentation%2C%20or%20deployment%20links%3A%0A%0AWhat%20decision%20would%20this%20help%20you%20make%3A%0A">
+        Request a verification review
+      </a>
+      <p class="mt-4 text-sm font-mono text-zinc-500">No wallet, token, payment, or commitment is required to submit a request.</p>
+    </section>
+
+    <section class="border border-white/10 rounded-xl p-6 text-sm text-zinc-500">
+      <h2 class="text-lg font-bold text-zinc-200 mb-3">What this is not</h2>
+      <p>
+        This is not a security audit, legal opinion, investment recommendation, guarantee, or proof of future outcomes. QPF reviews only the bounded public evidence available for the submitted claim.
+      </p>
+    </section>
+  </main>
+</body>
+</html>
