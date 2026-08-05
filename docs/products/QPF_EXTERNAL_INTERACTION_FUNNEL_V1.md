@@ -89,11 +89,15 @@ No fake tallies. Empty cells are honest.
 Foundation: sufficiently mature to test externally
   (solid, not "complete" — external contact will still reveal gaps)
 
-Next: legible + climbed by external steps
+Chain: Foundation → Visibility → Usage → Trust → Revenue
+Next: legible + discoverable + climbed by external steps
 No leap to self-sustaining in one move
 No sales org required
 Climb the funnel — with real people entering it
+  (discoverability first; cold invite is optional, not the only path)
 ```
+
+**Discoverability strategy:** [QPF_DISCOVERABILITY_V1.md](./QPF_DISCOVERABILITY_V1.md)
 
 ---
 
