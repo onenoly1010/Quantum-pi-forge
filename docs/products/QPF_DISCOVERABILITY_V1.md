@@ -2,6 +2,17 @@
 
 **Diagnosis (accurate):** The bottleneck is now **discoverability and legibility**, not another draft, pilot brief, or authorization loop.
 
+**Design constraint (from you — treat as hard):**
+
+```text
+The business model must NOT depend on continually recruiting people.
+
+"I hate inviting" / "friends won't do it" / "nobody gets it" / "just get it earning"
+are not laziness — they define the constraint:
+
+  Tool people discover  >  consulting service that depends on outbound outreach
+```
+
 **Not the default next step:** “Invite friends / force Pilot #001.”  
 **Better question:**
 
@@ -115,20 +126,53 @@ Success of discoverability: strangers find → understand → act without you re
 
 ---
 
+## Four measurable questions (priority order)
+
+| # | Question | Builds on |
+| --- | --- | --- |
+| 1 | Can someone **find** QPF from a problem they’re already searching for? | — |
+| 2 | Can they **understand** what it does in under a minute? | 1 |
+| 3 | Can they try the **smallest useful thing without talking to you**? | 2 |
+| 4 | If they find value, is there a **clear path to paid** offering? | 3 |
+
+Each is measurable. Each depends on the previous.  
+Publishing alone ≠ traffic — need search, links, examples that answer common questions, integrations later.
+
+### Risk
+
+Not that the project is unfinished.  
+Risk: **value hard for a newcomer to recognize quickly.**  
+That’s a different discipline than building the underlying system (first impression / communication).
+
+---
+
+## Success definition (self-sustaining phase)
+
+| Stage | Definition |
+| --- | --- |
+| **Foundation** | Stable and trustworthy |
+| **Discovery** | People can find it while looking for solutions |
+| **Understanding** | They immediately grasp what problem it solves |
+| **Action** | Use or request with minimal friction (ideally without Kris) |
+| **Revenue** | Paid use because earlier steps work — **not** one-by-one persuasion |
+
+Some early visibility work may still help.  
+It must **not** depend on a model you’ve already rejected: repeatedly asking individuals to participate.
+
+---
+
 ## Operator priority (next energy)
 
 1. **Publish** the smallest clear surface (`/verification` when merged).  
 2. **Lead with human problem**, not “evidence package.”  
 3. Keep **#000** and free self-serve verify as always-on demos.  
 4. Optional: one public “we verified X (public project)” example (with permission or public data only).  
-5. Measure funnel stages honestly — empty is data.  
+5. Measure the four questions honestly — empty is data.  
 
 ```text
-Foundation: sufficiently mature to test externally
-Next: VISIBILITY (discoverability + legibility)
-Then: usage → trust → revenue
-
-Not: sales org
-Not: another draft as the main work
+Foundation: stable enough
+Next: discoverable + understandable + self-serve action
+Then: paid path because those work
+Not: sales org · not invite-dependent · not another draft as main work
 Yes: pages and examples that answer problems people already have
 ```
