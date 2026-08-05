@@ -121,15 +121,37 @@ Payment: off-chain invoice. Not mint/LP/token purchase.
 
 ## Invite (5–10 targeted · not broadcast)
 
-```text
-We built a public verification system and are testing the first external
-certificates. Would you like your deployment independently verified and
-receive a public evidence report?
+**Easier first yes (recommended for #001):**
 
-Founder launch: $250–500 CAD for the first certificates.
-We state what is verified AND what is not.
+```text
+We built an open verification workflow that produces public evidence reports
+for deployed systems. We are looking for the first external project to verify.
+
+Would you like a free founder certificate in exchange for feedback?
+We state what is verified AND what is not (roadmap, token value, adoption).
 No wallet required to engage.
 ```
+
+**Paid founder validation (also fine):**
+
+```text
+Same offer with founder pricing $250–500 CAD if you prefer a paid engagement.
+```
+
+---
+
+## After #001 — capture learning (product roadmap source)
+
+| Field | Record |
+| --- | --- |
+| Time spent | |
+| Manual steps | |
+| Confusing sections | |
+| Requested features | |
+| Willingness to pay / recommend | |
+| Five success criteria answers | see commercial gate |
+
+That becomes the **actual** product roadmap — not speculative architecture.
 
 ---
 
@@ -140,5 +162,6 @@ Protocol mint: LOCKED
 Liquidity: LOCKED
 Chain financial execution: LOCKED
 
-Commercial service: OPEN TO AUTHORIZED OUTREACH
+Service validation proceeds without token/liquidity milestones.
+Commercial outreach: OPEN WHEN HUMAN AUTHORIZES
 ```
