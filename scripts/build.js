@@ -26,6 +26,13 @@ const staticFiles = [
   { src: 'deploy/for-builders.html', dest: 'for-builders.html' },
   { src: 'deploy/work-with-us.html', dest: 'work-with-us.html' },
   { src: 'deploy/verification-request.html', dest: 'verification-request.html' },
+  // Phase A public entry (discoverability / self-serve / certificate)
+  { src: 'deploy/try.html', dest: 'try.html' },
+  { src: 'deploy/verification.html', dest: 'verification.html' },
+  { src: 'deploy/verification-certificate.html', dest: 'verification-certificate.html' },
+  { src: 'deploy/founding-builders-pilot.html', dest: 'founding-builders-pilot.html', optional: true },
+  { src: 'deploy/pilot-feedback-roadmap.html', dest: 'pilot-feedback-roadmap.html', optional: true },
+  { src: 'deploy/pilot-receipts.html', dest: 'pilot-receipts.html', optional: true },
   { src: 'deploy/why-this-matters.html', dest: 'why-this-matters.html' },
   { src: 'deploy/human-onboarding.html', dest: 'human-onboarding.html' },
   { src: 'deploy/deployed-addresses.html', dest: 'deployed-addresses.html' },
@@ -58,6 +65,8 @@ const staticDirs = [
   { src: 'frontend', dest: 'frontend', optional: true },
   { src: 'deploy/trust', dest: 'trust', optional: true },
   { src: 'receipts/human-cockpit', dest: 'receipts/human-cockpit', optional: true },
+  // Discoverability problem guides + index
+  { src: 'deploy/problems', dest: 'problems', optional: false },
   // Public mint / model metadata — required (served as application/json via _headers)
   { src: 'metadata', dest: 'metadata', optional: false },
 ];
