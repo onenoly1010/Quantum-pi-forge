@@ -314,7 +314,7 @@
     "@uniswap/v2-core": "^1.0.1",
     "@uniswap/v2-periphery": "^1.1.0-beta.0",
     "solc": "^0.8.36",
-    "wrangler": "^4.115.0"
+    "wrangler": "^4.118.0"
   },
   "overrides": {
     "ws": "^8.21.0",
