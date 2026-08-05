@@ -1,0 +1,45 @@
+{
+  "schema": "qpf.outreach_delivery_execution.v1",
+  "receipt": "icme-first-controlled-delivery-execution-v1",
+  "recorded_at_utc": "2026-08-01T02:21:17.798Z",
+  "authorization_reference": "Human authorization: Execute First Controlled Delivery",
+  "package_reference": "docs/activation/command/revenue/FIRST_DELIVERY_ACTIVATION_PACKAGE.md",
+  "target": {
+    "name": "ICME Labs",
+    "channel": "https://www.icme.io/#cta-contact",
+    "channel_rechecked_at_utc": "2026-08-01T02:21:17.798Z",
+    "channel_reachable": true
+  },
+  "message_reference": "docs/activation/command/revenue/QPF_REVENUE_ACTIVATION_LOOP_V1.md#1-icme-labs",
+  "message_sha256": "dc8affc24e550a476aa66c157105ae8127c9e422f031550450ff3db4335c0cb9",
+  "sender_identity": {
+    "operator": "Kris",
+    "organization": "Quantum Pi Forge",
+    "reply_address_recorded": false
+  },
+  "final_state": "FAILED",
+  "delivery_attempted": false,
+  "submission_confirmation": null,
+  "provider_reference": null,
+  "failure_stage": "PRE_DELIVERY_CAPABILITY_CHECK",
+  "failure_reasons": [
+    "No approved contact-form provider adapter or configured contact-form endpoint exists.",
+    "No browser or supported form-submission execution capability is available.",
+    "No operator-controlled reply address is available to complete the form without fabrication.",
+    "The delivery runtime remains disabled and has no configured delivery credentials."
+  ],
+  "evidence_artifact_location": "receipts/outreach/delivery/icme-first-controlled-delivery-execution-v1-20260801T022117Z.json",
+  "claim_boundary": {
+    "external_message_sent": false,
+    "submission_confirmation_claimed": false,
+    "partnership_claimed": false,
+    "engagement_claimed": false,
+    "revenue_claimed": false,
+    "payment_claimed": false
+  },
+  "required_resolution": [
+    "Provide an operator-controlled browser submission path and sender reply identity outside source control.",
+    "Or implement and approve a provider-specific ICME contact-form adapter with confirmation capture.",
+    "Re-authorize only after the selected execution path can produce independent delivery evidence."
+  ]
+}

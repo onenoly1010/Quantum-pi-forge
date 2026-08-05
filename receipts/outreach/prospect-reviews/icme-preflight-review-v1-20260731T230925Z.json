@@ -1,0 +1,40 @@
+{
+  "schema": "qpf.outreach_prospect_review.v1",
+  "receipt": "icme-preflight-review-v1",
+  "reviewed_at_utc": "2026-07-31T23:09:25Z",
+  "status": "APPROVED_FOR_HUMAN_DELIVERY",
+  "prospect": {
+    "organization": "ICME Labs",
+    "product": "PreFlight",
+    "official_public_channel": "https://www.icme.io/#cta-contact",
+    "channel_verification": "ICME's official site navigation links its Contact entry to #cta-contact."
+  },
+  "public_evidence": [
+    {
+      "url": "https://www.icme.io",
+      "finding": "The official site describes PreFlight as cryptographic enforcement for AI-agent actions."
+    },
+    {
+      "url": "https://docs.icme.io/documentation",
+      "finding": "The official documentation describes formal policy enforcement, SAT/UNSAT decisions, and zero-knowledge proof receipts."
+    }
+  ],
+  "message_reference": "docs/activation/command/revenue/prospects/ICME_PREFLIGHT_EVIDENCE_REVIEW_OUTREACH_V1.md",
+  "authorization": {
+    "human_delivery_authorized": true,
+    "authorization_reference": "2026-07-31 queue-wide human approval override",
+    "automated_sending": false
+  },
+  "evidence_boundary": {
+    "partnership_claimed": false,
+    "engagement_claimed": false,
+    "revenue_claimed": false,
+    "payment_claimed": false
+  },
+  "safety_boundary": {
+    "wallet_actions": false,
+    "contract_actions": false,
+    "payment_actions": false,
+    "automated_bulk_sending": false
+  }
+}

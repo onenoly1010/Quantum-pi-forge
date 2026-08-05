@@ -168,9 +168,13 @@ contracts/lib/
 *.abi
 *.bin
 
-# Verification Reports
+# Verification Reports (regenerate via scripts/local-verify-report.sh / ai-cockpit.sh)
 reports/*.json
+reports/*.md
+reports/archive/
 reports/*.html
+# Legacy path from early cockpit runs (canonical contract is reports/)
+receipts/ops/local-verify-report*.md
 .env.verification
 
 # Next.js build output

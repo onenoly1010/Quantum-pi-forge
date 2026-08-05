@@ -1,0 +1,66 @@
+{
+  "governance_version": "v1",
+  "receipt": "phase-2-capability-view-completion-v1",
+  "phase": 2,
+  "title": "Capability View Completion",
+  "status": "PHASE_2_CAPABILITY_VIEW_COMPLETION_RECORDED",
+  "created_at": "2026-08-02T23:31:42Z",
+  "mode": "evidence_derived_repository_integration",
+  "merged_pull_request": {
+    "number": 692,
+    "url": "https://github.com/onenoly1010/Quantum-pi-forge/pull/692",
+    "merge_commit": "fd9542a1bd32ffef7b34b868891195f6d8e49946"
+  },
+  "verification": {
+    "evidence_audit": {
+      "status": "success",
+      "head_sha": "fd9542a1bd32ffef7b34b868891195f6d8e49946",
+      "url": "https://github.com/onenoly1010/Quantum-pi-forge/actions/runs/30772238137"
+    },
+    "cloudflare_workflow": {
+      "status": "success",
+      "head_sha": "fd9542a1bd32ffef7b34b868891195f6d8e49946",
+      "url": "https://github.com/onenoly1010/Quantum-pi-forge/actions/runs/30772238111",
+      "note": "Automatically triggered by the merge; no separate deployment command was initiated."
+    }
+  },
+  "phase_completion_tag": {
+    "name": "phase-2-capability-view-complete",
+    "target": "fd9542a1bd32ffef7b34b868891195f6d8e49946"
+  },
+  "phase_3_start": {
+    "branch": "phase-3-capability-registry",
+    "base_commit": "fd9542a1bd32ffef7b34b868891195f6d8e49946",
+    "objective": "Map capabilities to verified canonical sources without duplicating authoritative data."
+  },
+  "remaining_unknowns": [
+    {
+      "id": "contracts",
+      "status": "UNKNOWN",
+      "reason": "No contract registry is included in the verified Phase 1 inventory."
+    },
+    {
+      "id": "deployments",
+      "status": "UNKNOWN",
+      "reason": "No deployment registry is included in the verified Phase 1 inventory."
+    },
+    {
+      "id": "legacy-manifest-local-paths",
+      "status": "UNKNOWN",
+      "reason": "Two historical manifest paths are absent at the Phase 1 source commit."
+    },
+    {
+      "id": "legacy-manifest-external-dependencies",
+      "status": "UNKNOWN",
+      "reason": "Four external-commit entries retain pending provenance and content hashes."
+    }
+  ],
+  "authority_boundary": {
+    "wallet_signing": false,
+    "financial_action": false,
+    "blockchain_transaction": false,
+    "external_communication": false,
+    "credential_use": false,
+    "manual_deployment_initiation": false
+  }
+}

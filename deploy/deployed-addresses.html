@@ -56,6 +56,7 @@
     <a href="/">Home</a>
     <a href="/what-it-does.html">What It Does</a>
     <a href="/for-builders.html">For Builders</a>
+    <a href="/capabilities.html">Capabilities</a>
     <a href="/deployed-addresses.html">Contracts</a>
     <a href="#verify-now">Verify now</a>
     <a href="https://github.com/onenoly1010/Quantum-pi-forge/issues/636">Round 1</a>
@@ -64,11 +65,48 @@
 
   <h1>Deployed Addresses</h1>
   <p class="subtitle">Canonical reference for <strong>what is deployed</strong> — deployment state, not economic readiness</p>
-  <p style="margin:-1rem 0 1.5rem;font-size:.9rem;">
+  <p style="margin:-1rem 0 .75rem;font-size:.9rem;">
     <span class="badge badge-live">Phase 8.4 COMPLETE</span>
-    <span class="badge badge-pending" style="margin-left:.4rem;">Phase 8.5 Round 1 OPEN · m=3</span>
+    <span class="badge badge-pending" style="margin-left:.4rem;">Phase 8.5 Round 1 OPEN · 0/3 reports</span>
     <span class="badge badge-private" style="margin-left:.4rem;">Mint / liquidity NOT AUTHORIZED</span>
   </p>
+  <p style="margin:0 0 1.5rem;font-size:.82rem;color:#64748b;">
+    Status freshness as of <code style="color:#94a3b8;">2026-08-04T20:30:00Z</code>
+    · source tip <code style="color:#94a3b8;">main @ 22f3028</code>
+    · machine status <a href="/verification-status-v1.json">/verification-status-v1.json</a>
+    · <strong style="color:#94a3b8;">docs freshness only — not economic activation</strong>
+  </p>
+
+  <!-- SYSTEM STATE: LIVE vs LOCKED (status freshness — not activation) -->
+  <section>
+    <div class="network-card" style="border-color:rgba(34,197,94,.25);">
+      <h3 style="color:#bbf7d0;">System state (public summary)</h3>
+      <p style="color:#cbd5e1;font-size:.9rem;margin:.5rem 0 0;">
+        <strong style="color:#f8fafc;">Deployment ≠ Activation.</strong>
+        Deployment places verified code on-chain. Activation requires separate governance authorization.
+      </p>
+      <div class="gap-4" style="margin-top:1rem;">
+        <div style="flex:1;min-width:220px;">
+          <p style="color:#86efac;font-size:.8rem;font-weight:600;margin:0 0 .4rem;text-transform:uppercase;letter-spacing:.04em;">Live / verified</p>
+          <ul style="color:#94a3b8;font-size:.85rem;margin:0;padding-left:1.1rem;">
+            <li>Core contracts deployed (chain 16661)</li>
+            <li>Independent verification path available</li>
+            <li>Governance receipts &amp; registry digests published</li>
+            <li>DEX pair exists with empty reserves (intentional)</li>
+          </ul>
+        </div>
+        <div style="flex:1;min-width:220px;">
+          <p style="color:#fca5a5;font-size:.8rem;font-weight:600;margin:0 0 .4rem;text-transform:uppercase;letter-spacing:.04em;">Not active / locked</p>
+          <ul style="color:#94a3b8;font-size:.85rem;margin:0;padding-left:1.1rem;">
+            <li>Public mint activation</li>
+            <li>Liquidity / commercial DEX open</li>
+            <li>Site wallet signing / broadcast</li>
+            <li>Staking / yield / bridge financial execution</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- PURPOSE: reviewer-centric; claim → evidence → verification -->
   <section>
@@ -149,7 +187,7 @@
       <div class="detail"><span class="label">RPC URL</span> <span class="value">https://evmrpc.0g.ai</span></div>
       <div class="detail"><span class="label">Explorer</span> <span class="value"><a href="https://chainscan.0g.ai" target="_blank" rel="noopener">https://chainscan.0g.ai</a></span></div>
       <div class="detail"><span class="label">Native Currency</span> <span class="value">0G (0G)</span></div>
-      <div class="detail"><span class="label">Current Block</span> <span class="value">~36,500,000+</span></div>
+      <div class="detail"><span class="label">Current Block</span> <span class="value">~40,700,000+ <span style="color:#64748b;font-size:.8rem;">(as of page publish; re-check via RPC)</span></span></div>
     </div>
   </section>
 
@@ -161,9 +199,12 @@
       Network for all core rows: <strong>0G Aristotle Mainnet · Chain ID 16661</strong>.
       Bytecode digests &amp; probe notes:
       <a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/CONTRACT_REGISTRY_V1.md">docs/CONTRACT_REGISTRY_V1.md</a>
-      (probe 2026-07-28). Source:
-      <a href="https://github.com/onenoly1010/Quantum-pi-forge">github.com/onenoly1010/Quantum-pi-forge</a>.
-      Exact per-address deploy commits are not all pinned on this page—prefer explorer + registry digests as primary observables.
+      (bytecode probe 2026-07-28 · page status as-of main <code>22f3028</code>). Source:
+      <a href="https://github.com/onenoly1010/Quantum-pi-forge">github.com/onenoly1010/Quantum-pi-forge</a>
+      · related PRs <a href="https://github.com/onenoly1010/Quantum-pi-forge/pull/713">#713</a>,
+      <a href="https://github.com/onenoly1010/Quantum-pi-forge/pull/714">#714</a>,
+      <a href="https://github.com/onenoly1010/Quantum-pi-forge/pull/715">#715</a> (status freshness; not economic activation).
+      Prefer explorer + registry digests as primary observables.
     </p>
 
     <div class="network-card">
@@ -264,7 +305,7 @@
       <div class="detail"><span class="label">Explorer</span> <span class="value"><a href="https://chainscan.0g.ai/address/0x709f23C7A7172E137427576abB5Eb8959E2A57c1" target="_blank" rel="noopener">chainscan.0g.ai</a></span></div>
       <div class="detail"><span class="label">Verification</span> <span class="value">Code present — confirm role before integration</span></div>
       <div class="detail"><span class="label">Operational</span> <span class="value">Listed for transparency · dual-set history documented in registry</span></div>
-      <div class="detail"><span class="label">Notes</span> <span class="value">Prefer primary token address above unless you know why you need this one</span></div>
+      <div class="detail"><span class="label">Notes</span> <span class="value"><strong style="color:#fca5a5;">Do not integrate by default.</strong> Prefer primary token <code>0x7599…Cb58</code> unless you have a documented dual-set reason.</span></div>
     </div>
   </section>
 
@@ -274,6 +315,7 @@
     <p style="color:#94a3b8;font-size:.9rem;">
       Answers <strong style="color:#e0f2fe;">“What is the current operational status?”</strong> —
       separate from the inventory of addresses above.
+      Economic pathways remain <strong>NOT AUTHORIZED</strong> unless a separate governance receipt says otherwise.
     </p>
     <div class="status-section">
       <div class="status-row">
@@ -282,7 +324,7 @@
       </div>
       <div class="status-row">
         <span class="status-dot dot-pending"></span>
-        <span><strong>Phase 8.5 Round 1</strong> — OPEN · collecting independent reports (quorum m=3) · <a href="https://github.com/onenoly1010/Quantum-pi-forge/issues/636">invitation #636</a></span>
+        <span><strong>Phase 8.5 Round 1</strong> — OPEN · <strong>0/3</strong> eligible reports (quorum m=3) · soft target 2026-08-13 · hard close 2026-08-29 · <a href="https://github.com/onenoly1010/Quantum-pi-forge/issues/636">invitation #636</a></span>
       </div>
       <div class="status-row">
         <span class="status-dot dot-live"></span>
@@ -329,7 +371,8 @@
     <p style="color:#94a3b8;font-size:.9rem;">
       <strong style="color:#e0f2fe;">Phase 8.5 Round 1 is open.</strong>
       Reproduce the published state without trusting the builders — no wallet, no transaction.
-      Soft target 2026-08-13 · hard close 2026-08-29 · quorum <strong>m=3</strong> independent reports.
+      Current count <strong>0/3</strong> eligible reports · soft target 2026-08-13 · hard close 2026-08-29 · quorum <strong>m=3</strong>.
+      Completing reports is evidence collection — <strong>not</strong> automatic mint or liquidity unlock.
     </p>
     <div class="network-card" style="border-color:rgba(234,179,8,.35);">
       <h3 style="color:#fde68a;">1. Confirm network</h3>
@@ -359,8 +402,11 @@
         <a class="cta cta-secondary" href="/verification-status-v1.json">Machine-readable status</a>
       </div>
       <p style="color:#64748b;font-size:.8rem;margin:.85rem 0 0;">
-        Optional one-command (clone repo): <code>npm run verify:public-portal</code>
+        Optional (clone repo): <code>npm run verify:public-portal</code>
+        · local ops cockpit (verify only): <code>npm run ops:ai-cockpit</code>
         · Full guide: <a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/BUILDER_QUICKSTART.md">BUILDER_QUICKSTART</a>
+        · mint path package (NO-GO checklist):
+        <a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/governance/PUBLIC_MINT_EXECUTION_PATH_PACKAGE_V1.md">PUBLIC_MINT_EXECUTION_PATH_PACKAGE_V1</a>
       </p>
     </div>
   </section>

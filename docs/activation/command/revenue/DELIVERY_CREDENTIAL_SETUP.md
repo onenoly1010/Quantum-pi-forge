@@ -10,7 +10,7 @@
 
 | Layer | Location | Purpose |
 | --- | --- | --- |
-| **Primary (local runtime)** | OS keychain / secret service, encrypted secret manager, or dotenv file outside the repository | Delivery layer processes running on the operator machine |
+| **Primary (local runtime)** | OS keychain / secret service, encrypted secret manager, GPG-encrypted `pass` store, or dotenv file outside the repository | Delivery layer processes running on the operator machine |
 | **Secondary (CI only)** | GitHub Actions repository secrets | Automated Discord diagnostics and non-outreach CI jobs |
 | **Forbidden** | A tracked or committed secret file, including a tracked `.env` | Prevents accidental commit / exposure |
 
@@ -21,9 +21,12 @@
    - macOS: Keychain Access  
    - Windows: Credential Manager  
 2. Encrypted secret manager loaded at process start (e.g. age / sops decrypted into memory only)  
-3. Gitignored dotenv file **outside** the repository root. Do not place credential files in the working tree, even when ignored.
+3. GPG-encrypted [`pass`](https://www.passwordstore.org/) store using `qpf/revenue-delivery/<VARIABLE_NAME>` entries
+4. Gitignored dotenv file **outside** the repository root. Do not place credential files in the working tree, even when ignored.
 
 Applications **must** load credentials only through the approved loader path. They must never hard-code, print, or log secret values.
+
+GitHub Actions secrets are a separate CI mirror, not the runtime source for local outreach. They must use identical variable names and be set only when a workflow genuinely requires them. Do not use a GitHub CLI keyring credential as an outreach credential.
 
 ---
 
@@ -56,7 +59,7 @@ Presence is required for the corresponding channel to be considered **configured
 ## 3. How applications access credentials
 
 1. Process starts with an explicit “delivery mode” flag or script entrypoint.
-2. Loader reads **only** from the approved local source (keychain or gitignored env).
+2. Loader reads **only** from the approved local source (keychain, encrypted store, or gitignored env outside the repo).
 3. Loader returns a presence map + opaque handles; it never returns the raw secret to logging or stdout.
 4. Delivery code uses the handle for the single authorized action, then discards it.
 5. If any required variable for the selected channel is missing or fails the format check, the process exits with a non-zero status and a presence-only report. No send is attempted.
@@ -115,8 +118,7 @@ node scripts/delivery-credential-health-check.mjs --channel x
 
 Expected output shape (example):
 
-```
-```
+```text
 x:
   TWITTER_API_KEY            configured
   TWITTER_API_SECRET         configured
@@ -151,9 +153,13 @@ No cryptographic or provider-side validation is performed by the health check (t
    secret-tool store --label="QPF Delivery Discord" service qpf-delivery key DISCORD_WEBHOOK_URL
    # paste value when prompted; never echo it into shell history
    ```
-3. Alternatively, create a file **outside** the repo or ensure it is covered by `.gitignore`, then export or load it only for the delivery process.
-4. Run the health check for each channel you intend to enable until it reports `configured`.
-5. Keep human-send as the default for the first revenue expedition targets.
+3. Alternatively, use `pass` with operator-controlled GPG access:
+   ```bash
+   pass insert -m qpf/revenue-delivery/TWITTER_API_KEY
+   ```
+4. Alternatively, create a file **outside** the repo or ensure it is covered by `.gitignore`, then export or load it only for the delivery process.
+5. Run the health check for each channel you intend to enable until it reports `configured`.
+6. Keep human-send as the default for the first revenue expedition targets.
 
 ---
 

@@ -1,0 +1,166 @@
+{
+  "schema": "qpf-deployed-addresses-verification-v1",
+  "audit_boundary": {
+    "NO_WALLET_TOUCH": true,
+    "no_signing": true,
+    "no_transfers": true,
+    "no_deployments": true,
+    "no_auto_merge": true,
+    "mode": "read-only evidence collection"
+  },
+  "issue_tracker": "https://github.com/onenoly1010/Quantum-pi-forge/issues/673",
+  "verified_at_utc": "2026-08-01T19:03:00Z",
+  "phase_a_endpoint_reachability": {
+    "url": "https://quantumpiforge.com/deployed-addresses",
+    "source_file": "deploy/deployed-addresses.html",
+    "source_present_in_repo": true,
+    "included_in_build_output": true,
+    "build_destination": "out/deployed-addresses.html",
+    "note": "Page is statically built and deployed via Cloudflare Pages. Reachability of the live URL depends on active Cloudflare Pages deployment."
+  },
+  "phase_b_address_extraction": {
+    "network": "0G Aristotle Mainnet",
+    "chain_id": 16661,
+    "chain_id_hex": "0x4115",
+    "rpc_endpoint": "https://evmrpc.0g.ai",
+    "explorer_base": "https://chainscan.0g.ai",
+    "source_url": "https://quantumpiforge.com/deployed-addresses",
+    "contracts": [
+      {
+        "name": "OINIO Token",
+        "role": "Primary ERC-20 governance/utility token",
+        "environment": "mainnet",
+        "address": "0x75995EC0fdf881189850aeD864cB3f43c0DFCb58",
+        "explorer_url": "https://chainscan.0g.ai/address/0x75995EC0fdf881189850aeD864cB3f43c0DFCb58"
+      },
+      {
+        "name": "OINIO Model Registry",
+        "role": "On-chain model registry for AI agents",
+        "environment": "mainnet",
+        "address": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+        "explorer_url": "https://chainscan.0g.ai/address/0x67aD7169184581f23D1E10B39d4eb4e98293E87a"
+      },
+      {
+        "name": "Heartbeat Monitor",
+        "role": "System health heartbeat contract",
+        "environment": "mainnet",
+        "address": "0x5E50b92E57e854659f7D98c733088aABd551C49F",
+        "explorer_url": "https://chainscan.0g.ai/address/0x5E50b92E57e854659f7D98c733088aABd551C49F"
+      },
+      {
+        "name": "ForgeRegistry",
+        "role": "Canonical forge component registry",
+        "environment": "mainnet",
+        "address": "0x6011c341a01c80f489a5c3Ab751987A55142F04e",
+        "explorer_url": "https://chainscan.0g.ai/address/0x6011c341a01c80f489a5c3Ab751987A55142F04e"
+      },
+      {
+        "name": "DEX Factory",
+        "role": "Uniswap-v2-style DEX factory",
+        "environment": "mainnet",
+        "address": "0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8",
+        "explorer_url": "https://chainscan.0g.ai/address/0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8"
+      },
+      {
+        "name": "DEX Router",
+        "role": "Uniswap-v2-style DEX router",
+        "environment": "mainnet",
+        "address": "0x2c70129E50BF88eCD59b89d63af2e8920aCF3951",
+        "explorer_url": "https://chainscan.0g.ai/address/0x2c70129E50BF88eCD59b89d63af2e8920aCF3951"
+      },
+      {
+        "name": "DEX Pair W0G/USDC.e",
+        "role": "Liquidity pair contract (reserves 0/0 — not yet seeded)",
+        "environment": "mainnet",
+        "address": "0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE",
+        "explorer_url": "https://chainscan.0g.ai/address/0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE",
+        "notes": "Pair contract exists; reserves 0/0. Liquidity NOT authorized per economic boundary."
+      },
+      {
+        "name": "Safe Guardian",
+        "role": "Multi-sig guardian safe",
+        "environment": "mainnet",
+        "address": "0x8d088B88219D072aB035502065ee2410c2cb4389",
+        "explorer_url": "https://chainscan.0g.ai/address/0x8d088B88219D072aB035502065ee2410c2cb4389"
+      },
+      {
+        "name": "OINIO Token (secondary listing)",
+        "role": "Alternate / secondary OINIO ERC-20 listing — listed for transparency",
+        "environment": "mainnet",
+        "address": "0x709f23C7A7172E137427576abB5Eb8959E2A57c1",
+        "explorer_url": "https://chainscan.0g.ai/address/0x709f23C7A7172E137427576abB5Eb8959E2A57c1",
+        "notes": "Prefer primary token address (0x75995EC0...) unless dual-set role is explicitly required."
+      }
+    ]
+  },
+  "phase_c_address_validation": {
+    "method": "EIP-55 mixed-case checksum (keccak256)",
+    "total_addresses": 9,
+    "results": [
+      { "address": "0x75995EC0fdf881189850aeD864cB3f43c0DFCb58", "format_valid": true, "eip55_checksum_valid": true },
+      { "address": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a", "format_valid": true, "eip55_checksum_valid": true },
+      { "address": "0x5E50b92E57e854659f7D98c733088aABd551C49F", "format_valid": true, "eip55_checksum_valid": true },
+      { "address": "0x6011c341a01c80f489a5c3Ab751987A55142F04e", "format_valid": true, "eip55_checksum_valid": true },
+      { "address": "0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8", "format_valid": true, "eip55_checksum_valid": true },
+      { "address": "0x2c70129E50BF88eCD59b89d63af2e8920aCF3951", "format_valid": true, "eip55_checksum_valid": true },
+      { "address": "0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE", "format_valid": true, "eip55_checksum_valid": true },
+      { "address": "0x8d088B88219D072aB035502065ee2410c2cb4389", "format_valid": true, "eip55_checksum_valid": true },
+      { "address": "0x709f23C7A7172E137427576abB5Eb8959E2A57c1", "format_valid": true, "eip55_checksum_valid": true }
+    ],
+    "all_format_valid": true,
+    "all_checksums_valid": true
+  },
+  "phase_c_duplicate_scan": {
+    "method": "case-insensitive address comparison",
+    "total_addresses_checked": 9,
+    "duplicates_found": 0,
+    "conflicts_found": 0,
+    "result": "PASS"
+  },
+  "phase_d_rpc_consistency": {
+    "status": "PENDING_LIVE_RPC",
+    "note": "Live eth_getCode RPC checks require network access to https://evmrpc.0g.ai. Verification script is available at scripts/verification/zero-g/verify-uniswap.sh. Run manually against live RPC to complete this phase.",
+    "verify_commands": [
+      "curl -s https://evmrpc.0g.ai -X POST -H 'Content-Type: application/json' -d '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"eth_getCode\",\"params\":[\"0x75995EC0fdf881189850aeD864cB3f43c0DFCb58\",\"latest\"]}' | jq .result",
+      "curl -s https://evmrpc.0g.ai -X POST -H 'Content-Type: application/json' -d '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"eth_getCode\",\"params\":[\"0x8d088B88219D072aB035502065ee2410c2cb4389\",\"latest\"]}' | jq .result"
+    ]
+  },
+  "phase_d_registry_consistency": {
+    "status": "PENDING_LIVE_RPC",
+    "source": "deploy/verification-status-v1.json",
+    "core_contracts_in_status_file": 8,
+    "core_contracts_on_page": 9,
+    "discrepancy": "OINIO Token (secondary listing) at 0x709f23C7A7172E137427576abB5Eb8959E2A57c1 is present on the page but not listed in verification-status-v1.json core_contracts. It is documented on the page as a secondary/transparency listing.",
+    "registry_file_present": true
+  },
+  "final_status": {
+    "verdict": "PASS_WITH_WARNINGS",
+    "warnings": [
+      {
+        "code": "W-001",
+        "description": "Live RPC connectivity not available in this environment. eth_getCode and registry/RPC cross-checks are pending. Run scripts/verification/zero-g/verify-uniswap.sh against live RPC to complete Phase D.",
+        "severity": "informational",
+        "remediation": "Execute live RPC verification pass from an internet-connected environment."
+      },
+      {
+        "code": "W-002",
+        "description": "OINIO Token (secondary listing) at 0x709f23C7A7172E137427576abB5Eb8959E2A57c1 appears on the page but is absent from verification-status-v1.json core_contracts array.",
+        "severity": "low",
+        "remediation": "Consider adding the secondary token address to verification-status-v1.json for completeness, or explicitly note its secondary status there."
+      }
+    ],
+    "completed_checks": [
+      "source file present in repository",
+      "page included in build output (out/deployed-addresses.html)",
+      "all 9 address formats valid (0x + 40 hex chars)",
+      "all 9 EIP-55 checksums valid",
+      "no duplicate or conflicting addresses"
+    ],
+    "pending_checks": [
+      "live endpoint HTTP reachability (requires deployed environment)",
+      "eth_getCode RPC lookup per address (requires live RPC access)",
+      "registry cross-check (requires live RPC access)"
+    ]
+  },
+  "audit_note": "This report and associated validation are read-only and comply with NO_WALLET_TOUCH=true (no wallet signing, no transfers, no deployments, no auto-merges). Canonical tracker: https://github.com/onenoly1010/Quantum-pi-forge/issues/673."
+}

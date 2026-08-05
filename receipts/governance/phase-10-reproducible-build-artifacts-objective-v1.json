@@ -1,0 +1,13 @@
+{
+  "governance_version": "v1",
+  "receipt": "phase-10-reproducible-build-artifacts-objective-v1",
+  "phase": 10,
+  "title": "Reproducible Versioned Build Artifacts",
+  "status": "PHASE_10_EXECUTION_AUTHORIZED",
+  "mode": "read_only_artifact_reproducibility",
+  "objective": "Create a reproducible, versioned build-artifact pipeline that records compiler settings and normalized runtime-bytecode hashes for declared artifacts, enabling later source-identity comparison without asserting a match until comparison evidence supports it.",
+  "included_scope": ["Deterministic local contract build procedure", "Versioned artifact manifest with compiler metadata and hashes", "Runtime-bytecode normalization documentation and validation", "Machine-readable artifact provenance and integrity checks", "Static build and CI validation"],
+  "excluded_scope": ["Wallet actions", "Transactions or contract mutations", "Deployment initiation", "Token, liquidity, minting, or asset actions", "Credential use", "External system mutations", "Ownership or behavioral verification claims", "Automatic MATCHED source-identity claims", "Authoritative deployment declaration mutation"],
+  "success_criteria": ["Every versioned artifact record includes a source path, compiler version, optimizer settings, normalized runtime-bytecode hash, and reproducible build command.", "CI rebuilds or validates the artifact manifest deterministically.", "Artifact records distinguish present artifacts from missing or unreproducible ones.", "No Phase 9 source-identity state is upgraded without a separate verified comparison.", "The static build and verification checks pass."],
+  "authorization_boundary": {"implementation": true, "deployment_initiation": false, "wallet_or_contract_actions": false, "external_communications": false, "credential_use": false}
+}

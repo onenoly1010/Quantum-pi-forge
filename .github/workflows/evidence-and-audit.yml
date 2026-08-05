@@ -27,5 +27,32 @@ jobs:
       - name: Verify evidence bundle
         run: npm run verify:evidence
 
+      - name: Verify capability manifest
+        run: npm run verify:capability-manifest
+
+      - name: Verify capability registry
+        run: npm run verify:capability-registry
+
+      - name: Verify evidence completeness
+        run: npm run verify:evidence-completeness
+
+      - name: Verify deployment provenance
+        run: npm run verify:deployment-provenance
+
+      - name: Verify live RPC correspondence
+        run: npm run verify:live-rpc-correspondence
+
+      - name: Verify source identity correspondence
+        run: npm run verify:source-identity-correspondence
+
+      - name: Verify build artifact manifest
+        run: npm run verify:build-artifact-manifest
+
+      - name: Verify independent surface
+        run: npm run verify:independent
+
+      - name: Verify artifact deployment comparison
+        run: npm run verify:artifact-deployment-comparison
+
       - name: Enforce high-severity audit gate
         run: npm audit --audit-level=high

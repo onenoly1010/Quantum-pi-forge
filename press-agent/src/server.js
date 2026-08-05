@@ -13,26 +13,6 @@ const logger = require('./logger');
 const articleTemplates = require('./templates');
 const { WordPressPublisher } = require('./publishers/wordpress');
 
-
-function renderTemplateString(value, data = {}) {
-  if (typeof value !== 'string') return value;
-
-  return value.replace(/\{\{\s*([A-Za-z0-9_]+)\s*\}\}/g, (match, key) => {
-    const replacement = data[key];
-    return replacement === undefined || replacement === null ? match : String(replacement);
-  });
-}
-
-function renderTemplateObject(template, data = {}) {
-  return {
-    ...template,
-    title: renderTemplateString(template.title, data),
-    content: renderTemplateString(template.content, data),
-    excerpt: renderTemplateString(template.excerpt, data),
-  };
-}
-
-
 const app = express();
 const PORT = process.env.PRESS_AGENT_PORT || 3001;
 
@@ -544,37 +524,38 @@ app.get('/api/logs', (req, res) => {
     });
 });
 
-// Scheduled job to process pending publications (runs every 5 minutes)
-cron.schedule('*/5 * * * *', async () => {
-    const now = new Date();
-    
-    for (const [scheduleId, schedule] of scheduledPublications) {
-        if (schedule.status === 'scheduled' && new Date(schedule.publishAt) <= now) {
-            logger.info('Processing scheduled publication', { scheduleId });
-            
-            const article = articles.get(schedule.articleId);
-            if (article) {
-                // Mark as published (in production, would call actual publish)
-                article.metadata.status = 'published';
-                article.metadata.publishedAt = now.toISOString();
-                article.metadata.publishedPlatform = schedule.platform;
-                articles.set(article.id, article);
-                
-                schedule.status = 'completed';
-                schedule.completedAt = now.toISOString();
-                scheduledPublications.set(scheduleId, schedule);
-                
-                logger.info('Scheduled publication completed', { 
-                    articleId: article.id, 
-                    scheduleId 
-                });
+function startPublicationScheduler() {
+    return cron.schedule('*/5 * * * *', async () => {
+        const now = new Date();
+
+        for (const [scheduleId, schedule] of scheduledPublications) {
+            if (schedule.status === 'scheduled' && new Date(schedule.publishAt) <= now) {
+                logger.info('Processing scheduled publication', { scheduleId });
+
+                const article = articles.get(schedule.articleId);
+                if (article) {
+                    // Mark as published (in production, would call actual publish)
+                    article.metadata.status = 'published';
+                    article.metadata.publishedAt = now.toISOString();
+                    article.metadata.publishedPlatform = schedule.platform;
+                    articles.set(article.id, article);
+
+                    schedule.status = 'completed';
+                    schedule.completedAt = now.toISOString();
+                    scheduledPublications.set(scheduleId, schedule);
+
+                    logger.info('Scheduled publication completed', {
+                        articleId: article.id,
+                        scheduleId
+                    });
+                }
             }
         }
-    }
-});
+    });
+}
 
 // Error handling middleware
-app.use((err, req, res, next) => {
+app.use((err, req, res, _next) => {
     logger.error('Unhandled error', { error: err.message, stack: err.stack });
     res.status(500).json({
         success: false,
@@ -584,6 +565,7 @@ app.use((err, req, res, next) => {
 
 // Start server
 if (require.main === module) {
+    startPublicationScheduler();
     app.listen(PORT, () => {
         logger.info(`Quantum Pi Forge Press Agent started`, { port: PORT });
         console.log(`🚀 Press Agent API running on http://localhost:${PORT}`);
@@ -592,4 +574,4 @@ if (require.main === module) {
     });
 }
 
-module.exports = { app, articles, scheduledPublications };
+module.exports = { app, articles, scheduledPublications, startPublicationScheduler };

@@ -1,0 +1,63 @@
+{
+  "schema": "qpf.revenue_operating_alignment.v1",
+  "receipt": "qpf-revenue-operating-alignment-v1",
+  "assessed_at_utc": "2026-07-31T23:47:23Z",
+  "workflow_state": "BLOCKED_DELIVERY_CAPABILITY_UNAVAILABLE",
+  "completed_state": {
+    "prospects_reverified": 10,
+    "approved_for_human_delivery": [
+      "ICME Labs",
+      "Giza",
+      "Nillion"
+    ],
+    "rejected_on_reverification": 7,
+    "message_drafts_and_receipts_prepared": true
+  },
+  "available_execution_capabilities": {
+    "local_cli": [
+      "gh",
+      "curl",
+      "node",
+      "python3",
+      "xdg-open"
+    ],
+    "x_posting_scaffold": {
+      "path": "press-agent/src/bots/twitter.js",
+      "supports_public_post": true,
+      "supports_direct_outreach": false,
+      "credential_state": {
+        "TWITTER_API_KEY": "EMPTY",
+        "TWITTER_API_SECRET": "EMPTY",
+        "TWITTER_ACCESS_TOKEN": "EMPTY",
+        "TWITTER_ACCESS_SECRET": "EMPTY",
+        "PRESS_AGENT_LIVE_X_POST": "EMPTY"
+      }
+    },
+    "contact_form_clients": {
+      "icme": false,
+      "nillion": false
+    },
+    "delivery_evidence_capture": false
+  },
+  "blockers": [
+    "No authenticated X sender is configured, and the existing X scaffold cannot send a private outreach message.",
+    "No supported or authenticated client exists for ICME's or Nillion's official contact forms.",
+    "No configured delivery-evidence integration exists to establish SENT from a message identifier, permalink, or form confirmation."
+  ],
+  "recommended_next_action": "Provision a policy-approved private-message or form-submission integration with evidence capture, or complete one approved delivery manually and supply its independent confirmation.",
+  "safety_boundary": {
+    "external_delivery_executed": false,
+    "wallet_actions": false,
+    "contract_actions": false,
+    "payment_actions": false,
+    "automated_bulk_sending": false,
+    "partnership_claimed": false,
+    "engagement_claimed": false,
+    "revenue_claimed": false,
+    "payment_claimed": false
+  },
+  "references": {
+    "queue_reverification": "receipts/outreach/qpf-prospect-queue-reverification-v1-20260731T231930Z.json",
+    "execution_readiness": "receipts/outreach/qpf-revenue-execution-readiness-v1-20260731T234140Z.json"
+  }
+}

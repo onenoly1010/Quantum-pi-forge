@@ -1,0 +1,58 @@
+{
+  "schema": "qpf.revenue_execution_readiness.v1",
+  "receipt": "qpf-revenue-execution-readiness-v1",
+  "assessed_at_utc": "2026-07-31T23:41:40Z",
+  "workflow_state": "BLOCKED_DELIVERY_CAPABILITY_UNAVAILABLE",
+  "authorization_state": {
+    "queue_wide_human_approval_recorded": true,
+    "approved_for_human_delivery": [
+      "ICME Labs",
+      "Giza",
+      "Nillion"
+    ],
+    "automated_sending": false
+  },
+  "completed": [
+    "Revenue activation queue created",
+    "Ten prospects researched and ranked",
+    "All queued prospects re-verified",
+    "Three prospects approved for human delivery",
+    "Seven prospects rejected on re-verification",
+    "Approved message references and review receipts recorded"
+  ],
+  "available_local_tools": {
+    "gh_cli": true,
+    "curl": true,
+    "node": true,
+    "python3": true,
+    "xdg_open": true
+  },
+  "delivery_capability": {
+    "configured_authenticated_x_sender": false,
+    "configured_icme_contact_form_client": false,
+    "configured_nillion_contact_form_client": false,
+    "delivery_evidence_capture_integration": false
+  },
+  "exact_missing_requirements": [
+    "An authenticated, policy-approved X delivery integration for Giza, or human completion through the verified official X channel.",
+    "A documented and authenticated submission path for ICME's official contact form, including any anti-abuse or consent requirements, or human completion through that form.",
+    "A documented and authenticated submission path for Nillion's official contact form, including any anti-abuse or consent requirements, or human completion through that form.",
+    "A delivery-evidence source, such as a submitted-form confirmation, message permalink, or sent-message identifier, before recording SENT."
+  ],
+  "safety_boundary": {
+    "wallet_actions": false,
+    "contract_actions": false,
+    "payment_actions": false,
+    "automated_bulk_sending": false,
+    "partnership_claimed": false,
+    "engagement_claimed": false,
+    "revenue_claimed": false,
+    "payment_claimed": false
+  },
+  "references": {
+    "queue_reverification": "receipts/outreach/qpf-prospect-queue-reverification-v1-20260731T231930Z.json",
+    "icme_message": "docs/activation/command/revenue/prospects/ICME_PREFLIGHT_EVIDENCE_REVIEW_OUTREACH_V1.md",
+    "giza_message": "docs/activation/command/revenue/prospects/GIZA_AUTONOMOUS_AGENT_EVIDENCE_REVIEW_OUTREACH_V1.md",
+    "nillion_message": "docs/activation/command/revenue/prospects/NILLION_CONFIDENTIAL_COMPUTE_EVIDENCE_REVIEW_OUTREACH_V1.md"
+  }
+}

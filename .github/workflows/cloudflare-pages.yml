@@ -19,6 +19,7 @@ on:
       - 'next.config.mjs'
       - 'vite.config.ts'
       - 'wrangler.toml'
+      - 'wrangler.pages.toml'
       - '.github/workflows/cloudflare-pages.yml'
   workflow_dispatch:
 
@@ -58,14 +59,16 @@ jobs:
           test -f out/_redirects
           find out -maxdepth 2 -type f | sort | sed -n '1,120p'
 
+      - name: Prepare Pages-specific Wrangler config
+        run: cp wrangler.pages.toml out/wrangler.toml
+
       - name: Deploy to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: quantumpiforge
-          # Run from the static output so Wrangler does not load the root
-          # Worker configuration, whose [assets] section is invalid for Pages.
-          workingDirectory: out
-          directory: .
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+        working-directory: ${{ runner.temp }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          "${GITHUB_WORKSPACE}/node_modules/.bin/wrangler" pages deploy \
+            "${GITHUB_WORKSPACE}/out" \
+            --project-name=quantumpiforge \
+            --branch="${GITHUB_REF_NAME}"

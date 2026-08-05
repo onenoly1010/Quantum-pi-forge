@@ -8,6 +8,24 @@
     "deploy:cf": "bash scripts/deploy-cloudflare-pages.sh",
     "verify:receipt": "node scripts/verify-hermes-receipt.cjs",
     "verify:evidence-index": "node scripts/verify-evidence-index.cjs",
+    "generate:capability-manifest": "node scripts/generate-capability-manifest.cjs",
+    "verify:capability-manifest": "node scripts/verify-capability-manifest.cjs",
+    "generate:capability-registry": "node scripts/generate-capability-registry.cjs",
+    "verify:capability-registry": "node scripts/verify-capability-registry.cjs",
+    "generate:evidence-completeness": "node scripts/generate-evidence-completeness.cjs",
+    "verify:evidence-completeness": "node scripts/verify-evidence-completeness.cjs",
+    "generate:deployment-provenance": "node scripts/generate-deployment-provenance.cjs",
+    "verify:deployment-provenance": "node scripts/verify-deployment-provenance.cjs",
+    "collect:live-rpc-correspondence": "node scripts/collect-live-rpc-correspondence.cjs",
+    "generate:live-rpc-correspondence": "node scripts/generate-live-rpc-correspondence.cjs",
+    "verify:live-rpc-correspondence": "node scripts/verify-live-rpc-correspondence.cjs",
+    "generate:source-identity-correspondence": "node scripts/generate-source-identity-correspondence.cjs",
+    "verify:source-identity-correspondence": "node scripts/verify-source-identity-correspondence.cjs",
+    "generate:build-artifact-manifest": "node scripts/generate-build-artifact-manifest.cjs",
+    "verify:build-artifact-manifest": "node scripts/verify-build-artifact-manifest.cjs",
+    "verify:independent": "node scripts/verify-independent.cjs",
+    "generate:artifact-deployment-comparison": "node scripts/generate-artifact-deployment-comparison.cjs",
+    "verify:artifact-deployment-comparison": "node scripts/verify-artifact-deployment-comparison.cjs",
     "evidence:receipt": "node scripts/generate-evidence-receipt.cjs",
     "evidence:receipt:check": "node scripts/check-evidence-receipt.cjs",
     "verify:claim-map": "node scripts/verify-claim-map.cjs",
@@ -277,7 +295,11 @@
     "reality:brief": "node scripts/reality-engine/run.mjs --brief-only",
     "reality:claim-map": "node scripts/reality-engine/claim-map.mjs",
     "reality:full": "node scripts/reality-engine/run.mjs --with-claim-map",
-    "verify:public-portal": "node scripts/verify-public-portal.mjs"
+    "verify:public-portal": "node scripts/verify-public-portal.mjs",
+    "ops:verify-report": "bash scripts/local-verify-report.sh",
+    "ops:project-state": "node scripts/project-state.cjs --prefer-report",
+    "ops:ai-cockpit": "bash scripts/ai-cockpit.sh",
+    "ops:ai-cockpit:quick": "bash scripts/ai-cockpit.sh --quick"
   },
   "dependencies": {
     "@0gfoundation/0g-compute-ts-sdk": "^0.8.4",
@@ -292,7 +314,7 @@
     "@uniswap/v2-core": "^1.0.1",
     "@uniswap/v2-periphery": "^1.1.0-beta.0",
     "solc": "^0.8.36",
-    "wrangler": "^4.115.0"
+    "wrangler": "^4.118.0"
   },
   "overrides": {
     "ws": "^8.21.0",
@@ -300,6 +322,8 @@
     "uuid": "^11.1.1",
     "esbuild": "0.28.1",
     "adm-zip": "0.6.0",
-    "brace-expansion": "5.0.9"
+    "brace-expansion": "5.0.9",
+    "fast-uri": "3.1.5",
+    "undici": "7.29.0"
   }
 }

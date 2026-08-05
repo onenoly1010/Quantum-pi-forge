@@ -1,0 +1,122 @@
+{
+  "schemaVersion": "qpf-deployment-provenance-v1",
+  "purpose": "Derived read-only deployment correspondence. PARTIAL and UNKNOWN are not live-chain assertions.",
+  "authorityBoundary": {
+    "NO_WALLET_TOUCH": true,
+    "no_signing": true,
+    "no_transfers": true,
+    "no_deployments": true,
+    "no_auto_merge": true,
+    "mode": "read-only evidence collection"
+  },
+  "entries": [
+    {
+      "id": "0x75995ec0fdf881189850aed864cb3f43c0dfcb58",
+      "name": "OINIO Token",
+      "address": "0x75995EC0fdf881189850aeD864cB3f43c0DFCb58",
+      "correspondenceState": "PARTIAL",
+      "declaredReference": "deploy/verification-status-v1.json",
+      "observedReference": "deploy/deployed-addresses-verification.json",
+      "verificationMethod": "EIP-55 checksum and repository-source comparison",
+      "observedAt": "2026-08-01T19:03:00Z",
+      "liveRpcState": "PENDING_LIVE_RPC",
+      "gap": "Live RPC eth_getCode correspondence is pending."
+    },
+    {
+      "id": "0x67ad7169184581f23d1e10b39d4eb4e98293e87a",
+      "name": "OINIO Model Registry",
+      "address": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+      "correspondenceState": "PARTIAL",
+      "declaredReference": "deploy/verification-status-v1.json",
+      "observedReference": "deploy/deployed-addresses-verification.json",
+      "verificationMethod": "EIP-55 checksum and repository-source comparison",
+      "observedAt": "2026-08-01T19:03:00Z",
+      "liveRpcState": "PENDING_LIVE_RPC",
+      "gap": "Live RPC eth_getCode correspondence is pending."
+    },
+    {
+      "id": "0x5e50b92e57e854659f7d98c733088aabd551c49f",
+      "name": "Heartbeat Monitor",
+      "address": "0x5E50b92E57e854659f7D98c733088aABd551C49F",
+      "correspondenceState": "PARTIAL",
+      "declaredReference": "deploy/verification-status-v1.json",
+      "observedReference": "deploy/deployed-addresses-verification.json",
+      "verificationMethod": "EIP-55 checksum and repository-source comparison",
+      "observedAt": "2026-08-01T19:03:00Z",
+      "liveRpcState": "PENDING_LIVE_RPC",
+      "gap": "Live RPC eth_getCode correspondence is pending."
+    },
+    {
+      "id": "0x6011c341a01c80f489a5c3ab751987a55142f04e",
+      "name": "ForgeRegistry",
+      "address": "0x6011c341a01c80f489a5c3Ab751987A55142F04e",
+      "correspondenceState": "PARTIAL",
+      "declaredReference": "deploy/verification-status-v1.json",
+      "observedReference": "deploy/deployed-addresses-verification.json",
+      "verificationMethod": "EIP-55 checksum and repository-source comparison",
+      "observedAt": "2026-08-01T19:03:00Z",
+      "liveRpcState": "PENDING_LIVE_RPC",
+      "gap": "Live RPC eth_getCode correspondence is pending."
+    },
+    {
+      "id": "0x215e28f94f68c70ea5b79d9fc062def4f7b7d3f8",
+      "name": "DEX Factory",
+      "address": "0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8",
+      "correspondenceState": "PARTIAL",
+      "declaredReference": "deploy/verification-status-v1.json",
+      "observedReference": "deploy/deployed-addresses-verification.json",
+      "verificationMethod": "EIP-55 checksum and repository-source comparison",
+      "observedAt": "2026-08-01T19:03:00Z",
+      "liveRpcState": "PENDING_LIVE_RPC",
+      "gap": "Live RPC eth_getCode correspondence is pending."
+    },
+    {
+      "id": "0x2c70129e50bf88ecd59b89d63af2e8920acf3951",
+      "name": "DEX Router",
+      "address": "0x2c70129E50BF88eCD59b89d63af2e8920aCF3951",
+      "correspondenceState": "PARTIAL",
+      "declaredReference": "deploy/verification-status-v1.json",
+      "observedReference": "deploy/deployed-addresses-verification.json",
+      "verificationMethod": "EIP-55 checksum and repository-source comparison",
+      "observedAt": "2026-08-01T19:03:00Z",
+      "liveRpcState": "PENDING_LIVE_RPC",
+      "gap": "Live RPC eth_getCode correspondence is pending."
+    },
+    {
+      "id": "0x2067319dc61ccdcdcdc13abe0c72ea3d7318aaee",
+      "name": "DEX Pair W0G/USDC.e",
+      "address": "0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE",
+      "correspondenceState": "PARTIAL",
+      "declaredReference": "deploy/verification-status-v1.json",
+      "observedReference": "deploy/deployed-addresses-verification.json",
+      "verificationMethod": "EIP-55 checksum and repository-source comparison",
+      "observedAt": "2026-08-01T19:03:00Z",
+      "liveRpcState": "PENDING_LIVE_RPC",
+      "gap": "Live RPC eth_getCode correspondence is pending."
+    },
+    {
+      "id": "0x8d088b88219d072ab035502065ee2410c2cb4389",
+      "name": "Safe Guardian",
+      "address": "0x8d088B88219D072aB035502065ee2410c2cb4389",
+      "correspondenceState": "PARTIAL",
+      "declaredReference": "deploy/verification-status-v1.json",
+      "observedReference": "deploy/deployed-addresses-verification.json",
+      "verificationMethod": "EIP-55 checksum and repository-source comparison",
+      "observedAt": "2026-08-01T19:03:00Z",
+      "liveRpcState": "PENDING_LIVE_RPC",
+      "gap": "Live RPC eth_getCode correspondence is pending."
+    },
+    {
+      "id": "0x709f23c7a7172e137427576abb5eb8959e2a57c1",
+      "name": "OINIO Token (secondary listing)",
+      "address": "0x709f23C7A7172E137427576abB5Eb8959E2A57c1",
+      "correspondenceState": "UNKNOWN",
+      "declaredReference": "UNKNOWN",
+      "observedReference": "deploy/deployed-addresses-verification.json",
+      "verificationMethod": "EIP-55 checksum and repository-source comparison",
+      "observedAt": "2026-08-01T19:03:00Z",
+      "liveRpcState": "PENDING_LIVE_RPC",
+      "gap": "No matching declared core-contract entry is available."
+    }
+  ]
+}

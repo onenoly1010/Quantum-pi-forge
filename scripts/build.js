@@ -28,7 +28,21 @@ const staticFiles = [
   { src: 'deploy/why-this-matters.html', dest: 'why-this-matters.html' },
   { src: 'deploy/human-onboarding.html', dest: 'human-onboarding.html' },
   { src: 'deploy/deployed-addresses.html', dest: 'deployed-addresses.html' },
+  { src: 'deploy/capabilities.html', dest: 'capabilities.html' },
+  { src: 'deploy/evidence-completeness.html', dest: 'evidence-completeness.html' },
   { src: 'deploy/verification-status-v1.json', dest: 'verification-status-v1.json' },
+  { src: 'deploy/capability-manifest.json', dest: 'capability-manifest.json' },
+  { src: 'deploy/capability-registry-v1.json', dest: 'capability-registry-v1.json' },
+  { src: 'deploy/evidence-completeness-v1.json', dest: 'evidence-completeness-v1.json' },
+  { src: 'deploy/deployment-provenance-v1.json', dest: 'deployment-provenance-v1.json' },
+  { src: 'deploy/live-rpc-correspondence-v1.json', dest: 'live-rpc-correspondence-v1.json' },
+  { src: 'deploy/source-identity-correspondence-v1.json', dest: 'source-identity-correspondence-v1.json' },
+  { src: 'deploy/independent-verification-v1.json', dest: 'independent-verification-v1.json' },
+  { src: 'deploy/artifact-deployment-comparison-v1.json', dest: 'artifact-deployment-comparison-v1.json' },
+  { src: 'deploy/deployed-addresses-verification.json', dest: 'deployed-addresses-verification.json' },
+  { src: 'evidence/live-rpc-correspondence-v1.json', dest: 'evidence/live-rpc-correspondence-v1.json' },
+  { src: 'evidence/build-artifact-manifest-v1.json', dest: 'evidence/build-artifact-manifest-v1.json' },
+  { src: 'evidence/artifact-deployment-mapping-v1.json', dest: 'evidence/artifact-deployment-mapping-v1.json' },
   { src: 'deploy/onboarding-status.html', dest: 'onboarding-status.html' },
   { src: 'deploy/manifest.json', dest: 'manifest.json' },
   { src: 'mint.html', dest: 'mint.html' },
@@ -162,6 +176,36 @@ function build() {
   if (!fs.existsSync(deployDir)) {
     throw new Error('deploy/ directory is required for the public landing bundle');
   }
+
+  console.log('Generating capability manifest');
+  execSync('node scripts/generate-capability-manifest.cjs', {
+    cwd: rootDir,
+    stdio: 'inherit',
+  });
+  execSync('node scripts/generate-capability-registry.cjs', {
+    cwd: rootDir,
+    stdio: 'inherit',
+  });
+  execSync('node scripts/generate-evidence-completeness.cjs', {
+    cwd: rootDir,
+    stdio: 'inherit',
+  });
+  execSync('node scripts/generate-deployment-provenance.cjs', {
+    cwd: rootDir,
+    stdio: 'inherit',
+  });
+  execSync('node scripts/generate-live-rpc-correspondence.cjs', {
+    cwd: rootDir,
+    stdio: 'inherit',
+  });
+  execSync('node scripts/generate-source-identity-correspondence.cjs', {
+    cwd: rootDir,
+    stdio: 'inherit',
+  });
+  execSync('node scripts/generate-artifact-deployment-comparison.cjs', {
+    cwd: rootDir,
+    stdio: 'inherit',
+  });
 
   fs.rmSync(outputDir, { recursive: true, force: true });
   fs.mkdirSync(outputDir, { recursive: true });
