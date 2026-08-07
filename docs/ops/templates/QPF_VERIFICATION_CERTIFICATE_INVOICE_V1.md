@@ -20,8 +20,8 @@ order. Fill payment-routing details only in the client-delivered invoice.
 | Description | Amount |
 | --- | ---: |
 | `[Deposit before review begins OR balance on delivery]` for QPF Verification Certificate `[NUMBER]` | `$250.00 CAD` |
-| GST/HST (seller not registered) | `$0.00 CAD` |
-| **Amount due** | **`$250.00 CAD`** |
+| Applicable taxes | `[DETERMINE BEFORE ISSUE]` |
+| **Amount due** | **`[TOTAL DUE]`** |
 
 ## Payment instruction
 
@@ -34,3 +34,6 @@ project materials.
 
 This invoice is governed by accepted scope order:
 `[QPF Verification Certificate Scope Order reference]`.
+
+Do not issue this invoice until the applicable GST/HST and Saskatchewan PST
+treatment has been determined and the total due is complete.

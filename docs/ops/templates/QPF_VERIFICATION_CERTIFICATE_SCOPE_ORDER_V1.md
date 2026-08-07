@@ -30,13 +30,17 @@ outcomes.
 
 | Item | Amount |
 | --- | --- |
-| Founder certificate (#001–#003) | $500 CAD |
-| GST/HST | $0 (seller not registered) |
+| Founder certificate (#001–#003), before applicable taxes | $500 CAD |
+| Applicable taxes | `[DETERMINE BEFORE ACCEPTANCE]` |
 | Deposit due before review begins | $250 CAD |
 | Balance due on delivery | $250 CAD |
 
 Payment method: Interac e-Transfer. Add the payment recipient only to the
 issued invoice; do not store payment-routing details in source control.
+
+Before the client accepts this scope, Kris must determine and record the
+applicable GST/HST and Saskatchewan PST treatment. Do not represent the
+service as tax-free until that determination is complete.
 
 ## Client acceptance
 
