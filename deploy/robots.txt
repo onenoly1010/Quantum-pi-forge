@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 
-# Prefer problem pages and self-serve entry over deep ceremonial surfaces
+# Sitemap for public entry surfaces (home, problems, try, verification).
+# Does not block deep pages; discovery priority is via sitemap ordering.
 Sitemap: https://quantumpiforge.com/sitemap.xml
