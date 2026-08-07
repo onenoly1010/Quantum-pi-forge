@@ -299,7 +299,8 @@
     "ops:verify-report": "bash scripts/local-verify-report.sh",
     "ops:project-state": "node scripts/project-state.cjs --prefer-report",
     "ops:ai-cockpit": "bash scripts/ai-cockpit.sh",
-    "ops:ai-cockpit:quick": "bash scripts/ai-cockpit.sh --quick"
+    "ops:ai-cockpit:quick": "bash scripts/ai-cockpit.sh --quick",
+    "verify:entry-surfaces": "node scripts/verify-entry-surfaces.cjs"
   },
   "dependencies": {
     "@0gfoundation/0g-compute-ts-sdk": "^0.9.0",

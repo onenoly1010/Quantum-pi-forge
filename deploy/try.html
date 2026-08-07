@@ -4,7 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Try QPF — Verify a public deployment in minutes (self-serve)</title>
-  <meta name="description" content="One useful thing without talking to anyone: verify network and contract code on a public address. Free self-serve walkthrough.">
+  <meta name="description" content="One useful thing without talking to anyone: verify network and contract code on a public address. Free self-serve walkthrough — run in browser or with curl.">
+  <link rel="canonical" href="https://quantumpiforge.com/try.html">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://quantumpiforge.com/try.html">
+  <meta property="og:title" content="Try QPF — Verify a public deployment (self-serve)">
+  <meta property="og:description" content="Confirm chain ID and code presence on a claimed address. No account. No wallet. About 5 minutes.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Try QPF — free self-serve deployment check">
+  <meta name="twitter:description" content="Verify network + contract code yourself. No wallet required.">
   <style>
     body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.65;margin:0;background:#0b0f14;color:#eef4ff}
     main{max-width:680px;margin:0 auto;padding:48px 22px 72px}
@@ -16,10 +24,18 @@
     .nav{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:1px solid #263142;font-size:.9rem}
     .nav a{text-decoration:none}
     pre{background:#0a0e14;border:1px solid #263142;border-radius:10px;padding:14px;overflow:auto;font-size:.8rem}
-    .cta{display:inline-block;margin:8px 8px 0 0;padding:12px 18px;border-radius:999px;text-decoration:none;font-weight:700}
+    .cta{display:inline-block;margin:8px 8px 0 0;padding:12px 18px;border-radius:999px;text-decoration:none;font-weight:700;border:0;cursor:pointer;font:inherit}
     .primary{background:#8fd3ff;color:#0b0f14}
-    .secondary{border:1px solid #8fd3ff;color:#8fd3ff}
+    .secondary{border:1px solid #8fd3ff;color:#8fd3ff;background:transparent}
     .ok{color:#86efac}
+    .bad{color:#fca5a5}
+    .warn{color:#fcd34d}
+    label{display:block;font-size:.85rem;color:#a8b3c7;margin-bottom:6px}
+    input[type=text]{width:100%;box-sizing:border-box;padding:10px 12px;border-radius:10px;border:1px solid #263142;background:#0a0e14;color:#eef4ff;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.85rem}
+    #result{margin-top:12px;font-size:.92rem}
+    #result ul{margin:8px 0 0;padding-left:1.2rem}
+    details{margin-top:8px}
+    summary{cursor:pointer;color:#a8b3c7}
   </style>
 </head>
 <body>
@@ -32,42 +48,53 @@
   </nav>
 
   <h1>Try: verify a public deployment yourself</h1>
-  <p class="muted">One useful thing. No account. No wallet. No architecture tour. About 5–10 minutes if you have <code>curl</code>.</p>
+  <p class="muted">One useful thing. No account. No wallet. No architecture tour. About 5 minutes — run in this page or with <code>curl</code>.</p>
 
   <div class="card">
     <h2>What you will accomplish</h2>
     <p>Confirm the network and that code exists at a claimed contract address — the core of “is this real?”</p>
+    <p class="muted">Code present ≠ economy open. That distinction is the product.</p>
   </div>
 
   <div class="card">
-    <h2>Step 1 — Network</h2>
-    <p>RPC: <code>https://evmrpc.0g.ai</code> (0G Aristotle example)</p>
-    <pre>curl -s -X POST https://evmrpc.0g.ai \
+    <h2>Run in browser (recommended)</h2>
+    <p class="muted">Calls public 0G RPC from your browser. Default address is QPF OINIO Token (demo only).</p>
+    <label for="addr">Contract address</label>
+    <input id="addr" type="text" spellcheck="false" autocomplete="off"
+           value="0x75995EC0fdf881189850aeD864cB3f43c0DFCb58"
+           aria-describedby="addr-help">
+    <p id="addr-help" class="muted" style="margin-top:6px">RPC: <code>https://evmrpc.0g.ai</code> · expect chain <code>0x4115</code> (16661)</p>
+    <p style="margin-top:12px">
+      <button type="button" class="cta primary" id="run-check">Run check now</button>
+      <a class="cta secondary" href="/verification-status-v1.json">Open status JSON</a>
+    </p>
+    <div id="result" role="status" aria-live="polite"></div>
+  </div>
+
+  <div class="card">
+    <h2>Or use curl</h2>
+    <details>
+      <summary>Show curl steps</summary>
+      <h2 style="margin-top:1rem">Step 1 — Network</h2>
+      <pre>curl -s -X POST https://evmrpc.0g.ai \
   -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"eth_chainId","params":[]}'
 
 # expect result "0x4115" (decimal 16661)</pre>
-  </div>
-
-  <div class="card">
-    <h2>Step 2 — Code at address</h2>
-    <p>Example public address (QPF OINIO Token — for demo only):</p>
-    <pre>curl -s -X POST https://evmrpc.0g.ai \
+      <h2>Step 2 — Code at address</h2>
+      <pre>curl -s -X POST https://evmrpc.0g.ai \
   -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"eth_getCode","params":["0x75995EC0fdf881189850aeD864cB3f43c0DFCb58","latest"]}'
 
 # result longer than "0x" → code present (verified presence)
 # "0x" only → empty (not deployed or wrong chain)</pre>
+      <h2>Step 3 — Honesty layer</h2>
+      <p>Open <a href="/verification-status-v1.json">verification-status-v1.json</a> and note economic fields: mint/liquidity <span class="ok">NOT_AUTHORIZED</span> / LOCKED.</p>
+    </details>
   </div>
 
   <div class="card">
-    <h2>Step 3 — Read the public status (honesty)</h2>
-    <p>Open <a href="/verification-status-v1.json">verification-status-v1.json</a> and note economic fields: mint/liquidity <span class="ok">NOT_AUTHORIZED</span> / LOCKED.</p>
-    <p class="muted">Code present ≠ economy open. That distinction is the product.</p>
-  </div>
-
-  <div class="card">
-    <h2>Step 4 — Optional portal UI</h2>
+    <h2>Optional portal UI</h2>
     <p><a href="/deployed-addresses.html#verify-now">#verify-now</a> on the public portal — same facts without inventing activation.</p>
   </div>
 
@@ -80,5 +107,101 @@
     </p>
   </div>
 </main>
+<script>
+(function () {
+  var RPC = 'https://evmrpc.0g.ai';
+  var EXPECTED_CHAIN = '0x4115'; // 16661
+
+  function el(id) { return document.getElementById(id); }
+
+  function rpc(method, params) {
+    return fetch(RPC, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: method, params: params || [] })
+    }).then(function (r) {
+      if (!r.ok) throw new Error('RPC HTTP ' + r.status);
+      return r.json();
+    }).then(function (j) {
+      if (j.error) throw new Error(j.error.message || JSON.stringify(j.error));
+      return j.result;
+    });
+  }
+
+  function isAddress(a) {
+    return /^0x[0-9a-fA-F]{40}$/.test(a);
+  }
+
+  function setResult(html) {
+    el('result').innerHTML = html;
+  }
+
+  el('run-check').addEventListener('click', function () {
+    var addr = (el('addr').value || '').trim();
+    var btn = el('run-check');
+    btn.disabled = true;
+    setResult('<p class="muted">Checking chain and code…</p>');
+
+    if (!isAddress(addr)) {
+      setResult('<p class="bad">Enter a valid 0x address (40 hex chars).</p>');
+      btn.disabled = false;
+      return;
+    }
+
+    Promise.all([
+      rpc('eth_chainId', []),
+      rpc('eth_getCode', [addr, 'latest']),
+      fetch('/verification-status-v1.json').then(function (r) {
+        return r.ok ? r.json() : null;
+      }).catch(function () { return null; })
+    ]).then(function (parts) {
+      var chainId = parts[0];
+      var code = parts[1] || '0x';
+      var status = parts[2];
+      var chainOk = String(chainId).toLowerCase() === EXPECTED_CHAIN;
+      var codePresent = code !== '0x' && code !== '0X' && code.length > 2;
+      var lines = [];
+
+      lines.push('<ul>');
+      lines.push('<li>Chain ID: <code>' + chainId + '</code> ' +
+        (chainOk
+          ? '<span class="ok">matches 0G Aristotle (16661)</span>'
+          : '<span class="bad">unexpected (wanted 0x4115 / 16661)</span>') +
+        '</li>');
+      lines.push('<li>Code at <code>' + addr + '</code>: ' +
+        (codePresent
+          ? '<span class="ok">present</span> (' + (code.length - 2) + ' hex chars of bytecode)'
+          : '<span class="bad">empty</span> — not deployed or wrong chain') +
+        '</li>');
+
+      if (status) {
+        var mint = status.mint_status || status.mint || status.protocol_mint || 'see JSON';
+        var lp = status.liquidity_status || status.lp_status || status.liquidity || 'see JSON';
+        if (typeof mint === 'object') mint = mint.state || JSON.stringify(mint);
+        if (typeof lp === 'object') lp = lp.state || JSON.stringify(lp);
+        lines.push('<li class="muted">Public status JSON loaded — re-check mint/LP yourself: ' +
+          '<a href="/verification-status-v1.json">verification-status-v1.json</a></li>');
+        lines.push('<li class="warn">Reminder: code present ≠ mint/LP open. Locks still hold until separate authorization.</li>');
+      } else {
+        lines.push('<li class="muted">Could not load status JSON from this origin — open <a href="/verification-status-v1.json">verification-status-v1.json</a> manually.</li>');
+      }
+      lines.push('</ul>');
+
+      if (chainOk && codePresent) {
+        lines.unshift('<p class="ok"><strong>Check passed:</strong> network matches and code is present.</p>');
+      } else {
+        lines.unshift('<p class="bad"><strong>Check incomplete:</strong> chain or code did not match expected live presence.</p>');
+      }
+
+      setResult(lines.join(''));
+    }).catch(function (err) {
+      setResult('<p class="bad">Check failed: ' + (err && err.message ? err.message : String(err)) +
+        '</p><p class="muted">Try curl steps below, or open the <a href="/deployed-addresses.html#verify-now">portal</a>.</p>');
+    }).then(function () {
+      btn.disabled = false;
+    });
+  });
+})();
+</script>
 </body>
 </html>

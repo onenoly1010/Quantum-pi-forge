@@ -30,5 +30,6 @@ jobs:
         run: |
           test -f out/index.html
           test -f out/_redirects
+          node scripts/verify-entry-surfaces.cjs
           echo "Cloudflare Pages artifacts verified."
 
