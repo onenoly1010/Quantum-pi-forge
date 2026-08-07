@@ -15,8 +15,11 @@ check() {
   local url="${BASE}${path}"
   local tmp code title
   tmp="$(mktemp)"
-  code=$(curl -sS -o "$tmp" -w "%{http_code}" -L --max-time 25 \
-    -H 'Cache-Control: no-cache' "${url}" || echo FAIL)
+  code="000"
+  if ! code=$(curl -sS -o "$tmp" -w "%{http_code}" -L --max-time 25 \
+    -H 'Cache-Control: no-cache' "${url}"); then
+    code="000"
+  fi
   title=$(grep -oP '(?<=<title>)[^<]+' "$tmp" 2>/dev/null | head -1 || true)
 
   echo "PATH ${path}"
