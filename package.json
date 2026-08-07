@@ -4,6 +4,7 @@
     "build": "node scripts/build.js",
     "activation:preflight": "node scripts/activation-preflight.mjs",
     "build:cf": "node scripts/build.js",
+    "verify:production-funnel": "bash scripts/verify-production-funnel.sh",
     "serve:deploy": "python3 -m http.server 8100 --directory out",
     "deploy:cf": "bash scripts/deploy-cloudflare-pages.sh",
     "verify:receipt": "node scripts/verify-hermes-receipt.cjs",
