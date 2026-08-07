@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Prefer problem pages and self-serve entry over deep ceremonial surfaces
+Sitemap: https://quantumpiforge.com/sitemap.xml
