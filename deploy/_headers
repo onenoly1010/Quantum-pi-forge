@@ -40,3 +40,26 @@
   Content-Type: application/json; charset=utf-8
   Cache-Control: public, max-age=60
   X-Content-Type-Options: nosniff
+
+# ---------------------------------------------------------------------------
+# Discoverability / SEO surfaces (must not SPA-fallback or cache as HTML forever)
+# ---------------------------------------------------------------------------
+/robots.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=300
+  X-Content-Type-Options: nosniff
+
+/sitemap.xml
+  Content-Type: application/xml; charset=utf-8
+  Cache-Control: public, max-age=300
+  X-Content-Type-Options: nosniff
+
+# HTML entry pages: short cache so funnel CTAs deploy quickly
+/*.html
+  Cache-Control: public, max-age=120, must-revalidate
+
+/
+  Cache-Control: public, max-age=120, must-revalidate
+
+/problems/*
+  Cache-Control: public, max-age=120, must-revalidate
