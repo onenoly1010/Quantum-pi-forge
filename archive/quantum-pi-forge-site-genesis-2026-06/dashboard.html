@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genesis Launch Dashboard | Quantum Pi Forge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #00ff41;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.15;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0 2rem;
+            border-bottom: 2px solid rgba(0, 255, 65, 0.3);
+            margin-bottom: 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #00ff41;
+            text-decoration: none;
+            text-shadow: 0 0 10px rgba(0, 255, 65, 0.8);
+        }
+
+        .nav-link {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #00ff41;
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #00ff41, #00a2ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(0, 255, 65, 0.3);
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 3rem;
+            font-family: 'Courier Prime', monospace;
+        }
+
+        .countdown-section {
+            background: rgba(0, 255, 65, 0.05);
+            border: 2px solid #00ff41;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .countdown-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #ffff00;
+            text-shadow: 0 0 15px rgba(255, 255, 0, 0.6);
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid #00ff41;
+            border-radius: 10px;
+            min-width: 120px;
+        }
+
+        .countdown-value {
+            font-size: 3rem;
+            font-weight: bold;
+            display: block;
+            font-family: 'Courier Prime', monospace;
+            animation: pulse-glow 2s infinite alternate;
+        }
+
+        @keyframes pulse-glow {
+            from { text-shadow: 0 0 5px rgba(0, 255, 65, 0.5); }
+            to { text-shadow: 0 0 15px rgba(0, 255, 65, 0.9); }
+        }
+
+        .countdown-label {
+            font-size: 1rem;
+            text-transform: uppercase;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid rgba(0, 255, 65, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: #00ff41;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #ffff00;
+            text-shadow: 0 0 10px rgba(255, 255, 0, 0.6);
+        }
+
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            background: rgba(0, 255, 65, 0.05);
+            border-left: 3px solid #00ff41;
+            border-radius: 4px;
+        }
+
+        .metric-label {
+            color: #999;
+        }
+
+        .metric-value {
+            font-weight: bold;
+            color: #00ff41;
+            font-family: 'Courier Prime', monospace;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: blink 2s infinite;
+        }
+
+        .status-active {
+            background: #00ff41;
+            box-shadow: 0 0 10px #00ff41;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid rgba(0, 255, 65, 0.3);
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .countdown {
+                gap: 1rem;
+            }
+
+            .countdown-value {
+                font-size: 2rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas class="matrix-bg" id="matrix"></canvas>
+
+    <div class="container">
+        <header>
+            <a href="index.html" class="logo">⚛️ QUANTUM PI FORGE</a>
+            <a href="index.html" class="nav-link">← Back to Home</a>
+        </header>
+
+        <h1>🚀 GENESIS LAUNCH DASHBOARD</h1>
+        <p class="subtitle">Real-Time Mission Control</p>
+
+        <div class="countdown-section">
+            <div class="countdown-title">⏱️ T-MINUS COUNTDOWN</div>
+            <div class="countdown" id="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-value" id="days">00</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="hours">00</span>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="minutes">00</span>
+                    <span class="countdown-label">Minutes</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="seconds">00</span>
+                    <span class="countdown-label">Seconds</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <div class="card-header">🌐 Network Status</div>
+                <div class="metric">
+                    <span class="metric-label">
+                        <span class="status-indicator status-active" id="genesis-status"></span>
+                        Genesis Backend
+                    </span>
+                    <span class="metric-value" id="genesis-status-text">CHECKING...</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">
+                        <span class="status-indicator status-active" id="resonance-status"></span>
+                        Resonance Engine
+                    </span>
+                    <span class="metric-value" id="resonance-status-text">CHECKING...</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">
+                        <span class="status-indicator status-active" id="dex-status"></span>
+                        DEX Frontend
+                    </span>
+                    <span class="metric-value" id="dex-status-text">CHECKING...</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">⚡ Live Metrics</div>
+                <div class="metric">
+                    <span class="metric-label">Pending Decisions</span>
+                    <span class="metric-value" id="pending-decisions">--</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Safety Score</span>
+                    <span class="metric-value" id="safety-score">--</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Resonance Version</span>
+                    <span class="metric-value" id="resonance-version">--</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">📊 System Info</div>
+                <div class="metric">
+                    <span class="metric-label">Overall Status</span>
+                    <span class="metric-value" id="overall-status">OPERATIONAL</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Last Update</span>
+                    <span class="metric-value" id="last-update">--</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Active Services</span>
+                    <span class="metric-value" id="active-services">0/3</span>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Powered by OINIO | Quantum Pi Forge Genesis</p>
+            <p>© 2025 • Deployed via GitHub Pages</p>
+        </footer>
+    </div>
+
+    <script>
+        // Matrix effect
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()';
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        const drops = Array(Math.floor(columns)).fill(1);
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#00ff41';
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const char = chars[Math.floor(Math.random() * chars.length)];
+                ctx.fillText(char, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(drawMatrix, 35);
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // Countdown timer
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const targetTime = new Date('2025-12-17T20:00:00Z').getTime();
+            const remainingMs = targetTime - now;
+
+            if (remainingMs < 0) {
+                document.getElementById('countdown').innerHTML = '<div class="countdown-item"><span class="countdown-value">🎉 LIVE</span></div>';
+                return;
+            }
+
+            const days = Math.floor(remainingMs / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((remainingMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((remainingMs % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((remainingMs % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+
+    <!-- Live Dashboard Integration -->
+    <script type="module">
+        import { ECOSYSTEM_SERVICES, checkEcosystemHealth, getEcosystemMetrics } from './api/ecosystem-gateway.js';
+
+        /**
+         * QuantumForgeLiveDashboard - Manages real-time ecosystem data updates
+         */
+        class QuantumForgeLiveDashboard {
+            constructor() {
+                this.updateInterval = 10000; // 10 seconds for metrics
+                this.healthCheckInterval = 30000; // 30 seconds for health checks
+                this.metricsIntervalId = null;
+                this.healthIntervalId = null;
+            }
+
+            /**
+             * Initialize the dashboard with intervals
+             */
+            async initialize() {
+                console.log('🚀 Initializing Quantum Forge Live Dashboard...');
+                
+                // Set up navigation links
+                this.setupNavigationLinks();
+                
+                // Run initial updates
+                await this.updateSystemHealth();
+                await this.updateMetrics();
+                
+                // Set up periodic updates
+                this.healthIntervalId = setInterval(() => this.updateSystemHealth(), this.healthCheckInterval);
+                this.metricsIntervalId = setInterval(() => this.updateMetrics(), this.updateInterval);
+                
+                console.log('✅ Dashboard initialized successfully');
+            }
+
+            /**
+             * Update system health status indicators
+             */
+            async updateSystemHealth() {
+                try {
+                    const health = await checkEcosystemHealth();
+                    
+                    // Update individual service status
+                    this.updateServiceStatus('genesis', health.services.genesis);
+                    this.updateServiceStatus('resonance', health.services.resonance);
+                    this.updateServiceStatus('dex', health.services.dex);
+                    
+                    // Update overall status
+                    const overallStatusEl = document.getElementById('overall-status');
+                    if (overallStatusEl) {
+                        const statusMap = {
+                            'healthy': '✅ HEALTHY',
+                            'degraded': '⚠️ DEGRADED',
+                            'down': '❌ DOWN'
+                        };
+                        overallStatusEl.textContent = statusMap[health.overall] || 'UNKNOWN';
+                    }
+                    
+                    // Count active services
+                    const activeCount = Object.values(health.services)
+                        .filter(s => s.status === 'healthy').length;
+                    const totalCount = Object.keys(health.services).length;
+                    
+                    const activeServicesEl = document.getElementById('active-services');
+                    if (activeServicesEl) {
+                        activeServicesEl.textContent = `${activeCount}/${totalCount}`;
+                    }
+                    
+                    console.log('✓ Health check completed:', health.overall);
+                } catch (error) {
+                    console.error('❌ Health check failed:', error);
+                    this.handleError('health check');
+                }
+            }
+
+            /**
+             * Update a specific service status indicator
+             */
+            updateServiceStatus(serviceName, status) {
+                const statusIndicator = document.getElementById(`${serviceName}-status`);
+                const statusText = document.getElementById(`${serviceName}-status-text`);
+                
+                if (!statusIndicator || !statusText) return;
+                
+                // Remove all status classes
+                statusIndicator.classList.remove('status-active', 'status-warning', 'status-error');
+                
+                // Set status based on health
+                if (status.status === 'healthy') {
+                    statusIndicator.classList.add('status-active');
+                    statusText.textContent = '✅ ONLINE';
+                    statusText.style.color = '#00ff41';
+                } else if (status.status === 'degraded') {
+                    statusIndicator.classList.add('status-warning');
+                    statusText.textContent = '⚠️ DEGRADED';
+                    statusText.style.color = '#ffaa00';
+                } else {
+                    statusIndicator.classList.add('status-error');
+                    statusText.textContent = '❌ OFFLINE';
+                    statusText.style.color = '#ff4444';
+                }
+            }
+
+            /**
+             * Update metrics from ecosystem services
+             */
+            async updateMetrics() {
+                try {
+                    const metrics = await getEcosystemMetrics();
+                    
+                    // Update Genesis metrics
+                    if (metrics.genesis && metrics.genesis.available) {
+                        const pendingDecisionsEl = document.getElementById('pending-decisions');
+                        const safetyScoreEl = document.getElementById('safety-score');
+                        
+                        if (pendingDecisionsEl) {
+                            pendingDecisionsEl.textContent = metrics.genesis.pendingDecisions || 0;
+                        }
+                        if (safetyScoreEl) {
+                            safetyScoreEl.textContent = metrics.genesis.safetyScore || 'N/A';
+                        }
+                    }
+                    
+                    // Update Resonance metrics
+                    if (metrics.resonance && metrics.resonance.available) {
+                        const versionEl = document.getElementById('resonance-version');
+                        if (versionEl) {
+                            versionEl.textContent = metrics.resonance.version || 'Unknown';
+                        }
+                    }
+                    
+                    // Update last update timestamp
+                    const lastUpdateEl = document.getElementById('last-update');
+                    if (lastUpdateEl) {
+                        const time = new Date().toLocaleTimeString();
+                        lastUpdateEl.textContent = time;
+                    }
+                    
+                    console.log('✓ Metrics updated');
+                } catch (error) {
+                    console.error('❌ Metrics update failed:', error);
+                    this.handleError('metrics update');
+                }
+            }
+
+            /**
+             * Setup navigation links dynamically using ecosystem config
+             */
+            setupNavigationLinks() {
+                // Add click handlers or update hrefs if needed
+                console.log('✓ Navigation links configured');
+            }
+
+            /**
+             * Handle errors gracefully
+             */
+            handleError(operation) {
+                console.warn(`⚠️ ${operation} encountered an error, will retry...`);
+                // Display user-friendly message if needed
+            }
+
+            /**
+             * Cleanup intervals on page unload
+             */
+            cleanup() {
+                if (this.metricsIntervalId) {
+                    clearInterval(this.metricsIntervalId);
+                }
+                if (this.healthIntervalId) {
+                    clearInterval(this.healthIntervalId);
+                }
+                console.log('🛑 Dashboard cleanup completed');
+            }
+        }
+
+        // Add status indicator styles
+        const style = document.createElement('style');
+        style.textContent = `
+            .status-warning {
+                background: #ffaa00 !important;
+                box-shadow: 0 0 10px #ffaa00 !important;
+            }
+            .status-error {
+                background: #ff4444 !important;
+                box-shadow: 0 0 10px #ff4444 !important;
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initialize dashboard when DOM is ready
+        let dashboard;
+        document.addEventListener('DOMContentLoaded', async () => {
+            dashboard = new QuantumForgeLiveDashboard();
+            await dashboard.initialize();
+        });
+
+        // Cleanup on page unload
+        window.addEventListener('beforeunload', () => {
+            if (dashboard) {
+                dashboard.cleanup();
+            }
+        });
+    </script>
+</body>
+</html>
