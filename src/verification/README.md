@@ -1,37 +1,34 @@
 # `src/verification`
 
-Implementation of the QPF Verification Protocol v1.
+QPF verification infrastructure.
 
-Normative design: `docs/protocol/qpf-v1/QPF_VERIFICATION_PROTOCOL_V1.md`  
-Order: `docs/protocol/qpf-v1/IMPLEMENTATION_BRIEF.md`
+**AUTHORIZATION ≠ VERIFICATION**  
+**VERIFICATION ≠ GOVERNANCE DECISION**
+
+Governance boundary (unchanged): `scripts/verify-mainnet-operator-approval-v1.cjs`
 
 ## Milestone status
 
-| Milestone | Status | Module |
-| --- | --- | --- |
-| 1 Canonical serialization | **Implemented** | `canonical.js` (`jcs-rfc8785`) |
-| 2 Hashing | Not started | — |
-| 3+ | Not started | — |
+| Piece | Status |
+| --- | --- |
+| Canonical serialization (`jcs-rfc8785`) | Done |
+| **Level 0 verify** (`quantum-pi-forge-verify/v1`) | **Done** |
+| Level 1+ attestation / trust / policy | Not started |
 
-## Milestone 1 usage
-
-```js
-import {
-  CANONICAL_ENCODING_ID,
-  canonicalize,
-  canonicalizeToBytes,
-} from './canonical.js';
-
-const bytes = canonicalizeToBytes({ b: 1, a: 2 });
-// identical for any key insertion order of the same logical object
-```
-
-Do not use `JSON.stringify` for protocol hash/sign inputs.
-
-## Tests
+## Level 0
 
 ```bash
-npm run test:verification:canonical
-# or
-node --test tests/verification/canonical.test.js
+npm run test:verification:level0
+npm run verify:qpf:level0 -- --artifact <path> --receipt <path>
 ```
+
+```js
+import { verifyLevel0 } from './index.js';
+```
+
+Skill declaration: `src/verification/SKILL.md`  
+Schemas: `schemas/qpf/v1/verify-request.schema.json`, `verify-result.schema.json`
+
+## Hash
+
+SHA-256 via Node `crypto` (transitional; algorithm always labeled on digests). No BLAKE3 dependency yet.
