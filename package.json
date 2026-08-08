@@ -304,6 +304,7 @@
     "verify:entry-surfaces": "node scripts/verify-entry-surfaces.cjs",
     "test:sccb": "node --test sccb/test/sccb.v1.test.js sccb/test/adversarial.verification.test.js",
     "verify:sccb": "node sccb/scripts/verify-implementation.mjs",
+    "security-gate:sccb": "node sccb/scripts/security-gate.mjs",
     "sccb": "node sccb/src/cli.js",
     "sccb:status": "node sccb/src/cli.js status",
     "sccb:capabilities": "node sccb/src/cli.js capabilities"

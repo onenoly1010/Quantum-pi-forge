@@ -12,6 +12,7 @@
 | [EMERGENCY_RECOVERY.md](./EMERGENCY_RECOVERY.md) | Stop, revoke, recover |
 | [OPERATOR_GUIDE.md](./OPERATOR_GUIDE.md) | Day-to-day operator CLI |
 | [IMPLEMENTATION_VERIFICATION.md](./IMPLEMENTATION_VERIFICATION.md) | Synthetic verification report + authority boundary |
+| [SECURITY_GATE_REPORT.md](./SECURITY_GATE_REPORT.md) | Security gate freeze + A–J results |
 
 Implementation: `sccb/`
 
