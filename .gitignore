@@ -233,3 +233,6 @@ docs/activation/living-forge/queue/queue-state-v1.json
 docs/activation/living-forge/reports/kpi-latest.md
 docs/activation/living-forge/reports/eod-*.md
 docs/activation/living-forge/reports/eod-latest.md
+
+# SCCB local state (metadata/control only — still keep secrets out of git)
+sccb/config/*.local.json
