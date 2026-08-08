@@ -2,6 +2,7 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build.js",
+    "test:verification:canonical": "node --test tests/verification/canonical.test.js",
     "activation:preflight": "node scripts/activation-preflight.mjs",
     "build:cf": "node scripts/build.js",
     "verify:production-funnel": "bash scripts/verify-production-funnel.sh",
