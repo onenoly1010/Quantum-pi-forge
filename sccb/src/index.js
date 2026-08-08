@@ -34,6 +34,16 @@ export {
   writeBootstrapReceipt,
 } from './bootstrap/bootstrap.js';
 export {
+  CREDENTIAL_DESIGN_CATALOG,
+  firstWaveEnrollmentPlan,
+  toLegacyCatalogEntries,
+} from './bootstrap/catalog.js';
+export {
+  buildRehearsalProcedure,
+  runBootstrapRehearsal,
+  syntheticMaterialFor,
+} from './bootstrap/rehearsal.js';
+export {
   loadAuthorityState,
   authorityStateHash,
   isPhaseAuthorized,

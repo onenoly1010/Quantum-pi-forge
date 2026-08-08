@@ -25,12 +25,19 @@
       "authorized_utc": "2026-08-08T00:00:00.000Z",
       "notes": "Adversarial tests, matrices, evidence — no real secrets"
     },
+    "bootstrap_rehearsal": {
+      "status": "AUTHORIZED",
+      "source": "human_direction",
+      "ref": "GO SCCB_BOOTSTRAP_REHEARSAL — synthetic end-to-end onboarding design only",
+      "authorized_utc": "2026-08-08T00:00:00.000Z",
+      "notes": "Synthetic fixtures only. Does NOT authorize real credential intake."
+    },
     "credential_bootstrap": {
       "status": "NOT_AUTHORIZED",
       "source": null,
       "ref": null,
       "authorized_utc": null,
-      "notes": "Requires explicit GO CREDENTIAL_BOOTSTRAP <provider> reflected here before real secret intake"
+      "notes": "Requires explicit sealed AUTHORIZED status before real secret intake (not rehearsal)"
     },
     "wallet_signing": {
       "status": "NOT_AUTHORIZED",

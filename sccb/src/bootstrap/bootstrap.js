@@ -17,62 +17,13 @@ import { createCredentialMeta } from '../secrets/store.js';
 import { CREDENTIAL_STATUS, ENVIRONMENT } from '../types.js';
 import { buildReceipt, writeReceipt } from '../audit/receipt.js';
 import { redactForAudit } from '../redaction.js';
+import { toLegacyCatalogEntries } from './catalog.js';
 
 /**
  * Catalog of known credential slots for QPF/OINIO (metadata templates only).
+ * Full design fields: sccb/src/bootstrap/catalog.js
  */
-export const CREDENTIAL_CATALOG = [
-  {
-    id: 'cloudflare-api-token',
-    provider: 'cloudflare',
-    label: 'Cloudflare API token (Pages)',
-    pass_path: 'qpf/providers/cloudflare/api-token',
-    env_names: ['CLOUDFLARE_API_TOKEN'],
-    scopes: ['pages:write', 'account:read'],
-    capabilities: ['cloudflare.pages.read', 'cloudflare.deploy'],
-  },
-  {
-    id: 'github-token',
-    provider: 'github',
-    label: 'GitHub token (scoped)',
-    pass_path: 'qpf/providers/github/token',
-    env_names: ['GITHUB_TOKEN'],
-    scopes: ['repo'],
-    capabilities: ['github.pr.create', 'github.merge'],
-  },
-  {
-    id: 'delivery-x',
-    provider: 'delivery',
-    label: 'X/Twitter delivery keys',
-    pass_path: 'qpf/revenue-delivery',
-    env_names: [
-      'TWITTER_API_KEY',
-      'TWITTER_API_SECRET',
-      'TWITTER_ACCESS_TOKEN',
-      'TWITTER_ACCESS_SECRET',
-    ],
-    scopes: ['tweet.write'],
-    capabilities: ['delivery.x.public_post'],
-  },
-  {
-    id: 'pi-api',
-    provider: 'pi',
-    label: 'Pi App API (dormant until GO)',
-    pass_path: 'qpf/providers/pi/api-key',
-    env_names: ['PI_API_KEY'],
-    scopes: ['payments.read'],
-    capabilities: ['pi.read'],
-  },
-  {
-    id: 'wallet-signer',
-    provider: 'wallet',
-    label: 'Wallet signer material (prefer external; not for agent host)',
-    pass_path: 'qpf/providers/wallet/signer',
-    env_names: ['WALLET_SIGNER_REF'],
-    scopes: ['sign'],
-    capabilities: ['wallet.sign_transaction'],
-  },
-];
+export const CREDENTIAL_CATALOG = toLegacyCatalogEntries();
 
 /**
  * Discover credentials required by active capabilities.

@@ -136,6 +136,7 @@ Commands:
   capabilities           List capability registry
   invoke                 Invoke a capability (policy + broker)
   verify                 Run implementation verification suite
+  bootstrap-rehearsal    Synthetic end-to-end onboarding (no real secrets)
   approve                Decide a pending approval
   emergency-stop         Global emergency stop
   emergency-clear        Clear emergency stop
@@ -201,6 +202,16 @@ Safety: never pass secret values as CLI flags. Use pass insert locally.
   if (cmd === 'verify') {
     const { spawn } = await import('node:child_process');
     const script = path.join(SCCB_DIR, 'scripts', 'verify-implementation.mjs');
+    const code = await new Promise((resolve) => {
+      const child = spawn(process.execPath, [script], { stdio: 'inherit' });
+      child.on('close', (c) => resolve(c ?? 1));
+    });
+    process.exit(code);
+  }
+
+  if (cmd === 'bootstrap-rehearsal' || cmd === 'rehearsal') {
+    const { spawn } = await import('node:child_process');
+    const script = path.join(SCCB_DIR, 'scripts', 'bootstrap-rehearsal.mjs');
     const code = await new Promise((resolve) => {
       const child = spawn(process.execPath, [script], { stdio: 'inherit' });
       child.on('close', (c) => resolve(c ?? 1));

@@ -13,11 +13,14 @@
 | [OPERATOR_GUIDE.md](./OPERATOR_GUIDE.md) | Day-to-day operator CLI |
 | [IMPLEMENTATION_VERIFICATION.md](./IMPLEMENTATION_VERIFICATION.md) | Synthetic verification report + authority boundary |
 | [SECURITY_GATE_REPORT.md](./SECURITY_GATE_REPORT.md) | Security gate freeze + A–J results |
+| [BOOTSTRAP_REHEARSAL.md](./BOOTSTRAP_REHEARSAL.md) | Synthetic one-time onboarding design (not real intake) |
 
 Implementation: `sccb/`
 
 ```bash
-npm run verify:sccb   # adversarial + unit + evidence receipt
+npm run verify:sccb              # adversarial + unit + evidence receipt
+npm run security-gate:sccb       # formal security gate
+npm run bootstrap-rehearsal:sccb # synthetic enrollment walkthrough
 npm run sccb -- authority
 npm run sccb -- grants
 ```
