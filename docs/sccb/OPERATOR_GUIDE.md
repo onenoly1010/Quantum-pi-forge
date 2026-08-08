@@ -3,6 +3,15 @@
 ## Quick start
 
 ```bash
+# Machine-verifiable authority (chat GO is not authorization)
+npm run sccb -- authority
+
+# Agent CAPABILITY grants (never raw tokens)
+npm run sccb -- grants
+
+# Full synthetic verification + evidence receipt
+npm run verify:sccb
+
 # List capabilities (no secrets)
 npm run sccb:capabilities
 

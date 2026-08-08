@@ -33,6 +33,25 @@ export {
   associationReport,
   writeBootstrapReceipt,
 } from './bootstrap/bootstrap.js';
+export {
+  loadAuthorityState,
+  authorityStateHash,
+  isPhaseAuthorized,
+  assertPhaseAuthorized,
+  projectAuthoritySummary,
+  mayBootstrapCredentials,
+  maySignWallet,
+  DEFAULT_AUTHORITY_PATH,
+  GATED_PHASES,
+  PHASE_STATUS,
+} from './authority/state.js';
+export {
+  projectCapabilityGrant,
+  formatCapabilityLine,
+  projectAllGrants,
+  projectBrokerResultForAgent,
+  projectPreparedTxForAgent,
+} from './grants/projection.js';
 
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

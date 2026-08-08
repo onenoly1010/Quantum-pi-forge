@@ -119,19 +119,43 @@ export function classifyEnvironment(environment) {
 /**
  * Bootstrap plan (no secrets). Operator executes pass inserts out-of-band.
  *
+ * Authorization is machine-verifiable:
+ * - sealed authority-state.v1.json phase `credential_bootstrap` must be AUTHORIZED, OR
+ * - `synthetic_only: true` for verification fixtures (never real secrets)
+ *
+ * CLI `--authorized` alone is NOT sufficient for real credential intake.
+ * Chat GO phrases are NOT authorization.
+ *
  * @param {object} opts
  * @param {import('../capabilities/registry.js').CapabilityRegistry} opts.registry
  * @param {import('../secrets/store.js').SecretStore} opts.secretStore
  * @param {string[]} [opts.provider_filter]
  * @param {string} [opts.environment]
- * @param {boolean} [opts.authorized] - must be true (simulates GO CREDENTIAL_BOOTSTRAP)
+ * @param {boolean} [opts.authorized] - CLI convenience; insufficient alone for real bootstrap
+ * @param {boolean} [opts.synthetic_only] - verification mode with fixtures only
+ * @param {import('../authority/state.js').AuthorityState} [opts.authority]
+ * @param {boolean} [opts.allow_real_bootstrap] - must be true AND phase AUTHORIZED
  */
 export async function createBootstrapPlan(opts) {
-  if (!opts.authorized) {
+  const { mayBootstrapCredentials } = await import('../authority/state.js');
+
+  // Real intake: sealed authority only (chat GO / --authorized insufficient)
+  if (opts.allow_real_bootstrap) {
+    if (!opts.authority || !mayBootstrapCredentials(opts.authority)) {
+      throw new Error(
+        'Real credential bootstrap denied: sealed authority phase credential_bootstrap is NOT_AUTHORIZED. ' +
+          'Chat GO text and --authorized alone are insufficient.'
+      );
+    }
+  } else if (opts.synthetic_only || opts.authorized) {
+    // Synthetic verification plan (fixtures only) or dry plan listing
+  } else {
     throw new Error(
-      'Bootstrap not authorized. Require explicit GO CREDENTIAL_BOOTSTRAP <provider> from human.'
+      'Bootstrap not authorized. Use synthetic_only for verification fixtures, or seal ' +
+        'authority-state credential_bootstrap=AUTHORIZED for real intake. Chat GO phrases are not authorization.'
     );
   }
+
   const environment = classifyEnvironment(opts.environment ?? ENVIRONMENT.DEVELOPMENT);
   let discovered = discoverRequiredCredentials(opts.registry);
   if (opts.provider_filter?.length) {
@@ -167,9 +191,11 @@ export async function createBootstrapPlan(opts) {
   return {
     schema: 'sccb.bootstrap_plan.v1',
     authorized: true,
+    mode: opts.allow_real_bootstrap ? 'real_bootstrap' : 'synthetic_verification',
     environment,
     steps,
     secret_values_included: false,
+    real_secret_intake: Boolean(opts.allow_real_bootstrap),
     created_utc: new Date().toISOString(),
   };
 }

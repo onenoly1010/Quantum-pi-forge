@@ -302,7 +302,8 @@
     "ops:ai-cockpit": "bash scripts/ai-cockpit.sh",
     "ops:ai-cockpit:quick": "bash scripts/ai-cockpit.sh --quick",
     "verify:entry-surfaces": "node scripts/verify-entry-surfaces.cjs",
-    "test:sccb": "node --test sccb/test/sccb.v1.test.js",
+    "test:sccb": "node --test sccb/test/sccb.v1.test.js sccb/test/adversarial.verification.test.js",
+    "verify:sccb": "node sccb/scripts/verify-implementation.mjs",
     "sccb": "node sccb/src/cli.js",
     "sccb:status": "node sccb/src/cli.js status",
     "sccb:capabilities": "node sccb/src/cli.js capabilities"

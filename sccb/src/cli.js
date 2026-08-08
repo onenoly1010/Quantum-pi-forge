@@ -131,8 +131,11 @@ async function main() {
 
 Commands:
   status                 Control plane + association summary
+  authority              Machine-verifiable authorization phases
+  grants                 Agent-facing CAPABILITY grants (no secrets)
   capabilities           List capability registry
   invoke                 Invoke a capability (policy + broker)
+  verify                 Run implementation verification suite
   approve                Decide a pending approval
   emergency-stop         Global emergency stop
   emergency-clear        Clear emergency stop
@@ -173,6 +176,36 @@ Safety: never pass secret values as CLI flags. Use pass insert locally.
       permitted_operations: c.permitted_operations,
     })) });
     return;
+  }
+
+  if (cmd === 'authority') {
+    const { loadAuthorityState, authorityStateHash, projectAuthoritySummary } =
+      await import('./authority/state.js');
+    const state = await loadAuthorityState();
+    const hash = await authorityStateHash();
+    printJson(projectAuthoritySummary(state, hash));
+    return;
+  }
+
+  if (cmd === 'grants') {
+    const { projectAllGrants, formatCapabilityLine } = await import('./grants/projection.js');
+    const registry = new CapabilityRegistry(defaultCapabilities());
+    const set = await projectAllGrants(registry, null);
+    printJson({
+      ...set,
+      lines: set.grants.map(formatCapabilityLine),
+    });
+    return;
+  }
+
+  if (cmd === 'verify') {
+    const { spawn } = await import('node:child_process');
+    const script = path.join(SCCB_DIR, 'scripts', 'verify-implementation.mjs');
+    const code = await new Promise((resolve) => {
+      const child = spawn(process.execPath, [script], { stdio: 'inherit' });
+      child.on('close', (c) => resolve(c ?? 1));
+    });
+    process.exit(code);
   }
 
   const runtime = await buildRuntime(flags);
@@ -283,10 +316,29 @@ Safety: never pass secret values as CLI flags. Use pass insert locally.
       return;
     }
     if (sub === 'plan') {
-      if (!flags.authorized) {
-        console.error('Refusing bootstrap plan without --authorized (simulates GO CREDENTIAL_BOOTSTRAP).');
+      const { loadAuthorityState, mayBootstrapCredentials } = await import('./authority/state.js');
+      let authority = null;
+      try {
+        authority = await loadAuthorityState();
+      } catch {
+        /* missing authority file */
+      }
+      const real = flags.real === true || flags.real === 'true';
+      const synthetic = flags.synthetic === true || flags.synthetic === 'true' || !real;
+
+      if (real) {
+        if (!authority || !mayBootstrapCredentials(authority)) {
+          console.error(
+            'Real credential bootstrap DENIED: sealed authority-state phase credential_bootstrap is NOT_AUTHORIZED. ' +
+              'Chat GO phrases and --authorized alone are not authorization.'
+          );
+          process.exit(2);
+        }
+      } else if (!flags.authorized && !synthetic) {
+        console.error('Refusing bootstrap plan. Use --synthetic for verification, or sealed AUTHORIZED credential_bootstrap for real intake.');
         process.exit(2);
       }
+
       const providers = flags.provider
         ? String(flags.provider).split(',')
         : flags.providers
@@ -296,9 +348,13 @@ Safety: never pass secret values as CLI flags. Use pass insert locally.
         registry: runtime.registry,
         secretStore: runtime.secretStore,
         authorized: true,
+        synthetic_only: !real,
+        allow_real_bootstrap: real,
+        authority,
         environment: String(flags.env || ENVIRONMENT.DEVELOPMENT),
         provider_filter: providers,
       });
+      plan.mode = real ? 'real_bootstrap' : 'synthetic_verification';
       await writeBootstrapReceipt(DEFAULT_RECEIPTS, plan);
       printJson(plan);
       return;

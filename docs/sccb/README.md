@@ -11,5 +11,12 @@
 | [WALLET_TRANSACTION_SAFETY.md](./WALLET_TRANSACTION_SAFETY.md) | Prepare-only wallet model |
 | [EMERGENCY_RECOVERY.md](./EMERGENCY_RECOVERY.md) | Stop, revoke, recover |
 | [OPERATOR_GUIDE.md](./OPERATOR_GUIDE.md) | Day-to-day operator CLI |
+| [IMPLEMENTATION_VERIFICATION.md](./IMPLEMENTATION_VERIFICATION.md) | Synthetic verification report + authority boundary |
 
 Implementation: `sccb/`
+
+```bash
+npm run verify:sccb   # adversarial + unit + evidence receipt
+npm run sccb -- authority
+npm run sccb -- grants
+```
