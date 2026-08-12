@@ -151,8 +151,14 @@ PY
 else
   # shell fallback: write minimal but valid JSON without python3
   log "WARN python3 not found — writing minimal status JSON via shell"
+  # Sanitize: timestamp to known ISO-8601 safe chars; coerce numerics to integers
+  _ts_safe="$(printf '%s' "$_ts_now" | tr -cd 'A-Za-z0-9:+-')"
+  _load_safe="$(printf '%.2f' "$load1" 2>/dev/null || echo '0.00')"
+  _avail_safe="$(( avail_mib + 0 ))"
+  _pok_safe="$(( probe_ok + 0 ))"
+  _pfail_safe="$(( probe_fail + 0 ))"
   printf '{"at":"%s","phase":"OBSERVING","skipped":false,"load1":%s,"avail_mib":%s,"probe_ok":%s,"probe_fail":%s,"no_wallet_touch":true,"note":"python3 unavailable; probes omitted"}\n' \
-    "$_ts_now" "$load1" "$avail_mib" "$probe_ok" "$probe_fail" >"$STATUS_JSON"
+    "$_ts_safe" "$_load_safe" "$_avail_safe" "$_pok_safe" "$_pfail_safe" >"$STATUS_JSON"
   log "STATUS_WRITTEN $STATUS_JSON (shell fallback)"
 fi
 
