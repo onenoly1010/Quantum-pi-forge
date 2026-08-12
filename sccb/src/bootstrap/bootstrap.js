@@ -228,7 +228,7 @@ export async function validateCredential(opts) {
   const updated = await opts.secretStore.getMetadata(opts.credential_id);
   return {
     credential_id: opts.credential_id,
-    ok: Boolean(usable || updated?.status === CREDENTIAL_STATUS.ACTIVE),
+    ok: Boolean(usable && updated?.status === CREDENTIAL_STATUS.ACTIVE),
     status: updated?.status,
     environment: updated?.environment,
     env_names: updated?.env_names,

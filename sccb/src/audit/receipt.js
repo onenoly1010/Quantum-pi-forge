@@ -122,7 +122,10 @@ export function verifyReceiptSafety(receipt) {
  */
 export function computeIdempotencyKey(capabilityId, operation, paramsHash, idempotencyKey) {
   if (idempotencyKey) {
-    return createHash('sha256').update(String(idempotencyKey)).digest('hex').slice(0, 32);
+    return createHash('sha256')
+      .update(`${capabilityId}|${operation}|${String(idempotencyKey)}`)
+      .digest('hex')
+      .slice(0, 32);
   }
   return createHash('sha256')
     .update(`${capabilityId}|${operation}|${paramsHash}`)

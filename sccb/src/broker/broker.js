@@ -69,17 +69,11 @@ export class Broker {
     this.handlers = deps.handlers ?? new Map();
     /** @type {Map<string, BrokerResult>} */
     this._idempotency = new Map();
-    /** command allowlist for inject */
+    /** @type {string[]} */
     this.commandAllowlist = deps.commandAllowlist ?? [
       'echo',
       'true',
       'false',
-      'node',
-      'npm',
-      'npx',
-      'bash',
-      'wrangler',
-      'gh',
     ];
   }
 

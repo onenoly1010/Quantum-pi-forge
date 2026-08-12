@@ -126,18 +126,16 @@ export function assertCredentialMeta(meta) {
   if (!envs.includes(meta.environment)) {
     throw new Error(`invalid environment: ${meta.environment}`);
   }
-  // Reject accidental secret material in metadata
-  for (const key of Object.keys(meta)) {
-    if (/value|secret|password|token|key_material|seed/i.test(key) && key !== 'pass_path') {
-      if (typeof meta[key] === 'string' && meta[key].length > 0 && key !== 'label' && key !== 'notes' && key !== 'provider' && key !== 'id' && key !== 'pass_path' && key !== 'status' && key !== 'environment' && key !== 'created_utc' && key !== 'last_validated_utc' && key !== 'revoked_utc') {
-        // allow standard meta keys only
-      }
-    }
-  }
   const forbiddenKeys = ['secret', 'password', 'private_key', 'seed', 'token', 'api_key', 'value', 'plaintext'];
   for (const fk of forbiddenKeys) {
     if (Object.prototype.hasOwnProperty.call(meta, fk)) {
       throw new Error(`credential metadata must not include field: ${fk}`);
+    }
+  }
+  const safeKeys = new Set(['id', 'label', 'notes', 'provider', 'status', 'environment', 'env_names', 'pass_path', 'created_utc', 'last_validated_utc', 'revoked_utc']);
+  for (const key of Object.keys(meta)) {
+    if (!safeKeys.has(key) && /value|secret|password|token|key_material|seed/i.test(key)) {
+      throw new Error(`credential metadata must not include secret-like field: ${key}`);
     }
   }
 }

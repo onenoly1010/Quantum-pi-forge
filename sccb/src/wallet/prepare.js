@@ -66,15 +66,15 @@ export function evaluateTxLimits(intent, limits = {}) {
   const matched = [];
 
   const max = limits.max_amount_wei != null ? BigInt(String(limits.max_amount_wei)) : null;
-  if (max != null) {
-    try {
-      const amt = BigInt(String(intent.amount_wei));
+  try {
+    const amt = BigInt(String(intent.amount_wei));
+    if (amt < 0n) failed.push('negative amount');
+    else if (max != null) {
       if (amt <= max) matched.push('max_amount_wei');
       else failed.push(`amount exceeds max_amount_wei (${max})`);
-      if (amt < 0n) failed.push('negative amount');
-    } catch {
-      failed.push('invalid amount_wei');
     }
+  } catch {
+    failed.push('invalid amount_wei');
   }
 
   if (Array.isArray(limits.allowed_destinations) && limits.allowed_destinations.length) {
