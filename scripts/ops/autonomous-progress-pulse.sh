@@ -111,11 +111,13 @@ if (( probe_fail > 0 )); then
   next="FIX: production entry probe failed ($probe_fail); check CF deploy / build allowlist"
 fi
 
-# compact status json via python for safe escaping
-PROBE_LINES="$probe_lines" NEXT="$next" LOAD1="$load1" AVAIL="$avail_mib" \
-POK="$probe_ok" PFAIL="$probe_fail" MINT="${mint:-unknown}" LP="${lp:-unknown}" \
-OLL="$ollama_ok" COP="$copilot_n" GRK="$grok_n" EV="$event_n" GITM="$git_main" \
-STATUS_JSON="$STATUS_JSON" TS="$(ts)" python3 - <<'PY'
+# compact status json — use python3 if available, else a portable shell fallback
+_ts_now="$(ts)"
+if command -v python3 >/dev/null 2>&1; then
+  PROBE_LINES="$probe_lines" NEXT="$next" LOAD1="$load1" AVAIL="$avail_mib" \
+  POK="$probe_ok" PFAIL="$probe_fail" MINT="${mint:-unknown}" LP="${lp:-unknown}" \
+  OLL="$ollama_ok" COP="$copilot_n" GRK="$grok_n" EV="$event_n" GITM="$git_main" \
+  STATUS_JSON="$STATUS_JSON" TS="$_ts_now" python3 - <<'PY'
 import json, os
 probes = []
 for line in os.environ.get("PROBE_LINES", "").splitlines():
@@ -146,6 +148,13 @@ status = {
 open(os.environ["STATUS_JSON"], "w").write(json.dumps(status, indent=2) + "\n")
 print("STATUS_WRITTEN", os.environ["STATUS_JSON"])
 PY
+else
+  # shell fallback: write minimal but valid JSON without python3
+  log "WARN python3 not found — writing minimal status JSON via shell"
+  printf '{"at":"%s","phase":"OBSERVING","skipped":false,"load1":%s,"avail_mib":%s,"probe_ok":%s,"probe_fail":%s,"no_wallet_touch":true,"note":"python3 unavailable; probes omitted"}\n' \
+    "$_ts_now" "$load1" "$avail_mib" "$probe_ok" "$probe_fail" >"$STATUS_JSON"
+  log "STATUS_WRITTEN $STATUS_JSON (shell fallback)"
+fi
 
 log "PULSE_END next=$next"
 exit 0

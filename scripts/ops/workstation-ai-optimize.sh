@@ -31,6 +31,7 @@ done
 ts() { date -u +%Y-%m-%dT%H:%M:%SZ; }
 say() { echo "[$(ts)] $*"; }
 
+mkdir -p "$LOG_DIR"
 say "MODE=$([ "$APPLY" -eq 1 ] && echo APPLY || echo DRY_RUN) root=$ROOT"
 
 # --- 1) Report current agents ---
