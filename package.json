@@ -305,7 +305,14 @@
     "ops:project-state": "node scripts/project-state.cjs --prefer-report",
     "ops:ai-cockpit": "bash scripts/ai-cockpit.sh",
     "ops:ai-cockpit:quick": "bash scripts/ai-cockpit.sh --quick",
-    "verify:entry-surfaces": "node scripts/verify-entry-surfaces.cjs"
+    "verify:entry-surfaces": "node scripts/verify-entry-surfaces.cjs",
+    "test:sccb": "node --test sccb/test/sccb.v1.test.js sccb/test/adversarial.verification.test.js",
+    "verify:sccb": "node sccb/scripts/verify-implementation.mjs",
+    "security-gate:sccb": "node sccb/scripts/security-gate.mjs",
+    "bootstrap-rehearsal:sccb": "node sccb/scripts/bootstrap-rehearsal.mjs",
+    "sccb": "node sccb/src/cli.js",
+    "sccb:status": "node sccb/src/cli.js status",
+    "sccb:capabilities": "node sccb/src/cli.js capabilities"
   },
   "dependencies": {
     "@0gfoundation/0g-compute-ts-sdk": "^0.9.0",

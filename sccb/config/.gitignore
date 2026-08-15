@@ -1,0 +1,5 @@
+# Local SCCB state — may reference machine paths; never commit secrets
+*.local.json
+control-state.local.json
+credential-metadata.local.json
+approvals.local.json

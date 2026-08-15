@@ -1,0 +1,25 @@
+{
+  "schema": "sccb.audit_receipt.v1",
+  "sccb_version": "1.0.0",
+  "evidence_id": "sccb-3fd694e7-2915-46ee-820a-287116762101",
+  "request_id": "d7306b15-ca69-40cc-b88b-1ca684f41796",
+  "timestamp": "2026-08-08T01:59:36.446Z",
+  "actor": "human-operator",
+  "capability_id": "sccb.bootstrap",
+  "operation": "bootstrap",
+  "policy_class": "HUMAN_APPROVAL",
+  "policy_decision": "ALLOW",
+  "policy_reason": "authorized bootstrap session",
+  "approval_state": "APPROVED",
+  "approval_id": null,
+  "execution_state": "SUCCESS",
+  "result": "BOOTSTRAP_PLAN_OR_VALIDATE",
+  "params_hash": "bootstrap",
+  "secret_exposed_to_llm": false,
+  "evidence_refs": [],
+  "extra": {
+    "type": "bootstrap_rehearsal",
+    "overall_pass": true,
+    "real_secret_intake": false
+  }
+}

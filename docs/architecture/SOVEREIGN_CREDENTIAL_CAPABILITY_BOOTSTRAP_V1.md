@@ -1,8 +1,9 @@
 # Sovereign Credential & Capability Bootstrap (SCCB) v1
 
-**Status:** DESIGN ONLY — not implemented  
-**Authorization that produced this doc:** reconstruction + human direction toward `GO SCCB_DESIGN`  
-**Does not authorize:** secret intake, build of runtime, Pi start, deploy, mint/LP, wallet execution, marketplace publish  
+**Status:** IMPLEMENTED (v1 runtime) — see `sccb/` and `docs/sccb/`  
+**Authorization:** `GO SCCB_DESIGN` (design) + `GO SCCB_BUILD` (implementation)  
+**Does not authorize:** real secret intake, production signing, Pi start, mint/LP unlock, fund movement  
+**Runtime path:** `sccb/src/` · **Tests:** `npm run test:sccb` · **CLI:** `node sccb/src/cli.js`
 
 **North star:**
 
@@ -424,12 +425,15 @@ v2+: agent A requests capability on behalf of agent B with **subset scopes** and
 ## 20. Status
 
 ```text
-SCCB v1:     DESIGN DOC ONLY
-Build:       NOT STARTED
-Secrets:     NOT INGESTED
+SCCB v1:     IMPLEMENTED (sccb/)
+Build:       GO SCCB_BUILD complete (machinery only)
+Secrets:     NOT INGESTED (fixtures in tests only)
+Bootstrap:   Framework ready; requires GO CREDENTIAL_BOOTSTRAP
 Production:  UNCHANGED
-Economics:   LOCKED
-Pi:          DORMANT
+Economics:   LOCKED (capabilities FORBIDDEN)
+Pi:          DORMANT (pi.read FORBIDDEN)
+Signing:     DISABLED
 ```
 
-**Human operates authority. System should operate machinery—within that authority.**
+**Operator docs:** `docs/sccb/`  
+**Human operates authority. System operates machinery—within that authority.**

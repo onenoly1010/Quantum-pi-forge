@@ -1,0 +1,21 @@
+{
+  "schema": "sccb.audit_receipt.v1",
+  "sccb_version": "1.0.0",
+  "evidence_id": "sccb-bf008f6b-e32a-4766-bf77-316c3df37ac8",
+  "request_id": "bf008f6b-e32a-4766-bf77-316c3df37ac8",
+  "timestamp": "2026-08-08T00:46:44.577Z",
+  "actor": "cli-operator",
+  "capability_id": "economics.mint",
+  "operation": "mint",
+  "policy_class": "FORBIDDEN",
+  "policy_decision": "DENY",
+  "policy_reason": "Mint remains LOCKED",
+  "approval_state": "BLOCKED",
+  "approval_id": null,
+  "execution_state": "BLOCKED",
+  "result": "DENIED",
+  "params_hash": "44136fa355b3678a1146ad16f7e8649e",
+  "params_redacted": {},
+  "secret_exposed_to_llm": false,
+  "evidence_refs": []
+}

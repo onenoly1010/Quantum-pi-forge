@@ -1,0 +1,93 @@
+{
+  "schema": "sccb.capabilities.v1",
+  "version": 1,
+  "note": "Provider operation capabilities — no secrets. Separate from deploy/capability-registry-v1.json (evidence). Source of truth also in sccb/src/capabilities/registry.js defaultCapabilities().",
+  "capabilities": [
+    {
+      "id": "qpf.site.funnel.verify",
+      "provider": "qpf",
+      "scope": "public production funnel smoke checks",
+      "permitted_operations": ["verify"],
+      "credential_dependency": null,
+      "policy_class": "PREAUTHORIZED",
+      "policy": {},
+      "approval_required": false,
+      "audit": {
+        "write_receipt": true,
+        "include_params_hash": true,
+        "never_include_secrets": true
+      },
+      "status": "active"
+    },
+    {
+      "id": "cloudflare.deploy",
+      "provider": "cloudflare",
+      "scope": "deploy static site to named Cloudflare Pages projects",
+      "permitted_operations": ["deploy"],
+      "credential_dependency": "cloudflare-api-token",
+      "policy_class": "CONDITIONAL",
+      "policy": {
+        "allowed_targets": ["quantumpiforge", "oinio-dashboard"],
+        "allowed_branches": ["main"]
+      },
+      "approval_required": false,
+      "audit": {
+        "write_receipt": true,
+        "include_params_hash": true,
+        "never_include_secrets": true
+      },
+      "status": "active"
+    },
+    {
+      "id": "github.merge",
+      "provider": "github",
+      "scope": "merge pull requests on protected branches",
+      "permitted_operations": ["merge_pr"],
+      "credential_dependency": "github-token",
+      "policy_class": "HUMAN_APPROVAL",
+      "policy": {},
+      "approval_required": true,
+      "audit": {
+        "write_receipt": true,
+        "include_params_hash": true,
+        "never_include_secrets": true
+      },
+      "status": "active"
+    },
+    {
+      "id": "wallet.sign_transaction",
+      "provider": "wallet",
+      "scope": "sign prepared transactions",
+      "permitted_operations": ["sign"],
+      "credential_dependency": "wallet-signer",
+      "policy_class": "FORBIDDEN",
+      "policy": {
+        "reason": "Real signing disabled in SCCB v1; economics LOCKED",
+        "signing_enabled": false
+      },
+      "approval_required": true,
+      "audit": {
+        "write_receipt": true,
+        "include_params_hash": true,
+        "never_include_secrets": true
+      },
+      "status": "active"
+    },
+    {
+      "id": "economics.mint",
+      "provider": "economics",
+      "scope": "token mint operations",
+      "permitted_operations": ["mint"],
+      "credential_dependency": null,
+      "policy_class": "FORBIDDEN",
+      "policy": { "reason": "Mint remains LOCKED" },
+      "approval_required": true,
+      "audit": {
+        "write_receipt": true,
+        "include_params_hash": true,
+        "never_include_secrets": true
+      },
+      "status": "active"
+    }
+  ]
+}

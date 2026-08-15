@@ -1,0 +1,419 @@
+{
+  "schema": "sccb.security_gate.v1",
+  "title": "SCCB SECURITY_GATE",
+  "started_utc": "2026-08-08T01:41:22.425Z",
+  "completed_utc": "2026-08-08T01:41:24.192Z",
+  "baseline": {
+    "schema": "sccb.security_gate_baseline.v1",
+    "label": "SCCB_SECURITY_GATE_CANDIDATE_BASELINE",
+    "frozen_utc": "2026-08-08T01:41:22.425Z",
+    "branch": "feat/sccb-v1",
+    "commit": "d65513a2027ab598f3d0b017733a74cccaca251f",
+    "recent_log": [
+      "d65513a feat(sccb): implementation verification with sealed authority state",
+      "2cbc9b7 feat(sccb): implement Sovereign Credential & Capability Bootstrap v1",
+      "9471a02 ops: archive quantum-pi-forge-site (GO ARCHIVE_SITE) (#728)",
+      "64bccc2 fix(deploy): redirect legacy Pages site to canonical domain (#727)",
+      "01e2efc fix(ops): hold tax treatment pending determination (#726)"
+    ],
+    "note": "Baseline for security gate; do not treat chat GO as authorization to advance phases"
+  },
+  "overall_pass": true,
+  "gate_status": "SCCB_SECURITY_GATE_PASSED",
+  "critical_findings": [],
+  "residual_risks": [
+    "runWithInjectedSecrets returns stdout/stderr to direct callers; broker uses agentSafeResult which strips bodies. Direct library misuse could expose child output."
+  ],
+  "checks": {
+    "no_real_secrets_in_tree": true,
+    "no_local_secret_metadata_committed": true,
+    "gitignore_sccb_local": true,
+    "no_sccb_secrets_in_gate_process_env": true,
+    "credential_bootstrap_not_authorized": true,
+    "wallet_signing_not_authorized": true,
+    "pi_not_authorized": true,
+    "economics_not_authorized": true,
+    "go_text_rule": true,
+    "always_approve_rule": true,
+    "chat_go_cannot_authorize_bootstrap": true,
+    "allow_preauthorized": true,
+    "approval_required": true,
+    "deny_forbidden": true,
+    "always_approve_no_bypass_human": true,
+    "real_bootstrap_denied_without_seal": true,
+    "pre_revoke_conditional_allow": true,
+    "emergency_blocks_preauthorized": true,
+    "capability_revoke_blocks": true,
+    "credential_revoke_blocks": true,
+    "synthetic_secrets_not_in_agent_surfaces": true,
+    "inject_child_receives_secret": true,
+    "inject_agent_safe_no_secret": true,
+    "pass_refuses_agent_secret_write": true,
+    "wallet_prepare_no_key": true,
+    "wallet_sign_refused": true,
+    "audit_integrity": true,
+    "unit_adversarial_suite": true
+  },
+  "A_SECURITY_GATE_RESULT": {
+    "pass": true,
+    "status": "SCCB_SECURITY_GATE_PASSED",
+    "baseline_commit": "d65513a2027ab598f3d0b017733a74cccaca251f",
+    "branch": "feat/sccb-v1",
+    "critical_count": 0,
+    "residual_count": 1
+  },
+  "B_THREAT_MODEL": {
+    "path": "docs/sccb/THREAT_MODEL.md",
+    "summary": [
+      "Secret→LLM exfil mitigated by inject+agentSafeResult+redaction",
+      "Always-approve cannot elevate policy",
+      "Chat GO cannot authorize gated phases (sealed authority file)",
+      "Laptop compromise → revoke provider tokens; prefer HW for treasury",
+      "Residual: direct inject stdout may contain child-echoed secrets"
+    ]
+  },
+  "C_SECRET_HANDLING_RESULT": {
+    "pass": true,
+    "scan_hits": [],
+    "secret_handling": {
+      "memory_store": {
+        "encryption_at_rest": "none (RAM only, synthetic/tests)",
+        "decrypt": "in-process loadForInject",
+        "disk_write": false
+      },
+      "pass_store": {
+        "encryption_at_rest": "GPG via password-store",
+        "decrypt": "pass show → child process env only",
+        "agent_write_refused": true,
+        "metadata_permissions_intent": "0o600 when written"
+      },
+      "git_exclusion": "sccb/config/*.local.json",
+      "receipts": "non-secret; mode typically 0644",
+      "backups": "not implemented by SCCB (OS/user backup of pass store is operator concern)",
+      "temp_files": "gate temp metadata deleted; receipt temps cleaned",
+      "shell_history_note": "SCCB code does not write secrets to shell history. Pre-existing operator pass insert commands may appear in history (paths only; not values). Not introduced as secret material by SCCB."
+    },
+    "real_credentials_imported": false,
+    "production_wallets_connected": false,
+    "secrets_committed": false
+  },
+  "D_AUTHORIZATION_BYPASS_TEST_RESULT": {
+    "pass": true,
+    "chat_go_bootstrap": "BLOCKED",
+    "always_approve_human": "BLOCKED",
+    "always_approve_forbidden": "BLOCKED",
+    "real_bootstrap_without_seal": "BLOCKED",
+    "authority_summary": {
+      "schema": "sccb.authority_state.v1",
+      "version": 1,
+      "phases": {
+        "design": "AUTHORIZED",
+        "implementation": "AUTHORIZED",
+        "implementation_verification": "AUTHORIZED",
+        "credential_bootstrap": "NOT_AUTHORIZED",
+        "wallet_signing": "NOT_AUTHORIZED",
+        "wallet_broadcast": "NOT_AUTHORIZED",
+        "pi_activation": "NOT_AUTHORIZED",
+        "economics_unlock": "NOT_AUTHORIZED",
+        "production_deploy_via_sccb": "NOT_AUTHORIZED"
+      },
+      "rules": {
+        "agent_always_approve_bypasses_policy": false,
+        "go_text_in_chat_is_not_authorization": true,
+        "require_sealed_authority_file_for_gated_phases": true,
+        "real_credentials_off_limits_until_credential_bootstrap": true,
+        "synthetic_fixtures_only_in_verification": true
+      },
+      "authority_file_sha256": "fea2d2d1b06de6e8d18e47f505559868247caaed65cd4e7ed1b6b4ea774a40d7",
+      "note": "Machine-verifiable only. GO chat text is not authorization."
+    }
+  },
+  "E_CAPABILITY_MATRIX": [
+    {
+      "capability_id": "qpf.site.funnel.verify",
+      "policy_class": "PREAUTHORIZED",
+      "credential_dependency": null,
+      "permitted_operations": [
+        "verify"
+      ],
+      "approval_required": false,
+      "agent_projection": "CAPABILITY: qpf.site.funnel.verify"
+    },
+    {
+      "capability_id": "cloudflare.pages.read",
+      "policy_class": "PREAUTHORIZED",
+      "credential_dependency": "cloudflare-api-token",
+      "permitted_operations": [
+        "list_projects",
+        "list_deployments",
+        "get_deployment"
+      ],
+      "approval_required": false,
+      "agent_projection": "CAPABILITY: cloudflare.pages.read"
+    },
+    {
+      "capability_id": "cloudflare.deploy",
+      "policy_class": "CONDITIONAL",
+      "credential_dependency": "cloudflare-api-token",
+      "permitted_operations": [
+        "deploy"
+      ],
+      "approval_required": false,
+      "agent_projection": "CAPABILITY: cloudflare.deploy"
+    },
+    {
+      "capability_id": "github.pr.create",
+      "policy_class": "CONDITIONAL",
+      "credential_dependency": "github-token",
+      "permitted_operations": [
+        "create_pr"
+      ],
+      "approval_required": false,
+      "agent_projection": "CAPABILITY: github.pr.create"
+    },
+    {
+      "capability_id": "github.merge",
+      "policy_class": "HUMAN_APPROVAL",
+      "credential_dependency": "github-token",
+      "permitted_operations": [
+        "merge_pr"
+      ],
+      "approval_required": true,
+      "agent_projection": "CAPABILITY: github.merge"
+    },
+    {
+      "capability_id": "delivery.x.public_post",
+      "policy_class": "HUMAN_APPROVAL",
+      "credential_dependency": "delivery-x",
+      "permitted_operations": [
+        "post"
+      ],
+      "approval_required": true,
+      "agent_projection": "CAPABILITY: delivery.x.public_post"
+    },
+    {
+      "capability_id": "pi.read",
+      "policy_class": "FORBIDDEN",
+      "credential_dependency": "pi-api",
+      "permitted_operations": [
+        "read_status",
+        "read_payment"
+      ],
+      "approval_required": true,
+      "agent_projection": "CAPABILITY: pi.read"
+    },
+    {
+      "capability_id": "wallet.prepare_transaction",
+      "policy_class": "CONDITIONAL",
+      "credential_dependency": null,
+      "permitted_operations": [
+        "prepare"
+      ],
+      "approval_required": false,
+      "agent_projection": "CAPABILITY: wallet.prepare_transaction"
+    },
+    {
+      "capability_id": "wallet.sign_transaction",
+      "policy_class": "FORBIDDEN",
+      "credential_dependency": "wallet-signer",
+      "permitted_operations": [
+        "sign"
+      ],
+      "approval_required": true,
+      "agent_projection": "CAPABILITY: wallet.sign_transaction"
+    },
+    {
+      "capability_id": "0g.submit_transaction",
+      "policy_class": "FORBIDDEN",
+      "credential_dependency": null,
+      "permitted_operations": [
+        "submit"
+      ],
+      "approval_required": true,
+      "agent_projection": "CAPABILITY: 0g.submit_transaction"
+    },
+    {
+      "capability_id": "economics.mint",
+      "policy_class": "FORBIDDEN",
+      "credential_dependency": null,
+      "permitted_operations": [
+        "mint"
+      ],
+      "approval_required": true,
+      "agent_projection": "CAPABILITY: economics.mint"
+    },
+    {
+      "capability_id": "economics.liquidity",
+      "policy_class": "FORBIDDEN",
+      "credential_dependency": null,
+      "permitted_operations": [
+        "add_liquidity",
+        "remove_liquidity"
+      ],
+      "approval_required": true,
+      "agent_projection": "CAPABILITY: economics.liquidity"
+    }
+  ],
+  "F_APPROVAL_MATRIX": {
+    "classes": {
+      "ALLOW": "PREAUTHORIZED standing policy auto-executes when control plane clear",
+      "APPROVAL_REQUIRED": "HUMAN_APPROVAL and CONDITIONAL mismatch → prepare + escalate",
+      "DENY": "FORBIDDEN and control-plane stop/revoke"
+    },
+    "ALLOW_PREAUTHORIZED": [
+      "qpf.site.funnel.verify",
+      "cloudflare.pages.read"
+    ],
+    "CONDITIONAL": [
+      "cloudflare.deploy",
+      "github.pr.create",
+      "wallet.prepare_transaction"
+    ],
+    "APPROVAL_REQUIRED": [
+      "github.merge",
+      "delivery.x.public_post"
+    ],
+    "DENY_FORBIDDEN": [
+      "pi.read",
+      "wallet.sign_transaction",
+      "0g.submit_transaction",
+      "economics.mint",
+      "economics.liquidity"
+    ],
+    "live_tests": {
+      "ALLOW": {
+        "capability": "qpf.site.funnel.verify",
+        "result": "SUCCESS",
+        "policy_decision": "ALLOW"
+      },
+      "APPROVAL_REQUIRED": {
+        "capability": "github.merge",
+        "result": "APPROVAL_REQUIRED",
+        "approval_id_present": true
+      },
+      "DENY": {
+        "capability": "economics.mint",
+        "result": "DENIED",
+        "policy_decision": "DENY"
+      }
+    }
+  },
+  "G_REVOKE_TEST_RESULT": {
+    "pass": true,
+    "emergency_stop": true,
+    "capability_revoke": true,
+    "credential_revoke": true
+  },
+  "H_AUDIT_INTEGRITY_RESULT": {
+    "pass": true,
+    "fields": {
+      "has_timestamp": true,
+      "has_actor": true,
+      "has_capability": true,
+      "has_operation": true,
+      "has_policy_decision": true,
+      "has_approval_state": true,
+      "has_execution_state": true,
+      "has_result": true,
+      "has_evidence_id": true,
+      "has_params_hash": true,
+      "secret_exposed_false": true,
+      "safety_ok": true,
+      "no_synth_in_receipt": true
+    },
+    "sample_request": {
+      "result": "APPROVAL_REQUIRED",
+      "receipt_written": true
+    }
+  },
+  "I_REMAINING_BLOCKERS": [
+    "credential_bootstrap phase NOT_AUTHORIZED — no real secret enrollment",
+    "wallet_signing / wallet_broadcast NOT_AUTHORIZED",
+    "pi_activation NOT_AUTHORIZED",
+    "economics_unlock NOT_AUTHORIZED",
+    "production_deploy_via_sccb NOT_AUTHORIZED",
+    "No production credential connectivity tests (by design)",
+    "Residual: inject API stdout exposure if child echoes secrets (use agentSafeResult)"
+  ],
+  "J_EXACT_NEXT_AUTHORIZATION_REQUIRED": {
+    "phase": "credential_bootstrap",
+    "sealed_file": "sccb/config/authority-state.v1.json",
+    "required_change": "Human sets phases.credential_bootstrap.status = AUTHORIZED via explicit PR/operator edit",
+    "then": [
+      "Local terminal only: pass insert <path> (never chat)",
+      "npm run sccb -- bootstrap plan --real --provider <provider>",
+      "register-metadata + validate presence only"
+    ],
+    "not_sufficient": [
+      "chat GO CREDENTIAL_BOOTSTRAP",
+      "always-approve agent mode",
+      "silence / prior conversational approval",
+      "SECURITY_GATE_PASSED itself (does not authorize enrollment)",
+      "CLI --authorized without sealed phase"
+    ],
+    "still_separate_after_bootstrap": [
+      "wallet_signing",
+      "pi_activation",
+      "economics_unlock",
+      "production_deploy_via_sccb"
+    ]
+  },
+  "inventory": {
+    "sccb_file_count": 27,
+    "docs_sccb_file_count": 11,
+    "files": [
+      "sccb/README.md",
+      "sccb/config/.gitignore",
+      "sccb/config/authority-state.v1.json",
+      "sccb/config/capabilities.v1.json",
+      "sccb/config/credential-metadata.example.json",
+      "sccb/scripts/security-gate.mjs",
+      "sccb/scripts/verify-implementation.mjs",
+      "sccb/src/approval/engine.js",
+      "sccb/src/audit/receipt.js",
+      "sccb/src/authority/state.js",
+      "sccb/src/bootstrap/bootstrap.js",
+      "sccb/src/broker/broker.js",
+      "sccb/src/broker/inject.js",
+      "sccb/src/capabilities/registry.js",
+      "sccb/src/cli.js",
+      "sccb/src/control/emergency.js",
+      "sccb/src/grants/projection.js",
+      "sccb/src/index.js",
+      "sccb/src/policy/engine.js",
+      "sccb/src/redaction.js",
+      "sccb/src/secrets/memory-store.js",
+      "sccb/src/secrets/pass-store.js",
+      "sccb/src/secrets/store.js",
+      "sccb/src/types.js",
+      "sccb/src/wallet/prepare.js",
+      "sccb/test/adversarial.verification.test.js",
+      "sccb/test/sccb.v1.test.js",
+      "docs/sccb/APPROVAL_POLICY_SPEC.md",
+      "docs/sccb/ARCHITECTURE.md",
+      "docs/sccb/BOOTSTRAP_PROCEDURE.md",
+      "docs/sccb/CAPABILITY_SPEC.md",
+      "docs/sccb/CREDENTIAL_LIFECYCLE.md",
+      "docs/sccb/EMERGENCY_RECOVERY.md",
+      "docs/sccb/IMPLEMENTATION_VERIFICATION.md",
+      "docs/sccb/OPERATOR_GUIDE.md",
+      "docs/sccb/README.md",
+      "docs/sccb/THREAT_MODEL.md",
+      "docs/sccb/WALLET_TRANSACTION_SAFETY.md"
+    ]
+  },
+  "tests_summary": {
+    "exit_code": 0,
+    "pass": true,
+    "tail": "# tests 78 | # suites 27 | # pass 78 | # fail 0 | # cancelled 0 | # skipped 0 | # todo 0 | # duration_ms 1454.798739"
+  },
+  "explicit_non_actions": [
+    "no deploy of SCCB",
+    "no secret migration",
+    "no financial transactions",
+    "no Pi activation",
+    "no QPF economic lock changes",
+    "no production CF/GitHub/wallet/Pi credentials used"
+  ],
+  "secret_values_in_this_report": false
+}
