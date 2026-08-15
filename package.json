@@ -2,8 +2,13 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build.js",
+    "test:verification:canonical": "node --test tests/verification/canonical.test.js",
+    "test:verification:level0": "node --test tests/verification/level0.test.js",
+    "test:verification": "node --test tests/verification/canonical.test.js tests/verification/level0.test.js",
+    "verify:qpf:level0": "node scripts/qpf-verify-level0.mjs",
     "activation:preflight": "node scripts/activation-preflight.mjs",
     "build:cf": "node scripts/build.js",
+    "verify:production-funnel": "bash scripts/verify-production-funnel.sh",
     "serve:deploy": "python3 -m http.server 8100 --directory out",
     "deploy:cf": "bash scripts/deploy-cloudflare-pages.sh",
     "verify:receipt": "node scripts/verify-hermes-receipt.cjs",
@@ -299,7 +304,15 @@
     "ops:verify-report": "bash scripts/local-verify-report.sh",
     "ops:project-state": "node scripts/project-state.cjs --prefer-report",
     "ops:ai-cockpit": "bash scripts/ai-cockpit.sh",
-    "ops:ai-cockpit:quick": "bash scripts/ai-cockpit.sh --quick"
+    "ops:ai-cockpit:quick": "bash scripts/ai-cockpit.sh --quick",
+    "verify:entry-surfaces": "node scripts/verify-entry-surfaces.cjs",
+    "test:sccb": "node --test sccb/test/sccb.v1.test.js sccb/test/adversarial.verification.test.js",
+    "verify:sccb": "node sccb/scripts/verify-implementation.mjs",
+    "security-gate:sccb": "node sccb/scripts/security-gate.mjs",
+    "bootstrap-rehearsal:sccb": "node sccb/scripts/bootstrap-rehearsal.mjs",
+    "sccb": "node sccb/src/cli.js",
+    "sccb:status": "node sccb/src/cli.js status",
+    "sccb:capabilities": "node sccb/src/cli.js capabilities"
   },
   "dependencies": {
     "@0gfoundation/0g-compute-ts-sdk": "^0.9.0",
@@ -314,7 +327,7 @@
     "@uniswap/v2-core": "^1.0.1",
     "@uniswap/v2-periphery": "^1.1.0-beta.0",
     "solc": "^0.8.36",
-    "wrangler": "^4.118.0"
+    "wrangler": "^4.120.0"
   },
   "overrides": {
     "ws": "^8.21.0",
@@ -324,6 +337,7 @@
     "adm-zip": "0.6.0",
     "brace-expansion": "5.0.9",
     "fast-uri": "3.1.5",
+    "nanoid": "^3.3.18",
     "undici": "7.29.0"
   }
 }

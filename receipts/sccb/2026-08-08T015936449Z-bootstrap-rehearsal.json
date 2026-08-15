@@ -1,0 +1,1067 @@
+{
+  "schema": "sccb.bootstrap_rehearsal_evidence.v1",
+  "completed_utc": "2026-08-08T01:59:36.449Z",
+  "authority_sha256": "d97bd55563fc880dab4aadda3ae5cf3a7161a9beb3d1a89cfab0673e36e3c63a",
+  "authority_phases": {
+    "design": "AUTHORIZED",
+    "implementation": "AUTHORIZED",
+    "implementation_verification": "AUTHORIZED",
+    "bootstrap_rehearsal": "AUTHORIZED",
+    "credential_bootstrap": "NOT_AUTHORIZED",
+    "wallet_signing": "NOT_AUTHORIZED",
+    "wallet_broadcast": "NOT_AUTHORIZED",
+    "pi_activation": "NOT_AUTHORIZED",
+    "economics_unlock": "NOT_AUTHORIZED",
+    "production_deploy_via_sccb": "NOT_AUTHORIZED"
+  },
+  "real_credential_bootstrap_authorized": false,
+  "report": {
+    "schema": "sccb.bootstrap_rehearsal_result.v1",
+    "mode": "SYNTHETIC_REHEARSAL",
+    "real_credentials_enrolled": false,
+    "real_secret_intake": false,
+    "production_connected": false,
+    "overall_pass": true,
+    "started_note": "GO SCCB_BOOTSTRAP_REHEARSAL — not credential intake",
+    "procedure_summary": {
+      "credential_count": 5,
+      "first_wave": [
+        "cloudflare-api-token",
+        "github-token"
+      ],
+      "deferred": [
+        "delivery-x",
+        "pi-api",
+        "wallet-signer"
+      ]
+    },
+    "steps": [
+      {
+        "step": "plan",
+        "ok": true,
+        "mode": "synthetic_verification"
+      },
+      {
+        "step": "enroll_synthetic",
+        "credential_id": "cloudflare-api-token",
+        "ok": true,
+        "secret_value_returned": false,
+        "status": "active"
+      },
+      {
+        "step": "enroll_synthetic",
+        "credential_id": "github-token",
+        "ok": true,
+        "secret_value_returned": false,
+        "status": "active"
+      },
+      {
+        "step": "association",
+        "ok": true,
+        "rows": [
+          {
+            "capability_id": "qpf.site.funnel.verify",
+            "credential_id": null,
+            "credential_status": null,
+            "ready": true
+          },
+          {
+            "capability_id": "cloudflare.pages.read",
+            "credential_id": "cloudflare-api-token",
+            "credential_status": "active",
+            "ready": true
+          },
+          {
+            "capability_id": "cloudflare.deploy",
+            "credential_id": "cloudflare-api-token",
+            "credential_status": "active",
+            "ready": true
+          },
+          {
+            "capability_id": "github.pr.create",
+            "credential_id": "github-token",
+            "credential_status": "active",
+            "ready": true
+          },
+          {
+            "capability_id": "github.merge",
+            "credential_id": "github-token",
+            "credential_status": "active",
+            "ready": true
+          },
+          {
+            "capability_id": "wallet.prepare_transaction",
+            "credential_id": null,
+            "credential_status": null,
+            "ready": true
+          },
+          {
+            "capability_id": "0g.submit_transaction",
+            "credential_id": null,
+            "credential_status": null,
+            "ready": true
+          },
+          {
+            "capability_id": "economics.mint",
+            "credential_id": null,
+            "credential_status": null,
+            "ready": true
+          },
+          {
+            "capability_id": "economics.liquidity",
+            "credential_id": null,
+            "credential_status": null,
+            "ready": true
+          }
+        ]
+      },
+      {
+        "step": "standing_allow",
+        "ok": true,
+        "result": "SUCCESS"
+      },
+      {
+        "step": "conditional_deploy_dry_run",
+        "ok": true,
+        "policy_decision": "ALLOW",
+        "result": "DRY_RUN"
+      },
+      {
+        "step": "approval_required",
+        "ok": true,
+        "result": "APPROVAL_REQUIRED",
+        "approval_id": "fd9f7401-d5ee-42f0-a967-2e43b5fe3504"
+      },
+      {
+        "step": "forbidden_deny",
+        "ok": true,
+        "result": "DENIED"
+      },
+      {
+        "step": "wallet_prepare_no_key",
+        "ok": true,
+        "next_step": "signing_disabled"
+      },
+      {
+        "step": "capability_grants_no_secret",
+        "ok": true,
+        "grant_lines": [
+          "CAPABILITY: qpf.site.funnel.verify",
+          "CAPABILITY: cloudflare.pages.read",
+          "CAPABILITY: cloudflare.deploy",
+          "CAPABILITY: github.pr.create",
+          "CAPABILITY: github.merge",
+          "CAPABILITY: delivery.x.public_post",
+          "CAPABILITY: pi.read",
+          "CAPABILITY: wallet.prepare_transaction",
+          "CAPABILITY: wallet.sign_transaction",
+          "CAPABILITY: 0g.submit_transaction",
+          "CAPABILITY: economics.mint",
+          "CAPABILITY: economics.liquidity"
+        ]
+      },
+      {
+        "step": "emergency_stop",
+        "ok": true,
+        "result": "DENIED"
+      },
+      {
+        "step": "real_bootstrap_still_denied",
+        "ok": true,
+        "real_denied": true
+      }
+    ],
+    "audit_safety": {
+      "ok": true,
+      "issues": []
+    },
+    "first_wave_plan": {
+      "schema": "sccb.first_wave_enrollment.v1",
+      "first_wave": [
+        {
+          "id": "cloudflare-api-token",
+          "provider": "cloudflare",
+          "why": "Deploy and inspect Cloudflare Pages projects without pasting tokens into chat on every deploy.",
+          "capabilities": [
+            "cloudflare.pages.read",
+            "cloudflare.deploy"
+          ],
+          "pass_path": "qpf/providers/cloudflare/api-token",
+          "scoping_summary": "API Token (not Global API Key)"
+        },
+        {
+          "id": "github-token",
+          "provider": "github",
+          "why": "Open PRs and (with human approval) merge without re-pasting tokens.",
+          "capabilities": [
+            "github.pr.create",
+            "github.merge"
+          ],
+          "pass_path": "qpf/providers/github/token",
+          "scoping_summary": "Fine-grained PAT limited to Quantum-pi-forge (and siblings you choose)"
+        }
+      ],
+      "deferred": [
+        {
+          "id": "delivery-x",
+          "reason": "P2 — after CF/GitHub; may already be provisioned offline",
+          "forbidden_until": []
+        },
+        {
+          "id": "pi-api",
+          "reason": "P9 — do not enroll in first real bootstrap",
+          "forbidden_until": [
+            "pi.read — FORBIDDEN until pi_activation phase"
+          ]
+        },
+        {
+          "id": "wallet-signer",
+          "reason": "P9 — not first bootstrap; design external signer first",
+          "forbidden_until": [
+            "wallet.sign_transaction",
+            "0g.submit_transaction",
+            "economics.mint / economics.liquidity"
+          ]
+        }
+      ],
+      "secret_values_included": false
+    },
+    "secret_values_in_report": false,
+    "next_real_step": "Only after human seals credential_bootstrap=AUTHORIZED and reviews docs/sccb/BOOTSTRAP_REHEARSAL.md"
+  },
+  "procedure_digest": {
+    "principles": [
+      "Never paste secrets into chat, Git, agent context, or logs.",
+      "Local interactive intake only: pass insert → GPG vault.",
+      "Agents receive CAPABILITY grants, not raw tokens.",
+      "Wallet: prefer external signer; do not store unrestricted private keys on agent host.",
+      "Chat GO phrases are not authorization; sealed authority-state is.",
+      "This rehearsal does not enroll real credentials."
+    ],
+    "first_wave": {
+      "schema": "sccb.first_wave_enrollment.v1",
+      "first_wave": [
+        {
+          "id": "cloudflare-api-token",
+          "provider": "cloudflare",
+          "why": "Deploy and inspect Cloudflare Pages projects without pasting tokens into chat on every deploy.",
+          "capabilities": [
+            "cloudflare.pages.read",
+            "cloudflare.deploy"
+          ],
+          "pass_path": "qpf/providers/cloudflare/api-token",
+          "scoping_summary": "API Token (not Global API Key)"
+        },
+        {
+          "id": "github-token",
+          "provider": "github",
+          "why": "Open PRs and (with human approval) merge without re-pasting tokens.",
+          "capabilities": [
+            "github.pr.create",
+            "github.merge"
+          ],
+          "pass_path": "qpf/providers/github/token",
+          "scoping_summary": "Fine-grained PAT limited to Quantum-pi-forge (and siblings you choose)"
+        }
+      ],
+      "deferred": [
+        {
+          "id": "delivery-x",
+          "reason": "P2 — after CF/GitHub; may already be provisioned offline",
+          "forbidden_until": []
+        },
+        {
+          "id": "pi-api",
+          "reason": "P9 — do not enroll in first real bootstrap",
+          "forbidden_until": [
+            "pi.read — FORBIDDEN until pi_activation phase"
+          ]
+        },
+        {
+          "id": "wallet-signer",
+          "reason": "P9 — not first bootstrap; design external signer first",
+          "forbidden_until": [
+            "wallet.sign_transaction",
+            "0g.submit_transaction",
+            "economics.mint / economics.liquidity"
+          ]
+        }
+      ],
+      "secret_values_included": false
+    },
+    "answers_keys": [
+      "1_what_credentials",
+      "2_why_each",
+      "3_capability_each_unlocks",
+      "4_scoping",
+      "5_where_stored",
+      "6_who_retrieves",
+      "7_standing_auto",
+      "8_approval_required",
+      "9_emergency_revoke",
+      "10_compromise_recovery"
+    ],
+    "credential_ids": [
+      "cloudflare-api-token",
+      "github-token",
+      "delivery-x",
+      "pi-api",
+      "wallet-signer"
+    ]
+  },
+  "procedure": {
+    "schema": "sccb.bootstrap_rehearsal_procedure.v1",
+    "title": "One-time credential bootstrap procedure (rehearsal design)",
+    "mode": "REHEARSAL_SYNTHETIC_ONLY",
+    "real_enrollment_authorized": false,
+    "authority_phases": {
+      "design": "AUTHORIZED",
+      "implementation": "AUTHORIZED",
+      "implementation_verification": "AUTHORIZED",
+      "bootstrap_rehearsal": "AUTHORIZED",
+      "credential_bootstrap": "NOT_AUTHORIZED",
+      "wallet_signing": "NOT_AUTHORIZED",
+      "wallet_broadcast": "NOT_AUTHORIZED",
+      "pi_activation": "NOT_AUTHORIZED",
+      "economics_unlock": "NOT_AUTHORIZED",
+      "production_deploy_via_sccb": "NOT_AUTHORIZED"
+    },
+    "principles": [
+      "Never paste secrets into chat, Git, agent context, or logs.",
+      "Local interactive intake only: pass insert → GPG vault.",
+      "Agents receive CAPABILITY grants, not raw tokens.",
+      "Wallet: prefer external signer; do not store unrestricted private keys on agent host.",
+      "Chat GO phrases are not authorization; sealed authority-state is.",
+      "This rehearsal does not enroll real credentials."
+    ],
+    "answers": {
+      "1_what_credentials": [
+        {
+          "id": "cloudflare-api-token",
+          "what": "Cloudflare API token (Pages)",
+          "provider": "cloudflare"
+        },
+        {
+          "id": "github-token",
+          "what": "GitHub fine-grained or classic PAT (scoped)",
+          "provider": "github"
+        },
+        {
+          "id": "delivery-x",
+          "what": "X/Twitter delivery API keys",
+          "provider": "delivery"
+        },
+        {
+          "id": "pi-api",
+          "what": "Pi App API key",
+          "provider": "pi"
+        },
+        {
+          "id": "wallet-signer",
+          "what": "Wallet signer reference (prefer external)",
+          "provider": "wallet"
+        }
+      ],
+      "2_why_each": [
+        {
+          "id": "cloudflare-api-token",
+          "why": "Deploy and inspect Cloudflare Pages projects without pasting tokens into chat on every deploy."
+        },
+        {
+          "id": "github-token",
+          "why": "Open PRs and (with human approval) merge without re-pasting tokens."
+        },
+        {
+          "id": "delivery-x",
+          "why": "Existing revenue delivery path; unify under SCCB policy/audit instead of ad-hoc env."
+        },
+        {
+          "id": "pi-api",
+          "why": "Future Pi payment/status reads after portal provision. Currently capability FORBIDDEN."
+        },
+        {
+          "id": "wallet-signer",
+          "why": "Enable prepare→policy→approve→sign pipeline without agent holding unrestricted keys."
+        }
+      ],
+      "3_capability_each_unlocks": [
+        {
+          "id": "cloudflare-api-token",
+          "capabilities": [
+            {
+              "capability_id": "cloudflare.pages.read",
+              "policy_class": "PREAUTHORIZED",
+              "permitted_operations": [
+                "list_projects",
+                "list_deployments",
+                "get_deployment"
+              ],
+              "approval_required": false,
+              "agent_projection": "CAPABILITY: cloudflare.pages.read"
+            },
+            {
+              "capability_id": "cloudflare.deploy",
+              "policy_class": "CONDITIONAL",
+              "permitted_operations": [
+                "deploy"
+              ],
+              "approval_required": false,
+              "agent_projection": "CAPABILITY: cloudflare.deploy"
+            }
+          ]
+        },
+        {
+          "id": "github-token",
+          "capabilities": [
+            {
+              "capability_id": "github.pr.create",
+              "policy_class": "CONDITIONAL",
+              "permitted_operations": [
+                "create_pr"
+              ],
+              "approval_required": false,
+              "agent_projection": "CAPABILITY: github.pr.create"
+            },
+            {
+              "capability_id": "github.merge",
+              "policy_class": "HUMAN_APPROVAL",
+              "permitted_operations": [
+                "merge_pr"
+              ],
+              "approval_required": true,
+              "agent_projection": "CAPABILITY: github.merge"
+            }
+          ]
+        },
+        {
+          "id": "delivery-x",
+          "capabilities": [
+            {
+              "capability_id": "delivery.x.public_post",
+              "policy_class": "HUMAN_APPROVAL",
+              "permitted_operations": [
+                "post"
+              ],
+              "approval_required": true,
+              "agent_projection": "CAPABILITY: delivery.x.public_post"
+            }
+          ]
+        },
+        {
+          "id": "pi-api",
+          "capabilities": [
+            {
+              "capability_id": "pi.read",
+              "policy_class": "FORBIDDEN",
+              "permitted_operations": [
+                "read_status",
+                "read_payment"
+              ],
+              "approval_required": true,
+              "agent_projection": "CAPABILITY: pi.read"
+            }
+          ]
+        },
+        {
+          "id": "wallet-signer",
+          "capabilities": [
+            {
+              "capability_id": "wallet.sign_transaction",
+              "policy_class": "FORBIDDEN",
+              "permitted_operations": [
+                "sign"
+              ],
+              "approval_required": true,
+              "agent_projection": "CAPABILITY: wallet.sign_transaction"
+            }
+          ]
+        }
+      ],
+      "4_scoping": [
+        {
+          "id": "cloudflare-api-token",
+          "scoping": {
+            "preferred": "API Token (not Global API Key)",
+            "read_only_possible": true,
+            "read_only_scopes": [
+              "Account.Cloudflare Pages:Read",
+              "Account.Account Settings:Read"
+            ],
+            "write_scopes_for_deploy": [
+              "Account.Cloudflare Pages:Edit"
+            ],
+            "short_lived": "Prefer tokens with expiration; rotate on schedule or after incident",
+            "account_restriction": "Limit to QPF account / named Pages projects only when CF UI allows"
+          }
+        },
+        {
+          "id": "github-token",
+          "scoping": {
+            "preferred": "Fine-grained PAT limited to Quantum-pi-forge (and siblings you choose)",
+            "read_only_possible": true,
+            "read_only_scopes": [
+              "Contents: Read",
+              "Pull requests: Read",
+              "Metadata: Read"
+            ],
+            "write_for_pr": [
+              "Contents: Read/Write",
+              "Pull requests: Read/Write"
+            ],
+            "merge_needs": "Often same as write; merge capability still HUMAN_APPROVAL in SCCB",
+            "short_lived": "90-day expiry recommended; no SSO org tokens broader than needed"
+          }
+        },
+        {
+          "id": "delivery-x",
+          "scoping": {
+            "preferred": "App + user tokens limited to posting on QPF account only",
+            "read_only_possible": false,
+            "short_lived": "Rotate on compromise; platform-dependent expiry",
+            "note": "May already exist under pass qpf/revenue-delivery/* from prior delivery setup"
+          }
+        },
+        {
+          "id": "pi-api",
+          "scoping": {
+            "preferred": "App-scoped API key when Pi portal provides one",
+            "read_only_possible": true,
+            "short_lived": "Rotate if App recreated"
+          }
+        },
+        {
+          "id": "wallet-signer",
+          "scoping": {
+            "preferred": "External signer / hardware wallet / remote policy signer. Value should be a reference or connector id — NOT a raw seed.",
+            "read_only_possible": false,
+            "short_lived": "Session-bound signing approvals preferred",
+            "store_unrestricted_private_key": false,
+            "strongly_discouraged": "EOA private key or seed phrase on agent host laptop"
+          }
+        }
+      ],
+      "5_where_stored": [
+        {
+          "id": "cloudflare-api-token",
+          "storage": {
+            "backend": "pass (GPG password-store)",
+            "path": "qpf/providers/cloudflare/api-token",
+            "plaintext_in_git": false,
+            "plaintext_in_chat": false,
+            "metadata_file": "sccb/config/credential-metadata.local.json (gitignored)"
+          }
+        },
+        {
+          "id": "github-token",
+          "storage": {
+            "backend": "pass (GPG password-store)",
+            "path": "qpf/providers/github/token",
+            "plaintext_in_git": false,
+            "plaintext_in_chat": false,
+            "metadata_file": "sccb/config/credential-metadata.local.json (gitignored)"
+          }
+        },
+        {
+          "id": "delivery-x",
+          "storage": {
+            "backend": "pass (existing delivery pattern)",
+            "path": "qpf/revenue-delivery/<ENV_NAME>",
+            "plaintext_in_git": false,
+            "plaintext_in_chat": false,
+            "legacy_inject": "press-agent/scripts/run-with-delivery-credentials.sh"
+          }
+        },
+        {
+          "id": "pi-api",
+          "storage": {
+            "backend": "pass — only after pi_activation AUTHORIZED",
+            "path": "qpf/providers/pi/api-key",
+            "plaintext_in_git": false,
+            "plaintext_in_chat": false
+          }
+        },
+        {
+          "id": "wallet-signer",
+          "storage": {
+            "backend": "Prefer: no private key in pass. Optional: pass holds only a signer endpoint ref / key id",
+            "path": "qpf/providers/wallet/signer (reference only if used)",
+            "plaintext_in_git": false,
+            "plaintext_in_chat": false
+          }
+        }
+      ],
+      "6_who_retrieves": [
+        {
+          "id": "cloudflare-api-token",
+          "retrieval": {
+            "who": "SCCB broker inject path only (child process env)",
+            "agent_sees": "CAPABILITY grants + metadata status, never token value",
+            "cli": "never prints secret; validate checks presence only"
+          }
+        },
+        {
+          "id": "github-token",
+          "retrieval": {
+            "who": "SCCB broker inject only",
+            "agent_sees": "CAPABILITY: github.* — never GITHUB_TOKEN=…",
+            "cli": "metadata + presence validate only"
+          }
+        },
+        {
+          "id": "delivery-x",
+          "retrieval": {
+            "who": "Delivery inject script and/or SCCB broker (future thin wrap)",
+            "agent_sees": "CAPABILITY: delivery.x.public_post only",
+            "cli": "presence validate only"
+          }
+        },
+        {
+          "id": "pi-api",
+          "retrieval": {
+            "who": "Broker inject after capability un-forbidden",
+            "agent_sees": "CAPABILITY: pi.read (denied until policy change)"
+          }
+        },
+        {
+          "id": "wallet-signer",
+          "retrieval": {
+            "who": "Signer subsystem after wallet_signing AUTHORIZED — never LLM",
+            "agent_sees": "CAPABILITY: wallet.prepare_transaction (intent summary only); sign remains FORBIDDEN by default"
+          }
+        }
+      ],
+      "7_standing_auto": [
+        {
+          "credential_id": "cloudflare-api-token",
+          "action": "cloudflare.pages.read:list_projects"
+        },
+        {
+          "credential_id": "cloudflare-api-token",
+          "action": "cloudflare.pages.read:list_deployments"
+        },
+        {
+          "credential_id": "cloudflare-api-token",
+          "action": "cloudflare.pages.read:get_deployment"
+        },
+        {
+          "credential_id": "wallet-signer",
+          "action": "wallet.prepare_transaction:prepare (unsigned intent only)"
+        }
+      ],
+      "8_approval_required": [
+        {
+          "credential_id": "cloudflare-api-token",
+          "action": "cloudflare.deploy:deploy when target/branch outside allowlist (quantumpiforge|oinio-dashboard + main)"
+        },
+        {
+          "credential_id": "cloudflare-api-token",
+          "action": "First production deploy via SCCB if production_deploy_via_sccb still NOT_AUTHORIZED"
+        },
+        {
+          "credential_id": "github-token",
+          "action": "github.pr.create:create_pr (CONDITIONAL — allowlisted repos only; mismatch escalates)"
+        },
+        {
+          "credential_id": "github-token",
+          "action": "github.merge:merge_pr (always HUMAN_APPROVAL)"
+        },
+        {
+          "credential_id": "delivery-x",
+          "action": "delivery.x.public_post:post (HUMAN_APPROVAL — external publish)"
+        },
+        {
+          "credential_id": "wallet-signer",
+          "action": "Any sign path (when ever un-forbidden) → HUMAN + amount/destination policy"
+        }
+      ],
+      "9_emergency_revoke": {
+        "single_action": "npm run sccb -- emergency-stop --reason \"...\"",
+        "then": [
+          "capability-revoke --id <id> for each affected capability",
+          "credential-revoke --id <id> in SCCB metadata",
+          "Invalidate tokens at provider dashboards (CF, GitHub, …)",
+          "Optional: pass rm <path> after provider rotate"
+        ],
+        "full_procedure": "docs/sccb/EMERGENCY_RECOVERY.md"
+      },
+      "10_compromise_recovery": {
+        "laptop": [
+          "emergency-stop",
+          "Revoke all provider tokens at source",
+          "Rotate GPG if agent/unlocked session compromised",
+          "Re-bootstrap only after sealed authority re-confirmed"
+        ],
+        "vault_pass": [
+          "Assume secrets exposed if GPG passphrase compromised",
+          "Rotate every token/key that lived in pass",
+          "Re-create pass store under new GPG key if needed"
+        ],
+        "agent": [
+          "emergency-stop + revoke capabilities",
+          "Secrets should not be in agent context; still rotate if inject was used during compromise window",
+          "Review receipts/sccb for unexpected invokes"
+        ],
+        "recovery_text_excerpt": "SCCB Emergency Recovery Procedure\n=================================\n\n1. Confirm incident scope (which capability/credential/environment).\n2. If active compromise: run emergency stop immediately.\n   $ node sccb/src/cli.js emergency-stop --reason \"...\"\n3. Revoke compromised provider tokens at the provider dashboard (CF, GitHub, etc.).\n4. Mark credentials revoked in SCCB metadata:\n   $ node sccb/src/cli.js credential-revoke --id <credential-id>\n5. Revoke or pause affected capabilities:\n   $ node sccb/src/cli.js capability-revoke --id <capability-id>\n6. Rotate secrets via local terminal only (pass insert / provider UI) — NEVER chat."
+      }
+    },
+    "credentials_detailed": [
+      {
+        "credential_id": "cloudflare-api-token",
+        "provider": "cloudflare",
+        "what": "Cloudflare API token (Pages)",
+        "why": "Deploy and inspect Cloudflare Pages projects without pasting tokens into chat on every deploy.",
+        "capabilities_unlocked": [
+          {
+            "capability_id": "cloudflare.pages.read",
+            "policy_class": "PREAUTHORIZED",
+            "permitted_operations": [
+              "list_projects",
+              "list_deployments",
+              "get_deployment"
+            ],
+            "approval_required": false,
+            "agent_projection": "CAPABILITY: cloudflare.pages.read"
+          },
+          {
+            "capability_id": "cloudflare.deploy",
+            "policy_class": "CONDITIONAL",
+            "permitted_operations": [
+              "deploy"
+            ],
+            "approval_required": false,
+            "agent_projection": "CAPABILITY: cloudflare.deploy"
+          }
+        ],
+        "can_be_scoped": {
+          "preferred": "API Token (not Global API Key)",
+          "read_only_possible": true,
+          "read_only_scopes": [
+            "Account.Cloudflare Pages:Read",
+            "Account.Account Settings:Read"
+          ],
+          "write_scopes_for_deploy": [
+            "Account.Cloudflare Pages:Edit"
+          ],
+          "short_lived": "Prefer tokens with expiration; rotate on schedule or after incident",
+          "account_restriction": "Limit to QPF account / named Pages projects only when CF UI allows"
+        },
+        "where_stored": {
+          "backend": "pass (GPG password-store)",
+          "path": "qpf/providers/cloudflare/api-token",
+          "plaintext_in_git": false,
+          "plaintext_in_chat": false,
+          "metadata_file": "sccb/config/credential-metadata.local.json (gitignored)"
+        },
+        "who_can_retrieve": {
+          "who": "SCCB broker inject path only (child process env)",
+          "agent_sees": "CAPABILITY grants + metadata status, never token value",
+          "cli": "never prints secret; validate checks presence only"
+        },
+        "standing_policy_actions": [
+          "cloudflare.pages.read:list_projects",
+          "cloudflare.pages.read:list_deployments",
+          "cloudflare.pages.read:get_deployment"
+        ],
+        "approval_required_actions": [
+          "cloudflare.deploy:deploy when target/branch outside allowlist (quantumpiforge|oinio-dashboard + main)",
+          "First production deploy via SCCB if production_deploy_via_sccb still NOT_AUTHORIZED"
+        ],
+        "forbidden_until_separate_go": [],
+        "enrollment_priority": "P1 — first real bootstrap candidate",
+        "recommended_for_first_real_bootstrap": true,
+        "store_unrestricted_private_key": false,
+        "operator_notes": [
+          "Create token in Cloudflare dashboard with least privilege.",
+          "Enrollment: pass insert (local interactive), then register-metadata."
+        ]
+      },
+      {
+        "credential_id": "github-token",
+        "provider": "github",
+        "what": "GitHub fine-grained or classic PAT (scoped)",
+        "why": "Open PRs and (with human approval) merge without re-pasting tokens.",
+        "capabilities_unlocked": [
+          {
+            "capability_id": "github.pr.create",
+            "policy_class": "CONDITIONAL",
+            "permitted_operations": [
+              "create_pr"
+            ],
+            "approval_required": false,
+            "agent_projection": "CAPABILITY: github.pr.create"
+          },
+          {
+            "capability_id": "github.merge",
+            "policy_class": "HUMAN_APPROVAL",
+            "permitted_operations": [
+              "merge_pr"
+            ],
+            "approval_required": true,
+            "agent_projection": "CAPABILITY: github.merge"
+          }
+        ],
+        "can_be_scoped": {
+          "preferred": "Fine-grained PAT limited to Quantum-pi-forge (and siblings you choose)",
+          "read_only_possible": true,
+          "read_only_scopes": [
+            "Contents: Read",
+            "Pull requests: Read",
+            "Metadata: Read"
+          ],
+          "write_for_pr": [
+            "Contents: Read/Write",
+            "Pull requests: Read/Write"
+          ],
+          "merge_needs": "Often same as write; merge capability still HUMAN_APPROVAL in SCCB",
+          "short_lived": "90-day expiry recommended; no SSO org tokens broader than needed"
+        },
+        "where_stored": {
+          "backend": "pass (GPG password-store)",
+          "path": "qpf/providers/github/token",
+          "plaintext_in_git": false,
+          "plaintext_in_chat": false,
+          "metadata_file": "sccb/config/credential-metadata.local.json (gitignored)"
+        },
+        "who_can_retrieve": {
+          "who": "SCCB broker inject only",
+          "agent_sees": "CAPABILITY: github.* — never GITHUB_TOKEN=…",
+          "cli": "metadata + presence validate only"
+        },
+        "standing_policy_actions": [],
+        "approval_required_actions": [
+          "github.pr.create:create_pr (CONDITIONAL — allowlisted repos only; mismatch escalates)",
+          "github.merge:merge_pr (always HUMAN_APPROVAL)"
+        ],
+        "forbidden_until_separate_go": [],
+        "enrollment_priority": "P1 — first real bootstrap candidate",
+        "recommended_for_first_real_bootstrap": true,
+        "store_unrestricted_private_key": false,
+        "operator_notes": [
+          "Prefer fine-grained PAT over classic.",
+          "Do not grant admin:org or delete_repo for agent use."
+        ]
+      },
+      {
+        "credential_id": "delivery-x",
+        "provider": "delivery",
+        "what": "X/Twitter delivery API keys",
+        "why": "Existing revenue delivery path; unify under SCCB policy/audit instead of ad-hoc env.",
+        "capabilities_unlocked": [
+          {
+            "capability_id": "delivery.x.public_post",
+            "policy_class": "HUMAN_APPROVAL",
+            "permitted_operations": [
+              "post"
+            ],
+            "approval_required": true,
+            "agent_projection": "CAPABILITY: delivery.x.public_post"
+          }
+        ],
+        "can_be_scoped": {
+          "preferred": "App + user tokens limited to posting on QPF account only",
+          "read_only_possible": false,
+          "short_lived": "Rotate on compromise; platform-dependent expiry",
+          "note": "May already exist under pass qpf/revenue-delivery/* from prior delivery setup"
+        },
+        "where_stored": {
+          "backend": "pass (existing delivery pattern)",
+          "path": "qpf/revenue-delivery/<ENV_NAME>",
+          "plaintext_in_git": false,
+          "plaintext_in_chat": false,
+          "legacy_inject": "press-agent/scripts/run-with-delivery-credentials.sh"
+        },
+        "who_can_retrieve": {
+          "who": "Delivery inject script and/or SCCB broker (future thin wrap)",
+          "agent_sees": "CAPABILITY: delivery.x.public_post only",
+          "cli": "presence validate only"
+        },
+        "standing_policy_actions": [],
+        "approval_required_actions": [
+          "delivery.x.public_post:post (HUMAN_APPROVAL — external publish)"
+        ],
+        "forbidden_until_separate_go": [],
+        "enrollment_priority": "P2 — after CF/GitHub; may already be provisioned offline",
+        "recommended_for_first_real_bootstrap": false,
+        "store_unrestricted_private_key": false,
+        "operator_notes": [
+          "If already in pass, only register SCCB metadata — do not re-paste into chat.",
+          "External posts always need human approval in SCCB v1."
+        ]
+      },
+      {
+        "credential_id": "pi-api",
+        "provider": "pi",
+        "what": "Pi App API key",
+        "why": "Future Pi payment/status reads after portal provision. Currently capability FORBIDDEN.",
+        "capabilities_unlocked": [
+          {
+            "capability_id": "pi.read",
+            "policy_class": "FORBIDDEN",
+            "permitted_operations": [
+              "read_status",
+              "read_payment"
+            ],
+            "approval_required": true,
+            "agent_projection": "CAPABILITY: pi.read"
+          }
+        ],
+        "can_be_scoped": {
+          "preferred": "App-scoped API key when Pi portal provides one",
+          "read_only_possible": true,
+          "short_lived": "Rotate if App recreated"
+        },
+        "where_stored": {
+          "backend": "pass — only after pi_activation AUTHORIZED",
+          "path": "qpf/providers/pi/api-key",
+          "plaintext_in_git": false,
+          "plaintext_in_chat": false
+        },
+        "who_can_retrieve": {
+          "who": "Broker inject after capability un-forbidden",
+          "agent_sees": "CAPABILITY: pi.read (denied until policy change)"
+        },
+        "standing_policy_actions": [],
+        "approval_required_actions": [],
+        "forbidden_until_separate_go": [
+          "pi.read — FORBIDDEN until pi_activation phase"
+        ],
+        "enrollment_priority": "P9 — do not enroll in first real bootstrap",
+        "recommended_for_first_real_bootstrap": false,
+        "store_unrestricted_private_key": false,
+        "operator_notes": [
+          "Pi remains dormant. Do not enroll real Pi secrets during first bootstrap."
+        ]
+      },
+      {
+        "credential_id": "wallet-signer",
+        "provider": "wallet",
+        "what": "Wallet signer reference (prefer external)",
+        "why": "Enable prepare→policy→approve→sign pipeline without agent holding unrestricted keys.",
+        "capabilities_unlocked": [
+          {
+            "capability_id": "wallet.sign_transaction",
+            "policy_class": "FORBIDDEN",
+            "permitted_operations": [
+              "sign"
+            ],
+            "approval_required": true,
+            "agent_projection": "CAPABILITY: wallet.sign_transaction"
+          }
+        ],
+        "can_be_scoped": {
+          "preferred": "External signer / hardware wallet / remote policy signer. Value should be a reference or connector id — NOT a raw seed.",
+          "read_only_possible": false,
+          "short_lived": "Session-bound signing approvals preferred",
+          "store_unrestricted_private_key": false,
+          "strongly_discouraged": "EOA private key or seed phrase on agent host laptop"
+        },
+        "where_stored": {
+          "backend": "Prefer: no private key in pass. Optional: pass holds only a signer endpoint ref / key id",
+          "path": "qpf/providers/wallet/signer (reference only if used)",
+          "plaintext_in_git": false,
+          "plaintext_in_chat": false
+        },
+        "who_can_retrieve": {
+          "who": "Signer subsystem after wallet_signing AUTHORIZED — never LLM",
+          "agent_sees": "CAPABILITY: wallet.prepare_transaction (intent summary only); sign remains FORBIDDEN by default"
+        },
+        "standing_policy_actions": [
+          "wallet.prepare_transaction:prepare (unsigned intent only)"
+        ],
+        "approval_required_actions": [
+          "Any sign path (when ever un-forbidden) → HUMAN + amount/destination policy"
+        ],
+        "forbidden_until_separate_go": [
+          "wallet.sign_transaction",
+          "0g.submit_transaction",
+          "economics.mint / economics.liquidity"
+        ],
+        "enrollment_priority": "P9 — not first bootstrap; design external signer first",
+        "recommended_for_first_real_bootstrap": false,
+        "store_unrestricted_private_key": false,
+        "operator_notes": [
+          "SCCB should orchestrate intents; unrestricted private keys should not live in agent context.",
+          "First bootstrap should skip wallet-signer enrollment entirely."
+        ]
+      }
+    ],
+    "first_wave": {
+      "schema": "sccb.first_wave_enrollment.v1",
+      "first_wave": [
+        {
+          "id": "cloudflare-api-token",
+          "provider": "cloudflare",
+          "why": "Deploy and inspect Cloudflare Pages projects without pasting tokens into chat on every deploy.",
+          "capabilities": [
+            "cloudflare.pages.read",
+            "cloudflare.deploy"
+          ],
+          "pass_path": "qpf/providers/cloudflare/api-token",
+          "scoping_summary": "API Token (not Global API Key)"
+        },
+        {
+          "id": "github-token",
+          "provider": "github",
+          "why": "Open PRs and (with human approval) merge without re-pasting tokens.",
+          "capabilities": [
+            "github.pr.create",
+            "github.merge"
+          ],
+          "pass_path": "qpf/providers/github/token",
+          "scoping_summary": "Fine-grained PAT limited to Quantum-pi-forge (and siblings you choose)"
+        }
+      ],
+      "deferred": [
+        {
+          "id": "delivery-x",
+          "reason": "P2 — after CF/GitHub; may already be provisioned offline",
+          "forbidden_until": []
+        },
+        {
+          "id": "pi-api",
+          "reason": "P9 — do not enroll in first real bootstrap",
+          "forbidden_until": [
+            "pi.read — FORBIDDEN until pi_activation phase"
+          ]
+        },
+        {
+          "id": "wallet-signer",
+          "reason": "P9 — not first bootstrap; design external signer first",
+          "forbidden_until": [
+            "wallet.sign_transaction",
+            "0g.submit_transaction",
+            "economics.mint / economics.liquidity"
+          ]
+        }
+      ],
+      "secret_values_included": false
+    },
+    "local_interactive_intake": {
+      "real_path": [
+        "1. Seal credential_bootstrap=AUTHORIZED in authority-state.v1.json (human PR)",
+        "2. Terminal (not chat): pass insert <pass_path>",
+        "3. Paste secret only into pass (GPG)",
+        "4. sccb bootstrap register-metadata --id <id>",
+        "5. sccb bootstrap validate --id <id> --pass",
+        "6. Non-secret receipt under receipts/sccb/"
+      ],
+      "rehearsal_path": [
+        "1. MemorySecretStore fixtures only",
+        "2. register-metadata + storeSecret(fixture)",
+        "3. validate presence",
+        "4. invoke capabilities under policy",
+        "5. emergency-stop rehearsal",
+        "6. evidence receipt (no real secrets)"
+      ],
+      "never": [
+        "Paste secret into LLM chat",
+        "Commit secret to Git",
+        "Log secret values",
+        "Put unrestricted wallet seed on agent host for first bootstrap"
+      ]
+    },
+    "secret_values_included": false
+  },
+  "receipt_path": "/home/kris/Quantum-pi-forge/receipts/sccb/2026-08-08T015936440Z-sccb.bootstrap_rehearsal-sccb-d72.json",
+  "secret_values_included": false
+}

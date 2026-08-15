@@ -95,6 +95,12 @@ state_changing_transaction_executed: false
 
 Closing exit criterion #2 requires a future receipt that seals collected external attestations. This lane does not create that receipt.
 
+## Related Gate Policy
+
+For the current PR #737 verification freeze window and binary pass/fail trigger policy, see:
+
+- [PR_737_CONFORMANCE_AND_REPRODUCIBILITY_GATES_V1.md](./PR_737_CONFORMANCE_AND_REPRODUCIBILITY_GATES_V1.md)
+
 ## Conclusion
 
 The reviewer attestation intake boundary is sealed. Outside reviewers may now submit comparable, non-authoritative results without triggering cutover or approval state changes.

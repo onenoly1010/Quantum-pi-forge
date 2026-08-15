@@ -1,0 +1,170 @@
+{
+  "schema": "sccb.audit_receipt.v1",
+  "sccb_version": "1.0.0",
+  "evidence_id": "sccb-d72d910f-01a1-40f6-83dc-ba37f60c6a1c",
+  "request_id": "a3352954-df9a-4309-9b59-fda2692cb26c",
+  "timestamp": "2026-08-08T01:59:36.440Z",
+  "actor": "bootstrap-rehearsal",
+  "capability_id": "sccb.bootstrap_rehearsal",
+  "operation": "rehearse",
+  "policy_class": "HUMAN_APPROVAL",
+  "policy_decision": "ALLOW",
+  "policy_reason": "synthetic rehearsal authorized",
+  "approval_state": "NOT_REQUIRED",
+  "approval_id": null,
+  "execution_state": "SUCCESS",
+  "result": "REHEARSAL_COMPLETE",
+  "params_hash": "22a9d7cb-508c-40",
+  "params_redacted": {
+    "enrollList": [
+      "cloudflare-api-token",
+      "github-token"
+    ],
+    "mode": "synthetic"
+  },
+  "secret_exposed_to_llm": false,
+  "evidence_refs": [],
+  "extra": {
+    "overall_pass": true,
+    "steps": [
+      {
+        "step": "plan",
+        "ok": true,
+        "mode": "synthetic_verification"
+      },
+      {
+        "step": "enroll_synthetic",
+        "credential_id": "cloudflare-api-token",
+        "ok": true,
+        "secret_value_returned": false,
+        "status": "active"
+      },
+      {
+        "step": "enroll_synthetic",
+        "credential_id": "github-token",
+        "ok": true,
+        "secret_value_returned": false,
+        "status": "active"
+      },
+      {
+        "step": "association",
+        "ok": true,
+        "rows": [
+          {
+            "capability_id": "qpf.site.funnel.verify",
+            "credential_id": null,
+            "credential_status": null,
+            "ready": true
+          },
+          {
+            "capability_id": "cloudflare.pages.read",
+            "credential_id": "cloudflare-api-token",
+            "credential_status": "active",
+            "ready": true
+          },
+          {
+            "capability_id": "cloudflare.deploy",
+            "credential_id": "cloudflare-api-token",
+            "credential_status": "active",
+            "ready": true
+          },
+          {
+            "capability_id": "github.pr.create",
+            "credential_id": "github-token",
+            "credential_status": "active",
+            "ready": true
+          },
+          {
+            "capability_id": "github.merge",
+            "credential_id": "github-token",
+            "credential_status": "active",
+            "ready": true
+          },
+          {
+            "capability_id": "wallet.prepare_transaction",
+            "credential_id": null,
+            "credential_status": null,
+            "ready": true
+          },
+          {
+            "capability_id": "0g.submit_transaction",
+            "credential_id": null,
+            "credential_status": null,
+            "ready": true
+          },
+          {
+            "capability_id": "economics.mint",
+            "credential_id": null,
+            "credential_status": null,
+            "ready": true
+          },
+          {
+            "capability_id": "economics.liquidity",
+            "credential_id": null,
+            "credential_status": null,
+            "ready": true
+          }
+        ]
+      },
+      {
+        "step": "standing_allow",
+        "ok": true,
+        "result": "SUCCESS"
+      },
+      {
+        "step": "conditional_deploy_dry_run",
+        "ok": true,
+        "policy_decision": "ALLOW",
+        "result": "DRY_RUN"
+      },
+      {
+        "step": "approval_required",
+        "ok": true,
+        "result": "APPROVAL_REQUIRED",
+        "approval_id": "fd9f7401-d5ee-42f0-a967-2e43b5fe3504"
+      },
+      {
+        "step": "forbidden_deny",
+        "ok": true,
+        "result": "DENIED"
+      },
+      {
+        "step": "wallet_prepare_no_key",
+        "ok": true,
+        "next_step": "signing_disabled"
+      },
+      {
+        "step": "capability_grants_no_secret",
+        "ok": true,
+        "grant_lines": [
+          "CAPABILITY: qpf.site.funnel.verify",
+          "CAPABILITY: cloudflare.pages.read",
+          "CAPABILITY: cloudflare.deploy",
+          "CAPABILITY: github.pr.create",
+          "CAPABILITY: github.merge",
+          "CAPABILITY: delivery.x.public_post",
+          "CAPABILITY: pi.read",
+          "CAPABILITY: wallet.prepare_transaction",
+          "CAPABILITY: wallet.sign_transaction",
+          "CAPABILITY: 0g.submit_transaction",
+          "CAPABILITY: economics.mint",
+          "CAPABILITY: economics.liquidity"
+        ]
+      },
+      {
+        "step": "emergency_stop",
+        "ok": true,
+        "result": "DENIED"
+      },
+      {
+        "step": "real_bootstrap_still_denied",
+        "ok": true,
+        "real_denied": true
+      }
+    ],
+    "first_wave": [
+      "cloudflare-api-token",
+      "github-token"
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "schema": "sccb.security_gate_baseline.v1",
+  "label": "SCCB_SECURITY_GATE_CANDIDATE_BASELINE",
+  "frozen_utc": "2026-08-08T01:41:22.425Z",
+  "branch": "feat/sccb-v1",
+  "commit": "d65513a2027ab598f3d0b017733a74cccaca251f",
+  "recent_log": [
+    "d65513a feat(sccb): implementation verification with sealed authority state",
+    "2cbc9b7 feat(sccb): implement Sovereign Credential & Capability Bootstrap v1",
+    "9471a02 ops: archive quantum-pi-forge-site (GO ARCHIVE_SITE) (#728)",
+    "64bccc2 fix(deploy): redirect legacy Pages site to canonical domain (#727)",
+    "01e2efc fix(ops): hold tax treatment pending determination (#726)"
+  ],
+  "note": "Baseline for security gate; do not treat chat GO as authorization to advance phases"
+}
