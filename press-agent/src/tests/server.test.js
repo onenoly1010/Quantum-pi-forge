@@ -5,7 +5,7 @@
  * Uses Node.js built-in test runner.
  */
 
-const { describe, it, beforeEach, afterEach, before, after } = require('node:test');
+const { describe, it, beforeEach, before, after } = require('node:test');
 const assert = require('node:assert');
 const { app, articles, scheduledPublications } = require('../server');
 

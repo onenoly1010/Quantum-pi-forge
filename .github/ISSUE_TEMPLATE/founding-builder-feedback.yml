@@ -1,0 +1,100 @@
+name: Founding Builder feedback
+description: Pilot feedback from builders who tried a real workflow (utility, not hype).
+title: "Founding Builder feedback: "
+labels: ["founding-builders", "feedback"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for piloting Quantum Pi Forge / OINIO.
+
+        **Honest feedback is the point** — including “this didn’t help.”
+        No wallet, mint, or investment discussion required.
+
+        Pilot page: https://quantumpiforge.com/founding-builders-pilot
+  - type: dropdown
+    id: community
+    attributes:
+      label: Community / track
+      options:
+        - 0G developer
+        - Pi ecosystem builder
+        - Local AI / open-source
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: building
+    attributes:
+      label: What are you building?
+      placeholder: Short description
+    validations:
+      required: true
+  - type: textarea
+    id: task
+    attributes:
+      label: Task you tried
+      description: One real workflow you attempted with the pilot.
+    validations:
+      required: true
+  - type: textarea
+    id: before_after
+    attributes:
+      label: Before / after
+      description: Rough time or effort before vs after (even estimates help).
+      placeholder: "Before: … After: …"
+    validations:
+      required: true
+  - type: dropdown
+    id: would_use_again
+    attributes:
+      label: Would you use this again?
+      options:
+        - "Yes"
+        - "Maybe"
+        - "No"
+    validations:
+      required: true
+  - type: dropdown
+    id: miss_if_gone
+    attributes:
+      label: Would you miss this if it disappeared tomorrow?
+      options:
+        - "Yes"
+        - "Maybe"
+        - "No"
+        - "Too early to say"
+    validations:
+      required: true
+  - type: textarea
+    id: friction
+    attributes:
+      label: What was confusing or broken?
+      description: Friction is gold — be specific.
+    validations:
+      required: false
+  - type: textarea
+    id: why_not
+    attributes:
+      label: If it didn’t help — why?
+      description: Required in spirit if Would use again = No.
+    validations:
+      required: false
+  - type: textarea
+    id: quote
+    attributes:
+      label: Quote we may share (optional)
+      description: Leave blank if you do not want any public quote. We will not invent quotes.
+    validations:
+      required: false
+  - type: checkboxes
+    id: permission
+    attributes:
+      label: Permissions
+      options:
+        - label: I am not a core maintainer of this repo (external pilot).
+          required: true
+        - label: I understand this pilot does not involve mint, LP, or wallet funding.
+          required: true
+        - label: You may summarize this feedback on the public pilot roadmap (no private contact details).
+          required: false

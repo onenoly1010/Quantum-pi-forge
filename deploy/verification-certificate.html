@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>QPF Pre-Activation Verification Certificate</title>
+  <meta name="description" content="Independently checkable evidence package: what your deployment actually does, what is locked, and what remains unverified. Founder certificate: $500 CAD.">
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.65;margin:0;background:#0b0f14;color:#eef4ff}
+    main{max-width:680px;margin:0 auto;padding:48px 22px 80px}
+    a{color:#8fd3ff}
+    .eyebrow{color:#a8b3c7;text-transform:uppercase;letter-spacing:.12em;font-size:.75rem}
+    h1{font-size:clamp(1.75rem,4.5vw,2.5rem);line-height:1.15;margin:.35em 0}
+    h2{font-size:1.15rem;margin:2rem 0 .75rem;color:#d9e7ff}
+    .lead{font-size:1.15rem;color:#d9e7ff}
+    .card{border:1px solid #263142;background:#111824;border-radius:16px;padding:20px;margin:16px 0}
+    .cta{display:inline-block;margin:10px 10px 0 0;padding:14px 20px;border-radius:999px;text-decoration:none;font-weight:700}
+    .cta-primary{background:#8fd3ff;color:#0b0f14}
+    .cta-secondary{border:1px solid #8fd3ff;color:#8fd3ff}
+    .muted{color:#a8b3c7;font-size:.92rem}
+    .price{font-family:ui-monospace,monospace;color:#fde68a}
+    .nav{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:1px solid #263142;font-size:.9rem}
+    .nav a{text-decoration:none}
+    .ok{color:#86efac} .gate{color:#fde68a} .no{color:#fca5a5}
+    pre{background:#0a0e14;border:1px solid #263142;border-radius:12px;padding:14px;overflow:auto;font-size:.82rem;line-height:1.45}
+    .lock{border-left:3px solid #f59e0b;padding:12px 14px;margin:1.25rem 0;background:rgba(245,158,11,.08);border-radius:0 10px 10px 0;font-size:.92rem}
+  </style>
+</head>
+<body>
+<main>
+  <nav class="nav">
+    <a href="/">Home</a>
+    <a href="/work-with-us.html">Work With Us</a>
+    <a href="/deployed-addresses.html#verify-now">Public example</a>
+    <a href="https://github.com/onenoly1010/Quantum-pi-forge">GitHub</a>
+  </nav>
+
+  <p class="eyebrow">QPF Pre-Activation Verification Certificate · commercial test</p>
+  <h1>What your system actually does — checkable, with honesty about what is not verified.</h1>
+  <p class="lead">We create an independently checkable evidence package: deployed state, locks, and gaps. Not a formal audit. Not token marketing.</p>
+
+  <p>
+    <a class="cta cta-primary" href="mailto:onenoly@proton.me?subject=QPF%20Verification%20Certificate&body=Project%20name%3A%0AWebsite%3A%0AChain%3A%0AContract%20address(es)%3A%0AClaim%20being%20verified%3A%0ADocumentation%3A%0AContact%3A%0AFounder%20certificate%20%28%24500%20CAD%3B%2050%25%20to%20begin%2C%2050%25%20on%20delivery%29%3A%0A">
+      Request verification
+    </a>
+    <a class="cta cta-secondary" href="/deployed-addresses.html">See Certificate #000 surface (QPF self)</a>
+  </p>
+
+  <!-- What we verify -->
+  <h2>1. What we verify</h2>
+  <div class="card">
+    <ul>
+      <li>Contract addresses and network identity</li>
+      <li>Code present vs empty</li>
+      <li>Claims vs live state (matched / drift)</li>
+      <li>Ownership / permissions where publicly readable</li>
+      <li>What is intentionally <strong>gated</strong> (mint, LP, etc.)</li>
+    </ul>
+    <p class="muted">We verify what the system does on-chain — not what the README promises.</p>
+  </div>
+
+  <!-- Example certificate -->
+  <h2>2. Example certificate (#000 — QPF itself)</h2>
+  <div class="card">
+    <p class="muted">Internal demonstration of the same process — not an external customer certificate and not market validation.</p>
+    <pre>QPF Verification Certificate #000 (self)
+
+Network: 0G Aristotle · chain 16661 (0x4115)     <span class="ok">verified</span>
+Token code @ 0x7599…Cb58                         <span class="ok">verified</span>
+Registry code @ 0x67aD…E87a                      <span class="ok">verified</span>
+Pair reserves                                    <span class="ok">verified empty</span>
+
+Gated:
+  public mint · liquidity · yield/staking/bridge · site signing   <span class="gate">gated</span>
+
+Not verified:
+  economic activity · roadmap · token value · adoption            <span class="no">not verified</span>
+
+Public: quantumpiforge.com/deployed-addresses
+Status: quantumpiforge.com/verification-status-v1.json</pre>
+    <p class="muted">Full write-up: <code>docs/products/examples/QPF_VERIFICATION_CERTIFICATE_000.md</code> (repo).</p>
+  </div>
+
+  <!-- Process -->
+  <h2>3. Process</h2>
+  <div class="card">
+    <ol>
+      <li>You send: project, chain, addresses, claim, docs, contact.</li>
+      <li>We inspect live state (read-only).</li>
+      <li>You receive: certificate + evidence receipt + risk labels.</li>
+      <li>Optional public summary (with your permission).</li>
+    </ol>
+    <p class="muted">No wallet required. After scope confirmation, QPF issues an off-chain invoice: 50% to begin and 50% on delivery.</p>
+  </div>
+
+  <!-- Pricing -->
+  <h2>4. Pricing (CAD)</h2>
+  <div class="card">
+    <p><span class="price">Founder certificate (#001–#003) · $500 CAD</span> — $250 after written scope acceptance and $250 on delivery.</p>
+    <p class="muted">Taxes, if applicable, are determined before invoicing and stated in the accepted scope.</p>
+    <p class="muted">Future scopes are quoted separately after the founder-certificate learning cycle.</p>
+  </div>
+
+  <!-- Request -->
+  <h2>5. Request verification</h2>
+  <div class="card">
+    <p>Open-source, Web3, AI-agent, and grant projects welcome. Submit only public references; do not send passwords, private keys, or other secrets.</p>
+    <p>
+      <a class="cta cta-primary" href="mailto:onenoly@proton.me?subject=QPF%20Verification%20Certificate&body=Project%20name%3A%0AWebsite%3A%0AChain%3A%0AContract%20address(es)%3A%0AClaim%20being%20verified%3A%0ADocumentation%3A%0AContact%3A%0A">
+        Email request form
+      </a>
+    </p>
+  </div>
+
+  <div class="lock">
+    <strong>No pretending.</strong> Certificates state verified <em>and</em> not verified.
+    Protocol mint, liquidity, and chain financial execution remain locked.
+    Certificate #001 = first <em>external</em> recipient — not #000.
+  </div>
+</main>
+</body>
+</html>

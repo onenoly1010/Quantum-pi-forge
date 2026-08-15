@@ -168,9 +168,13 @@ contracts/lib/
 *.abi
 *.bin
 
-# Verification Reports
+# Verification Reports (regenerate via scripts/local-verify-report.sh / ai-cockpit.sh)
 reports/*.json
+reports/*.md
+reports/archive/
 reports/*.html
+# Legacy path from early cockpit runs (canonical contract is reports/)
+receipts/ops/local-verify-report*.md
 .env.verification
 
 # Next.js build output
@@ -229,3 +233,6 @@ docs/activation/living-forge/queue/queue-state-v1.json
 docs/activation/living-forge/reports/kpi-latest.md
 docs/activation/living-forge/reports/eod-*.md
 docs/activation/living-forge/reports/eod-latest.md
+
+# SCCB local state (metadata/control only — still keep secrets out of git)
+sccb/config/*.local.json

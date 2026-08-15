@@ -1,0 +1,50 @@
+{
+  "schema": "qpf.funding_receiving_authorization_receipt.v1",
+  "receipt": "funding-receiving-authorization-v1",
+  "status": "READY_TO_RECEIVE",
+  "authorized_at_utc": "2026-07-31T21:11:17Z",
+  "authorized_by": "Kris Olofson (authorized project operator)",
+  "authorization": {
+    "phrase": "AUTHORIZE TO RECEIVE",
+    "scope": "Inbound funds for Spiral Return, grant payout, or revenue only",
+    "destination_control_confirmed": true
+  },
+  "receiving_lanes": {
+    "fiat": {
+      "currency": "CAD",
+      "method": "Interac e-Transfer Autodeposit",
+      "status": "CONFIGURED"
+    },
+    "crypto": {
+      "network": "0G Aristotle Mainnet",
+      "chain_id": 16661,
+      "asset": "0G",
+      "address": "0x0fbBd408A419E96F592A61824168903E179B3397",
+      "status": "CONFIGURED"
+    }
+  },
+  "financial_state": {
+    "verified_available_funds_cad": 0,
+    "payment_evidence_recorded": false,
+    "payment_evidence_modified": false,
+    "ledger_update_requires": "payment_tx_hash_or_bank_confirmation"
+  },
+  "safety_boundary": {
+    "transfers_enabled": false,
+    "wallet_actions": false,
+    "signing_attempted": false,
+    "transaction_broadcast": false,
+    "spend_authorized": false,
+    "private_key_access": false
+  },
+  "artifacts": {
+    "form": {
+      "path": "docs/activation/command/funding-receiving-form-v1.json",
+      "sha256": "adb167580a8a82427325575f3af3a4181638c9dfe3d5c54ef6a83c4a7d1f917e"
+    },
+    "spec": {
+      "path": "docs/activation/command/FUNDING_RECEIVING_SPEC_V1.md",
+      "sha256": "d9a388209f81ceaf57f2074d53b5730893304f1c888e928505711b0d631df15f"
+    }
+  }
+}

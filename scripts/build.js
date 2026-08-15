@@ -25,6 +25,16 @@ const staticFiles = [
   { src: 'deploy/what-it-does.html', dest: 'what-it-does.html' },
   { src: 'deploy/for-builders.html', dest: 'for-builders.html' },
   { src: 'deploy/work-with-us.html', dest: 'work-with-us.html' },
+  { src: 'deploy/verification-request.html', dest: 'verification-request.html' },
+  // Phase A public entry (discoverability / self-serve / certificate)
+  { src: 'deploy/try.html', dest: 'try.html' },
+  { src: 'deploy/verification.html', dest: 'verification.html' },
+  { src: 'deploy/verification-certificate.html', dest: 'verification-certificate.html' },
+  { src: 'deploy/founding-builders-pilot.html', dest: 'founding-builders-pilot.html', optional: true },
+  { src: 'deploy/pilot-feedback-roadmap.html', dest: 'pilot-feedback-roadmap.html', optional: true },
+  { src: 'deploy/pilot-receipts.html', dest: 'pilot-receipts.html', optional: true },
+  { src: 'deploy/robots.txt', dest: 'robots.txt' },
+  { src: 'deploy/sitemap.xml', dest: 'sitemap.xml' },
   { src: 'deploy/why-this-matters.html', dest: 'why-this-matters.html' },
   { src: 'deploy/human-onboarding.html', dest: 'human-onboarding.html' },
   { src: 'deploy/deployed-addresses.html', dest: 'deployed-addresses.html' },
@@ -38,9 +48,11 @@ const staticFiles = [
   { src: 'deploy/live-rpc-correspondence-v1.json', dest: 'live-rpc-correspondence-v1.json' },
   { src: 'deploy/source-identity-correspondence-v1.json', dest: 'source-identity-correspondence-v1.json' },
   { src: 'deploy/independent-verification-v1.json', dest: 'independent-verification-v1.json' },
+  { src: 'deploy/artifact-deployment-comparison-v1.json', dest: 'artifact-deployment-comparison-v1.json' },
   { src: 'deploy/deployed-addresses-verification.json', dest: 'deployed-addresses-verification.json' },
   { src: 'evidence/live-rpc-correspondence-v1.json', dest: 'evidence/live-rpc-correspondence-v1.json' },
   { src: 'evidence/build-artifact-manifest-v1.json', dest: 'evidence/build-artifact-manifest-v1.json' },
+  { src: 'evidence/artifact-deployment-mapping-v1.json', dest: 'evidence/artifact-deployment-mapping-v1.json' },
   { src: 'deploy/onboarding-status.html', dest: 'onboarding-status.html' },
   { src: 'deploy/manifest.json', dest: 'manifest.json' },
   { src: 'mint.html', dest: 'mint.html' },
@@ -55,6 +67,8 @@ const staticDirs = [
   { src: 'frontend', dest: 'frontend', optional: true },
   { src: 'deploy/trust', dest: 'trust', optional: true },
   { src: 'receipts/human-cockpit', dest: 'receipts/human-cockpit', optional: true },
+  // Discoverability problem guides + index
+  { src: 'deploy/problems', dest: 'problems', optional: false },
   // Public mint / model metadata — required (served as application/json via _headers)
   { src: 'metadata', dest: 'metadata', optional: false },
 ];
@@ -197,6 +211,10 @@ function build() {
     stdio: 'inherit',
   });
   execSync('node scripts/generate-source-identity-correspondence.cjs', {
+    cwd: rootDir,
+    stdio: 'inherit',
+  });
+  execSync('node scripts/generate-artifact-deployment-comparison.cjs', {
     cwd: rootDir,
     stdio: 'inherit',
   });

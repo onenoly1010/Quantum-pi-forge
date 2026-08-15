@@ -57,6 +57,7 @@ jobs:
         run: |
           test -f out/index.html
           test -f out/_redirects
+          node scripts/verify-entry-surfaces.cjs
           find out -maxdepth 2 -type f | sort | sed -n '1,120p'
 
       - name: Prepare Pages-specific Wrangler config

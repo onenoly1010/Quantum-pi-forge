@@ -1,0 +1,62 @@
+{
+  "schema": "qpf.public_ready_phase_18_evidence_review.v1",
+  "receipt": "public-ready-phase-18-evidence-review-v1",
+  "canonical_identifier": "qpf.public-ready.phase-18.activation-evidence-review.v1",
+  "created_at": "2026-08-04T13:13:55Z",
+  "status": "PHASE_18_REVIEW_COMPLETE_PUBLIC_ACTIVATION_GATED",
+  "mode": "read_only_evidence_review",
+  "objective": "Verify the public-ready activation evidence and public mint surfaces without signing, broadcasting, prompting a wallet, or changing any on-chain state.",
+  "verification": {
+    "evidence_command": "npm run verify:evidence",
+    "evidence_result": "PASS",
+    "build_command": "npm run build",
+    "build_result": "PASS",
+    "wallet_prompt_inspection_command": "npm run governance:human-wallet-prompt-inspection:v1:check",
+    "wallet_prompt_inspection_result": "PASS_INSPECTION_ONLY"
+  },
+  "public_surface_review": {
+    "mint_page": "mint.html",
+    "mint_page_status": "Public Mint Disabled",
+    "mint_status_page": "mint-status.html",
+    "mint_status_page_status": "Public Mint: Disabled",
+    "wallet_connection_present": false,
+    "automatic_transactions_present": false,
+    "manual_funds_request_present": false
+  },
+  "evidence_anchors": {
+    "controlled_mint_proof": {
+      "receipt": "receipts/execution/first-controlled-mint-verification-v1.json",
+      "status": "CONTROLLED_MINT_VERIFIED",
+      "interpretation": "Historical controlled proof only; it does not authorize a new signing or broadcast."
+    },
+    "governance_readiness": {
+      "receipt": "receipts/governance/public-mint-authorization-final-v1.json",
+      "status": "PUBLIC_MINT_AUTHORIZED_BY_GOVERNANCE",
+      "interpretation": "Governance readiness only; the receipt explicitly excludes signing and broadcast."
+    },
+    "wallet_prompt_gate": {
+      "receipt": "receipts/governance/public-mint-wallet-prompt-inspection-v1.json",
+      "status": "INSPECTION_ONLY_NO_WALLET_PROMPT_TRIGGERED",
+      "human_approval_currently_authorized": false,
+      "interpretation": "No wallet prompt was triggered and no execution authority is created by this review."
+    },
+    "historical_signing_receipt": {
+      "receipt": "receipts/governance/phase-32-human-signing-approval-v1.json",
+      "status": "KRIS_EXPLICIT_SIGNING_APPROVAL_RECORDED",
+      "interpretation": "A historically scoped prompt approval; it records neither signing nor broadcast and does not replace a separate execution gate."
+    }
+  },
+  "outcome": {
+    "public_activation": "GATED",
+    "public_mint_execution": false,
+    "wallet_actions": false,
+    "signing": false,
+    "broadcast": false,
+    "token_transfer": false,
+    "liquidity": false,
+    "staking": false,
+    "bridge": false
+  },
+  "next_gate": "A separate, explicit human decision is required before any signing or broadcast. This review authorizes no execution.",
+  "reconciliation_reference": "receipts/governance/phase-track-reconciliation-v1.json"
+}

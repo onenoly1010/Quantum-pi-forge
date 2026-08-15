@@ -1,0 +1,126 @@
+{
+  "schema": "qpf.ops.phase_tasks.v1",
+  "namespace": "public-ready",
+  "phase": 18,
+  "title": "Public Activation Evidence Review and Controlled Execution Handoff",
+  "canonical_identifier": "qpf.public-ready.phase-18.tasks.v1",
+  "source_receipt": "receipts/governance/public-ready-phase-18-evidence-review-v1.json",
+  "source_doc": "docs/status/ROADMAP_COMPLETION_AND_FOLLOWING_PHASE_V1.md",
+  "mode": "read_only_review",
+  "financial_actions": false,
+  "tasks": [
+    {
+      "id": "18.1",
+      "title": "Evidence verification passes locally",
+      "owner": "local-verifier",
+      "requires_human_authorization": false,
+      "dependencies": [],
+      "check": {
+        "type": "npm_script",
+        "script": "verify:evidence",
+        "expect_exit": 0
+      },
+      "alt_check": {
+        "type": "report_field",
+        "path": "reports/local-verify-report.json",
+        "json_path": "facts.verification.evidence",
+        "equals": "PASS"
+      }
+    },
+    {
+      "id": "18.2",
+      "title": "Build passes locally",
+      "owner": "local-verifier",
+      "requires_human_authorization": false,
+      "dependencies": [],
+      "check": {
+        "type": "npm_script",
+        "script": "build",
+        "expect_exit": 0
+      },
+      "alt_check": {
+        "type": "report_field",
+        "path": "reports/local-verify-report.json",
+        "json_path": "facts.verification.build",
+        "equals": "PASS"
+      }
+    },
+    {
+      "id": "18.3",
+      "title": "Public mint surfaces show disabled / gated",
+      "owner": "local-verifier",
+      "requires_human_authorization": false,
+      "dependencies": ["18.1", "18.2"],
+      "check": {
+        "type": "file_contains_all",
+        "files": {
+          "mint.html": ["Disabled", "Public Mint"],
+          "mint-status.html": ["Disabled", "Public Mint"]
+        }
+      }
+    },
+    {
+      "id": "18.4",
+      "title": "Controlled mint proof receipt present (historical, not live GO)",
+      "owner": "local-verifier",
+      "requires_human_authorization": false,
+      "dependencies": [],
+      "check": {
+        "type": "json_field",
+        "path": "receipts/execution/first-controlled-mint-verification-v1.json",
+        "any_field_equals": {
+          "status": ["CONTROLLED_MINT_VERIFIED", "VERIFIED", "PASS"]
+        },
+        "file_must_exist": true
+      }
+    },
+    {
+      "id": "18.5",
+      "title": "Governance public-mint authorization receipt present (readiness, not broadcast)",
+      "owner": "local-verifier",
+      "requires_human_authorization": false,
+      "dependencies": [],
+      "check": {
+        "type": "file_exists",
+        "path": "receipts/governance/public-mint-authorization-final-v1.json"
+      }
+    },
+    {
+      "id": "18.6",
+      "title": "Wallet-prompt inspection gate pass (inspection only)",
+      "owner": "local-verifier",
+      "requires_human_authorization": false,
+      "dependencies": [],
+      "check": {
+        "type": "npm_script",
+        "script": "governance:human-wallet-prompt-inspection:v1:check",
+        "expect_exit": 0
+      }
+    },
+    {
+      "id": "18.7",
+      "title": "Phase 18 evidence-review receipt records public activation GATED",
+      "owner": "local-verifier",
+      "requires_human_authorization": false,
+      "dependencies": ["18.1", "18.2", "18.3", "18.4", "18.5", "18.6"],
+      "check": {
+        "type": "json_field",
+        "path": "receipts/governance/public-ready-phase-18-evidence-review-v1.json",
+        "field": "status",
+        "equals": "PHASE_18_REVIEW_COMPLETE_PUBLIC_ACTIVATION_GATED"
+      }
+    },
+    {
+      "id": "18.8",
+      "title": "Explicit human GO for live signing/broadcast of a complete execution path",
+      "owner": "human",
+      "requires_human_authorization": true,
+      "dependencies": ["18.7"],
+      "check": {
+        "type": "manual_gate",
+        "blocked_reason": "Execution preflight remains NO-GO; live execution script still incomplete; separate human GO required."
+      },
+      "notes": "Phase 18 review can be complete while this task stays incomplete. Completing 18.8 is outside pure Phase 18 review and enters execution authorization."
+    }
+  ]
+}

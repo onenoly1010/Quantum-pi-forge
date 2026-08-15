@@ -1,0 +1,101 @@
+{
+  "schemaVersion": "qpf-artifact-deployment-comparison-v1",
+  "purpose": "Read-only artifact-to-deployment comparison. Explicit mappings are required for MATCHED.",
+  "deploymentReference": "deploy/live-rpc-correspondence-v1.json",
+  "artifactReference": "evidence/build-artifact-manifest-v1.json",
+  "mappingReference": "evidence/artifact-deployment-mapping-v1.json",
+  "entries": [
+    {
+      "id": "0x75995ec0fdf881189850aed864cb3f43c0dfcb58",
+      "address": "0x75995EC0fdf881189850aeD864cB3f43c0DFCb58",
+      "comparisonState": "PARTIAL",
+      "deploymentReference": "deploy/live-rpc-correspondence-v1.json",
+      "artifactReference": "UNKNOWN",
+      "mappingReference": "evidence/artifact-deployment-mapping-v1.json",
+      "candidateArtifactIds": [],
+      "gap": "No explicit artifact-to-deployment mapping is declared; hash candidates do not establish identity."
+    },
+    {
+      "id": "0x67ad7169184581f23d1e10b39d4eb4e98293e87a",
+      "address": "0x67aD7169184581f23D1E10B39d4eb4e98293E87a",
+      "comparisonState": "PARTIAL",
+      "deploymentReference": "deploy/live-rpc-correspondence-v1.json",
+      "artifactReference": "UNKNOWN",
+      "mappingReference": "evidence/artifact-deployment-mapping-v1.json",
+      "candidateArtifactIds": [],
+      "gap": "No explicit artifact-to-deployment mapping is declared; hash candidates do not establish identity."
+    },
+    {
+      "id": "0x5e50b92e57e854659f7d98c733088aabd551c49f",
+      "address": "0x5E50b92E57e854659f7D98c733088aABd551C49F",
+      "comparisonState": "PARTIAL",
+      "deploymentReference": "deploy/live-rpc-correspondence-v1.json",
+      "artifactReference": "UNKNOWN",
+      "mappingReference": "evidence/artifact-deployment-mapping-v1.json",
+      "candidateArtifactIds": [],
+      "gap": "No explicit artifact-to-deployment mapping is declared; hash candidates do not establish identity."
+    },
+    {
+      "id": "0x6011c341a01c80f489a5c3ab751987a55142f04e",
+      "address": "0x6011c341a01c80f489a5c3Ab751987A55142F04e",
+      "comparisonState": "PARTIAL",
+      "deploymentReference": "deploy/live-rpc-correspondence-v1.json",
+      "artifactReference": "UNKNOWN",
+      "mappingReference": "evidence/artifact-deployment-mapping-v1.json",
+      "candidateArtifactIds": [],
+      "gap": "No explicit artifact-to-deployment mapping is declared; hash candidates do not establish identity."
+    },
+    {
+      "id": "0x215e28f94f68c70ea5b79d9fc062def4f7b7d3f8",
+      "address": "0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8",
+      "comparisonState": "PARTIAL",
+      "deploymentReference": "deploy/live-rpc-correspondence-v1.json",
+      "artifactReference": "UNKNOWN",
+      "mappingReference": "evidence/artifact-deployment-mapping-v1.json",
+      "candidateArtifactIds": [],
+      "gap": "No explicit artifact-to-deployment mapping is declared; hash candidates do not establish identity."
+    },
+    {
+      "id": "0x2c70129e50bf88ecd59b89d63af2e8920acf3951",
+      "address": "0x2c70129E50BF88eCD59b89d63af2e8920aCF3951",
+      "comparisonState": "PARTIAL",
+      "deploymentReference": "deploy/live-rpc-correspondence-v1.json",
+      "artifactReference": "UNKNOWN",
+      "mappingReference": "evidence/artifact-deployment-mapping-v1.json",
+      "candidateArtifactIds": [],
+      "gap": "No explicit artifact-to-deployment mapping is declared; hash candidates do not establish identity."
+    },
+    {
+      "id": "0x2067319dc61ccdcdcdc13abe0c72ea3d7318aaee",
+      "address": "0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE",
+      "comparisonState": "PARTIAL",
+      "deploymentReference": "deploy/live-rpc-correspondence-v1.json",
+      "artifactReference": "UNKNOWN",
+      "mappingReference": "evidence/artifact-deployment-mapping-v1.json",
+      "candidateArtifactIds": [],
+      "gap": "No explicit artifact-to-deployment mapping is declared; hash candidates do not establish identity."
+    },
+    {
+      "id": "0x8d088b88219d072ab035502065ee2410c2cb4389",
+      "address": "0x8d088B88219D072aB035502065ee2410c2cb4389",
+      "comparisonState": "PARTIAL",
+      "deploymentReference": "deploy/live-rpc-correspondence-v1.json",
+      "artifactReference": "UNKNOWN",
+      "mappingReference": "evidence/artifact-deployment-mapping-v1.json",
+      "candidateArtifactIds": [],
+      "gap": "No explicit artifact-to-deployment mapping is declared; hash candidates do not establish identity."
+    },
+    {
+      "id": "0x709f23c7a7172e137427576abb5eb8959e2a57c1",
+      "address": "0x709f23C7A7172E137427576abB5Eb8959E2A57c1",
+      "comparisonState": "UNKNOWN",
+      "deploymentReference": "deploy/live-rpc-correspondence-v1.json",
+      "artifactReference": "UNKNOWN",
+      "mappingReference": "evidence/artifact-deployment-mapping-v1.json",
+      "candidateArtifactIds": [
+        "OINIOToken"
+      ],
+      "gap": "No declared deployment correspondence is available for artifact comparison."
+    }
+  ]
+}

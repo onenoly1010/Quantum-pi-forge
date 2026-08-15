@@ -1,0 +1,54 @@
+{
+  "schema": "sccb.audit_receipt.v1",
+  "sccb_version": "1.0.0",
+  "evidence_id": "sccb-39dbf523-507e-4c69-9f0f-181f61802df7",
+  "request_id": "4dfeca88-ca39-4201-a3c6-7d2325f1a665",
+  "timestamp": "2026-08-08T01:30:13.165Z",
+  "actor": "human-operator",
+  "capability_id": "sccb.bootstrap",
+  "operation": "bootstrap",
+  "policy_class": "HUMAN_APPROVAL",
+  "policy_decision": "ALLOW",
+  "policy_reason": "authorized bootstrap session",
+  "approval_state": "APPROVED",
+  "approval_id": null,
+  "execution_state": "SUCCESS",
+  "result": "BOOTSTRAP_PLAN_OR_VALIDATE",
+  "params_hash": "bootstrap",
+  "secret_exposed_to_llm": false,
+  "evidence_refs": [],
+  "extra": {
+    "schema": "sccb.bootstrap_plan.v1",
+    "authorized": true,
+    "mode": "synthetic_verification",
+    "environment": "development",
+    "steps": [
+      {
+        "credential_id": "cloudflare-api-token",
+        "provider": "cloudflare",
+        "action": "register_metadata_then_pass_insert",
+        "pass_path": "qpf/providers/cloudflare/api-token",
+        "env_names": [
+          "CLOUDFLARE_API_TOKEN"
+        ],
+        "required_by_capabilities": [
+          "cloudflare.pages.read",
+          "cloudflare.deploy"
+        ],
+        "operator_instructions": [
+          "1. Open a local terminal (not chat).",
+          "2. Run: pass insert qpf/providers/cloudflare/api-token",
+          "3. Paste secret only into pass (GPG-encrypted).",
+          "4. Run: node sccb/src/cli.js bootstrap register-metadata --id cloudflare-api-token",
+          "5. Run: node sccb/src/cli.js bootstrap validate --id cloudflare-api-token",
+          "NEVER paste the secret into agent chat or commit it."
+        ],
+        "existing_status": null,
+        "environment": "development"
+      }
+    ],
+    "secret_values_included": false,
+    "real_secret_intake": false,
+    "created_utc": "2026-08-08T01:30:13.135Z"
+  }
+}

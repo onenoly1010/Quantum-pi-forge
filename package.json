@@ -2,8 +2,13 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build.js",
+    "test:verification:canonical": "node --test tests/verification/canonical.test.js",
+    "test:verification:level0": "node --test tests/verification/level0.test.js",
+    "test:verification": "node --test tests/verification/canonical.test.js tests/verification/level0.test.js",
+    "verify:qpf:level0": "node scripts/qpf-verify-level0.mjs",
     "activation:preflight": "node scripts/activation-preflight.mjs",
     "build:cf": "node scripts/build.js",
+    "verify:production-funnel": "bash scripts/verify-production-funnel.sh",
     "serve:deploy": "python3 -m http.server 8100 --directory out",
     "deploy:cf": "bash scripts/deploy-cloudflare-pages.sh",
     "verify:receipt": "node scripts/verify-hermes-receipt.cjs",
@@ -24,6 +29,8 @@
     "generate:build-artifact-manifest": "node scripts/generate-build-artifact-manifest.cjs",
     "verify:build-artifact-manifest": "node scripts/verify-build-artifact-manifest.cjs",
     "verify:independent": "node scripts/verify-independent.cjs",
+    "generate:artifact-deployment-comparison": "node scripts/generate-artifact-deployment-comparison.cjs",
+    "verify:artifact-deployment-comparison": "node scripts/verify-artifact-deployment-comparison.cjs",
     "evidence:receipt": "node scripts/generate-evidence-receipt.cjs",
     "evidence:receipt:check": "node scripts/check-evidence-receipt.cjs",
     "verify:claim-map": "node scripts/verify-claim-map.cjs",
@@ -293,22 +300,34 @@
     "reality:brief": "node scripts/reality-engine/run.mjs --brief-only",
     "reality:claim-map": "node scripts/reality-engine/claim-map.mjs",
     "reality:full": "node scripts/reality-engine/run.mjs --with-claim-map",
-    "verify:public-portal": "node scripts/verify-public-portal.mjs"
+    "verify:public-portal": "node scripts/verify-public-portal.mjs",
+    "ops:verify-report": "bash scripts/local-verify-report.sh",
+    "ops:project-state": "node scripts/project-state.cjs --prefer-report",
+    "ops:ai-cockpit": "bash scripts/ai-cockpit.sh",
+    "ops:ai-cockpit:quick": "bash scripts/ai-cockpit.sh --quick",
+    "verify:entry-surfaces": "node scripts/verify-entry-surfaces.cjs",
+    "test:sccb": "node --test sccb/test/sccb.v1.test.js sccb/test/adversarial.verification.test.js",
+    "verify:sccb": "node sccb/scripts/verify-implementation.mjs",
+    "security-gate:sccb": "node sccb/scripts/security-gate.mjs",
+    "bootstrap-rehearsal:sccb": "node sccb/scripts/bootstrap-rehearsal.mjs",
+    "sccb": "node sccb/src/cli.js",
+    "sccb:status": "node sccb/src/cli.js status",
+    "sccb:capabilities": "node sccb/src/cli.js capabilities"
   },
   "dependencies": {
-    "@0gfoundation/0g-compute-ts-sdk": "^0.8.4",
+    "@0gfoundation/0g-compute-ts-sdk": "^0.9.0",
     "@nomicfoundation/hardhat-foundry": "^3.0.4",
     "chai": "^6.2.2",
     "dotenv": "^17.4.2",
     "ethers": "^6.17.0",
-    "hardhat": "^3.11.1"
+    "hardhat": "^3.12.0"
   },
   "devDependencies": {
     "@storacha/client": "^2.1.4",
     "@uniswap/v2-core": "^1.0.1",
     "@uniswap/v2-periphery": "^1.1.0-beta.0",
     "solc": "^0.8.36",
-    "wrangler": "^4.115.0"
+    "wrangler": "^4.120.0"
   },
   "overrides": {
     "ws": "^8.21.0",
@@ -316,6 +335,9 @@
     "uuid": "^11.1.1",
     "esbuild": "0.28.1",
     "adm-zip": "0.6.0",
-    "brace-expansion": "5.0.9"
+    "brace-expansion": "5.0.9",
+    "fast-uri": "3.1.5",
+    "nanoid": "^3.3.18",
+    "undici": "7.29.0"
   }
 }

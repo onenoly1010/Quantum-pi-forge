@@ -1,0 +1,49 @@
+{
+  "schema": "qpf.manual_execution_bridge.v1",
+  "receipt": "first-manual-execution-bridge-v1",
+  "created_at_utc": "2026-08-01T02:50:27.400Z",
+  "status": "PREPARED_AWAITING_OPERATOR_SUBMISSION",
+  "authorization_scope": "One ICME Labs contact-form submission using the hash-bound approved message only.",
+  "supersedes": "receipts/outreach/delivery/icme-first-controlled-delivery-execution-v1-20260801T022117Z.json",
+  "target": {
+    "name": "ICME Labs",
+    "channel": "https://www.icme.io/#cta-contact"
+  },
+  "sender_identity": {
+    "operator": "Kris",
+    "organization": "Quantum Pi Forge",
+    "reply_address_recorded": false
+  },
+  "message": {
+    "reference": "docs/activation/command/revenue/FIRST_MANUAL_EXECUTION_PACKET.md",
+    "sha256": "dc8affc24e550a476aa66c157105ae8127c9e422f031550450ff3db4335c0cb9"
+  },
+  "submission": {
+    "attempted": false,
+    "timestamp_utc": null,
+    "confirmation_reference": null,
+    "confirmation_artifact_location": null
+  },
+  "state_transitions": [
+    {
+      "state": "AUTHORIZED",
+      "at_utc": "2026-08-01T02:50:27.400Z",
+      "evidence": "Human instruction: Complete First Manual Execution Bridge"
+    }
+  ],
+  "claim_boundary": {
+    "sent": false,
+    "confirmed": false,
+    "external_delivery_claimed": false,
+    "partnership_claimed": false,
+    "engagement_claimed": false,
+    "revenue_claimed": false,
+    "payment_claimed": false
+  },
+  "required_operator_result": [
+    "Timestamp of the manual action",
+    "Official confirmation text, reference, or resulting URL when available",
+    "Redacted screenshot or confirmation artifact location when available",
+    "One outcome: confirmed, failed, or unconfirmed"
+  ]
+}

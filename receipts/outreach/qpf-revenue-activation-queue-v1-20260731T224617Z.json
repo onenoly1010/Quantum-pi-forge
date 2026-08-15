@@ -1,0 +1,28 @@
+{
+  "schema": "qpf.revenue_activation_queue.v1",
+  "receipt": "qpf-revenue-activation-queue-v1",
+  "created_at_utc": "2026-07-31T22:46:17Z",
+  "status": "NO_SEND_QUEUE_AWAITING_HUMAN_APPROVAL",
+  "operating_loop": [
+    "Prepare",
+    "Verify",
+    "Authorize",
+    "Execute",
+    "Prove"
+  ],
+  "queue_document": "docs/activation/command/revenue/QPF_REVENUE_ACTIVATION_LOOP_V1.md",
+  "prospect_count": 10,
+  "approval_boundary": {
+    "per_target_human_authorization_required": true,
+    "automated_bulk_sending": false,
+    "wallet_actions": false,
+    "payment_execution": false
+  },
+  "evidence_boundary": {
+    "partnership_claimed": false,
+    "engagement_claimed": false,
+    "revenue_claimed": false,
+    "payment_claimed": false,
+    "independent_evidence_required_before_status_advancement": true
+  }
+}

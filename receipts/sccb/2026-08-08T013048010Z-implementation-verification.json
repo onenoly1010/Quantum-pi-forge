@@ -1,0 +1,348 @@
+{
+  "schema": "sccb.implementation_verification.v1",
+  "title": "SCCB implementation verification (synthetic fixtures only)",
+  "started_utc": "2026-08-08T01:30:44.283Z",
+  "completed_utc": "2026-08-08T01:30:48.010Z",
+  "overall_pass": true,
+  "authority": {
+    "schema": "sccb.authority_state.v1",
+    "version": 1,
+    "phases": {
+      "design": "AUTHORIZED",
+      "implementation": "AUTHORIZED",
+      "implementation_verification": "AUTHORIZED",
+      "credential_bootstrap": "NOT_AUTHORIZED",
+      "wallet_signing": "NOT_AUTHORIZED",
+      "wallet_broadcast": "NOT_AUTHORIZED",
+      "pi_activation": "NOT_AUTHORIZED",
+      "economics_unlock": "NOT_AUTHORIZED",
+      "production_deploy_via_sccb": "NOT_AUTHORIZED"
+    },
+    "rules": {
+      "agent_always_approve_bypasses_policy": false,
+      "go_text_in_chat_is_not_authorization": true,
+      "require_sealed_authority_file_for_gated_phases": true,
+      "real_credentials_off_limits_until_credential_bootstrap": true,
+      "synthetic_fixtures_only_in_verification": true
+    },
+    "authority_file_sha256": "fea2d2d1b06de6e8d18e47f505559868247caaed65cd4e7ed1b6b4ea774a40d7",
+    "note": "Machine-verifiable only. GO chat text is not authorization."
+  },
+  "safety": {
+    "real_credential_bootstrap_authorized": false,
+    "wallet_signing_authorized": false,
+    "pi_activation_authorized": false,
+    "economics_unlock_authorized": false,
+    "production_deploy_via_sccb_authorized": false,
+    "synthetic_fixtures_only": true,
+    "go_text_is_not_authorization": true,
+    "always_approve_bypasses_policy": false
+  },
+  "storage_encryption_design": {
+    "backends": [
+      {
+        "name": "MemorySecretStore",
+        "use": "tests / synthetic fixtures only",
+        "encryption_at_rest": "none (process memory)",
+        "decrypt_process": "in-process loadForInject",
+        "agent_access": "metadata only via getMetadata; values only via loadForInject for inject"
+      },
+      {
+        "name": "PassSecretStore",
+        "use": "operator real credentials (when bootstrap authorized)",
+        "encryption_at_rest": "GPG via password-store (pass)",
+        "decrypt_process": "pass show → child env only",
+        "agent_access": "metadata JSON only; storeSecret refuses agent-supplied values",
+        "plaintext_on_disk": "only inside GPG-encrypted pass store entries (outside git)"
+      }
+    ],
+    "never_written_plaintext": [
+      "agent chat / tool results",
+      "Git repository",
+      "evidence receipts",
+      "credential-metadata JSON",
+      "logs (redacted)"
+    ],
+    "git_safe_paths": [
+      "sccb/config/capabilities.v1.json",
+      "sccb/config/credential-metadata.example.json",
+      "sccb/config/authority-state.v1.json"
+    ],
+    "gitignored_local": [
+      "sccb/config/*.local.json"
+    ]
+  },
+  "capability_matrix": [
+    {
+      "capability_id": "qpf.site.funnel.verify",
+      "policy_class": "PREAUTHORIZED",
+      "credential_dependency": null,
+      "permitted_operations": [
+        "verify"
+      ],
+      "approval_required": false,
+      "status": "active",
+      "agent_sees": "CAPABILITY: qpf.site.funnel.verify",
+      "agent_never_sees": "n/a"
+    },
+    {
+      "capability_id": "cloudflare.pages.read",
+      "policy_class": "PREAUTHORIZED",
+      "credential_dependency": "cloudflare-api-token",
+      "permitted_operations": [
+        "list_projects",
+        "list_deployments",
+        "get_deployment"
+      ],
+      "approval_required": false,
+      "status": "active",
+      "agent_sees": "CAPABILITY: cloudflare.pages.read",
+      "agent_never_sees": "secret material for cloudflare-api-token"
+    },
+    {
+      "capability_id": "cloudflare.deploy",
+      "policy_class": "CONDITIONAL",
+      "credential_dependency": "cloudflare-api-token",
+      "permitted_operations": [
+        "deploy"
+      ],
+      "approval_required": false,
+      "status": "active",
+      "agent_sees": "CAPABILITY: cloudflare.deploy",
+      "agent_never_sees": "secret material for cloudflare-api-token"
+    },
+    {
+      "capability_id": "github.pr.create",
+      "policy_class": "CONDITIONAL",
+      "credential_dependency": "github-token",
+      "permitted_operations": [
+        "create_pr"
+      ],
+      "approval_required": false,
+      "status": "active",
+      "agent_sees": "CAPABILITY: github.pr.create",
+      "agent_never_sees": "secret material for github-token"
+    },
+    {
+      "capability_id": "github.merge",
+      "policy_class": "HUMAN_APPROVAL",
+      "credential_dependency": "github-token",
+      "permitted_operations": [
+        "merge_pr"
+      ],
+      "approval_required": true,
+      "status": "active",
+      "agent_sees": "CAPABILITY: github.merge",
+      "agent_never_sees": "secret material for github-token"
+    },
+    {
+      "capability_id": "delivery.x.public_post",
+      "policy_class": "HUMAN_APPROVAL",
+      "credential_dependency": "delivery-x",
+      "permitted_operations": [
+        "post"
+      ],
+      "approval_required": true,
+      "status": "active",
+      "agent_sees": "CAPABILITY: delivery.x.public_post",
+      "agent_never_sees": "secret material for delivery-x"
+    },
+    {
+      "capability_id": "pi.read",
+      "policy_class": "FORBIDDEN",
+      "credential_dependency": "pi-api",
+      "permitted_operations": [
+        "read_status",
+        "read_payment"
+      ],
+      "approval_required": true,
+      "status": "active",
+      "agent_sees": "CAPABILITY: pi.read",
+      "agent_never_sees": "secret material for pi-api"
+    },
+    {
+      "capability_id": "wallet.prepare_transaction",
+      "policy_class": "CONDITIONAL",
+      "credential_dependency": null,
+      "permitted_operations": [
+        "prepare"
+      ],
+      "approval_required": false,
+      "status": "active",
+      "agent_sees": "CAPABILITY: wallet.prepare_transaction",
+      "agent_never_sees": "n/a"
+    },
+    {
+      "capability_id": "wallet.sign_transaction",
+      "policy_class": "FORBIDDEN",
+      "credential_dependency": "wallet-signer",
+      "permitted_operations": [
+        "sign"
+      ],
+      "approval_required": true,
+      "status": "active",
+      "agent_sees": "CAPABILITY: wallet.sign_transaction",
+      "agent_never_sees": "secret material for wallet-signer"
+    },
+    {
+      "capability_id": "0g.submit_transaction",
+      "policy_class": "FORBIDDEN",
+      "credential_dependency": null,
+      "permitted_operations": [
+        "submit"
+      ],
+      "approval_required": true,
+      "status": "active",
+      "agent_sees": "CAPABILITY: 0g.submit_transaction",
+      "agent_never_sees": "n/a"
+    },
+    {
+      "capability_id": "economics.mint",
+      "policy_class": "FORBIDDEN",
+      "credential_dependency": null,
+      "permitted_operations": [
+        "mint"
+      ],
+      "approval_required": true,
+      "status": "active",
+      "agent_sees": "CAPABILITY: economics.mint",
+      "agent_never_sees": "n/a"
+    },
+    {
+      "capability_id": "economics.liquidity",
+      "policy_class": "FORBIDDEN",
+      "credential_dependency": null,
+      "permitted_operations": [
+        "add_liquidity",
+        "remove_liquidity"
+      ],
+      "approval_required": true,
+      "status": "active",
+      "agent_sees": "CAPABILITY: economics.liquidity",
+      "agent_never_sees": "n/a"
+    }
+  ],
+  "approval_matrix": {
+    "PREAUTHORIZED": {
+      "meaning": "Standing authorization — auto if capability active and control plane clear",
+      "examples": [
+        "qpf.site.funnel.verify",
+        "cloudflare.pages.read"
+      ]
+    },
+    "CONDITIONAL": {
+      "meaning": "Auto only when params match allowlists; mismatch → escalate",
+      "examples": [
+        "cloudflare.deploy",
+        "github.pr.create",
+        "wallet.prepare_transaction"
+      ]
+    },
+    "HUMAN_APPROVAL": {
+      "meaning": "Prepare + ask human Yes/No; bound to params_hash",
+      "examples": [
+        "github.merge",
+        "delivery.x.public_post"
+      ]
+    },
+    "FORBIDDEN": {
+      "meaning": "Cannot perform without new policy + sealed authority phase",
+      "examples": [
+        "pi.read",
+        "wallet.sign_transaction",
+        "0g.submit_transaction",
+        "economics.mint",
+        "economics.liquidity"
+      ]
+    }
+  },
+  "tests": {
+    "unit": {
+      "exit_code": 0,
+      "pass": true,
+      "summary_line": "# tests 51 | # suites 16 | # pass 51 | # fail 0 | # cancelled 0 | # skipped 0 | # todo 0"
+    },
+    "adversarial": {
+      "exit_code": 0,
+      "pass": true,
+      "summary_line": "# tests 27 | # suites 11 | # pass 27 | # fail 0 | # cancelled 0 | # skipped 0 | # todo 0"
+    }
+  },
+  "threat_model_path": "docs/sccb/THREAT_MODEL.md",
+  "threat_model_present": true,
+  "sccb_file_count": 26,
+  "sccb_files": [
+    "sccb/README.md",
+    "sccb/config/.gitignore",
+    "sccb/config/authority-state.v1.json",
+    "sccb/config/capabilities.v1.json",
+    "sccb/config/credential-metadata.example.json",
+    "sccb/scripts/verify-implementation.mjs",
+    "sccb/src/approval/engine.js",
+    "sccb/src/audit/receipt.js",
+    "sccb/src/authority/state.js",
+    "sccb/src/bootstrap/bootstrap.js",
+    "sccb/src/broker/broker.js",
+    "sccb/src/broker/inject.js",
+    "sccb/src/capabilities/registry.js",
+    "sccb/src/cli.js",
+    "sccb/src/control/emergency.js",
+    "sccb/src/grants/projection.js",
+    "sccb/src/index.js",
+    "sccb/src/policy/engine.js",
+    "sccb/src/redaction.js",
+    "sccb/src/secrets/memory-store.js",
+    "sccb/src/secrets/pass-store.js",
+    "sccb/src/secrets/store.js",
+    "sccb/src/types.js",
+    "sccb/src/wallet/prepare.js",
+    "sccb/test/adversarial.verification.test.js",
+    "sccb/test/sccb.v1.test.js"
+  ],
+  "file_hashes_sha256": {
+    "sccb/README.md": "83f0c8fe3266904f61c9913116f5e0039b4cc3288889b2f1ef963af76fb6ce40",
+    "sccb/config/authority-state.v1.json": "fea2d2d1b06de6e8d18e47f505559868247caaed65cd4e7ed1b6b4ea774a40d7",
+    "sccb/config/capabilities.v1.json": "2800c50947e5ed1e58a5a55d36d4b034274a3a2cf7e246cce23864dd1431fff3",
+    "sccb/config/credential-metadata.example.json": "4bec078c0a7fb5c77e1c8c5485d0fc987c40b78898426a3349e8b1841c1973b0",
+    "sccb/scripts/verify-implementation.mjs": "2e508d93c400f10ffc47b70bfae8c6a06475714015122f54d77cd21e3f5095a9",
+    "sccb/src/approval/engine.js": "30da80af619d28fe4955c47ff4b4f1bc76e06cfe568fd34631728dd48d16ad76",
+    "sccb/src/audit/receipt.js": "5dce5efa1a885122995279d0671f305dcd8f17f14ea887b3a07a186837238c28",
+    "sccb/src/authority/state.js": "0f392a64d23868e527445a6be2f7a533b4c42414a60b54c2650fccde13a2ce09",
+    "sccb/src/bootstrap/bootstrap.js": "8f2e2de9a2fe0f3e6168d86cf94bbab5da9ef2fc019c6149204e16469970d9b0",
+    "sccb/src/broker/broker.js": "5bc57443936dcf3e6f444fa08f756b3ab6fefa77eddfd4cf11778c372dedeee8",
+    "sccb/src/broker/inject.js": "ba5878ff33d6c68e798aa54a80ae29c061f6d568abe31bfd71375b855d7b171f",
+    "sccb/src/capabilities/registry.js": "5aab64f9b2235c3798007c835129ba7da67add9e13620bee41e70ea766e554ee",
+    "sccb/src/cli.js": "ab512322273ac087f652b718f68653b5f301d1eb7c2adcf9849d974ce5bcefcc",
+    "sccb/src/control/emergency.js": "3a853f118e4420638a6fda159f4460e3e106af959a0fce39f350e061668da905",
+    "sccb/src/grants/projection.js": "1a76b397965b015f82a02eeac8bd667a367c89a30b25f5fe71cb233ad825646a",
+    "sccb/src/index.js": "39125cab9612e230e20697e9729d594ded1861d6efc9e3fd1ea7c1ebb1ea999c",
+    "sccb/src/policy/engine.js": "1c29f0a9810b131a799c528b34f8ee72d94d8b6e4e775fdc0435ad88540776b1",
+    "sccb/src/redaction.js": "b48d34358c4d9396204751f80d236ea01be3ffbbac496fc0f136bdb5fff91a9c",
+    "sccb/src/secrets/memory-store.js": "05c8c2ed3ef96fcb4f0396b69b8ab808440b0e98eca017b7d2127b50939fcdab",
+    "sccb/src/secrets/pass-store.js": "3e42720afed89caee192495dbdd6edb2f1716921a0f6e919ada23215d2242efc",
+    "sccb/src/secrets/store.js": "dfadbb3d294210380bec2815a432c157ce04129c592ee7c4e5082095c1423c2e",
+    "sccb/src/types.js": "740f87a4d27da31038e6f2f7cef09613ebef04aea3e8db6f1c70b622da4edc18",
+    "sccb/src/wallet/prepare.js": "81962eae2190ca34ce817da9a362b8bb3512812e523ce4a34b498f2f0f2d255a",
+    "sccb/test/adversarial.verification.test.js": "77d5ad0cb0b6dfb345f8c6a216661d7d1e78801dc82045f5d69ce0f658279ad8",
+    "sccb/test/sccb.v1.test.js": "7db2378beca2ed4b36d92d5f16dafe7ec60476c87db6aec78a99ec5ee6eecaa0"
+  },
+  "explicit_non_actions": [
+    "no real secret intake",
+    "no deploy",
+    "no wallet connect/sign",
+    "no fund movement",
+    "no Pi activation",
+    "no economics unlock",
+    "no production credential rotation"
+  ],
+  "next_authorization_required": {
+    "phase": "credential_bootstrap",
+    "how": "Human updates sccb/config/authority-state.v1.json credential_bootstrap.status to AUTHORIZED via PR/operator action, then GO CREDENTIAL_BOOTSTRAP <provider> with local pass insert only",
+    "not_sufficient": [
+      "chat phrase GO CREDENTIAL_BOOTSTRAP",
+      "agent always-approve mode",
+      "CLI --authorized without sealed phase"
+    ]
+  },
+  "secret_values_in_evidence": false
+}

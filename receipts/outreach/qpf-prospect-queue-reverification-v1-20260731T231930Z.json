@@ -1,0 +1,86 @@
+{
+  "schema": "qpf.prospect_queue_reverification.v1",
+  "receipt": "qpf-prospect-queue-reverification-v1",
+  "verified_at_utc": "2026-07-31T23:19:30Z",
+  "authorization_reference": "2026-07-31 queue-wide human approval override",
+  "delivery_mode": "HUMAN_DELIVERY_ONLY",
+  "automated_sending": false,
+  "results": [
+    {
+      "rank": 1,
+      "organization": "ICME Labs",
+      "status": "APPROVED_FOR_HUMAN_DELIVERY",
+      "channel": "https://www.icme.io/#cta-contact",
+      "message_reference": "docs/activation/command/revenue/prospects/ICME_PREFLIGHT_EVIDENCE_REVIEW_OUTREACH_V1.md"
+    },
+    {
+      "rank": 2,
+      "organization": "ORA Protocol",
+      "status": "REJECTED_REVERIFICATION",
+      "reason": "The current official site redirects to ORA Optimized Return Agents, materially differing from the queued opML architecture description."
+    },
+    {
+      "rank": 3,
+      "organization": "Floe Labs",
+      "status": "REJECTED_REVERIFICATION",
+      "reason": "The current official site describes a voice-agent billing platform, materially differing from the queued agent-credit architecture description; no verified public outreach channel was captured."
+    },
+    {
+      "rank": 4,
+      "organization": "Giza",
+      "status": "APPROVED_FOR_HUMAN_DELIVERY",
+      "channel": "https://x.com/gizatechxyz",
+      "message_reference": "docs/activation/command/revenue/prospects/GIZA_AUTONOMOUS_AGENT_EVIDENCE_REVIEW_OUTREACH_V1.md"
+    },
+    {
+      "rank": 5,
+      "organization": "OpenGradient",
+      "status": "REJECTED_REVERIFICATION",
+      "reason": "The current foundation site confirms its mission but no verified public outreach channel was captured."
+    },
+    {
+      "rank": 6,
+      "organization": "Sentient",
+      "status": "REJECTED_REVERIFICATION",
+      "reason": "The current official site exposes an updates subscription but no verified public outreach channel was captured."
+    },
+    {
+      "rank": 7,
+      "organization": "BitMind",
+      "status": "REJECTED_REVERIFICATION",
+      "reason": "The current public technical signal was verified, but no verified public outreach channel was captured."
+    },
+    {
+      "rank": 8,
+      "organization": "Nillion",
+      "status": "APPROVED_FOR_HUMAN_DELIVERY",
+      "channel": "https://nillion.com/contact/",
+      "message_reference": "docs/activation/command/revenue/prospects/NILLION_CONFIDENTIAL_COMPUTE_EVIDENCE_REVIEW_OUTREACH_V1.md"
+    },
+    {
+      "rank": 9,
+      "organization": "Arcium",
+      "status": "REJECTED_REVERIFICATION",
+      "reason": "The current public technical signal was verified, but no verified public outreach channel was captured."
+    },
+    {
+      "rank": 10,
+      "organization": "Virtuals Protocol",
+      "status": "REJECTED_REVERIFICATION",
+      "reason": "The current official site was reachable, but no verified public outreach channel was captured."
+    }
+  ],
+  "evidence_boundary": {
+    "partnership_claimed": false,
+    "engagement_claimed": false,
+    "revenue_claimed": false,
+    "payment_claimed": false,
+    "delivery_evidence_required_before_sent": true
+  },
+  "safety_boundary": {
+    "wallet_actions": false,
+    "contract_actions": false,
+    "payment_actions": false,
+    "automated_bulk_sending": false
+  }
+}

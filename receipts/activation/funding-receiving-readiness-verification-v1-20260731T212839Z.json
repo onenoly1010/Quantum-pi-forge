@@ -1,0 +1,35 @@
+{
+  "schema": "qpf.funding_receiving_readiness_verification.v1",
+  "receipt": "funding-receiving-readiness-verification-v1",
+  "verified_at_utc": "2026-07-31T21:28:39Z",
+  "status": "PASS",
+  "verification_summary": {
+    "authorization_status": "READY_TO_RECEIVE",
+    "ready_to_receive": true,
+    "cad_interac_lane_configured": true,
+    "og_aristotle_mainnet_lane_configured": true,
+    "transfers_enabled": false,
+    "signing_required": true,
+    "approval_required": true,
+    "verified_available_funds_cad": 0
+  },
+  "safety_boundary": {
+    "wallet_actions": false,
+    "signing_attempted": false,
+    "transaction_broadcast": false,
+    "payment_evidence_modified": false,
+    "payment_execution_enabled": false
+  },
+  "evidence_reference": {
+    "authorization_receipt": "receipts/activation/funding-receiving-authorization-v1-20260731T211117Z.json",
+    "form": {
+      "path": "docs/activation/command/funding-receiving-form-v1.json",
+      "sha256": "adb167580a8a82427325575f3af3a4181638c9dfe3d5c54ef6a83c4a7d1f917e"
+    },
+    "specification": {
+      "path": "docs/activation/command/FUNDING_RECEIVING_SPEC_V1.md",
+      "sha256": "d9a388209f81ceaf57f2074d53b5730893304f1c888e928505711b0d631df15f"
+    },
+    "authorization_receipt_sha256": "d2180f7414911aac590634d5da49fafb13caaab0a6a00de2b1378766581a893f"
+  }
+}
