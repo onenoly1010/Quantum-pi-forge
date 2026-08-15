@@ -15,7 +15,7 @@ Reviewer Contribution Role:
 Role comparison: Exact | Near-match | Disagree
 Role reason:
 
-Author implied Attribution:
+Author Attribution (implied):
 Reviewer Attribution:
 Attribution compatibility: Compatible | Incompatible
 Attribution reason:
