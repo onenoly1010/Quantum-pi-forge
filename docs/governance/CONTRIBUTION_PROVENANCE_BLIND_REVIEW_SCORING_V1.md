@@ -19,7 +19,7 @@ For **Status** scoring:
 2. If not exact, check whether the two statuses are adjacent in the frozen lifecycle map.
 3. If adjacent, make a separate human judgment about whether the **same supplied evidence** reasonably supports both readings.
 
-Only when both adjacency **and** shared evidentiary support are true is the row eligible for a Status Adjacent.
+Only when both adjacency **and** shared evidentiary support are true is the row eligible for Status = `Adjacent`.
 
 ---
 
@@ -83,16 +83,16 @@ If the evidence only shows AI-produced work that later passed tests or verificat
 
 | Author Status | Reviewer Status | Adjacent? | Extra condition | Status result |
 | --- | --- | --- | --- | --- |
-| Same | Same | — | — | Exact |
-| Draft | Human Decision | Yes | Evidence supports both | Adjacent |
-| Draft | AI Generated | Yes | Evidence supports both | Adjacent |
-| Human Decision | Verified | Yes | Evidence shows explicit human decision | Adjacent |
-| AI Generated | Under Review | Yes | Evidence supports both | Adjacent |
-| Under Review | Verified | Yes | Evidence supports both | Adjacent |
-| Verified | Production | Yes | Evidence supports both | Adjacent |
-| Any | Superseded | Yes | Evidence shows replacement | Adjacent |
-| Any | Invalidated | Yes | Evidence shows rejection | Adjacent |
-| All other pairs | — | No | — | Disagree |
+| Same | Same | — | — | `Exact` |
+| Draft | Human Decision | Yes | Evidence supports both | `Adjacent` |
+| Draft | AI Generated | Yes | Evidence supports both | `Adjacent` |
+| Human Decision | Verified | Yes | Evidence shows explicit human decision | `Adjacent` |
+| AI Generated | Under Review | Yes | Evidence supports both | `Adjacent` |
+| Under Review | Verified | Yes | Evidence supports both | `Adjacent` |
+| Verified | Production | Yes | Evidence supports both | `Adjacent` |
+| Any | Superseded | Yes | Evidence shows replacement | `Adjacent` |
+| Any | Invalidated | Yes | Evidence shows rejection | `Adjacent` |
+| All other pairs | — | No | — | `Disagree` |
 
 This table is a mechanical aid only. It does not replace human evidentiary judgment.
 
