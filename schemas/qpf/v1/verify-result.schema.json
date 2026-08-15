@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://quantum-pi-forge.local/schemas/qpf/v1/verify-result.schema.json",
+  "title": "quantum-pi-forge-verify-result/v1",
+  "type": "object",
+  "required": [
+    "spec",
+    "target",
+    "level_requested",
+    "level_achieved",
+    "status",
+    "summary",
+    "checks",
+    "timestamp",
+    "verifier"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "spec": { "const": "quantum-pi-forge-verify-result/v1" },
+    "target": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "hash": { "type": ["string", "null"] },
+        "type": { "type": "string" },
+        "path": { "type": ["string", "null"] }
+      }
+    },
+    "level_requested": { "type": "integer" },
+    "level_achieved": { "type": "integer" },
+    "status": {
+      "type": "string",
+      "enum": ["pass", "fail", "partial", "unavailable"]
+    },
+    "summary": { "type": "string" },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "status", "detail"],
+        "properties": {
+          "name": { "type": "string" },
+          "status": {
+            "type": "string",
+            "enum": ["pass", "fail", "unavailable", "not_applicable"]
+          },
+          "detail": { "type": "string" },
+          "code": { "type": "string" }
+        }
+      }
+    },
+    "timestamp": { "type": "string" },
+    "verifier": {
+      "type": "object",
+      "required": ["identity", "version"],
+      "properties": {
+        "identity": { "type": "string" },
+        "version": { "type": "string" }
+      }
+    },
+    "does_not_authorize": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}

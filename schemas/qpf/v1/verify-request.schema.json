@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://quantum-pi-forge.local/schemas/qpf/v1/verify-request.schema.json",
+  "title": "quantum-pi-forge-verify/v1",
+  "type": "object",
+  "required": ["spec", "level_requested", "target", "receipt"],
+  "additionalProperties": true,
+  "properties": {
+    "spec": {
+      "const": "quantum-pi-forge-verify/v1"
+    },
+    "level_requested": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 0,
+      "description": "Milestone 1 supports Level 0 only"
+    },
+    "target": {
+      "type": "object",
+      "required": ["type", "path"],
+      "properties": {
+        "type": { "const": "artifact" },
+        "path": { "type": "string", "minLength": 1 },
+        "hash": {
+          "type": "object",
+          "properties": {
+            "alg": { "type": "string" },
+            "hex": { "type": "string" }
+          }
+        }
+      }
+    },
+    "receipt": {
+      "type": "object",
+      "required": ["path"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}
