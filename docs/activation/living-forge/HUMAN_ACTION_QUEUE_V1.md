@@ -1,7 +1,7 @@
 # HUMAN ACTION QUEUE v1
 
-Updated: 2026-07-30T23:30:07Z
-Mode: Event-driven standby + 15m pulse (Day 2)
+Updated: 2026-07-30T23:48:22Z
+Mode: Event-driven standby + 15m pulse
 
 Local autonomous prep is complete when P3=0. Agent wakes on repo/docs changes.
 
@@ -11,10 +11,10 @@ Local autonomous prep is complete when P3=0. Agent wakes on repo/docs changes.
 | ---: | --- | --- |
 | 1 | Configure receiving form | `docs/activation/command/funding-receiving-form-v1.json` |
 | 2 | AUTHORIZE TO RECEIVE | `docs/activation/command/AUTHORIZE_TO_RECEIVE_READY_V1.md` |
-| 3 | Merge PR #614 | https://github.com/onenoly1010/Quantum-pi-forge/pull/614 |
-| 4 | Send Guild follow-up | `docs/activation/command/grant-package/` |
-| 5 | Send revenue offer | `docs/activation/command/revenue/OFFER_ONE_PAGER_AUDIT_WALKTHROUGH_V1.md` |
-| 6 | Spiral deadline + physical M-01…M-04 | spiral-return state |
+| 3 | Send Guild follow-up #789 | `docs/activation/command/grant-package/GRANT_FOLLOWUP_DRAFT_RESTRAINED_V1.md` |
+| 4 | Send revenue offer | `docs/activation/command/revenue/OFFER_ONE_PAGER_AUDIT_WALKTHROUGH_V1.md` |
+| 5 | Spiral deadline + physical M-01…M-04 | spiral-return state |
+| — | PR #614 Living Forge auth packs | **MERGED** 2026-07-17 |
 
 ## Controlled by external parties
 
@@ -28,4 +28,4 @@ Local autonomous prep is complete when P3=0. Agent wakes on repo/docs changes.
 - Sign / spend / transfer / legal-as-Kris require explicit confirmation.
 - `NO_WALLET_TOUCH=true` on all autonomous jobs.
 
-Open P3 autonomous tasks: **1**
+Open P3 autonomous tasks: **0**
