@@ -2,7 +2,7 @@
 
 ## Status
 
-Frozen binary gate policy for evaluating PR #737 as a test subject of the already-frozen blind-review methodology.
+Frozen binary gate policy for evaluating [PR #737](https://github.com/onenoly1010/Quantum-pi-forge/pull/737) as a test subject of the already-frozen blind-review methodology.
 
 This document does not merge PR #737, does not mark PR #737 verified, does not authorize production claims, and does not alter execution authority.
 
@@ -19,7 +19,7 @@ Any other signal is out-of-scope chatter and must not trigger design or methodol
 
 ### Pass conditions (all required)
 
-- Every required artifact, field, label, and flow from the frozen protocol is present in PR #737.
+- Every required artifact, field, label, and flow from the frozen protocol (as defined in [PR #737](https://github.com/onenoly1010/Quantum-pi-forge/pull/737)) is present in PR #737.
 - Required protocol elements are semantically consistent with the frozen protocol and contain no substitutions.
 - Hash, metadata, and provenance references resolve exactly to their declared sources.
 
@@ -59,6 +59,8 @@ Methodology artifact clarification or versioned methodology update in a new roun
 Never retroactively overwrite first-run evidence.
 
 ## Global Freeze Rule
+
+This freeze applies exclusively to the verification exercise surrounding PR #737 and does not freeze, restrict, or modify unrelated QPF development, governance, security, deployment, economic, or protocol state.
 
 During this window, only two valid triggers for change are:
 
