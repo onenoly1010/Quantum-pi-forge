@@ -136,7 +136,7 @@ If a helper sheet or workbook formula is added later, automation must remain lim
 
 - exact-match detection
 - adjacency lookup from the frozen pair list
-- returning `Exact`, `Candidate Near`, or `Disagree`
+- returning `Exact`, `Adjacent`, or `Disagree`
 
 Automation must **not** decide:
 
