@@ -1,0 +1,39 @@
+# Contribution Provenance Blind Review — Row Scoring Template v1
+# Copy once per row. Lock reviewer answers before scoring against the private key.
+
+Row ID:
+
+Author Status:
+Reviewer Status:
+Status comparison: Exact | Adjacent | Disagree
+Evidence supports both readings?: Yes | No
+Human Decision ↔ Verified gate checked?: Yes | No | N/A
+Status reason:
+
+Author Contribution Role:
+Reviewer Contribution Role:
+Role comparison: Exact | Near-match | Disagree
+Role reason:
+
+Author implied Attribution:
+Reviewer Attribution:
+Attribution compatibility: Compatible | Incompatible
+Attribution reason:
+
+Reviewer Confidence: High | Medium | Low
+Reviewer Evidence sufficiency: Sufficient | Partial | Insufficient
+
+Final row score: Pass | Soft Pass | Fail
+Action: none | improve evidence | clarify label use | re-test later
+
+Scoring note:
+
+# Frozen status adjacency reference
+# Draft ↔ Human Decision
+# Draft ↔ AI Generated
+# Human Decision ↔ Verified (explicit human decision evidence required)
+# AI Generated ↔ Under Review
+# Under Review ↔ Verified
+# Verified ↔ Production
+# Any ↔ Superseded (replacement evidence required)
+# Any ↔ Invalidated (rejection evidence required)
