@@ -19,7 +19,7 @@ For **Status** scoring:
 2. If not exact, check whether the two statuses are adjacent in the frozen lifecycle map.
 3. If adjacent, make a separate human judgment about whether the **same supplied evidence** reasonably supports both readings.
 
-Only when both adjacency **and** shared evidentiary support are true is the row eligible for a Status near-match.
+Only when both adjacency **and** shared evidentiary support are true is the row eligible for Status = `Adjacent`.
 
 ---
 
@@ -68,14 +68,14 @@ This checklist is the operative implementation rule.
 
 `Human Decision ↔ Verified` is a special-case adjacent pair.
 
-Accept it as a near-match **only** when the packet contains a clear human decision artifact, such as:
+Accept it as Adjacent **only** when the packet contains a clear human decision artifact, such as:
 
 - a decision record
 - an explicit specification
 - an acceptance note
 - another direct record showing human decision authority
 
-If the evidence only shows AI-produced work that later passed tests or verification, do **not** accept `Human Decision ↔ Verified` as a near-match.
+If the evidence only shows AI-produced work that later passed tests or verification, do **not** accept `Human Decision ↔ Verified` as Adjacent.
 
 ---
 
@@ -83,16 +83,16 @@ If the evidence only shows AI-produced work that later passed tests or verificat
 
 | Author Status | Reviewer Status | Adjacent? | Extra condition | Status result |
 | --- | --- | --- | --- | --- |
-| Same | Same | — | — | Full agreement |
-| Draft | Human Decision | Yes | Evidence supports both | Near-match |
-| Draft | AI Generated | Yes | Evidence supports both | Near-match |
-| Human Decision | Verified | Yes | Evidence shows explicit human decision | Near-match |
-| AI Generated | Under Review | Yes | Evidence supports both | Near-match |
-| Under Review | Verified | Yes | Evidence supports both | Near-match |
-| Verified | Production | Yes | Evidence supports both | Near-match |
-| Any | Superseded | Yes | Evidence shows replacement | Near-match |
-| Any | Invalidated | Yes | Evidence shows rejection | Near-match |
-| All other pairs | — | No | — | Material disagreement |
+| Same | Same | — | — | `Exact` |
+| Draft | Human Decision | Yes | Evidence supports both | `Adjacent` |
+| Draft | AI Generated | Yes | Evidence supports both | `Adjacent` |
+| Human Decision | Verified | Yes | Evidence shows explicit human decision | `Adjacent` |
+| AI Generated | Under Review | Yes | Evidence supports both | `Adjacent` |
+| Under Review | Verified | Yes | Evidence supports both | `Adjacent` |
+| Verified | Production | Yes | Evidence supports both | `Adjacent` |
+| Any | Superseded | Yes | Evidence shows replacement | `Adjacent` |
+| Any | Invalidated | Yes | Evidence shows rejection | `Adjacent` |
+| All other pairs | — | No | — | `Disagree` |
 
 This table is a mechanical aid only. It does not replace human evidentiary judgment.
 
