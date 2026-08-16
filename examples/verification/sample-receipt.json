@@ -1,0 +1,19 @@
+{
+  "spec": "quantum-pi-forge-receipt/v1",
+  "receipt_id": "sample-receipt-phase2-001",
+  "artifact": {
+    "path": "sample-artifact.json",
+    "type": "artifact",
+    "digest": {
+      "alg": "sha256",
+      "hex": "dd0ede4e90fa06cf07d66481ab69e48b20ec525483c48b5343886a0f84da8d42"
+    }
+  },
+  "produced_at": "2026-08-16T00:00:00.000Z",
+  "envelope": {
+    "readOnly": true,
+    "milestone_id": "SAMPLE-MILESTONE-001",
+    "agent_id": "agent-example-42"
+  },
+  "note": "This sample receipt is paired with sample-artifact.json. Running `qpf-verify` against this pair will return status:pass."
+}

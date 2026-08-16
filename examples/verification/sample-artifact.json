@@ -1,0 +1,15 @@
+{
+  "schema": "qpf-milestone-artifact/v1",
+  "milestone_id": "SAMPLE-MILESTONE-001",
+  "agent_id": "agent-example-42",
+  "task": "Deliver initial verification interface for autonomous agent integration",
+  "scope": "phase-2-ingestion-surface",
+  "steps_executed": [
+    { "step": 1, "action": "fetch_input_dataset", "status": "completed" },
+    { "step": 2, "action": "run_deterministic_transform", "status": "completed" },
+    { "step": 3, "action": "emit_output_artifact", "status": "completed" }
+  ],
+  "output_hash_claimed": "sha256:placeholder_replace_with_actual_when_sealing",
+  "produced_at": "2026-08-16T00:00:00.000Z",
+  "note": "This is a sample artifact for counterparty onboarding. Replace content with your actual milestone output."
+}
