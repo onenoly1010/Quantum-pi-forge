@@ -38,6 +38,8 @@
 | Demonstrated `BREAK` | 0 |
 | Layer-2 boundary findings | unresolved |
 
+The aggregate `Layer-1 verified PASS` count refers to Layer-1 verification only. It does **not** convert those same targets into overall final `PASS` results, and it may coexist with final `INDETERMINATE` outcomes where Layer-2 remains unresolved.
+
 Historical baseline classifications preserved in this package:
 
 - `AUDIT-001` — `NULL`

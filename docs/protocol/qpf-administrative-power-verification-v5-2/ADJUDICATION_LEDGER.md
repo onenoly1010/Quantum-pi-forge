@@ -56,6 +56,8 @@ Use explicit placeholders where the evidence is unavailable.
 
 Do **not** convert Layer-1 verified `PASS` into an overall final `PASS`.
 
+The aggregate `Layer-1 verified PASS` count is a Layer-1-only measurement. It may coexist with overall final `INDETERMINATE` classifications where Layer-2 evidence remains unresolved or incomplete.
+
 ## Adjudication template
 
 ```text
