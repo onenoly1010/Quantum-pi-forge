@@ -352,7 +352,7 @@ export async function onRequestPost(context: { request: Request; env: Record<str
     ? body.artifact_name.trim()
     : "artifact";
   const artifactName =
-    rawName.replace(/\\/g, "/").split("/").pop()!.replace(/^\.+/, "") || "artifact";
+    (rawName.replace(/\\/g, "/").split("/").pop() ?? "").replace(/^\.+/, "") || "artifact";
 
   const receipt = body.receipt as Record<string, unknown>;
 

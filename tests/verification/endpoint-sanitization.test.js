@@ -18,7 +18,14 @@ import assert from 'node:assert/strict';
 
 /**
  * Reproduces the sanitization logic from functions/api/verify.ts onRequestPost.
- * Keep in sync with the production implementation.
+ *
+ * NOTE: this function is intentionally duplicated here rather than imported.
+ * `functions/api/verify.ts` is a Cloudflare Pages Function that uses TypeScript and
+ * Web Crypto APIs unavailable in the plain Node.js test runner; it cannot be imported
+ * directly. If the production sanitization logic is ever extracted to a shared
+ * `src/verification/sanitize.js` utility, import from there and remove this copy.
+ *
+ * Keep in sync with the production implementation in functions/api/verify.ts.
  *
  * @param {string|undefined} rawInput
  * @returns {string}
