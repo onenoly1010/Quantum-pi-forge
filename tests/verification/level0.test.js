@@ -231,6 +231,72 @@ describe('QPF Level 0 verify', () => {
     }
     assert.equal(r.verifier.identity, 'qpf-verify-level0');
   });
+
+  // --- Regression: algorithm mismatch must not pass ---
+
+  it('receipt with non-sha256 algorithm and matching hex → not pass (alg+hex both required)', () => {
+    // Construct a receipt that claims blake3 with the correct sha256 hex value.
+    // A verifier that only checks hex would incorrectly pass this.
+    const body = {
+      spec: 'quantum-pi-forge-receipt/v1',
+      receipt_id: 'alg-mismatch-test',
+      artifact: {
+        path: art.path,
+        type: 'artifact',
+        digest: { alg: 'blake3', hex: art.digest.hex },
+      },
+      produced_at: '2026-08-08T00:00:00.000Z',
+      envelope: { readOnly: true },
+    };
+    const rec = writeReceipt(dir, 'alg-mismatch.json', body);
+    const r = run(dir, art.path, rec);
+    assert.notEqual(r.status, 'pass', 'alg mismatch with matching hex must not produce pass');
+    const h = r.checks.find((c) => c.name === 'artifact_hash');
+    assert.ok(h, 'artifact_hash check must be present');
+    assert.notEqual(h.status, 'pass', 'artifact_hash must not pass when algorithm does not match');
+  });
+
+  it('receipt with non-sha256 algorithm and wrong hex → fail (not pass)', () => {
+    const body = {
+      spec: 'quantum-pi-forge-receipt/v1',
+      receipt_id: 'alg-mismatch-wrong-hex',
+      artifact: {
+        path: art.path,
+        type: 'artifact',
+        digest: { alg: 'blake3', hex: '00'.repeat(32) },
+      },
+      produced_at: '2026-08-08T00:00:00.000Z',
+      envelope: { readOnly: true },
+    };
+    const rec = writeReceipt(dir, 'alg-mismatch-bad-hex.json', body);
+    const r = run(dir, art.path, rec);
+    assert.notEqual(r.status, 'pass');
+    const h = r.checks.find((c) => c.name === 'artifact_hash');
+    assert.notEqual(h.status, 'pass');
+  });
+
+  // --- Regression: nested-path artifact binding ---
+
+  it('artifact in subdirectory: receipt with basename binds correctly', () => {
+    // Write artifact inside a subdir of the temp dir
+    const subDir = join(dir, 'sub');
+    mkdirSync(subDir, { recursive: true });
+    const subArt = writeArtifact(subDir, 'nested.txt', 'nested-content\n');
+    const relPath = join('sub', 'nested.txt');
+    const rec = writeReceipt(dir, 'nested-receipt.json', {
+      spec: 'quantum-pi-forge-receipt/v1',
+      receipt_id: 'nested-test',
+      artifact: {
+        path: relPath,
+        type: 'artifact',
+        digest: { alg: subArt.digest.alg, hex: subArt.digest.hex },
+      },
+      produced_at: '2026-08-08T00:00:00.000Z',
+      envelope: { readOnly: true },
+    });
+    const r = run(dir, relPath, 'nested-receipt.json');
+    assert.equal(r.status, 'pass');
+  });
 });
 
 describe('QPF Level 0 — designation / verification boundary', () => {

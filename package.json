@@ -341,6 +341,6 @@
     "undici": "7.29.0"
   },
   "bin": {
-    "qpf-verify": "./bin/qpf-verify"
+    "qpf-verify": "./bin/qpf-verify.mjs"
   }
 }

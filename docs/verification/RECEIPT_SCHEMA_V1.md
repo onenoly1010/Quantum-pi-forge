@@ -1,8 +1,17 @@
-# QPF Verification Receipt — Schema Reference v1
+# QPF Verification Result — Schema Reference v1
 
 **Spec identifier:** `quantum-pi-forge-verify-result/v1`
 
-This document describes the structured receipt returned by the QPF Level 0 verification pipeline. Counterparties use this receipt to confirm that an execution artifact has not been silently altered before releasing funds or approving state transitions.
+This document describes the **verification result** object returned by the QPF Level 0 verification pipeline.
+
+**Terminology note:** This document uses two distinct objects:
+
+- **Originating receipt** (`quantum-pi-forge-receipt/v1`): the receipt produced *at artifact creation time* that records the artifact's identity (path, digest, provenance metadata). This is the input to verification.
+- **Verification result** (`quantum-pi-forge-verify-result/v1`): the structured JSON object described in this document, produced *by the verifier* to report whether the artifact's current bytes match what the originating receipt claims.
+
+A verification result is evidence about an artifact. It does **not** establish or change canonical identity.
+
+Counterparties use the verification result to confirm that an execution artifact has not been silently altered. Releasing funds or approving state transitions based solely on this result is **not** authorized.
 
 ---
 
