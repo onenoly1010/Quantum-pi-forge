@@ -34,7 +34,7 @@ import assert from 'node:assert/strict';
 function sanitizeArtifactName(rawInput) {
   const rawName =
     typeof rawInput === 'string' && rawInput.trim() ? rawInput.trim() : 'artifact';
-  const baseName = rawName.replace(/\\/g, '/').split('/').pop() || '';
+  const baseName = rawName.replace(/\\/g, '/').split('/').pop() ?? '';
   return baseName && !/^\.+$/.test(baseName) ? baseName : 'artifact';
 }
 

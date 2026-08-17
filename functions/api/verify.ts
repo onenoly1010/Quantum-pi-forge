@@ -330,10 +330,11 @@ export async function onRequestPost(context: { request: Request; env: Record<str
     return jsonError(422, "receipt is required (receipt JSON object)");
   }
 
-  // Guard against excessively large payloads before decoding (max 10 MiB base64 ≈ 7.5 MiB decoded).
-  const MAX_BASE64_LENGTH = 10 * 1024 * 1024; // 10 MiB
-  if (body.artifact_base64.length > MAX_BASE64_LENGTH) {
-    return jsonError(413, "artifact_base64 exceeds maximum allowed size (10 MiB encoded / ~7.5 MiB decoded)");
+  // Guard against excessively large payloads before decoding.
+  // This is an encoded-character cap (not a decoded-byte cap): 10 MiB encoded ≈ 7.5 MiB decoded for valid base64.
+  const MAX_BASE64_CHARS = 10 * 1024 * 1024;
+  if (body.artifact_base64.length > MAX_BASE64_CHARS) {
+    return jsonError(413, "artifact_base64 exceeds maximum allowed size (10 MiB encoded character length cap)");
   }
 
   // Decode artifact bytes
