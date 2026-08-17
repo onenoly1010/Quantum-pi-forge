@@ -84,7 +84,7 @@ describe('Endpoint artifact-name sanitization', () => {
   });
 
   it('all dots (after split) → fallback "artifact"', () => {
-    // "..." → after pop "..." → after dot-strip "" → fallback
+    // "..." → after pop "..." → dot-only basename check matches → fallback
     assert.equal(sanitizeArtifactName('...'), 'artifact');
   });
 });
