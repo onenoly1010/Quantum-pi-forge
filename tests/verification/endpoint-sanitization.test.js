@@ -8,7 +8,8 @@
  *   - "../../../etc/passwd"     → "passwd"
  *   - "artifact.json"           → "artifact.json"   (unchanged)
  *   - "" or omitted             → "artifact"        (fallback)
- *   - "...hidden"               → fallback to "artifact" (leading dots stripped)
+ *   - ".hidden" / "...hidden"   → preserved
+ *   - "..."                     → fallback to "artifact" (dot-only basename)
  *
  * This module tests the sanitization logic in isolation (pure function, no I/O).
  */
@@ -33,13 +34,8 @@ import assert from 'node:assert/strict';
 function sanitizeArtifactName(rawInput) {
   const rawName =
     typeof rawInput === 'string' && rawInput.trim() ? rawInput.trim() : 'artifact';
-  return (
-    rawName
-      .replace(/\\/g, '/')
-      .split('/')
-      .pop()
-      .replace(/^\.+/, '') || 'artifact'
-  );
+  const baseName = rawName.replace(/\\/g, '/').split('/').pop() || '';
+  return baseName && !/^\.+$/.test(baseName) ? baseName : 'artifact';
 }
 
 describe('Endpoint artifact-name sanitization', () => {
@@ -70,10 +66,9 @@ describe('Endpoint artifact-name sanitization', () => {
     assert.ok(!name.includes('/'), 'result must not contain /');
   });
 
-  it('leading dots stripped', () => {
-    // "...hidden" after dot-strip → "hidden"; ".hidden" → "hidden"
-    assert.equal(sanitizeArtifactName('.hidden'), 'hidden');
-    assert.equal(sanitizeArtifactName('...hidden'), 'hidden');
+  it('dot-prefixed file names are preserved', () => {
+    assert.equal(sanitizeArtifactName('.hidden'), '.hidden');
+    assert.equal(sanitizeArtifactName('...hidden'), '...hidden');
   });
 
   it('empty string → fallback "artifact"', () => {

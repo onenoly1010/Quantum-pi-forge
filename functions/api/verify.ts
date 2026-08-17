@@ -347,12 +347,12 @@ export async function onRequestPost(context: { request: Request; env: Record<str
   }
 
   // Sanitize artifact name: extract the basename so that dir/artifact.json → artifact.json.
-  // Reject path traversal sequences; fall back to "artifact" for empty results.
+  // Reject empty and dot-only names; fall back to "artifact".
   const rawName = typeof body.artifact_name === "string" && body.artifact_name.trim()
     ? body.artifact_name.trim()
     : "artifact";
-  const artifactName =
-    (rawName.replace(/\\/g, "/").split("/").pop() ?? "").replace(/^\.+/, "") || "artifact";
+  const baseName = rawName.replace(/\\/g, "/").split("/").pop() ?? "";
+  const artifactName = baseName && !/^\.+$/.test(baseName) ? baseName : "artifact";
 
   const receipt = body.receipt as Record<string, unknown>;
 
