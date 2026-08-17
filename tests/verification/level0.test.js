@@ -232,3 +232,179 @@ describe('QPF Level 0 verify', () => {
     assert.equal(r.verifier.identity, 'qpf-verify-level0');
   });
 });
+
+describe('QPF Level 0 — designation / verification boundary', () => {
+  /**
+   * These tests enforce the canonical rule:
+   *
+   *   designation  → verification target (supplied externally)
+   *   verification → evidence about target
+   *   verification ≠ designation
+   *
+   * The verifier must never infer canonical identity; it can only test
+   * a target supplied to it against the evidence in a receipt.
+   */
+
+  /** @type {string} */
+  let dir;
+  let designatedArtifact;
+  let alternateArtifact;
+  let matchingReceiptName;
+  let mismatchReceiptName;
+  let contradictionReceiptName;
+  let noDigestReceiptName;
+
+  before(() => {
+    dir = mkdtempSync(join(tmpdir(), 'qpf-boundary-'));
+
+    // Designated artifact — the governance-designated identity target
+    designatedArtifact = writeArtifact(dir, 'designated.json', JSON.stringify({
+      designation: 'qpf.designation.docs.deployment_set.16661.v1',
+      address_set: 'B',
+    }));
+
+    // An alternate artifact that does NOT match the designated receipt
+    alternateArtifact = writeArtifact(dir, 'alternate.json', JSON.stringify({
+      address_set: 'A',
+      note: 'broadcast CREATE set — not designated',
+    }));
+
+    // Receipt that correctly binds to the designated artifact
+    matchingReceiptName = writeReceipt(dir, 'receipt-matching.json', {
+      spec: 'quantum-pi-forge-receipt/v1',
+      receipt_id: 'designated-receipt-1',
+      artifact: {
+        path: designatedArtifact.path,
+        type: 'artifact',
+        digest: { alg: designatedArtifact.digest.alg, hex: designatedArtifact.digest.hex },
+      },
+      produced_at: '2026-08-17T00:00:00.000Z',
+      envelope: { readOnly: true },
+    });
+
+    // Receipt that binds to a DIFFERENT (alternate) artifact hash — simulates contradictory historical evidence
+    mismatchReceiptName = writeReceipt(dir, 'receipt-mismatch.json', {
+      spec: 'quantum-pi-forge-receipt/v1',
+      receipt_id: 'alternate-receipt-1',
+      artifact: {
+        path: designatedArtifact.path,
+        type: 'artifact',
+        // Deliberately wrong digest — simulates address set contradiction
+        digest: { alg: alternateArtifact.digest.alg, hex: alternateArtifact.digest.hex },
+      },
+      produced_at: '2026-08-17T00:00:00.000Z',
+      envelope: { readOnly: true },
+    });
+
+    // Receipt that records a contradiction observation as a field but has no artifact digest
+    contradictionReceiptName = writeReceipt(dir, 'receipt-contradiction.json', {
+      spec: 'quantum-pi-forge-receipt/v1',
+      receipt_id: 'contradiction-receipt-1',
+      artifact: {
+        path: designatedArtifact.path,
+        type: 'artifact',
+        // No digest — simulates a receipt that cannot complete hash verification
+        contradiction_observation: 'two_address_sets_detected',
+      },
+      produced_at: '2026-08-17T00:00:00.000Z',
+      envelope: { readOnly: true },
+    });
+
+    // Receipt with no digest claim at all
+    noDigestReceiptName = writeReceipt(dir, 'receipt-no-digest.json', {
+      spec: 'quantum-pi-forge-receipt/v1',
+      receipt_id: 'no-digest-receipt-1',
+      artifact: {
+        path: designatedArtifact.path,
+        type: 'artifact',
+      },
+      produced_at: '2026-08-17T00:00:00.000Z',
+      envelope: { readOnly: true },
+    });
+  });
+
+  after(() => {
+    try { rmSync(dir, { recursive: true, force: true }); } catch { /* ignore */ }
+  });
+
+  it('designated artifact supplied as target → pass', () => {
+    const r = run(dir, designatedArtifact.path, matchingReceiptName);
+    assert.equal(r.status, 'pass');
+    const hashCheck = r.checks.find((c) => c.name === 'artifact_hash');
+    assert.equal(hashCheck.status, 'pass');
+  });
+
+  it('verifier does not authorize canonical_identity_designation', () => {
+    const r = run(dir, designatedArtifact.path, matchingReceiptName);
+    assert.ok(
+      r.does_not_authorize.includes('canonical_identity_designation'),
+      'does_not_authorize must include canonical_identity_designation'
+    );
+  });
+
+  it('verifier declares it does not infer canonical identity from on-chain evidence', () => {
+    const r = run(dir, designatedArtifact.path, matchingReceiptName);
+    assert.ok(Array.isArray(r.does_not_infer_canonical_identity_from));
+    for (const source of [
+      'eth_getCode',
+      'bytecode_similarity',
+      'deployment_provenance',
+      'owner_function',
+      'address_frequency',
+      'documentation_references',
+      'existence_of_multiple_live_contracts',
+    ]) {
+      assert.ok(
+        r.does_not_infer_canonical_identity_from.includes(source),
+        `does_not_infer_canonical_identity_from must include ${source}`
+      );
+    }
+  });
+
+  it('contradictory receipt (hash mismatch) → fail, not silently discarded', () => {
+    // The designated artifact is supplied but the receipt records a different hash.
+    // This represents contradictory historical evidence (dual address sets).
+    // The verifier must report fail — it must not silently pass.
+    const r = run(dir, designatedArtifact.path, mismatchReceiptName);
+    assert.equal(r.status, 'fail');
+    const hashCheck = r.checks.find((c) => c.name === 'artifact_hash');
+    assert.equal(hashCheck.status, 'fail');
+    assert.match(hashCheck.detail, /mismatch/i);
+  });
+
+  it('contradictory evidence does not change the designated target — target field is unchanged', () => {
+    // Even when verification fails due to contradiction, the target identity
+    // in the result must reflect what was supplied — it must not be replaced.
+    const r = run(dir, designatedArtifact.path, mismatchReceiptName);
+    assert.equal(r.target.path, designatedArtifact.path);
+  });
+
+  it('unresolvable receipt (no digest) → unavailable, not a pass or designation change', () => {
+    const r = run(dir, designatedArtifact.path, noDigestReceiptName);
+    assert.notEqual(r.status, 'pass');
+    // unavailable is the correct status when evidence cannot be tested
+    assert.ok(r.status === 'unavailable' || r.status === 'partial');
+    // Target is still the supplied designated path
+    assert.equal(r.target.path, designatedArtifact.path);
+  });
+
+  it('verifier does not authorize minting, liquidity, payments, or wallet actions', () => {
+    const r = run(dir, designatedArtifact.path, matchingReceiptName);
+    for (const authority of ['minting', 'liquidity', 'payments', 'wallet_actions']) {
+      assert.ok(
+        r.does_not_authorize.includes(authority),
+        `does_not_authorize must include ${authority}`
+      );
+    }
+  });
+
+  it('verifier does not authorize governance_alteration or deployment', () => {
+    const r = run(dir, designatedArtifact.path, matchingReceiptName);
+    for (const authority of ['governance_alteration', 'deployment']) {
+      assert.ok(
+        r.does_not_authorize.includes(authority),
+        `does_not_authorize must include ${authority}`
+      );
+    }
+  });
+});

@@ -2,15 +2,48 @@
 
 **Document:** `docs/governance/CANONICAL_IDENTITY_V1.md`  
 **Produced:** 2026-08-16T00:39:00Z  
+**Revised:** 2026-08-17  
 **Repository HEAD at time of writing:** `ed9a4a3e8df496dad3ed6dcb044a7f6b4e6c1b03`  
 **Workstream:** W1 — Canonical Identity  
 **Gate:** W1 must pass before the manifest phase opens.  
 
 ---
 
-## Status: UNVERIFIED
+## Conceptual Boundary — Read First
 
-The evidence collected does not establish a single, independently reproducible canonical QPF/OINIO deployment identity.
+**Designation** is a governance decision: a human-recorded selection of which deployment is the authoritative identity source.  
+**Verification** is an empirical process: testing whether a supplied artifact or target matches the evidence attached to a designated target.
+
+These are distinct operations. Verification results — including contradictory evidence about historical deployments — are observations about evidence. They are not governance decisions and cannot alter a designation.
+
+```
+DESIGNATION (governance decision, human-recorded)
+      │
+      ▼  supplies the verification target
+VERIFICATION (evidence test, mechanical)
+      │
+      ▼
+PASS / FAIL / UNRESOLVED  (about the supplied target, not about canonical authority)
+```
+
+The verifier (`qpf-verify`) is an instrument for testing evidence. It is not the authority that decides what is canonical.
+
+---
+
+## Canonical Designation
+
+**Designation ID:** `qpf.designation.docs.deployment_set.16661.v1`  
+**Designated set:** Address Set B — the docs/public-mint set recorded in governance receipts, wallet prompt sheets, and prior public copy (see Section 1 below).  
+**Designation basis:** This set is the identity source referenced in existing governance receipts and prior public-facing documentation. The designation is carried forward by this document.  
+**Designation authority:** Human governance record — not inferred from `eth_getCode`, bytecode similarity, deployment provenance, `owner()`, address frequency, or any on-chain observation.
+
+The verification pipeline must consume this designation as its target. It must not replace it.
+
+---
+
+## Verification Status: DESIGNATION_RECORDED; VERIFICATION_PENDING
+
+The canonical identity source is designated (see above). Independent verification of the designated set against the full required evidence chain — ownership transfer to Guardian Safe, bytecode match against current artifacts, and GPG commit signing — is pending. The contradictions documented below are the work required to advance W1 to PASS; they are empirical observations, not a governance finding that identity is unresolved.
 
 The contradictions documented below are the work.
 
@@ -37,7 +70,7 @@ The claim is that a specific, identifiable QPF/OINIO deployment on 0G Aristotle 
 **RPC used for verification:** `https://evmrpc.0g.ai`  
 **Block at probe:** 38,990,004
 
-There are currently **two distinct address sets** with live on-chain code on Aristotle for OINIO-related contracts. They are not the same deployment. No human canon decision selecting one set as authoritative has been recorded in this repository.
+There are currently **two distinct address sets** with live on-chain code on Aristotle for OINIO-related contracts. They are not the same deployment. The canonical identity source is designated as Address Set B (docs/public-mint set) under designation ID `qpf.designation.docs.deployment_set.16661.v1`. The historical deployment ambiguity between these sets is an empirical observation (see Section 4); it is not a finding that canonical identity is currently unresolved.
 
 #### Address Set A — Broadcast / CREATE set
 
@@ -94,7 +127,7 @@ ABI smoke on docs OINIOToken `0x75995…`: `name()` → `OINIO Token`; `symbol()
 
 | Chain | Chain ID | Verification method | Result |
 | --- | --- | --- | --- |
-| 0G Aristotle Mainnet | 16661 | Live RPC `eth_chainId`, `eth_getCode`, `eth_getTransactionReceipt` (G-05 gate) | Chain ID confirmed; two distinct address sets with code; **no single set fully verified** |
+| 0G Aristotle Mainnet | 16661 | Live RPC `eth_chainId`, `eth_getCode`, `eth_getTransactionReceipt` (G-05 gate) | Chain ID confirmed; two distinct address sets with code; designated set is Address Set B (`qpf.designation.docs.deployment_set.16661.v1`); full evidence-chain verification pending (see Section 4) |
 | Pi Testnet | Pending | Not RPC-verified | **Pending** |
 | Pi Mainnet | Pending | Not RPC-verified | **Pending** |
 
@@ -112,7 +145,7 @@ ABI smoke on docs OINIOToken `0x75995…`: `name()` → `OINIO Token`; `symbol()
 - The broadcast CREATE set (`0x709f23…`, `0x25A9C5…`, `0xd1d514…`) was deployed by `0x335651…`, which is now classified as **COMPROMISED_OR_UNTRUSTED** (`docs/security/ETH_MAINNET_OLD_WALLET_UNTRUSTED_V1.md`). A drain transaction from that wallet was observed (tx `0x1fec3b…`).
 - The docs/public-mint set (`0x75995…`, `0x67aD71…`, `0x5E50b9…`) has code and responds to ABI calls but has no CREATE receipt in the broadcast log and does not match current local artifacts.
 - Both sets have `owner()` → `0x335651…` (untrusted residual). Neither set has been moved to the Guardian Safe (`0x8d088…`).
-- No human canon decision has been recorded selecting one of these two sets as the authoritative canonical deployment.
+- The canonical identity source is designated as Address Set B under `qpf.designation.docs.deployment_set.16661.v1`. The absence of a broadcast CREATE receipt for Set B and the presence of two distinct address sets are empirical findings about historical deployment provenance; they are identity-integrity observations, not a governance finding that canonical identity is unresolved.
 
 ---
 
@@ -149,20 +182,25 @@ CANONICAL IDENTITY  (this document — W1)
 
 PR #748 must remain open and must not be used to declare W1 complete. The verifier must not become a machine that says "verified" simply because something matches its own receipt.
 
-W1 passes and the manifest phase opens only when this document can record a single, human-selected, evidence-supported canonical deployment set — with ownership moved to the Guardian Safe — and that selection is independently reproducible from the evidence in this repository without private context.
+W1 passes and the manifest phase opens only when:
+- the designated address set's ownership has been moved to the Guardian Safe; and
+- the bytecode-match evidence for the designated set is independently reproducible; and
+- the GPG commit signing record is complete.
+
+The designation itself (`qpf.designation.docs.deployment_set.16661.v1`) is already recorded in this document. The designation does not require W1 to pass; the full evidence-chain verification does.
 
 ---
 
-## 4. Contradictions That Are Now the Work
+## 4. Identity-Integrity Observations (Historical Deployment Discrepancies)
 
-The following contradictions must be resolved before W1 can pass:
+The following empirical findings about historical deployment provenance are recorded as identity-integrity observations. They are not a finding that canonical identity is unresolved; they are the evidence work required to advance W1 from DESIGNATION_RECORDED to PASS.
 
-| # | Contradiction | Required resolution |
+| # | Observation | Required resolution |
 | --- | --- | --- |
-| C-1 | Two distinct address sets have on-chain code; neither has a human canon selection recorded | Human selects one set as canonical; selection recorded in a signed receipt |
-| C-2 | The deployer of the broadcast set (`0x335651…`) is classified as COMPROMISED_OR_UNTRUSTED; it is also the current `owner()` on all probed contracts | Ownership transferred to Guardian Safe `0x8d088…` before any canonical claim |
-| C-3 | OINIOModelRegistry and HeartbeatMonitor in the broadcast set have bytecode mismatches against the current local artifact tree | Either the deployment compiler settings are recovered and match is established, or a fresh verified deploy is performed and the broadcast log is updated |
-| C-4 | The docs/public-mint set has no CREATE receipt in the broadcast log | Provenance of that deployment must be traced and documented, or the set is formally retired in favor of whichever set is canonically selected |
+| C-1 | Two distinct address sets have on-chain code; the designated set (Set B) has no broadcast CREATE receipt in `run-latest.json` | Provenance of Set B deployment must be traced and documented, or an alternative receipt produced |
+| C-2 | The deployer of the broadcast set (`0x335651…`) is classified as COMPROMISED_OR_UNTRUSTED; it is also the current `owner()` on all probed contracts | Ownership transferred to Guardian Safe `0x8d088…` |
+| C-3 | OINIOModelRegistry and HeartbeatMonitor in the broadcast set (Set A) have bytecode mismatches against the current local artifact tree | Either deployment compiler settings are recovered and match established, or the mismatch is formally documented |
+| C-4 | The docs/public-mint set (Set B) does not match current local artifacts (bytecode mismatch) | Compiler settings for the designated deployment recovered and match established, or fresh verified deploy performed |
 | C-5 | GPG key fingerprint in `docs/IDENTITY_LOCK.md` is a placeholder | Actual GPG fingerprint recorded and commits verifiably signed |
 | C-6 | Pi Network deployments are Pending — chain IDs, RPCs, and contract addresses not yet RPC-verified | Pi deployment verification gate completed or Pi scope formally deferred with a recorded boundary |
 | C-7 | EPI manifest anchor on-chain upload listed as a command but not confirmed executed | Upload receipt with transaction hash recorded, or step explicitly deferred |
@@ -173,21 +211,21 @@ The following contradictions must be resolved before W1 can pass:
 
 ## 5. What This Document Does Not Do
 
-- It does not declare any address set canonical.
 - It does not authorize minting, staking, liquidity, bridge activity, treasury movement, yield routing, or agent authority escalation.
 - It does not assert that the verifier in PR #748 has validated canonical identity.
 - It does not claim the Guardian Safe is currently in control of any contract.
 - It does not treat any previous human approval as retroactively establishing canonicality.
+- It does not permit the verifier to infer or designate canonical identity from `eth_getCode`, bytecode similarity, deployment provenance, `owner()`, address frequency, documentation references, or the existence of multiple live contracts.
 
 ---
 
 ## 6. Gate Decision
 
-**W1: BLOCKED**
+**W1: DESIGNATION_RECORDED; EVIDENCE_CHAIN_INCOMPLETE**
 
-Evidence is insufficient to establish a single, independently reproducible canonical QPF/OINIO deployment identity. The dual address sets, the untrusted deployer residual on current `owner()`, the missing GPG fingerprint, and the pending Pi verification collectively prevent a PASS finding.
+The canonical identity source is designated as Address Set B under `qpf.designation.docs.deployment_set.16661.v1`. The full evidence-chain verification is incomplete: the untrusted deployer residual on current `owner()`, the missing CREATE receipt for the designated set, the bytecode mismatches, the missing GPG fingerprint, and the pending Pi verification collectively prevent a PASS finding.
 
-The contradictions listed in Section 4 are the work required to advance W1 to PASS.
+The observations listed in Section 4 are the work required to advance W1 to PASS. The designation stands during that work.
 
 ---
 

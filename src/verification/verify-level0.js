@@ -444,11 +444,27 @@ export function verifyLevel0(request) {
     },
     // Explicit non-claims
     does_not_authorize: [
+      'canonical_identity_designation',
       'governance_decision',
+      'governance_alteration',
       'mainnet_operator_approval',
       'deployment',
+      'minting',
+      'liquidity',
+      'payments',
+      'wallet_actions',
       'financial_transaction',
       'production_safety',
+    ],
+    // Explicit non-inference: canonical identity may not be inferred from any of the following
+    does_not_infer_canonical_identity_from: [
+      'eth_getCode',
+      'bytecode_similarity',
+      'deployment_provenance',
+      'owner_function',
+      'address_frequency',
+      'documentation_references',
+      'existence_of_multiple_live_contracts',
     ],
   };
 }
