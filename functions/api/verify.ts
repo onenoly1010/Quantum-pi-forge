@@ -332,6 +332,7 @@ export async function onRequestPost(context: { request: Request; env: Record<str
 
   // Guard against excessively large payloads before decoding.
   // This is an encoded-character cap (not a decoded-byte cap): 10 MiB encoded ≈ 7.5 MiB decoded for valid base64.
+  // Base64 input is expected to use the ASCII base64 alphabet, where JS string length and byte length are equivalent.
   const MAX_BASE64_CHARS = 10 * 1024 * 1024;
   if (body.artifact_base64.length > MAX_BASE64_CHARS) {
     return jsonError(413, "artifact_base64 exceeds maximum allowed size (10 MiB encoded character length cap)");
