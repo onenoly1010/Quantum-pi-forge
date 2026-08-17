@@ -333,7 +333,7 @@ export async function onRequestPost(context: { request: Request; env: Record<str
   // Guard against excessively large payloads before decoding (max 10 MiB base64 ≈ 7.5 MiB decoded).
   const MAX_BASE64_LENGTH = 10 * 1024 * 1024; // 10 MiB
   if (body.artifact_base64.length > MAX_BASE64_LENGTH) {
-    return jsonError(413, "artifact_base64 exceeds maximum allowed size (10 MiB base64 payload)");
+    return jsonError(413, "artifact_base64 exceeds maximum allowed size (10 MiB encoded / ~7.5 MiB decoded)");
   }
 
   // Decode artifact bytes
