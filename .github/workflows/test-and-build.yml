@@ -34,6 +34,9 @@ jobs:
       - name: Build static assets
         run: npm run build
 
+      - name: Run verification tests
+        run: npm run test:verification
+
   build-and-package:
     name: Build and Package
     runs-on: ubuntu-22.04
