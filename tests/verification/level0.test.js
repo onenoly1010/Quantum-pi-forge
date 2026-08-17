@@ -380,10 +380,11 @@ describe('QPF Level 0 — designation / verification boundary', () => {
   });
 
   it('unresolvable receipt (no digest) → unavailable, not a pass or designation change', () => {
+    // When a receipt has no artifact digest, the verifier cannot test the hash.
+    // The result must be 'unavailable' — evidence incomplete, not verified.
+    // It must never silently pass, and must not alter the supplied target.
     const r = run(dir, designatedArtifact.path, noDigestReceiptName);
-    assert.notEqual(r.status, 'pass');
-    // unavailable is the correct status when evidence cannot be tested
-    assert.ok(r.status === 'unavailable' || r.status === 'partial');
+    assert.equal(r.status, 'unavailable');
     // Target is still the supplied designated path
     assert.equal(r.target.path, designatedArtifact.path);
   });
