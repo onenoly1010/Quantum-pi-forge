@@ -227,6 +227,11 @@ async function verifyLevel0InMemory(
 
   if (!claimedDigest) {
     checks.push(chk("artifact_hash", "unavailable", "receipt does not contain an artifact digest claim", "STRUCTURE_INVALID"));
+  } else if (claimedDigest.alg.toLowerCase() !== "sha256") {
+    // This verifier only computes SHA-256; a receipt claiming a different algorithm cannot be verified.
+    checks.push(chk("artifact_hash", "unavailable",
+      `digest algorithm '${claimedDigest.alg}' is not supported by this verifier (only sha256)`,
+      "UNSUPPORTED_ALGORITHM"));
   } else if (computedHex.toLowerCase() !== claimedDigest.hex.toLowerCase()) {
     checks.push(chk("artifact_hash", "fail",
       `digest mismatch: computed sha256:${computedHex} != receipt ${claimedDigest.alg}:${claimedDigest.hex}`,
@@ -325,6 +330,12 @@ export async function onRequestPost(context: { request: Request; env: Record<str
     return jsonError(422, "receipt is required (receipt JSON object)");
   }
 
+  // Guard against excessively large payloads before decoding (max 10 MiB base64 ≈ 7.5 MiB decoded).
+  const MAX_BASE64_LENGTH = 10 * 1024 * 1024; // 10 MiB
+  if (body.artifact_base64.length > MAX_BASE64_LENGTH) {
+    return jsonError(413, `artifact_base64 exceeds maximum allowed size (${MAX_BASE64_LENGTH} base64 characters)`);
+  }
+
   // Decode artifact bytes
   let artifactBytes: Uint8Array;
   try {
@@ -335,11 +346,13 @@ export async function onRequestPost(context: { request: Request; env: Record<str
     return jsonError(422, "artifact_base64 is not valid base64");
   }
 
-  // Sanitize artifact name: accept only the basename, no path traversal
+  // Sanitize artifact name: extract the basename so that dir/artifact.json → artifact.json.
+  // Reject path traversal sequences; fall back to "artifact" for empty results.
   const rawName = typeof body.artifact_name === "string" && body.artifact_name.trim()
     ? body.artifact_name.trim()
     : "artifact";
-  const artifactName = rawName.replace(/[/\\]/g, "").replace(/^\.+/, "") || "artifact";
+  const artifactName =
+    rawName.replace(/\\/g, "/").split("/").pop()!.replace(/^\.+/, "") || "artifact";
 
   const receipt = body.receipt as Record<string, unknown>;
 
