@@ -3,7 +3,7 @@
 
 **Record ID:** PR-751-EVR-V1  
 **Verification Date:** 2026-08-17T13:20:12Z  
-**Verifier:** Copilot Task Agent (independent automated run, sandboxed environment)  
+**Verifier:** Copilot Task Agent (automated run, sandboxed environment; **not** an independent human third party)  
 **Repository:** onenoly1010/Quantum-pi-forge  
 **PR:** https://github.com/onenoly1010/Quantum-pi-forge/pull/751  
 **Linked Issue:** https://github.com/onenoly1010/Quantum-pi-forge/issues/749  
@@ -62,15 +62,18 @@ commit reference. The canonical commit reference itself is valid.
 
 **Limitation acknowledged:** This verification was performed in a sandboxed
 runner. The shallow-clone issue is a verification-environment defect (missing
-history), not a repository integrity defect. Any future re-run must first
-unshallow the clone before executing `verify:snapshot`.
+history), not a repository integrity defect. Any future re-run using a shallow
+clone must unshallow before executing `verify:snapshot`; a full clone does not
+require this step.
 
 ---
 
 ## 4. Verification Procedure (independently executed)
 
-All commands run locally in the sandboxed environment without external network
-calls to assert results.
+All verification scripts run locally in the sandboxed environment. The setup
+steps (`git fetch --unshallow` and `npm ci`) require network access, but the
+verification scripts themselves (`verify:evidence`, `test:verification`) do not
+make external network calls to assert results.
 
 ### Step 4a — Evidence bundle
 
@@ -228,7 +231,7 @@ To reproduce this verification independently:
 ```bash
 git clone https://github.com/onenoly1010/Quantum-pi-forge.git
 cd Quantum-pi-forge
-git fetch --unshallow origin   # required — shallow clones will fail verify:snapshot
+git fetch --unshallow origin   # only required if using a shallow clone; skip for full clones
 git checkout 898a1f703064f56174f8e7472fc22b276af72051
 npm ci
 npm run verify:evidence
