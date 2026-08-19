@@ -13,6 +13,7 @@ import { join, resolve } from 'node:path';
 import { verifyLevel0 } from '../src/verification/verify-level0.js';
 import { writeResult } from '../src/verification/result-store.js';
 import { buildPackageManifest } from '../src/verification/package.js';
+import { canonicalize } from '../src/verification/canonical.js';
 
 function usage() {
   console.error(
@@ -67,8 +68,9 @@ if (args.sink) {
     result,
   });
 
-  const pkgFilename = `${manifest.package_id.replace(':', '-')}.json`;  const pkgPath = join(sinkDir, pkgFilename);
-  writeFileSync(pkgPath, JSON.stringify(manifest, null, 2) + '\n', 'utf8');
+  const pkgFilename = `${manifest.package_id.replace(':', '-')}.json`;
+  const pkgPath = join(sinkDir, pkgFilename);
+  writeFileSync(pkgPath, canonicalize(manifest) + '\n', 'utf8');
   console.error(`package_id: ${manifest.package_id}`);
   console.error(`package written: ${pkgPath}`);
 }
