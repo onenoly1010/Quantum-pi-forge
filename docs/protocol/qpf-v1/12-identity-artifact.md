@@ -29,11 +29,28 @@ The schema also defines optional machine-readable fields for knowledge boundarie
 
 ## 3. Content addressing
 
-`identity_id` is a content-addressed identifier. Its intended derivation is:
+`identity_id` is a content-addressed identifier.
 
-`qpfid0:` + SHA-256(canonicalize(stable identity body excluding `identity_id` and wall-clock-only fields).
+### 3.1 Derivation (Step B)
 
-Step A specifies this relationship but does not implement identity-ID derivation. Existing QPF canonicalization semantics remain unchanged. Derivation and golden-vector testing belong to Step B.
+Independent implementations MUST produce the same `identity_id` for the same identity object as follows:
+
+1. Start from a JSON-safe clone of the identity object (`JSON.parse(JSON.stringify(identity))`).
+2. Remove these excluded fields if present:
+   - `identity_id` — derived; must not feed itself
+   - `created_at` — the only wall-clock field in the Step A schema
+3. Canonicalize the remaining body with existing QPF JCS (`canonicalize` / `canonicalizeToBytes` in `src/verification/canonical.js`, encoding `jcs-rfc8785`).
+4. SHA-256 the canonical UTF-8 bytes with existing `digestSha256` in `src/verification/hash.js`.
+5. Prefix the lowercase hex digest:
+
+```text
+identity_id = "qpfid0:" + sha256_hex(canonicalize(stable_body))
+```
+
+Implementation: `src/verification/identity-id.js` (`deriveIdentityId`).  
+Golden vector: `tests/verification/identity-id.test.js`.
+
+This does not change Level 0 verification, `canonical.js`, or `hash.js` semantics. Derivation does not create a Genesis artifact and does not validate epistemic claims.
 
 `canonical_artifact.digest` uses the existing SHA-256 digest shape. The schema validates its representation; it does not calculate or verify the digest.
 
