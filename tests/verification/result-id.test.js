@@ -1,6 +1,6 @@
 /**
  * Tests for deriveResultId (Gap B) — determinism, content-addressing,
- * sensitivity, golden vector.
+ * sensitivity, and stable-field derivation.
  */
 
 import { describe, it } from 'node:test';
@@ -139,9 +139,7 @@ describe('deriveResultId', () => {
     assert.notEqual(deriveResultId(withBinding), deriveResultId(withoutBinding));
   });
 
-  it('golden vector — fixed synthetic result produces a stable known result_id', () => {
-    // This test pins the derivation. If the canonicalization or hash changes
-    // this value will break, which is the intended regression signal.
+  it('stable-field derivation — fixed synthetic result produces a deterministic known result_id', () => {
     const fixture = {
       spec: 'quantum-pi-forge-verify-result/v1',
       target: { hash: 'deadbeef', type: 'artifact', path: 'fixture.txt' },
@@ -159,7 +157,9 @@ describe('deriveResultId', () => {
         receipt_path: 'receipt.json',
       },
     };
-    // Compute expected value independently using the same primitives.
+    // Independently reconstruct the documented stable field set. This test
+    // validates field selection and canonical derivation, not an external
+    // golden vector for canonicalization/hash implementation changes.
     const stable = {
       spec: fixture.spec,
       target: fixture.target,
