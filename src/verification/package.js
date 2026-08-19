@@ -20,9 +20,10 @@
  * confirm package_id matches.
  */
 
+import { existsSync } from 'node:fs';
+import { relative } from 'node:path';
 import { canonicalizeToBytes } from './canonical.js';
 import { digestSha256, digestSha256File } from './hash.js';
-import { relative } from 'node:path';
 
 export const PACKAGE_SCHEMA = 'qpf-evidence-package/v1';
 export const PACKAGE_ID_PREFIX = 'qpfpkg0';
@@ -42,10 +43,14 @@ const AUTHORITY_BOUNDARY = Object.freeze({
  * Build an evidence package manifest.
  *
  * All three component files must exist on disk at call time so their
- * digests can be computed. Paths are emitted relative to `baseDir` when
- * supplied, preventing producer-local absolute filesystem paths from
- * becoming part of the portable manifest. Hashing always uses the original
- * paths, so content identity is unaffected by display-path normalization.
+ * digests can be computed. Missing-input validation is performed before
+ * any hashing so an absent component produces a deterministic validation
+ * error rather than entering the hashing path.
+ *
+ * Paths are emitted relative to `baseDir` when supplied, preventing
+ * producer-local absolute filesystem paths from becoming part of the
+ * portable manifest. Hashing always uses the original paths, so content
+ * identity is unaffected by display-path normalization.
  *
  * @param {{
  *   artifactPath: string,
@@ -57,17 +62,25 @@ const AUTHORITY_BOUNDARY = Object.freeze({
  * @returns {object} — package manifest (not written to disk here)
  */
 export function buildPackageManifest({ artifactPath, receiptPath, resultPath, result, baseDir }) {
-  if (!result.result_id) {
+  if (!result || !result.result_id) {
     throw new Error('buildPackageManifest: result must include result_id');
+  }
+
+  const missing = [
+    ['artifact', artifactPath],
+    ['receipt', receiptPath],
+    ['result file', resultPath],
+  ].filter(([, path]) => !path || !existsSync(path));
+
+  if (missing.length) {
+    throw new Error(
+      `buildPackageManifest: ${missing.map(([name]) => `${name} not found`).join('; ')}`
+    );
   }
 
   const artifactDigest = digestSha256File(artifactPath);
   const receiptDigest = digestSha256File(receiptPath);
   const resultDigest = digestSha256File(resultPath);
-
-  if (!artifactDigest) throw new Error(`buildPackageManifest: artifact not found: ${artifactPath}`);
-  if (!receiptDigest) throw new Error(`buildPackageManifest: receipt not found: ${receiptPath}`);
-  if (!resultDigest) throw new Error(`buildPackageManifest: result file not found: ${resultPath}`);
 
   // package_id is derived from the canonical manifest of component identities —
   // not from ZIP/TAR byte ordering, so physical archives can be reconstructed
