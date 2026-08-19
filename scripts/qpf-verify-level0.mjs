@@ -66,6 +66,7 @@ if (args.sink) {
     receiptPath: receiptAbs,
     resultPath,
     result,
+    baseDir: cwd,
   });
 
   const pkgFilename = `${manifest.package_id.replace(':', '-')}.json`;
