@@ -174,6 +174,37 @@ describe('buildPackageManifest', () => {
     assert.equal(m.package_id, expected);
   });
 
+  it('package_id changes when receipt content changes', () => {
+    // Write a different receipt to a new path and confirm the package_id diverges.
+    const altReceiptPath = join(fx.dir, 'receipt-alt.json');
+    writeFileSync(altReceiptPath, JSON.stringify({ spec: 'quantum-pi-forge-receipt/v1', receipt_id: 'different-receipt' }, null, 2), 'utf8');
+    const m1 = buildPackageManifest({ artifactPath: fx.artifactPath, receiptPath: fx.receiptPath, resultPath: fx.resultPath, result: fx.result });
+    const m2 = buildPackageManifest({ artifactPath: fx.artifactPath, receiptPath: altReceiptPath, resultPath: fx.resultPath, result: fx.result });
+    assert.notEqual(m1.package_id, m2.package_id);
+  });
+
+  it('package_id changes when result_id changes', () => {
+    // A different result_id — the provenance spine — must propagate to a different package_id.
+    const altResult = { ...fx.result, result_id: `qpfv0:${'0'.repeat(64)}` };
+    const m1 = buildPackageManifest({ artifactPath: fx.artifactPath, receiptPath: fx.receiptPath, resultPath: fx.resultPath, result: fx.result });
+    const m2 = buildPackageManifest({ artifactPath: fx.artifactPath, receiptPath: fx.receiptPath, resultPath: fx.resultPath, result: altResult });
+    assert.notEqual(m1.package_id, m2.package_id);
+  });
+
+  it('package_id is stable when result object key order differs', () => {
+    // Canonicalization must sort keys; insertion order must not affect package_id.
+    const { result_id, spec, target, level_requested, level_achieved, status, summary,
+            checks, timestamp, verifier, evidence_binding, does_not_authorize } = fx.result;
+    // Deliberately reversed key insertion order relative to makeFixture
+    const reordered = {
+      does_not_authorize, evidence_binding, verifier, timestamp, checks,
+      summary, status, level_achieved, level_requested, target, spec, result_id,
+    };
+    const m1 = buildPackageManifest({ artifactPath: fx.artifactPath, receiptPath: fx.receiptPath, resultPath: fx.resultPath, result: fx.result });
+    const m2 = buildPackageManifest({ artifactPath: fx.artifactPath, receiptPath: fx.receiptPath, resultPath: fx.resultPath, result: reordered });
+    assert.equal(m1.package_id, m2.package_id);
+  });
+
   it('throws when artifact file is missing', () => {
     assert.throws(
       () => buildPackageManifest({ artifactPath: '/no/such/artifact', receiptPath: fx.receiptPath, resultPath: fx.resultPath, result: fx.result }),
