@@ -20,9 +20,8 @@
  * confirm package_id matches.
  */
 
-import { digestSha256File } from './hash.js';
 import { canonicalizeToBytes } from './canonical.js';
-import { digestSha256 } from './hash.js';
+import { digestSha256, digestSha256File } from './hash.js';
 
 export const PACKAGE_SCHEMA = 'qpf-evidence-package/v1';
 export const PACKAGE_ID_PREFIX = 'qpfpkg0';

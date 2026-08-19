@@ -10,7 +10,7 @@
 
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { digestSha256, digestSha256File, digestsEqual, HASH_ALG_SHA256 } from './hash.js';
+import { digestSha256File, digestsEqual, HASH_ALG_SHA256 } from './hash.js';
 import { aggregateLevel0, REASON } from './semantics.js';
 import { deriveResultId } from './result-id.js';
 
@@ -187,7 +187,9 @@ export function verifyLevel0(request) {
     try {
       receiptText = readFileSync(receiptPath, 'utf8');
       // Compute receipt digest for evidence_binding (Gap H).
-      receiptDigest = digestSha256(receiptText);
+      // Use digestSha256File to match the byte-level digest computed in
+      // buildPackageManifest, ensuring the two are always comparable.
+      receiptDigest = digestSha256File(receiptPath);
     } catch (e) {
       checks.push(
         check(

@@ -11,9 +11,8 @@ import { tmpdir } from 'node:os';
 import { buildPackageManifest, PACKAGE_SCHEMA, PACKAGE_ID_PREFIX } from '../../src/verification/package.js';
 import { writeResult } from '../../src/verification/result-store.js';
 import { deriveResultId } from '../../src/verification/result-id.js';
-import { digestSha256File } from '../../src/verification/hash.js';
 import { canonicalizeToBytes } from '../../src/verification/canonical.js';
-import { digestSha256 } from '../../src/verification/hash.js';
+import { digestSha256, digestSha256File } from '../../src/verification/hash.js';
 
 function makeFixture() {
   const dir = mkdtempSync(join(tmpdir(), 'qpf-pkg-'));

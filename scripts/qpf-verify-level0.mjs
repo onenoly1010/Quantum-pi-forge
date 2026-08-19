@@ -8,11 +8,11 @@
  * manifest alongside it.  When omitted, behaviour is unchanged (stdout only).
  */
 
-import { writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import { writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { verifyLevel0 } from '../src/verification/verify-level0.js';
 import { writeResult } from '../src/verification/result-store.js';
-import { buildPackageManifest, PACKAGE_ID_PREFIX } from '../src/verification/package.js';
+import { buildPackageManifest } from '../src/verification/package.js';
 
 function usage() {
   console.error(
@@ -67,9 +67,7 @@ if (args.sink) {
     result,
   });
 
-  if (!existsSync(sinkDir)) mkdirSync(sinkDir, { recursive: true });
-  const pkgFilename = `${manifest.package_id.replace(':', '-')}.json`;
-  const pkgPath = join(sinkDir, pkgFilename);
+  const pkgFilename = `${manifest.package_id.replace(':', '-')}.json`;  const pkgPath = join(sinkDir, pkgFilename);
   writeFileSync(pkgPath, JSON.stringify(manifest, null, 2) + '\n', 'utf8');
   console.error(`package_id: ${manifest.package_id}`);
   console.error(`package written: ${pkgPath}`);
