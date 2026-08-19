@@ -16,6 +16,7 @@ import { resolve, join } from 'node:path';
 import { canonicalize } from './canonical.js';
 
 export const DEFAULT_SINK_DIR = 'results';
+const RESULT_ID_RE = /^qpfv0:[0-9a-f]{64}$/;
 
 /**
  * Write a verification result to the sink directory.
@@ -28,12 +29,16 @@ export function writeResult(result, opts = {}) {
   if (!result.result_id) {
     throw new Error('writeResult: result must include result_id before writing');
   }
+  if (!RESULT_ID_RE.test(result.result_id)) {
+    throw new Error('writeResult: result_id must match qpfv0:<64 lowercase hex characters>');
+  }
   const cwd = opts.cwd ? resolve(opts.cwd) : process.cwd();
   const dir = resolve(cwd, opts.sinkDir ?? DEFAULT_SINK_DIR);
   if (!existsSync(dir)) {
     mkdirSync(dir, { recursive: true });
   }
-  // Replace the colon in "qpfv0:<hex>" with a hyphen for safe filenames.
+  // The validated identifier contains exactly one colon; replace it only for
+  // the filesystem-safe filename while retaining content-addressed identity.
   const filename = `${result.result_id.replace(':', '-')}.json`;
   const dest = join(dir, filename);
   writeFileSync(dest, canonicalize(result) + '\n', 'utf8');
