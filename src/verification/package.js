@@ -22,6 +22,7 @@
 
 import { canonicalizeToBytes } from './canonical.js';
 import { digestSha256, digestSha256File } from './hash.js';
+import { relative } from 'node:path';
 
 export const PACKAGE_SCHEMA = 'qpf-evidence-package/v1';
 export const PACKAGE_ID_PREFIX = 'qpfpkg0';
@@ -41,17 +42,21 @@ const AUTHORITY_BOUNDARY = Object.freeze({
  * Build an evidence package manifest.
  *
  * All three component files must exist on disk at call time so their
- * digests can be computed.
+ * digests can be computed. Paths are emitted relative to `baseDir` when
+ * supplied, preventing producer-local absolute filesystem paths from
+ * becoming part of the portable manifest. Hashing always uses the original
+ * paths, so content identity is unaffected by display-path normalization.
  *
  * @param {{
  *   artifactPath: string,
  *   receiptPath: string,
  *   resultPath: string,
  *   result: object,
+ *   baseDir?: string,
  * }} params
  * @returns {object} — package manifest (not written to disk here)
  */
-export function buildPackageManifest({ artifactPath, receiptPath, resultPath, result }) {
+export function buildPackageManifest({ artifactPath, receiptPath, resultPath, result, baseDir }) {
   if (!result.result_id) {
     throw new Error('buildPackageManifest: result must include result_id');
   }
@@ -76,6 +81,8 @@ export function buildPackageManifest({ artifactPath, receiptPath, resultPath, re
   const { hex } = digestSha256(canonicalizeToBytes(idInput));
   const package_id = `${PACKAGE_ID_PREFIX}:${hex}`;
 
+  const displayPath = (path) => (baseDir ? relative(baseDir, path) || '.' : path);
+
   return {
     schema: PACKAGE_SCHEMA,
     package_id,
@@ -83,15 +90,15 @@ export function buildPackageManifest({ artifactPath, receiptPath, resultPath, re
     result_id: result.result_id,
     components: {
       artifact: {
-        path: artifactPath,
+        path: displayPath(artifactPath),
         digest: artifactDigest,
       },
       receipt: {
-        path: receiptPath,
+        path: displayPath(receiptPath),
         digest: receiptDigest,
       },
       verification_result: {
-        path: resultPath,
+        path: displayPath(resultPath),
         digest: resultDigest,
       },
     },
