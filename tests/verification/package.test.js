@@ -1,6 +1,6 @@
 /**
  * Tests for buildPackageManifest (Gap J) — structure, package_id derivation,
- * component digest correctness, authority boundary.
+ * component digest correctness, authority boundary, and input validation.
  */
 
 import { describe, it, before, after } from 'node:test';
@@ -17,11 +17,9 @@ import { digestSha256, digestSha256File } from '../../src/verification/hash.js';
 function makeFixture() {
   const dir = mkdtempSync(join(tmpdir(), 'qpf-pkg-'));
 
-  // Write artifact
   const artifactPath = join(dir, 'artifact.txt');
   writeFileSync(artifactPath, 'hello-qpf-package\n', 'utf8');
 
-  // Write receipt
   const receiptPath = join(dir, 'receipt.json');
   const receiptBody = {
     spec: 'quantum-pi-forge-receipt/v1',
@@ -33,7 +31,6 @@ function makeFixture() {
   };
   writeFileSync(receiptPath, JSON.stringify(receiptBody, null, 2), 'utf8');
 
-  // Build a synthetic result
   const receiptDigest = digestSha256File(receiptPath);
   const artifactDigest = digestSha256File(artifactPath);
   const baseResult = {
@@ -56,7 +53,6 @@ function makeFixture() {
   };
   const result = { ...baseResult, result_id: deriveResultId(baseResult) };
 
-  // Write result file
   const resultPath = writeResult(result, { sinkDir: dir, cwd: dir });
 
   return { dir, artifactPath, receiptPath, resultPath, result };
@@ -70,8 +66,10 @@ describe('buildPackageManifest', () => {
     fx = makeFixture();
   });
 
+  // Do not swallow cleanup failures: a fixture cleanup error must remain
+  // observable rather than being silently converted into a passing teardown.
   after(() => {
-    try { rmSync(fx.dir, { recursive: true, force: true }); } catch { /* ignore */ }
+    rmSync(fx.dir, { recursive: true, force: true });
   });
 
   it('returns an object with expected top-level fields', () => {
@@ -117,6 +115,20 @@ describe('buildPackageManifest', () => {
     assert.ok('verification_result' in m.components);
   });
 
+  it('component paths are relative to baseDir when provided', () => {
+    const m = buildPackageManifest({
+      artifactPath: fx.artifactPath,
+      receiptPath: fx.receiptPath,
+      resultPath: fx.resultPath,
+      result: fx.result,
+      baseDir: fx.dir,
+    });
+    assert.equal(m.components.artifact.path, 'artifact.txt');
+    assert.equal(m.components.receipt.path, 'receipt.json');
+    assert.match(m.components.verification_result.path, /^qpfv0-[0-9a-f]{64}\.json$/);
+    assert.ok(!m.components.artifact.path.startsWith('/'));
+  });
+
   it('artifact component digest matches independently computed sha256', () => {
     const m = buildPackageManifest({ artifactPath: fx.artifactPath, receiptPath: fx.receiptPath, resultPath: fx.resultPath, result: fx.result });
     const expected = digestSha256File(fx.artifactPath);
@@ -143,7 +155,6 @@ describe('buildPackageManifest', () => {
   });
 
   it('package_id changes when artifact content changes', () => {
-    // Write a different artifact to a new path
     const altPath = join(fx.dir, 'artifact-alt.txt');
     writeFileSync(altPath, 'different-content\n', 'utf8');
     const m1 = buildPackageManifest({ artifactPath: fx.artifactPath, receiptPath: fx.receiptPath, resultPath: fx.resultPath, result: fx.result });
@@ -162,7 +173,6 @@ describe('buildPackageManifest', () => {
 
   it('package_id can be independently verified from component digests and result_id', () => {
     const m = buildPackageManifest({ artifactPath: fx.artifactPath, receiptPath: fx.receiptPath, resultPath: fx.resultPath, result: fx.result });
-    // Re-derive package_id using the same algorithm
     const idInput = {
       result_id: m.result_id,
       artifact_digest: m.components.artifact.digest,
@@ -175,7 +185,6 @@ describe('buildPackageManifest', () => {
   });
 
   it('package_id changes when receipt content changes', () => {
-    // Write a different receipt to a new path and confirm the package_id diverges.
     const altReceiptPath = join(fx.dir, 'receipt-alt.json');
     writeFileSync(altReceiptPath, JSON.stringify({ spec: 'quantum-pi-forge-receipt/v1', receipt_id: 'different-receipt' }, null, 2), 'utf8');
     const m1 = buildPackageManifest({ artifactPath: fx.artifactPath, receiptPath: fx.receiptPath, resultPath: fx.resultPath, result: fx.result });
@@ -184,7 +193,6 @@ describe('buildPackageManifest', () => {
   });
 
   it('package_id changes when result_id changes', () => {
-    // A different result_id — the provenance spine — must propagate to a different package_id.
     const altResult = { ...fx.result, result_id: `qpfv0:${'0'.repeat(64)}` };
     const m1 = buildPackageManifest({ artifactPath: fx.artifactPath, receiptPath: fx.receiptPath, resultPath: fx.resultPath, result: fx.result });
     const m2 = buildPackageManifest({ artifactPath: fx.artifactPath, receiptPath: fx.receiptPath, resultPath: fx.resultPath, result: altResult });
@@ -192,10 +200,8 @@ describe('buildPackageManifest', () => {
   });
 
   it('package_id is stable when result object key order differs', () => {
-    // Canonicalization must sort keys; insertion order must not affect package_id.
     const { result_id, spec, target, level_requested, level_achieved, status, summary,
             checks, timestamp, verifier, evidence_binding, does_not_authorize } = fx.result;
-    // Deliberately reversed key insertion order relative to makeFixture
     const reordered = {
       does_not_authorize, evidence_binding, verifier, timestamp, checks,
       summary, status, level_achieved, level_requested, target, spec, result_id,
@@ -205,10 +211,24 @@ describe('buildPackageManifest', () => {
     assert.equal(m1.package_id, m2.package_id);
   });
 
-  it('throws when artifact file is missing', () => {
+  it('rejects a missing artifact before hashing inputs', () => {
     assert.throws(
-      () => buildPackageManifest({ artifactPath: '/no/such/artifact', receiptPath: fx.receiptPath, resultPath: fx.resultPath, result: fx.result }),
+      () => buildPackageManifest({ artifactPath: join(fx.dir, 'missing-artifact'), receiptPath: fx.receiptPath, resultPath: fx.resultPath, result: fx.result }),
       /artifact not found/
+    );
+  });
+
+  it('rejects a missing receipt before hashing inputs', () => {
+    assert.throws(
+      () => buildPackageManifest({ artifactPath: fx.artifactPath, receiptPath: join(fx.dir, 'missing-receipt.json'), resultPath: fx.resultPath, result: fx.result }),
+      /receipt not found/
+    );
+  });
+
+  it('rejects a missing result file before hashing inputs', () => {
+    assert.throws(
+      () => buildPackageManifest({ artifactPath: fx.artifactPath, receiptPath: fx.receiptPath, resultPath: join(fx.dir, 'missing-result.json'), result: fx.result }),
+      /result file not found/
     );
   });
 
