@@ -1,0 +1,52 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "step-b/identity-id-v1",
+  "outcome": "Implement deterministic qpfid0 identity-ID derivation from the landed Step A identity artifact using existing QPF canonicalization and SHA-256, with pinned golden vectors.",
+  "canonicalSources": [
+    "schemas/qpf/v1/identity-verifiable-ai.schema.json",
+    "docs/protocol/qpf-v1/12-identity-artifact.md",
+    "src/verification/canonical.js",
+    "src/verification/hash.js"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/step-b__identity-id-v1.json",
+    "src/verification/identity-id.js",
+    "tests/verification/identity-id.test.js",
+    "docs/protocol/qpf-v1/12-identity-artifact.md"
+  ],
+  "forbiddenPaths": [
+    "schemas/qpf/v1/identity-verifiable-ai.schema.json",
+    "scripts/qpf-verify-level0.mjs",
+    "src/verification/level0.js",
+    "receipts/**",
+    "identities/**",
+    "wallets/**",
+    "functions/**",
+    "deploy/**"
+  ],
+  "forbiddenActions": [
+    "Genesis creation",
+    "Level 0 verifier change",
+    "identity/evidence binding",
+    "API publication",
+    "production deployment",
+    "wallet or key action",
+    "minting or economic activation"
+  ],
+  "verification": [
+    "node --test tests/verification/identity-id.test.js",
+    "npm run verify:all",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/step-b__identity-id-v1.json --base origin/main"
+  ],
+  "definitionOfDone": [
+    "qpfid0 derivation uses the existing QPF canonicalize/canonicalizeToBytes implementation.",
+    "identity_id and created_at are the only excluded fields from the stable identity projection.",
+    "golden vector is independently pinned and passes.",
+    "reordering object members does not change the derived ID.",
+    "substantive identity changes change the derived ID.",
+    "No Genesis, verifier, API, deployment, wallet, mint, or economic state changes are made."
+  ],
+  "authorizationRequired": [
+    "merge"
+  ]
+}
