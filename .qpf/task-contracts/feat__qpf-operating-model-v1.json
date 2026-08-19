@@ -1,0 +1,67 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "feat/qpf-operating-model-v1",
+  "outcome": "Establish the canonical ecosystem registry, unified verification, publication-scope discipline, bounded AI contract, and repository-side mechanical gates.",
+  "canonicalSources": [
+    "docs/governance/github-ecosystem-registry-v1.json",
+    "docs/ai/AI_POLICY.md",
+    "docs/ai/AUTHORIZATION_WORKFLOW.md",
+    "docs/governance/LONE_STEWARD_GOVERNANCE_BASELINE_V1.md"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/feat__qpf-operating-model-v1.json",
+    ".github/CODEOWNERS",
+    ".github/PULL_REQUEST_TEMPLATE.md",
+    ".github/workflows/apply-branch-protection.yml",
+    ".github/workflows/operating-model.yml",
+    "AGENTS.md",
+    "docs/governance/GITHUB_ECOSYSTEM_CONTINUITY_V1.md",
+    "docs/governance/GITHUB_ECOSYSTEM_REGISTRY_V1.md",
+    "docs/governance/github-ecosystem-registry-v1.json",
+    "package.json",
+    "scripts/generate-ecosystem-registry-doc.cjs",
+    "scripts/lib/ecosystem-registry.cjs",
+    "scripts/verify-all.cjs",
+    "scripts/verify-docs-lint.cjs",
+    "scripts/verify-ecosystem-registry.cjs",
+    "scripts/verify-operating-model-determinism.cjs",
+    "scripts/verify-operating-model-policy.cjs",
+    "scripts/verify-publication-scope.cjs",
+    "tests/operating-model/publication-scope.test.cjs"
+  ],
+  "forbiddenPaths": [
+    "contracts/**",
+    "deploy/**",
+    "functions/**",
+    "receipts/execution/**",
+    "scripts/ai-brief.mjs",
+    "scripts/lib/brief-*.mjs",
+    "tests/briefing/**",
+    "wallets/**"
+  ],
+  "forbiddenActions": [
+    "production deployment",
+    "credential or secret change",
+    "billing change",
+    "wallet or key action",
+    "legal succession claim",
+    "unilateral repository transfer or deletion"
+  ],
+  "verification": [
+    "npm run verify:all",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/feat__qpf-operating-model-v1.json --base origin/main"
+  ],
+  "definitionOfDone": [
+    "Registry validates and generated documentation is deterministic.",
+    "verify:all names and fails the first failed layer.",
+    "Publication scope contains only allowlisted paths.",
+    "GitHub required checks are enabled after the workflow is present on main.",
+    "No production, credential, billing, wallet, legal, or Tier 0 authority state changes."
+  ],
+  "authorizationRequired": [
+    "merge",
+    "branch protection update",
+    "organization owner addition",
+    "deployment environment reviewer addition"
+  ]
+}

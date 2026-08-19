@@ -1,0 +1,72 @@
+name: Operating Model
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  verify-all:
+    name: Verify All
+    runs-on: ubuntu-22.04
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run fail-closed verification layers
+        run: npm run verify:all
+
+  publication-scope:
+    name: Publication Scope
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-22.04
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Resolve task contract
+        id: contract
+        shell: bash
+        run: |
+          contract=".qpf/task-contracts/${GITHUB_HEAD_REF//\//__}.json"
+          if [[ "$GITHUB_HEAD_REF" == dependabot/* && ! -f "$contract" ]]; then
+            contract=""
+          elif [[ ! -f "$contract" ]]; then
+            echo "Missing task contract: $contract" >&2
+            exit 1
+          fi
+          echo "path=$contract" >> "$GITHUB_OUTPUT"
+
+      - name: Verify publication scope
+        env:
+          CONTRACT_PATH: ${{ steps.contract.outputs.path }}
+        shell: bash
+        run: |
+          args=(--branch "$GITHUB_HEAD_REF" --base "origin/${GITHUB_BASE_REF}")
+          if [[ -n "$CONTRACT_PATH" ]]; then
+            args+=(--contract "$CONTRACT_PATH")
+          fi
+          npm run verify:publication-scope -- "${args[@]}"
