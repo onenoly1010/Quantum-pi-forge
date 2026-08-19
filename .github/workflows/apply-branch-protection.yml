@@ -58,8 +58,8 @@ jobs:
             "required_status_checks": {
               "strict": true,
               "contexts": [
-                "Operating Model / Verify All",
-                "Operating Model / Publication Scope"
+                "Verify All",
+                "Publication Scope"
               ]
             },
             "enforce_admins": true,
@@ -179,8 +179,8 @@ jobs:
             echo "- Code-owner review: documented but not enforced until an independent reviewer exists" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
             echo "**Required Status Checks**:" >> $GITHUB_STEP_SUMMARY
-            echo "- Operating Model / Verify All" >> $GITHUB_STEP_SUMMARY
-            echo "- Operating Model / Publication Scope" >> $GITHUB_STEP_SUMMARY
+            echo "- Verify All" >> $GITHUB_STEP_SUMMARY
+            echo "- Publication Scope" >> $GITHUB_STEP_SUMMARY
           fi
           
           echo "" >> $GITHUB_STEP_SUMMARY

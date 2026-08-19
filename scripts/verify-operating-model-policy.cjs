@@ -30,8 +30,8 @@ try {
   ]);
   requireText(".github/workflows/apply-branch-protection.yml", [
     "\"required_status_checks\"",
-    "\"Operating Model / Verify All\"",
-    "\"Operating Model / Publication Scope\"",
+    "\"Verify All\"",
+    "\"Publication Scope\"",
     "\"required_approving_review_count\": 0"
   ]);
   console.log("PASS operating-model policy");
