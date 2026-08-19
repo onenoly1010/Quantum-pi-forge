@@ -6,8 +6,6 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
 import { deriveResultId, RESULT_ID_PREFIX } from '../../src/verification/result-id.js';
-import { digestSha256 } from '../../src/verification/hash.js';
-import { canonicalizeToBytes } from '../../src/verification/canonical.js';
 
 /** Minimal synthetic verification result matching the expected shape. */
 function makeResult(overrides = {}) {
@@ -139,7 +137,7 @@ describe('deriveResultId', () => {
     assert.notEqual(deriveResultId(withBinding), deriveResultId(withoutBinding));
   });
 
-  it('stable-field derivation — fixed synthetic result produces a deterministic known result_id', () => {
+  it('golden vector — fixed fixture matches an externally pinned result_id', () => {
     const fixture = {
       spec: 'quantum-pi-forge-verify-result/v1',
       target: { hash: 'deadbeef', type: 'artifact', path: 'fixture.txt' },
@@ -157,21 +155,12 @@ describe('deriveResultId', () => {
         receipt_path: 'receipt.json',
       },
     };
-    // Independently reconstruct the documented stable field set. This test
-    // validates field selection and canonical derivation, not an external
-    // golden vector for canonicalization/hash implementation changes.
-    const stable = {
-      spec: fixture.spec,
-      target: fixture.target,
-      level_requested: fixture.level_requested,
-      level_achieved: fixture.level_achieved,
-      status: fixture.status,
-      checks: fixture.checks,
-      verifier: fixture.verifier,
-      evidence_binding: fixture.evidence_binding,
-    };
-    const { hex } = digestSha256(canonicalizeToBytes(stable));
-    const expected = `qpfv0:${hex}`;
-    assert.equal(deriveResultId(fixture), expected);
+
+    // Pinned independently of deriveResultId() and intentionally kept literal.
+    // A change to canonicalization or hashing must cause this test to fail.
+    const EXPECTED_GOLDEN_RESULT_ID =
+      'qpfv0:a8fa0005dd2bfde38a2f1feb74362920a28d100f8c989fced626851ef970580f';
+
+    assert.equal(deriveResultId(fixture), EXPECTED_GOLDEN_RESULT_ID);
   });
 });
