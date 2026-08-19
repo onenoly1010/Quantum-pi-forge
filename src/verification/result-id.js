@@ -3,6 +3,10 @@
  *
  * result_id = "qpfv0:" + sha256(canonicalize(stable_result_fields))
  *
+ * Stable included fields (in this exact object shape/order before canonicalization):
+ * `spec`, `target`, `level_requested`, `level_achieved`, `status`, `checks`,
+ * `verifier`, and `evidence_binding` when present.
+ *
  * The stable subset excludes `timestamp` (wall-clock, non-deterministic),
  * `summary` (human-readable narrative derived from status), and
  * `does_not_authorize` (static policy declaration independent of inputs).
