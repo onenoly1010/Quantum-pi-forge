@@ -28,3 +28,17 @@ export { deriveResultId, RESULT_ID_PREFIX } from './result-id.js';
 export { writeResult, DEFAULT_SINK_DIR } from './result-store.js';
 
 export { buildPackageManifest, PACKAGE_SCHEMA, PACKAGE_ID_PREFIX } from './package.js';
+
+export {
+  identifyArtifact,
+  verifyIndependent,
+  verifyPrimary,
+  compareResults,
+  runPartner,
+  MATCH,
+  REVIEW_REQUIRED,
+  INDEPENDENT_VERIFIER_IDENTITY,
+  INDEPENDENT_VERIFIER_VERSION,
+  INDEPENDENT_RESULT_SPEC,
+  PARTNER_EVIDENCE_SPEC,
+} from './independent-partner.js';
