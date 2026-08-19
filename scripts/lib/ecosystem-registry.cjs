@@ -73,8 +73,13 @@ function validateRegistry(registry) {
 
   const projectKeys = registry.projects.map((project) => `${project.owner}#${project.number}`);
   if (new Set(projectKeys).size !== projectKeys.length) fail("duplicate project owner/number");
-  if (registry.projects.some((project) => project.operational !== false)) {
-    fail("no operational Project has been verified");
+  const operationalProjects = registry.projects.filter((project) => project.operational);
+  if (operationalProjects.length !== 1) fail("exactly one operational Project is required");
+  const operationalKey = `${operationalProjects[0].owner}#${operationalProjects[0].number}`;
+  const canonicalProjectKey =
+    `${registry.canonicalOperationalProject.owner}#${registry.canonicalOperationalProject.number}`;
+  if (operationalKey !== canonicalProjectKey) {
+    fail("operational Project does not match canonicalOperationalProject");
   }
 
   if (registry.continuity.independentAdministratorCount !== 0) {

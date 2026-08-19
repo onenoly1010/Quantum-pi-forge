@@ -4,6 +4,10 @@
   "status": "CANONICAL_MACHINE_READABLE",
   "verifiedAt": "2026-08-19",
   "canonicalRepository": "onenoly1010/Quantum-pi-forge",
+  "canonicalOperationalProject": {
+    "owner": "Piforge-Sovereign",
+    "number": 2
+  },
   "inventory": {
     "repositoryCount": 35,
     "publicRepositoryCount": 26,
@@ -95,11 +99,11 @@
     {
       "owner": "Piforge-Sovereign",
       "number": 2,
-      "title": "@onenoly1010's untitled project",
+      "title": "QPF Operational Backlog",
       "state": "OPEN",
-      "itemCount": 0,
-      "operational": false,
-      "classification": "EMPTY"
+      "itemCount": 7,
+      "operational": true,
+      "classification": "CANONICAL_OPERATIONAL_BACKLOG"
     }
   ],
   "repositories": [

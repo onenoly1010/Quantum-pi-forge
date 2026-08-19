@@ -79,7 +79,7 @@
 | onenoly1010 #3 | OPEN | 83 | no | HISTORICAL_NO_OPEN_WORK | @onenoly1010's untitled project |
 | onenoly1010 #4 | OPEN | 7 | no | HISTORICAL_NO_OPEN_WORK | [COPY] @onenoly1010's untitled project |
 | Piforge-Sovereign #1 | OPEN | 0 | no | EMPTY_TEMPLATE | @onenoly1010's untitled template |
-| Piforge-Sovereign #2 | OPEN | 0 | no | EMPTY | @onenoly1010's untitled project |
+| Piforge-Sovereign #2 | OPEN | 7 | yes | CANONICAL_OPERATIONAL_BACKLOG | QPF Operational Backlog |
 
 ## Update contract
 
