@@ -54,6 +54,24 @@ This does not change Level 0 verification, `canonical.js`, or `hash.js` semantic
 
 `canonical_artifact.digest` uses the existing SHA-256 digest shape. The schema validates its representation; it does not calculate or verify the digest.
 
+### 3.2 Evidence binding (Step C)
+
+An identity object is verified as a normal **artifact file**. Bind it with existing machinery only:
+
+```text
+identity JSON file
+  ├── identity_id = qpfid0:…          (stable body; Step B)
+  └── file SHA-256                     (stored bytes; Level 0 target)
+        │
+        ├── originating receipt        quantum-pi-forge-receipt/v1
+        ├── verifyLevel0               evidence_binding + result_id
+        └── buildPackageManifest       qpfpkg0:
+```
+
+`identity_id` and the Level 0 artifact digest are **not** the same string. The bind layer records both. Implementation: `src/verification/identity-bind.js`.
+
+A bind `pass` means: the file matches the receipt **and** the declared `identity_id` matches `deriveIdentityId`. It does **not** authorize Genesis, merge, deploy, wallet, or economic action. No `qpf.lineage.v1` graph is introduced.
+
 ## 4. Epistemic semantics
 
 Identity epistemic state is separate from Level 0 pass/fail:

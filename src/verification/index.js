@@ -36,3 +36,9 @@ export {
   IDENTITY_ID_PATTERN,
   IDENTITY_ID_EXCLUDED_FIELDS,
 } from './identity-id.js';
+
+export {
+  bindIdentityArtifact,
+  IDENTITY_SPEC,
+  IDENTITY_BIND_SPEC,
+} from './identity-bind.js';
