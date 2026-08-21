@@ -18,7 +18,8 @@ Named-agent cycles 1–2 on PR #786: inspectable artifacts, no payment.
 
 `deploy/support.html` — truthful CAD $1+ support of that work, using existing AUTHORIZE TO RECEIVE rails.
 
-Public contact email for this path: **onenoly11@proton.me** (corrected; `onenoly@proton.me` is not the receiving inbox).
+Public **contact** email: **onenoly11@proton.me** (not Autodeposit).  
+CAD $1 Interac Autodeposit: separate **Wealthsimple-linked** inbox, withheld from git. Do not Interac to Proton.
 
 ## Payment
 
