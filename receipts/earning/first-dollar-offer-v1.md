@@ -15,8 +15,8 @@ Support demonstrated QPF agent work (inspection, evidence packaging, public-clai
 
 | Rail | Public identifier | Usable by a stranger today? |
 | --- | --- | --- |
-| Email | `onenoly11@proton.me` (already on `/work-with-us`) | **Yes** — starts Interac handshake |
-| Interac Autodeposit | configured; destination **withheld** from git | After operator reply |
+| Contact email | `onenoly11@proton.me` | **Yes** — handshake only. **Not** Autodeposit. |
+| Interac Autodeposit | Wealthsimple-linked destination; **withheld** from git | After operator reply. CAD $1 goes here, not to Proton. |
 | Native 0G | `0x0fbBd408A419E96F592A61824168903E179B3397` chain 16661 | **Yes** if payer holds 0G; $1 equivalent recorded at receipt |
 
 Do not use `0x335651bd…` or Guardian Safe `0x8d088B88…` as personal receive.
