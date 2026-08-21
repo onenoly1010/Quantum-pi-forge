@@ -1,7 +1,7 @@
 {
   "schema": "qpf.task_contract.v1",
   "branch": "agents/named-work-cycle-2026-08-21",
-  "outcome": "Record first named-agent work cycle: seven bounded non-economic tasks with inspectable artifacts. No economic activation, deploy, send, or merge.",
+  "outcome": "Record named-agent work cycles 1 and 2 (2026-08-21): bounded non-economic tasks with inspectable artifacts. No economic activation, deploy, send, or merge.",
   "canonicalSources": [
     "agents/governance/named-agent-registry-v1.json",
     "deploy/verification-status-v1.json",
@@ -17,7 +17,16 @@
     "docs/agents/named-work-cycle-2026-08-21/05-treasury-visibility.md",
     "docs/agents/named-work-cycle-2026-08-21/06-proposal.md",
     "docs/agents/named-work-cycle-2026-08-21/07-invoice.md",
-    "docs/agents/named-work-cycle-2026-08-21/INDEX.md"
+    "docs/agents/named-work-cycle-2026-08-21/INDEX.md",
+    "docs/agents/named-work-cycle-2026-08-21/c2/00-BASELINE.md",
+    "docs/agents/named-work-cycle-2026-08-21/c2/01-builder-support.md",
+    "docs/agents/named-work-cycle-2026-08-21/c2/02-outreach.md",
+    "docs/agents/named-work-cycle-2026-08-21/c2/03-grant.md",
+    "docs/agents/named-work-cycle-2026-08-21/c2/04-public-page.md",
+    "docs/agents/named-work-cycle-2026-08-21/c2/05-treasury-visibility.md",
+    "docs/agents/named-work-cycle-2026-08-21/c2/06-proposal.md",
+    "docs/agents/named-work-cycle-2026-08-21/c2/07-invoice.md",
+    "docs/agents/named-work-cycle-2026-08-21/c2/INDEX.md"
   ],
   "forbiddenPaths": [
     "src/**",
@@ -44,7 +53,7 @@
     "npm run verify:publication-scope -- --contract .qpf/task-contracts/agents__named-work-cycle-2026-08-21.json --base origin/main"
   ],
   "definitionOfDone": [
-    "Seven agent artifacts exist and distinguish ASSIGNED/EXECUTED/VERIFIED/EARNED.",
+    "Cycle 1 and cycle 2 seven-agent artifacts exist and distinguish ASSIGNED/EXECUTED/VERIFIED/EARNED.",
     "No economic or deploy files changed.",
     "Merge of this branch is not performed by this contract."
   ],
@@ -53,6 +62,8 @@
     "send outreach",
     "submit grant",
     "landing HTML edit",
-    "economic activation"
+    "economic activation",
+    "status-json pin / Pages publish",
+    "delete Copilot leftover branches"
   ]
 }
