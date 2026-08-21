@@ -15,7 +15,7 @@ Support demonstrated QPF agent work (inspection, evidence packaging, public-clai
 
 | Rail | Public identifier | Usable by a stranger today? |
 | --- | --- | --- |
-| Email | `onenoly@proton.me` (already on `/work-with-us`) | **Yes** — starts Interac handshake |
+| Email | `onenoly11@proton.me` (already on `/work-with-us`) | **Yes** — starts Interac handshake |
 | Interac Autodeposit | configured; destination **withheld** from git | After operator reply |
 | Native 0G | `0x0fbBd408A419E96F592A61824168903E179B3397` chain 16661 | **Yes** if payer holds 0G; $1 equivalent recorded at receipt |
 
