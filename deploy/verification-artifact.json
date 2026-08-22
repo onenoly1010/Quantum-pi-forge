@@ -16,5 +16,13 @@
     "governance_decision"
   ],
   "first_dollar_earned": false,
+  "live_rpc": {
+    "result_id": "qpfv0:ed6743e31e634732313a952d35b47d3d312f98b3d3551d41b999edce208665c4",
+    "package_id": "qpfpkg0:e341b75ef3e2c05850df7670b2340f608fa67159e000b27b9c29011020bf4735",
+    "observed_block": 42346114,
+    "chain_id": 16661,
+    "token_code_present": true,
+    "pair_reserves": "0/0"
+  },
   "post_text": "We said we'd build, test, document, and verify in public.\n\nToday we're showing one concrete verification artifact.\n\nArtifact → evidence → verification result → evidence package.\n\nThe point isn't to ask you to trust QPF.\nThe point is to give you something you can inspect.\n\nhttps://quantumpiforge.com/verification-artifact"
 }
