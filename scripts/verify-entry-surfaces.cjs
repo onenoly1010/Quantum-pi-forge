@@ -86,8 +86,8 @@ for (const rel of requiredFiles) {
     if (!/quantumpiforge\.com\/support\.html/.test(body)) {
       errors.push('sitemap.xml missing support.html URL');
     }
-    if (!/quantumpiforge\.com\/verification-artifact\.html/.test(body)) {
-      errors.push('sitemap.xml missing verification-artifact.html URL');
+    if (!/quantumpiforge\.com\/verification-artifact/.test(body)) {
+      errors.push('sitemap.xml missing verification-artifact URL');
     }
     if (!/quantumpiforge\.com\/problems\//.test(body)) {
       errors.push('sitemap.xml missing problems/ URL');

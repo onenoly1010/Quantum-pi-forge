@@ -173,8 +173,6 @@ function writeVersionManifest() {
 function writeRedirects() {
   const redirects = [
     '/trust/* /trust/:splat 200',
-    '/verification-artifact /verification-artifact.html 200',
-    '/verification-artifact/ /verification-artifact.html 200',
     // Pi-network production_dashboard removed from public routes (see gated stub page).
     '/dashboard /frontend/dashboard-gated.html 200',
     '/dashboard/ /frontend/dashboard-gated.html 200',
