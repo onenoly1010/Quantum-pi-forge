@@ -7,8 +7,8 @@
     "deploy": "wrangler deploy"
   },
   "devDependencies": {
-    "undici": "^8.5.0",
-    "wrangler": "^4.115.0"
+    "undici": "^8.9.0",
+    "wrangler": "^4.123.0"
   },
   "overrides": {
     "esbuild": "0.28.1",

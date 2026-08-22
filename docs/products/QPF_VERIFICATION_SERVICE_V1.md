@@ -109,7 +109,7 @@ Payment: off-chain invoice. Not mint/LP/token purchase.
 
 ## Request
 
-1. Email: `onenoly@proton.me` · subject `QPF Verification Certificate`  
+1. Email: `onenoly11@proton.me` · subject `QPF Verification Certificate`  
 2. Or form body on `/verification` (after deploy)  
 3. Human confirms fit + price  
 4. Delivery of certificate + evidence  

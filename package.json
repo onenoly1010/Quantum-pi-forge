@@ -4,7 +4,20 @@
     "build": "node scripts/build.js",
     "test:verification:canonical": "node --test tests/verification/canonical.test.js",
     "test:verification:level0": "node --test tests/verification/level0.test.js",
-    "test:verification": "node --test tests/verification/canonical.test.js tests/verification/level0.test.js",
+    "test:verification:result-id": "node --test tests/verification/result-id.test.js",
+    "test:verification:package": "node --test tests/verification/package.test.js",
+    "test:verification:identity-id": "node --test tests/verification/identity-id.test.js",
+    "test:verification:identity-bind": "node --test tests/verification/identity-bind.test.js",
+    "test:verification": "node --test tests/verification/canonical.test.js tests/verification/level0.test.js tests/verification/result-id.test.js tests/verification/package.test.js tests/verification/identity-id.test.js tests/verification/identity-bind.test.js",
+    "test:briefing": "node --test tests/briefing/contract.test.js tests/briefing/contradictions.test.js tests/briefing/dirty-tree.test.js tests/briefing/retrieve.test.js tests/briefing/router.test.js",
+    "test:operating-model": "node --test tests/operating-model/publication-scope.test.cjs",
+    "lint:operating-model": "node scripts/verify-docs-lint.cjs",
+    "generate:ecosystem-registry": "node scripts/generate-ecosystem-registry-doc.cjs",
+    "verify:ecosystem-registry": "node scripts/verify-ecosystem-registry.cjs",
+    "verify:operating-model-policy": "node scripts/verify-operating-model-policy.cjs",
+    "verify:determinism": "node scripts/verify-operating-model-determinism.cjs",
+    "verify:publication-scope": "node scripts/verify-publication-scope.cjs",
+    "verify:all": "node scripts/verify-all.cjs",
     "verify:qpf:level0": "node scripts/qpf-verify-level0.mjs",
     "activation:preflight": "node scripts/activation-preflight.mjs",
     "build:cf": "node scripts/build.js",
@@ -320,14 +333,14 @@
     "chai": "^6.2.2",
     "dotenv": "^17.4.2",
     "ethers": "^6.17.0",
-    "hardhat": "^3.11.1"
+    "hardhat": "^3.13.0"
   },
   "devDependencies": {
     "@storacha/client": "^2.1.4",
     "@uniswap/v2-core": "^1.0.1",
     "@uniswap/v2-periphery": "^1.1.0-beta.0",
     "solc": "^0.8.36",
-    "wrangler": "^4.120.0"
+    "wrangler": "^4.123.0"
   },
   "overrides": {
     "ws": "^8.21.0",

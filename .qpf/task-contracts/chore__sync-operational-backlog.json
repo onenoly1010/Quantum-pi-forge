@@ -1,0 +1,45 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "chore/sync-operational-backlog",
+  "outcome": "Synchronize the canonical registry with the activated organization-owned operational backlog.",
+  "canonicalSources": [
+    "docs/governance/github-ecosystem-registry-v1.json",
+    "https://github.com/orgs/Piforge-Sovereign/projects/2"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/chore__sync-operational-backlog.json",
+    "docs/governance/GITHUB_ECOSYSTEM_REGISTRY_V1.md",
+    "docs/governance/github-ecosystem-registry-v1.json",
+    "scripts/lib/ecosystem-registry.cjs"
+  ],
+  "forbiddenPaths": [
+    "contracts/**",
+    "deploy/**",
+    "functions/**",
+    "receipts/execution/**",
+    "scripts/ai-brief.mjs",
+    "scripts/lib/brief-*.mjs",
+    "tests/briefing/**",
+    "wallets/**"
+  ],
+  "forbiddenActions": [
+    "production deployment",
+    "credential or secret change",
+    "billing change",
+    "wallet or key action",
+    "repository lifecycle mutation"
+  ],
+  "verification": [
+    "npm run generate:ecosystem-registry",
+    "npm run verify:all",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/chore__sync-operational-backlog.json --base origin/main"
+  ],
+  "definitionOfDone": [
+    "Registry identifies Piforge-Sovereign Project #2 as the operational backlog.",
+    "Generated documentation matches the JSON source.",
+    "All required checks pass."
+  ],
+  "authorizationRequired": [
+    "merge"
+  ]
+}

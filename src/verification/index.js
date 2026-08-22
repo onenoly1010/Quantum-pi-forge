@@ -22,3 +22,23 @@ export {
   extractArtifactDigest,
   extractBoundArtifactPath,
 } from './verify-level0.js';
+
+export { deriveResultId, RESULT_ID_PREFIX } from './result-id.js';
+
+export { writeResult, DEFAULT_SINK_DIR } from './result-store.js';
+
+export { buildPackageManifest, PACKAGE_SCHEMA, PACKAGE_ID_PREFIX } from './package.js';
+
+export {
+  deriveIdentityId,
+  projectStableIdentityBody,
+  IDENTITY_ID_PREFIX,
+  IDENTITY_ID_PATTERN,
+  IDENTITY_ID_EXCLUDED_FIELDS,
+} from './identity-id.js';
+
+export {
+  bindIdentityArtifact,
+  IDENTITY_SPEC,
+  IDENTITY_BIND_SPEC,
+} from './identity-bind.js';
