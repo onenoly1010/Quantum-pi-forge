@@ -6,6 +6,9 @@
  * Optional --sink <dir> flag: when supplied, persists the verification result
  * as a content-addressed canonical JSON file and writes an evidence package
  * manifest alongside it.  When omitted, behaviour is unchanged (stdout only).
+ *
+ * Optional --output <path> writes the same stdout JSON to a file as well.
+ * --output does not replace --sink.
  */
 
 import { writeFileSync } from 'node:fs';
@@ -17,7 +20,7 @@ import { canonicalize } from '../src/verification/canonical.js';
 
 function usage() {
   console.error(
-    'Usage: node scripts/qpf-verify-level0.mjs --artifact <path> --receipt <path> [--cwd <dir>] [--sink <dir>]'
+    'Usage: node scripts/qpf-verify-level0.mjs --artifact <path> --receipt <path> [--cwd <dir>] [--sink <dir>] [--output <path>]'
   );
   process.exit(2);
 }
@@ -27,7 +30,13 @@ function parseArgs(argv) {
   const out = {};
   for (let i = 2; i < argv.length; i++) {
     const a = argv[i];
-    if (a === '--artifact' || a === '--receipt' || a === '--cwd' || a === '--sink') {
+    if (
+      a === '--artifact' ||
+      a === '--receipt' ||
+      a === '--cwd' ||
+      a === '--sink' ||
+      a === '--output'
+    ) {
       out[a.slice(2)] = argv[++i];
     } else if (a === '--help' || a === '-h') usage();
   }
@@ -47,7 +56,12 @@ const result = verifyLevel0({
   cwd,
 });
 
-console.log(JSON.stringify(result, null, 2));
+const json = JSON.stringify(result, null, 2);
+console.log(json);
+if (args.output) {
+  writeFileSync(args.output, json + '\n', 'utf8');
+  process.stderr.write(`verification result written to: ${args.output}\n`);
+}
 
 if (args.sink) {
   const sinkDir = resolve(cwd, args.sink);
