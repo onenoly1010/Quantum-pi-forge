@@ -6,6 +6,9 @@ This document defines the official public communication surfaces for Quantum Pi 
 
 - Website: https://quantumpiforge.com
 - GitHub: https://github.com/onenoly1010/Quantum-pi-forge
+- Facebook: https://www.facebook.com/profile.php?id=61593734185688
+- X: https://x.com/onenoly11
+- Inspect object: https://quantumpiforge.com/verification-artifact.html
 
 ## Security Notice
 

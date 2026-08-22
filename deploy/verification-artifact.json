@@ -1,0 +1,20 @@
+{
+  "schema": "qpf-public-post-object/v1",
+  "canonical_url": "https://quantumpiforge.com/verification-artifact.html",
+  "facebook_page": "https://www.facebook.com/profile.php?id=61593734185688",
+  "github": "https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/public/VERIFICATION_ARTIFACT_2026-08-22.md",
+  "result_id": "qpfv0:bedcd4e2abc96a0433fee195ffe5237d452c690f9c7b76285ee2a3b8a008988d",
+  "package_id": "qpfpkg0:6b9d2bc9b4755641514d8efe3ca4fae5aee360e5eab08eeb7374dd04d7f82ab1",
+  "status": "pass",
+  "level": 0,
+  "does_not_authorize": [
+    "mint",
+    "liquidity",
+    "yield",
+    "pi_payment",
+    "deployment",
+    "governance_decision"
+  ],
+  "first_dollar_earned": false,
+  "post_text": "We said we'd build, test, document, and verify in public.\n\nToday we're showing one concrete verification artifact.\n\nArtifact → evidence → verification result → evidence package.\n\nThe point isn't to ask you to trust QPF.\nThe point is to give you something you can inspect.\n\nhttps://quantumpiforge.com/verification-artifact.html"
+}
