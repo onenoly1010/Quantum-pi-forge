@@ -60,6 +60,28 @@ npm run verify:qpf:level0 -- \
   --receipt receipts/public/prove-product-2026-08-22/receipt.json</pre>
     </section>
 
+    <section class="mb-8 border border-emerald-500/20 rounded-2xl p-6 bg-emerald-500/5">
+      <p class="text-xs font-mono text-emerald-400 uppercase tracking-wider mb-2">Object 2 · live RPC</p>
+      <h2 class="text-xl font-bold text-white mb-3">Chain, token code, empty pair</h2>
+      <p class="text-zinc-300 text-sm mb-4">The same three public curls: right chain, OINIO bytecode present, DEX pair reserves 0/0.</p>
+      <div class="font-mono text-sm space-y-2 mb-4">
+        <p><span class="text-zinc-500">result_id</span><br><code>qpfv0:ed6743e31e634732313a952d35b47d3d312f98b3d3551d41b999edce208665c4</code></p>
+        <p><span class="text-zinc-500">package_id</span><br><code>qpfpkg0:e341b75ef3e2c05850df7670b2340f608fa67159e000b27b9c29011020bf4735</code></p>
+        <p><span class="text-zinc-500">status</span> <span class="text-emerald-400">pass</span> · observed block <code>42346114</code></p>
+      </div>
+      <pre class="bg-black border border-white/10 rounded-xl p-4 text-xs overflow-x-auto text-zinc-300">curl -s -X POST https://evmrpc.0g.ai -H 'content-type: application/json' \
+  -d '{"jsonrpc":"2.0","id":1,"method":"eth_chainId","params":[]}'
+# expect 0x4115
+
+curl -s -X POST https://evmrpc.0g.ai -H 'content-type: application/json' \
+  -d '{"jsonrpc":"2.0","id":1,"method":"eth_getCode","params":["0x75995EC0fdf881189850aeD864cB3f43c0DFCb58","latest"]}'
+# expect bytecode, not 0x
+
+curl -s -X POST https://evmrpc.0g.ai -H 'content-type: application/json' \
+  -d '{"jsonrpc":"2.0","id":1,"method":"eth_call","params":[{"to":"0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE","data":"0x0902f1ac"},"latest"]}'
+# expect all-zero reserves</pre>
+    </section>
+
     <section class="mb-8 border border-red-500/20 rounded-2xl p-6 bg-red-500/5 text-zinc-400 text-sm">
       <p class="text-white font-bold mb-2">Does not authorize</p>
       <p>Mint, liquidity, yield, payment, deployment, or governance. PASS ≠ earned. FIRST $1 remains not earned.</p>
