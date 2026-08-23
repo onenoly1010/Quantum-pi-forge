@@ -33,6 +33,10 @@ const staticFiles = [
   { src: 'deploy/try.html', dest: 'try.html' },
   { src: 'deploy/verification.html', dest: 'verification.html' },
   { src: 'deploy/verification-certificate.html', dest: 'verification-certificate.html' },
+  // One Public File — Verification Experiment #001 (staged; publish requires
+  // separate human commit/push/deploy authorization)
+  { src: 'deploy/one-public-file-experiment-001.html', dest: 'one-public-file-experiment-001.html' },
+  { src: 'deploy/verification-charter-experiment-001.html', dest: 'verification-charter-experiment-001.html' },
   { src: 'deploy/founding-builders-pilot.html', dest: 'founding-builders-pilot.html', optional: true },
   { src: 'deploy/pilot-feedback-roadmap.html', dest: 'pilot-feedback-roadmap.html', optional: true },
   { src: 'deploy/pilot-receipts.html', dest: 'pilot-receipts.html', optional: true },
