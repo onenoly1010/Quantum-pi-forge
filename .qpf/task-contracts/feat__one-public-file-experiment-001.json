@@ -1,7 +1,7 @@
 {
   "schema": "qpf.task_contract.v1",
-  "branch": "main",
-  "outcome": "Publish QPF One Public File — Verification Experiment #001: public invitation page + charter page on quantumpiforge.com, registered in the site build manifest. Open invitation only; no individual outreach; no commercial service language.",
+  "branch": "feat/one-public-file-experiment-001",
+  "outcome": "Publish QPF One Public File \u2014 Verification Experiment #001: public invitation page + charter page on quantumpiforge.com, registered in the site build manifest. Open invitation only; no individual outreach; no commercial service language.",
   "canonicalSources": [
     "docs/outreach/drafts/QPF_ONE_PUBLIC_FILE_EXPERIMENT_001.md",
     "docs/outreach/drafts/QPF_ONE_PUBLIC_FILE_FACEBOOK_POST_DRAFT_001.md"
@@ -35,5 +35,5 @@
     "npm run verify:all",
     "npm run verify:publication-scope -- --contract .qpf/task-contracts/feat__one-public-file-experiment-001.json --base origin/main"
   ],
-  "definitionOfDone": "Pages live at /one-public-file-experiment-001 and /verification-charter-experiment-001 returning HTTP 200 with experiment content; Facebook post draft handed to human for manual posting; outcome ledger opened (VERIFIED / NOT VERIFIED / OUTREACH_ATTEMPTED → NO_RESPONSE)."
+  "definitionOfDone": "Pages live at /one-public-file-experiment-001 and /verification-charter-experiment-001 returning HTTP 200 with experiment content; Facebook post draft handed to human for manual posting; outcome ledger opened (VERIFIED / NOT VERIFIED / OUTREACH_ATTEMPTED \u2192 NO_RESPONSE)."
 }
