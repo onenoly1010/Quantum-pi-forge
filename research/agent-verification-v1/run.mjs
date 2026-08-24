@@ -1,7 +1,9 @@
+import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { mkdtempSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { verifyLevel0 } from '../../src/verification/verify-level0.js';
 import { digestSha256, digestSha256File } from '../../src/verification/hash.js';
 
@@ -16,6 +18,7 @@ const ARTIFACT = join(WORK, 'artifact.bin');
 const RECEIPT = join(WORK, 'receipt.json');
 const TAMPERED_ARTIFACT = join(TAMPER, 'artifact.bin');
 const TAMPERED_RECEIPT = join(TAMPER, 'receipt.json');
+const AGENT_B = join(dirname(fileURLToPath(import.meta.url)), 'agent-b.mjs');
 
 // 1. Agent A simulation: fixed artifact + deterministic receipt claim.
 const artifactBytes = Buffer.from('QPF_AGENT_A_ARTIFACT_V1\nclaim=artifact-integrity-demo\n', 'utf8');
@@ -62,32 +65,6 @@ function extractEvidencePackage() {
   };
 }
 
-// 3. Agent B simulator: independent of QPF's verifier implementation.
-function agentBVerify(pkg) {
-  try {
-    const bytes = Buffer.from(pkg.artifact.bytes_b64, 'base64');
-    const computed = createHash('sha256').update(bytes).digest('hex');
-    const claimed = String(pkg.receipt?.artifact?.digest?.hex || '').toLowerCase();
-    const declared = String(pkg.artifact?.digest?.hex || '').toLowerCase();
-    const path = pkg.receipt?.artifact?.path;
-    const structural =
-      pkg.receipt?.spec === 'quantum-pi-forge-receipt/v1' &&
-      typeof pkg.receipt?.receipt_id === 'string' &&
-      path === 'artifact.bin' &&
-      pkg.receipt?.artifact?.digest?.alg === 'sha256';
-    const digestMatch = computed === claimed && computed === declared;
-    return {
-      verdict: structural && digestMatch ? 'ACCEPT' : 'REJECT',
-      structural,
-      computed_digest: computed,
-      claimed_digest: claimed,
-      package_digest: declared,
-    };
-  } catch (error) {
-    return { verdict: 'INCONCLUSIVE', error: String(error?.message || error) };
-  }
-}
-
 function qpfVerify(cwd, artifactPath, receiptPath) {
   return verifyLevel0({
     spec: 'quantum-pi-forge-verify/v1',
@@ -104,9 +81,28 @@ function mutateSingleByte(src, dst) {
   writeFileSync(dst, bytes);
 }
 
+function runAgentB(pkg, label) {
+  const packagePath = join(ROOT, `${label}-evidence-package.json`);
+  writeFileSync(packagePath, JSON.stringify(pkg, null, 2) + '\n');
+  const child = spawnSync(process.execPath, [AGENT_B, packagePath], {
+    encoding: 'utf8',
+  });
+  if (child.error) return { verdict: 'INCONCLUSIVE', error: String(child.error.message) };
+  try {
+    return JSON.parse(String(child.stdout || '').trim());
+  } catch (error) {
+    return {
+      verdict: 'INCONCLUSIVE',
+      error: `Agent B produced invalid JSON: ${String(error?.message || error)}`,
+      stderr: String(child.stderr || ''),
+      exit_code: child.status,
+    };
+  }
+}
+
 const evidencePackage = extractEvidencePackage();
 const qpfOriginal = qpfVerify(WORK, 'artifact.bin', 'receipt.json');
-const agentBOriginal = agentBVerify(evidencePackage);
+const agentBOriginal = runAgentB(evidencePackage, 'original');
 
 // 5. Tamper generator: one byte changes; the original receipt/digest claim stays fixed.
 mutateSingleByte(ARTIFACT, TAMPERED_ARTIFACT);
@@ -121,7 +117,7 @@ const tamperedPackage = {
   },
 };
 const qpfTampered = qpfVerify(TAMPER, 'artifact.bin', 'receipt.json');
-const agentBTampered = agentBVerify(tamperedPackage);
+const agentBTampered = runAgentB(tamperedPackage, 'tampered');
 
 // 6. Repeat harness: identical original inputs, independent second QPF invocation.
 const qpfRepeat = qpfVerify(WORK, 'artifact.bin', 'receipt.json');
@@ -170,6 +166,7 @@ const evidence = {
   evidence_firewall: {
     agent_b_input_excludes_qpf_result: true,
     agent_b_input_excludes_qpf_result_id: true,
+    agent_b_process: 'research/agent-verification-v1/agent-b.mjs',
     agent_b_implementation: 'independent_hash_receipt_binding_recomputation',
   },
   tests,
