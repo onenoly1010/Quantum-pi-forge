@@ -1,9 +1,8 @@
 import { createHash } from 'node:crypto';
-import { mkdtempSync, mkdirSync, readFileSync, writeFileSync, appendFileSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { verifyLevel0 } from '../../src/verification/verify-level0.js';
-import { canonicalizeToBytes } from '../../src/verification/canonical.js';
 import { digestSha256, digestSha256File } from '../../src/verification/hash.js';
 
 const EXPERIMENT = 'QPF_AGENT_VERIFICATION_INTEROPERABILITY_V1';
@@ -18,6 +17,7 @@ const RECEIPT = join(WORK, 'receipt.json');
 const TAMPERED_ARTIFACT = join(TAMPER, 'artifact.bin');
 const TAMPERED_RECEIPT = join(TAMPER, 'receipt.json');
 
+// 1. Agent A simulation: fixed artifact + deterministic receipt claim.
 const artifactBytes = Buffer.from('QPF_AGENT_A_ARTIFACT_V1\nclaim=artifact-integrity-demo\n', 'utf8');
 writeFileSync(ARTIFACT, artifactBytes);
 
@@ -39,7 +39,7 @@ const receipt = {
 };
 writeFileSync(RECEIPT, JSON.stringify(receipt, null, 2) + '\n');
 
-// Evidence extractor: deliberately omits QPF's conclusion/result_id.
+// 2. Evidence extractor: deliberately omits QPF's conclusion/result_id.
 function extractEvidencePackage() {
   return {
     experiment_id: EXPERIMENT,
@@ -62,7 +62,7 @@ function extractEvidencePackage() {
   };
 }
 
-// Agent B is intentionally independent of QPF's verifier implementation.
+// 3. Agent B simulator: independent of QPF's verifier implementation.
 function agentBVerify(pkg) {
   try {
     const bytes = Buffer.from(pkg.artifact.bytes_b64, 'base64');
@@ -108,7 +108,7 @@ const evidencePackage = extractEvidencePackage();
 const qpfOriginal = qpfVerify(WORK, 'artifact.bin', 'receipt.json');
 const agentBOriginal = agentBVerify(evidencePackage);
 
-// Tamper test: one byte changed, while the original receipt remains unchanged.
+// 5. Tamper generator: one byte changes; the original receipt/digest claim stays fixed.
 mutateSingleByte(ARTIFACT, TAMPERED_ARTIFACT);
 writeFileSync(TAMPERED_RECEIPT, readFileSync(RECEIPT));
 const tamperedPackage = {
@@ -116,13 +116,14 @@ const tamperedPackage = {
   artifact: {
     ...evidencePackage.artifact,
     bytes_b64: readFileSync(TAMPERED_ARTIFACT).toString('base64'),
-    digest: digestSha256File(TAMPERED_ARTIFACT),
+    // Deliberately preserve the original declared digest. B must discover the mismatch.
+    digest: evidencePackage.artifact.digest,
   },
 };
 const qpfTampered = qpfVerify(TAMPER, 'artifact.bin', 'receipt.json');
 const agentBTampered = agentBVerify(tamperedPackage);
 
-// Repeat test: identical original inputs, independent second QPF invocation.
+// 6. Repeat harness: identical original inputs, independent second QPF invocation.
 const qpfRepeat = qpfVerify(WORK, 'artifact.bin', 'receipt.json');
 const deterministic =
   qpfOriginal.result_id === qpfRepeat.result_id &&
@@ -159,6 +160,7 @@ const failed = tests.filter((t) => !t.pass);
 const inconclusive = tests.filter((t) => Object.values(t).includes('INCONCLUSIVE'));
 const overall = inconclusive.length ? 'INCONCLUSIVE' : failed.length ? 'FAIL' : 'V1_EVIDENCED';
 
+// 7. Evidence recorder: failures are retained, never overwritten by a later pass.
 const evidence = {
   experiment: EXPERIMENT,
   verifier_mode: 'independent_adversarial',
@@ -175,7 +177,7 @@ const evidence = {
   tamper: {
     mutation: 'single_byte_change',
     original_digest: evidencePackage.artifact.digest,
-    tampered_digest: tamperedPackage.artifact.digest,
+    tampered_digest: digestSha256File(TAMPERED_ARTIFACT),
   },
   determinism: { repeat_runs: 2, results_identical: deterministic },
   final_verdict: { overall },
