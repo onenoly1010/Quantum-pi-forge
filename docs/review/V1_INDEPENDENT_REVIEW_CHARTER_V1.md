@@ -30,6 +30,34 @@ The reviewer MUST:
 - R3. Record their verdicts **before** viewing `REPORT.md` or
   `adversarial/battery-results*.json` expected-values (timestamp the record).
 
+## 2a. Blind protocol (mandatory)
+
+The review is adversarial, not confirmatory. Two documents exist:
+
+**Operator Brief** (the ONLY material the independent operator receives):
+
+```text
+Object under review: canonical merge 9a1f9e260bdb71e576ee3ff55da93725a93f5efb
+Artifact:            research/verification-v1/ at that commit
+Task:                Reproduce the experiment. Report what you find,
+                     including limitations the original team may have missed.
+Charter sections:    1, 2, 2a, 3, 5, 6, 7  (section 4 is SEALED)
+```
+
+No expected verdicts, no repair count, no pass/fail claims are disclosed
+beforehand. The original team's conclusions exist ONLY in the Sealed
+Expectations Record (section 4), held unopened by governance until the
+operator's results are timestamped and committed.
+
+Interpretation rule:
+
+- Operator result differs from expectations -> that is a **V1 finding**, not
+  a failed reviewer; discrepancies route to section 7 FAIL semantics.
+- Operator result matches expectations -> V1 upgrades to "survived
+  independent reproduction".
+- Limitations identified beyond section 4's non-establishment list are
+  findings in their own right and extend the record.
+
 ## 3. Required challenges
 
 The reviewer must complete all seven:
@@ -37,14 +65,14 @@ The reviewer must complete all seven:
 | # | Challenge | Pass condition |
 |---|---|---|
 | C1 | Reproduce 10/10 | Fresh `run-battery.mjs` run: 10 cases, 10 pass, 0 fail |
-| C2 | Derive verdicts without trusting the report | Reviewer's pre-recorded verdicts match A1–A11 outcomes per §4 table |
+| C2 | Derive verdicts without trusting the report | Reviewer's pre-recorded verdicts match A1–A11 outcomes against their OWN pre-recorded verdicts compared to the sealed record afterward |
 | C3 | Identify every repair from evidence | All six repairs (R1–R6) re-derived from REPORT.md repair table + session log references; none invented, none missed |
 | C4 | Verify specimen hashes | `sha256sum -c SPECIMEN-001/original/MANIFEST.sha256`: 12/12 OK |
 | C5 | Reproduce self-reference rejection | Case A8-A11 yields NOT_ESTABLISHED with SELF_REFERENCE flagged, from code inspection AND execution |
 | C6 | Reproduce the R1 decoder defect | Demonstrate that `(offset)*2` (the pre-repair decode start) lands inside the length word; confirm repaired `(offset+32)*2` decodes the frozen W0G name bytes correctly |
 | C7 | Enumerate non-establishments | Independently list what V1 does NOT establish; must include at minimum: universal verifier correctness, full-interface conformance, mint authorization, token canonicality, untested conditions, shared-algorithm independence |
 
-## 4. Expected verdict table (for post-hoc comparison only)
+## 4. Sealed Expectations Record (governance eyes only until operator results are committed)
 
 ```text
 A1      VERIFIED (scoped to observation time)
