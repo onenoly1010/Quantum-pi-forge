@@ -1,0 +1,63 @@
+{
+  "spec": "qpf-v1-observations/v1",
+  "observations": [
+    {
+      "observation_id": "chainid",
+      "type": "chain_id",
+      "captured_from_file": "obs-chainId.raw.json",
+      "chain_id_hex": "0x4115"
+    },
+    {
+      "observation_id": "block-fresh",
+      "type": "block_number",
+      "captured_from_file": "obs-blockNumber-fresh.raw.json",
+      "block_number_hex": "0x28964c4",
+      "block_number_dec": "42558660"
+    },
+    {
+      "observation_id": "block-frozen",
+      "type": "block_number",
+      "captured_from_file": "obs-blockNumber-frozen.raw.json",
+      "block_number_hex": "0x28961b9",
+      "block_number_dec": "42557881"
+    },
+    {
+      "observation_id": "oinio-getCode",
+      "type": "account_code",
+      "address": "0x709f23C7A7172E137427576abB5Eb8959E2A57c1",
+      "size_bytes": 2280,
+      "empty": false,
+      "sha256_of_code_hex": "87391a8139de32a697c683561c667dc28bb6d59291dcdd0e6148f9e7e677ea66"
+    },
+    {
+      "observation_id": "pair-getCode",
+      "type": "account_code",
+      "address": "0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE",
+      "size_bytes": 14954,
+      "empty": false,
+      "sha256_of_code_hex": "4a087e47a373d81b9b5fbc803522edd16f0421d0c5ea7772da90f0aef0dddb6c"
+    },
+    {
+      "observation_id": "getreserves",
+      "type": "pair_reserves",
+      "address": "0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE",
+      "reserve0": "0",
+      "reserve1": "0",
+      "block_timestamp_last": "0"
+    },
+    {
+      "observation_id": "w0gA-name",
+      "type": "token_name",
+      "address": "0xd1de4f87C8B195F21254B7163DDA9370D8DF593D",
+      "selector": "name() 0x06fdde03",
+      "name_decoded": "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+    },
+    {
+      "observation_id": "w0gB-name",
+      "type": "token_name",
+      "address": "0x1Cd0690fF9a693f5EF2dD976660a8dAFc81A109c",
+      "selector": "name() 0x06fdde03",
+      "name_decoded": "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+    }
+  ]
+}

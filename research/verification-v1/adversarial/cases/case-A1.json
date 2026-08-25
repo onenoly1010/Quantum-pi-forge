@@ -1,0 +1,29 @@
+{
+  "case_id": "A1",
+  "title": "Correct claim",
+  "observations_override": null,
+  "claims": [
+    {
+      "claim_id": "C-A1",
+      "proposition": "The deployment target chain id is 0x4115 (16661).",
+      "supports": [
+        {
+          "kind": "observation_check",
+          "observation_id": "chainid",
+          "check": {
+            "op": "field_equals",
+            "path": "chain_id_hex",
+            "value": "0x4115"
+          }
+        }
+      ]
+    }
+  ],
+  "expected": [
+    {
+      "claim_id": "C-A1",
+      "verdict_class": "VERIFIED"
+    }
+  ],
+  "file": "case-A1.json"
+}

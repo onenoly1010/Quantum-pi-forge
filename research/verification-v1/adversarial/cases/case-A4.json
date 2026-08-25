@@ -1,0 +1,35 @@
+{
+  "case_id": "A4",
+  "title": "Stale documentation vs live state",
+  "observations_override": null,
+  "claims": [
+    {
+      "claim_id": "C-A4",
+      "proposition": "The latest 0G block is 38990004 (per DEPLOYED_ADDRESSES probe of 2026-07-16).",
+      "supports": [
+        {
+          "kind": "document_assertion",
+          "source": "contracts/DEPLOYED_ADDRESSES.md",
+          "statement": "Latest block at probe: 38990004"
+        },
+        {
+          "kind": "observation_check",
+          "observation_id": "block-fresh",
+          "freshness_sensitive": true,
+          "check": {
+            "op": "field_equals",
+            "path": "block_number_hex",
+            "value": "0x252f0b4"
+          }
+        }
+      ]
+    }
+  ],
+  "expected": [
+    {
+      "claim_id": "C-A4",
+      "verdict_class": "FALSE"
+    }
+  ],
+  "file": "case-A4.json"
+}

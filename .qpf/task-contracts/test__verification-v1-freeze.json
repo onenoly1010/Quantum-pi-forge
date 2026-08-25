@@ -1,0 +1,42 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "test/verification-v1-freeze",
+  "outcome": "Freeze QPF Verification V1: adversarial battery, independent verifier/decoder, SPECIMEN-001 evidence, and REPORT.md, as independently reproduced at anchor 8781642. No merge to main without separate authorization. No economic activation.",
+  "canonicalSources": [
+    "research/verification-v1/REPORT.md",
+    "research/verification-v1/SPECIMEN-001/original/MANIFEST.sha256",
+    "docs/review/VERIFICATION_STATUS_TABLE_V1.md"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/test__verification-v1-freeze.json",
+    "research/verification-v1/**"
+  ],
+  "forbiddenPaths": [
+    "docs/outreach/drafts/**",
+    "evidence/canonical-main-verification-d93d279-v1.json",
+    "evidence/canonical-main-verification-d93d279-v1.md",
+    "evidence/execution-blocked-deploy-cloudflare-token-v1.json",
+    "src/**",
+    "external-verification/v1/**"
+  ],
+  "forbiddenActions": [
+    "merge to main without separate authorization",
+    "push to origin",
+    "modify frozen SPECIMEN-001 contents",
+    "public mint",
+    "liquidity",
+    "claim first $1 earned"
+  ],
+  "verification": [
+    "cd research/verification-v1 && sha256sum -c MANIFEST.sha256 --ignore-missing",
+    "node research/verification-v1/run-battery.mjs",
+    "git diff --cached --name-only"
+  ],
+  "definitionOfDone": [
+    "10/10 adversarial cases reproduce on fresh run",
+    "SPECIMEN-001 hashes verify unmodified",
+    "staged file list exactly matches allowedPaths",
+    "commit created on scoped branch only; STOP for governance review"
+  ],
+  "authorizationRequired": "Merge to main and any push require explicit human authorization."
+}

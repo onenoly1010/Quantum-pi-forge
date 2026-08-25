@@ -1,0 +1,19 @@
+{
+  "claims": [
+    {
+      "claim_id": "C-A10",
+      "proposition": "The contract at 0x2067319D… implements the COMPLETE UniswapV2Pair interface.",
+      "supports": [
+        {
+          "kind": "observation_check",
+          "observation_id": "pair-getCode",
+          "partial": true,
+          "partial_note": "bytecode presence does not establish full-interface conformance",
+          "check": {
+            "op": "code_nonempty"
+          }
+        }
+      ]
+    }
+  ]
+}

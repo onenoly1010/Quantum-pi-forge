@@ -1,0 +1,30 @@
+# Exact commands executed (read-only RPC, https://evmrpc.0g.ai)
+# Captured: see MANIFEST.sha256 timestamps; raw responses stored verbatim.
+
+curl -s -X POST https://evmrpc.0g.ai -H 'Content-Type: application/json' \
+  -d '{"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":1}'
+# -> obs-chainId.raw.json
+
+curl -s -X POST https://evmrpc.0g.ai -H 'Content-Type: application/json' \
+  -d '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}'
+# -> obs-blockNumber-frozen.raw.json
+
+curl -s -X POST https://evmrpc.0g.ai -H 'Content-Type: application/json' \
+  -d '{"jsonrpc":"2.0","method":"eth_getCode","params":["0x709f23C7A7172E137427576abB5Eb8959E2A57c1","latest"],"id":1}'
+# -> obs-oinio-getCode.raw.json
+
+curl -s -X POST https://evmrpc.0g.ai -H 'Content-Type: application/json' \
+  -d '{"jsonrpc":"2.0","method":"eth_getCode","params":["0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE","latest"],"id":1}'
+# -> obs-pair-getCode.raw.json
+
+curl -s -X POST https://evmrpc.0g.ai -H 'Content-Type: application/json' \
+  -d '{"jsonrpc":"2.0","method":"eth_call","params":[{"to":"0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE","data":"0x0902f1ac"},"latest"],"id":1}'
+# getReserves() -> obs-getReserves.raw.json
+
+curl -s -X POST https://evmrpc.0g.ai -H 'Content-Type: application/json' \
+  -d '{"jsonrpc":"2.0","method":"eth_call","params":[{"to":"0xd1de4f87C8B195F21254B7163DDA9370D8DF593D","data":"0x06fdde03"},"latest"],"id":1}'
+# W0G-A name() -> obs-w0gA-name.raw.json
+
+curl -s -X POST https://evmrpc.0g.ai -H 'Content-Type: application/json' \
+  -d '{"jsonrpc":"2.0","method":"eth_call","params":[{"to":"0x1Cd0690fF9a693f5EF2dD976660a8dAFc81A109c","data":"0x06fdde03"},"latest"],"id":1}'
+# W0G-B name() -> obs-w0gB-name.raw.json

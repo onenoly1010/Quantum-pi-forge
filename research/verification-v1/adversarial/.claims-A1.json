@@ -1,0 +1,19 @@
+{
+  "claims": [
+    {
+      "claim_id": "C-A1",
+      "proposition": "The deployment target chain id is 0x4115 (16661).",
+      "supports": [
+        {
+          "kind": "observation_check",
+          "observation_id": "chainid",
+          "check": {
+            "op": "field_equals",
+            "path": "chain_id_hex",
+            "value": "0x4115"
+          }
+        }
+      ]
+    }
+  ]
+}

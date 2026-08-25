@@ -1,0 +1,29 @@
+{
+  "claims": [
+    {
+      "claim_id": "C-A5",
+      "proposition": "Exactly one Wrapped 0G token exists on chain 16661.",
+      "proposition_conflict_sensitive": true,
+      "supports": [
+        {
+          "kind": "observation_check",
+          "observation_id": "w0gA-name",
+          "check": {
+            "op": "field_equals",
+            "path": "name_decoded",
+            "value": "Wrapped 0G"
+          }
+        },
+        {
+          "kind": "observation_check",
+          "observation_id": "w0gB-name",
+          "check": {
+            "op": "field_equals",
+            "path": "name_decoded",
+            "value": "Wrapped 0G"
+          }
+        }
+      ]
+    }
+  ]
+}

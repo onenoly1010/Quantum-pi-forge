@@ -1,0 +1,16 @@
+# SPECIMEN-001 freeze manifest
+# specimen_id: SPECIMEN-001
+# frozen_at_utc: 2026-08-25T01:31:01Z
+# anchor_commit: 8781642
+a150dc638e67a8673599ebd6308e4072d82513c113778c0e22fc1fcfae6aaed5  CLAIM.md
+551283bf519761fff1a03a79cca71ba55cc47012ab707b87c25dc4aa5b5d6870  COMMANDS.txt
+edaf57b7771c86bd36f30f7ab1621e9afdba0091fe3e35453f3e5e5b0f255a7d  DECODING.md
+b98d708c883881a90e34d5d78226bfef5a51d832553291451c0d63c7fdc8ca63  VERDICT.md
+5589551464bff223b95ebd038105e996b53513c87ae82047454e31c90db1db20  obs-blockNumber-fresh.raw.json
+0073eb8015ba5a42b983cb1446f0f8ece5dacc8b8c031e8eaba849e09ea5ad14  obs-blockNumber-frozen.raw.json
+22d6b5e3ea40e151ce89d006dec3b37fd4207581f74e390d1818e5658014bdc9  obs-chainId.raw.json
+0b597f29c24c83a1fd333b137bf0f2d2177c430af9ba0170a244f3468afc3477  obs-getReserves.raw.json
+f2648aeda064fb5f0c78cf5acc212ad39893084f64ee9b4ba2cdce10071668f9  obs-oinio-getCode.raw.json
+1ff451c06fd46c8e0b50d0209fee2a686770e646884ea6bf614e7423d6d458e5  obs-pair-getCode.raw.json
+6e46f925529d83a35276b255a7fb95e92f23acde51fdaa7e079a4c9edf9d9a2a  obs-w0gA-name.raw.json
+6e46f925529d83a35276b255a7fb95e92f23acde51fdaa7e079a4c9edf9d9a2a  obs-w0gB-name.raw.json

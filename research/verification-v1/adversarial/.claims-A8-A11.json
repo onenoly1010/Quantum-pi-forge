@@ -1,0 +1,20 @@
+{
+  "claims": [
+    {
+      "claim_id": "C-A8",
+      "proposition": "QPF verification V1 is trustworthy because QPF says its verification passed.",
+      "supports": [
+        {
+          "kind": "qpf_conclusion",
+          "source": "quantumpiforge.com/independent-verification",
+          "statement": "page displays VERIFIED status"
+        },
+        {
+          "kind": "document_assertion",
+          "source": "QPF STATUS artifacts",
+          "statement": "internal reports describe passing tests"
+        }
+      ]
+    }
+  ]
+}
