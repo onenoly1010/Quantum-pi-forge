@@ -1,0 +1,30 @@
+{
+  "case_id": "A8-A11",
+  "title": "Builder conclusion / self-reference attempt",
+  "observations_override": null,
+  "claims": [
+    {
+      "claim_id": "C-A8",
+      "proposition": "QPF verification V1 is trustworthy because QPF says its verification passed.",
+      "supports": [
+        {
+          "kind": "qpf_conclusion",
+          "source": "quantumpiforge.com/independent-verification",
+          "statement": "page displays VERIFIED status"
+        },
+        {
+          "kind": "document_assertion",
+          "source": "QPF STATUS artifacts",
+          "statement": "internal reports describe passing tests"
+        }
+      ]
+    }
+  ],
+  "expected": [
+    {
+      "claim_id": "C-A8",
+      "verdict_class": "NOT_ESTABLISHED"
+    }
+  ],
+  "file": "case-A8-A11.json"
+}

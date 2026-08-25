@@ -1,0 +1,44 @@
+{
+  "case_id": "A6",
+  "title": "Malformed/truncated RPC data",
+  "observations_override": "adversarial/malformed-observations.json",
+  "claims": [
+    {
+      "claim_id": "C-A6-reserves",
+      "proposition": "Pair reserves are 0 / 0.",
+      "supports": [
+        {
+          "kind": "observation_check",
+          "observation_id": "getreserves-truncated",
+          "check": {
+            "op": "reserves_all_zero"
+          }
+        }
+      ]
+    },
+    {
+      "claim_id": "C-A6-code",
+      "proposition": "OINIO bytecode hash matches published artifact.",
+      "supports": [
+        {
+          "kind": "observation_check",
+          "observation_id": "oinio-getCode-truncated",
+          "check": {
+            "op": "code_nonempty"
+          }
+        }
+      ]
+    }
+  ],
+  "expected": [
+    {
+      "claim_id": "C-A6-reserves",
+      "verdict_class": "INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "claim_id": "C-A6-code",
+      "verdict_class": "INSUFFICIENT_EVIDENCE"
+    }
+  ],
+  "file": "case-A6.json"
+}

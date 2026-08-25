@@ -1,0 +1,30 @@
+{
+  "claims": [
+    {
+      "claim_id": "C-A6-reserves",
+      "proposition": "Pair reserves are 0 / 0.",
+      "supports": [
+        {
+          "kind": "observation_check",
+          "observation_id": "getreserves-truncated",
+          "check": {
+            "op": "reserves_all_zero"
+          }
+        }
+      ]
+    },
+    {
+      "claim_id": "C-A6-code",
+      "proposition": "OINIO bytecode hash matches published artifact.",
+      "supports": [
+        {
+          "kind": "observation_check",
+          "observation_id": "oinio-getCode-truncated",
+          "check": {
+            "op": "code_nonempty"
+          }
+        }
+      ]
+    }
+  ]
+}

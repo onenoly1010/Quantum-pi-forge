@@ -1,0 +1,28 @@
+{
+  "claims": [
+    {
+      "claim_id": "C-A3-supported",
+      "proposition": "OINIO runtime bytecode exists at 0x709f23C7…57c1.",
+      "supports": [
+        {
+          "kind": "observation_check",
+          "observation_id": "oinio-getCode",
+          "check": {
+            "op": "code_nonempty"
+          }
+        }
+      ]
+    },
+    {
+      "claim_id": "C-A3-unsupported",
+      "proposition": "The OINIO contract is authorized to mint new supply.",
+      "supports": [
+        {
+          "kind": "document_assertion",
+          "source": "public README (implied)",
+          "statement": "contract appears to be a standard ERC-20"
+        }
+      ]
+    }
+  ]
+}

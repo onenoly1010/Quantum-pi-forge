@@ -1,0 +1,19 @@
+{
+  "claims": [
+    {
+      "claim_id": "C-A7",
+      "proposition": "OINIO totalSupply is 1000000000000.",
+      "supports": [
+        {
+          "kind": "observation_check",
+          "observation_id": "oinio-totalSupply",
+          "check": {
+            "op": "field_equals",
+            "path": "total_supply",
+            "value": "1000000000000"
+          }
+        }
+      ]
+    }
+  ]
+}

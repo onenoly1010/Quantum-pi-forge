@@ -1,0 +1,218 @@
+{
+  "spec": "qpf-v1-adversarial-battery/v1",
+  "ran_at_utc": "2026-08-25T01:53:31.430Z",
+  "verifier": "research/verification-v1/verifier.mjs",
+  "cases": 10,
+  "expected_match_pass": 10,
+  "expected_match_fail": 0,
+  "results": [
+    {
+      "case_id": "A1",
+      "title": "Correct claim",
+      "expected": "C-A1=VERIFIED",
+      "actual": "C-A1=VERIFIED",
+      "matched": true,
+      "self_reference_flags": 0,
+      "raw": [
+        {
+          "claim_id": "C-A1",
+          "verdict": "VERIFIED",
+          "flags": {
+            "self_reference_detected": false,
+            "assertion_only_support": false,
+            "stale_observation_detected": false
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "A10",
+      "title": "Partial support must not become full verification",
+      "expected": "C-A10=NOT_ESTABLISHED",
+      "actual": "C-A10=NOT_ESTABLISHED",
+      "matched": true,
+      "self_reference_flags": 0,
+      "raw": [
+        {
+          "claim_id": "C-A10",
+          "verdict": "NOT_ESTABLISHED",
+          "flags": {
+            "self_reference_detected": false,
+            "assertion_only_support": false,
+            "stale_observation_detected": false
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "A2",
+      "title": "False reserves claim",
+      "expected": "C-A2=FALSE",
+      "actual": "C-A2=FALSE",
+      "matched": true,
+      "self_reference_flags": 0,
+      "raw": [
+        {
+          "claim_id": "C-A2",
+          "verdict": "FALSE",
+          "flags": {
+            "self_reference_detected": false,
+            "assertion_only_support": false,
+            "stale_observation_detected": false
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "A3",
+      "title": "Partially true compound claim",
+      "expected": "C-A3-supported=VERIFIED C-A3-unsupported=NOT_ESTABLISHED",
+      "actual": "C-A3-supported=VERIFIED C-A3-unsupported=NOT_ESTABLISHED",
+      "matched": true,
+      "self_reference_flags": 0,
+      "raw": [
+        {
+          "claim_id": "C-A3-supported",
+          "verdict": "VERIFIED",
+          "flags": {
+            "self_reference_detected": false,
+            "assertion_only_support": false,
+            "stale_observation_detected": false
+          }
+        },
+        {
+          "claim_id": "C-A3-unsupported",
+          "verdict": "NOT_ESTABLISHED",
+          "flags": {
+            "self_reference_detected": false,
+            "assertion_only_support": true,
+            "stale_observation_detected": false
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "A4",
+      "title": "Stale documentation vs live state",
+      "expected": "C-A4=FALSE",
+      "actual": "C-A4=FALSE",
+      "matched": true,
+      "self_reference_flags": 0,
+      "raw": [
+        {
+          "claim_id": "C-A4",
+          "verdict": "FALSE",
+          "flags": {
+            "self_reference_detected": false,
+            "assertion_only_support": true,
+            "stale_observation_detected": false
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "A5",
+      "title": "Duplicate same-name W0G identity",
+      "expected": "C-A5=CONFLICT",
+      "actual": "C-A5=CONFLICT",
+      "matched": true,
+      "self_reference_flags": 0,
+      "raw": [
+        {
+          "claim_id": "C-A5",
+          "verdict": "CONFLICT",
+          "flags": {
+            "self_reference_detected": false,
+            "assertion_only_support": false,
+            "stale_observation_detected": false
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "A6",
+      "title": "Malformed/truncated RPC data",
+      "expected": "C-A6-code=INSUFFICIENT_EVIDENCE C-A6-reserves=INSUFFICIENT_EVIDENCE",
+      "actual": "C-A6-code=INSUFFICIENT_EVIDENCE C-A6-reserves=INSUFFICIENT_EVIDENCE",
+      "matched": true,
+      "self_reference_flags": 0,
+      "raw": [
+        {
+          "claim_id": "C-A6-reserves",
+          "verdict": "INSUFFICIENT_EVIDENCE",
+          "flags": {
+            "self_reference_detected": false,
+            "assertion_only_support": false,
+            "stale_observation_detected": false
+          }
+        },
+        {
+          "claim_id": "C-A6-code",
+          "verdict": "INSUFFICIENT_EVIDENCE",
+          "flags": {
+            "self_reference_detected": false,
+            "assertion_only_support": false,
+            "stale_observation_detected": false
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "A7",
+      "title": "Missing observation",
+      "expected": "C-A7=NOT_ESTABLISHED",
+      "actual": "C-A7=NOT_ESTABLISHED",
+      "matched": true,
+      "self_reference_flags": 0,
+      "raw": [
+        {
+          "claim_id": "C-A7",
+          "verdict": "NOT_ESTABLISHED",
+          "flags": {
+            "self_reference_detected": false,
+            "assertion_only_support": false,
+            "stale_observation_detected": false
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "A8-A11",
+      "title": "Builder conclusion / self-reference attempt",
+      "expected": "C-A8=NOT_ESTABLISHED",
+      "actual": "C-A8=NOT_ESTABLISHED",
+      "matched": true,
+      "self_reference_flags": 1,
+      "raw": [
+        {
+          "claim_id": "C-A8",
+          "verdict": "NOT_ESTABLISHED",
+          "flags": {
+            "self_reference_detected": true,
+            "assertion_only_support": true,
+            "stale_observation_detected": false
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "A9",
+      "title": "Changed chain state (staleness detection)",
+      "expected": "C-A9=FALSE",
+      "actual": "C-A9=FALSE",
+      "matched": true,
+      "self_reference_flags": 0,
+      "raw": [
+        {
+          "claim_id": "C-A9",
+          "verdict": "FALSE",
+          "flags": {
+            "self_reference_detected": false,
+            "assertion_only_support": false,
+            "stale_observation_detected": true
+          }
+        }
+      ]
+    }
+  ]
+}

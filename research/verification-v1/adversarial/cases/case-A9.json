@@ -1,0 +1,30 @@
+{
+  "case_id": "A9",
+  "title": "Changed chain state (staleness detection)",
+  "observations_override": null,
+  "claims": [
+    {
+      "claim_id": "C-A9",
+      "proposition": "The latest 0G block is currently 42557881 (value captured earlier today).",
+      "supports": [
+        {
+          "kind": "observation_check",
+          "observation_id": "block-frozen",
+          "freshness_sensitive": true,
+          "check": {
+            "op": "field_equals",
+            "path": "block_number_hex",
+            "value": "0x28961b9"
+          }
+        }
+      ]
+    }
+  ],
+  "expected": [
+    {
+      "claim_id": "C-A9",
+      "verdict_class": "FALSE"
+    }
+  ],
+  "file": "case-A9.json"
+}

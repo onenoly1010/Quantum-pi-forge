@@ -1,0 +1,29 @@
+{
+  "case_id": "A7",
+  "title": "Missing observation",
+  "observations_override": null,
+  "claims": [
+    {
+      "claim_id": "C-A7",
+      "proposition": "OINIO totalSupply is 1000000000000.",
+      "supports": [
+        {
+          "kind": "observation_check",
+          "observation_id": "oinio-totalSupply",
+          "check": {
+            "op": "field_equals",
+            "path": "total_supply",
+            "value": "1000000000000"
+          }
+        }
+      ]
+    }
+  ],
+  "expected": [
+    {
+      "claim_id": "C-A7",
+      "verdict_class": "NOT_ESTABLISHED"
+    }
+  ],
+  "file": "case-A7.json"
+}

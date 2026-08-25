@@ -1,0 +1,38 @@
+{
+  "case_id": "A2",
+  "title": "False reserves claim",
+  "observations_override": null,
+  "claims": [
+    {
+      "claim_id": "C-A2",
+      "proposition": "Pair reserves are 1000000 / 2000000.",
+      "supports": [
+        {
+          "kind": "observation_check",
+          "observation_id": "getreserves",
+          "check": {
+            "op": "field_equals",
+            "path": "reserve0",
+            "value": "1000000"
+          }
+        },
+        {
+          "kind": "observation_check",
+          "observation_id": "getreserves",
+          "check": {
+            "op": "field_equals",
+            "path": "reserve1",
+            "value": "2000000"
+          }
+        }
+      ]
+    }
+  ],
+  "expected": [
+    {
+      "claim_id": "C-A2",
+      "verdict_class": "FALSE"
+    }
+  ],
+  "file": "case-A2.json"
+}
