@@ -1,0 +1,36 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "docs/v1-independent-review-charter",
+  "outcome": "Publish the V1 Independent Review Charter defining a different-operator reproduction challenge (C1-C7) against canonical V1 commit 517ef1e. No modification of the frozen specimen. No merge without separate authorization. No economic activation.",
+  "canonicalSources": [
+    "docs/review/V1_INDEPENDENT_REVIEW_CHARTER_V1.md",
+    "research/verification-v1/REPORT.md"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/docs__v1-independent-review-charter.json",
+    "docs/review/V1_INDEPENDENT_REVIEW_CHARTER_V1.md"
+  ],
+  "forbiddenPaths": [
+    "research/verification-v1/**",
+    "src/**",
+    "external-verification/**"
+  ],
+  "forbiddenActions": [
+    "modify frozen SPECIMEN-001",
+    "merge without separate authorization",
+    "push unrelated artifacts",
+    "public mint",
+    "liquidity",
+    "claim first $1 earned"
+  ],
+  "verification": [
+    "git diff --cached --name-only",
+    "cd research/verification-v1/SPECIMEN-001/original && sha256sum -c MANIFEST.sha256 --ignore-missing"
+  ],
+  "definitionOfDone": [
+    "charter committed on scoped branch referencing canonical SHA 517ef1e",
+    "frozen specimen untouched",
+    "STOP for governance approval before assigning an independent operator"
+  ],
+  "authorizationRequired": "Merge to main, push, and assignment of an independent operator require explicit human authorization."
+}
