@@ -25,11 +25,18 @@ const staticFiles = [
   { src: 'deploy/what-it-does.html', dest: 'what-it-does.html' },
   { src: 'deploy/for-builders.html', dest: 'for-builders.html' },
   { src: 'deploy/work-with-us.html', dest: 'work-with-us.html' },
+  { src: 'deploy/support.html', dest: 'support.html' },
+  { src: 'deploy/verification-artifact.html', dest: 'verification-artifact.html' },
+  { src: 'deploy/verification-artifact.json', dest: 'verification-artifact.json' },
   { src: 'deploy/verification-request.html', dest: 'verification-request.html' },
   // Phase A public entry (discoverability / self-serve / certificate)
   { src: 'deploy/try.html', dest: 'try.html' },
   { src: 'deploy/verification.html', dest: 'verification.html' },
   { src: 'deploy/verification-certificate.html', dest: 'verification-certificate.html' },
+  // One Public File — Verification Experiment #001 (staged; publish requires
+  // separate human commit/push/deploy authorization)
+  { src: 'deploy/one-public-file-experiment-001.html', dest: 'one-public-file-experiment-001.html' },
+  { src: 'deploy/verification-charter-experiment-001.html', dest: 'verification-charter-experiment-001.html' },
   { src: 'deploy/founding-builders-pilot.html', dest: 'founding-builders-pilot.html', optional: true },
   { src: 'deploy/pilot-feedback-roadmap.html', dest: 'pilot-feedback-roadmap.html', optional: true },
   { src: 'deploy/pilot-receipts.html', dest: 'pilot-receipts.html', optional: true },

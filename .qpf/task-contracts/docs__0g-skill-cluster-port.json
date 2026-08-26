@@ -1,0 +1,67 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "docs/0g-skill-cluster-port",
+  "outcome": "Port the identified 0G skill/documentation cluster onto origin/main as docs-only knowledge. No verifier, package, functions, deployment, payment, Pi, or authorization-policy changes.",
+  "canonicalSources": [
+    "docs/0G_SKILLS_README.md",
+    "docs/0G_SHIP_SKILL_REFERENCE.md",
+    "docs/0g-compute/INFERENCE_IMPLEMENTATION_V1.md",
+    "0G_SOCIAL_RECOVERY_SETUP_GUIDE.md"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/docs__0g-skill-cluster-port.json",
+    "docs/0G_SKILLS_README.md",
+    "docs/0G_SHIP_SKILL_REFERENCE.md",
+    "docs/0g-compute/INFERENCE_IMPLEMENTATION_V1.md",
+    "docs/0g-compute/FINE_TUNING_OPERATOR_V1.md",
+    "docs/0g-alignment-node/ALIGNMENT_NODE_OPERATOR_V1.md",
+    "docs/0g-builder-hub/BUILDER_HUB_OPERATOR_V1.md",
+    "docs/0g-builder-hub/RESEARCH_OPERATOR_V1.md",
+    "docs/security/SAFE_INFRASTRUCTURE_OPERATOR_V1.md",
+    "0G_SOCIAL_RECOVERY_SETUP_GUIDE.md"
+  ],
+  "forbiddenPaths": [
+    "src/**",
+    "package.json",
+    "functions/**",
+    "deploy/**",
+    "contracts/**",
+    "wallets/**",
+    "docs/ai/AI_POLICY.md",
+    "docs/ai/AUTHORIZATION_WORKFLOW.md",
+    "docs/pi-platform/**",
+    "docs/PI_NETWORK_*.md",
+    "docs/PI_PAYMENT_API_REFERENCE.md"
+  ],
+  "forbiddenActions": [
+    "Level 0 verifier change",
+    "package.json change",
+    "Pages Functions change",
+    "production deployment",
+    "payment or Pi surface change",
+    "authorization-policy change",
+    "wallet or key action",
+    "economic activation",
+    "merge"
+  ],
+  "verification": [
+    "test -f docs/0G_SKILLS_README.md",
+    "grep -q 'Router-first' docs/0G_SKILLS_README.md docs/0g-compute/INFERENCE_IMPLEMENTATION_V1.md",
+    "grep -q 'Economic activation not authorized' docs/0G_SKILLS_README.md",
+    "test ! -e docs/pi-platform/PI_PLATFORM_OFFICIAL_V1.md",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/docs__0g-skill-cluster-port.json --base origin/main"
+  ],
+  "definitionOfDone": [
+    "0G skill cluster docs are on a branch from origin/main 7813929.",
+    "No verifier, package.json, functions, deploy, Pi, or authorization-policy files are changed.",
+    "Router-first compute policy and designated Docs SoR are present.",
+    "This PR does not authorize deployment, payments, or economic activation."
+  ],
+  "authorizationRequired": [
+    "merge",
+    "deployment",
+    "Pi/payment surfaces",
+    "Level 0 verifier patch",
+    "authorization-policy change"
+  ]
+}

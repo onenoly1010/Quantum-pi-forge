@@ -1,0 +1,28 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "site/facebook-and-artifact-page",
+  "outcome": "Record official Facebook page and publish /verification-artifact.html as the share URL for related posts. No live Facebook API posting. No economic activation.",
+  "allowedPaths": [
+    ".qpf/task-contracts/site__facebook-and-artifact-page.json",
+    "OFFICIAL_CHANNELS.md",
+    "deploy/index.html",
+    "deploy/sitemap.xml",
+    "deploy/verification-artifact.html",
+    "deploy/verification-artifact.json",
+    "scripts/build.js",
+    "scripts/verify-entry-surfaces.cjs"
+  ],
+  "forbiddenActions": [
+    "Facebook Graph post",
+    "press-agent live send",
+    "public mint",
+    "liquidity",
+    "claim first $1 earned"
+  ],
+  "verification": [
+    "npm run build",
+    "test -f out/verification-artifact.html",
+    "grep -q '61593734185688' out/index.html",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/site__facebook-and-artifact-page.json --base origin/main"
+  ]
+}
