@@ -1,0 +1,6 @@
+{
+  "status": "unpopulated",
+  "package": "QPF-IVB-1",
+  "keys": [],
+  "note": "Reserved registry slot. Not a Section 06 trust root. No key material in this commit. Population is deferred until the VEC-001 construction plan is audited. Private keys MUST NOT be stored here (Section 05)."
+}

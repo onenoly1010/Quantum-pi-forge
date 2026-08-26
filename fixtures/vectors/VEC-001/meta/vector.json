@@ -1,0 +1,7 @@
+{
+  "id": "VEC-001",
+  "status": "scaffold",
+  "input_populated": false,
+  "expected_populated": false,
+  "note": "Reserved first construction target. Cryptographic contents, signatures, and expected traces are deferred until the VEC-001 construction plan is audited."
+}
