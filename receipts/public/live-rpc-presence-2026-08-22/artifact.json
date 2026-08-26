@@ -1,0 +1,57 @@
+{
+  "spec": "qpf-live-rpc-presence/v1",
+  "title": "Independent RPC presence check — OINIO token + empty pair",
+  "network": {
+    "name": "0G Aristotle mainnet",
+    "rpc": "https://evmrpc.0g.ai",
+    "chain_id_expected": 16661,
+    "chain_id_hex_expected": "0x4115"
+  },
+  "observed_at_utc": "2026-08-22T16:34:06Z",
+  "observed_block": 42346114,
+  "checks": [
+    {
+      "name": "eth_chainId",
+      "expected": "0x4115",
+      "observed": "0x4115",
+      "pass": true
+    },
+    {
+      "name": "eth_getCode",
+      "address": "0x75995EC0fdf881189850aeD864cB3f43c0DFCb58",
+      "role": "OINIO Token (Docs DEPLOYMENT_SET)",
+      "expected": "bytecode longer than 0x",
+      "code_present": true,
+      "code_len_bytes": 2281,
+      "code_sha256": "3eeffb8f440a4db41722f4570a521e70fcfcf6b0464c858fb46bf9e8a57e95cf",
+      "pass": true
+    },
+    {
+      "name": "getReserves",
+      "selector": "0x0902f1ac",
+      "address": "0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE",
+      "role": "DEX pair W0G/USDC.e (QPF-custom W0G)",
+      "expected": "all-zero reserves (liquidity NOT AUTHORIZED)",
+      "observed_hex": "0x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "reserve0": "0",
+      "reserve1": "0",
+      "blockTimestampLast": "0",
+      "pass": true
+    }
+  ],
+  "claims": {
+    "chain_correct": true,
+    "token_code_present": true,
+    "pair_liquidity_empty": true,
+    "public_mint": "NOT_AUTHORIZED",
+    "liquidity": "NOT_AUTHORIZED"
+  },
+  "does_not_prove": [
+    "source_code_match",
+    "key_custody",
+    "beneficial_ownership",
+    "payment",
+    "mint_activation",
+    "first_dollar_earned"
+  ]
+}

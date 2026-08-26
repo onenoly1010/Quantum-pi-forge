@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Experiment #001 Charter | Quantum Pi Forge</title>
+<style>body{margin:0;background:#090b10;color:#eef2ff;font-family:system-ui,-apple-system,Segoe UI,sans-serif;line-height:1.65}.wrap{max-width:780px;margin:0 auto;padding:56px 24px}h1{font-size:1.5rem}h2{font-size:1.1rem;margin-top:2rem}code{background:#05070b;padding:2px 6px;border-radius:6px}.small{color:#9aa4b5;font-size:.9rem}a{color:#8be9fd}</style>
+</head>
+<body><main class="wrap">
+<p class="small">QPF One Public File · Verification Experiment #001</p>
+<h1>Charter</h1>
+
+<h2>Purpose</h2>
+<p>Determine whether an independently reproducible verification system can
+confirm a public artifact exactly as published — using one public file and one
+precise claim from an external participant.</p>
+
+<h2>Classification</h2>
+<p>This is an <strong>experiment</strong>, not a service. Nothing is sold.
+No favorable result is promised or implied.</p>
+
+<h2>Intake</h2>
+<ul>
+<li>One public URL or public repository path.</li>
+<li>One precise claim about that artifact (one sentence).</li>
+</ul>
+
+<h2>Method</h2>
+<ol>
+<li>Fetch the public bytes at a recorded UTC timestamp T.</li>
+<li>Compute sha256 digest; run Level-0 deterministic verification
+(<code>qpfv0:</code> result id, <code>qpfpkg0:</code> package id).</li>
+<li>Issue an evidence package containing the claim, timestamp, digests,
+methods, findings, and limits.</li>
+<li>Anyone may re-fetch and re-derive against the pinned receipt forever.</li>
+</ol>
+
+<h2>Scope statement (appears in every result)</h2>
+<p><em>"We verified the content of the named file at the stated timestamp. We
+did not verify authorship, accuracy of statements within the document, legal
+effect, or anything about systems the document describes."</em></p>
+
+<h2>Outcome ledger</h2>
+<ul>
+<li><strong>VERIFIED</strong> — evidence reproduces claim → case study #001.</li>
+<li><strong>NOT VERIFIED</strong> — filter rejects broken claim → proof of teeth.</li>
+<li><strong>SILENCE</strong> — recorded as
+<code>OUTREACH_ATTEMPTED → NO_RESPONSE</code>: adoption baseline, not failure.</li>
+</ul>
+
+<h2>Authority boundary</h2>
+<p>Read-only regarding participant systems. No credentials, accounts, uploads,
+wallets, signing, minting, transfers, deployments, or payment. Not a security
+audit, legal opinion, or investment advice. Economic lanes of Quantum Pi Forge
+remain locked throughout.</p>
+
+<p class="small"><a href="/one-public-file-experiment-001">← Back to the experiment</a> · <a href="/">the Forge</a></p>
+</main></body></html>
