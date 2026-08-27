@@ -40,6 +40,39 @@ if (mHash !== PINNED_MANIFEST) throw new Error(`manifest hash mismatch: ${mHash}
 if (sHash !== PINNED_SPEC) throw new Error(`spec hash mismatch: ${sHash}`);
 console.log("hash pins verified: manifest + spec OK");
 
+// --- 1b. --verify-only: verify the COMMITTED GO record without mutating it ----
+// Reconstructs the signed payload from the file on disk (GO object minus
+// 'authorization' and 'payload_sha256', in key order), then performs the
+// same two-step verification: crypto validity + principal binding.
+// Exit 0 = signature valid; nonzero = invalid. Never writes GO_PATH.
+if (process.argv.includes("--verify-only")) {
+  const existing = JSON.parse(fs.readFileSync(GO_PATH, "utf8"));
+  const auth = existing.authorization;
+  if (!auth || !auth.signature) throw new Error("GO record has no embedded signature");
+  const rec = { ...existing };
+  delete rec.authorization;
+  delete rec.payload_sha256;
+  const recStr = JSON.stringify(rec);
+  const vWork = fs.mkdtempSync(path.join(require("os").tmpdir(), "go-verify-"));
+  const vMsg = path.join(vWork, "payload.json");
+  const vSig = vMsg + ".sig";
+  fs.writeFileSync(vMsg, recStr);
+  fs.writeFileSync(vSig, auth.signature + "\n");
+  const pubKey = fs.readFileSync(KEY + ".pub", "utf8").trim();
+  const signersPath = path.join(vWork, "allowed_signers");
+  fs.writeFileSync(signersPath, `onenoly1010 namespaces=\"${NAMESPACE}\" ${pubKey}\n`);
+  execFileSync("ssh-keygen", ["-Y", "check-novalidate", "-n", NAMESPACE, "-s", vSig], { input: recStr, stdio: ["pipe", "inherit", "inherit"] });
+  const principal = execFileSync("ssh-keygen", ["-Y", "find-principals", "-s", vSig, "-f", signersPath]).toString().trim();
+  if (principal !== "onenoly1010") throw new Error("principal binding failed: " + principal);
+  const fileHash = sha256Str(recStr);
+  if (fileHash !== existing.payload_sha256) {
+    throw new Error(`payload_sha256 mismatch: file=${fileHash} recorded=${existing.payload_sha256}`);
+  }
+  console.log("verify-only: OK — signature valid, principal bound, payload_sha256 matches");
+  console.log("payload_sha256:", fileHash);
+  process.exit(0);
+}
+
 // --- 2. Build signed payload -------------------------------------------------
 const go = JSON.parse(fs.readFileSync(GO_PATH, "utf8"));
 const payload = {
