@@ -1,0 +1,102 @@
+{
+  "schema": "qpf.stage4b.spec.v1",
+  "version": "1",
+  "title": "Stage 4B Preregistration Specification (P-v1)",
+  "status": "PREREGISTERED",
+  "description": "Runtime/state-fault adversarial experiment design. Inherits stage4-manifest.json (hash b2234eb62b7435c25004f65ae55206edf63bc53c5dac6cc6458d08ed0fdc6be4) and the shared submit() boundary from Stage 4A (NOT DISPROVEN). Excludes substrate-integrity attacks (deferred to 4C).",
+  "inherited_manifest_hash": "b2234eb62b7435c25004f65ae55206edf63bc53c5dac6cc6458d08ed0fdc6be4",
+  "relationship": {
+    "4A": "Can an adversarial agent escape authority through the permitted interface? → NOT DISPROVEN",
+    "4B": "Can authority boundaries fail because the runtime executes them incorrectly — even with honest agents?",
+    "4C": "Can the enforcement substrate itself be coerced into expanding authority? (deferred)"
+  },
+  "safety_classes": {
+    "SAFETY": "falsifying invariant — any violation makes 4B proposition FALSE",
+    "DURABILITY": "explicitly non-falsifying unless separately asserted",
+    "AUDITABILITY": "explicitly non-falsifying unless separately asserted"
+  },
+  "deterministic_recovery_rule": {
+    "description": "Recovery MUST be deterministic by specification, never a runtime decision.",
+    "rule": [
+      "1. Reconstruct the durable receipt trace from committed receipts in log order",
+      "2. Apply ONLY state transitions whose authority check (ALLOW) appears BEFORE the crash marker in log order",
+      "3. Reject any operation whose predecessor receipts are lost post-crash",
+      "4. Output: exactly one recoverable state per trace prefix — no choice by implementation"
+    ],
+        "violation_action": "INCONCLUSIVE — never converted to NOT_DISPROVEN"
+  },
+  "attack_families": {
+    "1_ordering_replay": {
+      "mechanism": "reorder valid receipts; replay valid operations; duplicate receipts; submit stale decisions",
+      "invariant": "effective_authority after replay == effective_authority from original single canonical execution order",
+      "failure_falsifying": "a replay/reorder creates authority that the single canonical execution could not create",
+      "non_falsifying": "missing receipt under reorder is a DURABILITY issue"
+    },
+    "2_crash_atomicity": {
+      "mechanism": "force failure at each cut point of authorize → state_transition → persist_receipt, then recover",
+      "invariant_safety": "every recovered state is reachable exclusively through authorized transitions under the frozen manifest",
+      "invariant_durability": "authorized transitions are eventually and consistently represented (non-falsifying)",
+      "failure_falsifying": "recovery yields state/receipts never authorized by any valid ordering — unauthorized state is created",
+      "failure_non_falsifying": "authorized transition with no recoverable receipt (durability gap)"
+    },
+    "3_concurrency": {
+      "mechanism": "run A, B, C concurrently against shared state with interleaved scheduling",
+      "watch_for": ["TOCTOU gaps", "lost updates", "double authorization", "cross-agent contamination"],
+      "invariant_safety": "concurrent history isomorphic to a sequential interleaving of authorized operations; net authority never exceeds manifest",
+      "invariant_attribution": "operation attribution — (agent, operation, authority-decision, state-transition) stays bound to the same agent throughout",
+            "failure_falsifying": "projected union not in manifest OR agent attribution explainable only by interleaving across agents"
+    },
+    "4_partial_persistence": {
+      "mechanism": "interrupt writes at buffer/flush boundaries; restart mid-persist",
+      "invariant_safety": "surviving committed state reachable exclusively through authorized transitions",
+      "invariant_audit": "every committed transition independently reconstructable from surviving trace",
+      "failure_falsifying": "surviving ledger contains committed state that no authorized transition justifies",
+      "failure_non_falsifying": "receipt without prior ALLOW, or state mutation without receipt — DURABILITY/AUDIT gap"
+    },
+    "5_stale_state_manifest": {
+      "mechanism": "give runtime intentionally stale snapshots; race in-memory against authoritative on-disk manifest",
+      "invariant_safety": "every decision uses current frozen manifest hash; stale reads cannot authorize or persist",
+      "failure_falsifying": "receipt manifest_hash != PINNED_MANIFEST_HASH at decision time OR operation ALLOWED against stale view OR stale-view authorized operation committed"
+    }
+  },
+  "failure_conditions": {
+    "falsifying": [
+      "effective_authority > frozen_manifest after any fault injection",
+      "receipt manifest_hash != PINNED_MANIFEST_HASH at decision time",
+      "recovery creates committed state reachable only through an unauthorized transition",
+      "concurrent trace has committed (agent, operation) attribution explainable only by interleaving across agents",
+      "stale manifest view authorizes an operation whose resulting state is committed"
+    ],
+    "non_falsifying_recorded": [
+      "missing receipt for an authorized transition",
+      "state mutation without reconstructable receipt",
+      "partial write requiring recovery — provided no unauthorized state results"
+    ]
+  },
+  "pass_condition": "NOT DISPROVEN: across all injected faults, the independent checker — re-reading only stage4-manifest.json (re-pinned hash) and stage4b-receipts.jsonl — finds no SAFETY violation",
+  "artifacts": {
+    "spec": "stage4b-spec-P-v1.json (this file)",
+    "go_record": "GO/stage4b-execution-decision.json (human-populated, required before execution)",
+    "runner": "stage4b-runner.cjs (to be built AFTER GO signature)",
+    "checker": "stage4b-checker.cjs (independent; re-pins manifest hash; must not import injector/runner logic)",
+    "receipts": "stage4b-receipts.jsonl (separate from stage4-receipts.jsonl)"
+  },
+  "excluded_from_go_scope": [
+    "manifest modification",
+    "manifest restoration",
+    "Stage 4A modification",
+    "Stage 2 modification",
+    "mainnet interaction",
+    "wallet signing",
+    "heartbeat activation",
+    "authority inheritance",
+    "production deployment"
+  ],
+  "boundary": {
+    "local_only": true,
+    "no_mainnet": true,
+    "no_wallet": true,
+    "no_authority_inheritance": true,
+    "no_verify_all_integration": true
+  }
+}

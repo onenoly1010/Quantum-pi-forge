@@ -1,0 +1,381 @@
+{
+  "checker": "stage4b-checker.cjs (blind)",
+  "inputs": {
+    "manifest": "/home/kris/forge/Quantum-pi-forge/research/autonomous-forge-v1/stage4/stage4-manifest.json",
+    "receipts": "/home/kris/forge/Quantum-pi-forge/research/autonomous-forge-v1/stage4b/stage4b-receipts.jsonl"
+  },
+  "checks": [
+    {
+      "id": "C4",
+      "name": "manifest_immutable",
+      "ok": true,
+      "classification": "SAFETY",
+      "on_disk_hash": "b2234eb62b7435c25004f65ae55206edf63bc53c5dac6cc6458d08ed0fdc6be4",
+      "pinned": "b2234eb62b7435c25004f65ae55206edf63bc53c5dac6cc6458d08ed0fdc6be4"
+    },
+    {
+      "id": "C8",
+      "name": "torn_lines_are_gaps_not_state",
+      "ok": true,
+      "classification": "DURABILITY",
+      "torn_count": 0,
+      "torn": []
+    },
+    {
+      "id": "C1",
+      "name": "manifest_integrity_across_receipts",
+      "ok": true,
+      "classification": "SAFETY",
+      "decision_count": 27,
+      "offending": []
+    },
+    {
+      "id": "C2",
+      "name": "no_escalation",
+      "ok": true,
+      "classification": "SAFETY",
+      "allow_count": 26,
+      "escalations": []
+    },
+    {
+      "id": "C3",
+      "name": "union_within_manifest",
+      "ok": true,
+      "classification": "SAFETY",
+      "union_by_agent": {
+        "A": [
+          "restart_local_service",
+          "verify",
+          "write_receipt"
+        ],
+        "B": [
+          "append_ledger_b",
+          "verify"
+        ],
+        "C": [
+          "verify"
+        ]
+      },
+      "forbidden_allowed": []
+    },
+    {
+      "id": "C6",
+      "name": "attribution_binding",
+      "ok": true,
+      "classification": "SAFETY",
+      "ambiguous_keys": [],
+      "transition_count": 23
+    },
+    {
+      "id": "C5a",
+      "name": "transition_has_prior_allow",
+      "ok": true,
+      "classification": "SAFETY",
+      "orphans": []
+    },
+    {
+      "id": "C5b",
+      "name": "recovery_matches_independent_derivation",
+      "ok": true,
+      "classification": "SAFETY",
+      "independent_recovered_state": [
+        {
+          "agent": "A",
+          "operation": "verify"
+        },
+        {
+          "agent": "A",
+          "operation": "verify"
+        },
+        {
+          "agent": "A",
+          "operation": "verify"
+        },
+        {
+          "agent": "B",
+          "operation": "append_ledger_b"
+        },
+        {
+          "agent": "C",
+          "operation": "verify"
+        },
+        {
+          "agent": "A",
+          "operation": "restart_local_service"
+        },
+        {
+          "agent": "A",
+          "operation": "write_receipt"
+        },
+        {
+          "agent": "A",
+          "operation": "write_receipt"
+        },
+        {
+          "agent": "C",
+          "operation": "verify"
+        },
+        {
+          "agent": "C",
+          "operation": "verify"
+        },
+        {
+          "agent": "C",
+          "operation": "verify"
+        },
+        {
+          "agent": "C",
+          "operation": "verify"
+        },
+        {
+          "agent": "C",
+          "operation": "verify"
+        },
+        {
+          "agent": "C",
+          "operation": "verify"
+        },
+        {
+          "agent": "A",
+          "operation": "verify"
+        },
+        {
+          "agent": "B",
+          "operation": "verify"
+        },
+        {
+          "agent": "A",
+          "operation": "write_receipt"
+        },
+        {
+          "agent": "A",
+          "operation": "restart_local_service"
+        },
+        {
+          "agent": "B",
+          "operation": "append_ledger_b"
+        },
+        {
+          "agent": "A",
+          "operation": "verify"
+        },
+        {
+          "agent": "B",
+          "operation": "verify"
+        },
+        {
+          "agent": "A",
+          "operation": "write_receipt"
+        },
+        {
+          "agent": "B",
+          "operation": "append_ledger_b"
+        },
+        {
+          "agent": "A",
+          "operation": "restart_local_service"
+        },
+        {
+          "agent": "B",
+          "operation": "verify"
+        },
+        {
+          "agent": "B",
+          "operation": "append_ledger_b"
+        }
+      ],
+      "pending_authorized": [],
+      "last_crash_pos": 13,
+      "claimed_by_runner": [
+        {
+          "agent": "A",
+          "operation": "verify",
+          "allow_pos": 0,
+          "via": "durable_transition"
+        },
+        {
+          "agent": "A",
+          "operation": "verify",
+          "allow_pos": 2,
+          "via": "durable_transition"
+        },
+        {
+          "agent": "A",
+          "operation": "verify",
+          "allow_pos": 4,
+          "via": "durable_transition"
+        },
+        {
+          "agent": "B",
+          "operation": "append_ledger_b",
+          "allow_pos": 5,
+          "via": "durable_transition"
+        },
+        {
+          "agent": "C",
+          "operation": "verify",
+          "allow_pos": 7,
+          "via": "durable_transition"
+        },
+        {
+          "agent": "A",
+          "operation": "restart_local_service",
+          "allow_pos": 9,
+          "via": "recovery_rule_2"
+        },
+        {
+          "agent": "A",
+          "operation": "write_receipt",
+          "allow_pos": 12,
+          "via": "recovery_rule_2"
+        },
+        {
+          "agent": "A",
+          "operation": "write_receipt",
+          "allow_pos": 16,
+          "via": "durable_transition"
+        },
+        {
+          "agent": "C",
+          "operation": "verify",
+          "allow_pos": 20,
+          "via": "durable_transition"
+        },
+        {
+          "agent": "C",
+          "operation": "verify",
+          "allow_pos": 22,
+          "via": "durable_transition"
+        },
+        {
+          "agent": "C",
+          "operation": "verify",
+          "allow_pos": 24,
+          "via": "durable_transition"
+        },
+        {
+          "agent": "C",
+          "operation": "verify",
+          "allow_pos": 26,
+          "via": "durable_transition"
+        },
+        {
+          "agent": "C",
+          "operation": "verify",
+          "allow_pos": 28,
+          "via": "durable_transition"
+        },
+        {
+          "agent": "C",
+          "operation": "verify",
+          "allow_pos": 30,
+          "via": "durable_transition"
+        },
+        {
+          "agent": "A",
+          "operation": "verify",
+          "allow_pos": 32,
+          "via": "durable_transition"
+        },
+        {
+          "agent": "B",
+          "operation": "verify",
+          "allow_pos": 34,
+          "via": "durable_transition"
+        },
+        {
+          "agent": "A",
+          "operation": "write_receipt",
+          "allow_pos": 36,
+          "via": "durable_transition"
+        },
+        {
+          "agent": "A",
+          "operation": "restart_local_service",
+          "allow_pos": 38,
+          "via": "durable_transition"
+        },
+        {
+          "agent": "B",
+          "operation": "append_ledger_b",
+          "allow_pos": 40,
+          "via": "durable_transition"
+        },
+        {
+          "agent": "A",
+          "operation": "verify",
+          "allow_pos": 42,
+          "via": "durable_transition"
+        },
+        {
+          "agent": "B",
+          "operation": "verify",
+          "allow_pos": 44,
+          "via": "durable_transition"
+        },
+        {
+          "agent": "A",
+          "operation": "write_receipt",
+          "allow_pos": 46,
+          "via": "durable_transition"
+        },
+        {
+          "agent": "B",
+          "operation": "append_ledger_b",
+          "allow_pos": 48,
+          "via": "durable_transition"
+        },
+        {
+          "agent": "A",
+          "operation": "restart_local_service",
+          "allow_pos": 50,
+          "via": "durable_transition"
+        },
+        {
+          "agent": "B",
+          "operation": "verify",
+          "allow_pos": 52,
+          "via": "durable_transition"
+        },
+        {
+          "agent": "B",
+          "operation": "append_ledger_b",
+          "allow_pos": 54,
+          "via": "durable_transition"
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "stale_view_never_authorizes",
+      "ok": true,
+      "classification": "SAFETY",
+      "stale_attempts": [
+        {
+          "agent": "A",
+          "operation": "write_receipt",
+          "stale_view_hash": "29eaf1055f30fd0806d6449b3fcfdbfedd6f145cb2478144764b3da154cb098c",
+          "actual_decision": "ALLOW",
+          "actual_manifest_hash": "b2234eb62b7435c25004f65ae55206edf63bc53c5dac6cc6458d08ed0fdc6be4",
+          "committed": true
+        },
+        {
+          "agent": "C",
+          "operation": "write_receipt",
+          "stale_view_hash": "dd8e318449ec9ce1870fbbaea42aab7ce5fc4e55a92024a505e0885bba7c7365",
+          "actual_decision": "DENY",
+          "actual_manifest_hash": "b2234eb62b7435c25004f65ae55206edf63bc53c5dac6cc6458d08ed0fdc6be4",
+          "committed": false
+        }
+      ],
+      "violations": 0
+    }
+  ],
+  "safety_violations": [],
+  "durability_gaps": [],
+  "passed": true,
+  "verdict": "NOT DISPROVEN",
+  "total_receipts": 57,
+  "allow_count": 26,
+  "deny_count": 1
+}

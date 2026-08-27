@@ -1,0 +1,47 @@
+{
+  "decision_id": "GO-stage4b-local-only",
+  "status": "AUTHORIZED",
+  "authorized_execution": "stage4b-runner.cjs ONLY",
+  "environment": "local-research-only",
+  "manifest_ref": {
+    "path": "research/autonomous-forge-v1/stage4/stage4-manifest.json",
+    "expected_hash": "b2234eb62b7435c25004f65ae55206edf63bc53c5dac6cc6458d08ed0fdc6be4"
+  },
+  "spec_ref": {
+    "path": "research/autonomous-forge-v1/stage4b/stage4b-spec-P-v1.json",
+    "expected_hash": "1b0738494952e6975626443cf16e588198d166a4c1d7eda70a14559b2fe9ca02"
+  },
+  "excluded_actions": [
+    "manifest modification",
+    "manifest restoration",
+    "Stage 4A modification",
+    "Stage 2 modification",
+    "mainnet interaction",
+    "wallet signing",
+    "heartbeat activation",
+    "authority inheritance",
+    "production deployment"
+  ],
+  "authorized_by": "Kris Olofson (repository owner, principal 'onenoly1010')",
+  "timestamp_utc": "2026-08-27T16:41:59Z",
+  "human_declaration": "I confirm I have reviewed stage4b-spec-P-v1.json and stage4-manifest.json. I authorize ONLY the local Stage 4B runtime/state-fault experiment. I will NOT authorize anything beyond the excluded_actions listed above.",
+  "pinned_hashes": {
+    "manifest_sha256": "b2234eb62b7435c25004f65ae55206edf63bc53c5dac6cc6458d08ed0fdc6be4",
+    "spec_sha256": "1b0738494952e6975626443cf16e588198d166a4c1d7eda70a14559b2fe9ca02"
+  },
+  "payload_sha256": "08c6523112a6cb965e5f09754f375bb53ab64045f2d06b1bc03a3b8d8aababa7",
+  "authorization": {
+    "mechanism": "OpenSSH signed message (ssh-keygen -Y sign, ED25519)",
+    "namespace": "stage4b-authorization",
+    "signed_payload_sha256": "08c6523112a6cb965e5f09754f375bb53ab64045f2d06b1bc03a3b8d8aababa7",
+    "signature": "-----BEGIN SSH SIGNATURE-----\nU1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgSKNbovDswlTySz77CW3UTojnKh\nyUF7whjpuWDQCS0RAAAAAVc3RhZ2U0Yi1hdXRob3JpemF0aW9uAAAAAAAAAAZzaGE1MTIA\nAABTAAAAC3NzaC1lZDI1NTE5AAAAQAXECWTJJFk9RlpD5huFvIkhGFIETKeh5yWhAmkgcD\ns/QZ4363iFibu4oLG3lY0yzdoGFoP6zJQiELixmputOQo=\n-----END SSH SIGNATURE-----",
+    "signer_key_fingerprint": "SHA256:yOuNCZuJ3JKZlaAB7Xzj64qfZszZYFleYlRZsVvAn2k",
+    "signer_public_key": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEijW6Lw7MJU8ks++wlt1E6I5yoclBe8IY6blg0AktEQ Sovereign-Forge-AI",
+    "signer_principal": "onenoly1010",
+    "attestation": "Signature produced locally with the repository owner's configured SSH signing key (~/.ssh/sovereign_forge_ai) in response to the operator's explicit in-session authorization ('Authorised') on 2026-08-27. No secret exposed in conversation was used as an authorization token. Verification: (1) ssh-keygen -Y check-novalidate over the JSON.stringify of the GO object minus this 'authorization' and 'payload_sha256' fields, in insertion key order; (2) ssh-keygen -Y find-principals binds the key to principal 'onenoly1010' via allowed_signers.",
+    "verification_commands": [
+      "ssh-keygen -Y check-novalidate -n stage4b-authorization -s <sigfile> < <payload-bytes>",
+      "ssh-keygen -Y find-principals -s <sigfile> -f <allowed_signers>"
+    ]
+  }
+}

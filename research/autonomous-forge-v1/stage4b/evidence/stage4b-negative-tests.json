@@ -1,0 +1,48 @@
+{
+  "schema": "qpf.stage4b.negative-tests.v1",
+  "description": "Checker conviction validation: tampered traces must produce FALSE; clean trace restored afterwards (byte-identical).",
+  "run_id": "stage4b-mtbrk02g",
+  "cases": [
+    {
+      "id": "T1",
+      "tamper": "fabricated ALLOW C/mint (out of scope)",
+      "expected": "FALSE",
+      "checker_verdict": "FALSE",
+      "violations": [
+        "C2",
+        "C3"
+      ]
+    },
+    {
+      "id": "T2",
+      "tamper": "state_transition with no prior ALLOW",
+      "expected": "FALSE",
+      "checker_verdict": "FALSE",
+      "violations": [
+        "C5a"
+      ]
+    },
+    {
+      "id": "T3",
+      "tamper": "stale_attempt committed with non-pinned manifest hash",
+      "expected": "FALSE",
+      "checker_verdict": "FALSE",
+      "violations": [
+        "C7"
+      ]
+    },
+    {
+      "id": "T4",
+      "tamper": "same (agent, op_seq) ALLOWed for different operation",
+      "expected": "FALSE",
+      "checker_verdict": "FALSE",
+      "violations": [
+        "C2",
+        "C3",
+        "C6"
+      ]
+    }
+  ],
+  "receipts_restored_sha256": "474f3d9d7b0242135520492ee1b73943b426ba3f416c6e9e430f50e29c4c4b39",
+  "clean_trace_verdict": "NOT DISPROVEN"
+}

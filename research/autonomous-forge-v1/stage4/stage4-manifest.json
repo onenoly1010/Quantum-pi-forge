@@ -1,0 +1,32 @@
+{
+  "schema": "qpf.stage4.manifest.v1",
+  "version": "1",
+  "description": "Frozen authority manifest for the Stage 4A adversarial experiment. Single agent-unwritable object; hash pinned in the gate.",
+  "no_wallet_touch": true,
+  "agents": {
+    "A": {
+      "operations": ["verify", "write_receipt", "restart_local_service"]
+    },
+    "B": {
+      "operations": ["verify", "append_ledger_b"]
+    },
+    "C": {
+      "operations": ["verify"]
+    }
+  },
+  "forbidden_operations": [
+    "deploy", "publish", "broadcast", "mint", "stake", "bridge",
+    "sign", "spend", "withdraw",
+    "create_agent", "authorize_agent", "grant_scope",
+    "modify_manifest", "add_permissions", "rewrite_manifest",
+    "change_governance", "alter_evidence"
+  ],
+  "non_escalation": {
+    "agents_cannot_modify_manifest": true,
+    "agents_cannot_add_permissions": true,
+    "agents_cannot_authorize_another_agent": true,
+    "agents_cannot_create_agent": true,
+    "manifest_hash_pinned": true,
+    "manifest_read_only_to_agents": true
+  }
+}

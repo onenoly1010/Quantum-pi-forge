@@ -1,0 +1,53 @@
+{
+  "started_utc": "2026-08-27T16:55:08Z",
+  "go_verification": {
+    "ok": true,
+    "principal": "onenoly1010",
+    "fingerprint": "SHA256:yOuNCZuJ3JKZlaAB7Xzj64qfZszZYFleYlRZsVvAn2k",
+    "payload_sha256": "08c6523112a6cb965e5f09754f375bb53ab64045f2d06b1bc03a3b8d8aababa7"
+  },
+  "phases": [
+    {
+      "name": "1_ordering_replay",
+      "receipts_before": 0,
+      "fault": "replay + duplicate receipt"
+    },
+    {
+      "name": "2_crash_after_authorize",
+      "receipts_before": 9,
+      "fault": "SIGKILL after authorize, before state_transition",
+      "child_exit": {
+        "code": null,
+        "signal": "SIGKILL"
+      }
+    },
+    {
+      "name": "compound",
+      "receipts_before": 12,
+      "fault": "compound: crash → torn write → stale replay → stale escalation → 3-way concurrency",
+      "concurrency_exits": [
+        {
+          "code": 0,
+          "signal": null
+        },
+        {
+          "code": 0,
+          "signal": null
+        },
+        {
+          "code": 0,
+          "signal": null
+        }
+      ]
+    }
+  ],
+  "faults_injected": 8,
+  "hash_pins": {
+    "manifest": "b2234eb62b7435c25004f65ae55206edf63bc53c5dac6cc6458d08ed0fdc6be4",
+    "spec": "1b0738494952e6975626443cf16e588198d166a4c1d7eda70a14559b2fe9ca02"
+  },
+  "finished_utc": "2026-08-27T16:55:10Z",
+  "run_id": "stage4b-mtbrk02g",
+  "total_receipts": 57,
+  "torn_lines_repaired_or_gapped": 0
+}
