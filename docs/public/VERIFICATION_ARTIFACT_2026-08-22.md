@@ -56,6 +56,29 @@ npm run verify:qpf:level0 -- \
 
 Independent re-derivation of the committed IDs (this session): artifact digest match **true**, receipt digest match **true**, `result_id` re-derived **true**, `package_id` re-derived **true**.
 
+## EXT-001 — reproduce without cloning (recommended starting point)
+
+A frozen, self-contained evidence package lives at
+`docs/outreach/EXT-001/` (branch `ext-001-publication`, merged to main).
+It contains the exact artifact bytes, the receipt, the frozen result, the
+derivation rules, and a standalone reproducer. No clone, no npm, no wallet:
+
+```bash
+curl -fsSLO https://raw.githubusercontent.com/onenoly1010/Quantum-pi-forge/main/docs/outreach/EXT-001/verify.py
+python3 verify.py
+```
+
+Expected (also published in that folder's `manifest.json`):
+
+```text
+qpfv0:    qpfv0:44a9b8cfbcd6eb3dfc83e93b1312f4511a4d42de77cd24afcea198bb424f9db8
+qpfpkg0:  qpfpkg0:54f7af2c1ab97709f0813815036bcde62bfb3165107426a0f6a952d9c97cb1c2
+```
+
+Note: `qpfv0` is timestamp-stable; `qpfpkg0` identifies the frozen package and
+requires the published result file byte-for-byte (re-running Level 0 yields a
+new timestamp and therefore a different, expected package id).
+
 PASS ≠ authorization. The result lists `does_not_authorize`: governance, mainnet operator approval, deployment, financial transaction, production safety, mint, liquidity, yield, pi_payment.
 
 ## Public post copy (one thing)
