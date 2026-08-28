@@ -4,6 +4,20 @@
 identities below. This is an outreach/product evidence package. It is **not**
 VEC-001 and does not claim anything about VEC-001/E2.
 
+> **Read this before re-running verification:** `qpfv0` is timestamp-stable and
+> survives re-running QPF Level 0. `qpfpkg0` is NOT: it hashes the published
+> `expected-result.json` byte-for-byte, so a re-run (new timestamp → new result
+> bytes → new digest) will legitimately produce a *different* package id. That
+> is not a failed check. To confirm `qpfpkg0`, hash the published result file;
+> the reproducer below does exactly this.
+
+Expected identities:
+
+```text
+qpfv0:    qpfv0:44a9b8cfbcd6eb3dfc83e93b1312f4511a4d42de77cd24afcea198bb424f9db8
+qpfpkg0:  qpfpkg0:54f7af2c1ab97709f0813815036bcde62bfb3165107426a0f6a952d9c97cb1c2
+```
+
 ## 1. What is being verified
 
 That the raw bytes of OpenZeppelin `contracts/access/Ownable.sol` at commit
@@ -20,16 +34,9 @@ security, correctness, or audit status.
 | File | Role | SHA-256 |
 |---|---|---|
 | `artifact.bin` | exact artifact bytes | `38578bd7...0cb81` |
-| `receipt.json` | raw QPF Level-0 receipt | `33ad64e3...77e67` |
-| `expected-result.json` | frozen verification result | `bd7c3626...fef687` |
+| `receipt.json` | raw QPF Level-0 receipt | `37085cb2...92d5b` |
+| `expected-result.json` | frozen verification result | `797c976d...4a1b` |
 | `manifest.json` | pin + expected ids + derivation rules | — |
-
-Expected identities:
-
-```text
-qpfv0:    qpfv0:9c9963aa4611ab5d916d53986af4c9907fbd99f135e09ab3919f691eb38f6321
-qpfpkg0:  qpfpkg0:feb668f7b95f9b201d6c8a2e68c5cd052a1bfe8d80105590f17fe53f1bd8a883
-```
 
 Both were independently reproduced by the canonical Node implementation
 (`scripts/qpf-verify-level0.mjs` + `src/verification/package.js`) and by the

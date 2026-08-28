@@ -29,5 +29,5 @@
     "noTokenMinting": true,
     "noPosting": true
   },
-  "note": "DRAFT claim-bearing receipt. The expected verification fingerprints are recorded in MANIFEST.json (derived for this exact receipt). Re-fetching the commit and re-deriving sha256 independently is per TRY_TO_DISAGREE.md."
+  "note": "FROZEN receipt for EXT-001 — public reproduction of a QPF verification identity. This receipt is published byte-exact alongside the artifact and expected result; re-derivation rules are in manifest.json and verify.py. Content identity claim only; independent re-fetch and re-hash of the pinned commit is encouraged."
 }
