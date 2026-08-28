@@ -7,6 +7,7 @@
     "deploy/index.html"
   ],
   "allowedPaths": [
+    ".qpf/task-contracts/patch__attack-kit-filelist-fix.json",
     ".qpf/task-contracts/patch__attack-kit-public-v1.json",
     "deploy/index.html",
     "deploy/attack-kit.html",
