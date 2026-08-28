@@ -1,0 +1,47 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "patch/homepage-remove-mystic-copy",
+  "outcome": "Public landing page (deploy/index.html) states only inspectable claims: remove Three Pillars, Sacred Trinity, Live Resonance Metrics, soul/Kris-protocol badge, dead trust-bar block-height and soul-entry counters, and the constellation/resonance closing CTA. Replace CTA with inspectable-evidence copy. No protocol activation, no new claims, no functional changes.",
+  "canonicalSources": [
+    "deploy/index.html"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/patch__homepage-remove-mystic-copy.json",
+    "deploy/index.html"
+  ],
+  "forbiddenPaths": [
+    "contracts/**",
+    "wallets/**",
+    "src/**",
+    "functions/**"
+  ],
+  "forbiddenActions": [
+    "public mint",
+    "liquidity",
+    "staking/yield",
+    "bridge",
+    "wallet transfer",
+    "agent signing",
+    "adding new unverifiable claims to the landing page"
+  ],
+  "verification": [
+    "npm run build",
+    "grep -q 'Know what is real' deploy/index.html",
+    "! grep -qi 'Sacred Trinity' deploy/index.html",
+    "! grep -qi 'Live Resonance' deploy/index.html",
+    "! grep -qi 'human epoch' deploy/index.html",
+    "! grep -qi 'one consciousness' deploy/index.html",
+    "! grep -q 'updateTrustBar' deploy/index.html",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/patch__homepage-remove-mystic-copy.json --base origin/main"
+  ],
+  "definitionOfDone": [
+    "deploy/index.html contains no consciousness/resonance/soul/constellation/human-epoch copy visible to a visitor.",
+    "Trust bar no longer shows dead metrics that render as em dashes.",
+    "No mint/LP/yield/bridge/wallet mutation.",
+    "All existing truthful claims (pair address, zero reserves, not-authorized statuses) remain intact."
+  ],
+  "authorizationRequired": [
+    "activating mint, staking, LP, or bridge",
+    "restoring removed mystic copy"
+  ]
+}
