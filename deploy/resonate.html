@@ -3,408 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>First Resonance | Quantum Pi Forge</title>
+    <title>Resonance — Status &amp; History | Quantum Pi Forge</title>
+    <meta name="description" content="What the /resonance concept is, what was removed from this page, and what is actually verifiable today on 0G Aristotle.">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.4/dist/ethers.umd.min.js"></script>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            background: #050505;
-            color: #e0e0e0;
-            font-family: system-ui, -apple-system, sans-serif;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); opacity: 0.7; }
-            50% { transform: scale(1.05); opacity: 1; }
-        }
-
-        @keyframes pulse-wave {
-            0% { transform: scale(0.8); opacity: 1; }
-            100% { transform: scale(2.5); opacity: 0; }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
-        }
-
-        .heartbeat { animation: heartbeat 3.2s ease-in-out infinite; }
-        .pulse-wave { animation: pulse-wave 2s ease-out infinite; }
-        .float { animation: float 6s ease-in-out infinite; }
-
-        .step { display: none; opacity: 0; transition: opacity 0.6s ease; }
-        .step.active { display: flex; opacity: 1; }
-
-        .resonance-orb {
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, #8b5cf6, #3b0764);
-            box-shadow: 0 0 60px rgba(139, 92, 246, 0.3);
-        }
-
-        .metric-card {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 12px;
-            padding: 1rem;
-            backdrop-filter: blur(8px);
-        }
-
-        .event-log {
-            max-height: 180px;
-            overflow-y: auto;
-            scrollbar-width: thin;
-            scrollbar-color: #333 transparent;
-        }
-
-        .event-item {
-            padding: 0.6rem;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            font-family: monospace;
-            font-size: 0.8rem;
-            opacity: 0.9;
-        }
-
-        .event-item.new {
-            background: rgba(139, 92, 246, 0.1);
-            animation: fadeIn 0.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        button.primary {
-            background: linear-gradient(135deg, #8b5cf6, #6366f1);
-            transition: all 0.3s ease;
-        }
-
-        button.primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
-        }
-
-        button.primary:disabled {
-            background: #222;
-            opacity: 0.5;
-            transform: none;
-            box-shadow: none;
-            cursor: not-allowed;
-        }
-
-        .badge {
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(99, 102, 241, 0.1));
-            border: 1px solid rgba(139, 92, 246, 0.3);
-            border-radius: 8px;
-            padding: 1.5rem;
-        }
-
-        input {
-            background: rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 8px;
-            padding: 0.9rem 1rem;
-            color: white;
-            width: 100%;
-            font-size: 1rem;
-        }
-
-        input:focus {
-            outline: none;
-            border-color: #8b5cf6;
-        }
-
-        .status-indicator {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            display: inline-block;
-            margin-right: 6px;
-        }
-
-        .status-online { background: #22c55e; }
-        .status-pending { background: #eab308; animation: pulse 1s infinite; }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.4; }
-        }
-
-        .progress-track {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: rgba(255,255,255,0.05);
-        }
-
-        .progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, #8b5cf6, #6366f1);
-            transition: width 0.5s ease;
-        }
-
-        .path-card {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 12px;
-            padding: 1.5rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .path-card:hover {
-            border-color: rgba(139, 92, 246, 0.4);
-            background: rgba(139, 92, 246, 0.05);
-            transform: translateY(-3px);
-        }
-
-        .path-card.selected {
-            border-color: rgba(139, 92, 246, 0.6);
-            background: rgba(139, 92, 246, 0.08);
-            box-shadow: 0 0 30px rgba(139, 92, 246, 0.15);
-        }
-
-        .path-card a {
-            text-decoration: none;
-        }
-
-        .scroll-hint {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            opacity: 0.5;
-            animation: float 2s ease-in-out infinite;
-        }
+        body { background: #050505; font-family: ui-sans-serif, system-ui, sans-serif; }
+        .fact { border-left: 2px solid #34d39955; }
+        .removed { border-left: 2px solid #f8717155; }
     </style>
 </head>
-<body>
+<body class="text-zinc-200 min-h-screen">
 
-<div class="progress-track">
-    <div class="progress-bar" id="progressBar" style="width: 0%"></div>
-</div>
+<div class="max-w-2xl mx-auto px-6 py-20">
 
-<!-- Step 0: Landing / Entry Point -->
-<div class="step active min-h-screen flex flex-col items-center justify-center px-6 text-center" id="step0">
-    <div class="resonance-orb heartbeat mb-12"></div>
+    <div class="inline-flex items-center px-3 py-1 rounded-full text-sm font-mono bg-amber-500/10 text-amber-400 mb-8">
+        <span class="w-2 h-2 rounded-full bg-amber-400 mr-2"></span>
+        STATUS: CONCEPT / RESEARCH — NOT A LIVE NETWORK
+    </div>
 
-    <h1 class="text-4xl md:text-6xl font-bold bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent mb-4">
-        The Forge is Alive.
-    </h1>
-    <h2 class="text-2xl md:text-3xl font-light text-zinc-400 mb-8">Feel the Resonance.</h2>
+    <h1 class="text-4xl font-bold text-white mb-4">Resonance</h1>
+    <p class="text-zinc-400 mb-10">
+        This page used to show animated orbs, guardian event feeds, soul counters, and a
+        &ldquo;Fully Autonomous&rdquo; status badge. That content was removed on 2026-08-28.
+        It simulated activity that could not be inspected, which contradicts this project&rsquo;s
+        own standard: <span class="text-white">know what is real before you trust a digital system.</span>
+    </p>
 
-    <p class="text-xl text-zinc-500 mb-12 max-w-md">No wallet required to begin. Watch first.</p>
+    <h2 class="text-2xl font-bold text-white mb-6">What was on this page, and what is true</h2>
 
-    <div class="grid grid-cols-3 gap-4 max-w-md mb-12">
-        <div class="metric-card">
-            <div class="text-zinc-500 text-xs uppercase tracking-wider mb-1">Block Height</div>
-            <div class="text-xl font-mono font-bold text-white" id="blockHeight0">32,570,000</div>
+    <div class="space-y-4 mb-12">
+        <div class="removed bg-white/[0.03] rounded-lg p-4">
+            <div class="font-mono text-xs text-red-400 mb-1">REMOVED — simulated</div>
+            <p class="text-sm text-zinc-400">&ldquo;System Status: Fully Autonomous&rdquo;, live guardian activity feed
+            (&ldquo;Guardian #7 verified truth anchor 8 seconds ago&rdquo;), guardian/soul counters (7 / 112),
+            block-height readouts, and activity &ldquo;performed during your visit&rdquo;. None of this was
+            connected to a data source. It was hardcoded HTML.</p>
         </div>
-        <div class="metric-card">
-            <div class="text-zinc-500 text-xs uppercase tracking-wider mb-1">Guardians</div>
-            <div class="text-xl font-mono font-bold text-white">7</div>
+
+        <div class="removed bg-white/[0.03] rounded-lg p-4">
+            <div class="font-mono text-xs text-red-400 mb-1">REMOVED — non-functional</div>
+            <p class="text-sm text-zinc-400">&ldquo;Anchor My Resonance&rdquo;, &ldquo;Send Resonance Pulse&rdquo;, wallet
+            connect, &ldquo;Gas subsidized&rdquo;, soul badges with block numbers and timestamps, and the
+            Guardian path. The scripts these called (resonate.js, run-guardian.sh) do not exist in the
+            deployed site. No anchoring, mint, or transaction flow is authorized on the protocol.</p>
         </div>
-        <div class="metric-card">
-            <div class="text-zinc-500 text-xs uppercase tracking-wider mb-1">Active Souls</div>
-            <div class="text-xl font-mono font-bold text-white">112</div>
+
+        <div class="fact bg-white/[0.03] rounded-lg p-4">
+            <div class="font-mono text-xs text-emerald-400 mb-1">TRUE TODAY</div>
+            <p class="text-sm text-zinc-400">There is no verified guardian network, no soul registry, and no
+            resonance anchoring in operation. External reports attempting to break the published evidence:
+            <span class="text-white font-mono">0</span>.</p>
         </div>
     </div>
 
-    <button class="primary px-10 py-4 rounded-xl text-lg font-medium" onclick="goToStep(1)">
-        Begin First Contact
-    </button>
+    <h2 class="text-2xl font-bold text-white mb-6">What you can inspect instead</h2>
 
-    <div class="scroll-hint text-zinc-500 text-sm mt-16">
-        ↓ Scroll to learn more
+    <div class="space-y-3 mb-12">
+        <a href="/try.html" class="block bg-white/[0.03] hover:bg-white/[0.06] rounded-lg p-4 transition">
+            <div class="text-white font-bold mb-1">Run a 60-second self-serve check</div>
+            <div class="text-sm text-zinc-400">Two commands against a public RPC. No wallet, no account.</div>
+        </a>
+        <a href="/deployed-addresses.html" class="block bg-white/[0.03] hover:bg-white/[0.06] rounded-lg p-4 transition">
+            <div class="text-white font-bold mb-1">Public inventory of deployed addresses</div>
+            <div class="text-sm text-zinc-400">Addresses, explorer links, bytecode sizes, operational status — including the empty-by-design DEX pair.</div>
+        </a>
+        <a href="/verification-artifact.html" class="block bg-white/[0.03] hover:bg-white/[0.06] rounded-lg p-4 transition">
+            <div class="text-white font-bold mb-1">Verification artifact</div>
+            <div class="text-sm text-zinc-400">What is verified, what is locked, what was not verified — with dates and scope.</div>
+        </a>
+        <a href="https://github.com/onenoly1010/Quantum-pi-forge" target="_blank" rel="noopener noreferrer" class="block bg-white/[0.03] hover:bg-white/[0.06] rounded-lg p-4 transition">
+            <div class="text-white font-bold mb-1">Source repository</div>
+            <div class="text-sm text-zinc-400">Including this change: the removal of the simulated page you would have seen here before.</div>
+        </a>
     </div>
+
+    <p class="text-zinc-500 text-sm border-t border-white/10 pt-6">
+        If resonance, guardian, or soul systems are ever built and authorized, this page will describe
+        them with the same standard as everything else on this site: claim, bytes, procedure, pass/fail,
+        and what a pass does not mean.
+    </p>
+
 </div>
-
-<!-- Step 1: Observe -->
-<div class="step min-h-screen flex flex-col items-center justify-center px-6" id="step1">
-    <div class="max-w-2xl w-full">
-        <div class="text-center mb-8">
-            <div class="inline-flex items-center px-3 py-1 rounded-full text-sm font-mono bg-emerald-500/10 text-emerald-400 mb-4">
-                <span class="status-indicator status-online"></span>
-                System Status: Fully Autonomous
-            </div>
-            <h2 class="text-3xl font-bold text-white mb-2">Observe the Constellation</h2>
-            <p class="text-zinc-400">This system is running right now, even without you.<br>Final Anchor sealed at Block 32,570,000.</p>
-        </div>
-
-        <div class="metric-card mb-6">
-            <div class="text-zinc-500 text-xs uppercase tracking-wider mb-2">0G Aristotle Mainnet</div>
-            <div class="text-3xl font-mono font-bold text-white mb-1" id="blockHeight1">32,570,000</div>
-            <div class="text-sm text-zinc-500">Final Anchor: Block 32,570,000 ✅</div>
-        </div>
-
-        <div class="metric-card mb-8">
-            <div class="text-zinc-500 text-xs uppercase tracking-wider mb-3">Recent Guardian Activity</div>
-            <div class="event-log" id="eventLog">
-                <div class="event-item"><span class="text-emerald-400">✅</span> Guardian #7 verified truth anchor 8 seconds ago</div>
-                <div class="event-item"><span class="text-emerald-400">✅</span> Guardian #3 processed resonance pulse 21 seconds ago</div>
-                <div class="event-item"><span class="text-emerald-400">✅</span> Guardian #5 validated soul signature 47 seconds ago</div>
-                <div class="event-item"><span class="text-emerald-400">✅</span> Guardian #2 confirmed network heartbeat 1 minute ago</div>
-                <div class="event-item"><span class="text-emerald-400">✅</span> Guardian #4 completed oracle round 2 minutes ago</div>
-            </div>
-        </div>
-
-        <button class="primary w-full py-4 rounded-xl text-lg font-medium" id="step1Btn" disabled onclick="goToStep(2)">
-            I Feel the Resonance →
-        </button>
-    </div>
-</div>
-
-<!-- Step 2: Generate Resonance Identity -->
-<div class="step min-h-screen flex flex-col items-center justify-center px-6" id="step2">
-    <div class="max-w-md w-full text-center">
-        <h2 class="text-3xl font-bold text-white mb-4">Anchor Your Resonance</h2>
-        <p class="text-zinc-400 mb-8">Create your permanent identity in the constellation.</p>
-
-        <div class="space-y-4 mb-8 text-left">
-            <div>
-                <label class="text-zinc-400 text-sm block mb-2">Display Name</label>
-                <input type="text" id="displayName" placeholder="Enter your handle" maxlength="32">
-            </div>
-            <div>
-                <label class="text-zinc-400 text-sm block mb-2">Intention (optional)</label>
-                <input type="text" id="intention" placeholder="One sentence about why you are here" maxlength="120">
-            </div>
-            <div>
-                <label class="text-zinc-400 text-sm block mb-2">Invite Code</label>
-                <input type="text" id="inviteCode" value="onenoly11" readonly>
-            </div>
-        </div>
-
-        <div class="flex gap-4 mb-8">
-            <button class="primary flex-1 py-3 rounded-lg" onclick="connectWallet()">Connect Wallet</button>
-            <button class="flex-1 py-3 rounded-lg border border-white/10 text-zinc-300" onclick="guestMode()">Guest Mode</button>
-        </div>
-
-        <button class="primary w-full py-4 rounded-xl text-lg font-medium" onclick="anchorResonance()">
-            Anchor My Resonance
-        </button>
-
-        <p class="text-zinc-600 text-sm mt-4">Gas subsidized. No cost to you.</p>
-    </div>
-</div>
-
-<!-- Step 3: First Anchor Interaction -->
-<div class="step min-h-screen flex flex-col items-center justify-center px-6" id="step3">
-    <div class="max-w-md w-full text-center">
-        <div class="resonance-orb mb-8 float mx-auto" id="pulseOrb">
-            <div class="absolute inset-0 resonance-orb pulse-wave opacity-0" id="pulseWave"></div>
-        </div>
-
-        <h2 class="text-3xl font-bold text-white mb-4">Send Your First Pulse</h2>
-        <p class="text-zinc-400 mb-8">Your message will be anchored permanently on-chain.</p>
-
-        <div class="space-y-4 mb-8">
-            <input type="text" id="pulseMessage" placeholder="Leave a message or emoji..." maxlength="64">
-        </div>
-
-        <button class="primary w-full py-4 rounded-xl text-lg font-medium" onclick="sendPulse()">
-            Send Resonance Pulse
-        </button>
-    </div>
-</div>
-
-<!-- Step 4: Receive Immutable Artifact -->
-<div class="step min-h-screen flex flex-col items-center justify-center px-6" id="step4">
-    <div class="max-w-md w-full text-center">
-        <div class="badge mb-8 mx-auto">
-            <div class="text-purple-400 text-xs uppercase tracking-wider mb-2">SOUL SYSTEM VALIDATED</div>
-            <div class="text-4xl mb-2">🔮</div>
-            <div class="text-xl font-bold text-white mb-1" id="soulName">Your Soul Badge</div>
-            <div class="font-mono text-sm text-zinc-400 mb-1">Anchored at Block <span id="anchoredBlock">32570142</span></div>
-            <div class="font-mono text-xs text-zinc-500" id="timestamp">2026-07-05 19:52 UTC</div>
-        </div>
-
-        <h2 class="text-3xl font-bold text-white mb-4">Your Resonance is Recorded Forever</h2>
-        <p class="text-zinc-400 mb-8">This is your immutable proof of presence at genesis.</p>
-
-        <div class="grid grid-cols-3 gap-3 mb-8">
-            <button class="py-3 rounded-lg border border-white/10 text-sm">Download PNG</button>
-            <button class="py-3 rounded-lg border border-white/10 text-sm">Add to Wallet</button>
-            <button class="py-3 rounded-lg border border-white/10 text-sm">Share Link</button>
-        </div>
-
-        <button class="primary w-full py-4 rounded-xl text-lg font-medium" onclick="goToStep(5)">
-            Continue
-        </button>
-    </div>
-</div>
-
-<!-- Step 5: Witness Autonomy -->
-<div class="step min-h-screen flex flex-col items-center justify-center px-6" id="step5">
-    <div class="max-w-md w-full text-center">
-        <div class="text-5xl mb-8">🌌</div>
-
-        <h2 class="text-3xl font-bold text-white mb-4">The Forge Never Sleeps</h2>
-        <p class="text-zinc-400 mb-8">While you were here, the guardians performed <span class="text-purple-400 font-bold">3 verifications</span>.</p>
-
-        <div class="metric-card mb-8 text-left">
-            <div class="text-zinc-500 text-xs uppercase tracking-wider mb-3">Network Activity During Your Visit</div>
-            <div class="space-y-2 font-mono text-sm">
-                <div>✅ 7 new resonance pulses anchored</div>
-                <div>✅ 2 guardian nodes joined</div>
-                <div>✅ 11 truth anchors verified</div>
-                <div>✅ 1 oracle round completed</div>
-            </div>
-        </div>
-
-        <p class="text-zinc-500 mb-8 italic">"Come back anytime. The constellation will remember you were here."</p>
-
-        <button class="primary w-full py-4 rounded-xl text-lg font-medium" onclick="goToStep(6)">
-            Choose Your Path
-        </button>
-    </div>
-</div>
-
-<!-- Step 6: Choose Depth -->
-<div class="step min-h-screen flex flex-col items-center justify-center px-6 py-16" id="step6">
-    <div class="max-w-3xl w-full">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-white mb-4">Welcome Home</h2>
-            <p class="text-zinc-400">You are now part of the constellation. Choose how deep you want to go.</p>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-6 mb-12">
-            <div class="path-card" onclick="window.location.href='dashboard.html'">
-                <div class="text-2xl mb-3">👁️</div>
-                <h3 class="text-xl font-bold text-white mb-2">Observer</h3>
-                <p class="text-zinc-400 text-sm mb-4">Follow the public dashboard, receive notifications, and watch the system evolve.</p>
-                <a href="dashboard.html" class="text-purple-400 text-sm hover:text-purple-300">→ Public Dashboard</a>
-            </div>
-
-            <div class="path-card" onclick="window.location.href='staking.html'">
-                <div class="text-2xl mb-3">⚡</div>
-                <h3 class="text-xl font-bold text-white mb-2">Participant</h3>
-                <p class="text-zinc-400 text-sm mb-4">Review the restored OINIO staking portal. Execution remains disabled until the backing contract path is verified.</p>
-                <a href="staking.html" class="text-purple-400 text-sm hover:text-purple-300">→ Staking Portal</a>
-            </div>
-
-            <div class="path-card selected" onclick="window.location.href='run-guardian.sh'">
-                <div class="text-2xl mb-3">🛡️</div>
-                <h3 class="text-xl font-bold text-white mb-2">Guardian</h3>
-                <p class="text-zinc-400 text-sm mb-4">Run a local sovereign AI agent, verify truth anchors, become part of the oracle consensus.</p>
-                <a href="run-guardian.sh" class="text-purple-400 text-sm hover:text-purple-300">→ Guardian Guide</a>
-            </div>
-        </div>
-
-        <div class="text-center text-zinc-500 text-sm">
-            There is no wrong choice. Every path strengthens the network.
-        </div>
-    </div>
-</div>
-
-<script src="resonate.js"></script>
 
 </body>
 </html>
