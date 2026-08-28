@@ -1,0 +1,52 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "patch/attack-kit-nits",
+  "outcome": "Two public-record nits from external review of the live attack kit: (1) /attack-kit/EXT-001/ trailing-slash previously fell through to homepage HTML \u2014 add a directory index linking the frozen files; (2) align the residual wording with actual verify.py behavior (GitHub cross-check is best-effort and prints a warning on outage; core derivation is offline).",
+  "canonicalSources": [
+    "docs/outreach/EXT-001/",
+    "deploy/index.html"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/patch__attack-kit-nits.json",
+    "deploy/attack-kit.html",
+    "deploy/attack-kit/**"
+  ],
+  "forbiddenPaths": [
+    "docs/outreach/EXT-001/**",
+    "contracts/**",
+    "wallets/**",
+    "src/**",
+    "functions/**"
+  ],
+  "forbiddenActions": [
+    "public mint",
+    "liquidity",
+    "staking/yield",
+    "bridge",
+    "wallet transfer",
+    "agent signing",
+    "modifying frozen EXT-001 package contents",
+    "claiming third-party verification that does not exist"
+  ],
+  "verification": [
+    "npm run build",
+    "test -f out/attack-kit/EXT-001/index.html",
+    "grep -q \"best-effort\" out/attack-kit.html",
+    "grep -q \"verify.py\" out/attack-kit/EXT-001/index.html",
+    "diff -r --exclude=index.html --exclude=evidence-package.json docs/outreach/EXT-001 deploy/attack-kit/EXT-001",
+    "python3 deploy/attack-kit/EXT-001/verify.py",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/patch__attack-kit-nits.json --base origin/main"
+  ],
+  "definitionOfDone": [
+    "A stranger can download the frozen package from the live site and reproduce both published identities with two commands.",
+    "The page states what a pass means, what a pass does not mean, and that a mismatch is a published break.",
+    "Known residuals are disclosed, including the count of external reports (0).",
+    "Frozen package contents remain byte-identical to docs/outreach/EXT-001/.",
+    "No protocol activation."
+  ],
+  "authorizationRequired": [
+    "altering EXT-001 frozen contents",
+    "claiming external verification without a filed report",
+    "activating mint, staking, LP, or bridge"
+  ]
+}

@@ -50,7 +50,7 @@ ALL CHECKS PASSED
     <h2 class="text-2xl font-bold text-white mb-4">4. Known residuals</h2>
     <ul class="space-y-2 text-sm text-zinc-400 list-disc pl-5 mb-10">
         <li>External reports attempting this break so far: <span class="text-white font-mono">0</span>. There is no third-party writeup yet. We will publish the count and any filed breaks either way.</li>
-        <li>verify.py fetches one file from raw.githubusercontent.com as an independent cross-check — the check needs network access and depends on GitHub's availability.</li>
+        <li>verify.py attempts one independent cross-check by fetching the artifact from raw.githubusercontent.com. If GitHub is unreachable, it prints a warning and completes using the locally packaged artifact only — the pass is then weaker (no independent source comparison) and the output says so explicitly. The core identity derivation itself never needs the network.</li>
         <li>The derivation algorithms are transcribed from QPF's own source (src/verification/). A bug in the transcription or in the canonical source both count as breaks.</li>
         <li>Receipt signature field is <code>not_applicable</code>: the package proves content identity and derivation, not authorship.</li>
     </ul>
