@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attack Kit — Break It Yourself | Quantum Pi Forge</title>
+    <meta name="description" content="Download the frozen EXT-001 evidence package, reproduce QPF's verification identity in under a minute with two commands, and file a break if you find one. No wallet, no account.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>body { background:#050505; font-family: ui-sans-serif, system-ui, sans-serif; } code, pre { font-family: ui-monospace, monospace; }</style>
+</head>
+<body class="text-zinc-200 min-h-screen">
+
+<div class="max-w-3xl mx-auto px-6 py-16">
+
+    <div class="inline-flex items-center px-3 py-1 rounded-full text-sm font-mono bg-emerald-500/10 text-emerald-400 mb-8">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 mr-2"></span>
+        FROZEN PACKAGE — REPRODUCE OR REFUTE
+    </div>
+
+    <h1 class="text-4xl font-bold text-white mb-4">Attack Kit</h1>
+    <p class="text-zinc-400 mb-4">The homepage says the evidence is public. This page hands it to you.</p>
+    <p class="text-zinc-400 mb-10">One frozen evidence package. Two commands. If the published identities do not reproduce, that is a break — file it and it becomes part of the public record.</p>
+
+    <h2 class="text-2xl font-bold text-white mb-4">1. Get the frozen package (EXT-001)</h2>
+    <p class="text-zinc-400 text-sm mb-4">Claim under test: the raw bytes of OpenZeppelin <code class="text-zinc-300">Ownable.sol</code> at commit <code class="text-zinc-300">932fddf</code> (v5.0.0) have SHA-256 <code class="text-zinc-300">38578bd7…0cb81</code> (3,102 bytes) — and QPF's own verification identity for that claim can be recomputed from the published files alone. Scope: content identity only. Not a statement about OpenZeppelin security or audit status.</p>
+    <pre class="bg-black/60 border border-white/10 rounded-xl p-4 text-sm text-zinc-300 overflow-x-auto mb-3"><code>mkdir qpf-attack &amp;&amp; cd qpf-attack
+for f in verify.py artifact.bin receipt.json expected-result.json; do \
+  curl -fsSO https://quantumpiforge.com/attack-kit/EXT-001/$f; done
+python3 verify.py</code></pre>
+    <p class="text-zinc-500 text-xs mb-10">Requires only Python 3.8+, standard library. No Node.js, no git, no clone, no wallet. verify.py also independently re-fetches the artifact from GitHub and compares it against the packaged bytes.</p>
+
+    <h2 class="text-2xl font-bold text-white mb-4">2. What a pass looks like</h2>
+    <pre class="bg-black/60 border border-white/10 rounded-xl p-4 text-sm text-zinc-300 overflow-x-auto mb-3"><code>=== SUMMARY ===
+ALL CHECKS PASSED
+
+  qpfv0    qpfv0:44a9b8cfbcd6eb3dfc83e93b1312f4511a4d42de77cd24afcea198bb424f9db8
+  qpfpkg0  qpfpkg0:54f7af2c1ab97709f0813815036bcde62bfb3165107426a0f6a952d9c97cb1c2</code></pre>
+    <div class="space-y-3 text-sm text-zinc-400 mb-10">
+        <p><span class="text-white font-semibold">A pass means:</span> the published package is internally consistent and QPF's derivation algorithm (JCS RFC 8785 canonicalization + SHA-256) reproduces both published identities from the frozen bytes.</p>
+        <p><span class="text-white font-semibold">A pass does not mean:</span> QPF is secure, the token is valuable, or any protocol feature is authorized. Mint, staking, LP, and bridge remain not authorized.</p>
+        <p><span class="text-white font-semibold">A mismatch means:</span> a break. Record the output, file it (link below). It will be published either way.</p>
+    </div>
+
+    <h2 class="text-2xl font-bold text-white mb-4">3. The two identities, precisely</h2>
+    <div class="space-y-3 text-sm text-zinc-400 mb-10">
+        <p><code class="text-emerald-400">qpfv0</code> is timestamp-stable: re-running QPF Level 0 on the same artifact + receipt yields the same qpfv0 even though the new result carries a fresh timestamp.</p>
+        <p><code class="text-emerald-400">qpfpkg0</code> binds the complete frozen package byte-for-byte, including the published <code>expected-result.json</code>. Re-running verification regenerates the result with a new timestamp and therefore legitimately derives a <em>different</em> package id — that is not a failed check. To confirm qpfpkg0, hash the published result file; verify.py does exactly this.</p>
+    </div>
+
+    <h2 class="text-2xl font-bold text-white mb-4">4. Known residuals</h2>
+    <ul class="space-y-2 text-sm text-zinc-400 list-disc pl-5 mb-10">
+        <li>External reports attempting this break so far: <span class="text-white font-mono">0</span>. There is no third-party writeup yet. We will publish the count and any filed breaks either way.</li>
+        <li>verify.py fetches one file from raw.githubusercontent.com as an independent cross-check — the check needs network access and depends on GitHub's availability.</li>
+        <li>The derivation algorithms are transcribed from QPF's own source (src/verification/). A bug in the transcription or in the canonical source both count as breaks.</li>
+        <li>Receipt signature field is <code>not_applicable</code>: the package proves content identity and derivation, not authorship.</li>
+    </ul>
+
+    <div class="grid sm:grid-cols-2 gap-4 mb-12">
+        <a href="https://github.com/onenoly1010/Quantum-pi-forge/issues/new?title=Break%20report%3A%20EXT-001" target="_blank" rel="noopener noreferrer" class="block bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 rounded-xl p-5 transition">
+            <div class="text-white font-bold mb-1">File a break</div>
+            <div class="text-sm text-zinc-400">Open a GitHub issue with your verify.py output. Breaks are published, not buried.</div>
+        </a>
+        <a href="/verification-artifact.html" class="block bg-white/[0.03] hover:bg-white/[0.06] border border-white/10 rounded-xl p-5 transition">
+            <div class="text-white font-bold mb-1">Full verification artifact</div>
+            <div class="text-sm text-zinc-400">The complete chain: artifact → evidence → verification → result → package, with dates and scope.</div>
+        </a>
+    </div>
+
+    <p class="text-zinc-500 text-sm border-t border-white/10 pt-6">
+        Package location in source: <code>docs/outreach/EXT-001/</code> (served from <code>deploy/attack-kit/EXT-001/</code> — the files are byte-identical copies; both paths carry the frozen contents, and any change invalidates the published identities).
+    </p>
+
+</div>
+
+</body>
+</html>

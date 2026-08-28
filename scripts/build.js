@@ -31,6 +31,7 @@ const staticFiles = [
   { src: 'deploy/verification-request.html', dest: 'verification-request.html' },
   // Phase A public entry (discoverability / self-serve / certificate)
   { src: 'deploy/try.html', dest: 'try.html' },
+  { src: 'deploy/attack-kit.html', dest: 'attack-kit.html' },
   { src: 'deploy/verification.html', dest: 'verification.html' },
   { src: 'deploy/verification-certificate.html', dest: 'verification-certificate.html' },
   // One Public File — Verification Experiment #001 (staged; publish requires
@@ -76,6 +77,8 @@ const staticDirs = [
   { src: 'receipts/human-cockpit', dest: 'receipts/human-cockpit', optional: true },
   // Discoverability problem guides + index
   { src: 'deploy/problems', dest: 'problems', optional: false },
+  // Attack kit — frozen evidence package served for public reproduction
+  { src: 'deploy/attack-kit', dest: 'attack-kit', optional: false },
   // Public mint / model metadata — required (served as application/json via _headers)
   { src: 'metadata', dest: 'metadata', optional: false },
 ];
