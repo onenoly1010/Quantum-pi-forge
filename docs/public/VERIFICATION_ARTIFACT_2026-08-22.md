@@ -59,12 +59,13 @@ Independent re-derivation of the committed IDs (this session): artifact digest m
 ## EXT-001 — reproduce without cloning (recommended starting point)
 
 A frozen, self-contained evidence package lives at
-`docs/outreach/EXT-001/` (branch `ext-001-publication`, merged to main).
+`docs/outreach/EXT-001/` on `main`.
 It contains the exact artifact bytes, the receipt, the frozen result, the
 derivation rules, and a standalone reproducer. No clone, no npm, no wallet:
 
 ```bash
-curl -fsSLO https://raw.githubusercontent.com/onenoly1010/Quantum-pi-forge/main/docs/outreach/EXT-001/verify.py
+B=https://raw.githubusercontent.com/onenoly1010/Quantum-pi-forge/main/docs/outreach/EXT-001
+curl -fsSL -O $B/verify.py -O $B/artifact.bin -O $B/receipt.json -O $B/expected-result.json -O $B/manifest.json -O $B/pin.json
 python3 verify.py
 ```
 
@@ -83,20 +84,26 @@ PASS ≠ authorization. The result lists `does_not_authorize`: governance, mainn
 
 ## Public post copy (one thing)
 
+The current public copy points at EXT-001 and carries EXT-001's identities.
+(The earlier 2026-08-22 demo-gate result — `qpfv0:bedcd4e2…` /
+`qpfpkg0:6b9d2bc9…` above — is a separate, historical artifact; it is not the
+public check.)
+
 ```text
 We said we'd build, test, document, and verify in public.
 
-Today we're showing one concrete verification artifact.
+Here is one concrete, frozen verification object — EXT-001:
 
-Artifact → evidence → verification result → evidence package.
+Artifact → receipt → frozen result → evidence package, plus a one-command
+reproducer. No clone, no npm, no wallet.
 
-result_id:  qpfv0:bedcd4e2abc96a0433fee195ffe5237d452c690f9c7b76285ee2a3b8a008988d
-package_id: qpfpkg0:6b9d2bc9b4755641514d8efe3ca4fae5aee360e5eab08eeb7374dd04d7f82ab1
+qpfv0:      qpfv0:44a9b8cfbcd6eb3dfc83e93b1312f4511a4d42de77cd24afcea198bb424f9db8
+qpfpkg0:    qpfpkg0:54f7af2c1ab97709f0813815036bcde62bfb3165107426a0f6a952d9c97cb1c2
 
 The point isn't to ask you to trust QPF.
-The point is to give you something you can inspect.
+The point is to give you something you can recompute:
 
-https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/public/VERIFICATION_ARTIFACT_2026-08-22.md
+https://github.com/onenoly1010/Quantum-pi-forge/tree/main/docs/outreach/EXT-001
 ```
 
 Do not add mint, liquidity, payment, or “AI trust solved.”
