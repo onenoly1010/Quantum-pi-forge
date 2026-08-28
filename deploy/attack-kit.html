@@ -24,7 +24,7 @@
     <h2 class="text-2xl font-bold text-white mb-4">1. Get the frozen package (EXT-001)</h2>
     <p class="text-zinc-400 text-sm mb-4">Claim under test: the raw bytes of OpenZeppelin <code class="text-zinc-300">Ownable.sol</code> at commit <code class="text-zinc-300">932fddf</code> (v5.0.0) have SHA-256 <code class="text-zinc-300">38578bd7…0cb81</code> (3,102 bytes) — and QPF's own verification identity for that claim can be recomputed from the published files alone. Scope: content identity only. Not a statement about OpenZeppelin security or audit status.</p>
     <pre class="bg-black/60 border border-white/10 rounded-xl p-4 text-sm text-zinc-300 overflow-x-auto mb-3"><code>mkdir qpf-attack &amp;&amp; cd qpf-attack
-for f in verify.py artifact.bin receipt.json expected-result.json; do \
+for f in verify.py pin.json manifest.json artifact.bin receipt.json expected-result.json; do \
   curl -fsSO https://quantumpiforge.com/attack-kit/EXT-001/$f; done
 python3 verify.py</code></pre>
     <p class="text-zinc-500 text-xs mb-10">Requires only Python 3.8+, standard library. No Node.js, no git, no clone, no wallet. verify.py also independently re-fetches the artifact from GitHub and compares it against the packaged bytes.</p>
