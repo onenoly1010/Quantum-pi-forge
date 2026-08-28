@@ -1,0 +1,33 @@
+{
+  "spec": "quantum-pi-forge-receipt/v1",
+  "receipt_id": "qpf-ext-001-ownable-v5.0.0-932fddf",
+  "claim": {
+    "statement": "At commit 932fddf69a699a9a80fd2396fd1a2ab91cdda123 (tag v5.0.0), the raw bytes of contracts/access/Ownable.sol have SHA-256 38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81 (3102 bytes).",
+    "scope": "Content identity only. Not a statement about OpenZeppelin security, correctness, audit status, or reputation.",
+    "source_url": "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/932fddf69a699a9a80fd2396fd1a2ab91cdda123/contracts/access/Ownable.sol",
+    "repository": "OpenZeppelin/openzeppelin-contracts",
+    "commit": "932fddf69a699a9a80fd2396fd1a2ab91cdda123",
+    "tag": "v5.0.0",
+    "file_path": "contracts/access/Ownable.sol"
+  },
+  "artifact": {
+    "path": "artifact.bin",
+    "type": "artifact",
+    "digest": {
+      "alg": "sha256",
+      "hex": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81"
+    },
+    "bytes": 3102
+  },
+  "produced_at": "2026-08-27T00:00:00.000Z",
+  "envelope": {
+    "readOnly": true,
+    "noWalletSigning": true,
+    "noDeployment": true,
+    "noGovernanceExecution": true,
+    "noChainMutation": true,
+    "noTokenMinting": true,
+    "noPosting": true
+  },
+  "note": "DRAFT claim-bearing receipt. The expected verification fingerprints are recorded in MANIFEST.json (derived for this exact receipt). Re-fetching the commit and re-deriving sha256 independently is per TRY_TO_DISAGREE.md."
+}
