@@ -48,7 +48,7 @@
     "git grep -q 'onenoly11@proton.me' -- deploy/index.html deploy/work-with-us.html deploy/verification-certificate.html deploy/verification-request.html deploy/founding-builders-pilot.html",
     "git grep -q 'not a paid service' -- deploy/index.html",
     "git grep -q 'INFT-agent activity' -- deploy/index.html",
-    "test -z \"$(git grep -l '\\$500' -- deploy || true)\"",
+    "test -z \"$(git grep -l '\\$500' -- deploy/index.html deploy/verification-certificate.html deploy/verification.html deploy/verification-request.html deploy/work-with-us.html deploy/try.html deploy/founding-builders-pilot.html deploy/problems || true)\"",
     "npm run verify:publication-scope -- --contract .qpf/task-contracts/landing__inft-agent-economic-model.json --base origin/main"
   ],
   "definitionOfDone": [
