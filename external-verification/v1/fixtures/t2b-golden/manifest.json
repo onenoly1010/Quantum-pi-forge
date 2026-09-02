@@ -1,0 +1,30 @@
+{
+  "spec": "qpf-external-verification/v1",
+  "fixture_id": "t2b-golden",
+  "fixture_version": "1.0.0",
+  "proposition": "T2-B",
+  "files": {
+    "artifact": "artifact.bin",
+    "receipt": "receipt.json",
+    "expected_result": "expected-result.json",
+    "expected_package": "expected-package.json"
+  },
+  "expected": {
+    "artifact_digest": {
+      "alg": "sha256",
+      "hex": "966cbf5f68d09034c1431991f80b61238d563d5893b1c1a15b99b0e4ea415955"
+    },
+    "receipt_digest": {
+      "alg": "sha256",
+      "hex": "922ed8dbfd24d37c3caf8d0c6edaf856e3bac1afba4fe7e5cbf70f827e223de5"
+    },
+    "verification_result_digest": {
+      "alg": "sha256",
+      "hex": "a4a54382d2f064890d2225e0f6c3d3b6a6fdb60442a4dd89ac0eabda382d1a46"
+    },
+    "result_id": "qpfv0:1a22882678a3b5b4a1dbf70f5adf28f34e2fff41a95e81acc639774bfa15930a",
+    "package_id": "qpfpkg0:a507b07f2baeb7a88fdf2e539c0b76015a3638b58ec3433a0dd297d2e725be00",
+    "status": "pass"
+  },
+  "notes": "No RPC. No wallet. Same inputs → same identifiers. expected-result.json uses frozen timestamp 2026-08-22T00:00:00.000Z so its file digest is stable; result_id excludes timestamp."
+}
