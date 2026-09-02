@@ -42,3 +42,17 @@ export {
   INDEPENDENT_RESULT_SPEC,
   PARTNER_EVIDENCE_SPEC,
 } from './independent-partner.js';
+
+export {
+  deriveIdentityId,
+  projectStableIdentityBody,
+  IDENTITY_ID_PREFIX,
+  IDENTITY_ID_PATTERN,
+  IDENTITY_ID_EXCLUDED_FIELDS,
+} from './identity-id.js';
+
+export {
+  bindIdentityArtifact,
+  IDENTITY_SPEC,
+  IDENTITY_BIND_SPEC,
+} from './identity-bind.js';

@@ -1,0 +1,55 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "patch/attack-kit-public-v1",
+  "outcome": "Make the homepage CTA 'Come try to break it' executable: serve the frozen EXT-001 evidence package from the live site, add an /attack-kit page with reproduction commands, pass/fail semantics, known residuals (0 external reports), and a break-filing path. Freeze nothing existing; EXT-001 contents are byte-identical copies of docs/outreach/EXT-001/.",
+  "canonicalSources": [
+    "docs/outreach/EXT-001/",
+    "deploy/index.html"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/patch__attack-kit-public-v1.json",
+    "deploy/index.html",
+    "deploy/attack-kit.html",
+    "deploy/attack-kit/**",
+    "scripts/build.js"
+  ],
+  "forbiddenPaths": [
+    "docs/outreach/EXT-001/**",
+    "contracts/**",
+    "wallets/**",
+    "src/**",
+    "functions/**"
+  ],
+  "forbiddenActions": [
+    "public mint",
+    "liquidity",
+    "staking/yield",
+    "bridge",
+    "wallet transfer",
+    "agent signing",
+    "modifying frozen EXT-001 package contents",
+    "claiming third-party verification that does not exist"
+  ],
+  "verification": [
+    "npm run build",
+    "test -f out/attack-kit.html",
+    "test -f out/attack-kit/EXT-001/verify.py",
+    "diff -r docs/outreach/EXT-001 deploy/attack-kit/EXT-001 --exclude evidence-package.json",
+    "grep -q 'attack-kit.html' deploy/index.html",
+    "grep -q 'qpfv0:44a9b8cfbcd6eb3dfc83e93b1312f4511a4d42de77cd24afcea198bb424f9db8' deploy/attack-kit.html",
+    "python3 deploy/attack-kit/EXT-001/verify.py",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/patch__attack-kit-public-v1.json --base origin/main"
+  ],
+  "definitionOfDone": [
+    "A stranger can download the frozen package from the live site and reproduce both published identities with two commands.",
+    "The page states what a pass means, what a pass does not mean, and that a mismatch is a published break.",
+    "Known residuals are disclosed, including the count of external reports (0).",
+    "Frozen package contents remain byte-identical to docs/outreach/EXT-001/.",
+    "No protocol activation."
+  ],
+  "authorizationRequired": [
+    "altering EXT-001 frozen contents",
+    "claiming external verification without a filed report",
+    "activating mint, staking, LP, or bridge"
+  ]
+}

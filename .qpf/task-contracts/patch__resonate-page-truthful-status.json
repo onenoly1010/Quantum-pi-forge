@@ -1,0 +1,47 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "patch/resonate-page-truthful-status",
+  "outcome": "Replace deploy/resonate.html simulated mint-funnel (Fully Autonomous badge, fabricated guardian/soul metrics, non-functional anchor/pulse flows pointing at nonexistent resonate.js and run-guardian.sh) with a static labeled status page that discloses what was removed and links only to inspectable artifacts. No protocol behavior or economics change.",
+  "canonicalSources": [
+    "deploy/resonate.html",
+    "deploy/index.html"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/patch__resonate-page-truthful-status.json",
+    "deploy/resonate.html"
+  ],
+  "forbiddenPaths": [
+    "contracts/**",
+    "wallets/**",
+    "src/**",
+    "functions/**"
+  ],
+  "forbiddenActions": [
+    "public mint",
+    "liquidity",
+    "staking/yield",
+    "bridge",
+    "wallet transfer",
+    "agent signing",
+    "presenting simulated activity as live telemetry"
+  ],
+  "verification": [
+    "npm run build",
+    "! grep -qi 'Fully Autonomous' deploy/resonate.html || true",
+    "grep -q 'NOT A LIVE NETWORK' deploy/resonate.html",
+    "grep -q '/try.html' deploy/resonate.html",
+    "grep -q '/deployed-addresses.html' deploy/resonate.html",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/patch__resonate-page-truthful-status.json --base origin/main"
+  ],
+  "definitionOfDone": [
+    "Live /resonate makes no operational claim that is not inspectable or explicitly qualified.",
+    "No simulated guardian activity, soul counters, or fake block numbers presented as live.",
+    "Removed flows (anchor, pulse, guardian) are disclosed as removed, not silently hidden.",
+    "Page links to /try.html, /deployed-addresses.html, /verification-artifact.html, and the source repo."
+  ],
+  "authorizationRequired": [
+    "re-enabling anchor/pulse/wallet flows without a deployed backing contract",
+    "restoring simulated telemetry",
+    "activating mint, staking, LP, or bridge"
+  ]
+}

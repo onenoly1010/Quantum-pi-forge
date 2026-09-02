@@ -38,9 +38,7 @@ const evidence = runPartner({
 });
 process.stdout.write(`${JSON.stringify(evidence, null, 2)}\n`);
 
-if (evidence.comparison.agreement === 'MATCH' && evidence.primary.status === 'pass') {
-  process.exit(0);
-}
-if (evidence.comparison.agreement === 'REVIEW_REQUIRED') process.exit(4);
 if (evidence.primary.status === 'fail' || evidence.independent.status === 'fail') process.exit(1);
+if (evidence.comparison.agreement === 'MATCH') process.exit(0);
+if (evidence.comparison.agreement === 'REVIEW_REQUIRED') process.exit(4);
 process.exit(3);

@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "qpf.identity.verifiable-ai.v1",
+  "title": "QPF Verifiable AI Identity v1",
+  "description": "Schema for a verifiable AI identity artifact. This schema defines an artifact type only; it does not create a verifier, genesis artifact, authority, or economic capability.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["spec", "protocol_version", "identity_id", "name", "purpose", "identity_scope", "authority", "epistemic", "lineage", "canonical_artifact"],
+  "properties": {
+    "spec": { "const": "qpf.identity.verifiable-ai.v1" },
+    "protocol_version": { "const": 1 },
+    "identity_id": {
+      "type": "string",
+      "pattern": "^qpfid0:[0-9a-f]{64}$",
+      "description": "Content-addressed identifier. Derivation is specified by the protocol but is not performed or verified by this schema."
+    },
+    "name": { "type": "string", "minLength": 1 },
+    "purpose": { "type": "string", "minLength": 1 },
+    "identity_scope": { "const": "knowledge_body" },
+    "knowledge_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["includes", "excludes"],
+      "properties": {
+        "includes": { "type": "array", "items": { "type": "string" } },
+        "excludes": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["does_not"],
+      "properties": {
+        "controller": { "type": "string", "minLength": 1 },
+        "controller_ref": { "type": "string", "minLength": 1 },
+        "does_not": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["legal_personhood", "human_equivalence", "qpf_chain_designation", "economic_activation", "self_grant_permissions"]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      }
+    },
+    "epistemic": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["identity_record", "human_authorship", "claims"],
+      "properties": {
+        "identity_record": { "$ref": "#/$defs/epistemicState" },
+        "human_authorship": { "$ref": "#/$defs/epistemicState" },
+        "claims": { "type": "array", "items": { "$ref": "#/$defs/claim" } }
+      }
+    },
+    "agency_permissions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["autonomous", "human_gated"],
+      "properties": {
+        "autonomous": { "type": "array", "items": { "type": "string" } },
+        "human_gated": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "governance_rules_ref": { "type": "string", "minLength": 1 },
+    "evolution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sealed_history_immutable", "new_version_is_new_artifact"],
+      "properties": {
+        "sealed_history_immutable": { "const": true },
+        "new_version_is_new_artifact": { "const": true }
+      }
+    },
+    "lineage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["genesis_digest", "parent_digest", "ancestors", "derivatives"],
+      "properties": {
+        "genesis_digest": { "$ref": "#/$defs/digestOrNull" },
+        "parent_digest": { "$ref": "#/$defs/digestOrNull" },
+        "ancestors": { "type": "array", "items": { "$ref": "#/$defs/digest" } },
+        "derivatives": { "type": "array", "items": { "$ref": "#/$defs/digest" } }
+      }
+    },
+    "created_at": { "type": "string", "format": "date-time" },
+    "canonical_artifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["digest"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "digest": { "$ref": "#/$defs/digest" }
+      }
+    }
+  },
+  "$defs": {
+    "epistemicState": {
+      "type": "string",
+      "enum": ["DECLARED", "UNVERIFIED", "VERIFIED", "ATTRIBUTED", "DERIVED", "UNKNOWN"]
+    },
+    "digest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["alg", "hex"],
+      "properties": {
+        "alg": { "const": "sha256" },
+        "hex": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+      }
+    },
+    "digestOrNull": {
+      "anyOf": [{ "$ref": "#/$defs/digest" }, { "type": "null" }]
+    },
+    "claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["text", "epistemic"],
+      "properties": {
+        "text": { "type": "string", "minLength": 1 },
+        "epistemic": { "$ref": "#/$defs/epistemicState" },
+        "evidence_package_ref": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

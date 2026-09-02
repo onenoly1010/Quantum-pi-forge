@@ -1,0 +1,34 @@
+{
+  "spec": "qpf-frozen-triple/v1",
+  "package": "EXT-001",
+  "title": "EXT-001 — Public Reproduction of a QPF Verification Identity (OpenZeppelin Ownable.sol @ 932fddf, v5.0.0)",
+  "status": "FROZEN — not a DRAFT",
+  "files": {
+    "artifact.bin": {
+      "sha256": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81",
+      "bytes": 3102
+    },
+    "receipt.json": {
+      "sha256": "37085cb2d2d772118572b5bfeaad678680bb42b772c1c96d457420cd88f92d5b",
+      "bytes": 1615
+    },
+    "expected-result.json": {
+      "sha256": "797c976d1e9b7b2286488284601b4fcd813e32e63661c19a6e582aeff0894a1b",
+      "bytes": 1753
+    }
+  },
+  "expected_ids": {
+    "qpfv0": "qpfv0:44a9b8cfbcd6eb3dfc83e93b1312f4511a4d42de77cd24afcea198bb424f9db8",
+    "qpfpkg0": "qpfpkg0:54f7af2c1ab97709f0813815036bcde62bfb3165107426a0f6a952d9c97cb1c2"
+  },
+  "derivation": {
+    "algorithm": "qpf-verify/v1 (Level 0)",
+    "canonical_encoding": "jcs-rfc8785",
+    "hash_algorithm": "sha256",
+    "qpfv0": "sha256(jcs_rfc8785_canonicalize(stable_result_fields)) where stable = { spec, target, level_requested, level_achieved, status, checks, verifier, evidence_binding } — excludes timestamp, summary, does_not_authorize",
+    "qpfpkg0": "sha256(jcs_rfc8785_canonicalize({ result_id, artifact_digest: {alg,hex}, receipt_digest: {alg,hex}, verification_result_digest: {alg,hex} }))",
+    "jcs_note": "JSON Canonicalization Scheme (RFC 8785): object keys sorted by Unicode code point, no insignificant whitespace, ECMAScript JSON string/number forms, raw UTF-8 (non-ASCII not escaped)",
+    "source": "Algorithms from src/verification/result-id.js and src/verification/package.js in the QPF repository"
+  },
+  "reproduce_command": "python3 verify.py"
+}

@@ -249,8 +249,9 @@ export function runPartner({ cwd, artifact, receipt, primaryOverride = null, now
   const primary = primaryOverride || verifyPrimary({ cwd, artifact, receipt });
   const independent = verifyIndependent({ cwd, artifact, receipt, now: now || undefined });
   const comparison = compareResults(primary, independent);
-  const identity = existsSync(resolve(cwd || process.cwd(), artifact))
-    ? identifyArtifact(resolve(cwd || process.cwd(), artifact))
+  const artifactPath = resolve(cwd || process.cwd(), artifact);
+  const identity = existsSync(artifactPath)
+    ? identifyArtifact(artifactPath)
     : null;
 
   return {

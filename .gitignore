@@ -236,3 +236,10 @@ docs/activation/living-forge/reports/eod-latest.md
 
 # SCCB local state (metadata/control only — still keep secrets out of git)
 sccb/config/*.local.json
+.forge-heartbeat/
+
+# EXT-001 frozen artifact (published byte-exact exception to *.bin)
+!docs/outreach/EXT-001/artifact.bin
+
+# EXT-001 frozen artifact (published byte-exact exception to *.bin)
+!docs/outreach/EXT-001/artifact.bin

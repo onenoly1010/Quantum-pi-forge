@@ -71,11 +71,11 @@ describe('Independent AI Verification Partner', () => {
   });
 
   it('modified artifact → different digest', () => {
-    const before = identifyArtifact(join(dir, artifactName));
+    const original = identifyArtifact(join(dir, artifactName));
     const tampered = join(dir, 'tampered.txt');
     writeFileSync(tampered, Buffer.concat([originalBytes, Buffer.from('x')]));
-    const after = identifyArtifact(tampered);
-    assert.notEqual(after.hex, before.hex);
+    const tamperedIdentity = identifyArtifact(tampered);
+    assert.notEqual(tamperedIdentity.hex, original.hex);
   });
 
   it('primary verification success', () => {
