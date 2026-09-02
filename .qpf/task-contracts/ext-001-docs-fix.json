@@ -1,0 +1,35 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "ext-001-docs-fix",
+  "outcome": "Fix EXT-001 public invite: the reproduction command fetches all six required files (verify.py + the full frozen triple), and the public post copy carries EXT-001's identities only, with the 2026-08-22 demo-gate pair explicitly labeled historical. Documentation-only change.",
+  "canonicalSources": [
+    "docs/public/VERIFICATION_ARTIFACT_2026-08-22.md"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/ext-001-docs-fix.json",
+    "docs/public/VERIFICATION_ARTIFACT_2026-08-22.md"
+  ],
+  "forbiddenPaths": [
+    "receipts/execution/**",
+    "contracts/**",
+    "guardian/**",
+    "docs/outreach/EXT-001/**"
+  ],
+  "forbiddenActions": [
+    "public mint",
+    "liquidity",
+    "staking",
+    "yield",
+    "bridge",
+    "wallet signing",
+    "token transfer",
+    "payment acceptance",
+    "ICME or any individual outreach",
+    "social media posting by AI (human posts)",
+    "Guardian policy or code changes"
+  ],
+  "verification": [
+    "npm run verify:all"
+  ],
+  "definitionOfDone": "VERIFICATION_ARTIFACT_2026-08-22.md on main: reproduction command fetches the complete triple; public post copy shows only EXT-001 ids (qpfv0:44a9b8cf...f9db8 / qpfpkg0:54f7af2c...cb1c2); historical pair labeled as such."
+}

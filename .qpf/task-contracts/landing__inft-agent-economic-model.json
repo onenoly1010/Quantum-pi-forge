@@ -55,7 +55,7 @@
     "Public landing copy states QPF verification is not a paid service.",
     "Public landing copy states QPF economic participation is a protocol-defined share of INFT-agent activity and is not live.",
     "Public deploy HTML contact addresses are onenoly11@proton.me.",
-    "No verification, Step D, Genesis, /api/verify, wallet, contract, or deployment files are changed."
+    "No verification semantics, Step D, Genesis, /api/verify, wallet, contract, or unrelated deployment files are changed; the scoped deploy HTML files are the intended publication artifacts."
   ],
   "authorizationRequired": [
     "merge",

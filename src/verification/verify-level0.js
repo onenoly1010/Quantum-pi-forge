@@ -470,6 +470,10 @@ export function verifyLevel0(request) {
       'deployment',
       'financial_transaction',
       'production_safety',
+      'mint',
+      'liquidity',
+      'yield',
+      'pi_payment',
     ],
   };
 

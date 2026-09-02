@@ -85,6 +85,10 @@ describe('QPF Level 0 verify', () => {
     assert.ok(r.checks.every((c) => c.name && c.status && c.detail));
     assert.equal(r.target.hash, art.digest.hex);
     assert.ok(r.does_not_authorize.includes('governance_decision'));
+    assert.ok(r.does_not_authorize.includes('mint'));
+    assert.ok(r.does_not_authorize.includes('liquidity'));
+    assert.ok(r.does_not_authorize.includes('yield'));
+    assert.ok(r.does_not_authorize.includes('pi_payment'));
     const hashCheck = r.checks.find((c) => c.name === 'artifact_hash');
     assert.equal(hashCheck.status, 'pass');
   });

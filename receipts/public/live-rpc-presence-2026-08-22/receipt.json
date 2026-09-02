@@ -1,0 +1,23 @@
+{
+  "spec": "quantum-pi-forge-receipt/v1",
+  "receipt_id": "qpf-live-rpc-presence-2026-08-22",
+  "artifact": {
+    "path": "receipts/public/live-rpc-presence-2026-08-22/artifact.json",
+    "type": "artifact",
+    "digest": {
+      "alg": "sha256",
+      "hex": "0c96ca0ca89a3b58bdee11c520f08427e1185ee05635ed5df64704c1317de5ce"
+    }
+  },
+  "produced_at": "2026-08-22T16:34:06.000Z",
+  "envelope": {
+    "readOnly": true,
+    "noWalletSigning": true,
+    "noDeployment": true,
+    "noGovernanceExecution": true,
+    "noChainMutation": true,
+    "noTokenMinting": true,
+    "noPosting": true
+  },
+  "note": "Level 0 receipt for independent RPC presence checks (chainId, token code, empty pair). Does not authorize mint, liquidity, or payment."
+}
