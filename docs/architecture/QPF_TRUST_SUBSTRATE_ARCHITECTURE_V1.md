@@ -1,662 +1,656 @@
 # QPF Trust-Substrate Architecture v1
 
-| Field | Value |
+**Status:** Architectural specification (design documentation) — not an operational
+status report, not a marketing artifact, not an unlock.
+**Authority order:** Where this document and
+[`docs/protocol/qpf-v1/QPF_VERIFICATION_PROTOCOL_V1.md`](../protocol/qpf-v1/QPF_VERIFICATION_PROTOCOL_V1.md)
+or [`docs/review/VERIFICATION_STATUS_TABLE_V1.md`](../review/VERIFICATION_STATUS_TABLE_V1.md)
+disagree about what exists or what is verified, those documents win.
+**Scope:** This document defines architectural intent, boundaries, and acceptance
+criteria. It does not activate, authorize, or claim any capability beyond what the
+repository already establishes.
+
+> TRUTH-DOMAIN NOTE (per `TRUTH_DOMAIN_SEPARATION_LAYER_v1.0.md`): except where a
+> statement cites an inspectable repository artifact, this document is **Domain 3 —
+> design intent**. Statements marked IMPLEMENTED reference Domain 1 artifacts;
+> SPECIFIED statements reference normative drafts (Domain 3); PROPOSED and
+> UNVERIFIED statements are direction of travel only.
+
+## Capability labels
+
+| Label | Meaning in this document |
 | --- | --- |
-| Status | **SPECIFIED** architectural distinction — not a protocol freeze, not an activation |
-| Document type | Architecture specification |
-| Authority | Composes existing QPF canon; does **not** replace `docs/protocol/qpf-v1/` |
-| Mode | Design / boundary document |
-| Economic effect | None. Does not authorize mint, liquidity, staking, bridge, credentials, or settlement |
-| Date | 2026-09-04 |
-
-**Claim-status vocabulary used in this document**
-
-| Label | Meaning |
-| --- | --- |
-| `IMPLEMENTED` | Present in repository code or executable scripts and locally exercisable |
-| `SPECIFIED` | Normative or constraint text exists; implementation may be partial or absent |
-| `EXPERIMENTAL` | Present as a path, kit, or rehearsal; not a production trust root |
-| `PROPOSED` | Introduced by this document as an architectural reading of existing canon |
-| `UNVERIFIED` | Not established by repository evidence |
-
-This document is **not** marketing copy. Present-tense capability claims are limited to what the repository already implements or specifies.
-
----
+| **IMPLEMENTED** | Code, tests, or sealed receipts exist in this repository and can be inspected or executed locally today. |
+| **SPECIFIED** | A normative design document exists; implementation may be absent or partial. |
+| **EXPERIMENTAL** | A local, lab, or partial path exists; not a production or network claim. |
+| **PROPOSED** | Architectural requirement introduced or consolidated by this document; not previously specified as its own requirement. |
+| **UNVERIFIED** | Claimed nowhere verifiable in the repository; treated as unresolved. |
 
 ## 1. Purpose
 
-Codify Quantum Pi Forge’s structural distinction from model-centric AI organizations.
+This document codifies, as an engineering artifact, a structural distinction that
+existing QPF canon asserts but does not state in one place:
 
-**Thesis (architectural intent, `PROPOSED` as a framing; grounded in existing protocol invariants):**
+> **QPF is not a model factory. It is a verification substrate.**
 
-> QPF is not a model factory. It is a verification substrate.
+The purpose is to give an independent engineer a single, reviewable specification
+of:
 
-The intended engineering question is not “which model is best?” It is:
+1. the layer boundaries that separate models, agents, identity, verification,
+   execution, authorization, and settlement;
+2. the epistemic boundary that separates cryptographic validity from semantic
+   correctness and from real-world truth;
+3. the portability property that makes a QPF verification artifact independent of
+   the provider that produced the underlying intelligence; and
+4. the economic and protocol-layer theses that follow from those boundaries —
+   stated as architectural intent, not as demonstrated market position.
 
-> Can an independent verifier reproduce and validate the evidence supporting a claimed state transition, without trusting the originating model, agent, host, or economic platform?
-
-This document:
-
-- separates model, agent, identity/provenance, verification, authorization, execution, and settlement;
-- records what the repository already implements versus what it only specifies;
-- preserves frozen protocol semantics;
-- does **not** treat architectural intent as externally demonstrated adoption.
-
-**Normative source of verification semantics:** `docs/protocol/qpf-v1/QPF_VERIFICATION_PROTOCOL_V1.md` (`SPECIFIED`, draft freeze of layers 1–10).
-
-**Implemented verification slice:** `src/verification/` Level 0 (`IMPLEMENTED`: artifact location, receipt structure, content-hash binding). Levels 1+ remain unimplemented.
-
----
+This document composes with, and does not replace, the normative protocol package
+in `docs/protocol/qpf-v1/` and the claim posture in
+`docs/review/VERIFICATION_STATUS_TABLE_V1.md`.
 
 ## 2. Architectural Thesis
 
-### 2.1 Model factory (contrast class)
+**Thesis (PROPOSED as a consolidated statement; every clause below is grounded in
+existing canon):** Quantum Pi Forge is architected so that the value it provides
+is *independent, reproducible evaluation of evidence about artifacts and state
+transitions*, rather than the manufacture of intelligence.
 
-A model-centric organization sells or operates intelligence as the primary product:
+Existing canon already states the components of this thesis:
 
-```text
-CAPITAL → COMPUTE → MODEL → USERS → REVENUE
-```
+- "Implementation MUST NOT treat model output as authoritative."
+  (`docs/protocol/qpf-v1/QPF_VERIFICATION_PROTOCOL_V1.md`, Purpose)
+- "Intelligence may propose. Deterministic infrastructure constrains. Execution
+  produces evidence. Cryptography establishes provenance. Verification evaluates
+  evidence. Trust Policy determines acceptance. Governance makes the final
+  decision." (same document, Fundamental Principle)
+- "AUTHORIZATION ≠ VERIFICATION" and "VERIFICATION ≠ GOVERNANCE DECISION"
+  (`src/verification/README.md`, `src/verification/verify-level0.js:4-5`)
+- The defensible public description: "an independently developed, evidence-first
+  sovereign AI and governance platform centered on deterministic verification,
+  cryptographic receipts, local AI execution, and auditable deployment artifacts"
+  (`docs/review/VERIFICATION_STATUS_TABLE_V1.md`)
 
-Competitive position in that class depends on continued access to compute, data, research talent, and deployment infrastructure. This document makes **no quantitative cost claims**.
+The central question the architecture answers is **not** "is this AI output true?"
+It is:
 
-QPF may *use* models. QPF is not architecturally defined as the manufacturer of those models.
+> **Can an independent verifier reproduce and validate the evidence supporting the
+> claimed state transition, without trusting the originating agent or model
+> provider?**
 
-### 2.2 Verification substrate (QPF class)
+This document treats that question as the defining design constraint of the
+verification layer.
 
-A verification-centric organization evaluates evidence about work performed elsewhere:
+## 3. System Boundary
 
-```text
-AGENTS → EVIDENCE → VERIFICATION → TRUST → ECOSYSTEM VALUE
-```
+QPF, as specified, is the set of deterministic, evidence-producing, and
+evidence-evaluating components in this repository and its declared protocol
+surface:
 
-“Ecosystem value” here is a **design position**, not a measured market outcome (`UNVERIFIED` as adoption/revenue).
+| Inside the QPF boundary | Outside the QPF boundary |
+| --- | --- |
+| Canonicalization, hashing, receipt grammar, evidence bundles, verification semantics, verifier profiles, trust policy evaluation | Foundation models and their training/serving infrastructure |
+| Identity artifact schema and content addressing (`qpf.identity.verifiable-ai.v1`) | Agents that produce candidate artifacts (whether QPF-operated or third-party) |
+| Governance receipts, authorization gates, publication-scope and operating-model checks | Authorization decisions themselves (human/governance acts) |
+| Read-only evidence lanes, claim maps, external verification suite | Execution environments that act on the world (deploys, wallets, chains) |
+| Specifications for how settlement claims would be evidenced | Economic settlement systems (exchanges, liquidity, minting, custody) |
 
-QPF’s intended position does **not** require QPF to manufacture the underlying intelligence. That does **not** mean verification has zero cost. It means the primary infrastructure dependency is structurally different from a company whose core product is a frontier foundation model.
+Two boundary rules are normative:
 
-Verification still requires:
+1. **No component inside the boundary acquires authority outside its explicitly
+   defined boundary** (restating the protocol's fundamental principle).
+2. **Nothing outside the boundary becomes trustworthy by touching the boundary.**
+   A model, agent, host, or platform does not become verified because its output
+   was hashed.
 
-- canonicalization and hashing;
-- receipt and evidence storage;
-- verifier implementations and test vectors;
-- (specified, not fully implemented) keys, trust roots, and policies;
-- human governance for authorization.
-
-### 2.3 Protocol-layer thesis (intent, not adoption)
-
-Analogy only: the Internet’s useful property is that applications can change while the packet-verification rules remain independent of any one application vendor.
-
-**Defensible proposition (`PROPOSED` intent):**
-
-> QPF is designed according to a protocol-layer thesis in which verification remains independent of the intelligence provider.
-
-**Not claimed:**
-
-- QPF is already “TCP/IP for AI”;
-- QPF is an industry standard;
-- universal adoption exists;
-- ecosystem dominance exists.
-
-Architectural intent ≠ externally demonstrated adoption.
-
-### 2.4 Fundamental protocol principle (existing canon)
-
-From `QPF_VERIFICATION_PROTOCOL_V1.md` (`SPECIFIED`):
-
-```text
-Intelligence may propose.
-Deterministic infrastructure constrains.
-Execution produces evidence.
-Cryptography establishes provenance.
-Verification evaluates evidence.
-Trust Policy determines acceptance.
-Governance makes the final decision.
-
-No model, verifier, transport, receipt, attestation, or policy
-may acquire authority outside its explicitly defined boundary.
-```
-
-Level 0 code restates a subset (`IMPLEMENTED`):
+## 4. Layer Model
 
 ```text
-AUTHORIZATION ≠ VERIFICATION
-VERIFICATION ≠ GOVERNANCE DECISION
+┌──────────────────────────────────────────────────────────────┐
+│ 5. EXTERNAL SETTLEMENT / ECONOMIC LAYER (outside QPF)        │
+│    mints, liquidity, staking, bridges, custody, markets      │
+├──────────────────────────────────────────────────────────────┤
+│ 4. QPF VERIFICATION LAYER (this architecture's center)       │
+│    artifact → receipt → attestation → evidence bundle →      │
+│    trust resolution → policy evaluation → verification       │
+│    result → verification receipt                             │
+├──────────────────────────────────────────────────────────────┤
+│ 3. OINIO IDENTITY / PROVENANCE LAYER                         │
+│    content-addressed identity artifacts, lineage digests,    │
+│    epistemic state labels — distinct from model execution    │
+├──────────────────────────────────────────────────────────────┤
+│ 2. AGENT LAYER (not necessarily QPF-controlled)              │
+│    reasoning, action proposals, claim production, state      │
+│    changes, external interaction                             │
+├──────────────────────────────────────────────────────────────┤
+│ 1. MODEL LAYER (commodity / replaceable)                     │
+│    local Ollama models, 0G-hosted compute, external          │
+│    foundation-model APIs, future providers                   │
+└──────────────────────────────────────────────────────────────┘
 ```
 
-This architecture document adds the settlement distinction already present in economic-gate documents:
+Ordering rule: a higher layer consumes the outputs of a lower layer as *evidence
+inputs*, never as authority. The layers below the verification layer generate
+claims; the verification layer evaluates them; above it, **authorization** and
+**execution** are not layers in this model but *gated decisions* (human /
+governance acts, per `QPF_VERIFICATION_PROTOCOL_V1.md` — governance sits outside
+the pure verification crypto path), and **settlement** (layer 5) is an external
+economic event. Success at any layer or gate does not propagate to another (§10).
+
+## 5. Model Layer
+
+**Classification: IMPLEMENTED as replaceable integration; provider independence is
+SPECIFIED here as an architectural requirement.**
+
+Established by the repository:
+
+- Local Ollama inference is an operational path: `LOCAL_AI_SETUP.md`,
+  `Modelfile`, and the Hermes lane (`scripts/hermes-run.sh`,
+  `scripts/hermes-write-receipt.cjs`, `scripts/verify-hermes-receipt.cjs`) run
+  local models and emit replayable, schema-bound receipts
+  (`evidence/hermes/schemas/receipt-v1.schema.json`; `npm run verify:receipt`).
+- 0G-hosted compute is a second, independent path with dual access modes (router
+  abstraction and direct provider), documented with observed HTTP evidence in
+  `docs/ARCHITECTURE.md` and the runtime priority policy in
+  `OINIO_COMPUTE_RUNTIME_POLICY_20260531.md`.
+- Externally hosted OpenAI-compatible endpoints appear only as a fallback class in
+  the same runtime policy.
+
+The architectural requirement this layer must satisfy:
+
+- **M1.** QPF verification semantics, receipt grammar, canonicalization, and
+  evidence formats MUST NOT depend on a particular model provider. No verifier
+  input may require a vendor-specific field.
+- **M2.** A model's output is, at most, a candidate artifact plus execution
+  metadata. The protocol already states this invariant: models "MUST NOT be a
+  trust root, signing authority, or governance decider" and "may appear in
+  execution metadata only" (`QPF_VERIFICATION_PROTOCOL_V1.md`, Architectural
+  invariants).
+- **M3.** Replacing the model (Ollama ↔ 0G ↔ a future provider) MUST NOT change
+  the meaning of any verification result over the same artifact bytes.
+
+## 6. Agent Layer
+
+**Classification: SPECIFIED (protocol invariants) with EXPERIMENTAL local
+implementations.**
+
+Agents in this architecture may reason, execute actions, produce claims, consume
+evidence, modify state, and interact with external systems. The repository
+establishes:
+
+- EXPERIMENTAL: local Guardian/Soul-style agent paths on Ollama
+  (`docs/review/VERIFICATION_STATUS_TABLE_V1.md` row E-01; local agent scripts;
+  observer design notes).
+- SPECIFIED: agent capability classes and approval classes under SCCB
+  (`docs/sccb/IMPLEMENTATION_VERIFICATION.md`): PREAUTHORIZED, CONDITIONAL,
+  HUMAN_APPROVAL, FORBIDDEN — with always-approve agent modes explicitly unable
+  to elevate FORBIDDEN or skip HUMAN.
+- SPECIFIED: agents operate without root authority
+  (`docs/ARCHITECTURE.md` — "no central control point or root authority").
+
+Architectural requirements:
+
+- **A1.** QPF does not, by design, control all agents that may interact with the
+  protocol. An external agent MUST be able to produce evidence in the same
+  formats and have it evaluated by the same semantics. (This is the reading of
+  the external verification suite's premise — "an outsider can test QPF without
+  becoming a mechanism for changing QPF," `external-verification/v1/README.md`.)
+- **A2.** An agent's self-description is evidence about the agent, not proof of
+  behavior. Agent identity claims enter the verification layer only through
+  receipts and attestations, never through narrative.
+- **A3.** Agent-layer failure (hallucination, compromise, misconfiguration) MUST
+  degrade to a verification outcome (`fail` / `partial` / `unavailable`), never
+  to silent acceptance.
+
+## 7. OINIO Identity / Provenance Layer
+
+**Classification: SPECIFIED (Step A/B/C artifacts) with partial IMPLEMENTATION.**
+
+Only capabilities actually established by the repository are claimed here:
+
+- SPECIFIED: the `qpf.identity.verifiable-ai.v1` artifact type
+  (`docs/protocol/qpf-v1/12-identity-artifact.md`,
+  `schemas/qpf/v1/identity-verifiable-ai.schema.json`). Identity scope is
+  `knowledge_body` — explicitly not a legal person, not human equivalence.
+- IMPLEMENTED: content-addressed `identity_id` derivation
+  (`src/verification/identity-id.js`, golden vector
+  `tests/verification/identity-id.test.js`):
+  `identity_id = "qpfid0:" + sha256_hex(canonicalize(stable_body))` using the
+  existing JCS canonicalizer and SHA-256 digest helpers.
+- IMPLEMENTED: identity evidence binding as a normal artifact through existing
+  machinery (`src/verification/identity-bind.js`,
+  `tests/verification/identity-bind.test.js`) — originating receipt, Level 0
+  `evidence_binding`, and `qpfpkg0:` package manifest, with no new verifier.
+- SPECIFIED: identity-level epistemic states `DECLARED`, `UNVERIFIED`, `VERIFIED`,
+  `ATTRIBUTED`, `DERIVED`, `UNKNOWN`, with the rule that `VERIFIED` never means
+  human-authored (`12-identity-artifact.md`, §4).
+- SPECIFIED: append-only lineage via digest links (`parent_digest`,
+  `genesis_digest`), with lineage conflicts treated as a review condition, not a
+  silent overwrite.
+
+The architectural point this layer supports: **persistent identity and provenance
+are distinct from model execution**. An identity artifact is bytes with a
+content-derived identifier; it can be produced, bound, and verified regardless of
+which model (if any) generated its content. Nothing in this layer is claimed to
+be an OINIO Genesis artifact; per `12-identity-artifact.md` §7, no Genesis
+artifact exists, and none is created here.
+
+## 8. QPF Verification Layer
+
+**Classification: IMPLEMENTED at Level 0; SPECIFIED for layers 1–10 of the
+protocol package.**
+
+This is the central layer of the architecture. Its role is to **independently
+evaluate verification artifacts and evidence**, not to trust the originating
+agent or model provider.
+
+Established by the repository:
+
+- IMPLEMENTED: canonical serialization (`jcs-rfc8785`), SHA-256 digests, Level 0
+  verification (`quantum-pi-forge-verify/v1`) in `src/verification/` with tests
+  under `tests/verification/`; skill declaration `src/verification/SKILL.md`;
+  schemas under `schemas/qpf/v1/`.
+- IMPLEMENTED: deterministic aggregation semantics in
+  `src/verification/semantics.js` — top-level `pass` / `fail` / `partial` /
+  `unavailable`, with missing data aggregating to `unavailable` (never automatic
+  cryptographic `fail`) and known violations aggregating to `fail`.
+- IMPLEMENTED: deterministic result and package identifiers (`result-id.js`,
+  `package.js`) with external golden-vector reproduction (`verify:external:v1`,
+  `external-verification/v1/fixtures/t2b-golden/`): an outsider re-derives
+  `qpfv0:` and `qpfpkg0:` identifiers from supplied inputs.
+- SPECIFIED: the twelve-layer normative package (receipt, attestation, evidence
+  bundle, verify skill, key lifecycle, trust root, trust policy, verification
+  receipt, verification semantics, verifier profile; capability negotiation
+  DEFERRED) in `docs/protocol/qpf-v1/`.
+- IMPLEMENTED: the local evidence bundle (`npm run verify:evidence`): evidence
+  index, receipt hash, claim map, drift guard, and snapshot anchor
+  (`evidence/INDEX.md`), reproduced from a fresh clone in
+  `docs/verification/PUBLIC_VERIFICATION_REPRODUCTION_V1.md`.
+
+Normative requirements for this layer:
+
+- **V1.** Verification is a pure function of declared inputs: artifact bytes,
+  receipt, trust material, and policy. Same inputs MUST yield the same result on
+  an independent implementation (`09-verification-semantics.md`: "MUST be stable
+  across independent implementations for the same vectors").
+- **V2.** The verifier MUST fail closed: unknown states are reported as
+  `unavailable` or `partial`, never promoted to `pass`.
+- **V3.** The verifier MUST NOT treat model output, agent narrative, or provider
+  claims as authoritative inputs; only declared, checkable artifacts are inputs.
+- **V4.** Verification results are evidence for governance; they are not
+  authorization, not execution, and not settlement (see §10).
+
+## 9. External Settlement Layer
+
+**Classification: outside QPF's verification authority; current posture
+IMPLEMENTED-BUT-GATED to NOT-AUTHORIZED across all economic surfaces.**
+
+Economic settlement — minting, liquidity, staking, bridging, yield routing,
+custody, treasury movement — is architecturally downstream of verification and
+governance, never entailed by them. The repository's current posture, which this
+document preserves without modification:
+
+- `docs/DISTANCE_TO_ECONOMIC_ACTIVATION_V1.md`:
+  `COMMERCIAL_ACTIVATION = NOT_ACTIVE`, `PUBLIC_MINT_OPEN = NO`,
+  `LIQUIDITY = NO`, `YIELD / STAKING / BRIDGE = NO`,
+  `RESTRAINT = INTENTIONAL`; each economic gate "needs its own authorization.
+  Bundling 'activate everything' is forbidden by doctrine."
+- `docs/SECURITY_BOUNDARIES_V1.md`: mint, liquidity, staking, bridge, treasury,
+  and site wallet signing are hard-off by default; restraint is recorded as
+  governance choice, not accident.
+- `docs/review/VERIFICATION_STATUS_TABLE_V1.md` rows G-01 through G-08: economic
+  capabilities are "Implemented but gated" or "Experimental," never Verified as
+  live.
+
+Requirement:
+
+- **S1.** No verification result, of any level, from any verifier, creates an
+  economic entitlement, triggers settlement, or authorizes an economic action.
+  Economic actions require their own explicit human/governance GO under existing
+  gates.
+
+## 10. Verification / Authorization / Execution / Settlement Separation
+
+The architecture preserves, as a hard invariant:
 
 ```text
 VERIFY ≠ AUTHORIZE ≠ EXECUTE ≠ SETTLE
 ```
 
-Success at one boundary does not establish success at the next.
-
----
-
-## 3. System Boundary
-
-### 3.1 Inside the QPF verification substrate
-
-| Concern | Status |
-| --- | --- |
-| Canonical encoding of artifacts (JCS RFC 8785) | `IMPLEMENTED` in `src/verification/canonical.js` |
-| Content hashing (SHA-256, algorithm-labeled) | `IMPLEMENTED` transitional; protocol primary is BLAKE3 (`SPECIFIED`, not implemented) |
-| Level 0 verify: artifact + receipt bind | `IMPLEMENTED` (`verifyLevel0`) |
-| Identity artifact schema + content-addressed `identity_id` | Schema `SPECIFIED`; derivation/bind `IMPLEMENTED` |
-| Evidence index / evidence receipt / claim-map scripts | `IMPLEMENTED` as project-evidence tooling (SHA-256, generally unsigned) |
-| Hermes-style execution receipts with authority envelope | `IMPLEMENTED` as operational receipts; not the full `qpf.receipt.v1` crypto form |
-| Verification Protocol v1 layers 1–10 | `SPECIFIED` (normative draft) |
-| Trust root / key lifecycle / Ed25519 signing path | `SPECIFIED`; not a unified production implementation |
-| Evidence Bundle / Attestation / Verification Receipt objects | `SPECIFIED`; not a complete portable bundle implementation |
-| Capability negotiation (protocol layer 11) | **DEFERRED** — do not invent |
-
-### 3.2 Outside the QPF verification substrate
-
-| Concern | Boundary |
-| --- | --- |
-| Training or hosting a frontier foundation model | Not QPF’s product definition |
-| Owning every agent that emits QPF artifacts | Not required |
-| Being the exclusive execution runtime | Not required |
-| Economic settlement, mint, LP, staking, bridge | Separate gates; currently **not authorized** (`SPECIFIED` + operational restraint) |
-| Legal personhood of OINIO | Explicitly denied by identity spec |
-| Real-world truth of observed inputs | Outside cryptographic verification |
-
-### 3.3 What “independent verification layer” means
-
-QPF can sit beside heterogeneous:
-
-- models (local Ollama, hosted foundation models, 0G-hosted compute, future providers);
-- agents (reasoners, executors, claim producers);
-- execution environments (laptop, CI, 0G path, other hosts);
-- identity systems (QPF identity artifacts; external platform accounts);
-- economic ecosystems (Pi, 0G, others)
-
-**without QPF owning those systems**, provided those systems emit or can be bound to QPF-verifiable artifacts and receipts.
-
-Whether that property holds for an arbitrary external system today is **not** universally demonstrated (`UNVERIFIED` as a global interoperability claim). It is an architectural requirement (see §12).
-
----
-
-## 4. Layer Model
-
-```text
-┌─────────────────────────────────────────────────────────┐
-│ 5. External Settlement / Economic Layer                  │
-│    mint · liquidity · staking · bridge · payout · fee    │
-│    OUTSIDE verification authority                        │
-└───────────────────────────▲──────────────────────────────┘
-                             │ consumes results; never implied
-┌───────────────────────────┴──────────────────────────────┐
-│ 4. QPF Verification Layer     ← this substrate           │
-│    canonicalize · hash · bind · evaluate evidence        │
-│    emit pass/fail/partial/unavailable (and receipts)     │
-└───────────────────────────▲──────────────────────────────┘
-                             │ evidence / artifacts / receipts
-┌───────────────────────────┴──────────────────────────────┐
-│ 3. OINIO Identity / Provenance Layer                     │
-│    persistent identity artifacts, lineage fields,        │
-│    platform-cluster registry (see limits in §7)          │
-└───────────────────────────▲──────────────────────────────┘
-                             │ claims, actions, artifacts
-┌───────────────────────────┴──────────────────────────────┐
-│ 2. Agent Layer                                           │
-│    reason · act · produce claims · consume evidence      │
-│    QPF does not necessarily control these agents         │
-└───────────────────────────▲──────────────────────────────┘
-                             │ probabilistic proposal
-┌───────────────────────────┴──────────────────────────────┐
-│ 1. Model Layer                                           │
-│    local / hosted / 0G / future providers                │
-│    never a trust root                                    │
-└─────────────────────────────────────────────────────────┘
-```
-
-Authorization and execution are **not** additional product layers owned by verification. They are separate concerns that may be implemented by QPF operational machinery, external operators, or not at all. See §10.
-
----
-
-## 5. Model Layer
-
-**Role:** probabilistic proposal. Models generate text, plans, patches, or other candidate artifacts.
-
-**Status of QPF model use:**
-
-| Path | Status |
-| --- | --- |
-| Local Ollama / sovereign local-AI kit | `EXPERIMENTAL` product/ops path (`LOCAL_AI_SETUP.md`, local-ai reports) |
-| Externally hosted foundation models | Operational use may exist in agent workflows; **not** a QPF trust root |
-| 0G-hosted computation | `EXPERIMENTAL` dual-path access documented in `docs/ARCHITECTURE.md` (router vs direct provider). Billing/path health is observational, not a verification proof of model quality |
-| Future model providers | In scope for the portability requirement; not pre-certified |
-
-**Invariants (`SPECIFIED` by protocol; partially enforced by Level 0 not calling models):**
-
-- Models **MUST NOT** be trust roots, signing authorities, or governance deciders.
-- Models **MUST NOT** override policy or verification results.
-- Models **MAY** appear in execution metadata only.
-- The Verify Skill **MUST NOT** call models as part of the trust-decision path (`04-verify-skill.md`).
-
-QPF **MUST NOT** be architecturally dependent on a particular model provider. Current operational convenience (e.g. a working 0G direct-provider path) is not an architectural lock-in.
-
----
-
-## 6. Agent Layer
-
-**Role:** entities that may reason, execute actions, produce claims, consume evidence, modify state, or interact with external systems.
-
-QPF does **not** necessarily control these agents. Existing control-plane wrappers (`docs/OINIO_CONTROL_PLANE.md`) are a local operator convenience (`IMPLEMENTED` as config/wrapper setup), not proof that QPF owns the agent ecosystem.
-
-**Invariants:**
-
-- Agents propose; they do not become the verifier.
-- Agent “always approve” modes **MUST NOT** silently override trust policy (`07-trust-policy.md`).
-- An agent-produced narrative is not evidence. Evidence is the artifact + receipt + (specified) attestation/bundle.
-- SCCB threat model (`docs/sccb/THREAT_MODEL.md`, `SPECIFIED`/`EXPERIMENTAL` capability broker) treats agent context as an adversarial surface (prompt injection, secret leakage, allowlist expansion). That threat model is operational security, not a claim that SCCB is the verification substrate.
-
----
-
-## 7. OINIO Identity / Provenance Layer
-
-Describe only what the repository establishes. Do not upgrade aspiration to capability.
-
-### 7.1 Verifiable AI identity artifact (`SPECIFIED` + partial `IMPLEMENTED`)
-
-`docs/protocol/qpf-v1/12-identity-artifact.md` defines `qpf.identity.verifiable-ai.v1`.
-
-Established:
-
-- Identity sits **above** the existing verification stack; it does not introduce a parallel verifier.
-- Scope is `knowledge_body`. It is not a legal person, biological person, or human equivalent.
-- `identity_id = qpfid0: || sha256(jcs(stable_body))` is `IMPLEMENTED` (`src/verification/identity-id.js`) with golden vectors.
-- Binding an identity file to a Level 0 receipt is `IMPLEMENTED` (`identity-bind.js`).
-- A bind `pass` means: file matches receipt **and** declared `identity_id` matches derivation. It does **not** authorize Genesis, merge, deploy, wallet, or economic action.
-
-Identity epistemic states (`SPECIFIED` in 12-identity-artifact.md; **not** the same enum as Level 0):
-
-| State | Meaning |
-| --- | --- |
-| `DECLARED` | Declared without sufficient receipt-bound evidence |
-| `UNVERIFIED` | Evidence insufficient or unavailable |
-| `VERIFIED` | Relevant artifact/evidence binding has a Level 0 pass |
-| `ATTRIBUTED` | Separate attribution evidence |
-| `DERIVED` | Derivative artifact + lineage link |
-| `UNKNOWN` | Cannot presently be established |
-
-`VERIFIED` never means human-authored.
-
-### 7.2 OINIO Genesis
-
-**Not created.** The identity spec states no Genesis artifact is created by Step A. `identities/oinio/genesis.json` remains intentionally absent until later authorization (`SPECIFIED` non-scope).
-
-### 7.3 Identity Lock registry
-
-`docs/IDENTITY_LOCK.md` describes OINIO as a distributed platform-cluster (GitHub, X, Telegram, Discord, on-chain display name). Treat as an **identity-cluster registry document**. Several verification fields in that file remain placeholders (GPG fingerprint, wallet address, Discord user id). Those placeholders are **not** cryptographic identity proofs.
-
-### 7.4 OINIO as sovereign agent (`docs/ARCHITECTURE.md`)
-
-That document describes OINIO as a sovereign, non-root agent using 0G compute paths, local orchestration, and diagnostics. That is an **agent/runtime description**, not a proof that persistent provenance is complete.
-
-**Architectural reading (`PROPOSED`, consistent with §7.1):** persistent identity/provenance is distinct from model execution. A model completion is not an identity. An identity artifact is not a model.
-
----
-
-## 8. QPF Verification Layer
-
-This is the central layer.
-
-### 8.1 Role
-
-Independently evaluate verification artifacts/evidence rather than blindly trusting the originating agent or model provider.
-
-Core question:
-
-```text
-Can an independent verifier reproduce and validate the evidence
-supporting the claimed state transition?
-```
-
-This is **not** “AI truth detection.”
-
-### 8.2 Protocol pipeline (`SPECIFIED`)
-
-```text
-artifact
-  → receipt
-  → attestation
-  → evidence bundle
-  → trust resolution
-  → policy evaluation
-  → verification semantics
-  → verification result
-  → signed verification receipt
-  → (governance decision — outside pure crypto path)
-```
-
-### 8.3 What is implemented today
-
-Level 0 (`src/verification/verify-level0.js`, `IMPLEMENTED`):
-
-1. Locate artifact
-2. Locate execution receipt
-3. Check receipt structure
-4. Check artifact content hash against receipt claim
-5. Check receipt↔artifact binding
-6. Signature check only if claimed **and** a verify primitive exists; otherwise `unavailable` / `not_applicable`
-7. Emit structured `VerificationResult`
-
-Level 0 **does not** implement attestation (L1), evidence retrieval (L2), reproduction (L3), trust-root discovery, or trust-policy composition.
-
-Project-level evidence scripts (`npm run verify:evidence`, independent verification) check committed evidence indexes/receipts/claim maps. That is **repository evidence hygiene**, a different plane from on-chain deploy verification (`docs/VERIFICATION.md`) and from protocol Level 0.
-
-### 8.4 Protocol statuses (frozen; do not replace)
-
-From `09-verification-semantics.md` and Level 0 aggregation:
-
-| Status | Meaning |
-| --- | --- |
-| `pass` | Required checks for the requested level succeeded |
-| `fail` | Known violation (hash mismatch, bad signature, revoked key, policy denial, …) |
-| `partial` | Incomplete evidence or incomplete check set; or Level 0 ok but higher level unavailable |
-| `unavailable` | Required capability or material not present |
-
-Missing information **MUST NOT** automatically become cryptographic `fail`.
-Known violations **MUST** produce `fail`.
-Uncertainty **MUST NOT** collapse into `pass` because an artifact is well-formed.
-
-Reproduction is a **dimension** (`reproduction`: pass / fail / unavailable / not_requested), not a synonym for hash validity.
-
----
-
-## 9. External Settlement Layer
-
-Settlement is any transfer of economic entitlement: mint, liquidity, staking, bridge, fee routing, payout, treasury movement.
-
-Existing restraint (`SPECIFIED` + operational):
-
-- `docs/SECURITY_BOUNDARIES_V1.md` — public mint off; liquidity/staking/bridge gated; site wallet signing disabled
-- `docs/governance/ECONOMIC_SOVEREIGNTY_GATE_V1.md` — model documented; live revenue / wallet action / automated fees **false**
-- `docs/DISTANCE_TO_ECONOMIC_ACTIVATION_V1.md` — `Capability ≠ Permission ≠ Activation ≠ Revenue`
-- Protocol non-goal: automatic economic unlock from a `pass` result
-
-Verification may *inform* a later settlement decision. Verification **MUST NOT** perform settlement.
-
----
-
-## 10. Verification / Authorization / Execution / Settlement Separation
-
-```text
-VERIFY     ≠  AUTHORIZE  ≠  EXECUTE  ≠  SETTLE
-```
-
-| Verb | Question | Owner class |
-| --- | --- | --- |
-| **Observe** | What was seen on which channel? | Observer / environment |
-| **Produce evidence** | What artifact and receipt were emitted? | Actor (human, agent, system) |
-| **Canonicalize** | Is the representation deterministic? | Verifier / producer using QPF rules |
-| **Cryptographic integrity** | Do hashes/signatures match declared algorithms and keys? | Verifier |
-| **Verify** | Do required checks succeed under a profile/policy? | Independent verifier |
-| **Authorize** | May this action be taken? | Governance / human / policy engine **outside** verify |
-| **Execute** | Was the action performed? | Execution environment |
-| **Settle** | Was economic entitlement transferred? | Economic rails / chain / off-chain payer |
-
-`docs/architecture/PROTOCOL_ADAPTER_LAYER_V1.md` (`SPECIFIED`, dry-run only) classifies whether an intent would require signing, RPC mutation, deployment, funding, or liquidity, and **rejects live execution by default**. That adapter is not settlement and not authorization.
-
-Hermes-style `authorityBoundary` fields record execution constraints. They are envelope evidence, not authorization.
-
----
+Repository grounding:
+
+- `src/verification/README.md`: "AUTHORIZATION ≠ VERIFICATION. VERIFICATION ≠
+  GOVERNANCE DECISION."
+- `docs/DISTANCE_TO_ECONOMIC_ACTIVATION_V1.md`: "Capability ≠ Permission ≠
+  Activation ≠ Revenue," and the staged chain "Technical truth → Deployment
+  evidence → Independent verification → Governance decision → Economic activation
+  → Markets → Possible protocol revenue," where each arrow is a separate gate
+  that pays no wallet.
+- `QPF_VERIFICATION_PROTOCOL_V1.md`: governance is the final contextual decision
+  and sits **outside** the pure verification crypto path.
+- `docs/ai/AUTHORIZATION_WORKFLOW.md`: "Do not treat a successful technical check
+  as permission for a separate external or financial action."
+
+Consequence rules:
+
+1. A `pass` verification result does not authorize a merge, deploy, mint, or
+   transfer.
+2. An authorization does not execute anything; execution is a separately gated
+   act with its own receipts.
+3. An execution does not settle value; settlement is an external economic event
+   with its own evidence requirements.
+4. Success at any stage MUST NOT be represented, in any artifact, as success at a
+   later stage.
 
 ## 11. Evidence and Epistemic Boundaries
 
-### 11.1 Three distinct evaluations
+This section is the epistemic core of the specification.
 
-| Evaluation | Answers | Does not answer |
+### 11.1 Three separations
+
+| Property | Established by | Does NOT establish |
 | --- | --- | --- |
-| **Cryptographic validity** | Was the canonical artifact hashed/signed as claimed? | Is the claim true in the world? |
-| **Semantic correctness** | Do fields mean what the schema says; do bindings line up? | Is the observed input truthful? |
-| **Real-world truth** | What actually happened in the world? | Not established by a valid signature or hash |
+| **Cryptographic validity** | Hashes match; signatures verify; canonical encoding is well formed | That the claim the artifact carries is true |
+| **Semantic correctness** | The artifact's fields are internally consistent and correctly describe its own evidence | That the described real-world event occurred as described |
+| **Real-world truth** | Independent observation of the world (outside the artifact) | — (outside what any artifact can self-certify) |
 
-A valid signature, hash, or canonical artifact does **not** automatically prove that the underlying claim is true.
+A valid signature over a false statement is a valid signature over a false
+statement. A canonical, well-formed, hash-matched evidence bundle whose prose
+claims an event that never occurred is cryptographically VALID-shaped and
+semantically false. QPF verification operates on the first column and, where
+reproduction is declared and checkable, part of the second. It does not, and by
+this specification MUST NOT claim to, establish the third.
 
-`TRUTH_DOMAIN_SEPARATION_LAYER_v1.0.md` (`SPECIFIED` for grant/audit language) separates:
+### 11.2 Preserved epistemic states
 
-1. independently reproducible fact;
-2. self-reported telemetry;
-3. design intent.
+- Verification outcomes (IMPLEMENTED, `src/verification/semantics.js`;
+  SPECIFIED, `09-verification-semantics.md`): `pass`, `fail`, `partial`,
+  `unavailable` — fail-closed, with missing evidence never promoted to `pass`
+  and never misreported as a cryptographic violation.
+- Identity/claim epistemic states (SPECIFIED, `12-identity-artifact.md` §4):
+  `DECLARED`, `UNVERIFIED`, `VERIFIED`, `ATTRIBUTED`, `DERIVED`, `UNKNOWN`.
+- External verdicts (IMPLEMENTED, `external-verification/v1/README.md`):
+  `CONFIRM`, `PARTIAL`, `BLOCKED`, `FAIL` — with an infrastructure outage scored
+  `BLOCKED`, not `FAIL`.
 
-This architecture inherits that separation. Design intent in this file is labeled. Self-reported runtime health is not Domain-1 verification.
+### 11.3 Recorded ambiguity (not resolved here)
 
-### 11.2 Protocol statuses remain authoritative
+The commissioning language for this document referenced a four-state epistemic
+set `VALID / INVALID / INCOMPLETE / CONFLICT`. Inspection of the repository did
+not locate those four terms as a defined status enumeration in the verification
+stack or protocol package; the existing frozen enums are the ones listed in
+§11.2. Per the governing instruction to preserve frozen state and record
+ambiguity rather than invent resolution:
 
-Do not replace `pass` / `fail` / `partial` / `unavailable` with another enum in implementations.
+- This document **preserves** the existing enums and does not introduce
+  `VALID / INVALID / INCOMPLETE / CONFLICT` as verifier semantics.
+- If that four-state set is intended as a future aggregation vocabulary, it is
+  **PROPOSED** only, and its mapping onto `pass/fail/partial/unavailable` (e.g.,
+  INCOMPLETE ≈ partial/unavailable; CONFLICT as a multi-verifier disagreement
+  state above single-verifier semantics) is left as an open question (§20).
 
-### 11.3 Review overlay: VALID / INVALID / INCOMPLETE / CONFLICT
-
-The quartet `VALID` / `INVALID` / `INCOMPLETE` / `CONFLICT` is **not** a frozen protocol enum in `docs/protocol/qpf-v1/`. Isolated uses exist (e.g. multi-report marking a bad report `INVALID`; identity lineage conflicts as a review condition).
-
-This document records the quartet as a **reviewer-facing overlay** (`PROPOSED` mapping only):
-
-| Overlay | Maps onto existing canon | Must not be read as |
-| --- | --- | --- |
-| `VALID` | protocol `pass` on the requested checks | real-world truth; authorization; settlement |
-| `INVALID` | protocol `fail` (known violation) | “the prose is false” in general |
-| `INCOMPLETE` | `partial` or `unavailable` | automatic `fail` |
-| `CONFLICT` | disagreeing independent reports (`NO_CONSENSUS` / `CONSENSUS_DRIFT` in multi-report architecture); identity lineage conflict | silent overwrite; auto-`pass` of one side |
-
-**Ambiguity (preserved, not resolved):** no single repository artifact freezes `VALID|INVALID|INCOMPLETE|CONFLICT` as the machine-facing verification result type. Implementations **MUST** continue to emit protocol statuses.
-
-### 11.4 Identity epistemic states
-
-Remain as specified in §7.1. Do not collapse `DECLARED` / `UNVERIFIED` / `VERIFIED` / `ATTRIBUTED` / `DERIVED` / `UNKNOWN` into Level 0 `pass`.
-
----
+Uncertainty MUST NOT be collapsed into `pass` (or "VALID"-language) merely
+because an artifact is well formed.
 
 ## 12. Portability and Provider Independence
 
-### 12.1 Property (architectural requirement)
+**Classification: architectural requirement and acceptance criterion (PROPOSED as
+a named property; composed from existing SPECIFIED invariants).**
 
-**QPF Portability Property (`PROPOSED` as named property; consistent with evidence-bundle and verify-skill specs):**
+**Property P-IND (provider-independent verification):**
 
-> A QPF verification artifact should remain independently verifiable when the originating model provider, agent framework, hosting provider, or economic platform is replaced.
+> A QPF verification artifact — artifact digest set, receipt, attestation,
+> evidence bundle, and verification result — remains independently verifiable,
+> with identical semantics and identical derived identifiers, when the
+> originating model provider, agent framework, hosting provider, or economic
+> platform is replaced.
 
-Classification:
+Testable consequences (acceptance criteria):
 
-| Aspect | Classification |
-| --- | --- |
-| Independence from a particular model provider | **Architectural requirement** (this document + protocol model boundary) |
-| Offline crypto checks when material is local | **Specified** acceptance criterion (`03-evidence-bundle.md`, `04-verify-skill.md`) |
-| Level 0 hash-bind reproducibility on a checkout | **Implemented** acceptance criterion for the Level 0 slice |
-| Universal achievement across arbitrary providers | **Not claimed** |
+1. **C1 (implemented today, local).** The T2-B golden pack
+   (`external-verification/v1/fixtures/t2b-golden/`) reproduces `qpfv0:` and
+   `qpfpkg0:` identifiers from raw inputs with no QPF service, wallet, RPC, or
+   narrative. This is the smallest working demonstration of the property.
+2. **C2 (acceptance criterion).** For any receipt produced through the Hermes
+   (Ollama) lane, replacing the model with a different local model and re-running
+   the same declared inputs must produce evidence that the same verifier accepts
+   or rejects under the same semantics — receipt replay
+   (`npm run verify:receipt`) is model-agnostic by construction.
+3. **C3 (acceptance criterion, not yet demonstrated).** An evidence bundle
+   produced against a 0G-hosted inference path must verify identically when the
+   bundle is evaluated on infrastructure with no 0G account, endpoint, or
+   credential. **UNVERIFIED** — no cross-provider fixture pack exists today.
+4. **C4 (acceptance criterion, not yet demonstrated).** Verification of any
+   artifact MUST NOT require network access to the originating provider. Level 0
+   is offline by construction (file digests and receipt binding); higher levels
+   involving trust-root or evidence retrieval are SPECIFIED only.
 
-### 12.2 Testable acceptance criteria (Level 0 slice, `IMPLEMENTED` target)
-
-An independent engineer with the artifact bytes, the receipt, and `src/verification` **MUST** be able to obtain the same Level 0 status (modulo timestamp) without:
-
-- calling the originating model provider;
-- possessing the originating agent’s runtime;
-- holding economic-rail credentials.
-
-Golden tests in `tests/verification/level0.test.js` already encode hash mismatch → `fail`, missing material → `unavailable`, no silent upgrade of level > 0.
-
-### 12.3 Specified but unimplemented portability surface
-
-Full portability as intended by protocol v1 additionally requires portable evidence bundles, declared verifier profiles, trust-root pinning, and optional reproduction. Those are **acceptance criteria for later milestones**, not present-tense capabilities.
-
----
+This document does **not** claim the property is universally achieved. C1 is
+demonstrated; C2–C4 are acceptance criteria for future conformance work.
 
 ## 13. Adversarial Verification Considerations
 
-Connect to existing work. Do not overstate conclusions.
+This architecture assumes an adversarial environment and connects to QPF's
+existing adversarial work without extending it:
 
-### 13.1 Representation vs behavior
+- **Representations diverge from behavior.** The SCCB threat model treats agent
+  context, logs, and chat as an adversarial surface and requires metadata-only
+  projections of credentials and capabilities
+  (`docs/sccb/THREAT_MODEL.md`). Adversarial tests prove (with synthetic
+  fixtures) that secrets stay out of agent context and that authority is
+  machine-verifiable (`sccb/test/adversarial.verification.test.js`,
+  `docs/sccb/IMPLEMENTATION_VERIFICATION.md`).
+- **Prose can be false while fields are valid.** The canon-boundary discipline
+  (`docs/canon/INDEX.md`) records that even canonical documents' self-statements
+  are "a claim, not a fact," and the truth-domain separation layer
+  (`TRUTH_DOMAIN_SEPARATION_LAYER_v1.0.md`) forbids assertive language
+  ("verified", "confirmed") outside independently reproducible claims.
+- **Observation-channel integrity matters.** Evidence entering the verification
+  layer is only as strong as the observation that produced it; self-reported
+  telemetry is Domain 2 — "self-reported and non-auditable"
+  (`TRUTH_DOMAIN_SEPARATION_LAYER_v1.0.md`; status table row E-05: never promote
+  self-reported telemetry to Verified).
+- **An honest-looking artifact is not sufficient evidence.** Receipts prove
+  execution conditions; attestations expand provenance; neither equals trust
+  acceptance (`QPF_VERIFICATION_PROTOCOL_V1.md`, layer invariants).
+- **Independent reproduction outranks originating narrative.** The external
+  verification suite exists so a third party can confirm, partially confirm,
+  block, or falsify QPF assertions without trusting QPF
+  (`external-verification/v1/README.md`), and public reproduction from a clean
+  clone is recorded at
+  `docs/verification/PUBLIC_VERIFICATION_REPRODUCTION_V1.md`.
+- **Replay and forgery resistance** are existing design constraints:
+  `params_hash` binding, one-time consume, and optional TTL on approvals
+  (`docs/sccb/THREAT_MODEL.md`).
 
-Protocol invariant: model output is not authoritative. A well-formed artifact can describe behavior that did not occur. Observation-channel integrity is a separate concern (`docs/ops/EXTERNAL_OBSERVATION_*`, operational — not a completed universal sensor).
-
-### 13.2 Prose vs machine-verifiable fields
-
-Verify Skill **MUST** return structured codes, not free-form model prose as authority (`04-verify-skill.md`).
-
-Consequence: prose can contain false claims while machine-verifiable fields remain valid. A Level 0 `pass` on a file digest does not validate sentences inside the file.
-
-### 13.3 Honest-looking artifacts
-
-An artifact that looks complete is not necessarily sufficient evidence. Missing required objects are `partial` / `unavailable`, not `pass`. Multi-report architecture (`docs/community/MULTI_REPORT_VERIFICATION_ARCHITECTURE_V1.md`, `SPECIFIED` process architecture) exists because a single report is a fragile substitute for “trust the builder.”
-
-### 13.4 Independent reproduction vs originating narrative
-
-`docs/verification/PUBLIC_VERIFICATION_REPRODUCTION_V1.md` and `docs/evidence/INDEPENDENT_VERIFICATION_V1.md` document **read-only reproduction of committed evidence bundles**. That is stronger than trusting a narrative. It is **not** a proof of real-world events beyond what those bundles bind.
-
-`docs/community/MULTI_REPORT_VERIFICATION_ARCHITECTURE_V1.md` failure modes (do not treat as empirically measured rates):
-
-- single point of failure;
-- collusion (builder under another name);
-- localized environment error;
-- trust substitution (“trust verifier A”).
-
-Disagreeing reports halt / escalate. They do not auto-activate anything.
-
-### 13.5 SCCB / agent adversary
-
-`docs/sccb/THREAT_MODEL.md` covers secret leakage into LLM context, prompt injection, compromised agent process, replayed approvals, and allowlist expansion. Residual risk is acknowledged (e.g. unlocked local signer). This is adjacent operational security, not a completed proof that QPF verification is adversarially sound at protocol levels 1–3.
-
----
+Nothing in this section claims these mechanisms are complete; the SCCB report
+itself lists explicit non-actions and residual risks.
 
 ## 14. Economic Architecture
 
-### 14.1 Structural difference
+This section states the structural economic thesis. It is an analysis of
+infrastructure dependency, not a claim about revenue, valuation, adoption, or
+market position. No quantitative market claims are made.
 
-| | Model-centric | Verification-centric (QPF intent) |
-| --- | --- | --- |
-| Core product | Model capability | Evaluable evidence and verification results |
-| Primary dependency | Ongoing frontier compute/data/talent | Verifier implementations, evidence availability, governance discipline |
-| Cost | Non-zero and typically dominated by training/serving | Non-zero and dominated by verification engineering, storage, review — **not claimed to be cheaper in dollars** |
-| Revenue coupling | Users of the model | `UNVERIFIED`. Economic rails exist as designed objects; commercial activation is **NOT_ACTIVE** |
+### 14.1 Model-centric structure (contrast case)
 
-### 14.2 Value events vs paid events
+```text
+CAPITAL → COMPUTE → MODEL → USERS → REVENUE
+```
 
-`ECONOMIC_SOVEREIGNTY_GATE_V1.md` lists documentable readiness events (`VERIFY_ACTION`, `PROOF_GENERATION`, `RECEIPT_SEAL`, `REPLAY_VALIDATION`, `AGENT_ID_BIND`, …). They are **not** live paid events under that gate.
+An organization whose core product is a frontier foundation model carries
+substantial ongoing infrastructure requirements: competitive model capability
+depends on continued access to compute, training data, research talent, and
+serving/deployment infrastructure. Capital is converted into compute; compute
+into model capability; capability into users; users into revenue, which must
+recur to fund the next cycle. The infrastructure dependency is **structural**:
+it follows from what the product *is*.
 
-### 14.3 Restraint is intentional
+### 14.2 Verification-centric structure (QPF's intended position)
 
-Empty pools and disabled mint are documented as governance restraint, not incomplete accidents (`SECURITY_BOUNDARIES_V1.md`). This architecture document does not move those switches.
+```text
+AGENTS → EVIDENCE → VERIFICATION → TRUST → ECOSYSTEM VALUE
+```
 
----
+QPF's intended position does not require QPF to manufacture the underlying
+intelligence. Agents (QPF-operated or third-party) act and produce claims; those
+claims are bound to evidence; the verification layer evaluates evidence
+deterministically; reproducible verification results are the basis on which
+other parties can decide what to trust; ecosystem value, if any, accrues to the
+extent that independent parties actually rely on that verification.
+
+Two precision rules:
+
+1. **This does not mean verification has zero cost.** Verification requires
+   engineering, conformance fixtures, key management, evidence retention, and
+   review. The claim is narrower: QPF's primary infrastructure dependency is
+   *structurally different* from a company whose core product is a frontier
+   foundation model, because verification evaluates artifacts and does not
+   require owning the means of producing intelligence.
+2. **This is a design posture, not a demonstrated market outcome.** Whether an
+   ecosystem values QPF verification is an empirical question this document does
+   not answer (see §20, open questions).
+
+### 14.3 Boundary to settlement
+
+Economic activity is outside the verification authority boundary (§9, §10).
+QPF MUST NOT manufacture economic activity merely to demonstrate traction; the
+canon already encodes this as intentional restraint
+(`docs/DISTANCE_TO_ECONOMIC_ACTIVATION_V1.md`, `docs/SECURITY_BOUNDARIES_V1.md`).
 
 ## 15. Non-Goals
 
-QPF does not seek to:
+QPF, as specified by this architecture, does not seek to:
 
-- train the world’s best foundation model;
-- own every agent using the protocol;
-- become the exclusive execution environment;
-- require a particular model provider;
-- equate cryptographic validity with real-world truth;
-- guarantee that an observed input is itself truthful;
-- become the settlement authority for every ecosystem;
-- manufacture economic activity merely to demonstrate traction;
-- treat model output as a trust root (`SPECIFIED` protocol non-goal);
-- automatically unlock economics from a `pass` result (`SPECIFIED`);
-- invent protocol layer 11 (capability negotiation) before layers 1–10 work (`SPECIFIED` freeze);
-- replace GitHub / Cloudflare / Pi portals (`SPECIFIED` v1 non-goal);
-- forbid offline verification by requiring a centralized remote authority when material is local (`SPECIFIED`);
-- create OINIO Genesis, mint, liquidity, staking, bridge, or credentials as a side effect of this document.
+1. train the world's best foundation model;
+2. own every agent using the protocol;
+3. become the exclusive execution environment;
+4. require a particular model provider;
+5. equate cryptographic validity with real-world truth;
+6. guarantee that an observed input is itself truthful;
+7. become the settlement authority for every ecosystem;
+8. manufacture economic activity merely to demonstrate traction.
 
----
+Additional non-goals established by existing canon and restated here for
+completeness:
+
+9. replacing GitHub, Cloudflare, or Pi portals
+   (`QPF_VERIFICATION_PROTOCOL_V1.md`, Non-goals);
+10. model-as-trust-root, and automatic economic unlock from a `pass` result
+    (same);
+11. AI truth detection: the verification layer evaluates evidence about
+    artifacts and state transitions; it does not adjudicate the truth of
+    arbitrary natural-language claims (§11);
+12. legal personhood or human equivalence for any identity artifact
+    (`12-identity-artifact.md` §1, §5).
+
+No additional non-goals are introduced beyond those supported by existing
+repository architecture.
 
 ## 16. Security / Trust Assumptions
 
-Assumptions that current design relies on. Violation degrades guarantees.
-
-1. **Canonicalization assumption.** Independent verifiers use the declared encoder (JCS RFC 8785 for current identity/Level 0 paths). Non-canonical JSON MUST NOT be hashed where the protocol requires canonical serialization.
-2. **Hash algorithm transparency.** Digests carry an algorithm id. Current implemented default is SHA-256. Protocol v1 prefers BLAKE3 (`SPECIFIED`; `UNVERIFIED` as implemented default).
-3. **No secret-in-artifact.** Receipts and bundles MUST NOT embed private keys or tokens (`01-receipt.md`, `03-evidence-bundle.md`).
-4. **Local material for offline checks.** Pure crypto checks assume referenced bytes are present locally.
-5. **Observation channel.** Receipts record *declared* environment claims. They do not, by themselves, prove the observation channel was uncompromised (`UNVERIFIED` as a general guarantee).
-6. **Trust roots are explicit.** “Trust the model” and “trust the GitHub UI alone” are forbidden as implicit roots (`06-trust-root.md`). Production roots require out-of-band governance (`SPECIFIED`; production roots `UNVERIFIED`).
-7. **Human governance remains outside verify.** High-risk authorization stays human-gated (mint/deploy/wallet).
-8. **Adversarial agent context.** Prompts and tool outputs may be hostile (SCCB). Verification code paths MUST NOT take model prose as authority.
-
----
+- **Hash and signature primitives.** Level 0 uses SHA-256 via Node `crypto`
+  (transitional; always labeled); protocol v1 prefers BLAKE3 and Ed25519 with
+  JCS canonical encoding (`QPF_VERIFICATION_PROTOCOL_V1.md`, Cryptographic
+  requirements; `src/verification/README.md`). The SHA-256→BLAKE3 transition is
+  a recorded conflict note in that document and remains open.
+- **Verifier integrity.** A compromised or defective verifier is out of scope of
+  what verification can self-certify; mitigation is independent re-implementation
+  and golden vectors (V1, §12 C1).
+- **Trust material.** Key issuance, rotation, and revocation are SPECIFIED
+  (layers 5–6) but not implemented; until they are, signature-bearing artifacts
+  are evaluated under declared profiles and the absence of a signature is
+  `SIGNATURE_UNAVAILABLE`, never silently passed (`src/verification/semantics.js`).
+- **Observation channels.** Receipts assert execution conditions; the integrity
+  of the observation that produced a receipt is an evidence-quality question,
+  not a cryptographic one (§13).
+- **Secret handling.** Secrets are never placed in agent context, logs, receipts,
+  or git (`docs/sccb/IMPLEMENTATION_VERIFICATION.md`); this document introduces
+  no credentials and changes none.
+- **Lone-steward governance.** Required independent review gates are recorded as
+  not meaningful under single-steward conditions
+  (`docs/governance/LONE_STEWARD_GOVERNANCE_BASELINE_V1.md`); claims in this
+  document should be read with that governance posture in mind.
 
 ## 17. Failure States
 
-| Condition | Expected substrate behavior |
+| Failure | Required behavior |
 | --- | --- |
-| Artifact missing | `unavailable` (not `fail`) |
-| Receipt missing | `unavailable` |
-| Hash mismatch / binding mismatch | `fail` |
-| Malformed receipt | `fail` (structure) |
-| Claimed signature, no verify primitive | `unavailable` (Level 0) |
-| Requested level > implemented level | `unavailable` or `partial`; **no silent upgrade** |
-| Missing evidence object in a bundle | `partial` or `unavailable` (`SPECIFIED`) |
-| Known policy denial / revoked key | `fail` (`SPECIFIED`) |
-| Independent reports disagree | `CONFLICT` overlay / `NO_CONSENSUS`; do not auto-activate |
-| Valid crypto over a false prose claim | cryptographic `pass` **and** unresolved semantic/world question — do not collapse |
-| Attempted economic action without GO | refuse / no-go per security boundaries; verification document unchanged |
-| Provider replacement without portable bundle | portability requirement **fails** for that case; do not claim success |
-
----
+| Missing artifact, receipt, or trust material | `unavailable` (never automatic cryptographic `fail`; never `pass`) |
+| Hash mismatch, malformed receipt, binding mismatch, invalid claimed signature | `fail` with the specific reason code (`src/verification/semantics.js`) |
+| Requested verification level unsupported | `partial` at best, with `level_achieved` reported |
+| External infrastructure outage during external verification | `BLOCKED`, not `FAIL` (`external-verification/v1/README.md`) |
+| Conflicting addresses or evidence across documents | Mark conflict, keep both pending independent verification, fix the canonical matrix first — do not pick a winner in public copy (`VERIFICATION_STATUS_TABLE_V1.md`, On-chain address discipline) |
+| Model/provider failure | Degrades to evidence-level outcomes; never to silent acceptance (§6 A3); router failure is not project failure while an alternate provider path is operational (`OINIO_COMPUTE_RUNTIME_POLICY_20260531.md`) |
+| Lineage conflict in identity artifacts | Review condition, not silent overwrite (`12-identity-artifact.md` §6) |
+| UNKNOWN governance or verification state | Treated as not healthy: `UNKNOWN ≠ HEALTHY`; prepared ≠ verified ≠ approved ≠ executed (repository operating contract; `docs/governance/github-ecosystem-registry-v1.json` `unknownIsHealthy: false`) |
 
 ## 18. Acceptance Criteria
 
-An independent engineer can accept this architecture if and only if:
+This specification is satisfied as a document when all of the following hold
+(and each is checkable by reading this document against its citations):
 
-1. QPF is described as verification infrastructure, not a model provider.
-2. Model, agent, identity, verification, authorization, execution, and settlement boundaries are explicit.
-3. QPF is not required to compete in the frontier-model compute race.
-4. No unsupported adoption, market-position, or universal-truth claims appear.
-5. Cryptographic validity is distinguished from semantic correctness and real-world truth.
-6. Protocol `pass` / `fail` / `partial` / `unavailable` remain the machine-facing statuses; `VALID` / `INVALID` / `INCOMPLETE` / `CONFLICT` are overlay only.
-7. Provider independence is defined as a testable architectural property, not a completed universal fact.
-8. Existing adversarial-verification and multi-report work is cited without inflating conclusions.
-9. Economic activity remains outside verification authority; this document enables no rail.
-10. Existing canonical protocol semantics are not modified.
-11. Status labels (`IMPLEMENTED` / `SPECIFIED` / `EXPERIMENTAL` / `PROPOSED` / `UNVERIFIED`) can be checked against the cited paths.
-
----
+1. QPF is established as verification infrastructure, not a model provider
+   (§1–§4, §8).
+2. Model, agent, identity, verification, execution, authorization, and
+   settlement boundaries are explicit (§4–§10).
+3. Nothing in the document implies QPF must compete in the frontier-model
+   compute race (§5, §14).
+4. No claim of adoption, market position, standardization, or universal truth is
+   made (§14, §19, §20).
+5. Cryptographic validity is explicitly distinguished from semantic correctness
+   and real-world truth (§11).
+6. Existing frozen epistemic enums are preserved, and the
+   `VALID/INVALID/INCOMPLETE/CONFLICT` reference is recorded as an unresolved
+   ambiguity rather than silently adopted (§11.2–11.3).
+7. Provider independence is defined as a testable property with acceptance
+   criteria, and its current demonstration level is honestly labeled (§12).
+8. Existing adversarial-verification work is connected without overstating its
+   conclusions (§13).
+9. Economic activity remains outside the verification authority boundary; no
+   economic rail, mint, stake, liquidity, bridge, credential, threshold, or
+   deployment behavior is enabled or modified (§9, §10, §14.3).
+10. An independent engineer can review this document against the repository
+    without hidden assumptions: every existing-capability assertion carries a
+    path citation.
 
 ## 19. Relationship to Existing QPF Protocols
 
-| Artifact | Relationship |
+This document is an architectural overlay, not a competing source of truth.
+
+| Existing canon | Relationship |
 | --- | --- |
-| `docs/protocol/qpf-v1/QPF_VERIFICATION_PROTOCOL_V1.md` | Normative verification architecture. This document **does not** change it. |
-| `docs/protocol/qpf-v1/09-verification-semantics.md` | Authoritative result codes |
-| `docs/protocol/qpf-v1/12-identity-artifact.md` | Identity layer schema and epistemic states |
-| `src/verification/*` | Implemented Level 0 + identity-id/bind |
-| `docs/ARCHITECTURE.md` | OINIO agent / 0G compute access description — runtime, not this substrate spec |
-| `docs/VERIFICATION.md` | On-chain deployment verification scripts — different plane |
-| `docs/SECURITY_BOUNDARIES_V1.md` | Commercial/irreversible action off-by-default |
-| `docs/governance/ECONOMIC_SOVEREIGNTY_GATE_V1.md` | Economic model documented; live rails off |
-| `docs/DISTANCE_TO_ECONOMIC_ACTIVATION_V1.md` | Capability ≠ permission ≠ activation ≠ revenue |
-| `docs/architecture/PROTOCOL_ADAPTER_LAYER_V1.md` | Dry-run intent classification; no live execution |
-| `docs/community/MULTI_REPORT_VERIFICATION_ARCHITECTURE_V1.md` | Process architecture for independent reports |
-| `docs/evidence/INDEPENDENT_VERIFICATION_V1.md` | Read-only evidence reproduction command |
-| `docs/verification/PUBLIC_VERIFICATION_REPRODUCTION_V1.md` | Documented reproduction at a pinned commit |
-| `TRUTH_DOMAIN_SEPARATION_LAYER_v1.0.md` | Claim-domain language rules |
-| `docs/sccb/THREAT_MODEL.md` | Agent/capability adversarial surface |
-| `docs/IDENTITY_LOCK.md` | Platform-cluster identity registry (placeholder fields remain) |
-| `docs/OINIO_CONTROL_PLANE.md` | Local operator wrappers |
+| `docs/protocol/qpf-v1/QPF_VERIFICATION_PROTOCOL_V1.md` and layer specs 01–12 | Normative protocol semantics; this document cites, never redefines |
+| `src/verification/` (Level 0, semantics, result/package IDs, identity-id/bind) | Implemented base this document classifies as IMPLEMENTED |
+| `docs/review/VERIFICATION_STATUS_TABLE_V1.md` (+ JSON twin) | Claim posture authority; this document's labels are consistent with its Verified / Implemented-but-gated / Experimental / Planned classes |
+| `TRUTH_DOMAIN_SEPARATION_LAYER_v1.0.md` | Epistemic discipline this document applies to itself |
+| `docs/DISTANCE_TO_ECONOMIC_ACTIVATION_V1.md`, `docs/SECURITY_BOUNDARIES_V1.md` | Economic boundary sources for §9, §10, §14.3 |
+| `docs/sccb/` (threat model, implementation verification, adversarial tests) | Adversarial and authority-boundary evidence for §13, §16 |
+| `external-verification/v1/` | Independent-verification surface for §8, §12, §13 |
+| `evidence/INDEX.md` and `docs/verification/PUBLIC_VERIFICATION_REPRODUCTION_V1.md` | Evidence lanes and public reproduction record |
+| `docs/ai/AI_POLICY.md`, `docs/ai/AUTHORIZATION_WORKFLOW.md`, `.qpf/task-contracts/` | Authority discipline under which this document was produced |
 
-**Hash conflict (already recorded in protocol inspection; preserved):** protocol v1 prefers BLAKE3; dominant implemented hash is SHA-256. Transitional dual-hash via declared algorithm id is the specified migration path. This document does not pick a new default.
-
-**Namespace conflict (already recorded; preserved):** “verification” in `docs/VERIFICATION.md` means deploy/contract assertions. Protocol “verification” means evidence evaluation. Keep namespaced.
-
----
+**Protocol-layer thesis (architectural intent, not adoption claim):** QPF is
+designed according to a protocol-layer thesis in which verification remains
+independent of the intelligence provider — in the same way that Internet
+protocols were designed to remain independent of any particular network
+operator. The analogy is architectural only. This document does **not** claim
+that QPF is "TCP/IP for AI," an industry standard, universally adopted, or
+ecosystem-dominant; no external-adoption evidence exists in the repository, and
+none is asserted (see §20).
 
 ## 20. Open Questions / Unverified Claims
 
-Recorded rather than resolved.
-
-1. **Unified overlay enum.** Should `VALID|INVALID|INCOMPLETE|CONFLICT` ever become a protocol-level result type, or remain reviewer language? Current freeze: overlay only.
-2. **Production trust roots.** No production Ed25519 trust-root set is established as protocol infrastructure (`UNVERIFIED`).
-3. **BLAKE3 migration milestone.** Specified; not implemented.
-4. **Levels 1–3.** Attestation, evidence retrieval, reproduction — specified; not implemented in `src/verification`.
-5. **OINIO Genesis.** Specified as future-gated; artifact absent.
-6. **IDENTITY_LOCK cryptographic fields.** GPG fingerprint, key commitment, some platform IDs are placeholders.
-7. **Heterogeneous provider conformance.** No repository evidence shows that arbitrary external model providers already emit QPF-portable bundles (`UNVERIFIED`).
-8. **Observation-channel integrity.** No general proof that declared environments match actual environments.
-9. **External adoption.** No claim of standard status or ecosystem dominance.
-10. **Economic value realization.** No live protocol cashflow is claimed; future amounts undefined.
-11. **Inspection-doc drift.** `docs/protocol/qpf-v1/REPOSITORY_INSPECTION.md` states `src/verification/` was empty at packaging time. That statement is historically dated; Level 0 now exists. This is a documentation lag, not a protocol change.
-12. **Whether QPF “provides an independent verification layer across” all listed ecosystems today.** Architecturally intended. Empirically: Level 0 and project-evidence scripts work on this repository’s artifacts. Cross-ecosystem independence is an unmet general demonstration.
+| # | Question / claim | State |
+| --- | --- | --- |
+| OQ-1 | Does any external party rely on QPF verification today? | **UNVERIFIED** — no adoption evidence in repository; none claimed |
+| OQ-2 | Cross-provider evidence-bundle conformance (§12 C3) | **UNVERIFIED** — no fixture pack exists |
+| OQ-3 | The intended role of `VALID / INVALID / INCOMPLETE / CONFLICT` as an aggregation vocabulary (§11.3) | **UNRESOLVED** — recorded ambiguity; existing enums preserved |
+| OQ-4 | SHA-256 → BLAKE3 transition milestone | **SPECIFIED, unresolved** — conflict note stands in protocol v1 |
+| OQ-5 | Trust root / key lifecycle (layers 5–6) and attestation level (L1+) implementation | **SPECIFIED, not started** (`src/verification/README.md` milestone table) |
+| OQ-6 | Independent multi-report verification quorum (Phase 8.5, m=3) | **OPEN, n=0 eligible** (`docs/DISTANCE_TO_ECONOMIC_ACTIVATION_V1.md`) — external corroboration not achieved |
+| OQ-7 | Whether the economic thesis of §14.2 describes a viable ecosystem position | **UNVERIFIED** — empirical, outside repository evidence |
+| OQ-8 | OINIO Genesis identity artifact | **Intentionally absent** pending later authorization (`12-identity-artifact.md` §7) |
 
 ---
 
@@ -665,7 +659,6 @@ Recorded rather than resolved.
 | Field | Value |
 | --- | --- |
 | Version | 1.0.0 |
-| Filename | `docs/architecture/QPF_TRUST_SUBSTRATE_ARCHITECTURE_V1.md` |
-| Supersedes | None |
-| Normative peer | `docs/protocol/qpf-v1/` (unchanged) |
-| Activation effect | None |
+| Task contract | `.qpf/task-contracts/copilot__codify-qpf-trust-substrate-thesis.json` |
+| Production mode | Specification only; no code, protocol, economic, credential, or deployment change |
+| Change control | Changes to capability classifications require corresponding evidence changes in the cited canonical documents |
