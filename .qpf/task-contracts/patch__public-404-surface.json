@@ -1,0 +1,52 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "patch/public-404-surface",
+  "outcome": "Make the 404 durability fix part of the reproducible build. Add deploy/404.html as the source-of-truth not-found page and wire it into scripts/build.js so out/404.html is always emitted. This prevents nonexistent public URLs from SPA-falling back to the homepage (HTTP 200) on any clean build/deploy. No economic, payment, routing, or copy changes; no new claim.",
+  "canonicalSources": [
+    "deploy/index.html"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/patch__public-404-surface.json",
+    "deploy/404.html",
+    "scripts/build.js"
+  ],
+  "forbiddenPaths": [
+    "contracts/**",
+    "wallets/**",
+    "src/**",
+    "functions/**",
+    "docs/outreach/EXT-001/**"
+  ],
+  "forbiddenActions": [
+    "public mint",
+    "liquidity",
+    "staking/yield",
+    "bridge",
+    "wallet transfer",
+    "agent signing",
+    "modifying frozen EXT-001 package contents",
+    "claiming third-party verification that does not exist",
+    "altering economic or payment state"
+  ],
+  "verification": [
+    "npm run build",
+    "test -f out/404.html",
+    "test -f out/index.html",
+    "test -f out/attack-kit.html",
+    "test -f out/verification-request.html",
+    "grep -q 'This path does not exist' out/404.html",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/patch__public-404-surface.json --base origin/main"
+  ],
+  "definitionOfDone": [
+    "out/404.html is present and says the path does not exist (not the homepage).",
+    "Unknown/nonexistent public paths return HTTP 404, not the 200 homepage.",
+    "Valid public routes (/, /attack-kit, /attack-kit/, /verification-request) remain intact.",
+    "Frozen verification artifacts and economic state are untouched.",
+    "No new claim is introduced."
+  ],
+  "authorizationRequired": [
+    "activating mint, staking, LP, or bridge",
+    "altering frozen verification artifacts",
+    "changing economic or payment state"
+  ]
+}
