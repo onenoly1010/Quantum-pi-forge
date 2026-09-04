@@ -28,6 +28,8 @@ Evidence content is JCS/RFC 8785 canonicalized by the existing `canonicalizeToBy
 
 Inputs must be finite, flow non-negative, specific heat positive, supply not below return, and include a `fluid_property_evidence_id`. The method never assumes a fluid property. Results round to the declared integer `decimal_places` (0–12) using half-away-from-zero rounding. Missing calculation inputs are **INCOMPLETE**; malformed units/values and a non-reproducing declared value are **INVALID**. A calculation version, evidence dependencies, and units are part of the recovery evidence.
 
+Energy and delivery quantities declare `Wh`, `kWh`, or `MWh`; an undeclared unit is **INCOMPLETE** and any other unit is **INVALID**. Conversion, where requested by a future version, must first normalize these units to watt-hours and round only at the declared calculation boundary.
+
 Carbon accounting is separate: it requires metered electricity, geography/boundary, interval, emissions-factor source/version, and provenance. Absent generation-mix or emissions-factor evidence is **INCOMPLETE**. This specification neither infers grid mix nor makes carbon, efficiency, or sustainability claims.
 
 ## Verdicts and transitions

@@ -87,6 +87,21 @@ export function verifyPhysicalComputeManifest(input) {
   checks.push(check('required_evidence', missingKinds.length ? 'unavailable' : 'pass',
     missingKinds.length ? `missing required evidence: ${missingKinds.join(', ')}` : 'all required evidence categories supplied'));
 
+  const unitRecords = [
+    [byKind.get('energy'), ['Wh', 'kWh', 'MWh']],
+    [byKind.get('delivery'), ['Wh', 'kWh', 'MWh']],
+  ];
+  let unsupportedUnit = false;
+  let missingUnit = false;
+  for (const [record, allowed] of unitRecords) {
+    if (!record) continue;
+    if (typeof record.unit !== 'string') missingUnit = true;
+    else if (!allowed.includes(record.unit)) unsupportedUnit = true;
+  }
+  checks.push(check('energy_delivery_units', unsupportedUnit ? 'fail' : missingUnit ? 'unavailable' : 'pass',
+    unsupportedUnit ? 'energy and delivery quantities require declared watt-hour units' :
+      missingUnit ? 'an energy or delivery unit is undeclared' : 'energy and delivery units are declared watt-hour units'));
+
   const energy = byKind.get('energy');
   const compute = byKind.get('compute');
   if (energy && compute && intervalIsValid(energy.interval) && intervalIsValid(compute.interval)) {
