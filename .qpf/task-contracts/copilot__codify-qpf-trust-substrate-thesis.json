@@ -52,7 +52,7 @@
     "The specification clearly establishes QPF as verification infrastructure rather than a model provider.",
     "Model, agent, identity, verification, execution, authorization, and settlement boundaries are explicit.",
     "Cryptographic validity is explicitly distinguished from semantic correctness and real-world truth.",
-    "pass/fail/partial/unavailable semantics are preserved; VALID/INVALID/INCOMPLETE/CONFLICT phrasing is attributed to its governing governance-receipt context and not presented as verifier output codes.",
+    "pass/fail/partial/unavailable semantics are preserved; the commissioning language's VALID/INVALID/INCOMPLETE/CONFLICT set was not located as a frozen enum in the repository and is recorded as an unresolved ambiguity rather than adopted as verifier semantics.",
     "Provider independence is defined as a testable architectural property, not a claimed achievement.",
     "Existing QPF adversarial-verification work is referenced without overstating conclusions.",
     "No live economic or privileged execution capability is enabled.",

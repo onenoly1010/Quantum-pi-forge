@@ -131,8 +131,11 @@ Two boundary rules are normative:
 
 Ordering rule: a higher layer consumes the outputs of a lower layer as *evidence
 inputs*, never as authority. The layers below the verification layer generate
-claims; the verification layer evaluates them; the layers above (authorization,
-execution, settlement) are separate decisions with separate gates.
+claims; the verification layer evaluates them; above it, **authorization** and
+**execution** are not layers in this model but *gated decisions* (human /
+governance acts, per `QPF_VERIFICATION_PROTOCOL_V1.md` — governance sits outside
+the pure verification crypto path), and **settlement** (layer 5) is an external
+economic event. Success at any layer or gate does not propagate to another (§10).
 
 ## 5. Model Layer
 
