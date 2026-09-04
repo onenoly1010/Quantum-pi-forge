@@ -44,6 +44,10 @@ describe('physical-compute evidence boundary', () => {
     f.manifest.commitments.evidence[0].hex = digestSha256(canonicalizeToBytes(f.evidence[0].content)).hex;
     assert.equal(verdict(verifyPhysicalComputeManifest(f)), 'INVALID');
   });
+  it('returns INVALID for replayed evidence identifiers', () => {
+    const f = fixture(); f.evidence.push({ ...f.evidence[0] });
+    assert.equal(verdict(verifyPhysicalComputeManifest(f)), 'INVALID');
+  });
   it('keeps a valid hash over an intentionally false synthetic observation distinct from physical truth', () => {
     const f = fixture(); f.evidence[0].content.provenance = { synthetic: true, intentionally_false: true };
     f.manifest.commitments.evidence[0].hex = digestSha256(canonicalizeToBytes(f.evidence[0].content)).hex;

@@ -1,15 +1,15 @@
 {
   "schemaVersion": "qpf-evidence-receipt-v1",
-  "generatedAt": "2026-07-30T17:34:10.712Z",
-  "gitCommit": "580e8a7",
-  "gitBranch": "copilot/oinio-custody-decision-hardened-policy",
+  "generatedAt": "2026-09-04T18:29:11.204Z",
+  "gitCommit": "a01cfb1",
+  "gitBranch": "copilot/extend-qpf-verification-architecture",
   "indexPath": "evidence/INDEX.md",
-  "indexSha256": "4c1bf7129d32eb0aebbd86fe05d4ede72959651e1b76d4534da7d0efbce3dd7a",
+  "indexSha256": "c4832c48da466ffeb5ea5230c4154777f33f57f4506f93132c1bbba67ac31bf6",
   "verifier": {
     "command": "npm run verify:evidence-index",
     "result": "pass",
-    "lanesChecked": 4,
-    "pathsChecked": 8
+    "lanesChecked": 3,
+    "pathsChecked": 6
   },
   "authorityBoundary": {
     "readOnly": true,

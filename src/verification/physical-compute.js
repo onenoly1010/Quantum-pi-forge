@@ -58,6 +58,11 @@ export function verifyPhysicalComputeManifest(input) {
     checks.push(check('manifest_structure', 'pass', 'manifest has the required bounded structure'));
   }
 
+  const evidenceIds = evidence.map((entry) => entry?.id);
+  const duplicateEvidenceId = evidenceIds.some((id, index) => typeof id !== 'string' || evidenceIds.indexOf(id) !== index);
+  checks.push(check('evidence_identifiers', duplicateEvidenceId ? 'fail' : 'pass',
+    duplicateEvidenceId ? 'evidence identifiers must be unique non-empty strings' : 'evidence identifiers are unique'));
+
   const commitments = Array.isArray(manifest.commitments?.evidence) ? manifest.commitments.evidence : null;
   if (!commitments) {
     checks.push(check('evidence_commitments', 'unavailable', 'evidence commitments are absent'));
@@ -116,11 +121,14 @@ export function verifyPhysicalComputeManifest(input) {
     const c = recovery.calculation;
     try {
       const inputs = c.inputs;
+      const fluidEvidence = evidence.find((entry) => entry?.id === c.fluid_property_evidence_id);
       if (c.method !== 'liquid_heat_transfer/v1' || !isObject(inputs) ||
           !Number.isFinite(inputs.flow_kg_per_s) || !Number.isFinite(inputs.specific_heat_kj_per_kg_k) ||
           !Number.isFinite(inputs.supply_temperature_c) || !Number.isFinite(inputs.return_temperature_c) ||
           !Number.isFinite(c.declared_kw) || !c.fluid_property_evidence_id) {
         checks.push(check('recovery_calculation', 'unavailable', 'complete fluid-property-backed liquid calculation inputs are required'));
+      } else if (!fluidEvidence) {
+        checks.push(check('recovery_calculation', 'unavailable', 'fluid-property evidence dependency was not supplied'));
       } else if (!Number.isFinite(inputs.flow_kg_per_s) || inputs.flow_kg_per_s < 0 ||
                  inputs.specific_heat_kj_per_kg_k <= 0 || inputs.supply_temperature_c < inputs.return_temperature_c) {
         checks.push(check('recovery_calculation', 'fail', 'liquid calculation inputs are physically invalid for declared recovered heat'));

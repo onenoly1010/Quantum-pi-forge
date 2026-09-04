@@ -16,6 +16,7 @@
     "tests/verification/physical-compute.test.js",
     "docs/evidence/PHYSICAL_COMPUTE_STATE_BOUNDARY_V1.md",
     "evidence/INDEX.md",
+    "evidence/receipt.json",
     "package.json"
   ],
   "forbiddenPaths": [
