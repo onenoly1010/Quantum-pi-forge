@@ -48,6 +48,22 @@ describe('physical-compute evidence boundary', () => {
     const f = fixture(); f.evidence.push({ ...f.evidence[0] });
     assert.equal(verdict(verifyPhysicalComputeManifest(f)), 'INVALID');
   });
+  it('returns INVALID for empty evidence identifiers', () => {
+    const f = fixture(); f.evidence[0].id = '';
+    f.manifest.commitments.evidence[0].id = '';
+    assert.equal(verdict(verifyPhysicalComputeManifest(f)), 'INVALID');
+  });
+  it('returns INVALID for supplied evidence without a commitment', () => {
+    const f = fixture(); f.manifest.commitments.evidence.pop();
+    assert.equal(verdict(verifyPhysicalComputeManifest(f)), 'INVALID');
+  });
+  it('requires the fluid-property dependency to be an external reference', () => {
+    const f = fixture();
+    f.evidence.find((entry) => entry.id === 'recovery-1').content.calculation.fluid_property_evidence_id = 'energy-1';
+    const recovery = f.evidence.find((entry) => entry.id === 'recovery-1');
+    f.manifest.commitments.evidence.find((entry) => entry.id === 'recovery-1').hex = digestSha256(canonicalizeToBytes(recovery.content)).hex;
+    assert.equal(verdict(verifyPhysicalComputeManifest(f)), 'INCOMPLETE');
+  });
   it('keeps a valid hash over an intentionally false synthetic observation distinct from physical truth', () => {
     const f = fixture(); f.evidence[0].content.provenance = { synthetic: true, intentionally_false: true };
     f.manifest.commitments.evidence[0].hex = digestSha256(canonicalizeToBytes(f.evidence[0].content)).hex;

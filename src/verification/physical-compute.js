@@ -59,7 +59,7 @@ export function verifyPhysicalComputeManifest(input) {
   }
 
   const evidenceIds = evidence.map((entry) => entry?.id);
-  const duplicateEvidenceId = evidenceIds.some((id, index) => typeof id !== 'string' || evidenceIds.indexOf(id) !== index);
+  const duplicateEvidenceId = evidenceIds.some((id, index) => typeof id !== 'string' || id.trim().length === 0 || evidenceIds.indexOf(id) !== index);
   checks.push(check('evidence_identifiers', duplicateEvidenceId ? 'fail' : 'pass',
     duplicateEvidenceId ? 'evidence identifiers must be unique non-empty strings' : 'evidence identifiers are unique'));
 
@@ -70,7 +70,10 @@ export function verifyPhysicalComputeManifest(input) {
     const supplied = new Map(evidence.map((entry) => [entry?.id, entry]));
     let failed = false;
     let missing = false;
+    const committedIds = new Set();
     for (const commitment of commitments) {
+      if (committedIds.has(commitment?.id)) failed = true;
+      committedIds.add(commitment?.id);
       const entry = supplied.get(commitment?.id);
       if (!entry) {
         missing = true;
@@ -79,9 +82,11 @@ export function verifyPhysicalComputeManifest(input) {
       if (commitment.alg !== 'sha256' || typeof commitment.hex !== 'string' ||
           digestSha256(canonicalizeToBytes(entry.content)).hex !== commitment.hex) failed = true;
     }
-    checks.push(check('evidence_commitments', failed ? 'fail' : missing ? 'unavailable' : 'pass',
+    const uncommitted = evidenceIds.some((id) => !committedIds.has(id));
+    checks.push(check('evidence_commitments', failed || uncommitted ? 'fail' : missing ? 'unavailable' : 'pass',
       failed ? 'a supplied evidence item does not match its SHA-256 commitment' :
-        missing ? 'a committed evidence item was not supplied' : 'all supplied evidence matches its commitments'));
+        uncommitted ? 'a supplied evidence item has no SHA-256 commitment' :
+          missing ? 'a committed evidence item was not supplied' : 'all supplied evidence matches its commitments'));
   }
 
   const byKind = new Map();
@@ -127,8 +132,8 @@ export function verifyPhysicalComputeManifest(input) {
           !Number.isFinite(inputs.supply_temperature_c) || !Number.isFinite(inputs.return_temperature_c) ||
           !Number.isFinite(c.declared_kw) || !c.fluid_property_evidence_id) {
         checks.push(check('recovery_calculation', 'unavailable', 'complete fluid-property-backed liquid calculation inputs are required'));
-      } else if (!fluidEvidence) {
-        checks.push(check('recovery_calculation', 'unavailable', 'fluid-property evidence dependency was not supplied'));
+      } else if (!fluidEvidence || fluidEvidence.content?.kind !== 'external_reference') {
+        checks.push(check('recovery_calculation', 'unavailable', 'external-reference fluid-property evidence dependency was not supplied'));
       } else if (!Number.isFinite(inputs.flow_kg_per_s) || inputs.flow_kg_per_s < 0 ||
                  inputs.specific_heat_kj_per_kg_k <= 0 || inputs.supply_temperature_c < inputs.return_temperature_c) {
         checks.push(check('recovery_calculation', 'fail', 'liquid calculation inputs are physically invalid for declared recovered heat'));
@@ -154,7 +159,7 @@ export function verifyPhysicalComputeManifest(input) {
     const a = entry?.content?.assertion;
     if (!a?.key || a.value === undefined) continue;
     const prior = assertions.get(a.key);
-    if (prior !== undefined && canonicalizeToBytes(prior).toString() !== canonicalizeToBytes(a.value).toString()) {
+    if (prior !== undefined && digestSha256(canonicalizeToBytes(prior)).hex !== digestSha256(canonicalizeToBytes(a.value)).hex) {
       checks.push(check('evidence_conflict', 'conflict', `incompatible assertions for ${a.key}`));
       break;
     }

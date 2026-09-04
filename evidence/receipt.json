@@ -1,15 +1,15 @@
 {
   "schemaVersion": "qpf-evidence-receipt-v1",
-  "generatedAt": "2026-09-04T18:29:11.204Z",
-  "gitCommit": "a01cfb1",
+  "generatedAt": "2026-09-04T19:01:30.693Z",
+  "gitCommit": "244ae84",
   "gitBranch": "copilot/extend-qpf-verification-architecture",
   "indexPath": "evidence/INDEX.md",
   "indexSha256": "c4832c48da466ffeb5ea5230c4154777f33f57f4506f93132c1bbba67ac31bf6",
   "verifier": {
     "command": "npm run verify:evidence-index",
     "result": "pass",
-    "lanesChecked": 3,
-    "pathsChecked": 6
+    "lanesChecked": 5,
+    "pathsChecked": 11
   },
   "authorityBoundary": {
     "readOnly": true,
