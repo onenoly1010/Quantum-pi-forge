@@ -1,0 +1,64 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "copilot/codify-qpf-trust-substrate-thesis",
+  "outcome": "Codify the QPF trust-substrate thesis as a canonical architecture specification: QPF is verification infrastructure independent of model, agent, identity, execution, authorization, and settlement layers. Documentation only; no code or protocol semantics changes.",
+  "canonicalSources": [
+    "docs/protocol/qpf-v1/QPF_VERIFICATION_PROTOCOL_V1.md",
+    "docs/protocol/qpf-v1/09-verification-semantics.md",
+    "docs/protocol/qpf-v1/12-identity-artifact.md",
+    "docs/review/VERIFICATION_STATUS_TABLE_V1.md",
+    "docs/DISTANCE_TO_ECONOMIC_ACTIVATION_V1.md",
+    "docs/SECURITY_BOUNDARIES_V1.md",
+    "docs/ai/AI_POLICY.md",
+    "docs/ai/AUTHORIZATION_WORKFLOW.md",
+    "evidence/INDEX.md",
+    "external-verification/v1/README.md",
+    "TRUTH_DOMAIN_SEPARATION_LAYER_v1.0.md",
+    "docs/sccb/THREAT_MODEL.md",
+    "docs/sccb/IMPLEMENTATION_VERIFICATION.md"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/copilot__codify-qpf-trust-substrate-thesis.json",
+    "docs/architecture/QPF_TRUST_SUBSTRATE_ARCHITECTURE_V1.md"
+  ],
+  "forbiddenPaths": [
+    "contracts/**",
+    "deploy/**",
+    "functions/**",
+    "receipts/execution/**",
+    "wallets/**",
+    "src/**",
+    "scripts/**",
+    "tests/**",
+    "schemas/**",
+    "identities/**"
+  ],
+  "forbiddenActions": [
+    "production deployment",
+    "credential or secret change",
+    "billing change",
+    "wallet or key action",
+    "economic activation",
+    "minting, staking, liquidity, or bridge enablement",
+    "protocol behavior or semantics change",
+    "governance threshold change",
+    "merge"
+  ],
+  "verification": [
+    "npm run verify:all",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/copilot__codify-qpf-trust-substrate-thesis.json --base origin/main"
+  ],
+  "definitionOfDone": [
+    "The specification clearly establishes QPF as verification infrastructure rather than a model provider.",
+    "Model, agent, identity, verification, execution, authorization, and settlement boundaries are explicit.",
+    "Cryptographic validity is explicitly distinguished from semantic correctness and real-world truth.",
+    "pass/fail/partial/unavailable semantics are preserved; the commissioning language's VALID/INVALID/INCOMPLETE/CONFLICT set was not located as a frozen enum in the repository and is recorded as an unresolved ambiguity rather than adopted as verifier semantics.",
+    "Provider independence is defined as a testable architectural property, not a claimed achievement.",
+    "Existing QPF adversarial-verification work is referenced without overstating conclusions.",
+    "No live economic or privileged execution capability is enabled.",
+    "Existing canonical documents are not contradicted."
+  ],
+  "authorizationRequired": [
+    "merge"
+  ]
+}
