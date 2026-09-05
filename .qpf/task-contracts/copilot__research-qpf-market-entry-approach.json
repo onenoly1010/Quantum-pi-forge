@@ -1,0 +1,64 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "copilot/research-qpf-market-entry-approach",
+  "outcome": "Add one preparation-only outreach experiment template (EXT-005) that freezes the public offer contract, honest product levels, one-sentence offer, and an empty funnel tracker for a future human-run outreach test. No outreach is sent, no target is named, no funnel counter is incremented, and no protocol/evidence/economic state changes.",
+  "canonicalSources": [
+    "docs/review/VERIFICATION_STATUS_TABLE_V1.md",
+    "docs/governance/github-ecosystem-registry-v1.json",
+    "docs/ai/AI_POLICY.md",
+    "docs/ai/AUTHORIZATION_WORKFLOW.md",
+    "docs/outreach/QPF_OINIO_MANUAL_OUTREACH_TARGET_SHORTLIST_V1.md"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/copilot__research-qpf-market-entry-approach.json",
+    "docs/outreach/QPF_EXT005_OUTREACH_EXPERIMENT_TEMPLATE_V1.md"
+  ],
+  "forbiddenPaths": [
+    "src/**",
+    "functions/**",
+    "contracts/**",
+    "wallets/**",
+    "identities/**",
+    "receipts/**",
+    "schemas/**",
+    "deploy/**",
+    "docs/outreach/EXT-001/**",
+    "docs/community/verification-reports/**"
+  ],
+  "forbiddenActions": [
+    "sending any outreach message",
+    "naming a real outreach target",
+    "incrementing any funnel counter",
+    "public mint",
+    "liquidity",
+    "staking/yield",
+    "bridge",
+    "wallet transfer",
+    "agent signing",
+    "altering economic or payment state",
+    "production deployment",
+    "merge"
+  ],
+  "verification": [
+    "test -f docs/outreach/QPF_EXT005_OUTREACH_EXPERIMENT_TEMPLATE_V1.md",
+    "grep -q 'PREPARATION_ONLY' docs/outreach/QPF_EXT005_OUTREACH_EXPERIMENT_TEMPLATE_V1.md",
+    "grep -q 'This is not an audit' docs/outreach/QPF_EXT005_OUTREACH_EXPERIMENT_TEMPLATE_V1.md",
+    "grep -q 'TBD by human operator' docs/outreach/QPF_EXT005_OUTREACH_EXPERIMENT_TEMPLATE_V1.md",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/copilot__research-qpf-market-entry-approach.json --base origin/main"
+  ],
+  "definitionOfDone": [
+    "The EXT-005 template exists and declares itself PREPARATION_ONLY.",
+    "The four-line offer contract, honest product levels table, one-sentence offer, and drop-off table are present.",
+    "Every bucket target is TBD by human operator; no real target is named.",
+    "Every funnel counter is 0; the document states counters may only be incremented by a human operator citing a real event.",
+    "No src/, contracts/, wallets/, deploy/, EXT-001, or verification-reports files are changed."
+  ],
+  "authorizationRequired": [
+    "selecting and contacting a real outreach target",
+    "sending the one-sentence offer to any recipient",
+    "incrementing any funnel counter",
+    "publishing real funnel results",
+    "merge",
+    "economic or production activation"
+  ]
+}
