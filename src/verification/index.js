@@ -12,6 +12,11 @@ export {
 export { digestSha256, digestSha256File, digestsEqual, HASH_ALG_SHA256 } from './hash.js';
 
 export { REASON, aggregateLevel0 } from './semantics.js';
+export {
+  PHYSICAL_COMPUTE_MANIFEST_SPEC,
+  PHYSICAL_COMPUTE_VERDICTS,
+  verifyPhysicalComputeManifest,
+} from './physical-compute.js';
 
 export {
   verifyLevel0,
