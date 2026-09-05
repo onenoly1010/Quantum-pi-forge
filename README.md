@@ -53,6 +53,7 @@ Start here for public review:
 
 - [Reviewer Start Here](REVIEWER_START_HERE.md)
 - [Verification Status Table](docs/review/VERIFICATION_STATUS_TABLE_V1.md) — SSOT: Verified / Implemented but gated / Experimental / Planned
+- [Level 0 Harness Scope](docs/public/QPF_LEVEL0_HARNESS_SCOPE_V1.md) — what the verifier proves, what it does not, and how to run it on your own artifact
 - [Claim-to-Proof Matrix](docs/review/CLAIM_TO_PROOF_MATRIX.md)
 - [Public Surface Claim Audit](docs/review/PUBLIC_SURFACE_CLAIM_AUDIT_V1.md)
 - [Public Status](STATUS.md)
