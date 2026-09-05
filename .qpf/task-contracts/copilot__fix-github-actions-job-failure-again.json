@@ -12,6 +12,8 @@
   ],
   "allowedPaths": [
     ".qpf/task-contracts/copilot__fix-github-actions-job-failure-again.json",
+    ".qpf/task-contracts/copilot__codify-qpf-trust-substrate-thesis.json",
+    "docs/architecture/QPF_TRUST_SUBSTRATE_ARCHITECTURE_V1.md",
     "package.json",
     "package-lock.json"
   ],
