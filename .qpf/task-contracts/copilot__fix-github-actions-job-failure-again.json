@@ -1,0 +1,54 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "copilot/fix-github-actions-job-failure-again",
+  "outcome": "Resolve the referenced Evidence and Dependency Audit CI failure by updating the vulnerable fast-uri dependency override to a patched version.",
+  "canonicalSources": [
+    "docs/governance/github-ecosystem-registry-v1.json",
+    "docs/review/VERIFICATION_STATUS_TABLE_V1.md",
+    "evidence/INDEX.md",
+    "docs/ai/AI_POLICY.md",
+    "docs/ai/AUTHORIZATION_WORKFLOW.md",
+    ".github/workflows/evidence-and-audit.yml"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/copilot__fix-github-actions-job-failure-again.json",
+    "package.json",
+    "package-lock.json"
+  ],
+  "forbiddenPaths": [
+    "contracts/**",
+    "deploy/**",
+    "functions/**",
+    "receipts/execution/**",
+    "wallets/**",
+    "src/**",
+    "scripts/**",
+    "tests/**",
+    "schemas/**",
+    "identities/**"
+  ],
+  "forbiddenActions": [
+    "production deployment",
+    "credential or secret change",
+    "billing change",
+    "wallet or key action",
+    "economic activation",
+    "minting, staking, liquidity, or bridge enablement",
+    "protocol behavior or semantics change",
+    "governance threshold change",
+    "merge"
+  ],
+  "verification": [
+    "npm audit --audit-level=high",
+    "npm run verify:all",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/copilot__fix-github-actions-job-failure-again.json --base origin/main"
+  ],
+  "definitionOfDone": [
+    "The referenced high-severity audit findings are resolved by a patched fast-uri resolution.",
+    "The Evidence and Dependency Audit audit command passes.",
+    "No privileged, production, or economic action is enabled."
+  ],
+  "authorizationRequired": [
+    "merge"
+  ]
+}
