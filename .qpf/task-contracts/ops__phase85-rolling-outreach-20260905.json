@@ -36,6 +36,9 @@
   "verification": [
     "npm run verify:publication-scope -- --contract .qpf/task-contracts/ops__phase85-rolling-outreach-20260905.json --base origin/main",
     "grep -q 'issuecomment-5553660172' docs/community/ROUND1_SHARE_LOG_V1.md",
+    "grep -q '2026-09-05T17:51Z' docs/community/ROUND1_SHARE_LOG_V1.md",
+    "grep -q 'announced window expired without quorum' docs/community/ROUND1_SHARE_LOG_V1.md",
+    "grep -q '0/3; consensus NOT_STARTED' docs/community/ROUND1_SHARE_LOG_V1.md",
     "grep -q 'Eligible reports indexed: **0**' docs/community/ROUND1_SHARE_LOG_V1.md"
   ],
   "definitionOfDone": [
