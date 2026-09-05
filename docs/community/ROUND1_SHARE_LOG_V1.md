@@ -16,6 +16,7 @@ Track actual shares of the #verify-now path. Do not invent recipients.
 | 2026-07-30 | Guild | guild.0gfoundation.ai | formal grant application | **PARKED_APPLICATIONS_CLOSED** | Live page: Applications Closed |
 
 | 2026-07-30T19:39Z | Public | GitHub #636 comment | public boost + reopen | **SENT** | https://github.com/onenoly1010/Quantum-pi-forge/issues/636#issuecomment-5135450991 |
+| 2026-09-05T17:51Z | Public | GitHub #636 comment | rolling verification call; announced window expired without quorum | **SENT** | https://github.com/onenoly1010/Quantum-pi-forge/issues/636#issuecomment-5553660172 |
 
 Eligible reports indexed: **0** (until external issues arrive)
 
