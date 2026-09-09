@@ -19,6 +19,7 @@
     {"id": "V-05", "status": "Verified", "claim": "Economic activation boundaries documented as blocked/disabled"},
     {"id": "V-06", "status": "Verified", "claim": "Contract source and tests exist in-repo"},
     {"id": "V-07", "status": "Verified", "claim": "Local-first Ollama/Guardian-style agent paths fit architecture"},
+    {"id": "V-08", "status": "Verified", "claim": "Level 0 verification is deterministic, network-neutral, and independently reproducible (artifact<->receipt binding only; not attestation, chain state, consensus, or metric truthfulness)"},
     {"id": "G-01", "status": "Implemented_but_gated", "claim": "OINIO/genesis contracts on 0G Aristotle (project receipts; DEPLOYED_ADDRESSES Pending)"},
     {"id": "G-02", "status": "Implemented_but_gated", "claim": "Staking (disabled)"},
     {"id": "G-03", "status": "Implemented_but_gated", "claim": "Liquidity/DEX pair funding (blocked)"},
@@ -47,7 +48,8 @@
     "strongest governance guarantee comparative claims",
     "yield/staking/public mint live without on-chain + gate evidence",
     "exact block/trust/commit counts without dated independent check",
-    "fully autonomous governance is live"
+    "fully autonomous governance is live",
+    "our verifier proves a third-party testnet, dashboard, or self-reported metric is wrong (requires Level 1, not started)"
   ],
   "deployed_addresses_canonical": "contracts/DEPLOYED_ADDRESSES.md",
   "deployed_addresses_status": "Pending",
