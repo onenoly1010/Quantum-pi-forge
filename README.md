@@ -1,5 +1,11 @@
 # Public Validation Status
 
+## What QPF Is Today
+
+For the concise canonical explanation of QPF’s hierarchy, operational scope,
+verified posture, blockers, and outsider reproduction path, read
+[`docs/review/WHAT_QPF_IS_TODAY_V1.md`](docs/review/WHAT_QPF_IS_TODAY_V1.md).
+
 
 ## 10-Minute Public Reviewer Demo
 
@@ -26,7 +32,7 @@ Public gate document: `docs/public/PUBLIC_VERIFICATION_DEMO_GATE_V1.md`
 
 **Quantum Pi Forge Public Validation Status v1 is open.**
 
-Quantum Pi Forge has completed verified genesis activation on 0G Aristotle Mainnet. Liquidity, approvals, staking, relayer flows, funding, and growth loops remain intentionally blocked until validation and funding conditions are satisfied.
+Quantum Pi Forge records RPC-verified code and deployment receipts on 0G Aristotle Mainnet. Because multiple deployment identities, bytecode discrepancies, and an untrusted owner residual remain documented, QPF does not claim a single canonical fully verified production deployment. Liquidity, approvals, staking, relayer flows, funding, and growth loops remain intentionally blocked until validation and funding conditions are satisfied.
 
 - Status doc: [`docs/governance/PUBLIC_VALIDATION_STATUS_V1.md`](docs/governance/PUBLIC_VALIDATION_STATUS_V1.md)
 - Review anchor: [Issue / thread #328](https://github.com/onenoly1010/Quantum-pi-forge/pull/328)
@@ -233,4 +239,3 @@ npm run verify:evidence
 Full details: [docs/verification/PUBLIC_VERIFICATION_REPRODUCTION_V1.md](docs/verification/PUBLIC_VERIFICATION_REPRODUCTION_V1.md)
 
 Note: `npm audit` warnings are non-blocking for evidence verification and are tracked separately.
-
