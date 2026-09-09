@@ -1,0 +1,49 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "copilot/fix-github-actions-job-failure-another-one",
+  "outcome": "Restore Publication Scope validation for the existing QPF orientation-page pull request by providing its branch-derived task contract.",
+  "scope": "Task-contract-only CI remediation.",
+  "canonicalSources": [
+    "docs/governance/github-ecosystem-registry-v1.json",
+    "docs/review/VERIFICATION_STATUS_TABLE_V1.md",
+    "evidence/INDEX.md",
+    "docs/ai/AI_POLICY.md",
+    "docs/ai/AUTHORIZATION_WORKFLOW.md"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/copilot__fix-github-actions-job-failure-another-one.json",
+    ".qpf/task-contracts/copilot__give-outsider-review-qpf.json",
+    ".qpf/task-contracts/docs__what-qpf-is-today-v1.json",
+    "docs/review/WHAT_QPF_IS_TODAY_V1.md",
+    "README.md"
+  ],
+  "forbiddenPaths": [
+    "src/**",
+    "contracts/**",
+    "deploy/**",
+    "wallets/**",
+    "receipts/execution/**"
+  ],
+  "forbiddenActions": [
+    "production deployment",
+    "credential or secret change",
+    "wallet or key action",
+    "minting",
+    "staking",
+    "liquidity",
+    "bridge activation",
+    "governance execution"
+  ],
+  "verification": [
+    "npm run verify:all",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/copilot__fix-github-actions-job-failure-another-one.json --base origin/main"
+  ],
+  "definitionOfDone": [
+    "The existing orientation-page branch has a task contract at the workflow-derived path.",
+    "Publication Scope validation passes for this remediation branch.",
+    "No runtime, deployment, credential, wallet, or governance behavior changes."
+  ],
+  "authorizationRequired": [
+    "merge"
+  ]
+}
