@@ -1,0 +1,56 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "ops/phase85-rolling-outreach-20260905",
+  "outcome": "Record the authorized 2026-09-05 public GitHub outreach for rolling Phase 8.5 independent verification. Preserve the 0/3 eligible count, disclose that the initial announced Round 1 window closed without quorum, and make no claim of consensus or economic authorization.",
+  "canonicalSources": [
+    "docs/community/MULTI_REPORT_VERIFICATION_ARCHITECTURE_V1.md",
+    "docs/community/VERIFIER_SCORING_RUBRIC_V1.md",
+    "docs/community/verification-reports/INDEX_V1.md"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/ops__phase85-rolling-outreach-20260905.json",
+    "docs/community/ROUND1_SHARE_LOG_V1.md"
+  ],
+  "forbiddenPaths": [
+    "contracts/**",
+    "wallets/**",
+    "src/**",
+    "functions/**",
+    "docs/outreach/EXT-001/**",
+    "docs/community/verification-reports/**"
+  ],
+  "forbiddenActions": [
+    "modifying Defense Design v2",
+    "initiating V4",
+    "implementing M1-M7",
+    "activating Phase 3",
+    "incrementing the eligible report count without a qualifying filed report",
+    "public mint",
+    "liquidity",
+    "staking/yield",
+    "bridge",
+    "wallet transfer",
+    "agent signing",
+    "altering economic or payment state"
+  ],
+  "verification": [
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/ops__phase85-rolling-outreach-20260905.json --base origin/main",
+    "grep -q 'issuecomment-5553660172' docs/community/ROUND1_SHARE_LOG_V1.md",
+    "grep -q '2026-09-05T17:51Z' docs/community/ROUND1_SHARE_LOG_V1.md",
+    "grep -q 'announced window expired without quorum' docs/community/ROUND1_SHARE_LOG_V1.md",
+    "grep -q '0/3; consensus NOT_STARTED' docs/community/ROUND1_SHARE_LOG_V1.md",
+    "grep -q 'Eligible reports indexed: **0**' docs/community/ROUND1_SHARE_LOG_V1.md"
+  ],
+  "definitionOfDone": [
+    "The actual GitHub outreach comment is recorded with its public URL and UTC timestamp.",
+    "The record states that the announced Round 1 window expired without quorum and rolling collection remains open.",
+    "Eligible reports remain 0/3 and consensus remains NOT STARTED.",
+    "No frozen verification artifact, governance design, or economic state changes."
+  ],
+  "authorizationRequired": [
+    "sending private DMs or email to human-selected recipients",
+    "submitting third-party contact forms",
+    "incrementing quorum after report scoring",
+    "activating mint, staking, LP, bridge, or payment state"
+  ]
+}
