@@ -1,0 +1,67 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "landing/inft-agent-economic-model",
+  "outcome": "Update public landing-page copy so QPF verification is not a paid service, economic participation is described as a protocol-defined share of INFT-agent activity, and the public contact email is onenoly11@proton.me.",
+  "canonicalSources": [
+    "deploy/index.html",
+    "deploy/verification-certificate.html",
+    "deploy/work-with-us.html"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/landing__inft-agent-economic-model.json",
+    "deploy/index.html",
+    "deploy/verification-certificate.html",
+    "deploy/verification.html",
+    "deploy/verification-request.html",
+    "deploy/work-with-us.html",
+    "deploy/try.html",
+    "deploy/founding-builders-pilot.html",
+    "deploy/problems/index.html",
+    "deploy/problems/verify-github-repo.html",
+    "deploy/problems/prove-deployment-matches-source.html",
+    "deploy/problems/evidence-package-ai-result.html",
+    "deploy/problems/audit-smart-contract-release.html"
+  ],
+  "forbiddenPaths": [
+    "src/**",
+    "functions/**",
+    "contracts/**",
+    "wallets/**",
+    "identities/**",
+    "receipts/**",
+    "docs/**",
+    "schemas/**"
+  ],
+  "forbiddenActions": [
+    "verification semantics change",
+    "Step D",
+    "Genesis artifact creation",
+    "/api/verify change",
+    "production deployment",
+    "wallet or key action",
+    "economic contract change",
+    "economic activation",
+    "merge"
+  ],
+  "verification": [
+    "test -z \"$(git grep -l 'onenoly@proton.me' -- deploy || true)\"",
+    "git grep -q 'onenoly11@proton.me' -- deploy/index.html deploy/work-with-us.html deploy/verification-certificate.html deploy/verification-request.html deploy/founding-builders-pilot.html",
+    "git grep -q 'not a paid service' -- deploy/index.html",
+    "git grep -q 'INFT-agent activity' -- deploy/index.html",
+    "test -z \"$(git grep -l '\\$500' -- deploy/index.html deploy/verification-certificate.html deploy/verification.html deploy/verification-request.html deploy/work-with-us.html deploy/try.html deploy/founding-builders-pilot.html deploy/problems || true)\"",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/landing__inft-agent-economic-model.json --base origin/main"
+  ],
+  "definitionOfDone": [
+    "Public landing copy states QPF verification is not a paid service.",
+    "Public landing copy states QPF economic participation is a protocol-defined share of INFT-agent activity and is not live.",
+    "Public deploy HTML contact addresses are onenoly11@proton.me.",
+    "No verification semantics, Step D, Genesis, /api/verify, wallet, contract, or unrelated deployment files are changed; the scoped deploy HTML files are the intended publication artifacts."
+  ],
+  "authorizationRequired": [
+    "merge",
+    "production deployment",
+    "Step D",
+    "Genesis creation",
+    "economic activation"
+  ]
+}
