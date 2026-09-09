@@ -620,6 +620,7 @@ This document is an architectural overlay, not a competing source of truth.
 
 | Existing canon | Relationship |
 | --- | --- |
+| `docs/architecture/QPF_TRUST_SUBSTRATE_ECONOMIC_GEOMETRY_V1.md` | Companion overlay: codifies the economic-geometry, protocol-neutrality, public-falsifiability, and participation-without-capture theses that follow from this document's layer boundaries; cites this document, never redefines it |
 | `docs/protocol/qpf-v1/QPF_VERIFICATION_PROTOCOL_V1.md` and layer specs 01–12 | Normative protocol semantics; this document cites, never redefines |
 | `src/verification/` (Level 0, semantics, result/package IDs, identity-id/bind) | Implemented base this document classifies as IMPLEMENTED |
 | `docs/review/VERIFICATION_STATUS_TABLE_V1.md` (+ JSON twin) | Claim posture authority; this document's labels are consistent with its Verified / Implemented-but-gated / Experimental / Planned classes |
