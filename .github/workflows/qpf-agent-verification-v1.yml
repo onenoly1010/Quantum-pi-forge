@@ -1,0 +1,23 @@
+name: QPF Agent Verification Interoperability v1
+
+on:
+  push:
+    branches:
+      - 'research/qpf-agent-verification-v1'
+  pull_request:
+    paths:
+      - 'research/agent-verification-v1/**'
+      - 'src/verification/**'
+      - '.github/workflows/qpf-agent-verification-v1.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  v1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run V1 evidence harness
+        run: node research/agent-verification-v1/run.mjs
