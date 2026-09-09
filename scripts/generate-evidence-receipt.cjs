@@ -15,6 +15,17 @@ function git(command) {
   return execSync(command, { encoding: "utf8" }).trim();
 }
 
+function evidenceIndexCounts() {
+  const rows = fs.readFileSync(indexPath, "utf8")
+    .split(/\r?\n/)
+    .filter((line) => line.startsWith("| QPF-"));
+  const paths = rows.flatMap((row) => {
+    const primaryFiles = row.split("|").map((cell) => cell.trim())[4] || "";
+    return [...primaryFiles.matchAll(/`([^`]+)`/g)];
+  });
+  return { lanesChecked: rows.length, pathsChecked: paths.length };
+}
+
 if (!fs.existsSync(indexPath)) {
   console.error(`ERROR: missing ${indexPath}`);
   process.exit(1);
@@ -32,8 +43,7 @@ const receipt = {
   verifier: {
     command: "npm run verify:evidence-index",
     result: "pass",
-    lanesChecked: 3,
-    pathsChecked: 6
+    ...evidenceIndexCounts()
   },
   authorityBoundary: {
     readOnly: true,
