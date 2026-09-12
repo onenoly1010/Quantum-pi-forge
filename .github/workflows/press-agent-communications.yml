@@ -54,3 +54,26 @@ jobs:
           TWITTER_API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
           TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
           TWITTER_ACCESS_SECRET: ${{ secrets.TWITTER_ACCESS_SECRET }}
+
+      - name: Send Discord webhook message
+        if: ${{ github.event.inputs.message != '' }}
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          MSG: ${{ github.event.inputs.message }}
+        run: |
+          test -n "$DISCORD_WEBHOOK_URL"
+          node -e '
+            const url = process.env.DISCORD_WEBHOOK_URL;
+            const content = process.env.MSG;
+            fetch(url, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ content }),
+            }).then(async (r) => {
+              if (!r.ok) {
+                console.error("discord", r.status, await r.text());
+                process.exit(1);
+              }
+              console.log("discord_ok", r.status);
+            });
+          '
