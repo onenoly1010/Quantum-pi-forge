@@ -18,6 +18,12 @@ const deployDir = path.join(rootDir, 'deploy');
 
 const staticFiles = [
   { src: 'deploy/_headers', dest: '_headers', fallback: '_headers' },
+  // Not-found page: Cloudflare Pages serves /404.html for any path that does
+  // not match a static asset or redirect. Without it the site SPA-falls back to
+  // index.html (HTTP 200 homepage) for nonexistent URLs, which let a stranger
+  // mistake a nonexistent path for a real QPF page. Source of truth is
+  // deploy/404.html (NOT repo-root 404.html, which is a different page).
+  { src: 'deploy/404.html', dest: '404.html' },
   { src: 'deploy/index.html', dest: 'index.html' },
   { src: 'deploy/dao.html', dest: 'dao.html' },
   { src: 'deploy/resonate.html', dest: 'resonate.html' },
@@ -26,11 +32,18 @@ const staticFiles = [
   { src: 'deploy/for-builders.html', dest: 'for-builders.html' },
   { src: 'deploy/work-with-us.html', dest: 'work-with-us.html' },
   { src: 'deploy/support.html', dest: 'support.html' },
+  { src: 'deploy/verification-artifact.html', dest: 'verification-artifact.html' },
+  { src: 'deploy/verification-artifact.json', dest: 'verification-artifact.json' },
   { src: 'deploy/verification-request.html', dest: 'verification-request.html' },
   // Phase A public entry (discoverability / self-serve / certificate)
   { src: 'deploy/try.html', dest: 'try.html' },
+  { src: 'deploy/attack-kit.html', dest: 'attack-kit.html' },
   { src: 'deploy/verification.html', dest: 'verification.html' },
   { src: 'deploy/verification-certificate.html', dest: 'verification-certificate.html' },
+  // One Public File — Verification Experiment #001 (staged; publish requires
+  // separate human commit/push/deploy authorization)
+  { src: 'deploy/one-public-file-experiment-001.html', dest: 'one-public-file-experiment-001.html' },
+  { src: 'deploy/verification-charter-experiment-001.html', dest: 'verification-charter-experiment-001.html' },
   { src: 'deploy/founding-builders-pilot.html', dest: 'founding-builders-pilot.html', optional: true },
   { src: 'deploy/pilot-feedback-roadmap.html', dest: 'pilot-feedback-roadmap.html', optional: true },
   { src: 'deploy/pilot-receipts.html', dest: 'pilot-receipts.html', optional: true },
@@ -70,6 +83,8 @@ const staticDirs = [
   { src: 'receipts/human-cockpit', dest: 'receipts/human-cockpit', optional: true },
   // Discoverability problem guides + index
   { src: 'deploy/problems', dest: 'problems', optional: false },
+  // Attack kit — frozen evidence package served for public reproduction
+  { src: 'deploy/attack-kit', dest: 'attack-kit', optional: false },
   // Public mint / model metadata — required (served as application/json via _headers)
   { src: 'metadata', dest: 'metadata', optional: false },
 ];

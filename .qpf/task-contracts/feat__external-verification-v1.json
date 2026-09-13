@@ -1,0 +1,30 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "feat/external-verification-v1",
+  "outcome": "Add qpf-external-verification/v1 with separated T0/T1/T2-A/T2-B, golden T2-B vectors, and CONFIRM/PARTIAL/BLOCKED/FAIL. No economic activation.",
+  "allowedPaths": [
+    ".qpf/task-contracts/feat__external-verification-v1.json",
+    "external-verification/v1/SUITE.json",
+    "external-verification/v1/README.md",
+    "external-verification/v1/run.mjs",
+    "external-verification/v1/fixtures/t2b-golden/artifact.bin",
+    "external-verification/v1/fixtures/t2b-golden/receipt.json",
+    "external-verification/v1/fixtures/t2b-golden/expected-result.json",
+    "external-verification/v1/fixtures/t2b-golden/expected-package.json",
+    "external-verification/v1/fixtures/t2b-golden/manifest.json",
+    "tests/external-verification/v1.test.js",
+    "package.json",
+    "deploy/verification-artifact.html"
+  ],
+  "forbiddenActions": [
+    "public mint",
+    "liquidity",
+    "claim first $1 earned",
+    "Facebook Graph post"
+  ],
+  "verification": [
+    "npm run test:external-verification:v1",
+    "npm run verify:external:v1",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/feat__external-verification-v1.json --base origin/main"
+  ]
+}

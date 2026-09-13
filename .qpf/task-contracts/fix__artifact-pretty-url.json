@@ -1,0 +1,25 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "fix/artifact-pretty-url",
+  "outcome": "Remove /verification-artifact → .html rewrite that 308-loops with Cloudflare pretty URLs. Canonical share URL is extensionless. No Facebook API post. No earning claim.",
+  "allowedPaths": [
+    ".qpf/task-contracts/fix__artifact-pretty-url.json",
+    "OFFICIAL_CHANNELS.md",
+    "deploy/sitemap.xml",
+    "deploy/verification-artifact.html",
+    "deploy/verification-artifact.json",
+    "scripts/build.js",
+    "scripts/verify-entry-surfaces.cjs"
+  ],
+  "forbiddenActions": [
+    "Facebook Graph post",
+    "public mint",
+    "claim first $1 earned"
+  ],
+  "verification": [
+    "npm run build",
+    "grep -v verification-artifact out/_redirects | grep -q .",
+    "! grep verification-artifact out/_redirects",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/fix__artifact-pretty-url.json --base origin/main"
+  ]
+}

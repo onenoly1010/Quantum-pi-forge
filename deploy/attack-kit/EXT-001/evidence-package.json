@@ -1,0 +1,38 @@
+{
+  "schema": "qpf-evidence-package/v1",
+  "package_id": "qpfpkg0:54f7af2c1ab97709f0813815036bcde62bfb3165107426a0f6a952d9c97cb1c2",
+  "created_at": "2026-08-28T16:55:24.764Z",
+  "result_id": "qpfv0:44a9b8cfbcd6eb3dfc83e93b1312f4511a4d42de77cd24afcea198bb424f9db8",
+  "components": {
+    "artifact": {
+      "path": "artifact.bin",
+      "digest": {
+        "alg": "sha256",
+        "hex": "38578bd71c0a909840e67202db527cc6b4e6b437e0f39f0c909da32c1e30cb81"
+      }
+    },
+    "receipt": {
+      "path": "receipt.json",
+      "digest": {
+        "alg": "sha256",
+        "hex": "37085cb2d2d772118572b5bfeaad678680bb42b772c1c96d457420cd88f92d5b"
+      }
+    },
+    "verification_result": {
+      "path": "expected-result.json",
+      "digest": {
+        "alg": "sha256",
+        "hex": "797c976d1e9b7b2286488284601b4fcd813e32e63661c19a6e582aeff0894a1b"
+      }
+    }
+  },
+  "authority_boundary": {
+    "readOnly": true,
+    "noWalletSigning": true,
+    "noDeployment": true,
+    "noGovernanceExecution": true,
+    "noChainMutation": true,
+    "noTokenMinting": true,
+    "noPosting": true
+  }
+}

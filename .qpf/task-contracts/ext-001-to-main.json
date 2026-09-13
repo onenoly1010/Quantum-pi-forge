@@ -1,0 +1,39 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "ext-001-to-main",
+  "outcome": "Publish EXT-001 — Public Reproduction of a QPF Verification Identity: frozen evidence package (artifact + receipt + frozen result + manifest + standalone reproducer) at docs/outreach/EXT-001, plus a pointer from the public verification artifact doc. Read-only evidence publication; no protocol, contract, or site changes.",
+  "canonicalSources": [
+    "docs/outreach/EXT-001/README.md",
+    "docs/outreach/EXT-001/manifest.json",
+    "docs/public/VERIFICATION_ARTIFACT_2026-08-22.md"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/ext-001-to-main.json",
+    ".gitignore",
+    "docs/outreach/EXT-001/**",
+    "docs/public/VERIFICATION_ARTIFACT_2026-08-22.md"
+  ],
+  "forbiddenPaths": [
+    "receipts/execution/**",
+    "contracts/**",
+    "guardian/**"
+  ],
+  "forbiddenActions": [
+    "public mint",
+    "liquidity",
+    "staking",
+    "yield",
+    "bridge",
+    "wallet signing",
+    "token transfer",
+    "payment acceptance",
+    "ICME or any individual outreach",
+    "social media posting by AI (human posts)",
+    "Guardian policy or code changes"
+  ],
+  "verification": [
+    "python3 docs/outreach/EXT-001/verify.py",
+    "npm run verify:all"
+  ],
+  "definitionOfDone": "docs/outreach/EXT-001/ on main; verify.py passes from raw.githubusercontent.com fetches; published ids qpfv0:44a9b8cfbcd6eb3dfc83e93b1312f4511a4d42de77cd24afcea198bb424f9db8 and qpfpkg0:54f7af2c1ab97709f0813815036bcde62bfb3165107426a0f6a952d9c97cb1c2 reproduce; public doc points at the folder."
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "docs/live-rpc-presence-package",
+  "outcome": "Bind independent RPC presence checks (chain 16661, OINIO code present, pair 0/0) into a Level 0 package on the public inspect page. No Facebook API post. No earning claim.",
+  "allowedPaths": [
+    ".qpf/task-contracts/docs__live-rpc-presence-package.json",
+    "deploy/verification-artifact.html",
+    "deploy/verification-artifact.json",
+    "receipts/public/live-rpc-presence-2026-08-22/artifact.json",
+    "receipts/public/live-rpc-presence-2026-08-22/receipt.json",
+    "receipts/public/live-rpc-presence-2026-08-22/qpfv0-ed6743e31e634732313a952d35b47d3d312f98b3d3551d41b999edce208665c4.json",
+    "receipts/public/live-rpc-presence-2026-08-22/qpfpkg0-e341b75ef3e2c05850df7670b2340f608fa67159e000b27b9c29011020bf4735.json"
+  ],
+  "forbiddenActions": [
+    "Facebook Graph post",
+    "public mint",
+    "liquidity",
+    "claim first $1 earned"
+  ],
+  "verification": [
+    "npm run verify:qpf:level0 -- --artifact receipts/public/live-rpc-presence-2026-08-22/artifact.json --receipt receipts/public/live-rpc-presence-2026-08-22/receipt.json",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/docs__live-rpc-presence-package.json --base origin/main"
+  ]
+}
