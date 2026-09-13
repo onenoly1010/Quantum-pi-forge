@@ -18,6 +18,12 @@ const deployDir = path.join(rootDir, 'deploy');
 
 const staticFiles = [
   { src: 'deploy/_headers', dest: '_headers', fallback: '_headers' },
+  // Not-found page: Cloudflare Pages serves /404.html for any path that does
+  // not match a static asset or redirect. Without it the site SPA-falls back to
+  // index.html (HTTP 200 homepage) for nonexistent URLs, which let a stranger
+  // mistake a nonexistent path for a real QPF page. Source of truth is
+  // deploy/404.html (NOT repo-root 404.html, which is a different page).
+  { src: 'deploy/404.html', dest: '404.html' },
   { src: 'deploy/index.html', dest: 'index.html' },
   { src: 'deploy/dao.html', dest: 'dao.html' },
   { src: 'deploy/resonate.html', dest: 'resonate.html' },
