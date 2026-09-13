@@ -18,6 +18,9 @@ const requiredFiles = [
   'verification.html',
   'verification-certificate.html',
   'verification-request.html',
+  'support.html',
+  'verification-artifact.html',
+  'verification-artifact.json',
   'verification-status-v1.json',
   'robots.txt',
   'sitemap.xml',
@@ -35,6 +38,8 @@ const titleMustInclude = {
   'try.html': 'Try QPF',
   'problems/index.html': 'Problems QPF',
   'verification.html': 'Verification',
+  'support.html': 'Support / Build With QPF',
+  'verification-artifact.html': 'Verification Artifact',
   'robots.txt': null, // not HTML
   'sitemap.xml': null,
 };
@@ -77,6 +82,12 @@ for (const rel of requiredFiles) {
   if (rel === 'sitemap.xml') {
     if (!/quantumpiforge\.com\/try\.html/.test(body)) {
       errors.push('sitemap.xml missing try.html URL');
+    }
+    if (!/quantumpiforge\.com\/support\.html/.test(body)) {
+      errors.push('sitemap.xml missing support.html URL');
+    }
+    if (!/quantumpiforge\.com\/verification-artifact/.test(body)) {
+      errors.push('sitemap.xml missing verification-artifact URL');
     }
     if (!/quantumpiforge\.com\/problems\//.test(body)) {
       errors.push('sitemap.xml missing problems/ URL');
@@ -122,6 +133,12 @@ if (index) {
   }
   if (!index.includes('/problems/')) {
     errors.push('index.html missing link to /problems/');
+  }
+  if (!index.includes('/support.html')) {
+    errors.push('index.html missing link to /support.html');
+  }
+  if (!index.includes('/verification-artifact.html')) {
+    errors.push('index.html missing link to /verification-artifact.html');
   }
   if (!/Know what is real/i.test(index)) {
     errors.push('index.html missing discoverability hero phrase "Know what is real"');

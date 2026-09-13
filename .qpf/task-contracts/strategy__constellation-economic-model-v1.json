@@ -1,0 +1,60 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "strategy/constellation-economic-model-v1",
+  "outcome": "Add one canonical internal QPF strategy artifact encoding the locked constellation and economic model. No landing, satellite, Step D, outreach, or economic-contract changes.",
+  "canonicalSources": [
+    "docs/governance/ECONOMIC_SOVEREIGNTY_GATE_V1.md",
+    "docs/governance/github-ecosystem-registry-v1.json",
+    "docs/valuation/QPF_SELF_SUSTAINING_VALUE_FLYWHEEL_V1.md",
+    "docs/protocol/qpf-v1/12-identity-artifact.md"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/strategy__constellation-economic-model-v1.json",
+    "docs/governance/QPF_CONSTELLATION_AND_ECONOMIC_STRATEGY_V1.md"
+  ],
+  "forbiddenPaths": [
+    "deploy/**",
+    "src/**",
+    "functions/**",
+    "contracts/**",
+    "wallets/**",
+    "identities/**",
+    "receipts/**",
+    "schemas/**"
+  ],
+  "forbiddenActions": [
+    "landing-page rewrite",
+    "merge of PR #775",
+    "satellite README edit",
+    "Step D",
+    "partnership outreach",
+    "economic contract change",
+    "economic activation",
+    "production deployment",
+    "wallet or key action",
+    "Genesis artifact creation",
+    "merge"
+  ],
+  "verification": [
+    "test -f docs/governance/QPF_CONSTELLATION_AND_ECONOMIC_STRATEGY_V1.md",
+    "grep -q 'STRATEGY_LOCKED' docs/governance/QPF_CONSTELLATION_AND_ECONOMIC_STRATEGY_V1.md",
+    "grep -q 'QPF does not charge people merely to establish verifiable truth' docs/governance/QPF_CONSTELLATION_AND_ECONOMIC_STRATEGY_V1.md",
+    "grep -q 'percentage_chosen             = false' docs/governance/QPF_CONSTELLATION_AND_ECONOMIC_STRATEGY_V1.md",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/strategy__constellation-economic-model-v1.json --base origin/main"
+  ],
+  "definitionOfDone": [
+    "One internal strategy artifact exists and declares itself canonical for constellation roles and economics.",
+    "The artifact states verification is not a protocol toll booth and that protocol participation is not live.",
+    "No deploy/, satellite README, verification, contract, wallet, or outreach files are changed.",
+    "The artifact does not authorize merge, Step D, landing rewrite, or economic activation."
+  ],
+  "authorizationRequired": [
+    "merge",
+    "Lane 1 landing rewrite",
+    "Lane 2 satellite classification",
+    "Step D",
+    "partnership outreach",
+    "economic contracts",
+    "deployment"
+  ]
+}

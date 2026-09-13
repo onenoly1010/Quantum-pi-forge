@@ -1,0 +1,28 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "fix/autodeposit-not-proton",
+  "outcome": "Split public contact (onenoly11@proton.me) from withheld Wealthsimple Interac Autodeposit. Do not publish the Autodeposit address. Do not claim an earning.",
+  "allowedPaths": [
+    ".qpf/task-contracts/fix__autodeposit-not-proton.json",
+    "deploy/support.html",
+    "receipts/earning/first-dollar-offer-v1.md",
+    "receipts/earning/first-dollar-mission-2026-08-21.md"
+  ],
+  "forbiddenPaths": [
+    "contracts/**",
+    "wallets/**",
+    "src/**"
+  ],
+  "forbiddenActions": [
+    "publish Wealthsimple Autodeposit address",
+    "public mint",
+    "liquidity",
+    "wallet transfer",
+    "claim earning without Interac proof"
+  ],
+  "verification": [
+    "grep -q 'Wealthsimple' deploy/support.html",
+    "grep -q 'not to Proton' deploy/support.html",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/fix__autodeposit-not-proton.json --base origin/main"
+  ]
+}

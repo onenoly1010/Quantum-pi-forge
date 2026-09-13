@@ -127,6 +127,17 @@ Any future ownership transfer is human-authorized only, with receipts.
 
 ---
 
+## Official Safe developer surface (2026-08-16)
+
+https://developer.safe.global/home is a **login dashboard**, not this project’s control plane.  
+Public stack: https://docs.safe.global/home/safe-core  
+
+0G chain **16661 is not** on Safe’s official supported-networks list. Do not invent a Transaction Service URL. Protocol Kit (RPC) is the only official-adjacent path if a human later authorizes a tx — still **NO GO**.
+
+Contained note: `docs/security/SAFE_INFRASTRUCTURE_OPERATOR_V1.md`
+
+---
+
 ## Files
 
 | File | Purpose |

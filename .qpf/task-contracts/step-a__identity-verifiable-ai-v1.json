@@ -1,0 +1,61 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "step-a/identity-verifiable-ai-v1",
+  "outcome": "Define the QPF verifiable AI identity artifact v1 schema and protocol specification without changing verification behavior or creating Genesis state.",
+  "canonicalSources": [
+    "schemas/qpf/v1/identity-verifiable-ai.schema.json",
+    "docs/protocol/qpf-v1/12-identity-artifact.md"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/step-a__identity-verifiable-ai-v1.json",
+    "schemas/qpf/v1/identity-verifiable-ai.schema.json",
+    "docs/protocol/qpf-v1/12-identity-artifact.md"
+  ],
+  "forbiddenPaths": [
+    "identities/**",
+    "receipts/identity/**",
+    "contracts/**",
+    "deploy/**",
+    "functions/**",
+    "wallets/**",
+    "scripts/**",
+    "tests/**"
+  ],
+  "forbiddenActions": [
+    "Level 0 verifier change",
+    "identity-ID derivation implementation",
+    "Genesis artifact creation",
+    "fixture identity artifact creation",
+    "identity receipt creation",
+    "lineage verification implementation",
+    "API publication or /api/verify change",
+    "production deployment",
+    "credential or secret change",
+    "billing change",
+    "wallet or key action",
+    "minting or liquidity action",
+    "staking action",
+    "bridge action",
+    "economic activation",
+    "merge"
+  ],
+  "verification": [
+    "npm run verify:all",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/step-a__identity-verifiable-ai-v1.json --base origin/main"
+  ],
+  "definitionOfDone": [
+    "The verifiable AI identity schema exists at the canonical v1 schema path.",
+    "The protocol specification defines the identity artifact boundary and epistemic semantics.",
+    "Only the contract, schema, and protocol specification are changed by this Step A scope.",
+    "Level 0 verification behavior remains unchanged.",
+    "No Genesis, fixture, receipt, API, deployment, wallet, or economic state is created or changed.",
+    "Publication scope validates the branch against this contract."
+  ],
+  "authorizationRequired": [
+    "merge",
+    "Step B implementation",
+    "Genesis creation",
+    "verifier modification",
+    "deployment"
+  ]
+}

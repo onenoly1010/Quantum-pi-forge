@@ -1,0 +1,195 @@
+const fs = require("fs");
+const path = require("path");
+
+const ROOT = path.resolve(__dirname, "../..");
+const REGISTRY_PATH = path.join(ROOT, "docs/governance/github-ecosystem-registry-v1.json");
+const DOCUMENT_PATH = path.join(ROOT, "docs/governance/GITHUB_ECOSYSTEM_REGISTRY_V1.md");
+
+function fail(message) {
+  throw new Error(`ecosystem registry: ${message}`);
+}
+
+function readRegistry() {
+  return JSON.parse(fs.readFileSync(REGISTRY_PATH, "utf8"));
+}
+
+function count(items, predicate) {
+  return items.filter(predicate).length;
+}
+
+function validateRegistry(registry) {
+  if (registry.schema !== "qpf.github_ecosystem_registry.v1") fail("unexpected schema");
+  if (registry.version !== 1) fail("unexpected version");
+  if (registry.status !== "CANONICAL_MACHINE_READABLE") fail("registry is not canonical");
+  if (!registry.authorityBoundary || registry.authorityBoundary.unknownIsHealthy !== false) {
+    fail("UNKNOWN must not be healthy");
+  }
+  if (registry.authorityBoundary.sharedCredentialsAllowed !== false) {
+    fail("shared credentials must remain prohibited");
+  }
+  if (!Array.isArray(registry.repositories) || !Array.isArray(registry.projects)) {
+    fail("repositories and projects must be arrays");
+  }
+
+  const names = registry.repositories.map((entry) => entry.fullName);
+  if (new Set(names).size !== names.length) fail("duplicate repository fullName");
+  if (names.length !== registry.inventory.repositoryCount) fail("repository count mismatch");
+
+  const publicCount = count(registry.repositories, (entry) => entry.visibility === "public");
+  const privateCount = count(registry.repositories, (entry) => entry.visibility === "private");
+  const archivedCount = count(registry.repositories, (entry) => entry.lifecycle === "ARCHIVED");
+  if (publicCount !== registry.inventory.publicRepositoryCount) fail("public count mismatch");
+  if (privateCount !== registry.inventory.privateRepositoryCount) fail("private count mismatch");
+  if (archivedCount !== registry.inventory.archivedRepositoryCount) fail("archived count mismatch");
+  if (registry.projects.length !== registry.inventory.projectCount) fail("project count mismatch");
+
+  const canonical = registry.repositories.filter((entry) => entry.canonical);
+  if (canonical.length !== 1) fail("exactly one canonical repository is required");
+  if (canonical[0].fullName !== registry.canonicalRepository) fail("canonical repository mismatch");
+
+  const allowedLifecycles = new Set(["ACTIVE", "ARCHIVED", "REVIEW_REQUIRED"]);
+  for (const entry of registry.repositories) {
+    if (!entry.fullName || !entry.fullName.includes("/")) fail("invalid repository fullName");
+    if (!allowedLifecycles.has(entry.lifecycle)) fail(`invalid lifecycle for ${entry.fullName}`);
+    if (!["public", "private", "internal"].includes(entry.visibility)) {
+      fail(`invalid visibility for ${entry.fullName}`);
+    }
+    if (!Array.isArray(entry.roles) || entry.roles.length === 0) {
+      fail(`missing roles for ${entry.fullName}`);
+    }
+    if (!entry.relationship || !entry.relationship.kind) {
+      fail(`missing relationship for ${entry.fullName}`);
+    }
+    const target = entry.relationship.target;
+    if (target !== null && !names.includes(target)) {
+      fail(`unknown relationship target for ${entry.fullName}: ${target}`);
+    }
+    if (entry.visibility === "private") {
+      if (!entry.continuity || entry.continuity.backupAdministratorVerified !== false) {
+        fail(`private continuity state must remain explicit for ${entry.fullName}`);
+      }
+    }
+  }
+
+  const projectKeys = registry.projects.map((project) => `${project.owner}#${project.number}`);
+  if (new Set(projectKeys).size !== projectKeys.length) fail("duplicate project owner/number");
+  const operationalProjects = registry.projects.filter((project) => project.operational);
+  if (operationalProjects.length !== 1) fail("exactly one operational Project is required");
+  const operationalKey = `${operationalProjects[0].owner}#${operationalProjects[0].number}`;
+  const canonicalProjectKey =
+    `${registry.canonicalOperationalProject.owner}#${registry.canonicalOperationalProject.number}`;
+  if (operationalKey !== canonicalProjectKey) {
+    fail("operational Project does not match canonicalOperationalProject");
+  }
+
+  if (registry.continuity.independentAdministratorCount !== 0) {
+    fail("independent administrator count is not supported by current evidence");
+  }
+  if (registry.continuity.privateRepositoryBackupAccessVerified !== false) {
+    fail("private backup access must remain unverified");
+  }
+  if (registry.continuity.accountSuccessorVerified !== false) {
+    fail("account successor must remain unverified");
+  }
+}
+
+function escapeCell(value) {
+  return String(value).replace(/\|/g, "\\|").replace(/\n/g, " ");
+}
+
+function renderRegistry(registry) {
+  validateRegistry(registry);
+  const repositories = [...registry.repositories].sort((a, b) =>
+    a.fullName.localeCompare(b.fullName, "en", { sensitivity: "base" })
+  );
+  const projects = [...registry.projects].sort((a, b) =>
+    a.owner.localeCompare(b.owner) || a.number - b.number
+  );
+  const lines = [
+    "# GitHub Ecosystem Registry v1",
+    "",
+    "> Generated from `github-ecosystem-registry-v1.json`. Do not edit this file directly.",
+    "",
+    `**Status:** ${registry.status}`,
+    `**Verified:** ${registry.verifiedAt}`,
+    `**Canonical repository:** \`${registry.canonicalRepository}\``,
+    "",
+    "## Invariants",
+    "",
+    "- Machine-readable registry is authoritative; this Markdown is a derived view.",
+    "- `UNKNOWN != HEALTHY`.",
+    "- Registry classification does not authorize transfer, deletion, deployment, credentials, billing, wallets, governance, or legal succession.",
+    "- Candidate duplicate or superseded relationships require human review before archival or deletion.",
+    "",
+    "## Summary",
+    "",
+    "| Metric | Count |",
+    "| --- | ---: |",
+    `| Repositories | ${registry.inventory.repositoryCount} |`,
+    `| Public repositories | ${registry.inventory.publicRepositoryCount} |`,
+    `| Private repositories | ${registry.inventory.privateRepositoryCount} |`,
+    `| Archived repositories | ${registry.inventory.archivedRepositoryCount} |`,
+    `| Projects | ${registry.inventory.projectCount} |`,
+    `| Independent administrators verified | ${registry.continuity.independentAdministratorCount} |`,
+    "",
+    "## Organizations",
+    "",
+    "| Organization | Owners | Members | Teams | 2FA enforced | Continuity |",
+    "| --- | ---: | ---: | ---: | --- | --- |"
+  ];
+
+  for (const org of registry.organizations) {
+    lines.push(
+      `| ${escapeCell(org.login)} | ${org.ownerCount} | ${org.memberCount} | ${org.teamCount} | ${org.twoFactorEnforcement ? "yes" : "no"} | ${org.continuityState} |`
+    );
+  }
+
+  lines.push(
+    "",
+    "## Repositories",
+    "",
+    "| Repository | Visibility | Lifecycle | Roles | Relationship |",
+    "| --- | --- | --- | --- | --- |"
+  );
+  for (const repo of repositories) {
+    const relationship = repo.relationship.target
+      ? `${repo.relationship.kind} -> ${repo.relationship.target}`
+      : repo.relationship.kind;
+    lines.push(
+      `| ${escapeCell(repo.fullName)} | ${repo.visibility} | ${repo.lifecycle} | ${escapeCell(repo.roles.join(", "))} | ${escapeCell(relationship)} |`
+    );
+  }
+
+  lines.push(
+    "",
+    "## Projects",
+    "",
+    "| Owner/# | State | Items | Operational | Classification | Title |",
+    "| --- | --- | ---: | --- | --- | --- |"
+  );
+  for (const project of projects) {
+    lines.push(
+      `| ${escapeCell(project.owner)} #${project.number} | ${project.state} | ${project.itemCount} | ${project.operational ? "yes" : "no"} | ${project.classification} | ${escapeCell(project.title)} |`
+    );
+  }
+
+  lines.push(
+    "",
+    "## Update contract",
+    "",
+    "1. Change the JSON source.",
+    "2. Run `npm run generate:ecosystem-registry`.",
+    "3. Run `npm run verify:ecosystem-registry` and `npm run verify:all`.",
+    "4. Record uncertain classifications as `REVIEW_REQUIRED`; never infer healthy or canonical state.",
+    ""
+  );
+  return lines.join("\n");
+}
+
+module.exports = {
+  DOCUMENT_PATH,
+  REGISTRY_PATH,
+  readRegistry,
+  renderRegistry,
+  validateRegistry
+};

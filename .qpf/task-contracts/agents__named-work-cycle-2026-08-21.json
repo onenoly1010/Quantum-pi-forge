@@ -1,0 +1,69 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "agents/named-work-cycle-2026-08-21",
+  "outcome": "Record named-agent work cycles 1 and 2 (2026-08-21): bounded non-economic tasks with inspectable artifacts. No economic activation, deploy, send, or merge.",
+  "canonicalSources": [
+    "agents/governance/named-agent-registry-v1.json",
+    "deploy/verification-status-v1.json",
+    "docs/governance/ECONOMIC_SOVEREIGNTY_GATE_V1.md"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/agents__named-work-cycle-2026-08-21.json",
+    "docs/agents/named-work-cycle-2026-08-21/00-BASELINE.md",
+    "docs/agents/named-work-cycle-2026-08-21/01-builder-support.md",
+    "docs/agents/named-work-cycle-2026-08-21/02-outreach.md",
+    "docs/agents/named-work-cycle-2026-08-21/03-grant.md",
+    "docs/agents/named-work-cycle-2026-08-21/04-public-page.md",
+    "docs/agents/named-work-cycle-2026-08-21/05-treasury-visibility.md",
+    "docs/agents/named-work-cycle-2026-08-21/06-proposal.md",
+    "docs/agents/named-work-cycle-2026-08-21/07-invoice.md",
+    "docs/agents/named-work-cycle-2026-08-21/INDEX.md",
+    "docs/agents/named-work-cycle-2026-08-21/c2/00-BASELINE.md",
+    "docs/agents/named-work-cycle-2026-08-21/c2/01-builder-support.md",
+    "docs/agents/named-work-cycle-2026-08-21/c2/02-outreach.md",
+    "docs/agents/named-work-cycle-2026-08-21/c2/03-grant.md",
+    "docs/agents/named-work-cycle-2026-08-21/c2/04-public-page.md",
+    "docs/agents/named-work-cycle-2026-08-21/c2/05-treasury-visibility.md",
+    "docs/agents/named-work-cycle-2026-08-21/c2/06-proposal.md",
+    "docs/agents/named-work-cycle-2026-08-21/c2/07-invoice.md",
+    "docs/agents/named-work-cycle-2026-08-21/c2/INDEX.md"
+  ],
+  "forbiddenPaths": [
+    "src/**",
+    "functions/**",
+    "deploy/**",
+    "contracts/**",
+    "wallets/**",
+    "docs/ai/AUTHORIZATION_WORKFLOW.md"
+  ],
+  "forbiddenActions": [
+    "public mint",
+    "liquidity",
+    "staking/yield",
+    "bridge",
+    "wallet transfer",
+    "ERC-8004/7857 registration",
+    "external message send",
+    "grant submit",
+    "production deployment",
+    "merge"
+  ],
+  "verification": [
+    "test -f docs/agents/named-work-cycle-2026-08-21/INDEX.md",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/agents__named-work-cycle-2026-08-21.json --base origin/main"
+  ],
+  "definitionOfDone": [
+    "Cycle 1 and cycle 2 seven-agent artifacts exist and distinguish ASSIGNED/EXECUTED/VERIFIED/EARNED.",
+    "No economic or deploy files changed.",
+    "Merge of this branch is not performed by this contract."
+  ],
+  "authorizationRequired": [
+    "merge",
+    "send outreach",
+    "submit grant",
+    "landing HTML edit",
+    "economic activation",
+    "status-json pin / Pages publish",
+    "delete Copilot leftover branches"
+  ]
+}

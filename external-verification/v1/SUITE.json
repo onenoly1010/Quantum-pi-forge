@@ -1,0 +1,22 @@
+{
+  "spec": "qpf-external-verification/v1",
+  "suite_version": "1.0.0",
+  "fixture_set": "t2b-golden",
+  "fixture_version": "1.0.0",
+  "propositions": {
+    "T0": "Does the public surface accurately describe the current published state?",
+    "T1": "Does independently observed chain state match the published state?",
+    "T2-A": "Does the repository evidence machinery reproduce its documented tests?",
+    "T2-B": "Does Level 0 produce deterministic content-addressed identifiers an outsider can re-derive from golden inputs?"
+  },
+  "verdicts": ["CONFIRM", "PARTIAL", "BLOCKED", "FAIL"],
+  "does_not_authorize": [
+    "mint",
+    "liquidity",
+    "yield",
+    "pi_payment",
+    "deployment",
+    "governance_decision"
+  ],
+  "first_dollar_earned": false
+}

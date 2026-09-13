@@ -101,7 +101,7 @@ Fill before outbound:
 | Starter fixed price | `TBD_HUMAN` |
 | Professional fixed price | `TBD_HUMAN` |
 | Retainer | `TBD_HUMAN` |
-| Contact | onenoly@proton.me |
+| Contact | onenoly11@proton.me |
 
 ---
 

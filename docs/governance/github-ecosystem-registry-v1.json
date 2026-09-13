@@ -1,0 +1,403 @@
+{
+  "schema": "qpf.github_ecosystem_registry.v1",
+  "version": 1,
+  "status": "CANONICAL_MACHINE_READABLE",
+  "verifiedAt": "2026-08-19",
+  "canonicalRepository": "onenoly1010/Quantum-pi-forge",
+  "canonicalOperationalProject": {
+    "owner": "Piforge-Sovereign",
+    "number": 2
+  },
+  "inventory": {
+    "repositoryCount": 35,
+    "publicRepositoryCount": 26,
+    "privateRepositoryCount": 9,
+    "archivedRepositoryCount": 5,
+    "projectCount": 6
+  },
+  "authorityBoundary": {
+    "purpose": "Repository, Project, ownership, lifecycle, and external-control routing",
+    "doesNotAuthorize": [
+      "repository transfer",
+      "repository deletion or archival",
+      "production deployment",
+      "credential or secret use",
+      "billing changes",
+      "wallet or signing actions",
+      "governance execution",
+      "legal succession or IP transfer"
+    ],
+    "unknownIsHealthy": false,
+    "sharedCredentialsAllowed": false
+  },
+  "continuity": {
+    "administratorModel": "SINGLE_OWNER_VERIFIED",
+    "independentAdministratorCount": 0,
+    "privateRepositoryBackupAccessVerified": false,
+    "accountSuccessorVerified": false,
+    "legalSuccessionVerified": false,
+    "targetAdministratorModel": "DUAL_INDEPENDENT_ADMINISTRATORS"
+  },
+  "organizations": [
+    {
+      "login": "Piforge-Sovereign",
+      "role": "admin",
+      "state": "active",
+      "ownerCount": 1,
+      "memberCount": 1,
+      "teamCount": 0,
+      "twoFactorEnforcement": false,
+      "continuityState": "BLOCKED_SINGLE_OWNER"
+    }
+  ],
+  "projects": [
+    {
+      "owner": "onenoly1010",
+      "number": 1,
+      "title": "Quantum PI Forge eco system - worlds first autonomous eco system with OINIO soul system",
+      "state": "CLOSED",
+      "itemCount": 126,
+      "operational": false,
+      "classification": "HISTORICAL"
+    },
+    {
+      "owner": "onenoly1010",
+      "number": 2,
+      "title": "@onenoly1010 OINIO soul system",
+      "state": "OPEN",
+      "itemCount": 71,
+      "operational": false,
+      "classification": "HISTORICAL_NO_OPEN_WORK"
+    },
+    {
+      "owner": "onenoly1010",
+      "number": 3,
+      "title": "@onenoly1010's untitled project",
+      "state": "OPEN",
+      "itemCount": 83,
+      "operational": false,
+      "classification": "HISTORICAL_NO_OPEN_WORK"
+    },
+    {
+      "owner": "onenoly1010",
+      "number": 4,
+      "title": "[COPY] @onenoly1010's untitled project",
+      "state": "OPEN",
+      "itemCount": 7,
+      "operational": false,
+      "classification": "HISTORICAL_NO_OPEN_WORK"
+    },
+    {
+      "owner": "Piforge-Sovereign",
+      "number": 1,
+      "title": "@onenoly1010's untitled template",
+      "state": "OPEN",
+      "itemCount": 0,
+      "operational": false,
+      "classification": "EMPTY_TEMPLATE"
+    },
+    {
+      "owner": "Piforge-Sovereign",
+      "number": 2,
+      "title": "QPF Operational Backlog",
+      "state": "OPEN",
+      "itemCount": 7,
+      "operational": true,
+      "classification": "CANONICAL_OPERATIONAL_BACKLOG"
+    }
+  ],
+  "repositories": [
+    {
+      "fullName": "onenoly1010/Ai-forge-",
+      "visibility": "public",
+      "lifecycle": "ACTIVE",
+      "roles": ["supporting_application", "deployment_surface"],
+      "canonical": false,
+      "relationship": {"kind": "SUPPORTING", "target": "onenoly1010/Quantum-pi-forge"}
+    },
+    {
+      "fullName": "onenoly1010/AI_GIT_REPO",
+      "visibility": "private",
+      "lifecycle": "REVIEW_REQUIRED",
+      "roles": ["operations_automation", "monitoring_candidate"],
+      "canonical": false,
+      "relationship": {"kind": "REVIEW_REQUIRED", "target": "onenoly1010/Quantum-pi-forge"},
+      "continuity": {"backupAdministratorVerified": false}
+    },
+    {
+      "fullName": "onenoly1010/antelope_contrib",
+      "visibility": "public",
+      "lifecycle": "ACTIVE",
+      "roles": ["external_fork", "reference"],
+      "canonical": false,
+      "relationship": {"kind": "INDEPENDENT", "target": null}
+    },
+    {
+      "fullName": "onenoly1010/attest-build-provenance",
+      "visibility": "public",
+      "lifecycle": "ACTIVE",
+      "roles": ["external_fork", "supply_chain_reference"],
+      "canonical": false,
+      "relationship": {"kind": "INDEPENDENT", "target": null}
+    },
+    {
+      "fullName": "onenoly1010/autonomous-repo-template",
+      "visibility": "public",
+      "lifecycle": "ACTIVE",
+      "roles": ["template", "governance_reference"],
+      "canonical": false,
+      "relationship": {"kind": "SUPPORTING", "target": "onenoly1010/Quantum-pi-forge"}
+    },
+    {
+      "fullName": "onenoly1010/bridge_demo",
+      "visibility": "private",
+      "lifecycle": "REVIEW_REQUIRED",
+      "roles": ["empty", "demo"],
+      "canonical": false,
+      "relationship": {"kind": "REVIEW_REQUIRED", "target": null},
+      "continuity": {"backupAdministratorVerified": false}
+    },
+    {
+      "fullName": "onenoly1010/chatbase",
+      "visibility": "private",
+      "lifecycle": "REVIEW_REQUIRED",
+      "roles": ["candidate_duplicate", "application"],
+      "canonical": false,
+      "relationship": {"kind": "CANDIDATE_DUPLICATE", "target": "onenoly1010/chatbase-marketplace"},
+      "continuity": {"backupAdministratorVerified": false}
+    },
+    {
+      "fullName": "onenoly1010/chatbase-marketplace",
+      "visibility": "private",
+      "lifecycle": "REVIEW_REQUIRED",
+      "roles": ["candidate_duplicate", "application"],
+      "canonical": false,
+      "relationship": {"kind": "CANDIDATE_DUPLICATE", "target": "onenoly1010/chatbase"},
+      "continuity": {"backupAdministratorVerified": false}
+    },
+    {
+      "fullName": "onenoly1010/codespaces-blank",
+      "visibility": "public",
+      "lifecycle": "REVIEW_REQUIRED",
+      "roles": ["external_fork", "empty_template"],
+      "canonical": false,
+      "relationship": {"kind": "INDEPENDENT", "target": null}
+    },
+    {
+      "fullName": "onenoly1010/countdown",
+      "visibility": "public",
+      "lifecycle": "REVIEW_REQUIRED",
+      "roles": ["legacy_public_surface"],
+      "canonical": false,
+      "relationship": {"kind": "LEGACY_POINTER", "target": "onenoly1010/Quantum-pi-forge"}
+    },
+    {
+      "fullName": "onenoly1010/fastapi",
+      "visibility": "private",
+      "lifecycle": "REVIEW_REQUIRED",
+      "roles": ["candidate_duplicate", "service"],
+      "canonical": false,
+      "relationship": {"kind": "CANDIDATE_DUPLICATE", "target": "Piforge-Sovereign/fastapi"},
+      "continuity": {"backupAdministratorVerified": false}
+    },
+    {
+      "fullName": "onenoly1010/mainnetstatus",
+      "visibility": "public",
+      "lifecycle": "REVIEW_REQUIRED",
+      "roles": ["legacy_public_surface", "status"],
+      "canonical": false,
+      "relationship": {"kind": "LEGACY_POINTER", "target": "onenoly1010/Quantum-pi-forge"}
+    },
+    {
+      "fullName": "onenoly1010/nest-js-chatbase-template",
+      "visibility": "private",
+      "lifecycle": "REVIEW_REQUIRED",
+      "roles": ["candidate_duplicate", "template"],
+      "canonical": false,
+      "relationship": {"kind": "CANDIDATE_DUPLICATE", "target": "onenoly1010/chatbase"},
+      "continuity": {"backupAdministratorVerified": false}
+    },
+    {
+      "fullName": "onenoly1010/Oinio-server-",
+      "visibility": "public",
+      "lifecycle": "REVIEW_REQUIRED",
+      "roles": ["legacy_service", "legacy_pointer"],
+      "canonical": false,
+      "relationship": {"kind": "LEGACY_POINTER", "target": "onenoly1010/Quantum-pi-forge"}
+    },
+    {
+      "fullName": "onenoly1010/oinio-soul-sdk",
+      "visibility": "public",
+      "lifecycle": "ACTIVE",
+      "roles": ["sdk", "supporting_implementation"],
+      "canonical": false,
+      "relationship": {"kind": "SUPPORTING", "target": "onenoly1010/Quantum-pi-forge"}
+    },
+    {
+      "fullName": "onenoly1010/oinio-soul-system",
+      "visibility": "public",
+      "lifecycle": "ACTIVE",
+      "roles": ["oinio_system", "supporting_implementation"],
+      "canonical": false,
+      "relationship": {"kind": "SUPPORTING", "target": "onenoly1010/Quantum-pi-forge"}
+    },
+    {
+      "fullName": "onenoly1010/oinio-soul-worker",
+      "visibility": "public",
+      "lifecycle": "ACTIVE",
+      "roles": ["cloudflare_worker", "supporting_service"],
+      "canonical": false,
+      "relationship": {"kind": "SUPPORTING", "target": "onenoly1010/Quantum-pi-forge"}
+    },
+    {
+      "fullName": "onenoly1010/pi-forge-quantum-genesis",
+      "visibility": "public",
+      "lifecycle": "ARCHIVED",
+      "roles": ["legacy_predecessor", "archive"],
+      "canonical": false,
+      "relationship": {"kind": "SUPERSEDED_BY", "target": "onenoly1010/Quantum-pi-forge"}
+    },
+    {
+      "fullName": "onenoly1010/pi-forge-quantum-genesis-OPEN",
+      "visibility": "public",
+      "lifecycle": "REVIEW_REQUIRED",
+      "roles": ["legacy_public_mirror"],
+      "canonical": false,
+      "relationship": {"kind": "LEGACY_POINTER", "target": "onenoly1010/Quantum-pi-forge"}
+    },
+    {
+      "fullName": "onenoly1010/pi-mr-nft-agent",
+      "visibility": "public",
+      "lifecycle": "ACTIVE",
+      "roles": ["nft_agent", "deployment_surface"],
+      "canonical": false,
+      "relationship": {"kind": "SUPPORTING", "target": "onenoly1010/Quantum-pi-forge"}
+    },
+    {
+      "fullName": "onenoly1010/pi-mr-nft-contracts",
+      "visibility": "public",
+      "lifecycle": "ACTIVE",
+      "roles": ["smart_contracts", "supporting_implementation"],
+      "canonical": false,
+      "relationship": {"kind": "SUPPORTING", "target": "onenoly1010/Quantum-pi-forge"}
+    },
+    {
+      "fullName": "onenoly1010/Piforge",
+      "visibility": "public",
+      "lifecycle": "REVIEW_REQUIRED",
+      "roles": ["legacy_public_surface", "legacy_pointer"],
+      "canonical": false,
+      "relationship": {"kind": "LEGACY_POINTER", "target": "onenoly1010/Quantum-pi-forge"}
+    },
+    {
+      "fullName": "onenoly1010/PiForgeSovereign-GoldStandard",
+      "visibility": "public",
+      "lifecycle": "REVIEW_REQUIRED",
+      "roles": ["legacy_reference", "legacy_pointer"],
+      "canonical": false,
+      "relationship": {"kind": "LEGACY_POINTER", "target": "onenoly1010/Quantum-pi-forge"}
+    },
+    {
+      "fullName": "onenoly1010/Quantum-pi-forge",
+      "visibility": "public",
+      "lifecycle": "ACTIVE",
+      "roles": ["canonical_source", "governance", "evidence", "deployment_source"],
+      "canonical": true,
+      "relationship": {"kind": "CANONICAL", "target": null},
+      "externalControls": ["GitHub", "Cloudflare", "domain", "DNS", "billing", "secrets", "deployment"]
+    },
+    {
+      "fullName": "onenoly1010/quantum-pi-forge-fixed",
+      "visibility": "public",
+      "lifecycle": "REVIEW_REQUIRED",
+      "roles": ["candidate_duplicate", "legacy_implementation"],
+      "canonical": false,
+      "relationship": {"kind": "CANDIDATE_SUPERSEDED", "target": "onenoly1010/Quantum-pi-forge"}
+    },
+    {
+      "fullName": "onenoly1010/quantum-pi-forge-genesis",
+      "visibility": "public",
+      "lifecycle": "REVIEW_REQUIRED",
+      "roles": ["empty", "legacy_placeholder"],
+      "canonical": false,
+      "relationship": {"kind": "CANDIDATE_SUPERSEDED", "target": "onenoly1010/Quantum-pi-forge"}
+    },
+    {
+      "fullName": "onenoly1010/quantum-pi-forge-genisis",
+      "visibility": "private",
+      "lifecycle": "REVIEW_REQUIRED",
+      "roles": ["candidate_duplicate", "legacy_implementation"],
+      "canonical": false,
+      "relationship": {"kind": "CANDIDATE_SUPERSEDED", "target": "onenoly1010/Quantum-pi-forge"},
+      "continuity": {"backupAdministratorVerified": false}
+    },
+    {
+      "fullName": "onenoly1010/quantum-pi-forge-ignited",
+      "visibility": "public",
+      "lifecycle": "REVIEW_REQUIRED",
+      "roles": ["legacy_public_surface", "candidate_superseded"],
+      "canonical": false,
+      "relationship": {"kind": "CANDIDATE_SUPERSEDED", "target": "onenoly1010/Quantum-pi-forge"}
+    },
+    {
+      "fullName": "onenoly1010/quantum-pi-forge-site",
+      "visibility": "public",
+      "lifecycle": "ACTIVE",
+      "roles": ["deployment_surface", "website"],
+      "canonical": false,
+      "relationship": {"kind": "SUPPORTING", "target": "onenoly1010/Quantum-pi-forge"},
+      "externalControls": ["GitHub Pages", "deployment integration"]
+    },
+    {
+      "fullName": "onenoly1010/quantum-resonance-clean",
+      "visibility": "public",
+      "lifecycle": "ACTIVE",
+      "roles": ["deployment_surface", "supporting_application"],
+      "canonical": false,
+      "relationship": {"kind": "SUPPORTING", "target": "onenoly1010/Quantum-pi-forge"},
+      "externalControls": ["Vercel", "Neon", "deployment secrets"]
+    },
+    {
+      "fullName": "onenoly1010/the-forge-demo",
+      "visibility": "public",
+      "lifecycle": "REVIEW_REQUIRED",
+      "roles": ["empty", "demo"],
+      "canonical": false,
+      "relationship": {"kind": "REVIEW_REQUIRED", "target": null}
+    },
+    {
+      "fullName": "Piforge-Sovereign/.github",
+      "visibility": "public",
+      "lifecycle": "ARCHIVED",
+      "roles": ["organization_governance_archive"],
+      "canonical": false,
+      "relationship": {"kind": "ARCHIVE", "target": "onenoly1010/Quantum-pi-forge"}
+    },
+    {
+      "fullName": "Piforge-Sovereign/demo-repository",
+      "visibility": "private",
+      "lifecycle": "ARCHIVED",
+      "roles": ["demo", "archive"],
+      "canonical": false,
+      "relationship": {"kind": "ARCHIVE", "target": null},
+      "continuity": {"backupAdministratorVerified": false}
+    },
+    {
+      "fullName": "Piforge-Sovereign/fastapi",
+      "visibility": "private",
+      "lifecycle": "ARCHIVED",
+      "roles": ["candidate_duplicate", "archive"],
+      "canonical": false,
+      "relationship": {"kind": "CANDIDATE_DUPLICATE", "target": "onenoly1010/fastapi"},
+      "continuity": {"backupAdministratorVerified": false}
+    },
+    {
+      "fullName": "Piforge-Sovereign/Piforge-sovereign-",
+      "visibility": "public",
+      "lifecycle": "ARCHIVED",
+      "roles": ["empty", "organization_archive"],
+      "canonical": false,
+      "relationship": {"kind": "ARCHIVE", "target": null}
+    }
+  ]
+}

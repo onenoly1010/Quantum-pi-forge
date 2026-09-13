@@ -1,0 +1,59 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "step-c/identity-evidence-binding",
+  "outcome": "Bind qpf.identity.verifiable-ai.v1 artifacts to existing Level 0 verification, evidence_binding, and qpfpkg0 packages without a new verifier or lineage engine.",
+  "canonicalSources": [
+    "schemas/qpf/v1/identity-verifiable-ai.schema.json",
+    "docs/protocol/qpf-v1/12-identity-artifact.md",
+    "src/verification/verify-level0.js",
+    "src/verification/package.js",
+    "src/verification/identity-id.js"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/step-c__identity-evidence-binding.json",
+    "src/verification/identity-bind.js",
+    "src/verification/index.js",
+    "tests/verification/identity-bind.test.js",
+    "scripts/qpf-identity-bind.mjs",
+    "docs/protocol/qpf-v1/12-identity-artifact.md",
+    "package.json"
+  ],
+  "forbiddenPaths": [
+    "identities/**",
+    "receipts/identity/**",
+    "src/verification/verify-level0.js",
+    "src/verification/canonical.js",
+    "src/verification/hash.js",
+    "functions/**",
+    "deploy/**",
+    "wallets/**",
+    "contracts/**"
+  ],
+  "forbiddenActions": [
+    "qpf.lineage.v1 implementation",
+    "Genesis artifact creation",
+    "Level 0 verifier change",
+    "API publication or /api/verify change",
+    "production deployment",
+    "wallet or key action",
+    "economic activation",
+    "merge"
+  ],
+  "verification": [
+    "node --test tests/verification/identity-bind.test.js",
+    "npm run test:verification",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/step-c__identity-evidence-binding.json --base origin/main"
+  ],
+  "definitionOfDone": [
+    "Identity files are verified with unchanged verifyLevel0.",
+    "evidence_binding and qpfpkg0 package are produced via existing helpers.",
+    "identity_id consistency is checked separately from file-digest verification.",
+    "pass does not authorize Genesis, merge, deploy, or economics."
+  ],
+  "authorizationRequired": [
+    "merge",
+    "Step D",
+    "Genesis creation",
+    "deployment"
+  ]
+}

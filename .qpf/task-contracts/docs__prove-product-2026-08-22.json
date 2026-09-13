@@ -1,0 +1,36 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "docs/prove-product-2026-08-22",
+  "outcome": "Publish one complete Level 0 evidence-bound verification package for an existing public artifact. No architecture change. No economic activation.",
+  "canonicalSources": [
+    "docs/public/PUBLIC_VERIFICATION_DEMO_GATE_V1.md",
+    "src/verification/verify-level0.js",
+    "scripts/qpf-verify-level0.mjs"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/docs__prove-product-2026-08-22.json",
+    "docs/public/VERIFICATION_ARTIFACT_2026-08-22.md",
+    "receipts/public/prove-product-2026-08-22/receipt.json",
+    "receipts/public/prove-product-2026-08-22/qpfv0-bedcd4e2abc96a0433fee195ffe5237d452c690f9c7b76285ee2a3b8a008988d.json",
+    "receipts/public/prove-product-2026-08-22/qpfpkg0-6b9d2bc9b4755641514d8efe3ca4fae5aee360e5eab08eeb7374dd04d7f82ab1.json"
+  ],
+  "forbiddenPaths": [
+    "src/**",
+    "contracts/**",
+    "wallets/**",
+    "deploy/**"
+  ],
+  "forbiddenActions": [
+    "public mint",
+    "liquidity",
+    "yield",
+    "wallet transfer",
+    "claim first $1 earned",
+    "change verification engine"
+  ],
+  "verification": [
+    "npm run verify:qpf:level0 -- --artifact docs/public/PUBLIC_VERIFICATION_DEMO_GATE_V1.md --receipt receipts/public/prove-product-2026-08-22/receipt.json",
+    "npm run public:verification-demo:v1",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/docs__prove-product-2026-08-22.json --base origin/main"
+  ]
+}

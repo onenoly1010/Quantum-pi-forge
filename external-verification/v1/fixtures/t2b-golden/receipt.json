@@ -1,0 +1,22 @@
+{
+  "spec": "quantum-pi-forge-receipt/v1",
+  "receipt_id": "qpf-ext-v1-t2b-golden",
+  "artifact": {
+    "path": "artifact.bin",
+    "type": "artifact",
+    "digest": {
+      "alg": "sha256",
+      "hex": "966cbf5f68d09034c1431991f80b61238d563d5893b1c1a15b99b0e4ea415955"
+    }
+  },
+  "produced_at": "2026-08-22T00:00:00.000Z",
+  "envelope": {
+    "readOnly": true,
+    "noWalletSigning": true,
+    "noDeployment": true,
+    "noGovernanceExecution": true,
+    "noChainMutation": true,
+    "noTokenMinting": true,
+    "noPosting": true
+  }
+}

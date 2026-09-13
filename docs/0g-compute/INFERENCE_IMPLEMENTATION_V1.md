@@ -52,9 +52,12 @@
 
 | Source | Stance |
 | --- | --- |
-| `OINIO_COMPUTE_RUNTIME_POLICY_20260531.md` | Prefer **Direct**; Router non-authoritative while 402/billing broken |
+| `docs/0G_SKILLS_README.md` §6 (P0-A, 2026-08-15) | **Router-first** for server/agent; **Direct** for provider/wallet control; dual balances; historical 402 is diagnostic history only |
+| `OINIO_COMPUTE_RUNTIME_POLICY_20260531.md` | **Historical** Direct-success + Router-402 evidence — do not treat as permanent “Router dead” product policy |
 | `docs/governance/0G_COMPUTE_INFERENCE_EVIDENCE_DRY_RUN_GATE_V1.md` | Non-executing evidence gate; no login/deposit/transfer without separate receipt |
-| This implementation | Default = review / read-only list / token chat; wallet SDK live is **opt-in** |
+| This implementation | Default = review / read-only list / token chat; wallet SDK live is **opt-in** (`OG_COMPUTE_LIVE=1`) |
+
+**Balance rule:** Router unified balance on pc.0g.ai ≠ Direct **inference** sub-account ≠ Direct **fine-tuning** sub-account (`--service fine-tuning`). Diagnose 402 / `MinimumDepositRequired` against the correct pool. Fine-tune docs: [`FINE_TUNING_OPERATOR_V1.md`](FINE_TUNING_OPERATOR_V1.md) — **NO GO**.
 
 ---
 

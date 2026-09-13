@@ -1,0 +1,60 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "step-b/identity-id-derivation",
+  "outcome": "Implement deterministic qpfid0 identity-ID derivation from the landed Step A schema using existing canonicalize + SHA-256, with golden vectors and independently reproducible documentation.",
+  "canonicalSources": [
+    "schemas/qpf/v1/identity-verifiable-ai.schema.json",
+    "docs/protocol/qpf-v1/12-identity-artifact.md",
+    "src/verification/canonical.js",
+    "src/verification/hash.js"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/step-b__identity-id-derivation.json",
+    "src/verification/identity-id.js",
+    "src/verification/index.js",
+    "tests/verification/identity-id.test.js",
+    "docs/protocol/qpf-v1/12-identity-artifact.md",
+    "package.json"
+  ],
+  "forbiddenPaths": [
+    "identities/**",
+    "receipts/identity/**",
+    "contracts/**",
+    "deploy/**",
+    "functions/**",
+    "wallets/**",
+    "src/verification/verify-level0.js",
+    "src/verification/canonical.js",
+    "src/verification/hash.js"
+  ],
+  "forbiddenActions": [
+    "Genesis artifact creation",
+    "Level 0 verifier change",
+    "canonicalization semantics change",
+    "hash semantics change",
+    "API publication or /api/verify change",
+    "evidence/identity binding (Step C)",
+    "production deployment",
+    "wallet or key action",
+    "minting or liquidity action",
+    "economic activation",
+    "merge"
+  ],
+  "verification": [
+    "node --test tests/verification/identity-id.test.js",
+    "npm run test:verification",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/step-b__identity-id-derivation.json --base origin/main"
+  ],
+  "definitionOfDone": [
+    "deriveIdentityId produces qpfid0 plus 64 lowercase hex from existing JCS + SHA-256.",
+    "Pinned golden vector matches independently recomputed canonical bytes and digest.",
+    "identity_id and created_at do not affect derivation; substantive field changes do.",
+    "Level 0, Genesis, /api/verify, and economic surfaces are untouched."
+  ],
+  "authorizationRequired": [
+    "merge",
+    "Step C",
+    "Genesis creation",
+    "deployment"
+  ]
+}

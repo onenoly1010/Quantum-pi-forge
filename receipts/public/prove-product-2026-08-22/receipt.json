@@ -1,0 +1,23 @@
+{
+  "spec": "quantum-pi-forge-receipt/v1",
+  "receipt_id": "qpf-prove-product-2026-08-22",
+  "artifact": {
+    "path": "docs/public/PUBLIC_VERIFICATION_DEMO_GATE_V1.md",
+    "type": "artifact",
+    "digest": {
+      "alg": "sha256",
+      "hex": "3fbe8813bcd3cce2d805869d13d43d098166b5fc6de173c961bbffbb9efd7481"
+    }
+  },
+  "produced_at": "2026-08-22T12:00:00.000Z",
+  "envelope": {
+    "readOnly": true,
+    "noWalletSigning": true,
+    "noDeployment": true,
+    "noGovernanceExecution": true,
+    "noChainMutation": true,
+    "noTokenMinting": true,
+    "noPosting": true
+  },
+  "note": "Level 0 execution receipt for the public prove-product demonstration. Binds the existing reviewer-safe demo gate document. Does not authorize mint, liquidity, payment, or governance."
+}

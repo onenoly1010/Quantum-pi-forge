@@ -6,6 +6,7 @@ import {
   LATEST_DIFF,
   LATEST_STATE,
   BRIEF_DIR,
+  ROOT,
   ensureDirs,
   fileStamp,
   readJson,
@@ -13,6 +14,7 @@ import {
   writeText,
 } from "./lib/io.mjs";
 import { join } from "node:path";
+import { ensureContract, postureFromRepo } from "../lib/brief-contract.mjs";
 
 function mark(ok) {
   return ok ? "✓" : "✗";
@@ -169,6 +171,27 @@ export function buildBrief({ state = null, diff = null } = {}) {
   lines.push(`· trust: live RPC > evidence JSON > sealed receipts > markdown`);
   lines.push("");
   lines.push("Policy: read-only. No sign / spend / broadcast.");
+
+  // Coordination contract (existing cockpit reports) — advisory overlay.
+  try {
+    const c = ensureContract({ root: ROOT, refresh: false });
+    const p = postureFromRepo(ROOT);
+    lines.push("");
+    lines.push("Coordination contract (cockpit reports; git is canonical)");
+    lines.push(`· STATE: ${c.state}`);
+    lines.push(
+      `· Live git ${c.live_git.branch} @ ${c.live_git.commit_short} dirty=${c.live_git.dirty_count}`,
+    );
+    lines.push(`· Economic activation: ${p.economic} · SoR: ${p.identity_sor} · chain ${p.chain_id}`);
+    if (c.project_state?.execution) {
+      lines.push(
+        `· Execution posture: ${c.project_state.execution.posture} · public_activation=${c.project_state.execution.public_activation}`,
+      );
+    }
+  } catch {
+    lines.push("");
+    lines.push("Coordination contract: unavailable (run scripts/ai-cockpit.sh --quick)");
+  }
 
   return lines.join("\n") + "\n";
 }

@@ -1,0 +1,53 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "fix/level0-denials-and-output",
+  "outcome": "Add mint/liquidity/yield/pi_payment to Level 0 does_not_authorize and additive --output on the identity-era CLI without removing result_id, evidence_binding, or --sink.",
+  "canonicalSources": [
+    "src/verification/verify-level0.js",
+    "src/verification/result-id.js",
+    "scripts/qpf-verify-level0.mjs"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/fix__level0-denials-and-output.json",
+    "src/verification/verify-level0.js",
+    "scripts/qpf-verify-level0.mjs",
+    "tests/verification/level0.test.js"
+  ],
+  "forbiddenPaths": [
+    "package.json",
+    "functions/**",
+    "deploy/**",
+    "contracts/**",
+    "wallets/**",
+    "docs/ai/AUTHORIZATION_WORKFLOW.md",
+    "docs/pi-platform/**"
+  ],
+  "forbiddenActions": [
+    "whole-file verifier transplant",
+    "remove result_id or evidence_binding",
+    "remove --sink",
+    "package.json change",
+    "/api/verify change",
+    "production deployment",
+    "Pi/payment surface change",
+    "economic activation",
+    "merge"
+  ],
+  "verification": [
+    "node --test tests/verification/level0.test.js tests/verification/result-id.test.js tests/verification/identity-bind.test.js tests/verification/package.test.js",
+    "npm run test:verification",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/fix__level0-denials-and-output.json --base origin/main"
+  ],
+  "definitionOfDone": [
+    "Level 0 results list mint, liquidity, yield, and pi_payment as non-authorizations.",
+    "result_id and evidence_binding remain.",
+    "--sink remains; --output is additive.",
+    "pi_payment is a policy label only; no payment code is added."
+  ],
+  "authorizationRequired": [
+    "merge",
+    "deployment",
+    "/api/verify",
+    "economic activation"
+  ]
+}

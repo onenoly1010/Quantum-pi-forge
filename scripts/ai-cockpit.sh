@@ -10,6 +10,8 @@
 #   ./scripts/ai-cockpit.sh           # full verify + state
 #   ./scripts/ai-cockpit.sh --quick   # fast agent/git + state (no evidence/build)
 #   ./scripts/ai-cockpit.sh --state-only   # regenerate state from existing report
+#   ./scripts/ai-cockpit.sh --brief        # refresh contract then print AI brief
+#   ./scripts/ai-cockpit.sh --brief-cached # print AI brief from existing reports
 
 set -u
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -20,12 +22,23 @@ for arg in "$@"; do
   case "$arg" in
     --quick|-q) MODE=quick ;;
     --state-only) MODE=state ;;
+    --brief) MODE=brief ;;
+    --brief-cached) MODE=brief-cached ;;
     --help|-h)
-      sed -n '2,16p' "$0" | sed 's/^# \?//'
+      sed -n '2,20p' "$0" | sed 's/^# \?//'
       exit 0
       ;;
   esac
 done
+
+if [[ "$MODE" == "brief" ]]; then
+  export NO_WALLET_TOUCH=1
+  unset OG_COMPUTE_LIVE || true
+  exec node "$ROOT/scripts/ai-brief.mjs" --refresh
+fi
+if [[ "$MODE" == "brief-cached" ]]; then
+  exec node "$ROOT/scripts/ai-brief.mjs"
+fi
 
 echo "=== AI COCKPIT ($MODE) ==="
 

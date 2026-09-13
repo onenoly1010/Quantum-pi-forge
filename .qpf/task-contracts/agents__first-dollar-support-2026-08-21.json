@@ -1,0 +1,58 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "agents/first-dollar-support-2026-08-21",
+  "outcome": "Expose the smallest truthful Support / Build With QPF $1 path on existing human-controlled receive rails. Does not activate mint, LP, yield, staking, bridge, or agent wallets.",
+  "canonicalSources": [
+    "docs/governance/AGENT_EARNING_UNGATE_V1.md",
+    "docs/activation/command/FUNDING_RECEIVING_SPEC_V1.md",
+    "docs/activation/command/funding-receiving-form-v1.json",
+    "docs/governance/ECONOMIC_SOVEREIGNTY_GATE_V1.md"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/agents__first-dollar-support-2026-08-21.json",
+    "deploy/support.html",
+    "deploy/index.html",
+    "deploy/sitemap.xml",
+    "deploy/work-with-us.html",
+    "scripts/build.js",
+    "scripts/verify-entry-surfaces.cjs",
+    "receipts/earning/first-dollar-offer-v1.md",
+    "receipts/earning/support-receipt-template-v1.md",
+    "receipts/earning/first-dollar-mission-2026-08-21.md"
+  ],
+  "forbiddenPaths": [
+    "contracts/**",
+    "wallets/**",
+    "src/**",
+    "functions/**",
+    "docs/ai/AUTHORIZATION_WORKFLOW.md"
+  ],
+  "forbiddenActions": [
+    "public mint",
+    "liquidity",
+    "staking/yield",
+    "bridge",
+    "wallet transfer",
+    "agent signing",
+    "ERC-8004/7857 registration",
+    "selling the contradicted $500 certificate as the first-dollar offer"
+  ],
+  "verification": [
+    "npm run build",
+    "test -f out/support.html",
+    "grep -q 'Support / Build With QPF' out/support.html",
+    "grep -q '0x0fbBd408A419E96F592A61824168903E179B3397' out/support.html",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/agents__first-dollar-support-2026-08-21.json --base origin/main"
+  ],
+  "definitionOfDone": [
+    "Live-capable /support.html is in the Pages build allowlist and has a unique title.",
+    "Payment instructions use existing AUTHORIZE TO RECEIVE rails only.",
+    "No mint/LP/yield/bridge/wallet mutation.",
+    "Earned is not claimed without payment proof."
+  ],
+  "authorizationRequired": [
+    "counting a payment as EARNED without inspectable proof",
+    "publishing Interac destination that was withheld from the repository",
+    "agent custody of funds"
+  ]
+}

@@ -12,6 +12,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { digestSha256File, digestsEqual, HASH_ALG_SHA256 } from './hash.js';
 import { aggregateLevel0, REASON } from './semantics.js';
+import { deriveResultId } from './result-id.js';
 
 export const VERIFY_REQUEST_SPEC = 'quantum-pi-forge-verify/v1';
 export const VERIFY_RESULT_SPEC = 'quantum-pi-forge-verify-result/v1';
@@ -167,6 +168,7 @@ export function verifyLevel0(request) {
   // 2. Locate receipt
   let receiptText = null;
   let receiptObj = null;
+  let receiptDigest = null;
   if (!receiptPath) {
     checks.push(
       check('receipt_located', 'unavailable', 'receipt.path not provided', REASON.RECEIPT_MISSING)
@@ -184,6 +186,10 @@ export function verifyLevel0(request) {
     checks.push(check('receipt_located', 'pass', `receipt found: ${receiptRel}`, REASON.OK));
     try {
       receiptText = readFileSync(receiptPath, 'utf8');
+      // Compute receipt digest for evidence_binding (Gap H).
+      // Use digestSha256File to match the byte-level digest computed in
+      // buildPackageManifest, ensuring the two are always comparable.
+      receiptDigest = digestSha256File(receiptPath);
     } catch (e) {
       checks.push(
         check(
@@ -425,7 +431,21 @@ export function verifyLevel0(request) {
     request.target?.hash?.hex ||
     null;
 
-  return {
+  // Build evidence_binding (Gap H): captures the specific artifact and
+  // receipt digests consumed by this verification run.  This allows an
+  // external party to confirm that a given result refers to specific inputs.
+  /** @type {object|null} */
+  const evidence_binding =
+    computedDigest || receiptDigest
+      ? {
+          artifact_digest: computedDigest ?? null,
+          receipt_digest: receiptDigest ?? null,
+          artifact_path: artifactRel ?? null,
+          receipt_path: receiptRel ?? null,
+        }
+      : null;
+
+  const partialResult = {
     spec: VERIFY_RESULT_SPEC,
     target: {
       hash: targetHash,
@@ -442,6 +462,7 @@ export function verifyLevel0(request) {
       identity: VERIFIER_IDENTITY,
       version: VERIFIER_VERSION,
     },
+    ...(evidence_binding != null ? { evidence_binding } : {}),
     // Explicit non-claims
     does_not_authorize: [
       'governance_decision',
@@ -449,6 +470,16 @@ export function verifyLevel0(request) {
       'deployment',
       'financial_transaction',
       'production_safety',
+      'mint',
+      'liquidity',
+      'yield',
+      'pi_payment',
     ],
   };
+
+  // Derive content-addressed result_id (Gap B) after the result shape is
+  // final.  result_id covers all stable fields including evidence_binding.
+  const result_id = deriveResultId(partialResult);
+
+  return { ...partialResult, result_id };
 }

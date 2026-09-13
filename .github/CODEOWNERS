@@ -5,10 +5,14 @@
 /.github/workflows/  @onenoly1010
 /.github/scripts/    @onenoly1010
 /.github/CODEOWNERS  @onenoly1010
+/.github/PULL_REQUEST_TEMPLATE.md  @onenoly1010
+/.qpf/               @onenoly1010
+/AGENTS.md            @onenoly1010
 
 # Canon governance and state
 /canon/              @onenoly1010
 /docs/canon/         @onenoly1010
+/docs/governance/    @onenoly1010
 
 # Smart contracts and deployment-sensitive code
 /contracts/          @onenoly1010
