@@ -4,7 +4,11 @@ on:
   workflow_dispatch:
     inputs:
       message:
-        description: "Message to dispatch through the Press Agent"
+        description: "Message to dispatch through the Press Agent (NOT consumed by the delivery job)"
+        required: false
+        type: string
+      confirm_send:
+        description: "Must be 'true' to allow the single-send economic-object delivery"
         required: false
         type: string
 
@@ -54,3 +58,66 @@ jobs:
           TWITTER_API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
           TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
           TWITTER_ACCESS_SECRET: ${{ secrets.TWITTER_ACCESS_SECRET }}
+
+  deliver-economic-object-announcement:
+    # Bounded single-send delivery (unpark: receipts/press-agent/unpark-economic-object-delivery-v1.json).
+    # Fail-closed: dispatch only + confirm_send=true + unpark receipt present + pinned object id.
+    # The message is FIXED. The workflow_dispatch `message` input is intentionally NOT consumed.
+    name: Deliver Economic Object Announcement (single send)
+    if: >-
+      github.event_name == 'workflow_dispatch' &&
+      github.event.inputs.message == '' &&
+      github.event.inputs.confirm_send == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Unpark gate (fail closed)
+        run: |
+          node -e '
+            const fs = require("fs");
+            const OBJECT_ID = "qpfo0:7e3a669993924797a367537de6dfaf0b8f515212d1594c62807fa811e5ec71ab";
+            const p = "receipts/press-agent/unpark-economic-object-delivery-v1.json";
+            if (!fs.existsSync(p)) { console.error("REFUSED: unpark receipt missing"); process.exit(1); }
+            const r = JSON.parse(fs.readFileSync(p, "utf8"));
+            if (r.schema !== "qpf.press_agent.unpark_receipt_v1") { console.error("REFUSED: wrong unpark schema"); process.exit(1); }
+            if (r.status !== "UNPARKED_SINGLE_SCOPE") { console.error("REFUSED: unpark not active"); process.exit(1); }
+            if (r.delivery_scope.send_count_allowed !== 1) { console.error("REFUSED: scope is not single-send"); process.exit(1); }
+            if (r.delivery_scope.object_id !== OBJECT_ID) { console.error("REFUSED: pinned object_id mismatch"); process.exit(1); }
+            console.log("unpark gate PASS: single-send scope for", OBJECT_ID);
+          '
+
+      - name: Send fixed announcement through press-agent Discord adapter
+        working-directory: press-agent
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          ANNOUNCEMENT: |-
+            QPF Economic Object v1 is public.
+
+            One content-addressed, creator-signed economic object: a verified-work artifact (OpenZeppelin Ownable.sol v5.0.0 @932fddf), evidence frozen, verifier included. Verify it yourself — no trust in the publisher required:
+            https://gist.github.com/onenoly1010/f219c8b95f554b79896d3c94a016a07b
+
+            Honest status: the object is ESTABLISHED as an object. External interaction: NONE OBSERVED. Customers, payments, revenue: NONE ESTABLISHED.
+
+            Want the same treatment for your own artifact? Standard verification $2 (USDC/USDT), pay only after ESTABLISHED, FAILED = $0:
+            https://quantumpiforge.com/verification-request
+
+            Don't ask the world to believe it. Inspect it.
+        run: |
+          node -e '
+            const send = require("./src/bots/discord.js").send;
+            send(process.env.ANNOUNCEMENT)
+              .then((r) => {
+                if (!r.ok) { console.error("delivery failed:", r); process.exit(1); }
+                console.log("DELIVERED: economic-object announcement (single send)");
+              })
+              .catch((e) => { console.error("delivery error:", e.message); process.exit(1); });
+          '
