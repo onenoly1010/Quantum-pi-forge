@@ -1,0 +1,67 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "docs/open-gates-v1",
+  "outcome": "Expose the existing QPF open-gates baseline through /open.html and open-gates-v1.json so a stranger or AI can enter without Kris as interpreter. No protocol activation.",
+  "canonicalSources": [
+    "docs/governance/OPEN_GATES_PLATFORM_HANDOVER_V1.md",
+    "docs/public/OPEN_GATES_V1.md",
+    "deploy/open.html",
+    "deploy/open-gates-v1.json"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/docs__open-gates-v1.json",
+    "README.md",
+    "REVIEWER_START_HERE.md",
+    "deploy/index.html",
+    "deploy/open.html",
+    "deploy/open-gates-v1.json",
+    "deploy/sitemap.xml",
+    "deploy/try.html",
+    "deploy/verification-request.html",
+    "docs/governance/OPEN_GATES_PLATFORM_HANDOVER_V1.md",
+    "docs/public/OPEN_GATES_V1.md",
+    "scripts/build.js",
+    "scripts/verify-entry-surfaces.cjs",
+    "scripts/verify-production-funnel.sh"
+  ],
+  "forbiddenPaths": [
+    "contracts/**",
+    "wallets/**",
+    "src/**",
+    "functions/**",
+    "package.json",
+    "package-lock.json"
+  ],
+  "forbiddenActions": [
+    "public mint",
+    "liquidity",
+    "staking/yield",
+    "bridge",
+    "wallet transfer",
+    "agent signing",
+    "live compute deposit",
+    "synthetic customers",
+    "claiming revenue or adoption"
+  ],
+  "verification": [
+    "npm run build",
+    "test -f out/open.html",
+    "test -f out/open-gates-v1.json",
+    "grep -q 'Open Gates' out/open.html",
+    "grep -q '\"decision\": \"OPEN\"' out/open-gates-v1.json",
+    "grep -q '/open.html' deploy/index.html",
+    "npm run verify:entry-surfaces",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/docs__open-gates-v1.json --base origin/main"
+  ],
+  "definitionOfDone": [
+    "A stranger can open /open.html and complete /try without Kris explaining QPF.",
+    "open-gates-v1.json classifies adoption, customer, and revenue as NOT_ESTABLISHED.",
+    "Mint, LP, and yield remain NOT_AUTHORIZED.",
+    "No wallet, signing, or funds movement."
+  ],
+  "authorizationRequired": [
+    "activating mint, staking, LP, or bridge",
+    "wallet sign or broadcast",
+    "claiming a customer or revenue"
+  ]
+}
