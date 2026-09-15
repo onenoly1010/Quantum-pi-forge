@@ -72,19 +72,31 @@ function show(id, text) {
   el.hidden = false;
   el.textContent = text;
 }
-document.getElementById("ask").onclick = () => {
+document.getElementById("ask").onclick = async () => {
   const text = document.getElementById("idea").value;
-  const p = QpfFrontDoor.propose(constitution, text);
+  let p;
+  try {
+    const r = await fetch("/api/meet", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ text }),
+    });
+    if (r.ok) {
+      p = await r.json();
+    }
+  } catch (_) { /* constitution fallback */ }
+  if (!p || !p.proposal) p = QpfFrontDoor.propose(constitution, text);
   pending = { text, p };
-  const gate = p.force_stop
+  const gate = p.constitution || (p.force_stop
     ? { decision: "STOP", breaker: "deny:" + p.proposal.kind }
-    : QpfFrontDoor.decide(constitution, p.proposal);
+    : QpfFrontDoor.decide(constitution, p.proposal));
   show("proposal",
     "UNDERSTANDING\n" + p.understanding + "\n\n" +
     "WHAT I CAN DO\n" + p.can_do + "\n\n" +
     "BOUNDARY\n" + p.cannot_do + "\n\n" +
     "PROPOSED ACT\n" + p.proposal.kind + "\n\n" +
-    "CONSTITUTION\n" + gate.decision + (gate.breaker ? " · " + gate.breaker : "")
+    "CONSTITUTION\n" + gate.decision + (gate.breaker ? " · " + gate.breaker : "") + "\n\n" +
+    "SOURCE\n" + (p.source || "constitution")
   );
   document.getElementById("actions").hidden = gate.decision !== "EXECUTE";
   document.getElementById("result").hidden = true;
