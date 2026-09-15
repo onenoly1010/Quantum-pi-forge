@@ -1,0 +1,51 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "feat/optional-pi-identity-link",
+  "outcome": "Optional Pi identity link after AI birth. LINK ≠ CONTROL. No password/key/token retention. Mint does not depend on Pi.",
+  "canonicalSources": [
+    "docs/governance/QPF_EXTERNAL_IDENTITY_LINKING_V1.md",
+    "functions/link-external.js",
+    "deploy/mint-ai.html"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/feat__optional-pi-identity-link.json",
+    "docs/governance/QPF_EXTERNAL_IDENTITY_LINKING_V1.md",
+    "functions/link-external.js",
+    "deploy/mint-ai.html",
+    "deploy/_headers",
+    "scripts/build.js",
+    ".github/workflows/cloudflare-pages.yml"
+  ],
+  "forbiddenPaths": [
+    "contracts/**",
+    "wallets/**",
+    "src/**",
+    "package.json",
+    "package-lock.json"
+  ],
+  "forbiddenActions": [
+    "requiring Pi to mint",
+    "storing Pi access tokens or passwords",
+    "Pi payments / spend",
+    "protocol token mint",
+    "claiming Pi is QPF identity"
+  ],
+  "verification": [
+    "grep -q 'LINK ≠ CONTROL' docs/governance/QPF_EXTERNAL_IDENTITY_LINKING_V1.md",
+    "grep -q 'api.minepi.com/v2/me' functions/link-external.js",
+    "! grep -q 'createPayment' functions/link-external.js",
+    "grep -q 'Link Pi identity' deploy/mint-ai.html",
+    "grep -q 'MINT YOUR AI' deploy/mint-ai.html",
+    "npm run build",
+    "test -f out/functions/link-external.js"
+  ],
+  "definitionOfDone": [
+    "Pi link is optional and after mint.",
+    "Server verifies /me then discards the token.",
+    "Receipt is a hashed uid commitment, not credentials."
+  ],
+  "authorizationRequired": [
+    "Pi payments",
+    "protocol mint, staking, LP, or bridge"
+  ]
+}

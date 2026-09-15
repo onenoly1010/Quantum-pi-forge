@@ -364,3 +364,11 @@ if (fs.existsSync('functions/meet-interact.js')) {
   );
   console.log('OK copied functions/meet-interact.js -> out/functions/meet-interact.js');
 }
+if (fs.existsSync('functions/link-external.js')) {
+  fs.mkdirSync(path.join(outputDir, 'functions'), { recursive: true });
+  fs.copyFileSync(
+    path.join(rootDir, 'functions/link-external.js'),
+    path.join(outputDir, 'functions/link-external.js'),
+  );
+  console.log('OK copied functions/link-external.js -> out/functions/link-external.js');
+}
