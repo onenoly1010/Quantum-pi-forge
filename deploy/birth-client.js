@@ -36,7 +36,7 @@
     CREATING: "Creating identity...",
     IDENTITY_CREATED: "YOUR AI EXISTS.",
     ATTESTING: "Preparing verification...",
-    MAINNET_PENDING: "Mainnet confirmation pending (real tx)",
+    MAINNET_PENDING: "Verifying on the network…",
     VERIFIED: "✓ VERIFIED\n0G ARISTOTLE MAINNET\nChain 16661",
     READY: "✓ VERIFIED\n0G ARISTOTLE MAINNET\nChain 16661",
     INTERACTING: "MEET YOUR AI",
