@@ -17,6 +17,9 @@ const requiredFiles = [
   'try.html',
   'open.html',
   'open-gates-v1.json',
+  'meet.html',
+  'meet.js',
+  'front-door-cell.json',
   'verification.html',
   'verification-certificate.html',
   'verification-request.html',
@@ -39,6 +42,7 @@ const requiredFiles = [
 const titleMustInclude = {
   'try.html': 'Try QPF',
   'open.html': 'Open Gates',
+  'meet.html': 'Meet a co-creator',
   'problems/index.html': 'Problems QPF',
   'verification.html': 'Verification',
   'support.html': 'Support / Build With QPF',
@@ -88,6 +92,9 @@ for (const rel of requiredFiles) {
     }
     if (!/quantumpiforge\.com\/open\.html/.test(body)) {
       errors.push('sitemap.xml missing open.html URL');
+    }
+    if (!/quantumpiforge\.com\/meet\.html/.test(body)) {
+      errors.push('sitemap.xml missing meet.html URL');
     }
     if (!/quantumpiforge\.com\/support\.html/.test(body)) {
       errors.push('sitemap.xml missing support.html URL');
@@ -139,6 +146,9 @@ if (index) {
   }
   if (!index.includes('/open.html') && !index.includes('href="/open"')) {
     errors.push('index.html missing link to /open.html');
+  }
+  if (!index.includes('/meet.html') && !index.includes('href="/meet"')) {
+    errors.push('index.html missing link to /meet.html');
   }
   if (!index.includes('/problems/')) {
     errors.push('index.html missing link to /problems/');
