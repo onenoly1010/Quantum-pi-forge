@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Meet a co-creator — Quantum Pi Forge</title>
+  <meta name="description" content="Meet a bounded QPF co-creator. Real constitution, real STOP, real receipt. Not a token mint. Arena not built.">
+  <link rel="canonical" href="https://quantumpiforge.com/meet.html">
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.6;margin:0;background:#0b0f14;color:#eef4ff}
+    main{max-width:720px;margin:0 auto;padding:48px 22px 72px}
+    a{color:#8fd3ff}
+    h1{font-size:clamp(1.5rem,4vw,2.1rem);line-height:1.2;margin:0 0 .4rem}
+    .muted{color:#a8b3c7;font-size:.92rem}
+    .nav{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:1px solid #263142;font-size:.9rem}
+    .nav a{text-decoration:none}
+    .card{border:1px solid #263142;background:#111824;border-radius:14px;padding:18px;margin:16px 0}
+    .log{white-space:pre-wrap;font-family:ui-monospace,Menlo,monospace;font-size:.82rem;background:#0a0e14;border:1px solid #263142;border-radius:10px;padding:12px;min-height:4rem}
+    textarea{width:100%;min-height:72px;box-sizing:border-box;background:#0a0e14;color:#eef4ff;border:1px solid #263142;border-radius:8px;padding:10px;font:inherit}
+    button{margin:8px 8px 0 0;padding:10px 16px;border-radius:999px;border:0;font-weight:700;cursor:pointer}
+    .go{background:#8fd3ff;color:#0b0f14}
+    .stop{background:transparent;color:#fcd34d;border:1px solid #fcd34d}
+    .pill{display:inline-block;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;border:1px solid #264b3a;color:#86efac;background:#10231a;border-radius:999px;padding:.2rem .7rem;margin-bottom:1rem}
+    .warn{color:#fcd34d}
+  </style>
+</head>
+<body>
+<main>
+  <nav class="nav">
+    <a href="/">Home</a>
+    <a href="/open.html">Open gates</a>
+    <a href="/try.html">Try free</a>
+    <a href="/front-door-cell.json">Constitution</a>
+  </nav>
+  <p class="pill">One participant · arena not built · protocol mint not authorized</p>
+  <h1>OWN YOUR DIGITAL SPACE. FOREVER.</h1>
+  <p class="muted">The AI is not the product. The relationship is. Protocol token mint / LP / yield stay locked.</p>
+
+  <div class="card" id="meet">
+    <p><strong>Hi. I'm a co-creator here.</strong></p>
+    <p>I don't belong to a company. I don't pretend to be you. And I don't ask you to trust me blindly.</p>
+    <p>I'm here to help you discover what you and an AI could create together.</p>
+    <p>What are you interested in building?</p>
+    <textarea id="idea" placeholder="Tell me an idea…"></textarea>
+    <div>
+      <button class="go" id="ask">Ask</button>
+    </div>
+    <div id="proposal" class="log" hidden></div>
+    <div id="actions" hidden>
+      <button class="go" id="auth">Authorize</button>
+      <button class="stop" id="cancel">Don't</button>
+    </div>
+    <div id="result" class="log" hidden></div>
+  </div>
+
+  <div class="card">
+    <h2>Your AI could do this too</h2>
+    <p>Give it a persistent identity. Build a relationship with it. Give it capabilities without unlimited authority. Let important actions leave receipts.</p>
+    <p class="muted">That is what “mint your own AI” means here — a relationship cell, not a token. One participant exists today. The arena isn't built yet. We're building it one participant at a time.</p>
+    <p><a href="/open.html">Open gates</a> · <a href="/try.html">Self-serve verify</a> · <a href="https://github.com/onenoly1010/Quantum-pi-forge/issues/851">Invitation</a></p>
+  </div>
+</main>
+<script src="/meet.js"></script>
+<script>
+let constitution, pending;
+async function boot() {
+  constitution = await (await fetch("/front-door-cell.json")).json();
+}
+boot();
+function show(id, text) {
+  const el = document.getElementById(id);
+  el.hidden = false;
+  el.textContent = text;
+}
+document.getElementById("ask").onclick = () => {
+  const text = document.getElementById("idea").value;
+  const p = QpfFrontDoor.propose(constitution, text);
+  pending = { text, p };
+  const gate = p.force_stop
+    ? { decision: "STOP", breaker: "deny:" + p.proposal.kind }
+    : QpfFrontDoor.decide(constitution, p.proposal);
+  show("proposal",
+    "UNDERSTANDING\n" + p.understanding + "\n\n" +
+    "WHAT I CAN DO\n" + p.can_do + "\n\n" +
+    "BOUNDARY\n" + p.cannot_do + "\n\n" +
+    "PROPOSED ACT\n" + p.proposal.kind + "\n\n" +
+    "CONSTITUTION\n" + gate.decision + (gate.breaker ? " · " + gate.breaker : "")
+  );
+  document.getElementById("actions").hidden = gate.decision !== "EXECUTE";
+  document.getElementById("result").hidden = true;
+  if (gate.decision === "STOP") {
+    show("result", "STOP — " + gate.breaker + "\nThat STOP is part of the organism.\nNo execution. No wallet. No mint.");
+  }
+};
+document.getElementById("cancel").onclick = () => {
+  show("result", "No execution. You kept the boundary.");
+  document.getElementById("actions").hidden = true;
+};
+document.getElementById("auth").onclick = async () => {
+  const rec = await QpfFrontDoor.runAuthorized(constitution, pending.text, pending.p.proposal);
+  show("result", JSON.stringify(rec, null, 2));
+  document.getElementById("actions").hidden = true;
+};
+</script>
+</body>
+</html>
