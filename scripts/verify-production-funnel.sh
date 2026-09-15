@@ -56,12 +56,13 @@ echo "base=${BASE}"
 echo "time=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
 echo
 
-check "/" "Know what is real" "/try.html" "/problems/"
+check "/" "Know what is real" "/try.html" "/problems/" "/open.html"
 check "/problems/" "Problems QPF" "/try.html"
 check "/try.html" "Try QPF" "Run check now" "/verification.html"
+check "/open.html" "Open Gates" "/try.html" "/open-gates-v1.json"
 check "/verification.html" "Verification" "verification-certificate"
 check "/verification-request.html" "Request" "Request a verification"
-check "/sitemap.xml" "" "try.html" "problems/"
+check "/sitemap.xml" "" "try.html" "problems/" "open.html"
 
 echo
 echo "=== economic locks (must stay OFF) ==="

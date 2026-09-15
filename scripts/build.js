@@ -37,6 +37,8 @@ const staticFiles = [
   { src: 'deploy/verification-request.html', dest: 'verification-request.html' },
   // Phase A public entry (discoverability / self-serve / certificate)
   { src: 'deploy/try.html', dest: 'try.html' },
+  { src: 'deploy/open.html', dest: 'open.html' },
+  { src: 'deploy/open-gates-v1.json', dest: 'open-gates-v1.json' },
   { src: 'deploy/attack-kit.html', dest: 'attack-kit.html' },
   { src: 'deploy/verification.html', dest: 'verification.html' },
   { src: 'deploy/verification-certificate.html', dest: 'verification-certificate.html' },
@@ -185,6 +187,8 @@ function writeVersionManifest() {
 
 function writeRedirects() {
   const redirects = [
+    '/open /open.html 200',
+    '/open/ /open.html 200',
     '/trust/* /trust/:splat 200',
     // Pi-network production_dashboard removed from public routes (see gated stub page).
     '/dashboard /frontend/dashboard-gated.html 200',
