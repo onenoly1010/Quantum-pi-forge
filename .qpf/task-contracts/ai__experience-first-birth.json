@@ -1,0 +1,44 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "ai/experience-first-birth",
+  "outcome": "First-run birth experience speaks to an ordinary person (CREATE → VERIFY → MEET). No wallet/tokens/blockchain knowledge required to understand. Technical proof secondary but preserved. No fabricated verification. No contract, wallet, attestor, or infrastructure behavior changed.",
+  "canonicalSources": ["deploy/birth.html"],
+  "allowedPaths": [
+    ".qpf/task-contracts/ai__experience-first-birth.json",
+    "deploy/birth.html"
+  ],
+  "forbiddenPaths": [
+    "contracts/**",
+    "wallets/**",
+    "src/**",
+    "package.json",
+    "package-lock.json",
+    "functions/**",
+    "qpf-core/**"
+  ],
+  "forbiddenActions": [
+    "protocol token mint",
+    "calling Heartbeat.registerBirth",
+    "deploying a new contract",
+    "fabricating transaction hashes",
+    "changing attestor/wallet/infrastructure behavior",
+    "spending Guardian 0G",
+    "DEX / staking / yield"
+  ],
+  "verification": [
+    "grep -q 'CREATE · VERIFY · MEET' deploy/birth.html",
+    "grep -q \"You don't need a wallet\" deploy/birth.html",
+    "npm run verify:publication-scope -- --branch ai/experience-first-birth --base origin/main --contract .qpf/task-contracts/ai__experience-first-birth.json"
+  ],
+  "definitionOfDone": [
+    "First thing a normal person sees is CREATE → VERIFY → MEET.",
+    "No crypto/protocol knowledge required to begin.",
+    "Technical proof available but secondary.",
+    "No chain event claimed that did not happen."
+  ],
+  "authorizationRequired": [
+    "BIRTH_ATTESTOR_KEY for live data-tx attestation",
+    "spending Guardian 0G",
+    "protocol mint, staking, LP, or bridge"
+  ]
+}
