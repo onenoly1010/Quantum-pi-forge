@@ -44,6 +44,8 @@ const staticFiles = [
   { src: 'deploy/front-door-cell.json', dest: 'front-door-cell.json' },
   { src: 'deploy/mint-ai.html', dest: 'mint-ai.html' },
   { src: 'deploy/counterpart.js', dest: 'counterpart.js' },
+  { src: 'deploy/birth.html', dest: 'birth.html' },
+  { src: 'deploy/birth-client.js', dest: 'birth-client.js' },
   { src: 'deploy/attack-kit.html', dest: 'attack-kit.html' },
   { src: 'deploy/verification.html', dest: 'verification.html' },
   { src: 'deploy/verification-certificate.html', dest: 'verification-certificate.html' },
@@ -371,4 +373,10 @@ if (fs.existsSync('functions/link-external.js')) {
     path.join(outputDir, 'functions/link-external.js'),
   );
   console.log('OK copied functions/link-external.js -> out/functions/link-external.js');
+}
+for (const dir of ["functions/_lib", "functions/birth", "functions/ai"]) {
+  if (fs.existsSync(dir)) {
+    fs.cpSync(dir, path.join(outputDir, dir), { recursive: true });
+    console.log("OK copied " + dir + " -> out/" + dir);
+  }
 }

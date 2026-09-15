@@ -1,0 +1,65 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "feat/ai-birth-protocol",
+  "outcome": "Headless AI birth protocol + Client #1. Passkey authorize, real identity, honest mainnet (no fabricated tx). No OINIO registerBirth, no new contract, no mint/LP.",
+  "canonicalSources": [
+    "qpf-core/birth.mjs",
+    "docs/governance/QPF_AI_BIRTH_IDENTITY_VERIFICATION_V1.md",
+    "deploy/birth.html"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/feat__ai-birth-protocol.json",
+    "qpf-core/birth.mjs",
+    "docs/governance/QPF_AI_BIRTH_IDENTITY_VERIFICATION_V1.md",
+    "functions/_lib/birth.js",
+    "functions/_lib/http.js",
+    "functions/birth/authorize.js",
+    "functions/birth/create.js",
+    "functions/birth/status.js",
+    "functions/birth/attest.js",
+    "functions/birth/proof.js",
+    "functions/ai/session.js",
+    "deploy/birth.html",
+    "deploy/birth-client.js",
+    "deploy/index.html",
+    "deploy/sitemap.xml",
+    "scripts/build.js",
+    "scripts/verify-entry-surfaces.cjs",
+    "scripts/verify-birth-core.mjs",
+    ".github/workflows/cloudflare-pages.yml"
+  ],
+  "forbiddenPaths": [
+    "contracts/**",
+    "wallets/**",
+    "src/**",
+    "package.json",
+    "package-lock.json"
+  ],
+  "forbiddenActions": [
+    "protocol token mint",
+    "calling Heartbeat.registerBirth",
+    "deploying a new contract",
+    "fabricating transaction hashes",
+    "DEX / staking / yield"
+  ],
+  "verification": [
+    "node scripts/verify-birth-core.mjs",
+    "grep -q 'WATCH YOUR AI COME TO LIFE' deploy/birth.html",
+    "grep -q 'fabricated_tx' functions/birth/attest.js",
+    "grep -q '/birth.html' deploy/index.html",
+    "grep -q 'Know what is real' deploy/index.html",
+    "npm run build",
+    "test -f out/birth.html",
+    "test -f out/functions/birth/create.js",
+    "npm run verify:entry-surfaces"
+  ],
+  "definitionOfDone": [
+    "Visitor can BEGIN passkey birth.",
+    "MAINNET_FAILED is honest when no attestor key.",
+    "No fabricated hashes. Boundaries remain false."
+  ],
+  "authorizationRequired": [
+    "BIRTH_ATTESTOR_KEY for live data-tx attestation",
+    "protocol mint, staking, LP, or bridge"
+  ]
+}

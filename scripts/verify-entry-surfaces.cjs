@@ -22,6 +22,8 @@ const requiredFiles = [
   'front-door-cell.json',
   'mint-ai.html',
   'counterpart.js',
+  'birth.html',
+  'birth-client.js',
   'verification.html',
   'verification-certificate.html',
   'verification-request.html',
@@ -46,6 +48,7 @@ const titleMustInclude = {
   'open.html': 'Open Gates',
   'meet.html': 'Meet a co-creator',
   'mint-ai.html': 'Mint your AI',
+  'birth.html': 'Watch your AI come to life',
   'problems/index.html': 'Problems QPF',
   'verification.html': 'Verification',
   'support.html': 'Support / Build With QPF',
@@ -101,6 +104,9 @@ for (const rel of requiredFiles) {
     }
     if (!/quantumpiforge\.com\/mint-ai\.html/.test(body)) {
       errors.push('sitemap.xml missing mint-ai.html URL');
+    }
+    if (!/quantumpiforge\.com\/birth\.html/.test(body)) {
+      errors.push('sitemap.xml missing birth.html URL');
     }
     if (!/quantumpiforge\.com\/support\.html/.test(body)) {
       errors.push('sitemap.xml missing support.html URL');
@@ -158,6 +164,9 @@ if (index) {
   }
   if (!index.includes('/mint-ai.html')) {
     errors.push('index.html missing link to /mint-ai.html');
+  }
+  if (!index.includes('/birth.html')) {
+    errors.push('index.html missing link to /birth.html');
   }
   if (!/Know what is real/i.test(index)) {
     errors.push('index.html missing Know what is real');
