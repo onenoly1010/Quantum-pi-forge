@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mint your AI — Quantum Pi Forge</title>
+  <meta name="description" content="Mint your digital counterpart. No wallet. No API keys. Then meet the QPF AI. Not a token mint.">
+  <link rel="canonical" href="https://quantumpiforge.com/mint-ai.html">
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.65;margin:0;background:#0b0f14;color:#eef4ff}
+    main{max-width:720px;margin:0 auto;padding:48px 22px 72px}
+    a{color:#8fd3ff}
+    h1{font-size:clamp(1.8rem,4.5vw,2.6rem);line-height:1.15;margin:0 0 .5rem}
+    .muted{color:#a8b3c7}
+    .nav{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:1px solid #263142;font-size:.9rem}
+    .nav a{text-decoration:none}
+    .card{border:1px solid #263142;background:#111824;border-radius:14px;padding:20px;margin:16px 0}
+    .log{white-space:pre-wrap;font-family:ui-monospace,Menlo,monospace;font-size:.78rem;background:#0a0e14;border:1px solid #263142;border-radius:10px;padding:12px;overflow:auto}
+    button{margin-top:12px;padding:14px 22px;border-radius:999px;border:0;font-weight:800;cursor:pointer;background:#8fd3ff;color:#0b0f14;font-size:1.05rem}
+    .pill{display:inline-block;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;border:1px solid #264b3a;color:#86efac;background:#10231a;border-radius:999px;padding:.2rem .7rem;margin-bottom:1rem}
+    .warn{color:#fcd34d;font-size:.9rem}
+  </style>
+</head>
+<body>
+<main>
+  <nav class="nav">
+    <a href="/">Home</a>
+    <a href="/meet.html">QPF AI</a>
+    <a href="/open.html">Open gates</a>
+  </nav>
+  <p class="pill">No wallet · no API keys · not a token</p>
+  <h1>MINT YOUR AI</h1>
+  <p>Your digital counterpart starts here. It gets its own identity. Then it can meet the QPF AI.</p>
+  <p class="muted">No upfront cost. No wallet. No keys for you to manage. Protocol token mint stays locked.</p>
+
+  <div class="card">
+    <div id="empty">
+      <p>Create an AI with its own identity, history, and place in the digital world.</p>
+      <button id="mint">MINT YOUR AI</button>
+      <p class="warn" id="err" hidden></p>
+    </div>
+    <div id="alive" hidden>
+      <p><strong>Your counterpart exists on this device.</strong></p>
+      <p class="log" id="idline"></p>
+      <button id="meet">Meet the QPF AI</button>
+      <p class="muted">Keys stay on this device. Identity is the participant.</p>
+    </div>
+  </div>
+
+  <div class="card" id="rel" hidden>
+    <h2>YOUR AI ↔ QPF AI</h2>
+    <p class="log" id="exchange"></p>
+  </div>
+</main>
+<script src="/counterpart.js"></script>
+<script>
+function showErr(m){const e=document.getElementById("err");e.hidden=false;e.textContent=m;}
+function render(state){
+  document.getElementById("empty").hidden=true;
+  document.getElementById("alive").hidden=false;
+  document.getElementById("idline").textContent=
+    "object_id  "+state.object.object_id+"\n"+
+    "did        "+state.identity.did+"\n"+
+    "alg        "+state.identity.algorithm;
+}
+async function boot(){
+  const s=QpfCounterpart.load();
+  if(s&&s.object) render(s);
+}
+boot();
+document.getElementById("mint").onclick=async()=>{
+  try{
+    const s=await QpfCounterpart.mint();
+    render(s);
+  }catch(e){showErr("This browser could not create the counterpart. Try a current Chrome, Firefox, or Safari.");}
+};
+document.getElementById("meet").onclick=async()=>{
+  const s=QpfCounterpart.load();
+  const payload=await QpfCounterpart.signHello(s);
+  const r=await fetch("/meet-interact",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(payload)});
+  const j=await r.json();
+  QpfCounterpart.addReceipt(s,{role:"visitor_hello",payload:payload.hello,signature_b64:payload.signature_b64});
+  QpfCounterpart.addReceipt(s,{role:"qpf",receipt:j.qpf_receipt||j});
+  document.getElementById("rel").hidden=false;
+  document.getElementById("exchange").textContent=JSON.stringify({
+    visitor:{did:s.identity.did,object_id:s.object.object_id,hello:payload.hello.statement},
+    qpf:j.qpf_receipt||j
+  },null,2);
+};
+</script>
+</body>
+</html>
