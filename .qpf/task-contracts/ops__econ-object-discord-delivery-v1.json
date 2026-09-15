@@ -1,0 +1,48 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "ops/econ-object-discord-delivery-v1",
+  "outcome": "Unpark ONE bounded Discord delivery of the existing economic-object announcement through the existing press-agent webhook, via a fail-closed workflow_dispatch step with a fixed honest message. Distribution of an existing object. Not a new primitive, not general broadcast authority.",
+  "canonicalSources": [
+    ".github/workflows/press-agent-communications.yml",
+    "receipts/press-agent/unpark-economic-object-delivery-v1.json"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/ops__econ-object-discord-delivery-v1.json",
+    ".github/workflows/press-agent-communications.yml",
+    "receipts/press-agent/unpark-economic-object-delivery-v1.json"
+  ],
+  "forbiddenPaths": [
+    "contracts/**",
+    "wallets/**",
+    "src/**",
+    "functions/**",
+    "package.json",
+    "package-lock.json"
+  ],
+  "forbiddenActions": [
+    "public mint",
+    "liquidity",
+    "staking/yield",
+    "wallet transfer",
+    "claiming a customer or revenue",
+    "general broadcast authority beyond this single fixed announcement"
+  ],
+  "verification": [
+    "grep -q 'qpfo0:7e3a669993924797a367537de6dfaf0b8f515212d1594c62807fa811e5ec71ab' .github/workflows/press-agent-communications.yml",
+    "grep -q 'gist.github.com/onenoly1010/f219c8b95f554b79896d3c94a016a07b' .github/workflows/press-agent-communications.yml",
+    "grep -q 'NONE ESTABLISHED' .github/workflows/press-agent-communications.yml",
+    "grep -q 'NONE OBSERVED' .github/workflows/press-agent-communications.yml",
+    "node -e 'JSON.parse(require(\"fs\").readFileSync(\"receipts/press-agent/unpark-economic-object-delivery-v1.json\"))'",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/ops__econ-object-discord-delivery-v1.json --base origin/main"
+  ],
+  "definitionOfDone": [
+    "Unpark receipt recorded with explicit operator authorization and single-send scope.",
+    "Delivery step is fail-closed: requires workflow_dispatch + confirm_send=true + unpark receipt present + pinned object id in message.",
+    "Message states NO customer, NO payment, NO revenue, and links the gist and intake.",
+    "No mint/LP/yield. No arbitrary-message capability introduced."
+  ],
+  "authorizationRequired": [
+    "any further Discord sends beyond this single fixed announcement",
+    "activating mint, staking, LP, or bridge"
+  ]
+}

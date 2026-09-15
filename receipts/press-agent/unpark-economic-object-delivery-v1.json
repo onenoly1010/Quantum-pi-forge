@@ -1,0 +1,47 @@
+{
+  "schema": "qpf.press_agent.unpark_receipt_v1",
+  "status": "UNPARKED_SINGLE_SCOPE",
+  "created_utc": "2026-09-15",
+  "unparks": {
+    "guard": "receipts/press-agent/parked-broadcast-guard-v1.json",
+    "guard_schema": "qpf.press_agent.parked_broadcast_guard_v1",
+    "scope_note": "This receipt unparks ONE send only. The guard's other posture fields (evidence_only posture, no chain actions, no keys) remain in force for everything else."
+  },
+  "operator_authorization": {
+    "authorized_by": "Kris (operator)",
+    "authorization_utc": "2026-09-15",
+    "authorization_channel": "live agent session, explicit statement 'Authorisation granted'",
+    "authorization_scope": "single bounded Discord delivery of the fixed economic-object announcement via press-agent-communications.yml workflow_dispatch"
+  },
+  "delivery_scope": {
+    "channel": "discord_webhook",
+    "send_count_allowed": 1,
+    "message": "FIXED — verbatim in the workflow; the workflow_dispatch message input MUST NOT be consumed for sending",
+    "object_id": "qpfo0:7e3a669993924797a367537de6dfaf0b8f515212d1594c62807fa811e5ec71ab",
+    "object_url": "https://gist.github.com/onenoly1010/f219c8b95f554b79896d3c94a016a07b",
+    "intake_url": "https://quantumpiforge.com/verification-request",
+    "message_must_state": [
+      "object is ESTABLISHED as an object",
+      "external interaction: NONE OBSERVED",
+      "customers/payments/revenue: NONE ESTABLISHED",
+      "offer: $2 standard verification, pay after ESTABLISHED, FAILED = $0"
+    ]
+  },
+  "fail_closed_gates": [
+    "workflow_dispatch event only",
+    "confirm_send input must equal 'true'",
+    "unpark receipt (this file) must exist in the checked-out tree",
+    "pinned object_id must appear in the message",
+    "send step exits nonzero on any delivery failure"
+  ],
+  "post_delivery": {
+    "required_record": "the workflow run URL is the delivery receipt; record the observed external response class in the economic-object interaction ledger without upgrading it",
+    "classification_rule": "Exposure != interaction. Interest != payment. Payment != revenue."
+  },
+  "what_this_does_not_authorize": [
+    "arbitrary or operator-free broadcast",
+    "telegram or twitter sends (credentials EMPTY)",
+    "modification of the economic object",
+    "any claim of customer, payment, revenue, or adoption"
+  ]
+}
