@@ -187,8 +187,9 @@ function writeVersionManifest() {
 
 function writeRedirects() {
   const redirects = [
-    '/open /open.html 200',
-    '/open/ /open.html 200',
+    // Do not rewrite /open -> /open.html. Cloudflare Pages already serves
+    // open.html at /open and 308s /open.html to /open. A 200 rewrite here
+    // created a 308 loop (same class as #801 verification-artifact).
     '/trust/* /trust/:splat 200',
     // Pi-network production_dashboard removed from public routes (see gated stub page).
     '/dashboard /frontend/dashboard-gated.html 200',
