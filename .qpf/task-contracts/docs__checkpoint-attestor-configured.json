@@ -1,0 +1,18 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "docs/checkpoint-attestor-configured",
+  "outcome": "Public checkpoint: QPF attestor secret configured on Pages. Address public. Balance 0. No key in git.",
+  "canonicalSources": ["receipts/governance/birth-attestor-configured-v1.json"],
+  "allowedPaths": [
+    ".qpf/task-contracts/docs__checkpoint-attestor-configured.json",
+    "receipts/governance/birth-attestor-configured-v1.json"
+  ],
+  "forbiddenPaths": ["wallets/**", "package.json"],
+  "forbiddenActions": ["committing private keys", "fabricating a 16661 tx"],
+  "verification": [
+    "python3 -c \"import json,re; d=json.load(open('receipts/governance/birth-attestor-configured-v1.json')); assert d['configured']['balance_wei_16661']==0; assert not re.search(r'0x[a-fA-F0-9]{64}', json.dumps(d))\"",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/docs__checkpoint-attestor-configured.json --base origin/main"
+  ],
+  "definitionOfDone": ["Public receipt of attestor config without secrets."],
+  "authorizationRequired": ["spending Guardian 0G", "protocol mint"]
+}
