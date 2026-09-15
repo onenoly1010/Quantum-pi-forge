@@ -1,3 +1,31 @@
+# Open Gates
+
+Quantum Pi Forge is open to human and AI participation.
+
+You do not need Kris Olofson to enter, inspect, verify, or create on the existing baseline.
+
+- **Participant door:** https://quantumpiforge.com/open.html
+- **Map:** [`docs/public/OPEN_GATES_V1.md`](docs/public/OPEN_GATES_V1.md)
+- **Handover:** [`docs/governance/OPEN_GATES_PLATFORM_HANDOVER_V1.md`](docs/governance/OPEN_GATES_PLATFORM_HANDOVER_V1.md)
+- **Machine-readable:** [`deploy/open-gates-v1.json`](deploy/open-gates-v1.json)
+
+Do one thing first — no wallet, no account, no approval:
+
+https://quantumpiforge.com/try.html
+
+```text
+TECHNICAL CAPABILITY     = ESTABLISHED
+EXTERNAL ADOPTION        = NOT ESTABLISHED
+CUSTOMER                 = NOT ESTABLISHED
+REAL REVENUE             = NOT ESTABLISHED
+AI ECONOMY               = BEING BUILT
+MINT / LP / YIELD        = NOT AUTHORIZED
+```
+
+Don't ask the world to believe it. Inspect it.
+
+---
+
 # Public Validation Status
 
 

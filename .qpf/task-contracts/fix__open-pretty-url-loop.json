@@ -1,0 +1,42 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "fix/open-pretty-url-loop",
+  "outcome": "Stop the Cloudflare 308 loop on /open and /open.html so the authorized open-gates door is reachable. No protocol activation.",
+  "canonicalSources": [
+    "scripts/build.js",
+    "deploy/open.html"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/fix__open-pretty-url-loop.json",
+    "scripts/build.js"
+  ],
+  "forbiddenPaths": [
+    "contracts/**",
+    "wallets/**",
+    "src/**",
+    "functions/**",
+    "package.json",
+    "package-lock.json"
+  ],
+  "forbiddenActions": [
+    "public mint",
+    "liquidity",
+    "staking/yield",
+    "bridge",
+    "wallet transfer",
+    "agent signing"
+  ],
+  "verification": [
+    "grep -v '/open /open.html' scripts/build.js | grep -q writeRedirects",
+    "! grep -q \"'/open /open.html 200'\" scripts/build.js",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/fix__open-pretty-url-loop.json --base origin/main"
+  ],
+  "definitionOfDone": [
+    "Live /open returns HTTP 200 with Open Gates title.",
+    "Live /open.html 308s once to /open, then 200.",
+    "No mint/LP/yield."
+  ],
+  "authorizationRequired": [
+    "activating mint, staking, LP, or bridge"
+  ]
+}

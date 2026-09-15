@@ -1,0 +1,42 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "feat/open-link-economic-object",
+  "outcome": "Point the existing /open door at the existing public economic object gist. Distribution, not a new primitive. No protocol activation.",
+  "canonicalSources": [
+    "deploy/open.html",
+    "docs/public/OPEN_GATES_V1.md"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/feat__open-link-economic-object.json",
+    "deploy/open.html",
+    "docs/public/OPEN_GATES_V1.md"
+  ],
+  "forbiddenPaths": [
+    "contracts/**",
+    "wallets/**",
+    "src/**",
+    "functions/**",
+    "package.json",
+    "package-lock.json"
+  ],
+  "forbiddenActions": [
+    "public mint",
+    "liquidity",
+    "staking/yield",
+    "wallet transfer",
+    "claiming a customer or revenue"
+  ],
+  "verification": [
+    "grep -q 'qpfo0:7e3a669993924797a367537de6dfaf0b8f515212d1594c62807fa811e5ec71ab' deploy/open.html",
+    "grep -q 'gist.github.com/onenoly1010/f219c8b95f554b79896d3c94a016a07b' deploy/open.html",
+    "grep -q 'none observed' deploy/open.html",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/feat__open-link-economic-object.json --base origin/main"
+  ],
+  "definitionOfDone": [
+    "/open links the public gist and states no customer/payment/revenue.",
+    "No mint/LP/yield."
+  ],
+  "authorizationRequired": [
+    "activating mint, staking, LP, or bridge"
+  ]
+}

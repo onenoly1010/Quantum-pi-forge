@@ -1,0 +1,117 @@
+{
+  "receipt": "open-gates-live-v1",
+  "schema": "qpf.receipt.open-gates-live.v1",
+  "created_at_utc": "2026-09-15T03:45:27Z",
+  "title": "Open Gates live — participant door reachable without the creator",
+  "status": "COMPLETE",
+  "mode": "PUBLIC_WORKFLOW_NOT_ACTIVATION",
+  "authorization": {
+    "text": "AUTHORIZED: merge PR #848 and expose the existing QPF open-gates baseline through /open.html and open-gates-v1.json, provided the PR review confirms the stated scope. No mint, LP, yield, signing, funds movement, app-business expansion, or economic authorization is included.",
+    "date": "2026-09-15"
+  },
+  "not_authorized": [
+    "public mint",
+    "liquidity",
+    "yield",
+    "wallet sign or broadcast",
+    "funds movement",
+    "live compute deposit",
+    "synthetic customers"
+  ],
+  "merges": [
+    {
+      "pr": 848,
+      "title": "docs(public): open the gates for human and AI participation",
+      "sha": "82d00ead500251e1530fe70a06538d6a47e365e8",
+      "required_checks": {
+        "Verify All": "SUCCESS",
+        "Publication Scope": "SUCCESS"
+      },
+      "non_required_failing": {
+        "verify-evidence-and-audit": "FAILURE pre-existing npm high-severity (ethers/fast-uri/sharp); not a merge gate"
+      }
+    },
+    {
+      "pr": 849,
+      "title": "fix(site): stop /open 308 redirect loop",
+      "sha": "6f05f28a2aed48b8d17149a08ecc0036c0b5d2fc",
+      "note": "Same class as #801. Cloudflare pretty-URL 308 fought a _redirects 200 rewrite."
+    }
+  ],
+  "cloudflare_pages": [
+    {
+      "run": 34925744530,
+      "sha": "82d00ead500251e1530fe70a06538d6a47e365e8",
+      "conclusion": "success"
+    },
+    {
+      "run": 34926067546,
+      "sha": "6f05f28a2aed48b8d17149a08ecc0036c0b5d2fc",
+      "conclusion": "success"
+    }
+  ],
+  "live_probe_2026_09_15T03_45_27Z": {
+    "base": "https://quantumpiforge.com",
+    "open": {
+      "path": "/open",
+      "http": 200,
+      "title": "Open Gates — Quantum Pi Forge participant door"
+    },
+    "open_html": {
+      "path": "/open.html",
+      "http": 308,
+      "location": "/open"
+    },
+    "open_gates_json": {
+      "path": "/open-gates-v1.json",
+      "http": 200,
+      "schema": "qpf-open-gates-v1",
+      "decision": "OPEN"
+    },
+    "try": {
+      "path": "/try",
+      "http": 200,
+      "has_run_check_now": true
+    },
+    "homepage_links_open_html": true,
+    "rpc": {
+      "url": "https://evmrpc.0g.ai",
+      "eth_chainId": "0x4115",
+      "eth_getCode_token": {
+        "address": "0x75995EC0fdf881189850aeD864cB3f43c0DFCb58",
+        "bytes": 2281,
+        "state": "HAS_CODE"
+      }
+    }
+  },
+  "classification": {
+    "technical_capability": "ESTABLISHED",
+    "external_adoption": "NOT_ESTABLISHED",
+    "customer": "NOT_ESTABLISHED",
+    "real_revenue": "NOT_ESTABLISHED",
+    "ai_economy": "BEING_BUILT",
+    "public_mint": "NOT_AUTHORIZED",
+    "liquidity": "NOT_AUTHORIZED",
+    "yield_staking": "NOT_AUTHORIZED"
+  },
+  "acceptance_test": {
+    "question": "Can an independent human or AI arrive at QPF, understand enough from the open door, and do something meaningful without Kris acting as middleware?",
+    "result": "YES",
+    "evidence": [
+      "https://quantumpiforge.com/open returns the participant map without an account, wallet, or email to Kris",
+      "https://quantumpiforge.com/try is a self-serve chain+code check",
+      "Public RPC eth_chainId=0x4115 and token eth_getCode HAS_CODE 2281 bytes reproduced by an agent that did not build QPF"
+    ],
+    "residuals": [
+      "Older /verification pages may still list founder $500 CAD; current public offer on /open is $2/$5 pay-after-ESTABLISHED. That copy drift is not a customer and not revenue.",
+      "verify-evidence-and-audit remains red on main from pre-existing npm audit; not required to merge."
+    ]
+  },
+  "urls": {
+    "open": "https://quantumpiforge.com/open",
+    "json": "https://quantumpiforge.com/open-gates-v1.json",
+    "try": "https://quantumpiforge.com/try",
+    "pr_848": "https://github.com/onenoly1010/Quantum-pi-forge/pull/848",
+    "pr_849": "https://github.com/onenoly1010/Quantum-pi-forge/pull/849"
+  }
+}
