@@ -1,0 +1,49 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "copilot/give-outsider-review-qpf",
+  "outcome": "Publish one concise canonical public state page and make the README point to it without changing runtime, deployment, or economic behavior.",
+  "scope": "Documentation-only public legibility improvement.",
+  "canonicalSources": [
+    "docs/review/VERIFICATION_STATUS_TABLE_V1.md",
+    "evidence/INDEX.md",
+    "docs/ai/AI_POLICY.md",
+    "docs/ai/AUTHORIZATION_WORKFLOW.md",
+    "contracts/DEPLOYED_ADDRESSES.md",
+    "AUDIT.md",
+    "STATUS.md"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/docs__what-qpf-is-today-v1.json",
+    "docs/review/WHAT_QPF_IS_TODAY_V1.md",
+    "README.md"
+  ],
+  "forbiddenPaths": [
+    "src/**",
+    "contracts/**",
+    "deploy/**",
+    "wallets/**",
+    "receipts/execution/**"
+  ],
+  "forbiddenActions": [
+    "production deployment",
+    "credential or secret change",
+    "wallet or key action",
+    "minting",
+    "staking",
+    "liquidity",
+    "bridge activation",
+    "governance execution"
+  ],
+  "verification": [
+    "npm run verify:all",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/docs__what-qpf-is-today-v1.json --base origin/main"
+  ],
+  "definitionOfDone": [
+    "The state page answers what QPF is, what is operational, what is verified, what is disabled or unresolved, and what outsiders can reproduce.",
+    "README links to the state page and does not overclaim a canonical fully verified production deployment.",
+    "Only allowlisted documentation paths are changed."
+  ],
+  "authorizationRequired": [
+    "merge"
+  ]
+}
