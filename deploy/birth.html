@@ -4,53 +4,76 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Watch your AI come to life — Quantum Pi Forge</title>
-  <meta name="description" content="Authorize, witness birth, verify identity, meet your AI. No fake hashes. Protocol mint not authorized.">
+  <meta name="description" content="Create an AI with its own identity, history, and boundaries. Authorize, witness its creation, verify what actually happened, then meet it.">
   <link rel="canonical" href="https://quantumpiforge.com/birth.html">
   <style>
     body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.65;margin:0;background:#070b10;color:#eef4ff}
-    main{max-width:40rem;margin:0 auto;padding:3rem 1.25rem 5rem}
+    main{max-width:44rem;margin:0 auto;padding:2.5rem 1.25rem 5rem}
     a{color:#8fd3ff}
-    h1{font-size:clamp(1.7rem,5vw,2.5rem);line-height:1.15;margin:0 0 .75rem}
+    h1{font-size:clamp(2.2rem,8vw,4.4rem);line-height:.98;letter-spacing:-.045em;margin:1.5rem 0 1rem;max-width:10ch}
+    h2{font-size:1.25rem;margin:0 0 .5rem}
+    p{font-size:1.05rem}
     .muted{color:#9aa8bd}
-    .nav{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem;font-size:.9rem}
+    .nav{display:flex;justify-content:space-between;gap:1rem;margin-bottom:2rem;font-size:.9rem}
     .nav a{text-decoration:none}
-    .stage{min-height:8rem;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:2rem 0;letter-spacing:.4em;font-size:1.1rem;color:#8fd3ff}
-    .card{border:1px solid #243044;background:#101826;border-radius:16px;padding:1.25rem;margin:1rem 0}
-    button{padding:14px 22px;border:0;border-radius:999px;font-weight:800;cursor:pointer;background:#8fd3ff;color:#070b10}
+    .eyebrow{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:#8fd3ff}
+    .stage{min-height:10rem;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:2rem 0;letter-spacing:.4em;font-size:1.15rem;color:#8fd3ff;text-align:center;white-space:pre-line}
+    .card{border:1px solid #243044;background:#101826;border-radius:18px;padding:1.25rem;margin:1rem 0}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:.65rem;margin:1.5rem 0}
+    .step{border-top:1px solid #243044;padding-top:.7rem;font-size:.82rem}
+    .step strong{display:block;color:#eef4ff;margin-bottom:.15rem}
+    button{padding:15px 25px;border:0;border-radius:999px;font-weight:800;cursor:pointer;background:#8fd3ff;color:#070b10;font-size:1rem}
     button.secondary{background:transparent;color:#8fd3ff;border:1px solid #8fd3ff}
+    .actions{display:flex;gap:.7rem;flex-wrap:wrap}
     .log{font-family:ui-monospace,Menlo,monospace;font-size:.75rem;white-space:pre-wrap;background:#070b10;border:1px solid #243044;border-radius:10px;padding:12px;overflow:auto}
-    .pill{display:inline-block;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;border:1px solid #264b3a;color:#86efac;padding:.2rem .7rem;border-radius:999px;margin-bottom:1rem}
     .fail{color:#fcd34d}
-    .ok{color:#86efac}
+    .quiet{font-size:.88rem}
+    @media(max-width:520px){.steps{grid-template-columns:1fr}.nav{margin-bottom:1rem}}
   </style>
 </head>
 <body>
 <main>
   <nav class="nav">
-    <a href="/">Home</a>
-    <a href="/open.html">Open</a>
-    <a href="/mint-ai.html">Device mint</a>
+    <a href="/">Quantum Pi Forge</a>
+    <a href="/open.html">How it works</a>
   </nav>
-  <p class="pill">CREATE · VERIFY · MEET · no fake hashes</p>
+
+  <p class="eyebrow">CREATE · VERIFY · MEET</p>
   <h1>WATCH YOUR AI COME TO LIFE.</h1>
   <p>Create an AI with its own identity, history, and boundaries.</p>
-  <p class="muted">You authorize. You witness. Nothing on this page claims a chain event that did not happen.</p>
+  <p class="muted">You don't need a wallet, tokens, or blockchain knowledge. You authorize the creation. The system records what actually happens.</p>
+
+  <div class="steps" aria-label="Three steps">
+    <div class="step"><strong>01 · CREATE</strong>You authorize a new AI identity.</div>
+    <div class="step"><strong>02 · VERIFY</strong>The system proves what really happened.</div>
+    <div class="step"><strong>03 · MEET</strong>Then you can interact with it.</div>
+  </div>
 
   <div class="stage" id="viz" aria-live="polite">◌</div>
   <p id="milestone" class="muted">IDLE</p>
 
   <div class="card">
-    <button id="begin">BEGIN</button>
-    <button class="secondary" id="retry" hidden>TRY AGAIN</button>
-    <button class="secondary" id="meet" hidden>MEET YOUR AI</button>
-    <button class="secondary" id="proof" hidden>VIEW PROOF</button>
+    <div class="actions">
+      <button id="begin">BEGIN</button>
+      <button class="secondary" id="retry" hidden>TRY AGAIN</button>
+      <button class="secondary" id="meet" hidden>MEET YOUR AI</button>
+      <button class="secondary" id="proof" hidden>SEE WHAT HAPPENED</button>
+    </div>
     <p class="fail" id="err" hidden></p>
   </div>
+
   <div class="card" id="hello" hidden>
+    <h2>Your AI is ready to meet you.</h2>
     <p id="hellotxt"></p>
-    <p class="muted"><a href="/meet.html">Talk with the QPF AI</a> · optional <a href="/mint-ai.html">Link Pi</a> after birth (LINK ≠ CONTROL)</p>
+    <p class="muted quiet">The identity and its boundaries remain separate from you. Optional external identity linking comes later; it is never required for birth.</p>
+    <p class="quiet"><a href="/meet.html">Continue to the AI session</a></p>
   </div>
-  <pre class="log" id="proofbox" hidden></pre>
+
+  <details class="card">
+    <summary class="quiet">Technical proof</summary>
+    <p class="muted quiet">The experience above never turns an unverified event into a success. If mainnet verification fails, that is shown as a failure rather than a fabricated confirmation.</p>
+    <pre class="log" id="proofbox" hidden></pre>
+  </details>
 </main>
 <script src="/birth-client.js"></script>
 </body>
