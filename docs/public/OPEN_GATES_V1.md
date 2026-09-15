@@ -130,6 +130,7 @@ What a participant can create **today** without protocol economics:
 | A break / non-break of EXT-001 | `/attack-kit` | Supported |
 | An independent verification report | GitHub issue using the community template | Supported |
 | A packaged evidence request | `/verification-request` | Request supported; delivery is human labor |
+| A public verified-work object | [gist](https://gist.github.com/onenoly1010/f219c8b95f554b79896d3c94a016a07b) `qpfo0:7e3a6699…` | Observable and independently verifiable; **no customer / no payment / no revenue** |
 | A local sovereign agent setup | repo installer / Ollama path | Experimental / local |
 | Protocol mint, LP position, yield share | — | **Not authorized** |
 
