@@ -1,0 +1,52 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "feat/independent-ai-verification-partner-v1",
+  "outcome": "Demonstrate an Independent AI Verification Partner: primary Level 0 verification, independent digest+receipt check, MATCH/REVIEW_REQUIRED comparison, tamper and contradiction tests, without artifact mutation or merge/deploy authority.",
+  "canonicalSources": [
+    "src/verification/verify-level0.js",
+    "src/verification/hash.js",
+    "docs/ai/AUTHORIZATION_WORKFLOW.md"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/feat__independent-ai-verification-partner-v1.json",
+    "src/verification/independent-partner.js",
+    "src/verification/index.js",
+    "scripts/qpf-independent-verify.mjs",
+    "tests/verification/independent-partner.test.js",
+    "package.json"
+  ],
+  "forbiddenPaths": [
+    "contracts/**",
+    "deploy/**",
+    "functions/**",
+    "receipts/execution/**",
+    "scripts/ai-brief.mjs",
+    "scripts/lib/brief-*.mjs",
+    "tests/briefing/**",
+    "wallets/**"
+  ],
+  "forbiddenActions": [
+    "production deployment",
+    "credential or secret change",
+    "billing change",
+    "wallet or key action",
+    "merge to main",
+    "legal succession claim"
+  ],
+  "verification": [
+    "node --test tests/verification/independent-partner.test.js",
+    "npm run test:verification",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/feat__independent-ai-verification-partner-v1.json --base origin/main"
+  ],
+  "definitionOfDone": [
+    "Independent verifier recomputes SHA-256 and does not copy the primary result.",
+    "MATCH and REVIEW_REQUIRED are demonstrated by tests.",
+    "Tamper changes digest and is detected.",
+    "Verifiers do not write the artifact.",
+    "No merge, deploy, wallet, or economic action."
+  ],
+  "authorizationRequired": [
+    "merge",
+    "deployment"
+  ]
+}
