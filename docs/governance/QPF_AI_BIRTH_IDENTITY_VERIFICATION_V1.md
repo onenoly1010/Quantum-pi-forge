@@ -1,8 +1,18 @@
 # QPF AI Birth, Identity & Verification
 
 **Status:** Client #1 of the birth protocol (2026-09-15)  
-**UI:** `/birth.html`  
-**Core:** `qpf-core/birth.js`
+**UI:** `/birth.html` on **Cloudflare Pages** (`quantumpiforge.com`)  
+**Core:** `qpf-core/birth.mjs`  
+**Functions:** Cloudflare Pages Functions (`/birth/*`, `/ai/session`) — **not** `/api/*`
+
+```text
+PUBLIC RUNTIME = Cloudflare Pages
+NOT Vercel          (billing blocked; do not target)
+NOT Railway /api/*  (misconfigured proxy; birth must not live there)
+NOT Render / Supabase as the public door
+```
+
+Local: `npx wrangler pages dev` against this repo. **Not** `vercel dev`.
 
 ```text
 CREATE → VERIFY → MEET
@@ -40,4 +50,4 @@ LINK ≠ CONTROL. Pi remains optional after birth.
 
 ## State machine
 
-See `qpf-core/birth.js` `STATES`. Recovery is `POST /birth/status` with the record. HTTP 200 is not success.
+See `qpf-core/birth.mjs` `STATES`. Recovery is `POST /birth/status` with the record. HTTP 200 is not success.
