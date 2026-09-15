@@ -1,0 +1,42 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "feat/meet-propose-not-railway-api",
+  "outcome": "Serve the meet proposer at /meet-propose so it is not swallowed by the Railway /api/* proxy. Constitution still decides. No mint.",
+  "canonicalSources": [
+    "functions/meet-propose.js",
+    "deploy/meet.html"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/feat__meet-propose-not-railway-api.json",
+    "functions/meet-propose.js",
+    "functions/api/meet.js",
+    "deploy/meet.html",
+    "scripts/build.js",
+    ".github/workflows/cloudflare-pages.yml"
+  ],
+  "forbiddenPaths": [
+    "contracts/**",
+    "wallets/**",
+    "package.json",
+    "package-lock.json"
+  ],
+  "forbiddenActions": [
+    "public mint",
+    "removing the Railway /api proxy for other routes",
+    "wallet transfer"
+  ],
+  "verification": [
+    "test -f functions/meet-propose.js",
+    "grep -q '/meet-propose' deploy/meet.html",
+    "! grep -q 'fetch(\"/api/meet\"' deploy/meet.html",
+    "npm run build",
+    "test -f out/functions/meet-propose.js"
+  ],
+  "definitionOfDone": [
+    "POST /meet-propose is the Pages Function, not Railway.",
+    "Mint/wallet still STOP."
+  ],
+  "authorizationRequired": [
+    "activating mint, staking, LP, or bridge"
+  ]
+}

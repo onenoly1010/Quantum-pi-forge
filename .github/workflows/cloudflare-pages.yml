@@ -7,7 +7,7 @@ on:
     paths:
       - 'frontend/**'
       - 'deploy/**'
-      - 'functions/api/meet.js'
+      - 'functions/meet-propose.js'
       - 'scripts/build.js'
       - 'public/**'
       - 'src/**'
@@ -65,12 +65,12 @@ jobs:
         run: cp wrangler.pages.toml out/wrangler.toml
 
       - name: Deploy to Cloudflare Pages
-        working-directory: ${{ runner.temp }}
+        working-directory: ${{ github.workspace }}/out
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
           "${GITHUB_WORKSPACE}/node_modules/.bin/wrangler" pages deploy \
-            "${GITHUB_WORKSPACE}/out" \
+            . \
             --project-name=quantumpiforge \
             --branch="${GITHUB_REF_NAME}"
