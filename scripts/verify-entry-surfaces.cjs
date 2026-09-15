@@ -20,6 +20,8 @@ const requiredFiles = [
   'meet.html',
   'meet.js',
   'front-door-cell.json',
+  'mint-ai.html',
+  'counterpart.js',
   'verification.html',
   'verification-certificate.html',
   'verification-request.html',
@@ -43,6 +45,7 @@ const titleMustInclude = {
   'try.html': 'Try QPF',
   'open.html': 'Open Gates',
   'meet.html': 'Meet a co-creator',
+  'mint-ai.html': 'Mint your AI',
   'problems/index.html': 'Problems QPF',
   'verification.html': 'Verification',
   'support.html': 'Support / Build With QPF',
@@ -95,6 +98,9 @@ for (const rel of requiredFiles) {
     }
     if (!/quantumpiforge\.com\/meet\.html/.test(body)) {
       errors.push('sitemap.xml missing meet.html URL');
+    }
+    if (!/quantumpiforge\.com\/mint-ai\.html/.test(body)) {
+      errors.push('sitemap.xml missing mint-ai.html URL');
     }
     if (!/quantumpiforge\.com\/support\.html/.test(body)) {
       errors.push('sitemap.xml missing support.html URL');
@@ -149,6 +155,12 @@ if (index) {
   }
   if (!index.includes('/meet.html') && !index.includes('href="/meet"')) {
     errors.push('index.html missing link to /meet.html');
+  }
+  if (!index.includes('/mint-ai.html')) {
+    errors.push('index.html missing link to /mint-ai.html');
+  }
+  if (!/Know what is real/i.test(index)) {
+    errors.push('index.html missing Know what is real');
   }
   if (!index.includes('/problems/')) {
     errors.push('index.html missing link to /problems/');

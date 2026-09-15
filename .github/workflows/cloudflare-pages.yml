@@ -8,6 +8,7 @@ on:
       - 'frontend/**'
       - 'deploy/**'
       - 'functions/meet-propose.js'
+      - 'functions/meet-interact.js'
       - 'scripts/build.js'
       - 'public/**'
       - 'src/**'

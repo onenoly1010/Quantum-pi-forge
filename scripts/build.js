@@ -42,6 +42,8 @@ const staticFiles = [
   { src: 'deploy/meet.html', dest: 'meet.html' },
   { src: 'deploy/meet.js', dest: 'meet.js' },
   { src: 'deploy/front-door-cell.json', dest: 'front-door-cell.json' },
+  { src: 'deploy/mint-ai.html', dest: 'mint-ai.html' },
+  { src: 'deploy/counterpart.js', dest: 'counterpart.js' },
   { src: 'deploy/attack-kit.html', dest: 'attack-kit.html' },
   { src: 'deploy/verification.html', dest: 'verification.html' },
   { src: 'deploy/verification-certificate.html', dest: 'verification-certificate.html' },
@@ -353,4 +355,12 @@ if (fs.existsSync('functions/meet-propose.js')) {
     path.join(outputDir, 'functions/meet-propose.js'),
   );
   console.log('OK copied functions/meet-propose.js -> out/functions/meet-propose.js');
+}
+if (fs.existsSync('functions/meet-interact.js')) {
+  fs.mkdirSync(path.join(outputDir, 'functions'), { recursive: true });
+  fs.copyFileSync(
+    path.join(rootDir, 'functions/meet-interact.js'),
+    path.join(outputDir, 'functions/meet-interact.js'),
+  );
+  console.log('OK copied functions/meet-interact.js -> out/functions/meet-interact.js');
 }
