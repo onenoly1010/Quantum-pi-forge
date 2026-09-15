@@ -1,0 +1,44 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "feat/qpf-pays-attestation",
+  "outcome": "Lock attestation as a QPF infrastructure service. Person never creates or funds a wallet. No new contracts, no Vercel, no fake hashes.",
+  "canonicalSources": [
+    "docs/governance/QPF_AI_BIRTH_IDENTITY_VERIFICATION_V1.md",
+    "functions/birth/attest.js",
+    "deploy/birth-client.js"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/feat__qpf-pays-attestation.json",
+    "docs/governance/QPF_AI_BIRTH_IDENTITY_VERIFICATION_V1.md",
+    "functions/birth/attest.js",
+    "deploy/birth-client.js"
+  ],
+  "forbiddenPaths": [
+    "contracts/**",
+    "wallets/**",
+    "package.json",
+    "package-lock.json"
+  ],
+  "forbiddenActions": [
+    "asking the visitor to create an attestor wallet",
+    "new contracts / paymaster",
+    "Vercel / Railway",
+    "fabricated hashes",
+    "protocol mint"
+  ],
+  "verification": [
+    "grep -q 'QPF pays attestation' docs/governance/QPF_AI_BIRTH_IDENTITY_VERIFICATION_V1.md",
+    "grep -q 'Person was not asked to fund a wallet' functions/birth/attest.js",
+    "grep -q 'Verifying on the network' deploy/birth-client.js",
+    "! grep -q 'BIRTH_ATTESTOR_KEY' deploy/birth-client.js",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/feat__qpf-pays-attestation.json --base origin/main"
+  ],
+  "definitionOfDone": [
+    "Visitor UX has no wallet/gas/secret instructions.",
+    "Attestor remains QPF Pages secret, not a user key."
+  ],
+  "authorizationRequired": [
+    "operator funding of QPF attestor (not the visitor)",
+    "protocol mint"
+  ]
+}

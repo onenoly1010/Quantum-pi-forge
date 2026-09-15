@@ -47,7 +47,7 @@ export async function onRequest(context) {
       ...record.attestation,
       chain_id: CHAIN_ID,
       tx_hash: null,
-      reason: "No BIRTH_ATTESTOR_KEY. Identity exists. Mainnet verification did not complete. No fabricated transaction.",
+      reason: "QPF attestation service is not configured. Identity exists. Mainnet verification did not complete. No fabricated transaction. Person was not asked to fund a wallet.",
     };
     record.record_mac = await hmacHex(secret(env), canonical(publicRecord({ ...record, record_mac: undefined, ai_secret_jwk: undefined })));
     return json({

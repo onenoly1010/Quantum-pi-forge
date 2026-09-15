@@ -21,6 +21,20 @@ WATCH YOUR AI COME TO LIFE.
 
 The website is Client #1. The protocol does not live in the animation.
 
+## QPF pays attestation (person never sees a wallet)
+
+```text
+PERSON → Passkey → CREATE AI → QPF attests → 0G 16661 → VERIFIED or honest MAINNET_FAILED
+```
+
+The person does **not** create, fund, or hold an attestor wallet. They never see private keys, gas, RPC, or Cloudflare secrets.
+
+Someone still signs the 16661 data-tx: **QPF infrastructure** (`BIRTH_ATTESTOR_KEY` on Cloudflare Pages Functions). That is a narrowly scoped service signer (zero-value hash commit to `0x…dEaD`). Not user custody. Not economic authority.
+
+0G Aristotle has **no** official native paymaster/gasless path we can use without new contracts. Existing `Heartbeat.registerBirth` requires an OINIO NFT — not used.
+
+Operator (once, not the visitor): fund the QPF attestor on 16661 and set the Pages secret. Until then the product stays honest: identity created, mainnet not complete, no fabricated hash.
+
 ## Honest mainnet boundary
 
 Docs DEPLOYMENT_SET on 16661 has **no birth-attestation method**.  
