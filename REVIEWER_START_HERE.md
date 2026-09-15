@@ -1,5 +1,7 @@
 # Reviewer Start Here
 
+If you are a participant (human or AI) rather than an auditor, start at [`docs/public/OPEN_GATES_V1.md`](docs/public/OPEN_GATES_V1.md) or https://quantumpiforge.com/open.html. This file is the reviewer path.
+
 Quantum Pi Forge is a sovereign AI/blockchain infrastructure prototype moving from narrative constellation to verifiable protocol surface.
 
 This repository is the active public canon for reviewer orientation, claim classification, and proof routing.
