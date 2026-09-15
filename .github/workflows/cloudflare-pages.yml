@@ -9,6 +9,7 @@ on:
       - 'deploy/**'
       - 'functions/meet-propose.js'
       - 'functions/meet-interact.js'
+      - 'functions/link-external.js'
       - 'scripts/build.js'
       - 'public/**'
       - 'src/**'

@@ -48,6 +48,14 @@
     </div>
   </div>
 
+  <div class="card" id="linkpi" hidden>
+    <h2>Optional: link an external identity</h2>
+    <p>Pi is one external identity. It is not required to create your AI. LINK ≠ CONTROL. QPF never receives your Pi password, keys, or spend authority.</p>
+    <button id="link" type="button">Link Pi identity</button>
+    <p class="muted" id="linknote">Uses Pi's official authenticate + /me. Works in Pi Browser. In a normal browser this will stop honestly rather than fake a link.</p>
+    <p class="log" id="linklog" hidden></p>
+  </div>
+
   <div class="card" id="rel" hidden>
     <h2>YOUR AI ↔ QPF AI</h2>
     <p class="log" id="exchange"></p>
@@ -59,10 +67,21 @@ function showErr(m){const e=document.getElementById("err");e.hidden=false;e.text
 function render(state){
   document.getElementById("empty").hidden=true;
   document.getElementById("alive").hidden=false;
+  document.getElementById("linkpi").hidden=false;
   document.getElementById("idline").textContent=
     "object_id  "+state.object.object_id+"\n"+
     "did        "+state.identity.did+"\n"+
     "alg        "+state.identity.algorithm;
+}
+function loadPiSdk(){
+  return new Promise((resolve,reject)=>{
+    if(window.Pi) return resolve(window.Pi);
+    const s=document.createElement("script");
+    s.src="https://sdk.minepi.com/pi-sdk.js";
+    s.onload=()=>window.Pi?resolve(window.Pi):reject(new Error("Pi SDK loaded without window.Pi"));
+    s.onerror=()=>reject(new Error("Pi SDK could not load"));
+    document.head.appendChild(s);
+  });
 }
 async function boot(){
   const s=QpfCounterpart.load();
@@ -74,6 +93,38 @@ document.getElementById("mint").onclick=async()=>{
     const s=await QpfCounterpart.mint();
     render(s);
   }catch(e){showErr("This browser could not create the counterpart. Try a current Chrome, Firefox, or Safari.");}
+};
+document.getElementById("link").onclick=async()=>{
+  const s=QpfCounterpart.load();
+  const log=document.getElementById("linklog");
+  log.hidden=false;
+  try{
+    const Pi=await loadPiSdk();
+    await Pi.init({version:"2.0",sandbox:location.hostname!=="quantumpiforge.com"});
+    const auth=await Pi.authenticate(["username"],function onIncompletePaymentFound(){
+      throw new Error("STOP: QPF does not complete Pi payments from identity linking");
+    });
+    const r=await fetch("/link-external",{
+      method:"POST",
+      headers:{"content-type":"application/json"},
+      body:JSON.stringify({
+        qpf_object_id:s.object.object_id,
+        qpf_did:s.identity.did,
+        accessToken:auth.accessToken
+      })
+    });
+    const j=await r.json();
+    auth.accessToken=null;
+    QpfCounterpart.addReceipt(s,{role:"external_link",receipt:j.qpf_receipt||j});
+    log.textContent=JSON.stringify(j,null,2);
+  }catch(e){
+    log.textContent=JSON.stringify({
+      decision:"STOP",
+      breaker:"BOUNDARY",
+      stored:false,
+      note:"Pi linking is optional. No fake link. "+String(e&&e.message||e)
+    },null,2);
+  }
 };
 document.getElementById("meet").onclick=async()=>{
   const s=QpfCounterpart.load();
