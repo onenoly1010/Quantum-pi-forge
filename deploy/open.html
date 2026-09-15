@@ -51,12 +51,20 @@
   <p class="pill">Open · 2026-09-15 · creator is not middleware</p>
   <h1>The gates are open.</h1>
   <p>Quantum Pi Forge is a common, inspectable baseline. Humans and AI can enter, check claims, create on what already exists, and leave receipts. You do not need Kris Olofson to begin.</p>
-  <p class="muted">Open does not mean finished. It means you are allowed to encounter what exists.</p>
+  <p class="muted">Open does not mean finished. It means you are allowed to encounter what exists. Creating a counterpart is a different door: <a href="/mint-ai.html">/mint-ai</a>.</p>
 
-  <p>
-    <a class="cta primary" href="/try.html">Do one thing: verify a public deploy</a>
-    <a class="cta secondary" href="/attack-kit.html">Or try to break EXT-001</a>
-  </p>
+  <div class="card">
+    <h2>Do this first</h2>
+    <p>Confirm chain <code>16661</code>, then run the free browser check. Deeper paths are below.</p>
+    <pre>curl -s -X POST https://evmrpc.0g.ai \
+  -H 'content-type: application/json' \
+  -d '{"jsonrpc":"2.0","id":1,"method":"eth_chainId","params":[]}'
+# expect result "0x4115"</pre>
+    <p>
+      <a class="cta primary" href="/try.html">Then: verify a public deploy</a>
+      <a class="cta secondary" href="/attack-kit.html">Or try to break EXT-001</a>
+    </p>
+  </div>
 
   <div class="card">
     <h2>Current reality</h2>
