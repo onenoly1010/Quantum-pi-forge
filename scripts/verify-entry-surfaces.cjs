@@ -17,6 +17,13 @@ const requiredFiles = [
   'try.html',
   'open.html',
   'open-gates-v1.json',
+  'meet.html',
+  'meet.js',
+  'front-door-cell.json',
+  'mint-ai.html',
+  'counterpart.js',
+  'birth.html',
+  'birth-client.js',
   'verification.html',
   'verification-certificate.html',
   'verification-request.html',
@@ -39,6 +46,9 @@ const requiredFiles = [
 const titleMustInclude = {
   'try.html': 'Try QPF',
   'open.html': 'Open Gates',
+  'meet.html': 'Meet a co-creator',
+  'mint-ai.html': 'Mint your AI',
+  'birth.html': 'Watch your AI come to life',
   'problems/index.html': 'Problems QPF',
   'verification.html': 'Verification',
   'support.html': 'Support / Build With QPF',
@@ -88,6 +98,15 @@ for (const rel of requiredFiles) {
     }
     if (!/quantumpiforge\.com\/open\.html/.test(body)) {
       errors.push('sitemap.xml missing open.html URL');
+    }
+    if (!/quantumpiforge\.com\/meet\.html/.test(body)) {
+      errors.push('sitemap.xml missing meet.html URL');
+    }
+    if (!/quantumpiforge\.com\/mint-ai\.html/.test(body)) {
+      errors.push('sitemap.xml missing mint-ai.html URL');
+    }
+    if (!/quantumpiforge\.com\/birth\.html/.test(body)) {
+      errors.push('sitemap.xml missing birth.html URL');
     }
     if (!/quantumpiforge\.com\/support\.html/.test(body)) {
       errors.push('sitemap.xml missing support.html URL');
@@ -139,6 +158,18 @@ if (index) {
   }
   if (!index.includes('/open.html') && !index.includes('href="/open"')) {
     errors.push('index.html missing link to /open.html');
+  }
+  if (!index.includes('/meet.html') && !index.includes('href="/meet"')) {
+    errors.push('index.html missing link to /meet.html');
+  }
+  if (!index.includes('/mint-ai.html')) {
+    errors.push('index.html missing link to /mint-ai.html');
+  }
+  if (!index.includes('/birth.html')) {
+    errors.push('index.html missing link to /birth.html');
+  }
+  if (!/Know what is real/i.test(index)) {
+    errors.push('index.html missing Know what is real');
   }
   if (!index.includes('/problems/')) {
     errors.push('index.html missing link to /problems/');

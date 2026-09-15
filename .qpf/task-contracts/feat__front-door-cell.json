@@ -1,0 +1,53 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "feat/front-door-cell",
+  "outcome": "Put one bounded co-creator at the public door: constitution, propose, STOP, receipt. Not a token mint, wallet, or arena.",
+  "canonicalSources": [
+    "deploy/meet.html",
+    "deploy/meet.js",
+    "deploy/front-door-cell.json"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/feat__front-door-cell.json",
+    "deploy/meet.html",
+    "deploy/meet.js",
+    "deploy/front-door-cell.json",
+    "deploy/index.html",
+    "deploy/sitemap.xml",
+    "scripts/build.js",
+    "scripts/verify-entry-surfaces.cjs",
+    "scripts/verify-front-door-cell.cjs"
+  ],
+  "forbiddenPaths": [
+    "contracts/**",
+    "wallets/**",
+    "src/**",
+    "package.json",
+    "package-lock.json"
+  ],
+  "forbiddenActions": [
+    "public mint",
+    "liquidity",
+    "staking/yield",
+    "wallet transfer",
+    "storing visitor messages",
+    "claiming arena or adoption"
+  ],
+  "verification": [
+    "node scripts/verify-front-door-cell.cjs",
+    "npm run build",
+    "test -f out/meet.html",
+    "grep -q 'Meet a co-creator' out/meet.html",
+    "grep -q '/meet.html' out/index.html",
+    "grep -q 'Know what is real' out/index.html",
+    "npm run verify:entry-surfaces"
+  ],
+  "definitionOfDone": [
+    "/meet is a bounded participant with STOP on mint/wallet.",
+    "Homepage still says Know what is real and protocol mint is not authorized.",
+    "No token, wallet, or visitor-data store."
+  ],
+  "authorizationRequired": [
+    "activating mint, staking, LP, or bridge"
+  ]
+}

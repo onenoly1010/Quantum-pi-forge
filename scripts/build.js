@@ -39,6 +39,13 @@ const staticFiles = [
   { src: 'deploy/try.html', dest: 'try.html' },
   { src: 'deploy/open.html', dest: 'open.html' },
   { src: 'deploy/open-gates-v1.json', dest: 'open-gates-v1.json' },
+  { src: 'deploy/meet.html', dest: 'meet.html' },
+  { src: 'deploy/meet.js', dest: 'meet.js' },
+  { src: 'deploy/front-door-cell.json', dest: 'front-door-cell.json' },
+  { src: 'deploy/mint-ai.html', dest: 'mint-ai.html' },
+  { src: 'deploy/counterpart.js', dest: 'counterpart.js' },
+  { src: 'deploy/birth.html', dest: 'birth.html' },
+  { src: 'deploy/birth-client.js', dest: 'birth-client.js' },
   { src: 'deploy/attack-kit.html', dest: 'attack-kit.html' },
   { src: 'deploy/verification.html', dest: 'verification.html' },
   { src: 'deploy/verification-certificate.html', dest: 'verification-certificate.html' },
@@ -339,4 +346,37 @@ await (async () => {
 if (fs.existsSync('api')) {
   fs.cpSync('api', 'out/api', { recursive: true });
   console.log('OK copied api/ -> out/api');
+}
+
+// Front-door meet function only — do not copy the rest of functions/ (would
+// activate unused handlers). Pages Functions live at out/functions/.
+if (fs.existsSync('functions/meet-propose.js')) {
+  fs.mkdirSync(path.join(outputDir, 'functions'), { recursive: true });
+  fs.copyFileSync(
+    path.join(rootDir, 'functions/meet-propose.js'),
+    path.join(outputDir, 'functions/meet-propose.js'),
+  );
+  console.log('OK copied functions/meet-propose.js -> out/functions/meet-propose.js');
+}
+if (fs.existsSync('functions/meet-interact.js')) {
+  fs.mkdirSync(path.join(outputDir, 'functions'), { recursive: true });
+  fs.copyFileSync(
+    path.join(rootDir, 'functions/meet-interact.js'),
+    path.join(outputDir, 'functions/meet-interact.js'),
+  );
+  console.log('OK copied functions/meet-interact.js -> out/functions/meet-interact.js');
+}
+if (fs.existsSync('functions/link-external.js')) {
+  fs.mkdirSync(path.join(outputDir, 'functions'), { recursive: true });
+  fs.copyFileSync(
+    path.join(rootDir, 'functions/link-external.js'),
+    path.join(outputDir, 'functions/link-external.js'),
+  );
+  console.log('OK copied functions/link-external.js -> out/functions/link-external.js');
+}
+for (const dir of ["functions/_lib", "functions/birth", "functions/ai"]) {
+  if (fs.existsSync(dir)) {
+    fs.cpSync(dir, path.join(outputDir, dir), { recursive: true });
+    console.log("OK copied " + dir + " -> out/" + dir);
+  }
 }

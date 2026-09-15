@@ -1,0 +1,56 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "feat/digital-counterpart-activation",
+  "outcome": "Activation cell: stranger mints a digital counterpart (no wallet/API key) and it interacts with the QPF AI, with receipts. Not a protocol token mint.",
+  "canonicalSources": [
+    "docs/governance/QPF_DIGITAL_COUNTERPART_ACTIVATION_HANDOFF_V1.md",
+    "deploy/mint-ai.html",
+    "functions/meet-interact.js"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/feat__digital-counterpart-activation.json",
+    "docs/governance/QPF_DIGITAL_COUNTERPART_ACTIVATION_HANDOFF_V1.md",
+    "deploy/index.html",
+    "deploy/mint-ai.html",
+    "deploy/counterpart.js",
+    "deploy/sitemap.xml",
+    "functions/meet-interact.js",
+    "scripts/build.js",
+    "scripts/verify-entry-surfaces.cjs",
+    ".github/workflows/cloudflare-pages.yml"
+  ],
+  "forbiddenPaths": [
+    "contracts/**",
+    "wallets/**",
+    "src/**",
+    "package.json",
+    "package-lock.json"
+  ],
+  "forbiddenActions": [
+    "protocol token mint",
+    "liquidity",
+    "yield",
+    "wallet transfer",
+    "storing visitor private keys on the server",
+    "claiming a marketplace or revenue"
+  ],
+  "verification": [
+    "grep -q 'MINT YOUR AI' deploy/mint-ai.html",
+    "grep -q 'Know what is real' deploy/index.html",
+    "grep -q '/mint-ai.html' deploy/index.html",
+    "grep -q 'NOT AUTHORIZED' docs/governance/QPF_DIGITAL_COUNTERPART_ACTIVATION_HANDOFF_V1.md",
+    "npm run build",
+    "test -f out/mint-ai.html",
+    "test -f out/functions/meet-interact.js",
+    "npm run verify:entry-surfaces"
+  ],
+  "definitionOfDone": [
+    "Landing primary action is mint counterpart, not token mint.",
+    "Visitor keys never leave the device.",
+    "QPF AI can ACKNOWLEDGE a signed hello and return a receipt.",
+    "Out of scope remains marketplace, protocol mint, adoption claims."
+  ],
+  "authorizationRequired": [
+    "activating protocol mint, staking, LP, or bridge"
+  ]
+}

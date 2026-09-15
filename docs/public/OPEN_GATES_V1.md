@@ -15,6 +15,22 @@ You do not need approval to inspect.
 You do need evidence for any claim you make.
 ```
 
+**Do this first** (then go deeper below):
+
+1. Confirm the chain:
+
+```bash
+curl -s -X POST https://evmrpc.0g.ai \
+  -H 'content-type: application/json' \
+  -d '{"jsonrpc":"2.0","id":1,"method":"eth_chainId","params":[]}'
+# expect "0x4115"
+```
+
+2. Run the browser check: https://quantumpiforge.com/try.html
+
+Creating a counterpart is a different door: https://quantumpiforge.com/mint-ai.html  
+This map is for inspect / verify / participate without waiting for Kris.
+
 ---
 
 ## 1. What exists, classified
