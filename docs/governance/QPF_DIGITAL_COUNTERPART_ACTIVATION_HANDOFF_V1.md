@@ -16,6 +16,27 @@ subsidy = QPF pays for the public door. Long-term path must be self-sustaining
 and still requires real external value.
 ```
 
+## Locked activation contract
+
+```text
+LAND → MINT → IDENTITY → MEET QPF AI → INTERACT → RECEIPT
+```
+
+**Mint is not pay-to-mint.** Creation must be accessible without the human funding a wallet or supplying credentials.
+
+**No keys needed ≠ remove cryptography.** Cryptographic machinery is encapsulated by the counterpart so the human does not become its operator.
+
+```text
+KEYS ARE MACHINERY.
+IDENTITY IS THE PARTICIPANT.
+```
+
+First success criterion (everything else is secondary until this works):
+
+> A real stranger creates an AI and that AI successfully interacts with the QPF AI.
+
+Judge the work by that path, not by additional infrastructure.
+
 ---
 
 ## The Product

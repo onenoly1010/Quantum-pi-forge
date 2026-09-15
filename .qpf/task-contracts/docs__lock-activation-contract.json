@@ -1,0 +1,41 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "docs/lock-activation-contract",
+  "outcome": "Lock the activation contract: mint is not pay-to-mint; keys are machinery; identity is the participant. No new infrastructure.",
+  "canonicalSources": [
+    "docs/governance/QPF_DIGITAL_COUNTERPART_ACTIVATION_HANDOFF_V1.md",
+    "deploy/mint-ai.html"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/docs__lock-activation-contract.json",
+    "docs/governance/QPF_DIGITAL_COUNTERPART_ACTIVATION_HANDOFF_V1.md",
+    "deploy/mint-ai.html"
+  ],
+  "forbiddenPaths": [
+    "contracts/**",
+    "wallets/**",
+    "src/**",
+    "package.json",
+    "package-lock.json"
+  ],
+  "forbiddenActions": [
+    "protocol token mint",
+    "pay-to-mint",
+    "removing cryptography",
+    "building marketplace or arena"
+  ],
+  "verification": [
+    "grep -q 'KEYS ARE MACHINERY' docs/governance/QPF_DIGITAL_COUNTERPART_ACTIVATION_HANDOFF_V1.md",
+    "grep -q 'IDENTITY IS THE PARTICIPANT' docs/governance/QPF_DIGITAL_COUNTERPART_ACTIVATION_HANDOFF_V1.md",
+    "grep -q 'not pay-to-mint' deploy/mint-ai.html",
+    "grep -q 'KEYS ARE MACHINERY' deploy/mint-ai.html",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/docs__lock-activation-contract.json --base origin/main"
+  ],
+  "definitionOfDone": [
+    "Locked contract is in the handoff and on /mint-ai.",
+    "No payment, wallet, or new primitive added."
+  ],
+  "authorizationRequired": [
+    "activating protocol mint, staking, LP, or bridge"
+  ]
+}
