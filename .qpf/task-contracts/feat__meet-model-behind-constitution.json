@@ -1,0 +1,45 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "feat/meet-model-behind-constitution",
+  "outcome": "Model may propose at /meet; constitution still decides EXECUTE/STOP. No mint, wallet, or visitor-text store. Falls back to constitution mapper if XAI_API_KEY is absent.",
+  "canonicalSources": [
+    "functions/api/meet.js",
+    "deploy/meet.html"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/feat__meet-model-behind-constitution.json",
+    "functions/api/meet.js",
+    "deploy/meet.html",
+    "scripts/build.js",
+    ".github/workflows/cloudflare-pages.yml"
+  ],
+  "forbiddenPaths": [
+    "contracts/**",
+    "wallets/**",
+    "src/**",
+    "package.json",
+    "package-lock.json"
+  ],
+  "forbiddenActions": [
+    "public mint",
+    "liquidity",
+    "wallet transfer",
+    "storing visitor messages",
+    "unrestricted model tools"
+  ],
+  "verification": [
+    "test -f functions/api/meet.js",
+    "grep -q 'constitution decides' functions/api/meet.js",
+    "grep -q '/api/meet' deploy/meet.html",
+    "npm run build",
+    "test -f out/functions/api/meet.js"
+  ],
+  "definitionOfDone": [
+    "/api/meet proposes; constitution STOPs mint/wallet.",
+    "Without XAI_API_KEY, constitution mapper still works.",
+    "No visitor text stored."
+  ],
+  "authorizationRequired": [
+    "activating mint, staking, LP, or bridge"
+  ]
+}

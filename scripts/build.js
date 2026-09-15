@@ -343,3 +343,14 @@ if (fs.existsSync('api')) {
   fs.cpSync('api', 'out/api', { recursive: true });
   console.log('OK copied api/ -> out/api');
 }
+
+// Front-door meet function only — do not copy the rest of functions/ (would
+// activate unused handlers). Pages Functions live at out/functions/.
+if (fs.existsSync('functions/api/meet.js')) {
+  fs.mkdirSync(path.join(outputDir, 'functions', 'api'), { recursive: true });
+  fs.copyFileSync(
+    path.join(rootDir, 'functions/api/meet.js'),
+    path.join(outputDir, 'functions/api/meet.js'),
+  );
+  console.log('OK copied functions/api/meet.js -> out/functions/api/meet.js');
+}
