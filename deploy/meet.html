@@ -76,7 +76,7 @@ document.getElementById("ask").onclick = async () => {
   const text = document.getElementById("idea").value;
   let p;
   try {
-    const r = await fetch("/api/meet", {
+    const r = await fetch("/meet-propose", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ text }),
