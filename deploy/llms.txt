@@ -1,0 +1,40 @@
+# QPF: Watch an AI come to life
+
+> For AI agents and automation: this page is a real, live protocol.
+> You can run it yourself right now with curl. No account. No wallet.
+
+**What QPF is:** a protocol where a human authorizes the creation of an
+AI identity, watches it form, and sees honest verification of what
+actually happened. CREATE → VERIFY → MEET.
+
+**Try it headless (60 seconds):**
+
+```bash
+# 1. Get a challenge
+AUTH=$(curl -s -X POST https://quantumpiforge.com/birth/authorize \
+  -H 'content-type: application/json' -d '{}')
+CH=$(echo "$AUTH" | python3 -c "import sys,json; print(json.load(sys.stdin)['challenge'])")
+
+# 2. Authorize + create (headless agents: echo the challenge back in client_data_json;
+#    browser humans use a passkey instead — same endpoint, same truth boundary)
+BODY=$(echo "$AUTH" | python3 -c "
+import sys,json
+a = json.load(sys.stdin)
+cd = json.dumps({'type':'webauthn.get','challenge':a['challenge'],'origin':'https://quantumpiforge.com'})
+print(json.dumps({'challenge':a['challenge'],'issued_at':a['issued_at'],'mac':a['mac'],'credential_id':'agent-run-001','client_data_json':cd}))
+")
+curl -s -X POST https://quantumpiforge.com/birth/create \
+  -H 'content-type: application/json' -d "$BODY" | python3 -m json.tool
+```
+
+**What you get back:** a `birth_id` (`qpfb0:...`), an `identity_id`
+(`qpfdc0:...`), an Ed25519 public key, a SHA-256 manifest hash, and
+explicit boundaries (`economic_authority=false`,
+`autonomous_execution=false`, `network_authority=false`).
+If attestation cannot complete (e.g. attestor unfunded), the API
+returns `MAINNET_FAILED` — it never fabricates a transaction hash.
+
+**Human-readable entry:** https://quantumpiforge.com/birth
+**Machine-readable status:** POST /birth/status with your record.
+**Source of truth:** this repo. Start at AGENTS.md.
+**Report what happened:** https://github.com/onenoly1010/Quantum-pi-forge/issues/new?template=first-birth-report.yml
