@@ -1,0 +1,51 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "feat/birth-discoverable",
+  "outcome": "Birth page is shareable when linked: OG/Twitter cards + participant copy-link affordance. No content change to protocol, attestor, contracts, or infra. No outbound contact by the system.",
+  "canonicalSources": [
+    "deploy/birth.html",
+    "deploy/birth-client.js"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/feat__birth-discoverable.json",
+    "deploy/birth.html",
+    "deploy/birth-client.js"
+  ],
+  "forbiddenPaths": [
+    "contracts/**",
+    "wallets/**",
+    "src/**",
+    "package.json",
+    "package-lock.json",
+    "functions/**",
+    "qpf-core/**"
+  ],
+  "forbiddenActions": [
+    "protocol token mint",
+    "calling Heartbeat.registerBirth",
+    "deploying a new contract",
+    "fabricating transaction hashes",
+    "changing attestor/wallet/infrastructure behavior",
+    "spending Guardian 0G",
+    "automated outbound outreach",
+    "auto-posting or prefilled share messages",
+    "DEX / staking / yield"
+  ],
+  "verification": [
+    "grep -q 'og:title' deploy/birth.html",
+    "grep -q 'twitter:card' deploy/birth.html",
+    "grep -q 'first-birth-report.yml' deploy/birth.html",
+    "node --check deploy/birth-client.js",
+    "npm run verify:publication-scope -- --branch feat/birth-discoverable --base origin/main --contract .qpf/task-contracts/feat__birth-discoverable.json"
+  ],
+  "definitionOfDone": [
+    "Link to /birth unfurls with plain-language card (no wallet/tokens).",
+    "Participant can copy the birth link in one click.",
+    "No protocol/infra behavior changed."
+  ],
+  "authorizationRequired": [
+    "sending outbound messages to any person",
+    "spending Guardian 0G",
+    "protocol mint, staking, LP, or bridge"
+  ]
+}
