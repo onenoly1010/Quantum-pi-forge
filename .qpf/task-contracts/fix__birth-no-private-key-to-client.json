@@ -1,0 +1,32 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "fix/birth-no-private-key-to-client",
+  "outcome": "Stop returning ai_secret_jwk to the browser in birth create response. Server still signs nothing with it; key is session-scoped. No behavior change except key no longer leaves server.",
+  "canonicalSources": [
+    "functions/birth/create.js"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/fix__birth-no-private-key-to-client.json",
+    "functions/birth/create.js",
+    "functions/_lib/birth.js"
+  ],
+  "forbiddenPaths": [
+    "contracts/**",
+    "wallets/**",
+    "package.json",
+    "deploy/open.html",
+    "deploy/index.html"
+  ],
+  "forbiddenActions": [
+    "protocol mint",
+    "inventing transactions",
+    "claiming customers"
+  ],
+  "verification": [
+    "npm run verify:publication-scope"
+  ],
+  "definitionOfDone": [
+    "create response contains no ai_secret_jwk. MAC still verifies over public record."
+  ],
+  "authorizationRequired": []
+}
