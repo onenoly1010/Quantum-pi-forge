@@ -54,6 +54,11 @@
   Cache-Control: public, max-age=300
   X-Content-Type-Options: nosniff
 
+/llms.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=300
+  X-Content-Type-Options: nosniff
+
 # HTML entry pages: short cache so funnel CTAs deploy quickly
 /*.html
   Cache-Control: public, max-age=120, must-revalidate

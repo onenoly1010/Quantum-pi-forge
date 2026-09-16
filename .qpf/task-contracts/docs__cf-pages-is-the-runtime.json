@@ -1,0 +1,34 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "docs/cf-pages-is-the-runtime",
+  "outcome": "Lock public runtime as Cloudflare Pages. Do not send birth protocol to Vercel or Railway /api.",
+  "canonicalSources": [
+    "docs/governance/QPF_AI_BIRTH_IDENTITY_VERIFICATION_V1.md"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/docs__cf-pages-is-the-runtime.json",
+    "docs/governance/QPF_AI_BIRTH_IDENTITY_VERIFICATION_V1.md"
+  ],
+  "forbiddenPaths": [
+    "contracts/**",
+    "wallets/**",
+    "package.json",
+    "package-lock.json"
+  ],
+  "forbiddenActions": [
+    "targeting Vercel",
+    "moving birth onto Railway /api",
+    "protocol mint"
+  ],
+  "verification": [
+    "grep -q 'PUBLIC RUNTIME = Cloudflare Pages' docs/governance/QPF_AI_BIRTH_IDENTITY_VERIFICATION_V1.md",
+    "grep -q 'Not `vercel dev`' docs/governance/QPF_AI_BIRTH_IDENTITY_VERIFICATION_V1.md",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/docs__cf-pages-is-the-runtime.json --base origin/main"
+  ],
+  "definitionOfDone": [
+    "Birth protocol docs name Cloudflare Pages as the public runtime."
+  ],
+  "authorizationRequired": [
+    "changing the public host away from Cloudflare Pages"
+  ]
+}

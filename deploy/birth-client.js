@@ -36,7 +36,7 @@
     CREATING: "Creating identity...",
     IDENTITY_CREATED: "YOUR AI EXISTS.",
     ATTESTING: "Preparing verification...",
-    MAINNET_PENDING: "Mainnet confirmation pending (real tx)",
+    MAINNET_PENDING: "Verifying on the network…",
     VERIFIED: "✓ VERIFIED\n0G ARISTOTLE MAINNET\nChain 16661",
     READY: "✓ VERIFIED\n0G ARISTOTLE MAINNET\nChain 16661",
     INTERACTING: "MEET YOUR AI",
@@ -198,6 +198,39 @@
   retry.onclick = attest;
   meet.onclick = doMeet;
   proofBtn.onclick = doProof;
+
+  // Share affordance: participant copies the birth link themselves.
+  // No auto-posting, no prefilled message, no outbound contact by the system.
+  // The human decides who to send it to.
+  (function initShare() {
+    const shareBtn = document.getElementById("share");
+    const shareDone = document.getElementById("share-done");
+    if (!shareBtn) return;
+    const url = "https://quantumpiforge.com/birth.html";
+    function reveal() {
+      shareBtn.hidden = true;
+      if (shareDone) shareDone.hidden = false;
+    }
+    async function copy() {
+      try {
+        await navigator.clipboard.writeText(url);
+        reveal();
+      } catch {
+        // Clipboard API unavailable (permissions, insecure context):
+        // fall back to selecting via prompt so the human still gets the link.
+        try { window.prompt("Copy this link and send it to one curious person:", url); } catch {}
+        reveal();
+      }
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      shareBtn.hidden = false;
+      shareBtn.onclick = copy;
+    } else {
+      // No clipboard API: show the button anyway, prompt() fallback handles it.
+      shareBtn.hidden = false;
+      shareBtn.onclick = copy;
+    }
+  })();
 
   const existing = load();
   if (existing && existing.birth_id) {

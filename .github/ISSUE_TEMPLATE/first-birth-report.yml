@@ -1,0 +1,58 @@
+name: First birth report
+description: You tried creating an AI on quantumpiforge.com/birth — tell us what happened.
+title: "First birth report: "
+labels: ["first-participant", "feedback"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for trying the birth experience. **Honest reports are the point** — including "it didn't work" or "I didn't understand it."
+
+        No wallet, investment, or technical knowledge required. This takes about 2 minutes.
+  - type: dropdown
+    id: reached
+    attributes:
+      label: How far did you get?
+      options:
+        - "I saw the birth page"
+        - "I pressed BEGIN"
+        - "My AI was created (I saw an identity)"
+        - "I saw a verification result"
+        - "I met my AI (hello message)"
+    validations:
+      required: true
+  - type: textarea
+    id: what_happened
+    attributes:
+      label: What happened, in your own words?
+      description: Just describe what you saw and did. One or two sentences is fine.
+    validations:
+      required: true
+  - type: dropdown
+    id: understood
+    attributes:
+      label: Did you understand what was happening without technical knowledge?
+      options:
+        - "Yes, it was clear"
+        - "Mostly, with some confusion"
+        - "No, I was lost"
+    validations:
+      required: true
+  - type: textarea
+    id: confusion
+    attributes:
+      label: What confused you, if anything?
+  - type: dropdown
+    id: again
+    attributes:
+      label: Would you try it again or show a friend?
+      options:
+        - "Yes"
+        - "Maybe"
+        - "No"
+    validations:
+      required: true
+  - type: textarea
+    id: anything_else
+    attributes:
+      label: Anything else?

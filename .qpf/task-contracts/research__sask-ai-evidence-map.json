@@ -1,0 +1,28 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "research/sask-ai-evidence-map",
+  "outcome": "Public evidence-obligation map for Bell SK AI infrastructure. Named participants only. 32-firm roster marked unpublished. Not a sales page or customer claim.",
+  "canonicalSources": [
+    "docs/research/SASKATCHEWAN_AI_INFRASTRUCTURE_EVIDENCE_MAP_V1.md"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/research__sask-ai-evidence-map.json",
+    "docs/research/SASKATCHEWAN_AI_INFRASTRUCTURE_EVIDENCE_MAP_V1.md"
+  ],
+  "forbiddenPaths": ["contracts/**", "wallets/**", "deploy/**", "package.json"],
+  "forbiddenActions": [
+    "inventing the 32-firm roster",
+    "claiming customers or revenue",
+    "selling $2 verification into this map",
+    "protocol mint"
+  ],
+  "verification": [
+    "grep -q 'Full roster NOT ESTABLISHED' docs/research/SASKATCHEWAN_AI_INFRASTRUCTURE_EVIDENCE_MAP_V1.md",
+    "grep -q 'trust our records' docs/research/SASKATCHEWAN_AI_INFRASTRUCTURE_EVIDENCE_MAP_V1.md",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/research__sask-ai-evidence-map.json --base origin/main"
+  ],
+  "definitionOfDone": [
+    "Named firms cited. Unknowns labeled. Interview question is hunt not pitch."
+  ],
+  "authorizationRequired": ["claiming a paid engagement exists"]
+}

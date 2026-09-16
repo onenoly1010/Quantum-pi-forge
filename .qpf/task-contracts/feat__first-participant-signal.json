@@ -1,0 +1,48 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "feat/first-participant-signal",
+  "outcome": "Birth page asks the first outside participant to report what happened via a 2-minute GitHub issue template. No behavior change to birth protocol, attestor, contracts, or infra.",
+  "canonicalSources": [
+    "deploy/birth.html",
+    ".github/ISSUE_TEMPLATE/first-birth-report.yml"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/feat__first-participant-signal.json",
+    "deploy/birth.html",
+    ".github/ISSUE_TEMPLATE/first-birth-report.yml"
+  ],
+  "forbiddenPaths": [
+    "contracts/**",
+    "wallets/**",
+    "src/**",
+    "package.json",
+    "package-lock.json",
+    "functions/**",
+    "qpf-core/**"
+  ],
+  "forbiddenActions": [
+    "protocol token mint",
+    "calling Heartbeat.registerBirth",
+    "deploying a new contract",
+    "fabricating transaction hashes",
+    "changing attestor/wallet/infrastructure behavior",
+    "spending Guardian 0G",
+    "automated outbound outreach",
+    "DEX / staking / yield"
+  ],
+  "verification": [
+    "grep -q 'first-birth-report.yml' deploy/birth.html",
+    "test -f .github/ISSUE_TEMPLATE/first-birth-report.yml",
+    "npm run verify:publication-scope -- --branch feat/first-participant-signal --base origin/main --contract .qpf/task-contracts/feat__first-participant-signal.json"
+  ],
+  "definitionOfDone": [
+    "Birth page links to first-birth report template.",
+    "Template asks how far they got, in plain language.",
+    "No protocol/infra behavior changed."
+  ],
+  "authorizationRequired": [
+    "sending outbound messages to any person",
+    "spending Guardian 0G",
+    "protocol mint, staking, LP, or bridge"
+  ]
+}

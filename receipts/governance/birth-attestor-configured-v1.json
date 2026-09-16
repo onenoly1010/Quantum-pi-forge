@@ -1,0 +1,40 @@
+{
+  "receipt": "qpf.checkpoint.birth-attestor-configured.v1",
+  "created_at_utc": "2026-09-16T00:00:00Z",
+  "mode": "EXECUTE",
+  "public_runtime": "Cloudflare Pages",
+  "not": [
+    "Vercel",
+    "Railway /api/*",
+    "user-funded attestor",
+    "fabricated tx"
+  ],
+  "configured": {
+    "secret_name": "BIRTH_ATTESTOR_KEY",
+    "pages_project": "quantumpiforge",
+    "environment": "production",
+    "secret_listed": "Value Encrypted",
+    "service_address": "0x77E574565f89ca557eA82E2205a887eF36e328be",
+    "balance_wei_16661": 0,
+    "functions_deploy": "https://05ddb70a.quantumpiforge.pages.dev"
+  },
+  "did_not": [
+    "print or commit the private key",
+    "transfer Guardian 0x8d088B88219D072aB035502065ee2410c2cb4389 balance",
+    "fabricate a 16661 tx",
+    "use /api/*"
+  ],
+  "live": {
+    "birth": "https://quantumpiforge.com/birth",
+    "authorize": "POST /birth/authorize -> AUTH_REQUIRED"
+  },
+  "classification": {
+    "attestor_secret": "ESTABLISHED",
+    "attestor_funded": "NOT_ESTABLISHED",
+    "confirmed_16661_data_tx": "NOT_ESTABLISHED",
+    "external_participant_receipt": 0,
+    "customer": "NONE",
+    "revenue": "NONE"
+  },
+  "next_physical_constraint": "QPF service address has 0 gas on 16661. Mainnet faucet does not exist (faucet.0g.ai is Galileo testnet only). Guardian funds not spent."
+}

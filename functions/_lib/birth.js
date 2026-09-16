@@ -77,7 +77,8 @@ export async function createIdentity() {
   const pair = await crypto.subtle.generateKey({ name: "Ed25519" }, true, ["sign", "verify"]);
   const rawPub = await crypto.subtle.exportKey("raw", pair.publicKey);
   const pubB64 = btoa(String.fromCharCode(...new Uint8Array(rawPub)));
-  const privJwk = await crypto.subtle.exportKey("jwk", pair.privateKey);
+  // Private key is intentionally NOT exported: no party retains it.
+  // Sessions authenticate via HMAC record_mac over the public record.
   const created_at = new Date().toISOString().replace(/\.\d+Z$/, "Z");
   const identity_id = "qpfdc0:" + await sha256Hex(canonical({
     protocol: PROTOCOL,
@@ -93,7 +94,7 @@ export async function createIdentity() {
       key_algorithm: "ed25519",
       created_at,
     },
-    privJwk,
+    privJwk: undefined, // retired: private key never leaves keypair; kept as field for shape compat
   };
 }
 

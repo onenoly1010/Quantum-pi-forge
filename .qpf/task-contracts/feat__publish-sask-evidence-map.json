@@ -1,0 +1,18 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "feat/publish-sask-evidence-map",
+  "outcome": "Publish Saskatchewan evidence map v1 as a public research HTML page wired through build, sitemap, and open.html. Content identical to merged #875 source. No customers claimed, no outreach.",
+  "canonicalSources": ["docs/research/SASKATCHEWAN_AI_INFRASTRUCTURE_EVIDENCE_MAP_V1.md"],
+  "allowedPaths": [
+    ".qpf/task-contracts/feat__publish-sask-evidence-map.json",
+    "deploy/research/saskatchewan-evidence-map.html",
+    "deploy/sitemap.xml",
+    "deploy/open.html",
+    "scripts/build.js"
+  ],
+  "forbiddenPaths": ["contracts/**", "wallets/**", "package.json", "functions/**"],
+  "forbiddenActions": ["inventing the 32-firm roster", "claiming customers or revenue", "outbound contact", "protocol mint"],
+  "verification": ["npm run verify:publication-scope", "npm run build"],
+  "definitionOfDone": ["Research page live at /research/saskatchewan-evidence-map.html with source-identical labels."],
+  "authorizationRequired": ["claiming a paid engagement exists", "contacting any named firm"]
+}

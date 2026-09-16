@@ -33,7 +33,7 @@ export async function onRequest(context) {
   }
 
   const authorization_commitment = await sha256Hex(`webauthn:${credentialId}:${body.challenge}`);
-  const { identity, privJwk } = await createIdentity();
+  const { identity } = await createIdentity();
   const protocol_commit = (env && (env.CF_PAGES_COMMIT_SHA || env.GITHUB_SHA)) || "unknown";
   const manifest = await buildManifest({ authorization_commitment, identity, protocol_commit });
 
@@ -41,7 +41,6 @@ export async function onRequest(context) {
     ...manifest,
     state: "IDENTITY_CREATED",
     http_status_is_not_success: true,
-    ai_secret_jwk: privJwk,
   };
   record.record_mac = await hmacHex(
     secret(env),
