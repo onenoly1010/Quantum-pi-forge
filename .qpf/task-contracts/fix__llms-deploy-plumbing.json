@@ -1,0 +1,53 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "fix/llms-deploy-plumbing",
+  "outcome": "QPF birth discoverable and runnable by AI agents in their own environment: llms.txt with working headless curl path, robots.txt pointer, sitemap entry. No protocol, client, contract, or infra behavior changed. No outbound contact. Fix: wire llms.txt through build manifest and _headers (was committed but never deployed).",
+  "canonicalSources": [
+    "functions/_lib/birth.js",
+    "functions/birth/authorize.js",
+    "functions/birth/create.js"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/feat__agent-traffic-lanes.json",
+    "deploy/llms.txt",
+    "deploy/robots.txt",
+    "deploy/sitemap.xml",
+    "scripts/build.js",
+    "deploy/_headers",
+    ".qpf/task-contracts/fix__llms-deploy-plumbing.json"
+  ],
+  "forbiddenPaths": [
+    "contracts/**",
+    "wallets/**",
+    "src/**",
+    "package.json",
+    "package-lock.json",
+    "functions/**",
+    "deploy/birth-client.js",
+    "deploy/birth.html"
+  ],
+  "forbiddenActions": [
+    "protocol token mint",
+    "calling Heartbeat.registerBirth",
+    "deploying a new contract",
+    "fabricating transaction hashes",
+    "changing attestor/wallet/infrastructure behavior",
+    "spending Guardian 0G",
+    "automated outbound outreach",
+    "auto-posting or prefilled share messages",
+    "DEX / staking / yield"
+  ],
+  "verification": [
+    "curl llms.txt live after deploy",
+    "npm run verify:publication-scope"
+  ],
+  "definitionOfDone": [
+    "llms.txt live with working headless curl path.",
+    "No protocol/infra behavior changed."
+  ],
+  "authorizationRequired": [
+    "sending outbound messages to any person",
+    "spending Guardian 0G",
+    "protocol mint, staking, LP, or bridge"
+  ]
+}
