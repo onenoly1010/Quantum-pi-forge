@@ -59,6 +59,7 @@ const staticFiles = [
   { src: 'deploy/robots.txt', dest: 'robots.txt' },
   { src: 'deploy/sitemap.xml', dest: 'sitemap.xml' },
   { src: 'deploy/llms.txt', dest: 'llms.txt' },
+  { src: 'deploy/research/saskatchewan-evidence-map.html', dest: 'research/saskatchewan-evidence-map.html' },
   { src: 'deploy/why-this-matters.html', dest: 'why-this-matters.html' },
   { src: 'deploy/human-onboarding.html', dest: 'human-onboarding.html' },
   { src: 'deploy/deployed-addresses.html', dest: 'deployed-addresses.html' },
