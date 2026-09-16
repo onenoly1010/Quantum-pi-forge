@@ -176,3 +176,38 @@ If they name a painful claim, **then** QPF enters. Price is unknown ($5K / $25K 
 
 **Find one of the named firms and ask the interview question.**  
 Do not send a verification SKU. Log what they say they must prove. That answer is the next product, if any.
+
+---
+
+## 9. Ranked evidence-opportunity targets (v2, 2026-09-16)
+
+Complements §3. Ranks **where the evidence vacuum is largest**. None is a customer, deal, or outreach authorization.
+
+New-source verification this pass: [Bell CNW expansion](https://www.newswire.ca/news-releases/bell-ai-fabric-to-expand-nation-building-project-in-saskatchewan-with-up-to-900-mw-of-additional-power-869048098.html) (Sep 14, EXISTS; non-binding MOU, phased on customer commitments) and [SK Sep 14](https://www.saskatchewan.ca/government/news-and-media/2026/september/14/single-largest-private-sector-capital-investment-in-history-of-canada-through-bell-ais-saskatchewan) (EXISTS; 6 Framework principles, $52B framing, Trade 306-526-6302). "32 firms" is secondary ([EnergyNow](https://energynow.ca/2026/09/dramatic-expansion-bell-ai-fabric-expansion-could-bring-more-than-50-billion-in-investment-to-saskatchewan/)) — roster NOT ESTABLISHED.
+
+| # | Target | Role | CLAIM at stake | Who needs proof | Existing evidence | Evidence gap | Bounded QPF posture |
+|---|---|---|---|---|---|---|---|
+| 1 | **Unnamed BYOP power partner** | Future gas gen for +900 MW | Off-grid power under Framework | SK energy sector, regulators, public | Not identified | Entire package UNKNOWN | **Watch list #1** |
+| 2 | **SK gov / CIC intake** | Proof-rule owner (Framework) | Criteria evidenced per applicant; $52B framing | Public, municipalities, proponents | Framework text; approval narrative | Intake transparency | Map public claims to public evidence — not legal advice |
+| 3 | **Bell AI Fabric** | Anchor developer | 1.2 GW path; >$50B stack; sovereignty; closed-loop cooling; HQ | Investors, gov, tenants, public | Releases; MOU; MD&A cautions; photos | Verifiable-today vs forward-looking; stack not itemized | Public-claim package: established vs UNKNOWN — not an audit |
+| 4 | **Cerebras / CoreWeave** | Tenants | Sovereign SK compute offerings | Sovereign-compute buyers | Named in releases only | Live vs planned; residency guarantees | Bounded verify of **published** SK claims when sold |
+| 5 | **SaskPower / SaskEnergy / SaskTel** | Crown infra | Interconnect by end-2026; HP pipeline + meter; diverse fibre | Ratepayers, boards, gov | SK Mar 16; backgrounder | Milestone status; gen partner unnamed | Published-statements package only |
+| 6 | **Bird Construction** | Lead construction | Sherwood delivery; national partnership; warrants | Investors, Bell, markets | May 14 CNW | Progress vs schedule over time | Public-milestone receipts (not safety audit) |
+| 7 | **GGFN / GGDL** | Indigenous partner | Participation, workforce, heat-reuse | Membership, Bell, province | Agreements; Steering Committee | Outcome metrics thin | Public outcome receipts when they publish |
+| 8 | **U of R / Sask Polytech** | Post-secondary | Internships, apprenticeships | Students, funders | Named in releases | "Explore" vs measurable | Verify **published** program claims |
+| 9 | **RM of Sherwood** | Permitting | Dev agreement Apr 20 2026 (per Bell) | Residents, council | Bell May 4 statement | Conditions / monitoring | Municipal claim to document index |
+| 10 | **Early trades** (Maxie's, Behlen, Soletanche, Ardel/Amrize, Red Pelican, WaterMark) | Delivery | Trade-specific delivery | Bell, primes | Named May 4 | Thin public claims | Low fit unless compliance claims made |
+| 11 | **ATAL** | Architect of Record | Design responsibility | Bell, Bird, municipality | Named May 14 | Permit artifacts | Permit/drawing sets if public |
+
+---
+
+## 10. Next research steps (v2)
+
+1. Primary source for "32 companies" (Bell deck, speech, FOI, RM filings).
+2. RM of Sherwood public dev agreement / permit files.
+3. BYOP power-partner RFP/announcement watch (list #1).
+4. Full Framework PDF (ref 26-5990) beyond the news release.
+5. UNKNOWN contact desks (SaskPower/SaskEnergy/SaskTel media; Bird IR; GGDL; UofR/Sask Poly).
+6. Draft (not send) one Framework-aligned evidence-offer one-pager for CIC/Trade — human authorization before any contact.
+
+**Not:** pipeline, outreach script, endorsement, or demand proof. Price unknown, not invented. Contact with any named firm needs Kris's authorization.
