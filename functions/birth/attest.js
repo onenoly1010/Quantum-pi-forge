@@ -73,7 +73,8 @@ export async function onRequest(context) {
       data: hashHex,
       chainId: CHAIN_ID,
       nonce: parseInt(nonceHex, 16),
-      gasLimit: 21000 + Math.ceil(hashHex.length / 2) * 16,
+      // 0G floor data gas rejected 21528 (21k+data). Do not under-estimate.
+      gasLimit: 100000,
       gasPrice: BigInt(gasPrice),
     };
     const raw = await wallet.signTransaction(tx);
