@@ -1,0 +1,15 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "research/sask-evidence-map-v2",
+  "outcome": "Reconcile Downloads draft into merged evidence map: add source-URL table, ranked targets, next research steps. Preserve all truth labels. No customers claimed, no outreach.",
+  "canonicalSources": ["docs/research/SASKATCHEWAN_AI_INFRASTRUCTURE_EVIDENCE_MAP_V1.md"],
+  "allowedPaths": [
+    ".qpf/task-contracts/research__sask-evidence-map-v2.json",
+    "docs/research/SASKATCHEWAN_AI_INFRASTRUCTURE_EVIDENCE_MAP_V1.md"
+  ],
+  "forbiddenPaths": ["contracts/**", "wallets/**", "deploy/**", "package.json", "functions/**"],
+  "forbiddenActions": ["inventing the 32-firm roster", "claiming customers or revenue", "selling $2 verification into this map", "protocol mint", "outbound contact"],
+  "verification": ["npm run verify:publication-scope"],
+  "definitionOfDone": ["Single canonical map with URLs, ranked targets, next steps. Unknowns still labeled."],
+  "authorizationRequired": ["claiming a paid engagement exists", "contacting any named firm"]
+}
