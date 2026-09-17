@@ -61,7 +61,8 @@ jobs:
 
   deliver-economic-object-announcement:
     # Bounded single-send delivery (unpark: receipts/press-agent/unpark-economic-object-delivery-v1.json).
-    # Fail-closed: dispatch only + confirm_send=true + unpark receipt present + pinned object id.
+    # Fail-closed: dispatch only + confirm_send=true + unpark receipt present + pinned object id
+    # (verified in the receipt AND asserted present in the exact announcement text sent).
     # The message is FIXED. The workflow_dispatch `message` input is intentionally NOT consumed.
     name: Deliver Economic Object Announcement (single send)
     if: >-
@@ -102,6 +103,8 @@ jobs:
           ANNOUNCEMENT: |-
             QPF Economic Object v1 is public.
 
+            Object: qpfo0:7e3a669993924797a367537de6dfaf0b8f515212d1594c62807fa811e5ec71ab
+
             One content-addressed, creator-signed economic object: a verified-work artifact (OpenZeppelin Ownable.sol v5.0.0 @932fddf), evidence frozen, verifier included. Verify it yourself — no trust in the publisher required:
             https://gist.github.com/onenoly1010/f219c8b95f554b79896d3c94a016a07b
 
@@ -113,6 +116,9 @@ jobs:
             Don't ask the world to believe it. Inspect it.
         run: |
           node -e '
+            const OBJECT_ID = "qpfo0:7e3a669993924797a367537de6dfaf0b8f515212d1594c62807fa811e5ec71ab";
+            if (!(process.env.ANNOUNCEMENT || "").includes(OBJECT_ID)) { console.error("REFUSED: announcement text does not contain pinned object_id"); process.exit(1); }
+            console.log("announcement gate PASS: pinned object_id present in exact text to be sent");
             const send = require("./src/bots/discord.js").send;
             send(process.env.ANNOUNCEMENT)
               .then((r) => {
