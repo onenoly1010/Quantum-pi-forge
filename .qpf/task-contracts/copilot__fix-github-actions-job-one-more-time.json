@@ -1,0 +1,28 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "copilot/fix-github-actions-job-one-more-time",
+  "outcome": "Restore the Evidence and Dependency Audit GitHub Actions job by upgrading the fast-uri override past its high-severity advisory range.",
+  "allowedPaths": [
+    ".qpf/task-contracts/copilot__fix-github-actions-job-one-more-time.json",
+    ".qpf/task-contracts/copilot__extend-qpf-verification-architecture.json",
+    "docs/evidence/PHYSICAL_COMPUTE_STATE_BOUNDARY_V1.md",
+    "evidence/INDEX.md",
+    "evidence/receipt.json",
+    "package.json",
+    "package-lock.json",
+    "src/verification/index.js",
+    "src/verification/physical-compute.js",
+    "tests/verification/physical-compute.test.js"
+  ],
+  "forbiddenActions": [
+    "production deployment",
+    "wallet signing",
+    "public mint",
+    "governance execution"
+  ],
+  "verification": [
+    "npm audit --audit-level=high",
+    "npm run verify:all",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/copilot__fix-github-actions-job-one-more-time.json --branch copilot/fix-github-actions-job-one-more-time --base origin/main"
+  ]
+}
