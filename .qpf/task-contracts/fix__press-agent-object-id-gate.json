@@ -8,6 +8,10 @@
   "canonicalSources": [
     ".github/workflows/press-agent-communications.yml"
   ],
+  "allowedPaths": [
+    ".github/workflows/press-agent-communications.yml",
+    ".qpf/task-contracts/fix__press-agent-object-id-gate.json"
+  ],
   "scope": {
     "goal": "Make the unpark receipt's declared gate true: the pinned object_id must appear in the fixed announcement text, and the workflow must assert this on the exact text about to be sent, fail-closed, before delivery.",
     "allowedPaths": [
