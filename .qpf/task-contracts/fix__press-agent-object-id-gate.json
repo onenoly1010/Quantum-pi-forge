@@ -1,0 +1,39 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "id": "fix__press-agent-object-id-gate",
+  "title": "Enforce pinned object_id in press-agent announcement before single send",
+  "status": "implemented",
+  "branch": "fix/press-agent-object-id-gate",
+  "base": "main@4e398ea",
+  "canonicalSources": [
+    ".github/workflows/press-agent-communications.yml"
+  ],
+  "allowedPaths": [
+    ".github/workflows/press-agent-communications.yml",
+    ".qpf/task-contracts/fix__press-agent-object-id-gate.json"
+  ],
+  "scope": {
+    "goal": "Make the unpark receipt's declared gate true: the pinned object_id must appear in the fixed announcement text, and the workflow must assert this on the exact text about to be sent, fail-closed, before delivery.",
+    "allowedPaths": [
+      ".github/workflows/press-agent-communications.yml"
+    ],
+    "scopeDecision": "Minimal integrity repair (+7/-1, one file): object id line added to ANNOUNCEMENT; pre-send assertion added in the delivery step (checks the exact env text, exits nonzero without delivering on absence). confirm_send consumption (job-level if:) verified present and unchanged. No duplication of the announcement text (single source of truth)."
+  },
+  "notInScope": [
+    "Executing the dispatch (separate authorized action after merge)",
+    "Any change to the unpark receipt, guard, or delivery count",
+    "Fixing the pre-existing npm audit baseline",
+    "Any deploy, wallet, or economic action"
+  ],
+  "verification": [
+    "YAML parses (python3 yaml.safe_load)",
+    "Both inline node scripts pass node --check",
+    "Gate simulated locally against YAML-parsed ANNOUNCEMENT: object_id present = True; gist URL byte-intact = True",
+    "URL lines verified pure ASCII (no invisible characters)"
+  ],
+  "definitionOfDone": [
+    "PR checks: Publication Scope PASS; only the documented pre-existing verify-evidence-and-audit npm-audit baseline may fail",
+    "Squash-merged to main"
+  ],
+  "boundaryStatement": "This repairs the truth of an existing declared gate; it does not authorize or execute the send. The single dispatch remains a separate, explicitly authorized workflow_dispatch action."
+}
