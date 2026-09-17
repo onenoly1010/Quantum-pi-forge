@@ -1,0 +1,48 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "copilot/fix-github-actions-job-please-work",
+  "outcome": "Fix the Operating Model publication-scope failure caused by a missing branch-derived task contract file.",
+  "scope": "Publication-scope contract path repair only.",
+  "canonicalSources": [
+    ".github/workflows/operating-model.yml",
+    "scripts/verify-publication-scope.cjs",
+    ".qpf/task-contracts/docs__what-qpf-is-today-v1.json",
+    "docs/review/VERIFICATION_STATUS_TABLE_V1.md",
+    "evidence/INDEX.md",
+    "docs/ai/AI_POLICY.md",
+    "docs/ai/AUTHORIZATION_WORKFLOW.md"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/copilot__fix-github-actions-job-please-work.json",
+    ".qpf/task-contracts/copilot__give-outsider-review-qpf.json"
+  ],
+  "forbiddenPaths": [
+    "src/**",
+    "contracts/**",
+    "deploy/**",
+    "wallets/**",
+    "receipts/execution/**"
+  ],
+  "forbiddenActions": [
+    "production deployment",
+    "credential or secret change",
+    "wallet or key action",
+    "minting",
+    "staking",
+    "liquidity",
+    "bridge activation",
+    "governance execution"
+  ],
+  "verification": [
+    "npm run verify:all",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/copilot__fix-github-actions-job-please-work.json --base origin/main"
+  ],
+  "definitionOfDone": [
+    "Publication scope contract resolution no longer fails for branch-named contract lookup.",
+    "Only task-contract files are changed.",
+    "Required verification commands pass."
+  ],
+  "authorizationRequired": [
+    "merge"
+  ]
+}
