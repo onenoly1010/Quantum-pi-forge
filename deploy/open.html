@@ -61,8 +61,10 @@
   -d '{"jsonrpc":"2.0","id":1,"method":"eth_chainId","params":[]}'
 # expect result "0x4115"</pre>
     <p>
-      <a class="cta primary" href="/try.html">Then: verify a public deploy</a>
-      <a class="cta secondary" href="/attack-kit.html">Or try to break EXT-001</a>
+      <a class="cta primary" href="/attack-kit.html">Primary VERIFY: attack-kit (EXT-001)</a>
+      <a class="cta secondary" href="/try.html">Or: verify a public deploy</a>
+      <a class="cta secondary" href="/birth">Birth</a>
+      <a class="cta secondary" href="/meet">Meet</a>
     </p>
   </div>
 
@@ -95,9 +97,10 @@
     <h2>One public economic object</h2>
     <p>A verified-work object is public. Download it and run the verifier. Do not trust the page.</p>
     <p><a href="https://gist.github.com/onenoly1010/f219c8b95f554b79896d3c94a016a07b">gist.github.com/onenoly1010/f219c8b95f554b79896d3c94a016a07b</a></p>
-    <pre>object_id  qpfo0:7e3a669993924797a367537de6dfaf0b8f515212d1594c62807fa811e5ec71ab
+    <pre>object_id  qpfo0:ebda8d38c19dbb749d5522da16a9ede63b759ce519f5d4fbfade8e25887ebe9b
 python3 verify_object.py .
 python3 verify.py</pre>
+    <p class="warn"><strong>Honesty (2026-09-18):</strong> As published, gist <code>artifact.bin</code> is base64 text and fails hash verify. Strangers should use <a href="/attack-kit.html">/attack-kit</a> for VERIFY PASS today (<code>python3 verify.py</code> → ALL CHECKS PASSED). Do not claim gist VERIFY PASS until raw 3102-byte bytes are restored.</p>
     <p class="muted">Publication is exposure, not a customer, not payment, and not revenue. External interaction: none observed. Invitation: <a href="https://github.com/onenoly1010/Quantum-pi-forge/issues/851">issue #851</a>.</p>
   </div>
 
