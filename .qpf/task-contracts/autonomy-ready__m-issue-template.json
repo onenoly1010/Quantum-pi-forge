@@ -1,0 +1,55 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "autonomy-ready/m-issue-template",
+  "outcome": "Add GitHub issue form template autonomy-ready.yml so maintainers file bounded autonomy-ready tasks with required scope, acceptance criteria, verification command, expected receipt, and hard NOT-IN-SCOPE plus wallet/econ attestations. Template only — do not file issues with it as part of this task.",
+  "canonicalSources": [
+    "reports/AUTONOMY_READY_BACKLOG_SAFE_2026-09-16.md#Issue-M",
+    ".github/ISSUE_TEMPLATE/first-birth-report.yml"
+  ],
+  "allowedPaths": [
+    ".github/ISSUE_TEMPLATE/autonomy-ready.yml",
+    ".qpf/task-contracts/autonomy-ready__m-issue-template.json"
+  ],
+  "forbiddenPaths": [
+    "contracts/**",
+    "wallets/**",
+    "package.json",
+    "functions/**",
+    "deploy/**"
+  ],
+  "forbiddenActions": [
+    "filing GitHub issues with the new template as part of this task",
+    "protocol mint",
+    "LP / liquidity",
+    "yield / staking / bridge",
+    "wallet sign / broadcast / fund / deposit",
+    "payment execution",
+    "economic authorization",
+    "destination / roadmap destination changes",
+    "fabricating customers, revenue, or Phase 8.5 eligible reports",
+    "outbound contact as Kris / cold outreach"
+  ],
+  "verification": [
+    "test -f .github/ISSUE_TEMPLATE/autonomy-ready.yml",
+    "grep -q 'labels: \\[\"autonomy-ready\"\\]' .github/ISSUE_TEMPLATE/autonomy-ready.yml",
+    "grep -q 'id: not_in_scope' .github/ISSUE_TEMPLATE/autonomy-ready.yml",
+    "grep -q 'id: attest_no_wallet' .github/ISSUE_TEMPLATE/autonomy-ready.yml",
+    "grep -q 'id: attest_econ_separate' .github/ISSUE_TEMPLATE/autonomy-ready.yml",
+    "grep -q 'NOT AUTHORIZED by this issue' .github/ISSUE_TEMPLATE/autonomy-ready.yml",
+    "! grep -nE '[[:space:]]$' .github/ISSUE_TEMPLATE/autonomy-ready.yml",
+    "python3 -c \"import json; json.load(open('.qpf/task-contracts/autonomy-ready__m-issue-template.json'))\"",
+    "test \"$(python3 -c \"import json; print(json.load(open('.qpf/task-contracts/autonomy-ready__m-issue-template.json'))['schema'])\")\" = \"qpf.task_contract.v1\""
+  ],
+  "definitionOfDone": [
+    "Issue form defaults to autonomy-ready label",
+    "Required fields: scope, acceptance_criteria, verification_command, expected_receipt, not_in_scope",
+    "Hard boundary embedded in markdown section, not_in_scope default, and two required attestation checkboxes",
+    "Task contract key-set matches sibling qpf.task_contract.v1 contracts",
+    "Only allowedPaths touched",
+    "No issues filed with the template as part of this task"
+  ],
+  "authorizationRequired": [
+    "filing issues with the new template (separate action)",
+    "mint, LP, yield, wallet, payment, or destination changes"
+  ]
+}

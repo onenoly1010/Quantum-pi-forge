@@ -1,0 +1,101 @@
+name: Autonomy-ready bounded task
+description: Safe maintainer task — scope, acceptance, verify, receipt, hard NOT-IN-SCOPE. No econ unlock.
+title: "[autonomy-ready] "
+labels: ["autonomy-ready"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for **bounded** `autonomy-ready` work (doors, map, Phase 8.5 tooling, repo hygiene).
+
+        ## Hard boundary (do not delete)
+
+        ```text
+        NOT AUTHORIZED by this issue:
+        - mint, LP, yield, staking, bridge
+        - wallet sign / broadcast / fund / deposit
+        - payment execution or economic authorization
+        - destination / roadmap destination changes
+        - fabricating customers, revenue, Phase 8.5 eligible reports, or false-green status
+        - outbound contact as Kris / cold outreach
+        ```
+
+        Economic actions require a **separately labeled governance issue**. This template never authorizes them.
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: What this task changes. Keep to doors / map / Phase 8.5 tooling / repo hygiene.
+      placeholder: e.g. Replace /verification-request mailto with GitHub issue template intake.
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance criteria
+      description: Checklist of done. Keep lines free of trailing whitespace.
+      value: |
+        - [ ] Criterion 1
+        - [ ] Criterion 2
+    validations:
+      required: true
+
+  - type: textarea
+    id: verification_command
+    attributes:
+      label: Verification command / test
+      description: Exact commands a stranger or CI can run to prove acceptance.
+      placeholder: |
+        npm run verify:public-portal
+        # Expect PASS; economic fields remain NOT_AUTHORIZED
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_receipt
+    attributes:
+      label: Expected receipt
+      description: What evidence proves completion (PR link, command output, evidence JSON path).
+      placeholder: PR + green verify command output; docs/evidence/... receipt with authorizes_economics false
+    validations:
+      required: true
+
+  - type: textarea
+    id: not_in_scope
+    attributes:
+      label: Explicit NOT-IN-SCOPE
+      description: Keep the boundary block. Add task-specific exclusions below it if needed.
+      value: |
+        ```text
+        NOT AUTHORIZED by this issue:
+        - mint, LP, yield, staking, bridge
+        - wallet sign / broadcast / fund / deposit
+        - payment execution or economic authorization
+        - destination / roadmap destination changes
+        - fabricating customers, revenue, Phase 8.5 eligible reports, or false-green status
+        - outbound contact as Kris / cold outreach
+        ```
+
+        (Do not delete the boundary block.)
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: attest_no_wallet
+    attributes:
+      label: Attestation — no wallet / signing / funds
+      description: Required. This task must not touch wallets, signing, broadcast, or funds.
+      options:
+        - label: I confirm this issue does not authorize wallet sign, broadcast, fund, deposit, or any funds movement.
+          required: true
+
+  - type: checkboxes
+    id: attest_econ_separate
+    attributes:
+      label: Attestation — economics need separate governance
+      description: Required. Mint/LP/yield/payment stay forbidden unless a separately labeled governance issue authorizes them.
+      options:
+        - label: I confirm economic actions (mint, LP, yield, payment execution, economic authorization) are forbidden under this issue unless a separately labeled governance issue authorizes them.
+          required: true
