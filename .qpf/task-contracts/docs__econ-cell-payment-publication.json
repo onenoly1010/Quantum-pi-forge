@@ -1,0 +1,55 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "docs/econ-cell-payment-publication",
+  "outcome": "Publish the qpf-econ-cell verification offer with a real, previously-established receiving address and a working customer intake path, and record that DEMO-TX-2026-09-09 was a demonstration rather than real revenue. Real revenue stays $0.00 and self_sustaining stays false until an externally verifiable payment exists. No fabricated customer, payment, adoption, or revenue.",
+  "canonicalSources": [
+    "docs/econ-cell/PAYMENT.md",
+    "docs/econ-cell/OFFER.md",
+    ".github/ISSUE_TEMPLATE/verification-job.md"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/docs__econ-cell-payment-publication.json",
+    ".github/ISSUE_TEMPLATE/verification-job.md",
+    "docs/econ-cell/OFFER.md",
+    "docs/econ-cell/PAYMENT.md"
+  ],
+  "forbiddenPaths": [
+    "contracts/**",
+    "wallets/**",
+    "src/**",
+    "functions/**",
+    "package.json",
+    "package-lock.json"
+  ],
+  "forbiddenActions": [
+    "public mint",
+    "liquidity",
+    "staking/yield",
+    "bridge",
+    "wallet transfer",
+    "agent signing",
+    "live compute deposit",
+    "synthetic customers",
+    "claiming revenue or adoption",
+    "selecting or inventing a new receiving address",
+    "fabricating a transaction reference or txid"
+  ],
+  "verification": [
+    "npm run verify:all",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/docs__econ-cell-payment-publication.json --base origin/main"
+  ],
+  "definitionOfDone": [
+    "docs/econ-cell/PAYMENT.md names the established receiving address 0x1fF3dbddc1c18C9eC53806BA16Fb6A3E1bE327d3 and no longer carries an operator placeholder.",
+    "docs/econ-cell/OFFER.md documents the paid verification service and the supported payment rails.",
+    ".github/ISSUE_TEMPLATE/verification-job.md gives an external participant an explicit intake path.",
+    "The append-only ledger correction is preserved and real revenue is recorded as $0.00.",
+    "self_sustaining remains false until a payment with a verifiable on-chain reference exists.",
+    "No wallet, signing, or funds movement."
+  ],
+  "authorizationRequired": [
+    "activating mint, staking, LP, or bridge",
+    "wallet sign or broadcast",
+    "claiming a customer or revenue",
+    "changing the receiving address"
+  ]
+}
