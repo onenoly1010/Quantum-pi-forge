@@ -5,9 +5,11 @@ Quantum Pi Forge is open to human and AI participation.
 You do not need Kris Olofson to enter, inspect, verify, or create on the existing baseline.
 
 - **Participant door:** https://quantumpiforge.com/open.html
-- **Map:** [`docs/public/OPEN_GATES_V1.md`](docs/public/OPEN_GATES_V1.md)
-- **Handover:** [`docs/governance/OPEN_GATES_PLATFORM_HANDOVER_V1.md`](docs/governance/OPEN_GATES_PLATFORM_HANDOVER_V1.md)
-- **Machine-readable:** [`deploy/open-gates-v1.json`](deploy/open-gates-v1.json)
+- **Map:** [docs/public/OPEN_GATES_V1.md](docs/public/OPEN_GATES_V1.md)
+- **Handover:** [docs/governance/OPEN_GATES_PLATFORM_HANDOVER_V1.md](docs/governance/OPEN_GATES_PLATFORM_HANDOVER_V1.md)
+- **Machine-readable:** [deploy/open-gates-v1.json](deploy/open-gates-v1.json)
+- **Answer-engine evidence index:** [docs/public/AEO_INDEX_V1.md](docs/public/AEO_INDEX_V1.md)
+- **Machine-readable project summary:** [llms.txt](llms.txt)
 
 Do one thing first — no wallet, no account, no approval:
 
@@ -27,7 +29,6 @@ Don't ask the world to believe it. Inspect it.
 ---
 
 # Public Validation Status
-
 
 ## 10-Minute Public Reviewer Demo
 
@@ -56,7 +57,7 @@ Public gate document: `docs/public/PUBLIC_VERIFICATION_DEMO_GATE_V1.md`
 
 Quantum Pi Forge has completed verified genesis activation on 0G Aristotle Mainnet. Liquidity, approvals, staking, relayer flows, funding, and growth loops remain intentionally blocked until validation and funding conditions are satisfied.
 
-- Status doc: [`docs/governance/PUBLIC_VALIDATION_STATUS_V1.md`](docs/governance/PUBLIC_VALIDATION_STATUS_V1.md)
+- Status doc: [docs/governance/PUBLIC_VALIDATION_STATUS_V1.md](docs/governance/PUBLIC_VALIDATION_STATUS_V1.md)
 - Review anchor: [Issue / thread #328](https://github.com/onenoly1010/Quantum-pi-forge/pull/328)
 
 **Review the proof. Verify the gates. Confirm the boundary.**
@@ -67,7 +68,7 @@ Quantum Pi Forge has completed verified genesis activation on 0G Aristotle Mainn
 
 ## For Auditors and Reviewers
 
-Start with [`AUDIT.md`](./AUDIT.md) for the canonical non-executing reviewer onboarding runbook and one-command local audit path:
+Start with [AUDIT.md](./AUDIT.md) for the canonical non-executing reviewer onboarding runbook and one-command local audit path:
 
 ```bash
 npm run audit:full-local
@@ -94,10 +95,9 @@ No API keys. No monthly bills. No cloud dependency.
 
 ---
 
-
 ## Evidence Index
 
-The current repository evidence map is maintained at [`evidence/INDEX.md`](evidence/INDEX.md).
+The current repository evidence map is maintained at [evidence/INDEX.md](evidence/INDEX.md).
 
 It links active proof lanes to their supporting files and verification commands. Evidence index verification is available locally with:
 
@@ -105,7 +105,7 @@ It links active proof lanes to their supporting files and verification commands.
 npm run verify:evidence-index
 ```
 
-The current evidence index snapshot receipt is stored at [`evidence/receipt.json`](evidence/receipt.json) and can be refreshed with:
+The current evidence index snapshot receipt is stored at [evidence/receipt.json](evidence/receipt.json) and can be refreshed with:
 
 ```bash
 npm run evidence:receipt
@@ -178,7 +178,7 @@ See [QUICKSTART.md](QUICKSTART.md) for full details.
 
 Runs automatically every 30 minutes:
 
-```
+```text
 [2026-04-15 23:15:00] ----- Guardian Health Check Start -----
 [2026-04-15 23:15:00] ✔ Ollama is running
 [2026-04-15 23:15:00] ✔ qwen2.5-coder model available
@@ -201,7 +201,7 @@ Runs automatically every 30 minutes:
 ## Pricing
 
 | Tier | Price | What's Included |
-|------|-------|-----------------|
+|------|------|-----------------|
 | Core | $29 | Installer + Configs + Guardian |
 | Pro | $49 | Everything + 5 practical workflows + lifetime minor updates |
 
@@ -214,7 +214,6 @@ Runs automatically every 30 minutes:
 Every build runs inside a pinned container that enforces the v1.5 contract:
 
 ```bash
-# Build & run locally
 docker build -t epi-audit:v1.5 -f infra/repro/Dockerfile .
 docker run --rm -v "$(pwd)/output:/forge/output" epi-audit:v1.5
 ```
@@ -261,4 +260,3 @@ npm run verify:evidence
 Full details: [docs/verification/PUBLIC_VERIFICATION_REPRODUCTION_V1.md](docs/verification/PUBLIC_VERIFICATION_REPRODUCTION_V1.md)
 
 Note: `npm audit` warnings are non-blocking for evidence verification and are tracked separately.
-
