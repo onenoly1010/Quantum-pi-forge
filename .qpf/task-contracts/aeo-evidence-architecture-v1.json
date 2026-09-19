@@ -1,0 +1,54 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "aeo-evidence-architecture-v1",
+  "outcome": "Add a machine-readable answer-engine evidence surface: a repo-root llms.txt giving concise project identity, canonical sources, architecture, verification model and status discipline, plus docs/public/AEO_INDEX_V1.md as the canonical answer-engine/reviewer map, linked from README. Discoverability is evidence architecture, not SEO manipulation, and is never treated as verification.",
+  "canonicalSources": [
+    "llms.txt",
+    "docs/public/AEO_INDEX_V1.md",
+    "README.md"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/aeo-evidence-architecture-v1.json",
+    "README.md",
+    "docs/public/AEO_INDEX_V1.md",
+    "llms.txt"
+  ],
+  "forbiddenPaths": [
+    "contracts/**",
+    "wallets/**",
+    "functions/**",
+    "deploy/**",
+    "package.json",
+    "package-lock.json"
+  ],
+  "forbiddenActions": [
+    "SEO manipulation or cloaking",
+    "fabricating adoption, revenue, partnership, or production claims",
+    "claiming discoverability as verification",
+    "claiming official partnership or endorsement without independent evidence",
+    "public mint",
+    "liquidity",
+    "staking/yield",
+    "bridge",
+    "wallet transfer",
+    "agent signing"
+  ],
+  "verification": [
+    "test -f llms.txt",
+    "test -f docs/public/AEO_INDEX_V1.md",
+    "grep -q 'ASSERTION' llms.txt",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/aeo-evidence-architecture-v1.json --base origin/main"
+  ],
+  "definitionOfDone": [
+    "llms.txt exists at repo root with concise machine-readable identity, canonical sources, architecture, verification model and status discipline.",
+    "docs/public/AEO_INDEX_V1.md exists as the canonical answer-engine/reviewer map.",
+    "Both are linked from README.md.",
+    "No fabricated adoption, revenue, partnership or production claims.",
+    "Public status boundaries remain explicit and discoverability is not presented as verification."
+  ],
+  "authorizationRequired": [
+    "publishing any claim of partnership, endorsement, adoption, or revenue",
+    "activating mint, staking, LP, or bridge",
+    "wallet sign or broadcast"
+  ]
+}
