@@ -1,6 +1,6 @@
 {
   "schema": "qpf.task_contract.v1",
-  "branch": "docs/prove-product-2026-08-22",
+  "branch": "copilot/public-verification-artifact-demo",
   "outcome": "Publish one complete Level 0 evidence-bound verification package for an existing public artifact. No architecture change. No economic activation.",
   "canonicalSources": [
     "docs/public/PUBLIC_VERIFICATION_DEMO_GATE_V1.md",
