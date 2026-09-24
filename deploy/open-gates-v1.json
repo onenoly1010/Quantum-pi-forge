@@ -1,7 +1,7 @@
 {
   "schema": "qpf-open-gates-v1",
   "schema_version": "1.0",
-  "updated_at_utc": "2026-09-15T00:00:00Z",
+  "updated_at_utc": "2026-09-18T21:00:00Z",
   "title": "Quantum Pi Forge Open Gates",
   "decision": "OPEN",
   "public_url": "https://quantumpiforge.com/open.html",
@@ -45,7 +45,17 @@
     {
       "id": "attack_kit",
       "url": "/attack-kit.html",
-      "action": "Reproduce or break frozen EXT-001"
+      "action": "Reproduce or break frozen EXT-001 — canonical stranger VERIFY path"
+    },
+    {
+      "id": "birth",
+      "url": "/birth",
+      "action": "Begin creating a counterpart without waiting for Kris"
+    },
+    {
+      "id": "meet",
+      "url": "/meet",
+      "action": "Meet / continue after birth without founder email"
     },
     {
       "id": "inventory",
