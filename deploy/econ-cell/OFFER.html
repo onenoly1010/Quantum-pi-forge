@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Offer — Quantum Pi Forge</title>
+<style>
+body { background:#09090b; color:#d4d4d8; font-family:ui-sans-serif,system-ui,sans-serif; line-height:1.6; margin:0; padding:2.5rem 1.25rem 4rem; }
+main { max-width:760px; margin:0 auto; }
+h1 { color:#fafafa; font-size:1.75rem; margin-bottom:.4rem; }
+h2 { color:#fafafa; font-size:1.2rem; margin-top:2rem; }
+a { color:#3b82f6; }
+pre,code { background:#18181b; border:1px solid #27272a; border-radius:8px; padding:.75rem; overflow-x:auto; font-size:.85rem; }
+pre { white-space:pre-wrap; }
+blockquote { border-left:3px solid #3b82f6; margin:1rem 0; padding:.25rem 1rem; color:#a1a1aa; }
+table { border-collapse:collapse; width:100%; }
+th,td { border:1px solid #27272a; padding:.5rem; text-align:left; }
+.back { display:inline-block; margin-bottom:1.75rem; font-size:.9rem; }
+hr { border:none; border-top:1px solid #27272a; margin:2rem 0; }
+</style>
+</head>
+<body><main>
+<a class="back" href="/econ-cell/">← Back to Verification Cell</a>
+<h1>QPF Artifact Verification Service</h1>
+<h2>What You Get</h2>
+<p>For <strong>$2.00</strong>, QPF independently verifies a digital artifact against criteria
+you specify, and produces a hash-chained evidence package that any third party
+can audit.</p>
+<p>The evidence package proves:</p>
+<ul>
+<li><strong>What</strong> was verified (artifact name, SHA-256 hash, byte size)</li>
+<li><strong>Which checks</strong> were performed (existence, content, hash match)</li>
+<li><strong>The verdict</strong> (ESTABLISHED or FAILED)</li>
+<li><strong>When</strong> it was verified (UTC timestamp in the hash chain)</li>
+</ul>
+<h2>What Can Be Verified</h2>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>What It Proves</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>file_contains</code></td>
+<td>File contains specific text</td>
+<td>&quot;Contract contains SPDX-License-Identifier&quot;</td>
+</tr>
+<tr>
+<td><code>file_sha256</code></td>
+<td>File matches a known hash</td>
+<td>&quot;Downloaded file matches published hash&quot;</td>
+</tr>
+<tr>
+<td><code>file_exists</code></td>
+<td>Artifact is present and non-empty</td>
+<td>&quot;Document exists in submission&quot;</td>
+</tr>
+<tr>
+<td><code>file_absent</code></td>
+<td>A file does NOT exist</td>
+<td>&quot;No .env file in released archive&quot;</td>
+</tr>
+</tbody></table>
+<h2>Pricing</h2>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Price</th>
+<th>What&#39;s Included</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Standard</strong></td>
+<td>$2.00</td>
+<td>Up to 5 checks, single artifact</td>
+</tr>
+<tr>
+<td><strong>Expedited</strong></td>
+<td>$5.00</td>
+<td>Up to 10 checks, priority processing</td>
+</tr>
+</tbody></table>
+<h2>The Process</h2>
+<ol>
+<li><strong>You submit</strong> an artifact file + a checks specification</li>
+<li><strong>QPF verifies</strong> — independent verifier, executor has no write path to the verdict</li>
+<li><strong>You receive</strong> the evidence package + receipt</li>
+<li><strong>You pay</strong> — if verdict is ESTABLISHED (no charge for FAILED)</li>
+<li><strong>Transaction recorded</strong> in the hash-chained ledger</li>
+</ol>
+<h2>Important</h2>
+<blockquote>
+<p><strong>Payment buys execution of verification, never a PASS.</strong></p>
+</blockquote>
+<p>The verdict is determined entirely by the checks against your artifact. Payment
+only records that the transaction occurred — it cannot influence the result.</p>
+<p>A FAILED verdict still produces an honest evidence package, but no invoice.
+QPF does not charge for a verdict the customer didn&#39;t get.</p>
+<h2>What You Receive (Evidence Package)</h2>
+<pre><code class="language-json">{
+  &quot;service&quot;: &quot;qpf-verification/v0&quot;,
+  &quot;tier&quot;: &quot;standard&quot;,
+  &quot;artifact&quot;: {
+    &quot;name&quot;: &quot;your-file.txt&quot;,
+    &quot;sha256&quot;: &quot;abc123...&quot;,
+    &quot;bytes&quot;: 1024
+  },
+  &quot;checks&quot;: [
+    {&quot;check&quot;: &quot;file_sha256&quot;, &quot;params&quot;: {...}, &quot;pass&quot;: true}
+  ],
+  &quot;verdict&quot;: &quot;ESTABLISHED&quot;,
+  &quot;reason&quot;: &quot;all done_when checks pass&quot;,
+  &quot;price&quot;: 2.00,
+  &quot;invoiceable&quot;: true
+}
+</code></pre>
+<p>This package is independently auditable: re-hash the artifact, re-run the
+checks, confirm the verdict. The hash chain proves when verification occurred.</p>
+
+<hr />
+<p style="color:#71717a;font-size:.8rem">Quantum Pi Forge · quantumpiforge.com · FAILED = free · results signed, not promised</p>
+</main></body>
+</html>

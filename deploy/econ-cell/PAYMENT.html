@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Payment — Quantum Pi Forge</title>
+<style>
+body { background:#09090b; color:#d4d4d8; font-family:ui-sans-serif,system-ui,sans-serif; line-height:1.6; margin:0; padding:2.5rem 1.25rem 4rem; }
+main { max-width:760px; margin:0 auto; }
+h1 { color:#fafafa; font-size:1.75rem; margin-bottom:.4rem; }
+h2 { color:#fafafa; font-size:1.2rem; margin-top:2rem; }
+a { color:#3b82f6; }
+pre,code { background:#18181b; border:1px solid #27272a; border-radius:8px; padding:.75rem; overflow-x:auto; font-size:.85rem; }
+pre { white-space:pre-wrap; }
+blockquote { border-left:3px solid #3b82f6; margin:1rem 0; padding:.25rem 1rem; color:#a1a1aa; }
+table { border-collapse:collapse; width:100%; }
+th,td { border:1px solid #27272a; padding:.5rem; text-align:left; }
+.back { display:inline-block; margin-bottom:1.75rem; font-size:.9rem; }
+hr { border:none; border-top:1px solid #27272a; margin:2rem 0; }
+</style>
+</head>
+<body><main>
+<a class="back" href="/econ-cell/">← Back to Verification Cell</a>
+<h1>How to Pay — DECISION LOCKED 2026-09-11: Crypto-first (EVM / 0G Aristotle)</h1>
+<blockquote>
+<p><strong>Payment records a real transaction — it does not create one.</strong></p>
+</blockquote>
+<p>QPF&#39;s econ cell <strong>cannot mint revenue</strong>. A payment is only recorded when an
+external reference proves a real transaction occurred outside the system.</p>
+<h2>Chosen rail (best for this project)</h2>
+<p><strong>Cryptocurrency on EVM (0G Aristotle Mainnet), USDC/USDT or native 0G equivalent — $2.00 / $5.00 exact.</strong></p>
+<p>Why this one (not PayPal/Stripe/bank):</p>
+<ul>
+<li>Global, no KYC gate, matches your existing 0G Aristotle + explorer evidence (<code>https://explorer.0g.ai</code>).</li>
+<li>Tx hash IS the external reference your <code>pay</code> command already requires (&gt;=8 chars, auditable on explorer).</li>
+<li>No chargebacks, no processor freeze, no private data in ledger — only the tx hash is recorded.</li>
+<li>PayPal/Stripe remain accepted as fallback (transaction ID), but crypto is primary.</li>
+</ul>
+<h2>Receiving address (ESTABLISHED 2026-09-19)</h2>
+<pre><code>RECEIVING_ADDRESS=0x1fF3dbddc1c18C9eC53806BA16Fb6A3E1bE327d3
+CHAIN=0G Aristotle Mainnet (EVM, chain id 16661) — or Ethereum L1 if customer prefers
+ASSET=USDC / USDT preferred (stable $2.00 / $5.00 exact); native 0G accepted at quoted USD equivalent
+</code></pre>
+<p>RULES:</p>
+<ul>
+<li>Use a FRESH receiving address you control. Do NOT publish the Guardian Safe (<code>0x8d08...4389</code> governance only) or the old untrusted deployer (<code>0x3356...F4DC</code>) as a payment address.</li>
+<li>Never publish a seed phrase or private key. Receiving address only.</li>
+<li>This address is the public source of truth for payment.</li>
+</ul>
+<h3>Provenance of this address (why it is legitimate)</h3>
+<p><code>0x1fF3dbddc1c18C9eC53806BA16Fb6A3E1bE327d3</code> is the operator&#39;s <strong>current active 0G wallet</strong> — the destination the
+2026-08-15 wallet rotation moved TO (source: <code>~/.0g-compute-cli/config.json</code>, the operator&#39;s own credential store).
+It satisfies every rule above: it is fresh (not the Guardian Safe, not the old untrusted deployer), and it is
+controlled by the operator (independently verified: deriving the address from the configured key reproduces exactly
+this EIP-55 checksummed address, and the same address is what the 0G CLI itself prints).</p>
+<p><strong>Known trade-off, recorded honestly:</strong> this is currently also the wallet used for 0G Compute automation. For v0 —
+with $2/$5 payments — that exposure is acceptable. If the service grows, the recommended refinement is a dedicated
+receiving wallet. That is an optional future change, not a blocker.</p>
+<h2>What This Means</h2>
+<ul>
+<li>You pay <strong>after</strong> receiving an ESTABLISHED verdict</li>
+<li>You pay <strong>the exact invoiced amount</strong> ($2.00 or $5.00)</li>
+<li>You provide the <strong>tx hash</strong> that proves your payment happened</li>
+<li>QPF records the payment — it cannot invent or inflate it</li>
+</ul>
+<h2>Accepted Payment Methods (priority order)</h2>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Method</th>
+<th>Reference Type</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>1 PRIMARY</strong></td>
+<td><strong>Crypto (EVM/0G)</strong></td>
+<td>Transaction hash</td>
+<td><code>0xabc123...</code> (verify on explorer.0g.ai)</td>
+</tr>
+<tr>
+<td>2 fallback</td>
+<td><strong>PayPal</strong></td>
+<td>Transaction ID</td>
+<td><code>8MC585209K2320412</code></td>
+</tr>
+<tr>
+<td>3 fallback</td>
+<td><strong>Stripe</strong></td>
+<td>Payment intent ID</td>
+<td><code>pi_3Nq...</code></td>
+</tr>
+<tr>
+<td>4 fallback</td>
+<td><strong>Bank Transfer</strong></td>
+<td>Transfer reference</td>
+<td><code>TRF-20260901-ABC</code></td>
+</tr>
+</tbody></table>
+<h2>The Process</h2>
+<ol>
+<li>You receive an invoice (job_ref + amount + receiving address)</li>
+<li>You send $2.00 / $5.00 exact to RECEIVING_ADDRESS</li>
+<li>You send the transaction hash to QPF</li>
+<li>QPF records the payment:</li>
+</ol>
+<pre><code class="language-bash">python3 economic_cell.py pay &lt;job_ref&gt; &lt;amount&gt; &lt;tx_hash&gt;
+</code></pre>
+<h2>Payment Verification</h2>
+<p>The payment recording requires:</p>
+<ul>
+<li>A valid invoice exists for the job_ref</li>
+<li>Amount matches the invoice exactly</li>
+<li>External reference is ≥8 characters</li>
+<li>Payment hasn&#39;t already been recorded (idempotency)</li>
+</ul>
+<p>Any failure = payment refused, no ledger entry. The system cannot be tricked
+into recording revenue that didn&#39;t happen.</p>
+<h2>After Payment</h2>
+<p>Once recorded:</p>
+<ul>
+<li><strong>50%</strong> → reserve (untouchable — survival constraint)</li>
+<li><strong>30%</strong> → compute budget</li>
+<li><strong>20%</strong> → ops budget</li>
+</ul>
+<p>You receive a receipt confirming the transaction is in the hash-chained ledger.</p>
+
+<hr />
+<p style="color:#71717a;font-size:.8rem">Quantum Pi Forge · quantumpiforge.com · FAILED = free · results signed, not promised</p>
+</main></body>
+</html>

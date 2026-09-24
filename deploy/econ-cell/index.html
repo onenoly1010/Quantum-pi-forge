@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>QPF Verification Service — $2 auditable proof</title>
+<style>
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;max-width:720px;margin:2rem auto;padding:0 1rem;line-height:1.55;color:#111}
+.card{border:1px solid #ddd;border-radius:12px;padding:1rem 1.25rem;margin:1rem 0}
+code,pre{background:#f6f6f6;border-radius:6px;padding:.15em .4em}pre{padding:.8em;overflow:auto}
+.btn{display:inline-block;background:#111;color:#fff;padding:.6em 1.1em;border-radius:8px;text-decoration:none}
+.muted{color:#555}.ok{color:#0a7a2f;font-weight:700}.bad{color:#a00;font-weight:700}
+table{border-collapse:collapse;width:100%}td,th{border:1px solid #ddd;padding:.4em .6em;text-align:left}
+</style>
+</head>
+<body>
+<h1>Independently verify your file — $2, auditable proof</h1>
+<p>You send a file + what you want proven. You get back a <b>hash-chained evidence package</b> any third party can re-check: artifact SHA-256, byte size, every check result, verdict, UTC timestamp.</p>
+<div class="card">
+<b>Rule:</b> <span class="ok">ESTABLISHED = $2.00</span> · <span class="bad">FAILED = $0.</span>
+Payment buys execution, never a PASS. The verdict is fixed before payment is ever recorded.
+</div>
+<h2>1 · What can be proven today</h2>
+<table>
+<tr><th>Check</th><th>Proves</th></tr>
+<tr><td><code>file_contains</code></td><td>file contains specific text (e.g. <code>SPDX-License-Identifier: MIT</code>)</td></tr>
+<tr><td><code>file_sha256</code></td><td>file matches a known SHA-256 (download integrity)</td></tr>
+<tr><td><code>file_exists</code></td><td>artifact present and non-empty</td></tr>
+<tr><td><code>file_absent</code></td><td>a file does NOT exist (e.g. no <code>.env</code> in release)</td></tr>
+<tr><td><code>dir_exists</code></td><td>a directory exists</td></tr>
+</table>
+<h2>2 · Pricing</h2>
+<table>
+<tr><th>Tier</th><th>Price</th><th>Includes</th></tr>
+<tr><td>Standard</td><td>$2.00</td><td>up to 5 checks, single artifact</td></tr>
+<tr><td>Expedited</td><td>$5.00</td><td>up to 10 checks, priority</td></tr>
+</table>
+<h2>3 · How to submit (2 files)</h2>
+<p><b>A.</b> Your artifact (any format: <code>.txt .sol .json .pdf</code> …).<br>
+<b>B.</b> A <code>checks.json</code> like this:</p>
+<pre>{
+  "done_when": [
+    {"check": "file_exists", "params": {"path": "artifact.txt"}},
+    {"check": "file_contains", "params": {"path": "artifact.txt", "content": "CHECKSUM OK"}},
+    {"check": "file_sha256", "params": {"path": "artifact.txt", "sha256": "&lt;paste sha256sum output&gt;"}}
+  ]
+}</pre>
+<p>Send both files <b>either</b> by opening a <a href="https://github.com/onenoly1010/Quantum-pi-forge/issues/new/choose">Verification Job issue</a> (preferred — public and tracked) <b>or</b> by replying to the service post / email. You receive back:</p>
+<ol>
+<li>Evidence package (JSON) — the result</li>
+<li>Invoice, <b>only if ESTABLISHED</b> — job_ref + $2.00 + payment address</li>
+<li>Receipt after payment — ledger confirmation</li>
+</ol>
+<h2>4 · How to re-check your result (no trust needed)</h2>
+<pre>sha256sum your_file
+# compare with artifact.sha256 in the evidence package, re-run the checks, confirm verdict</pre>
+<h2>5 · Sample evidence package</h2>
+<pre>{
+  "service": "qpf-verification/v0",
+  "tier": "standard",
+  "artifact": {"name": "artifact.html", "sha256": "d8d71924…f94227", "bytes": 18312},
+  "checks": [{"check": "file_exists", "pass": true}, {"check": "file_contains", "pass": true}, {"check": "file_sha256", "pass": true}],
+  "verdict": "ESTABLISHED",
+  "price": 2.0,
+  "invoiceable": true
+}</pre>
+<p class="muted">Full sample: <code>evidence/job-d8d71924d1b0-standard.json</code> in this kit. Ledger: append-only hash chain (<code>JOB_RECEIVED → VERIFICATION_RESULT → INVOICE → PAYMENT → ALLOCATION</code>); every event commits to the previous hash. Reserve rule: 50% reserve untouchable, 30% compute, 20% ops.</p>
+<h2>6 · Payment</h2>
+<p>Pay <b>after ESTABLISHED</b>, exact invoiced amount, by crypto tx hash (primary, 0G Aristotle EVM / Ethereum L1, USDC preferred) or PayPal/Stripe/bank reference as fallback. The ledger records only real external references (≥8 chars) — it cannot mint revenue.</p>
+<p class="muted">Status: IMPLEMENTED + TESTED (ledger AUDIT PASS, smoke suite green). PUBLISHED 2026-09-24 under operator standing authorization (manifest Part D). No customer yet — that step needs one human post.</p>
+<p><a class="btn" href="mailto:?subject=QPF%20verification%20job&body=Artifact%20attached.%20Checks%20spec%20attached.">Submit by email</a></p>
+<p class="muted">QPF econ-cell v0 · verification-as-infrastructure · FAILED = free · <a href="./OFFER.html">OFFER</a> · <a href="./SUBMISSION.html">SUBMISSION</a> · <a href="./PAYMENT.html">PAYMENT</a></p>
+</body>
+</html>
