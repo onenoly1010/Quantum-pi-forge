@@ -6,6 +6,8 @@
     <title>Quantum Pi Forge — Know what is real before you trust a digital system</title>
     <meta name="description" content="Know what is real before you trust a digital system. Free self-serve verification checks, problem guides, and evidence packages. Protocol mint/staking not authorized.">
     <link rel="canonical" href="https://quantumpiforge.com/">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://quantumpiforge.com/">
     <meta property="og:title" content="Quantum Pi Forge — Know what is real before you trust a digital system">
@@ -103,12 +105,18 @@
 </head>
 <body class="antialiased selection:bg-blue-500/30">
     <nav class="border-b border-white/5 bg-black/50 backdrop-blur-md fixed w-full z-50">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center text-sm font-mono text-zinc-400">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center text-sm font-mono text-zinc-400">
             <div class="flex items-center gap-2">
                 <span class="text-blue-500">π</span>
                 <span class="font-bold text-zinc-200 tracking-tight">Quantum Pi Forge</span>
             </div>
-            <div class="flex items-center gap-3">
+            <!-- Mobile menu button -->
+            <button id="mobile-menu-btn" class="md:hidden text-zinc-400 hover:text-white p-2" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+            <div class="hidden md:flex items-center gap-3">
                 <a href="/problems/" class="text-zinc-400 hover:text-white text-xs transition-all">Problems</a>
                 <a href="/open.html" class="text-zinc-400 hover:text-white text-xs transition-all">Open</a>
                 <a href="/mint-ai.html" class="text-zinc-400 hover:text-white text-xs transition-all">Mint AI</a>
@@ -120,11 +128,25 @@
                 <a href="/verification-artifact.html" class="text-zinc-400 hover:text-white text-xs transition-all">Inspect</a>
                 <a href="/verification-request.html" class="text-orange-400 hover:text-orange-300 text-xs transition-all font-semibold">Request Verification</a>
                 <a href="https://github.com/onenoly1010/Quantum-pi-forge" target="_blank" rel="noopener" class="text-zinc-400 hover:text-white text-xs transition-all">GitHub</a>
-                <span class="flex items-center gap-2 text-emerald-400 ml-2">
+                <span class="hidden lg:flex items-center gap-2 text-emerald-400 ml-2">
                     <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span></span>
                     LIVE ON 0G ARISTOTLE
                 </span>
             </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-md border-t border-white/10 px-4 py-4 space-y-2">
+            <a href="/problems/" class="block text-zinc-400 hover:text-white text-sm py-2">Problems</a>
+            <a href="/open.html" class="block text-zinc-400 hover:text-white text-sm py-2">Open</a>
+            <a href="/mint-ai.html" class="block text-zinc-400 hover:text-white text-sm py-2">Mint AI</a>
+            <a href="/meet.html" class="block text-zinc-400 hover:text-white text-sm py-2">Meet</a>
+            <a href="/try.html" class="block text-zinc-400 hover:text-white text-sm py-2">Try free</a>
+            <a href="/for-builders.html" class="block text-zinc-400 hover:text-white text-sm py-2">For Builders</a>
+            <a href="/deployed-addresses.html" class="block text-zinc-400 hover:text-white text-sm py-2">Contracts</a>
+            <a href="/support.html" class="block text-zinc-400 hover:text-white text-sm py-2">Support</a>
+            <a href="/verification-artifact.html" class="block text-zinc-400 hover:text-white text-sm py-2">Inspect</a>
+            <a href="/verification-request.html" class="block text-orange-400 hover:text-orange-300 text-sm py-2 font-semibold">Request Verification</a>
+            <a href="https://github.com/onenoly1010/Quantum-pi-forge" target="_blank" rel="noopener" class="block text-zinc-400 hover:text-white text-sm py-2">GitHub</a>
         </div>
     </nav>
 
@@ -137,6 +159,12 @@
             <span class="inline-block mx-8 font-mono text-sm">
                 <span class="text-orange-400">●</span> NETWORK: 0G ARISTOTLE MAINNET (16661)
             </span>
+            <span class="inline-block mx-8 font-mono text-sm" aria-hidden="true">
+                <span class="text-purple-400">●</span> SYSTEM STATUS: <span class="text-emerald-400">VERIFY BEFORE TRUST</span>
+            </span>
+            <span class="inline-block mx-8 font-mono text-sm" aria-hidden="true">
+                <span class="text-orange-400">●</span> NETWORK: 0G ARISTOTLE MAINNET (16661)
+            </span>
         </div>
     </div>
 
@@ -146,8 +174,12 @@
             100% { transform: translateX(-50%); }
         }
         .animate-marquee {
+            display: flex;
+            width: max-content;
             animation: marquee 30s linear infinite;
-            width: 200%;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .animate-marquee { animation: none; }
         }
     </style>
 
@@ -369,7 +401,7 @@
 
                 <a href="/human-cockpit.html" class="p-6 border border-blue-500/30 rounded-xl glow-card transition-all block bg-blue-500/5">
                     <h3 class="text-white font-bold mb-2 text-lg">🪟 Cockpit</h3>
-                    <p class="text-zinc-500 text-sm">Pipeline-refreshed read-only system snapshot.</p>
+                    <p class="text-zinc-500 text-sm">Read-only system snapshot. <span class="text-zinc-400">Static — generated 2026-07-05, not live.</span></p>
                 </a>
             </div>
 
@@ -654,6 +686,33 @@ function addNewSignalToLedger(signal) {
                 </div>
             `;
             ledger.appendChild(pulse);
+        });
+    }
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenuBtn && mobileMenu) {
+        const setMenuOpen = (open) => {
+            mobileMenu.classList.toggle('hidden', !open);
+            mobileMenuBtn.setAttribute('aria-expanded', String(open));
+            mobileMenuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        };
+        setMenuOpen(false);
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            setMenuOpen(mobileMenu.classList.contains('hidden'));
+        });
+        // Tapping a destination must close the menu, or the nav stays over the
+        // page the visitor just asked for.
+        mobileMenu.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', () => setMenuOpen(false));
+        });
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+                setMenuOpen(false);
+            }
         });
     }
 

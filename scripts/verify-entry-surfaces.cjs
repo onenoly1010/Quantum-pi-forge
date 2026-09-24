@@ -33,6 +33,10 @@ const requiredFiles = [
   'verification-status-v1.json',
   'robots.txt',
   'sitemap.xml',
+  // Site icon: every page requests /favicon.ico, and the deployed artifact was
+  // 404ing it until the icon was added to the build manifest (build.js).
+  'favicon.ico',
+  'favicon.svg',
   'problems/index.html',
   'problems/verify-github-repo.html',
   'problems/prove-deployment-matches-source.html',

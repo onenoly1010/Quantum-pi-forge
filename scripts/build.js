@@ -59,6 +59,10 @@ const staticFiles = [
   { src: 'deploy/robots.txt', dest: 'robots.txt' },
   { src: 'deploy/sitemap.xml', dest: 'sitemap.xml' },
   { src: 'deploy/llms.txt', dest: 'llms.txt' },
+  // Site icon — previously absent from this manifest, so every page produced a
+  // browser favicon 404 against the deployed artifact. Source is deploy/.
+  { src: 'deploy/favicon.ico', dest: 'favicon.ico' },
+  { src: 'deploy/favicon.svg', dest: 'favicon.svg' },
   { src: 'deploy/research/saskatchewan-evidence-map.html', dest: 'research/saskatchewan-evidence-map.html' },
   { src: 'deploy/why-this-matters.html', dest: 'why-this-matters.html' },
   { src: 'deploy/human-onboarding.html', dest: 'human-onboarding.html' },
@@ -152,7 +156,18 @@ function copyFile(file) {
 function pruneProductionArtifacts() {
   const forbiddenRelativePaths = [
     'frontend/README.md',
-    'frontend/example.html'
+    'frontend/example.html',
+    // Vite dev shell. Its only script tag is /src/main.tsx, which is not part of
+    // the deployed bundle, so /frontend/ shipped a blank page plus a guaranteed
+    // 404 script request. The routed dashboard entry is
+    // frontend/dashboard-gated.html (served via the /dashboard rewrite in
+    // _redirects); nothing links to frontend/index.html.
+    'frontend/index.html'
+  ];
+
+  const forbiddenRelativeDirs = [
+    // Raw React/TS sources are not part of the deployed artifact.
+    'frontend/src'
   ];
 
   for (const rel of forbiddenRelativePaths) {
@@ -160,6 +175,14 @@ function pruneProductionArtifacts() {
     if (fs.existsSync(target)) {
       fs.rmSync(target, { force: true });
       console.log(`OK pruned dev artifact out/${rel}`);
+    }
+  }
+
+  for (const rel of forbiddenRelativeDirs) {
+    const target = path.join(outputDir, rel);
+    if (fs.existsSync(target)) {
+      fs.rmSync(target, { recursive: true, force: true });
+      console.log(`OK pruned dev artifact out/${rel}/`);
     }
   }
 }
