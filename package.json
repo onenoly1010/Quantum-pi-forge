@@ -333,7 +333,7 @@
     "@0gfoundation/0g-compute-ts-sdk": "^0.9.0",
     "@nomicfoundation/hardhat-foundry": "^3.0.4",
     "chai": "^6.2.2",
-    "dotenv": "^17.4.2",
+    "dotenv": "^18.0.1",
     "ethers": "^6.17.0",
     "hardhat": "^3.16.0"
   },
