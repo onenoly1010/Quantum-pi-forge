@@ -1,0 +1,18 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "fix/birth-attest-gas-floor",
+  "outcome": "Raise attest gasLimit so a funded QPF attestor can submit a real 16661 data-tx. No new stack. No fake hash.",
+  "canonicalSources": ["functions/birth/attest.js"],
+  "allowedPaths": [
+    ".qpf/task-contracts/fix__birth-attest-gas-floor.json",
+    "functions/birth/attest.js"
+  ],
+  "forbiddenPaths": ["contracts/**", "wallets/**", "package.json"],
+  "forbiddenActions": ["Vercel", "Railway /api", "fabricating tx hashes", "protocol mint"],
+  "verification": [
+    "grep -q 'gasLimit: 100000' functions/birth/attest.js",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/fix__birth-attest-gas-floor.json --base origin/main"
+  ],
+  "definitionOfDone": ["Attest no longer uses 21528 gas that 0G floor rejects."],
+  "authorizationRequired": ["protocol mint"]
+}
