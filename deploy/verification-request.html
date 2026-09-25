@@ -37,25 +37,40 @@
     </p>
     <div class="border border-emerald-500/30 rounded-xl p-5 bg-emerald-500/5 mb-10">
       <p class="text-xs font-mono text-emerald-400 uppercase tracking-wider mb-2">Current public offer · not revenue</p>
-      <p class="text-zinc-200 mb-2">STANDARD $2 · EXPEDITED $5 · pay after ESTABLISHED · FAILED = $0 · payment is not the verdict.</p>
-      <p class="text-sm text-zinc-500">Self-serve checks stay free at <a class="text-orange-400 hover:underline" href="/try.html">/try</a>. This price is an offer, not proof of a customer or a sale. Enter without the creator at <a class="text-orange-400 hover:underline" href="/open.html">/open</a>.</p>
+      <p class="text-zinc-200 mb-2">CAD $250 flat per claim · optional CAD $100 priority scheduling · same fee for ESTABLISHED, FAILED, or UNKNOWN · always published, no opt-out.</p>
+      <p class="text-sm text-zinc-500">Self-serve checks stay free at <a class="text-orange-400 hover:underline" href="/try.html">/try</a>. This replaces the earlier $2 / $5 USD offer, which charged only after an ESTABLISHED verdict. The $500 CAD certificate offer is withdrawn. This price is an offer, not proof of a customer or a sale. Enter without the creator at <a class="text-orange-400 hover:underline" href="/open.html">/open</a>.</p>
     </div>
 
     <section class="grid gap-4 md:grid-cols-3 mb-12" aria-label="Request process">
       <div class="border border-white/10 rounded-xl p-5 bg-white/5">
         <p class="text-orange-400 font-mono text-sm mb-2">1. Submit</p>
         <h2 class="text-lg font-bold text-white mb-2">One claim</h2>
-        <p class="text-sm text-zinc-400">Share the claim and public source, documentation, or deployment links needed to inspect it.</p>
+        <p class="text-sm text-zinc-400">One deterministic claim and the public artifacts needed to test it. Public references only.</p>
       </div>
       <div class="border border-white/10 rounded-xl p-5 bg-white/5">
-        <p class="text-orange-400 font-mono text-sm mb-2">2. Review</p>
-        <h2 class="text-lg font-bold text-white mb-2">Clear scope</h2>
-        <p class="text-sm text-zinc-400">QPF reviews whether the evidence is public and the request fits a bounded technical review.</p>
+        <p class="text-orange-400 font-mono text-sm mb-2">2. Intake</p>
+        <h2 class="text-lg font-bold text-white mb-2">Testable or declined</h2>
+        <p class="text-sm text-zinc-400">If the claim cannot be tested against public artifacts, it is declined at intake. No charge is raised at all.</p>
       </div>
       <div class="border border-white/10 rounded-xl p-5 bg-white/5">
-        <p class="text-orange-400 font-mono text-sm mb-2">3. Receive</p>
-        <h2 class="text-lg font-bold text-white mb-2">Evidence package</h2>
-        <p class="text-sm text-zinc-400">Receive the claim, checks, sources, findings, and limits in one inspectable summary.</p>
+        <p class="text-orange-400 font-mono text-sm mb-2">3. Pay &amp; register</p>
+        <h2 class="text-lg font-bold text-white mb-2">On the record first</h2>
+        <p class="text-sm text-zinc-400">The flat fee is invoiced manually, then the claim and its scope are committed to the public registry before work starts.</p>
+      </div>
+      <div class="border border-white/10 rounded-xl p-5 bg-white/5">
+        <p class="text-orange-400 font-mono text-sm mb-2">4. Review</p>
+        <h2 class="text-lg font-bold text-white mb-2">Same work, same fee</h2>
+        <p class="text-sm text-zinc-400">The method and criteria do not change with the outcome. Priority only buys an earlier start slot.</p>
+      </div>
+      <div class="border border-white/10 rounded-xl p-5 bg-white/5">
+        <p class="text-orange-400 font-mono text-sm mb-2">5. Publish</p>
+        <h2 class="text-lg font-bold text-white mb-2">Receipt on the record</h2>
+        <p class="text-sm text-zinc-400">The evidence receipt is published with what it verifies, what it does not, and how anyone can re-run it.</p>
+      </div>
+      <div class="border border-white/10 rounded-xl p-5 bg-white/5">
+        <p class="text-orange-400 font-mono text-sm mb-2">If it disputes</p>
+        <h2 class="text-lg font-bold text-white mb-2">Public dispute path</h2>
+        <p class="text-sm text-zinc-400">Reproduction deltas and interpretation disputes are filed as public issues and logged to the receipt index within 2 business days.</p>
       </div>
     </section>
 
@@ -72,13 +87,14 @@
     <section class="mb-12 border border-orange-500/30 rounded-2xl p-8 bg-orange-500/5">
       <h2 class="text-2xl font-bold text-white mb-3">Request a review</h2>
       <p class="text-zinc-400 mb-6">
-        The request opens a prefilled email. Include one claim and the relevant public links. QPF will confirm fit before any work begins.
+        The request opens a prefilled email. Include one claim and the relevant public links. QPF confirms at intake whether the claim is testable against public artifacts; if it is not, it is declined and no charge is raised. If it is accepted, the flat fee is invoiced and your claim is committed to the public registry (<a class="text-orange-400 hover:underline" href="https://github.com/onenoly1010/qpf-verification-registry">qpf-verification-registry</a>) before work begins. You can also open an intake issue directly on the registry.
       </p>
       <a class="btn-volcanic" href="mailto:onenoly11@proton.me?subject=QPF%20verification%20review%20request&body=Project%20name%3A%0A%0APublic%20technical%20claim%20to%20review%3A%0A%0APublic%20source%2C%20documentation%2C%20or%20deployment%20links%3A%0A%0AWhat%20decision%20would%20this%20help%20you%20make%3A%0A">
         Request a verification review
       </a>
-      <p class="mt-4 text-sm font-mono text-zinc-500">No wallet, token, payment, or commitment is required to submit a request.</p>
+      <p class="mt-4 text-sm font-mono text-zinc-500">No wallet, token, or commitment is required to submit a request. Accepted claims are invoiced manually: there is no card or crypto checkout yet. Current offer terms: <a class="text-orange-400 hover:underline" href="https://gist.github.com/onenoly1010/478d7221636aa8e72be3d80614f2b1d6">v2 economic object</a> · <a class="text-orange-400 hover:underline" href="/open-gates-v1.json">machine-readable terms</a>.</p>
       <p class="mt-2 text-sm font-mono text-zinc-500">Send public references only; never send passwords, private keys, or other secrets.</p>
+      <p class="mt-2 text-sm font-mono text-zinc-500">Accepted claims are published, including the claim text, the scope, and the result. Reviews are never private or confidential.</p>
     </section>
 
     <section class="border border-white/10 rounded-xl p-6 text-sm text-zinc-500">
