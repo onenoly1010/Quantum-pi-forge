@@ -2,7 +2,7 @@
 
 ## 📋 EXACT TEXT TO PASTE
 ```
-Sovereign Steward. 18 months of continuous development and deployment within the 0G ecosystem, including active participation since the Galileo Testnet and full operational status since the Aristotle Mainnet launch. Completed all milestones for the $235k Aristotle Grant with verified delivery. Deep experience building hardened protocol infrastructure, autonomous agents, and verifiable on-chain systems. No VC backing, no dilution, no payroll. All development is conducted with zero external dependencies. Prior work includes formal audit specification design, multi-RPC verification pipelines, deterministic validation engines, and 200 year timelock vault mechanics.
+Sovereign Steward. 18 months of continuous development and deployment within the 0G ecosystem, including active participation since the Galileo Testnet and full operational status since the Aristotle Mainnet launch. Completed self-attested milestones M1–M3 for the 0G Aristotle Grant application (Guild #789) in 2026. No award decision was received. Deep experience building hardened protocol infrastructure, autonomous agents, and verifiable on-chain systems. No VC backing, no dilution, no payroll. All development is conducted with zero external dependencies. Prior work includes formal audit specification design, multi-RPC verification pipelines, deterministic validation engines, and 200 year timelock vault mechanics.
 ```
 
 ---

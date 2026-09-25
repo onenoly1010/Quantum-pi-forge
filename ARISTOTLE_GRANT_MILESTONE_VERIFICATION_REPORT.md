@@ -64,7 +64,7 @@ No admin keys exist. No upgrade functions. No backdoors.
 
 | Metric | Value |
 |---|---|
-| Grant Allocation Received | $235,000 CAD |
+| Grant Allocation Received | **CAD $0 — No award found.** The 0G Guild portal shows applications closed, as of 2026-09-25. |
 | Fixed Monthly Operating Cost | $1,000 CAD |
 | Minimum Viable Revenue Floor | $1,155 CAD / month |
 | Break Even Point | Launch Day |
