@@ -64,14 +64,23 @@
     }
   ],
   "commercial_offer": {
+    "policy": "v2",
     "self_serve_inspection": "FREE",
-    "standard_usd": 2,
-    "expedited_usd": 5,
-    "pay_after": "ESTABLISHED",
-    "failed_usd": 0,
-    "payment_equals_verdict": false,
-    "is_offer_not_revenue": true,
-    "older_founder_certificate_copy_may_still_show_cad_500": true
+    "standard_cad": 250,
+    "priority_scheduling_cad": 100,
+    "priority_effect": "Next available start slot only. Same method, same criteria.",
+    "verdict_independence": "Identical fee for ESTABLISHED, FAILED and UNKNOWN.",
+    "payment_timing": "After intake acceptance, before public registration.",
+    "payment_method": "Manual invoice (Interac or direct). No card or crypto checkout yet.",
+    "claim_registration": "Claim and scope committed to the public registry repository before work begins.",
+    "refund": "No refund on verdict. 100% refund if QPF does not deliver the evidence receipt within 10 business days of public registration; the claim stays on the record.",
+    "registry": "https://github.com/onenoly1010/qpf-verification-registry",
+    "intake": "https://quantumpiforge.com/verification-request",
+    "withdrawn_2026-09-25": {
+      "old_v1_terms": "standard_usd 2, expedited_usd 5, pay_after ESTABLISHED, failed_usd 0 (made revenue depend on the verdict)",
+      "founder_certificate_cad_500": "withdrawn"
+    },
+    "is_offer_not_revenue": true
   },
   "forbidden_without_separate_human_go": [
     "mint",
