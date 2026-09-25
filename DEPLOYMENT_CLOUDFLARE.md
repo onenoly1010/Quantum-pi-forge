@@ -1,5 +1,7 @@
 # Cloudflare Pages Deployment Instructions
 
+> **⚠️ DEPLOY BRANCH LOCK (until PR #887 merges):** Deploy only from `feat/ext001-llms-faq` until PR #887 merges; `main` still carries the withdrawn $2/$5 copy. Do not deploy from a `main` checkout by habit — it would resurrect the withdrawn outcome-linked pricing on the live site. GitHub Actions is billing-locked, so all deploys are manual until the lock clears.
+
 ## ✅ Prerequisites
 
 - [ ] Wrangler CLI installed: `npm install -g wrangler`

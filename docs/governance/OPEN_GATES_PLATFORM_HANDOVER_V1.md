@@ -6,6 +6,8 @@
 **Public door:** `/open.html`  
 **Machine-readable twin:** `deploy/open-gates-v1.json`
 
+> **⚠️ DEPLOY BRANCH LOCK (until PR #887 merges):** Deploy only from `feat/ext001-llms-faq` until PR #887 merges; `main` still carries the withdrawn $2/$5 copy. GitHub Actions is billing-locked, so every deploy is a manual upload from a local checkout — confirm the checkout branch before building.
+
 ```text
 CLASSIFICATION
   This file is operating doctrine plus current-baseline statements.
