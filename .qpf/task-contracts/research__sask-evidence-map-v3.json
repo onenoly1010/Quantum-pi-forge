@@ -1,0 +1,15 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "research/sask-evidence-map-v3",
+  "outcome": "Bounded source update: cite Framework PDF 26-5990 and intake address; upgrade RM of Sherwood row to primary filings (Apr 20 2026 minutes, Res. 2026/0111, DP 26-005, Bylaw 01/26); add reported expansion-permitting path; mark next-steps 2 and 4 partially closed. Preserve all truth labels.",
+  "canonicalSources": ["docs/research/SASKATCHEWAN_AI_INFRASTRUCTURE_EVIDENCE_MAP_V1.md"],
+  "allowedPaths": [
+    ".qpf/task-contracts/research__sask-evidence-map-v3.json",
+    "docs/research/SASKATCHEWAN_AI_INFRASTRUCTURE_EVIDENCE_MAP_V1.md"
+  ],
+  "forbiddenPaths": ["contracts/**", "wallets/**", "deploy/**", "package.json", "functions/**"],
+  "forbiddenActions": ["inventing the 32-firm roster", "naming the BYOP partner without a primary source", "claiming customers or revenue", "selling $2 verification into this map", "protocol mint", "outbound contact"],
+  "verification": ["npm run verify:publication-scope"],
+  "definitionOfDone": ["Map cites primary Framework PDF and RM filings; expansion path labeled REPORTED; unknowns still labeled; public HTML untouched."],
+  "authorizationRequired": ["claiming a paid engagement exists", "contacting any named firm", "syncing deploy/research HTML"]
+}
