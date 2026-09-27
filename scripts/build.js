@@ -98,6 +98,8 @@ const staticDirs = [
   { src: 'deploy/attack-kit', dest: 'attack-kit', optional: false },
   // Public mint / model metadata — required (served as application/json via _headers)
   { src: 'metadata', dest: 'metadata', optional: false },
+  // Verification-offer funnel (canonical entry: /econ-cell/) — must survive every deploy
+  { src: 'deploy/econ-cell', dest: 'econ-cell', optional: false },
 ];
 
 /** Minimum non-empty _headers size (bytes). Empty file was B-05 / S-03 residual. */
