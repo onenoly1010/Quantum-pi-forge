@@ -31,33 +31,33 @@ Create a JSON file with a `done_when` array. Each entry is a check:
 ### Check Semantics
 
 - ALL checks must pass for an **ESTABLISHED** verdict
-- Any single check failing = **FAILED** verdict (no invoice, no charge)
+- Any single check failing = **FAILED**
+- The file check is free for every verdict and is not invoiced
 - The artifact filename in `path` must match your submitted filename
 
 ## Submission Methods
 
-### Method 1: Direct (if you have access)
+### Public file check
 
-Place your artifact and checks file in the econ-cell directory and run:
+State the claim in plain words at `https://qpf-verify.pages.dev/`. You do not hand-write `checks.json`. Every verdict is free.
+
+### Local cell
 
 ```bash
 python3 economic_cell.py serve <artifact_file> <checks_json>
 ```
 
-### Method 2: Request (managed)
+The cell returns an evidence package with price 0. It does not issue an invoice.
 
-Send your artifact + checks specification to the operator. You will receive:
-1. Evidence package (JSON) — the verification result
-2. Invoice (if ESTABLISHED) — payment instructions
-3. Receipt (after payment) — ledger confirmation
+### Registered review
 
-## What Happens After Submission
+Request one claim at `https://quantumpiforge.com/verification-request.html`. The fee is CAD $250 flat for every verdict, invoiced manually after acceptance. There is no checkout on the file check.
 
-1. **JOB_RECEIVED** — your job is recorded in the hash-chained ledger
-2. **VERIFICATION_RESULT** — independent verifier evaluates your artifact
-3. **INVOICE** (if ESTABLISHED) — payment request issued
-4. **PAYMENT** (when you pay) — recorded with your transaction reference
-5. **ALLOCATION** — funds allocated: 50% reserve, 30% compute, 20% ops
+## What Happens After a File Check
+
+1. **JOB_RECEIVED** — the job is recorded in the hash-chained ledger at price 0
+2. **VERIFICATION_RESULT** — the independent verifier evaluates the artifact
+3. No invoice is written for the file check
 
 ## Verifying Your Result
 

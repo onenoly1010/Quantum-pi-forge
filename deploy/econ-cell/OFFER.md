@@ -2,9 +2,10 @@
 
 ## What You Get
 
-For **$2.00**, QPF independently verifies a digital artifact against criteria
-you specify, and produces a hash-chained evidence package that any third party
-can audit.
+The file check is **free for every verdict** — QPF independently verifies a
+digital artifact against criteria you specify, and produces a hash-chained
+evidence package that any third party can audit. A registered review is
+CAD $250 flat, invoiced manually after intake.
 
 The evidence package proves:
 - **What** was verified (artifact name, SHA-256 hash, byte size)
@@ -25,26 +26,21 @@ The evidence package proves:
 
 | Tier | Price | What's Included |
 |------|-------|-----------------|
-| **Standard** | $2.00 | Up to 5 checks, single artifact |
-| **Expedited** | $5.00 | Up to 10 checks, priority processing |
+| **File check** | Free (price 0, currency "none") — not an invoice | Hash-chained evidence package for every verdict |
+| **Registered review** | CAD $250 flat | Manual review after intake — same fee for ESTABLISHED, FAILED, and UNKNOWN |
 
 ## The Process
 
-1. **You submit** an artifact file + a checks specification
-2. **QPF verifies** — independent verifier, executor has no write path to the verdict
-3. **You receive** the evidence package + receipt
-4. **You pay** — if verdict is ESTABLISHED (no charge for FAILED)
-5. **Transaction recorded** in the hash-chained ledger
+1. **File check** — state the claim in plain words at the public checker. Every verdict is free and is not an invoice.
+2. **QPF verifies** — the independent verifier decides the verdict. The executor has no write path to it.
+3. **You receive** the evidence package. Re-hash the file and re-run the statements.
+4. **Registered review, if you want one** — CAD $250 flat, the same fee for ESTABLISHED, FAILED, and UNKNOWN. It is invoiced manually after the claim is accepted. There is no checkout on the file check.
 
 ## Important
 
-> **Payment buys execution of verification, never a PASS.**
+> **Payment buys the work of a registered review, never a verdict.**
 
-The verdict is determined entirely by the checks against your artifact. Payment
-only records that the transaction occurred — it cannot influence the result.
-
-A FAILED verdict still produces an honest evidence package, but no invoice.
-QPF does not charge for a verdict the customer didn't get.
+The $2 / $5 USD offer (pay only after ESTABLISHED) is withdrawn. A file check is free for every verdict. A registered review costs the same fee whichever way the verdict goes. The cell cannot mint revenue, and it does not invoice the file check.
 
 ## What You Receive (Evidence Package)
 
@@ -62,8 +58,8 @@ QPF does not charge for a verdict the customer didn't get.
   ],
   "verdict": "ESTABLISHED",
   "reason": "all done_when checks pass",
-  "price": 2.00,
-  "invoiceable": true
+  "price": 0.00,
+  "currency": "none"
 }
 ```
 
