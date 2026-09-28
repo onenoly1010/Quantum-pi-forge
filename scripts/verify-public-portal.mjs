@@ -114,7 +114,18 @@ async function main() {
       } else {
         fail("status JSON missing economic.public_mint NOT_AUTHORIZED");
       }
-      if (st?.phase?.["8_5_status"] === "OPEN") ok("status JSON: 8.5 OPEN");
+      const round = st?.phase?.["8_5_status"];
+      const hardCloseMs = Date.parse(st?.phase?.["8_5_hard_sla_utc"] ?? "");
+      const closedStates = ["WINDOW_EXPIRED", "CLOSED_NO_QUORUM", "NO_CONSENSUS"];
+      if (closedStates.includes(round)) {
+        ok(`status JSON: 8.5 ${round} (fail-closed, no settled claim)`);
+      } else if (round === "OPEN" && Number.isFinite(hardCloseMs) && Date.now() > hardCloseMs) {
+        fail(
+          `status JSON still labels 8.5 OPEN after its ${st.phase["8_5_hard_sla_utc"]} hard close — stale status record`
+        );
+      } else {
+        console.log(`WARN  status JSON: 8.5 state = ${round ?? "missing"}`);
+      }
     } else {
       console.log(`WARN  status JSON HTTP ${stRes.status} (optional until deploy)`);
     }
