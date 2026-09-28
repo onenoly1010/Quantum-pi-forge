@@ -67,12 +67,13 @@
   <p class="subtitle">Canonical reference for <strong>what is deployed</strong> — deployment state, not economic readiness</p>
   <p style="margin:-1rem 0 .75rem;font-size:.9rem;">
     <span class="badge badge-live">Phase 8.4 COMPLETE</span>
-    <span class="badge badge-pending" style="margin-left:.4rem;">Phase 8.5 Round 1 OPEN · 0/3 reports</span>
+    <span class="badge badge-pending" style="margin-left:.4rem;">Phase 8.5 Round 1 WINDOW_EXPIRED · 0/3 reports</span>
     <span class="badge badge-private" style="margin-left:.4rem;">Mint / liquidity NOT AUTHORIZED</span>
   </p>
   <p style="margin:0 0 1.5rem;font-size:.82rem;color:#64748b;">
-    Status freshness as of <code style="color:#94a3b8;">2026-08-04T20:30:00Z</code>
-    · source tip <code style="color:#94a3b8;">main @ 22f3028</code>
+    Status record published <code style="color:#94a3b8;">2026-08-04T20:30:00Z</code>
+    · round-close update <code style="color:#94a3b8;">2026-09-28T00:00:00Z</code>
+    · source tip <code style="color:#94a3b8;">main @ 79a0aef</code>
     · machine status <a href="/verification-status-v1.json">/verification-status-v1.json</a>
     · <strong style="color:#94a3b8;">docs freshness only — not economic activation</strong>
   </p>
@@ -324,7 +325,7 @@
       </div>
       <div class="status-row">
         <span class="status-dot dot-pending"></span>
-        <span><strong>Phase 8.5 Round 1</strong> — OPEN · <strong>0/3</strong> eligible reports (quorum m=3) · soft target 2026-08-13 · hard close 2026-08-29 · <a href="https://github.com/onenoly1010/Quantum-pi-forge/issues/636">invitation #636</a></span>
+        <span><strong>Phase 8.5 Round 1</strong> — WINDOW_EXPIRED · <strong>0/3</strong> eligible reports (quorum m=3) · opened 2026-07-30 · soft 2026-08-13 · hard close 2026-08-29 passed without quorum, so it fails closed and unlocks nothing · <a href="https://github.com/onenoly1010/Quantum-pi-forge/issues/636">invitation #636</a></span>
       </div>
       <div class="status-row">
         <span class="status-dot dot-live"></span>
@@ -369,9 +370,11 @@
   <section id="verify-now">
     <h2>Verify now (5 minutes)</h2>
     <p style="color:#94a3b8;font-size:.9rem;">
-      <strong style="color:#e0f2fe;">Phase 8.5 Round 1 is open.</strong>
+      <strong style="color:#e0f2fe;">Phase 8.5 Round 1 closed: the window expired without quorum.</strong>
       Reproduce the published state without trusting the builders — no wallet, no transaction.
-      Current count <strong>0/3</strong> eligible reports · soft target 2026-08-13 · hard close 2026-08-29 · quorum <strong>m=3</strong>.
+      Final count <strong>0/3</strong> eligible reports (quorum <strong>m=3</strong>) · opened 2026-07-30 · hard close 2026-08-29.
+      The round therefore supports <strong>no</strong> "externally settled" claim. Checks are still welcome as a rolling
+      call and are logged on the public record, but a rolling report is not a settled quorum claim and does not reopen the round.
       Completing reports is evidence collection — <strong>not</strong> automatic mint or liquidity unlock.
     </p>
     <div class="network-card" style="border-color:rgba(234,179,8,.35);">
@@ -398,7 +401,7 @@
       <div class="cta-row">
         <a class="cta cta-primary" href="https://github.com/onenoly1010/Quantum-pi-forge/issues/new?title=External%20verification%3A%20YYYY-MM-DD">Submit verification report</a>
         <a class="cta cta-secondary" href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/community/VERIFICATION_REPORT_TEMPLATE_V1.md">Report template</a>
-        <a class="cta cta-secondary" href="https://github.com/onenoly1010/Quantum-pi-forge/issues/636">Round 1 invitation #636</a>
+        <a class="cta cta-secondary" href="https://github.com/onenoly1010/Quantum-pi-forge/issues/636">Round 1 record (#636)</a>
         <a class="cta cta-secondary" href="/verification-status-v1.json">Machine-readable status</a>
       </div>
       <p style="color:#64748b;font-size:.8rem;margin:.85rem 0 0;">
@@ -411,14 +414,15 @@
     </div>
   </section>
 
-  <!-- VERIFICATION PORTAL (Phase 8.4 complete · 8.5 Round 1 open — not activation) -->
+  <!-- VERIFICATION PORTAL (Phase 8.4 complete · 8.5 Round 1 window expired, no quorum — not activation) -->
   <section>
     <h2>Verification Portal</h2>
     <p style="color:#94a3b8;font-size:.9rem;">
       <strong style="color:#e0f2fe;">Phase 8.4:</strong> COMPLETE — someone unfamiliar with QPF can independently
       reproduce the published state without builder assistance and without executing a transaction.
-      <br/><strong style="color:#e0f2fe;">Phase 8.5 Round 1:</strong> OPEN — multi-report independent verification collecting
-      (proposed quorum m=3; soft 14d / hard 30d). Empty DEX pool and disabled mint remain
+      <br/><strong style="color:#e0f2fe;">Phase 8.5 Round 1:</strong> WINDOW_EXPIRED — the announced window closed
+      2026-08-29 with <strong>0/3</strong> eligible reports (quorum m=3), so no "externally settled" claim is made for it.
+      Empty DEX pool and disabled mint remain
       <strong>intentional gates</strong>, not missing infrastructure.
     </p>
     <div class="network-card">
@@ -429,7 +433,7 @@
       <div class="detail"><span class="label">Builder quickstart</span> <span class="value"><a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/BUILDER_QUICKSTART.md">docs/BUILDER_QUICKSTART.md</a></span></div>
       <div class="detail"><span class="label">Governance boundaries</span> <span class="value"><a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/SECURITY_BOUNDARIES_V1.md">SECURITY_BOUNDARIES</a> · <a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/governance/SAFE_GOVERNANCE_POLICY_V1.md">Safe policy</a> · <a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/governance/MINT_AUTHORITY_EXPLANATION_V1.md">Mint authority</a></span></div>
       <div class="detail"><span class="label">Known limitations</span> <span class="value"><a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/community/KNOWN_LIMITATIONS_V1.md">docs/community/KNOWN_LIMITATIONS_V1.md</a></span></div>
-      <div class="detail"><span class="label">8.5 Round 1</span> <span class="value"><a href="https://github.com/onenoly1010/Quantum-pi-forge/issues/636">invitation #636</a> · <a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/community/verification-reports/INDEX_V1.md">report index</a> · <a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/community/PHASE_8_5_ROUND1_ACTIVATION_V1.md">activation</a></span></div>
+      <div class="detail"><span class="label">8.5 Round 1</span> <span class="value"><strong>WINDOW_EXPIRED</strong> (hard close 2026-08-29, 0/3) · <a href="https://github.com/onenoly1010/Quantum-pi-forge/issues/636">invitation #636</a> · <a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/community/verification-reports/INDEX_V1.md">report index</a> · <a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/community/PHASE_8_5_ROUND1_ACTIVATION_V1.md">activation</a></span></div>
       <div class="detail"><span class="label">Submit a report</span> <span class="value"><a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/community/VERIFICATION_REPORT_TEMPLATE_V1.md">Report template</a> · <a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/community/INDEPENDENT_VERIFICATION_PROCESS_V1.md">8.5 process</a> · <a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/community/MULTI_REPORT_VERIFICATION_ARCHITECTURE_V1.md">multi-report architecture</a> → <a href="https://github.com/onenoly1010/Quantum-pi-forge/issues/new?title=External%20verification%3A%20YYYY-MM-DD">open issue</a></span></div>
       <div class="detail"><span class="label">Status JSON</span> <span class="value"><a href="/verification-status-v1.json">/verification-status-v1.json</a></span></div>
       <div class="detail"><span class="label">Genesis pack</span> <span class="value"><a href="https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/GENESIS_VERIFICATION_V1.md">docs/GENESIS_VERIFICATION_V1.md</a></span></div>
