@@ -7,8 +7,13 @@ model **C**, minimum-wording changes only.
 `origin`; CI workflow targets `main` only, so the deployment was made with the
 project's own sanctioned script `npm run deploy:cf`).
 
-**Pages deployment:** `https://614c63f0.quantumpiforge.pages.dev` (project
-`quantumpiforge`, production aliases to `quantumpiforge.com`)
+**Pages deployment:** final production deployment
+`https://4443061a.quantumpiforge.pages.dev` (project `quantumpiforge`, aliased
+to `quantumpiforge.com`); live `version.json` reports commit
+`80fb78c` = HEAD at build time. An earlier deploy (`614c63f0`) served the
+B2/B3-fixed code while `version.json` still reported `9a7fa64`; that
+provenance mismatch was found and corrected by rebuilding at HEAD and
+redeploying.
 
 ---
 
