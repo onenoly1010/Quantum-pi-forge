@@ -53,13 +53,16 @@ Payment: the button on the page is **intentionally inert**
 List recent submissions (KV):
 
 ```bash
-npx wrangler kv key list --binding QPF_CLAIMS --remote | grep claim
+# Note: the root wrangler config does not declare QPF_CLAIMS, so use the
+# namespace id directly (published in wrangler.pages.toml).
+NS=f12af0792499477b8fa23b9d24c79d78
+npx wrangler kv key list --namespace-id $NS --remote --prefix 'ref:'
 ```
 
 Look up a customer's token by their reference:
 
 ```bash
-npx wrangler kv get "ref:QPF-2026-B2XRRD" --binding QPF_CLAIMS --remote
+npx wrangler kv key get "ref:QPF-2026-B2XRRD" --namespace-id $NS --remote
 ```
 
 Advance a claim:
