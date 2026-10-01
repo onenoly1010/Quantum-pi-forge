@@ -4,7 +4,7 @@
 
 ## 📜 PROJECT SUMMARY
 
-OINIO Protocol is a production-deployed decentralized revenue protocol live on 0G Aristotle Mainnet. We have successfully completed the $235,000 CAD 0G Aristotle Grant, with all milestones delivered and verified.
+OINIO Protocol is a production-deployed decentralized revenue protocol live on 0G Aristotle Mainnet. Self-attested milestones M1–M3 for the 0G Aristotle Grant were completed in 2026. **No award found.** The 0G Guild portal shows applications closed, as of 2026-09-25, and no grant funds have been received or awarded.
 
 The protocol has reached **Hardened State** — defined as a deployment condition where core contracts are immutable, critical parameters are fixed, and the protocol can operate without further code changes under expected conditions.
 

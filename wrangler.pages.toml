@@ -1,2 +1,8 @@
 name = "quantumpiforge"
 pages_build_output_dir = "./out"
+
+# Claim intake storage for /api/claim (email-free customer loop).
+# Namespace created 2026-09-30: QPF_CLAIMS.
+[[kv_namespaces]]
+binding = "QPF_CLAIMS"
+id = "f12af0792499477b8fa23b9d24c79d78"

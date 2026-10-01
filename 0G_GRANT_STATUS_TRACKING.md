@@ -1,7 +1,7 @@
 # 0G ARISTOTLE GRANT - STATUS TRACKING LOG
 
 ## ✅ GRANT APPLICATION LIVE TRACKER
-Current Update Timestamp: 2026-06-25 10:22 UTC-6 (America/Regina)
+Current Update Timestamp: 2026-09-25 (America/Regina)
 **Branch:** `ai/inner-docs-improvement-lane-v1`
 
 ---
@@ -10,18 +10,18 @@ Current Update Timestamp: 2026-06-25 10:22 UTC-6 (America/Regina)
 | Metric | Value |
 |---|---|
 | Submission Date | 2026-04-17 |
-| Days Elapsed | 69 days |
-| Current Status | **✅ MILESTONES M1+M2+M3 COMPLETED. PENDING GRANT REVIEW RESPONSE** |
+| Days Elapsed | 161 days |
+| Current Status | **No award found.** The 0G Guild portal shows applications closed, as of 2026-09-25. |
 | Follow-up Sent | ✅ 2026-04-19 |
 | Genesis Mainnet Deployment | ✅ 2026-05-07 |
 | M3 — 0G Compute Direct Provider Inference | ✅ 2026-05-31 (HTTP 200, deepseek-v4-flash confirmed) |
-| Next Scheduled Followup | Awaiting review response from 0G Guild |
+| Next Scheduled Followup | None; Guild program on guild.0gfoundation.ai shows "Applications Closed" |
 | Guardian Safe (Phase 7) | ✅ Resolved — Safe `0x8d088B88219D072aB035502065ee2410c2cb4389` accepted as QPF guardian governance address on 0G Aristotle mainnet (bytecode confirmed) |
 | Social Recovery Module | ⏸️ Created but not production-authorized |
 | Guardian Threshold | ⚠️ Needs clarification (pending final governance decision) |
 | Owner Addresses | 🔒 Private — do not publish |
 | Guild Reference ID | #789 |
-| Hall Post | https://hall.0g.ai/post/quantum-pi-forge-sovereign-agent-system |
+| Hall Post | https://hall.0g.ai/post/quantum-pi-forge-sovereign-agent-system (404 as of 2026-09-25) |
 
 ---
 

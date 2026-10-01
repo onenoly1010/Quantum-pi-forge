@@ -1,4 +1,5 @@
 # QPF Independent Verification Certificate — v1
+<!-- STATUS 2026-09-25: WITHDRAWN — kept for the record, not the offer. See QPF_VERIFICATION_SERVICE_V1.md. -->
 
 **Phase:** Commercial validation (begins now)  
 **Prior phase:** Genesis infrastructure — **credible** (locks held)  
@@ -149,6 +150,13 @@ Goal of first sales: **prove exchange of value**, not maximize revenue.
 Payment: **off-chain invoice**. Not a token purchase.
 
 ---
+
+> ⚠️ **Superseded 2026-09-25.** Every price named below is withdrawn, including
+> the $2 / $5 USD pay-after-ESTABLISHED offer (paid only when a check passed —
+> a fee for good verdicts) and the $500 / $1,500 CAD certificates. The current
+> offer is one flat fee, identical for ESTABLISHED, FAILED and UNKNOWN: CAD $250
+> per claim plus optional CAD $100 priority scheduling. This document is kept for
+> the record; see `QPF_VERIFICATION_SERVICE_V1.md` for the current terms.
 
 ## 7. Request process
 

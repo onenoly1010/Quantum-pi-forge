@@ -92,12 +92,19 @@
   </div>
 
   <div class="card">
-    <h2>One public economic object</h2>
-    <p>A verified-work object is public. Download it and run the verifier. Do not trust the page.</p>
-    <p><a href="https://gist.github.com/onenoly1010/f219c8b95f554b79896d3c94a016a07b">gist.github.com/onenoly1010/f219c8b95f554b79896d3c94a016a07b</a></p>
-    <pre>object_id  qpfo0:7e3a669993924797a367537de6dfaf0b8f515212d1594c62807fa811e5ec71ab
+    <h2>Public economic objects</h2>
+    <p>Two verified-work objects exist. Both are public, both verify, and changing the offer did not rewrite either one.</p>
+    <p><strong>v1 — superseded offer, withdrawn (2026-09-15):</strong> <a href="https://gist.github.com/onenoly1010/f219c8b95f554b79896d3c94a016a07b">gist.github.com/onenoly1010/f219c8b95f554b79896d3c94a016a07b</a></p>
+    <pre>object_id  qpfo0:ebda8d38c19dbb749d5522da16a9ede63b759ce519f5d4fbfade8e25887ebe9b
 python3 verify_object.py .
 python3 verify.py</pre>
+    <p class="muted"><strong>What ESTABLISHED means here, and what it does not.</strong> For this object it means one thing only: the object is authentic and unaltered — its signature is valid, its evidence hashes match, and its identity re-derives from content. It does <em>not</em> mean QPF still stands behind the offer written inside it. That offer was the $2 / $5 USD &ldquo;pay after ESTABLISHED, FAILED = $0&rdquo; price, and it is <strong>withdrawn</strong>. It made revenue depend on the verdict, which is a fee for good verdicts. The object's bytes are untouched so its identity still reproduces; the offer inside is dead.</p>
+    <p class="muted">The gist ships a pinned copy of the verifier as of its publish date (sha256 <code>9439e09d…</code>), which still verifies this bundle. The current verifier in the repo is a later copy that also understands the v2 policy. The gist description has been updated to cite the matching content id (<code>ebda8d38…</code>).</p>
+    <p><strong>v2 — current offer (2026-09-25):</strong> <a href="https://gist.github.com/onenoly1010/478d7221636aa8e72be3d80614f2b1d6">gist.github.com/onenoly1010/478d7221636aa8e72be3d80614f2b1d6</a></p>
+    <pre>object_id  qpfo0:99d797bd47e83289d1017bb92d5c5319c7d0241df2854cea31f37739fb9d5297
+path       qpf-economic-object/objects/qpfo0-99d797bd…/object.json
+bundle     qpf-economic-object/site/
+python3 verify_object.py .</pre>
     <p class="muted">Publication is exposure, not a customer, not payment, and not revenue. External interaction: none observed. Invitation: <a href="https://github.com/onenoly1010/Quantum-pi-forge/issues/851">issue #851</a>.</p>
   </div>
 
@@ -139,16 +146,19 @@ BOUNDARY → NO FALSE EXECUTION → HONEST RECEIPT</pre>
 
   <div class="card">
     <h2>Economic participation</h2>
-    <p>Self-serve inspection is free. Payment, if it happens, is for packaged review labor after a result is ESTABLISHED. Payment is not the verdict.</p>
-    <pre>STANDARD: $2
-EXPEDITED: $5
-PAY AFTER ESTABLISHED
-FAILED = $0
+    <p>Self-serve inspection is free, and the review result of an accepted claim is delivered to you privately, free. If you then want the work on the public record, you pay one flat fee for the evidence package — execution record, procedure and environment, available evidence, result, and receipt — covering the testing, reproducing, and documenting of one public claim. The fee is the same whether the finding is ESTABLISHED, FAILED, or UNKNOWN. Payment never buys a verdict, a label, a delay, or a removal.</p>
+    <pre>ONE OFFER · ONE FLAT FEE
+CAD $250 flat per claim
+CAD $100 priority scheduling (next available start slot only)
+SAME FEE FOR ESTABLISHED / FAILED / UNKNOWN
+RESULT FIRST, FREE · PAYMENT AFTER, FOR THE PACKAGE
+PACKAGE ALWAYS PUBLISHED ONCE PURCHASED · NO OPT-OUT
 PAYMENT ≠ VERDICT</pre>
-    <p class="muted">This is the current public offer from the 2026-09-15 handover. It is not proof of customers or revenue. Older certificate pages may still show founder $500 CAD as historical copy.</p>
+    <p class="muted">Your exact claim and its scope are committed to the public registry repository (<a class="text-orange-400 hover:underline" href="https://github.com/onenoly1010/qpf-verification-registry">qpf-verification-registry</a>) when the evidence package is purchased. Once registered, a claim cannot be canceled, hidden, or removed. If QPF does not deliver the evidence receipt within 10 business days of public registration, the fee is refunded in full and the claim stays on the public record, marked ABANDONED_OR_OVERDUE_BY_QPF.</p>
+    <p class="muted">This replaces the earlier $2 / $5 USD offer, which charged only after an ESTABLISHED verdict and so paid for good verdicts. The $500 CAD certificate offer is withdrawn. This price is an offer, not proof of a customer or a sale: no sale has been established at any price.</p>
     <p>
       <a href="/verification-request.html">Request a review</a>
-      · <a href="/support.html">Optional $1 support path</a>
+      · <a href="https://github.com/onenoly1010/qpf-verification-registry">Public registry</a>
       · <a href="/work-with-us.html">Other labor</a>
     </p>
   </div>

@@ -1,7 +1,7 @@
 {
   "schema": "qpf-open-gates-v1",
   "schema_version": "1.0",
-  "updated_at_utc": "2026-09-15T00:00:00Z",
+  "updated_at_utc": "2026-10-01T00:50:20Z",
   "title": "Quantum Pi Forge Open Gates",
   "decision": "OPEN",
   "public_url": "https://quantumpiforge.com/open.html",
@@ -64,14 +64,24 @@
     }
   ],
   "commercial_offer": {
+    "policy": "v2",
     "self_serve_inspection": "FREE",
-    "standard_usd": 2,
-    "expedited_usd": 5,
-    "pay_after": "ESTABLISHED",
-    "failed_usd": 0,
-    "payment_equals_verdict": false,
-    "is_offer_not_revenue": true,
-    "older_founder_certificate_copy_may_still_show_cad_500": true
+    "standard_cad": 250,
+    "priority_scheduling_cad": 100,
+    "priority_effect": "Next available start slot only. Same method, same criteria.",
+    "verdict_independence": "Identical fee for ESTABLISHED, FAILED and UNKNOWN.",
+    "payment_timing": "After the private result is delivered; before evidence-package purchase and public registration.",
+    "payment_method": "Hosted card checkout (activation pending). No email invoice; no crypto checkout.",
+    "standard_deliverable": "Evidence package: execution record, procedure and environment, available evidence, result, and verification receipt for the submitted claim.",
+    "claim_registration": "Claim and scope committed to the public registry repository when the evidence package is purchased.",
+    "refund": "No refund on verdict. 100% refund if QPF does not deliver the evidence receipt within 10 business days of public registration; the claim stays on the record.",
+    "registry": "https://github.com/onenoly1010/qpf-verification-registry",
+    "intake": "https://quantumpiforge.com/verification-request",
+    "withdrawn_2026-09-25": {
+      "old_v1_terms": "standard_usd 2, expedited_usd 5, pay_after ESTABLISHED, failed_usd 0 (made revenue depend on the verdict)",
+      "founder_certificate_cad_500": "withdrawn"
+    },
+    "is_offer_not_revenue": true
   },
   "forbidden_without_separate_human_go": [
     "mint",
