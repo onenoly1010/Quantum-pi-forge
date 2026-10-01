@@ -37,7 +37,7 @@
     </p>
     <div class="border border-emerald-500/30 rounded-xl p-5 bg-emerald-500/5 mb-10">
       <p class="text-xs font-mono text-emerald-400 uppercase tracking-wider mb-2">Current public offer · not revenue</p>
-      <p class="text-zinc-200 mb-2">CAD $250 flat per claim · optional CAD $100 priority scheduling · same fee for ESTABLISHED, FAILED, or UNKNOWN · always published, no opt-out.</p>
+      <p class="text-zinc-200 mb-2">Submit free · result delivered privately, free · CAD $250 then buys the complete evidence package (execution record, procedure and environment, available evidence, result, receipt), always published once purchased, no opt-out · optional CAD $100 priority scheduling · same fee for ESTABLISHED, FAILED, or UNKNOWN — payment never buys a favorable verdict.</p>
       <p class="text-sm text-zinc-500">Self-serve checks stay free at <a class="text-orange-400 hover:underline" href="/try.html">/try</a>. This replaces the earlier $2 / $5 USD offer, which charged only after an ESTABLISHED verdict. The $500 CAD certificate offer is withdrawn. This price is an offer, not proof of a customer or a sale. Enter without the creator at <a class="text-orange-400 hover:underline" href="/open.html">/open</a>.</p>
     </div>
 
@@ -53,19 +53,19 @@
         <p class="text-sm text-zinc-400">If the claim cannot be tested against public artifacts, it is declined at intake. No charge is raised at all.</p>
       </div>
       <div class="border border-white/10 rounded-xl p-5 bg-white/5">
-        <p class="text-orange-400 font-mono text-sm mb-2">3. Pay &amp; register</p>
-        <h2 class="text-lg font-bold text-white mb-2">On the record first</h2>
-        <p class="text-sm text-zinc-400">The flat fee is invoiced manually, then the claim and its scope are committed to the public registry before work starts. Once registered, a claim cannot be canceled, hidden, or removed.</p>
+        <p class="text-orange-400 font-mono text-sm mb-2">3. Review</p>
+        <h2 class="text-lg font-bold text-white mb-2">Free result first</h2>
+        <p class="text-sm text-zinc-400">Intake-accepted claims are reviewed at no cost. Your result reaches you privately on your status page before any payment is requested.</p>
       </div>
       <div class="border border-white/10 rounded-xl p-5 bg-white/5">
-        <p class="text-orange-400 font-mono text-sm mb-2">4. Review</p>
+        <p class="text-orange-400 font-mono text-sm mb-2">4. Decide</p>
         <h2 class="text-lg font-bold text-white mb-2">Same work, same fee</h2>
-        <p class="text-sm text-zinc-400">The method and criteria do not change with the outcome. Priority only buys an earlier start slot.</p>
+        <p class="text-sm text-zinc-400">The method and criteria do not change with the outcome. CAD $250 then purchases the complete evidence package. Priority only buys an earlier start slot.</p>
       </div>
       <div class="border border-white/10 rounded-xl p-5 bg-white/5">
-        <p class="text-orange-400 font-mono text-sm mb-2">5. Publish</p>
+        <p class="text-orange-400 font-mono text-sm mb-2">5. Purchase &amp; publish</p>
         <h2 class="text-lg font-bold text-white mb-2">Receipt on the record</h2>
-        <p class="text-sm text-zinc-400">The evidence receipt is published with what it verifies, what it does not, and how anyone can re-run it.</p>
+        <p class="text-sm text-zinc-400">Purchasing commits the claim and its scope to the public registry — execution record, procedure and environment, available evidence, result, and receipt. Once registered, a claim cannot be canceled, hidden, or removed.</p>
       </div>
       <div class="border border-white/10 rounded-xl p-5 bg-white/5">
         <p class="text-orange-400 font-mono text-sm mb-2">If it disputes</p>
@@ -87,12 +87,87 @@
     <section class="mb-12 border border-orange-500/30 rounded-2xl p-8 bg-orange-500/5">
       <h2 class="text-2xl font-bold text-white mb-3">Request a review</h2>
       <p class="text-zinc-400 mb-6">
-        The request opens a prefilled email. Include one claim and the relevant public links. QPF confirms at intake whether the claim is testable against public artifacts; if it is not, it is declined and no charge is raised. If it is accepted, the flat fee is invoiced and your claim is committed to the public registry (<a class="text-orange-400 hover:underline" href="https://github.com/onenoly1010/qpf-verification-registry">qpf-verification-registry</a>) before work begins. You can also open an intake issue directly on the registry.
+        Submit the form below — no email, no account, no wallet. Include one claim and the relevant public links. QPF confirms at intake whether the claim is testable against public artifacts; if it is not, it is declined and no charge is raised. If it is accepted, the review runs free and your result reaches you privately on your status page. CAD $250 then purchases the evidence package, which is committed to the public registry (<a class="text-orange-400 hover:underline" href="https://github.com/onenoly1010/qpf-verification-registry">qpf-verification-registry</a>) at purchase — once registered, a claim cannot be canceled, hidden, or removed. You can also open an intake issue directly on the registry.
       </p>
-      <a class="btn-volcanic" href="mailto:onenoly11@proton.me?subject=QPF%20verification%20review%20request&body=Project%20name%3A%0A%0APublic%20technical%20claim%20to%20review%3A%0A%0APublic%20source%2C%20documentation%2C%20or%20deployment%20links%3A%0A%0AWhat%20decision%20would%20this%20help%20you%20make%3A%0A">
-        Request a verification review
-      </a>
-      <p class="mt-4 text-sm font-mono text-zinc-500">No wallet, token, or commitment is required to submit a request. Accepted claims are invoiced manually: there is no card or crypto checkout yet. Current offer terms: <a class="text-orange-400 hover:underline" href="https://gist.github.com/onenoly1010/478d7221636aa8e72be3d80614f2b1d6">v2 economic object</a> · <a class="text-orange-400 hover:underline" href="/open-gates-v1.json">machine-readable terms</a>.</p>
+
+      <noscript>
+        <p class="border border-amber-500/40 rounded-lg px-4 py-3 bg-amber-500/10 text-sm text-amber-200 mb-4">
+          This form needs JavaScript to reach the server without email. With JavaScript off, nothing is submitted —
+          do not rely on the button below having gone through.
+        </p>
+      </noscript>
+
+      <form id="claimForm" class="space-y-5" novalidate>
+        <!-- Honeypot: hidden from humans, tempting to bots -->
+        <div style="position:absolute;left:-9999px" aria-hidden="true">
+          <label>Company<input id="claimCompany" name="company" type="text" tabindex="-1" autocomplete="off"></label>
+        </div>
+
+        <div>
+          <label for="claimProject" class="block text-xs font-mono text-zinc-500 uppercase tracking-wider mb-1">Project name</label>
+          <input id="claimProject" name="project" type="text" required maxlength="160" autocomplete="organization"
+                 class="w-full bg-white/5 border border-white/15 rounded-lg px-4 py-3 text-sm text-zinc-200"
+                 placeholder="Who are you, in one line">
+        </div>
+
+        <div>
+          <label for="claimClaim" class="block text-xs font-mono text-zinc-500 uppercase tracking-wider mb-1">The claim to review</label>
+          <textarea id="claimClaim" name="claim" required rows="5" minlength="80" maxlength="4000"
+                    class="w-full bg-white/5 border border-white/15 rounded-lg px-4 py-3 text-sm text-zinc-200"
+                    placeholder="One deterministic claim, stated so it can be tested true or false against public artifacts."></textarea>
+          <p class="text-xs text-zinc-600 mt-1">80–4000 characters. One claim per submission.</p>
+        </div>
+
+        <div>
+          <label for="claimLinks" class="block text-xs font-mono text-zinc-500 uppercase tracking-wider mb-1">Public references (one per line, max 5)</label>
+          <textarea id="claimLinks" name="links" required rows="3" maxlength="2000"
+                    class="w-full bg-white/5 border border-white/15 rounded-lg px-4 py-3 text-sm text-zinc-200 font-mono"
+                    placeholder="https://github.com/…&#10;https://chainscan.0g.ai/…"></textarea>
+        </div>
+
+        <div>
+          <label for="claimDecision" class="block text-xs font-mono text-zinc-500 uppercase tracking-wider mb-1">What decision should this help you make?</label>
+          <textarea id="claimDecision" name="decision" required rows="2" maxlength="600"
+                    class="w-full bg-white/5 border border-white/15 rounded-lg px-4 py-3 text-sm text-zinc-200"
+                    placeholder="e.g. whether to integrate, fund, list, or rely on this deployment."></textarea>
+        </div>
+
+        <p id="claimError" role="alert" class="text-sm text-rose-400" hidden></p>
+
+        <button id="claimSubmit" type="submit" class="btn-volcanic w-full sm:w-auto">
+          Submit my claim
+        </button>
+      </form>
+
+      <div id="claimDone" tabindex="-1" class="mt-6 border border-emerald-500/40 rounded-xl p-6 bg-emerald-500/5" hidden>
+        <p class="text-emerald-300 font-semibold mb-2">Received. Your claim is in the queue.</p>
+        <p class="text-sm text-zinc-300 mb-1">Reference: <span id="claimDoneRef" class="font-mono text-orange-300"></span></p>
+        <p class="text-sm text-zinc-300 mb-3">
+          This is your <strong class="text-white">private status link</strong> — save it now. It is how you check progress
+          and collect your result. Nobody can resend it: the link itself is the access. QPF never asks you for it publicly.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-2 items-stretch">
+          <input id="claimDoneLink" type="text" readonly class="flex-1 bg-black/40 border border-white/15 rounded-lg px-4 py-3 text-xs font-mono text-zinc-300">
+          <button id="claimCopyBtn" type="button" class="border border-orange-400/60 text-orange-300 rounded-lg px-4 py-3 text-sm font-bold hover:bg-orange-500/10">Copy link</button>
+          <a class="border border-white/20 text-zinc-200 rounded-lg px-4 py-3 text-sm text-center hover:bg-white/5" href="/claim-status.html">Open status page</a>
+        </div>
+        <p class="text-xs text-zinc-500 mt-3">Next: intake test → checking → your private result (free) → then, if you choose, the CAD $250 evidence package.</p>
+      </div>
+
+      <div class="mt-8 border border-white/10 rounded-xl p-6 bg-black/30">
+        <p class="text-xs font-mono text-zinc-500 uppercase tracking-wider mb-2">Payment</p>
+        <button type="button" class="btn-volcanic w-full sm:w-auto" style="opacity:.45;cursor:not-allowed" aria-disabled="true" disabled>
+          Pay CAD $250 — checkout coming online
+        </button>
+        <p class="text-sm font-mono text-zinc-500 mt-3">
+          No payment can be taken here yet — this button is deliberately inert until the hosted checkout rail is
+          connected. Submitting costs nothing and raises no charge: your result arrives first, free. When checkout
+          goes live, CAD $250 buys the complete evidence package — execution record, procedure and environment,
+          available evidence, result, and verification receipt — published on the record. The published rule
+          stands: same fee for ESTABLISHED, FAILED, or UNKNOWN; payment never buys a verdict.
+        </p>
+      </div>
+      <p class="mt-4 text-sm font-mono text-zinc-500">No wallet, token, or commitment is required to submit a request — and no email either. Card checkout is not live yet: the payment button above stays inert until the hosted rail is connected, so nothing is charged and nothing is owed at submission. Current offer terms: <a class="text-orange-400 hover:underline" href="https://gist.github.com/onenoly1010/478d7221636aa8e72be3d80614f2b1d6">v2 economic object</a> · <a class="text-orange-400 hover:underline" href="/open-gates-v1.json">machine-readable terms</a>.</p>
       <p class="mt-2 text-sm font-mono text-zinc-500">Send public references only; never send passwords, private keys, or other secrets.</p>
       <p class="mt-2 text-sm font-mono text-zinc-500">Accepted claims are published, including the claim text, the scope, and the result. Reviews are never private or confidential.</p>
     </section>
@@ -104,5 +179,7 @@
       </p>
     </section>
   </main>
+
+  <script src="/claim-client.js"></script>
 </body>
 </html>

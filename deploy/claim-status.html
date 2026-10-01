@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your claim status | Quantum Pi Forge</title>
+  <meta name="description" content="Private status page for a submitted QPF verification review request. Open it with your private status link.">
+  <meta name="robots" content="noindex">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { background: #050505; color: #d4d4d8; font-family: system-ui, -apple-system, sans-serif; }
+    .font-mono { font-family: ui-monospace, "Fira Code", monospace; }
+  </style>
+</head>
+<body class="antialiased">
+  <nav class="border-b border-white/5 bg-black/70">
+    <div class="max-w-3xl mx-auto px-6 py-4 flex justify-between items-center text-sm font-mono text-zinc-400">
+      <a href="/" class="font-bold text-zinc-200">← Quantum Pi Forge</a>
+      <a href="/verification-request.html" class="hover:text-white">Request a review</a>
+    </div>
+  </nav>
+
+  <main id="claimStatusRoot" class="max-w-3xl mx-auto px-6 py-16">
+    <p class="text-xs font-mono text-orange-400 uppercase tracking-wider mb-4">Private status</p>
+    <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-6">Your claim, start to finish.</h1>
+
+    <p id="csState" class="border border-white/10 rounded-xl p-5 bg-white/5 mb-8 text-zinc-300" role="status" aria-live="polite" hidden></p>
+
+    <div id="csData" hidden>
+      <section class="mb-8" aria-label="Progress">
+        <h2 class="text-xl font-bold text-white mb-4">What is happening</h2>
+        <ol id="csTimeline" class="space-y-3 text-sm text-zinc-300"></ol>
+        <p class="mt-4 text-sm font-mono text-zinc-500">Payment: your result arrives here first, free. CAD $250 later buys the complete evidence package — execution record, procedure and environment, available evidence, result, and receipt — published on the record. Card checkout is not live yet; nothing is owed by submitting, and payment never buys a favorable verdict. This page never asks for money, an account, or an email.</p>
+      </section>
+
+      <section class="mb-8 border border-white/10 rounded-xl p-6 bg-white/5" aria-label="Your submission">
+        <h2 class="text-xl font-bold text-white mb-4">What you submitted</h2>
+        <p class="text-xs font-mono text-zinc-500 uppercase tracking-wider mb-1">Project</p>
+        <p id="csProject" class="text-zinc-200 mb-4"></p>
+        <p class="text-xs font-mono text-zinc-500 uppercase tracking-wider mb-1">Claim</p>
+        <p id="csClaim" class="text-zinc-200 whitespace-pre-wrap mb-4"></p>
+        <p class="text-xs font-mono text-zinc-500 uppercase tracking-wider mb-1">Public references</p>
+        <ul id="csLinks" class="space-y-1 mb-4"></ul>
+        <p class="text-xs font-mono text-zinc-500 uppercase tracking-wider mb-1">Decision this supports</p>
+        <p id="csDecision" class="text-zinc-200"></p>
+      </section>
+
+      <section id="csResult" class="mb-8 border border-emerald-500/30 rounded-xl p-6 bg-emerald-500/5" aria-label="Result" hidden>
+        <h2 class="text-xl font-bold text-white mb-4">Result</h2>
+        <p class="text-xs font-mono text-emerald-400 uppercase tracking-wider mb-1">Established — what the evidence supports</p>
+        <ul id="csVerified" class="list-disc pl-5 text-sm text-zinc-300 space-y-1 mb-4"></ul>
+        <p class="text-xs font-mono text-amber-400 uppercase tracking-wider mb-1">Not established</p>
+        <ul id="csUnverified" class="list-disc pl-5 text-sm text-zinc-300 space-y-1 mb-4"></ul>
+        <p class="text-xs font-mono text-zinc-500 uppercase tracking-wider mb-1">Unknown</p>
+        <ul id="csUnknown" class="list-disc pl-5 text-sm text-zinc-300 space-y-1 mb-4"></ul>
+        <p class="text-xs font-mono text-zinc-500 uppercase tracking-wider mb-1">Procedure</p>
+        <p id="csMethod" class="text-sm text-zinc-300 whitespace-pre-wrap mb-4"></p>
+        <p class="text-xs font-mono text-zinc-500 uppercase tracking-wider mb-1">Limits</p>
+        <p id="csLimits" class="text-sm text-zinc-300 whitespace-pre-wrap mb-4"></p>
+        <a id="csReceipt" class="text-orange-400 hover:underline text-sm" hidden>Published receipt →</a>
+      </section>
+
+      <p class="text-sm font-mono text-zinc-500">
+        Lost your link? Nobody can resend it — the link itself is the access. Quote your reference (above) through the
+        <a class="text-orange-400 hover:underline" href="https://github.com/onenoly1010/qpf-verification-registry">public registry</a>
+        and the operator can issue a replacement. Never post your full status link in public.
+      </p>
+    </div>
+  </main>
+
+  <script src="/claim-client.js"></script>
+</body>
+</html>
