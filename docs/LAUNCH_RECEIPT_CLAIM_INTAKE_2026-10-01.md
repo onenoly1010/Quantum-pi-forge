@@ -128,6 +128,13 @@ device/network (this machine's IP is rate-limited for an hour); connect a real
 Stripe Payment Link when ready; decide B4/B7/B8; and add `functions/api/*` to
 the CI path list at the next routine commit.
 
-Reproduce: `npm run test:claim` (15) · `npm run test:verification` (78) ·
-`node scripts/build.js` · live walkthrough script recorded in this session.
+Reproduce: `node --test tests/claim/claim.test.js` (15 tests) ·
+`npm run test:verification` (78 tests) · `node scripts/build.js` · live
+walkthrough script recorded in this session.
+
+Note: `test:claim` was intentionally **not** added to the committed
+`package.json`, because that file also carries an uncommitted line from another
+in-flight workstream; the test file runs directly with `node --test`. Add the
+script line at the next routine commit.
+
 
