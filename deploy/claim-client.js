@@ -86,6 +86,10 @@
           var link = location.origin + data.statusUrl;
           $("claimDoneRef").textContent = data.ref;
           $("claimDoneLink").value = link;
+          // B2 fix: the plain "Open status page" anchor must carry the token,
+          // otherwise the visitor lands on an error-looking page seconds after success.
+          var open = $("claimDoneOpen");
+          if (open) open.href = data.statusUrl;
           doneEl.hidden = false;
           doneEl.focus();
         })
