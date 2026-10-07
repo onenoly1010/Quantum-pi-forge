@@ -15,6 +15,23 @@
 // is never sent to the server as part of page navigation. Claim content is
 // returned only to the holder of the token.
 
+// Intake gate. Submissions are CLOSED: every write path (POST, PUT) returns
+// 503 submissions_not_open before reading the body, touching KV, or doing any
+// other work. This is a code constant on purpose (not an env var) so it cannot
+// silently default open. Flip only with an explicit, reviewed code change.
+export const SUBMISSIONS_OPEN = false;
+
+function submissionsClosed() {
+  return json(
+    {
+      ok: false,
+      error: "submissions_not_open",
+      message: "Submissions are not open.",
+    },
+    503,
+  );
+}
+
 const MAX_BODY_BYTES = 16384;
 const CLAIM_MIN = 80;
 const CLAIM_MAX = 4000;
@@ -278,7 +295,12 @@ async function handlePut(request, env) {
   return json({ ok: true, ref: record.ref, status: record.status });
 }
 
+// Ungated handlers, exported only so tests can exercise the intake logic.
+// Pages routes only onRequest* exports; these are not reachable over HTTP.
+export const _internal = { handlePost, handleGet, handlePut };
+
 export async function onRequestPost(context) {
+  if (!SUBMISSIONS_OPEN) return submissionsClosed();
   return handlePost(context.request, context.env);
 }
 
@@ -287,6 +309,7 @@ export async function onRequestGet(context) {
 }
 
 export async function onRequestPut(context) {
+  if (!SUBMISSIONS_OPEN) return submissionsClosed();
   return handlePut(context.request, context.env);
 }
 
