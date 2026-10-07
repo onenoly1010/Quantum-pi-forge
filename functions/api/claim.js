@@ -253,7 +253,8 @@ async function handleGet(request, env) {
       createdAt: record.createdAt,
       updatedAt: record.updatedAt,
       registryUrl: record.registryUrl || null,
-      result: record.result || null,
+      // Never deliver a result privately before its public receipt exists.
+      result: record.status === "complete" ? record.result || null : null,
     },
   });
 }
@@ -311,10 +312,14 @@ async function handlePut(request, env) {
   if (status === "declined" && record.registryUrl) {
     return json({ ok: false, error: "a registered claim cannot be canceled" }, 409);
   }
+  if (body.result != null && status !== "complete") {
+    return json({ ok: false, error: "result can only be recorded with status=complete and a public receipt" }, 409);
+  }
   if (status === "complete") {
     const receiptUrl =
       body.result && typeof body.result === "object" ? body.result.receiptUrl : record.result?.receiptUrl;
-    if (!(await registryDocNames(receiptUrl, record.ref))) {
+    if (typeof receiptUrl !== "string" || !receiptUrl.endsWith(`/receipts/${record.ref}.md`) ||
+        !(await registryDocNames(receiptUrl, record.ref))) {
       return json({ ok: false, error: "public_receipt_required: receiptUrl must pin a registry file on main that names this ref" }, 409);
     }
   }

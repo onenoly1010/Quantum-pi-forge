@@ -181,7 +181,7 @@
           if (declined) {
             var li2 = document.createElement("li");
             li2.className = "border border-amber-500/40 rounded-lg px-4 py-3 bg-amber-500/10";
-            li2.textContent = "Declined at intake — the claim could not be tested against public artifacts. No charge is raised.";
+            li2.textContent = "Declined at intake — not registered and not reviewed. A decline is not a FAILED result. No charge is raised.";
             timelineEl.appendChild(li2);
           }
 
@@ -232,7 +232,7 @@
             $("csVerified").innerHTML = "";
             $("csUnverified").innerHTML = "";
             $("csUnknown").innerHTML = "";
-            $("csMethod").textContent = "Result recorded as complete; published detail is being added to the receipt index.";
+            $("csMethod").textContent = "Complete. The authoritative record is the public receipt in the registry.";
             $("csLimits").textContent = "";
             $("csReceipt").hidden = true;
           }

@@ -80,6 +80,19 @@ describe('v2 contract gates on PUT /api/claim', () => {
     assert.equal(g.claim.registryUrl, PIN('receipts/INDEX.md'));
     assert.equal(g.claim.result.receiptUrl, PIN(`receipts/${ref}.md`));
   });
+  it('the registration row alone is not a receipt', async () => {
+    const { env, ref } = await setup();
+    stubRegistry({ 'receipts/INDEX.md': `| ${ref} | REGISTERED |` });
+    assert.equal((await put(env, { ref, status: 'checking', registryUrl: PIN('receipts/INDEX.md') })).status, 200);
+    assert.equal((await put(env, { ref, status: 'complete', result: { ...RESULT, receiptUrl: PIN('receipts/INDEX.md') } })).status, 409);
+  });
+  it('no result is stored or readable before complete', async () => {
+    const { env, ref, token } = await setup();
+    assert.equal((await put(env, { ref, status: 'received', result: RESULT })).status, 409);
+    assert.equal((await put(env, { ref, status: 'declined', result: RESULT })).status, 409);
+    const g = await (await _internal.handleGet(new Request(`${ORIGIN}?t=${token}`), env)).json();
+    assert.equal(g.claim.result, null);
+  });
   it('a registered claim cannot be canceled or re-pointed; an unregistered one can be declined', async () => {
     const a = await setup();
     assert.equal((await put(a.env, { ref: a.ref, status: 'declined' })).status, 200);
