@@ -7,11 +7,13 @@
 
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
-import {
-  onRequestPost,
-  onRequestGet,
-  onRequestPut,
-} from '../../functions/api/claim.js';
+import { onRequestGet, _internal } from '../../functions/api/claim.js';
+
+// Submissions are closed (SUBMISSIONS_OPEN = false), so the public POST/PUT
+// routes reject. These tests exercise the ungated intake logic directly; the
+// closed-gate behavior is covered in tests/claim/closed.test.js.
+const onRequestPost = ({ request, env }) => _internal.handlePost(request, env);
+const onRequestPut = ({ request, env }) => _internal.handlePut(request, env);
 
 const ORIGIN = 'https://quantumpiforge.com/api/claim';
 
