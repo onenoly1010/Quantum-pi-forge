@@ -1,0 +1,16 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "sync/sask-evidence-map-v3-html",
+  "outcome": "Mirror the #892 v3 source update into the public page deploy/research/saskatchewan-evidence-map.html. Content must match the merged canonical doc; rebase after #892 merges. Merging this PR is the moment the public map changes and requires Kris's explicit authorization.",
+  "canonicalSources": ["docs/research/SASKATCHEWAN_AI_INFRASTRUCTURE_EVIDENCE_MAP_V1.md"],
+  "dependsOn": ["https://github.com/onenoly1010/Quantum-pi-forge/pull/892"],
+  "allowedPaths": [
+    ".qpf/task-contracts/sync__sask-evidence-map-v3-html.json",
+    "deploy/research/saskatchewan-evidence-map.html"
+  ],
+  "forbiddenPaths": ["contracts/**", "wallets/**", "package.json", "functions/**", "docs/**", "scripts/**"],
+  "forbiddenActions": ["inventing the 32-firm roster", "naming the BYOP partner without a primary source", "claiming customers or revenue", "selling $2 verification into this map", "protocol mint", "outbound contact", "merging before #892 merges"],
+  "verification": ["npm run verify:publication-scope"],
+  "definitionOfDone": ["Public HTML reflects the merged v3 doc; unknowns still labeled; only the one deploy file changed."],
+  "authorizationRequired": ["merging this PR (publishes to the live site)", "claiming a paid engagement exists", "contacting any named firm"]
+}
