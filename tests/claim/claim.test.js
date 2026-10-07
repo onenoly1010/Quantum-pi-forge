@@ -16,6 +16,7 @@ const onRequestPost = ({ request, env }) => _internal.handlePost(request, env);
 const onRequestPut = ({ request, env }) => _internal.handlePut(request, env);
 
 const ORIGIN = 'https://quantumpiforge.com/api/claim';
+const realFetch = globalThis.fetch;
 
 function mockKV() {
   const store = new Map();
@@ -225,7 +226,12 @@ describe('PUT /api/claim (operator)', () => {
     const created = await (await post(validBody(), { env })).json();
     const token = /#t=([0-9a-f]{32})$/.exec(created.statusUrl)[1];
 
-    const check = await put({ ref: created.ref, status: 'checking' }, { env });
+    const reg = `https://github.com/onenoly1010/qpf-verification-registry/blob/${'a'.repeat(40)}/receipts/INDEX.md`;
+    globalThis.fetch = async (url) =>
+      String(url).startsWith('https://api.github.com/')
+        ? new Response(JSON.stringify({ status: 'behind' }), { status: 200 })
+        : new Response(`registered ${created.ref}`, { status: 200 });
+    const check = await put({ ref: created.ref, status: 'checking', registryUrl: reg }, { env });
     assert.equal(check.status, 200);
 
     const done = await put(
@@ -238,17 +244,19 @@ describe('PUT /api/claim (operator)', () => {
           unknown: ['Who deployed it.'],
           method: 'Three eth_* reads against a public RPC.',
           limits: 'Single RPC channel; point-in-time observation.',
-          receiptUrl: '/verification-artifact.html',
+          receiptUrl: reg,
         },
       },
       { env },
     );
+    globalThis.fetch = realFetch;
     assert.equal(done.status, 200);
 
     const data = await (await get(token, env)).json();
     assert.equal(data.claim.status, 'complete');
     assert.equal(data.claim.result.verified.length, 1);
-    assert.equal(data.claim.result.receiptUrl, '/verification-artifact.html');
+    assert.equal(data.claim.result.receiptUrl, reg);
+    assert.equal(data.claim.registryUrl, reg);
   });
 
   it('rejects unknown statuses and malformed refs', async () => {

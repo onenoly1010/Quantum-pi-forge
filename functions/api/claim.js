@@ -46,6 +46,35 @@ const TOKEN_RE = /^[0-9a-f]{32}$/;
 const REF_RE = /^QPF-[0-9]{4}-[A-Z2-9]{6}$/;
 const REF_ALPHABET = "ABCDEFGHJKMNPQRSTUVWXYZ23456789";
 
+// v2 contract (qpfo0:99d797bd): a claim is registered in the public registry
+// before work starts, and it cannot be completed without a public receipt
+// there. Both are pinned registry documents, checked read-only (fail closed).
+const REGISTRY_REPO = "onenoly1010/qpf-verification-registry";
+const REGISTRY_PIN_RE =
+  /^https:\/\/(?:github\.com\/onenoly1010\/qpf-verification-registry\/blob|raw\.githubusercontent\.com\/onenoly1010\/qpf-verification-registry)\/([0-9a-f]{40})\/([A-Za-z0-9._\/-]{1,200})$/;
+
+// True only if url pins a registry file at a commit on the registry's main
+// history (a fork-only commit served under the same URL is rejected) and that
+// file names this claim's ref.
+async function registryDocNames(url, ref) {
+  const m = REGISTRY_PIN_RE.exec(typeof url === "string" ? url : "");
+  if (!m || m[2].includes("..")) return false;
+  const [, sha, path] = m;
+  const headers = { "user-agent": "qpf-claim-intake" };
+  try {
+    const raw = await fetch(`https://raw.githubusercontent.com/${REGISTRY_REPO}/${sha}/${path}`, { headers });
+    if (!raw.ok || !(await raw.text()).includes(ref)) return false;
+    const cmp = await fetch(`https://api.github.com/repos/${REGISTRY_REPO}/compare/main...${sha}`, {
+      headers: { ...headers, accept: "application/vnd.github+json" },
+    });
+    if (!cmp.ok) return false;
+    const { status } = await cmp.json();
+    return status === "identical" || status === "behind";
+  } catch {
+    return false;
+  }
+}
+
 function json(data, status = 200) {
   return new Response(JSON.stringify(data), {
     status,
@@ -186,6 +215,7 @@ async function handlePost(request, env) {
     status: "received",
     createdAt: now,
     updatedAt: now,
+    registryUrl: null,
     result: null,
   };
 
@@ -222,6 +252,7 @@ async function handleGet(request, env) {
       status: record.status,
       createdAt: record.createdAt,
       updatedAt: record.updatedAt,
+      registryUrl: record.registryUrl || null,
       result: record.result || null,
     },
   });
@@ -263,6 +294,30 @@ async function handlePut(request, env) {
   const raw = await env.QPF_CLAIMS.get(`claim:${token}`);
   if (!raw) return json({ ok: false, error: "unknown ref" }, 404);
   const record = JSON.parse(raw);
+
+  // v2 contract gates — refuse before any mutation.
+  if (body.registryUrl !== undefined && body.registryUrl !== record.registryUrl) {
+    if (record.registryUrl) {
+      return json({ ok: false, error: "registration is permanent and cannot be changed" }, 409);
+    }
+    if (!(await registryDocNames(body.registryUrl, record.ref))) {
+      return json({ ok: false, error: "registryUrl: must pin a registry file on main that names this ref" }, 409);
+    }
+    record.registryUrl = body.registryUrl;
+  }
+  if ((status === "checking" || status === "complete") && !record.registryUrl) {
+    return json({ ok: false, error: "registration_required: register the claim publicly before work starts" }, 409);
+  }
+  if (status === "declined" && record.registryUrl) {
+    return json({ ok: false, error: "a registered claim cannot be canceled" }, 409);
+  }
+  if (status === "complete") {
+    const receiptUrl =
+      body.result && typeof body.result === "object" ? body.result.receiptUrl : record.result?.receiptUrl;
+    if (!(await registryDocNames(receiptUrl, record.ref))) {
+      return json({ ok: false, error: "public_receipt_required: receiptUrl must pin a registry file on main that names this ref" }, 409);
+    }
+  }
 
   record.status = status;
   record.updatedAt = new Date().toISOString();
