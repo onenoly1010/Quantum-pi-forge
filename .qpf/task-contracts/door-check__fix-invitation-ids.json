@@ -1,0 +1,66 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "door-check/fix-invitation-ids",
+  "outcome": "Correct the public participant door map and stop overstating the published verified-work object. Makes /attack-kit the canonical stranger VERIFY path for EXT-001, records that /birth and /meet are already open doors needing no founder, and replaces the overstated gist object_id with an honest status note: the published artifact.bin is base64 and fails hash verify, so gist is not VERIFY PASS until raw 3102-byte bytes are restored. No mint, no wallet, no payment surface.",
+  "canonicalSources": [
+    "deploy/open-gates-v1.json",
+    "deploy/open.html",
+    "docs/public/OPEN_GATES_V1.md"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/door-check__fix-invitation-ids.json",
+    "deploy/open-gates-v1.json",
+    "deploy/open.html",
+    "docs/public/OPEN_GATES_V1.md"
+  ],
+  "forbiddenPaths": [
+    "src/**",
+    "functions/**",
+    "contracts/**",
+    "wallets/**",
+    "package.json",
+    "package-lock.json",
+    "deploy/llms.txt",
+    "deploy/attack-kit.html",
+    "deploy/birth.html",
+    "deploy/meet.html",
+    "docs/ai/AI_POLICY.md",
+    "docs/ai/AUTHORIZATION_WORKFLOW.md"
+  ],
+  "forbiddenActions": [
+    "claiming gist VERIFY PASS while artifact.bin is base64",
+    "claiming a customer, payment, or revenue",
+    "mint",
+    "liquidity",
+    "staking/yield",
+    "bridge",
+    "wallet transfer",
+    "agent signing",
+    "Level 0 verifier change",
+    "authorization-policy change",
+    "introducing new doors not backed by live files"
+  ],
+  "verification": [
+    "test -f deploy/attack-kit.html",
+    "test -f deploy/birth.html",
+    "test -f deploy/meet.html",
+    "grep -q 'ebda8d38' deploy/open-gates-v1.json deploy/open.html docs/public/OPEN_GATES_V1.md",
+    "grep -q '7e3a6699' deploy/open-gates-v1.json deploy/open.html docs/public/OPEN_GATES_V1.md && exit 1 || true",
+    "grep -q 'base64' deploy/open.html docs/public/OPEN_GATES_V1.md",
+    "grep -q 'not VERIFY PASS' docs/public/OPEN_GATES_V1.md",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/door-check__fix-invitation-ids.json --base origin/main"
+  ],
+  "definitionOfDone": [
+    "deploy/open-gates-v1.json lists attack_kit as the canonical stranger VERIFY path and adds birth and meet doors with live target files.",
+    "docs/public/OPEN_GATES_V1.md mirrors the same door set and carries the honest gist status.",
+    "The superseded object_id 7e3a6699 no longer appears in any changed file; ebda8d38 is stated as observable-but-not-VERIFY-PASS.",
+    "No claim of customer, payment, revenue, mint, or wallet action.",
+    "Every door listed resolves to a file that exists in the repository."
+  ],
+  "authorizationRequired": [
+    "merge",
+    "any change to the gist artifact bytes",
+    "activating mint, staking, LP, or bridge",
+    "wallet sign or broadcast"
+  ]
+}

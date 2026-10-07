@@ -1,7 +1,7 @@
 # Open Gates — participant map
 
 **Status:** Public participant door  
-**Date:** 2026-09-15  
+**Date:** 2026-09-18 (door honesty update)  
 **Live page:** https://quantumpiforge.com/open.html  
 **Machine-readable:** [`deploy/open-gates-v1.json`](../../deploy/open-gates-v1.json)  
 **Operating doctrine:** [`docs/governance/OPEN_GATES_PLATFORM_HANDOVER_V1.md`](../governance/OPEN_GATES_PLATFORM_HANDOVER_V1.md)
@@ -82,7 +82,9 @@ Pick one. All of these work without Kris.
 | Action | Where | Needs Kris? |
 | --- | --- | --- |
 | Confirm chain + code at a claimed address | [/try.html](https://quantumpiforge.com/try.html) | No |
-| Try to break a frozen verification identity | [/attack-kit.html](https://quantumpiforge.com/attack-kit.html) | No |
+| **Canonical stranger VERIFY** (EXT-001) | [/attack-kit.html](https://quantumpiforge.com/attack-kit.html) | No |
+| Begin creating a counterpart | [/birth](https://quantumpiforge.com/birth) | No |
+| Meet / continue after birth | [/meet](https://quantumpiforge.com/meet) | No |
 | Read public contract inventory | [/deployed-addresses.html](https://quantumpiforge.com/deployed-addresses.html) | No |
 | Run local independent verification | `npm run verify:independent` from a clone | No |
 | File a verification report | [GitHub issues](https://github.com/onenoly1010/Quantum-pi-forge/issues/new) | No |
@@ -146,7 +148,7 @@ What a participant can create **today** without protocol economics:
 | A break / non-break of EXT-001 | `/attack-kit` | Supported |
 | An independent verification report | GitHub issue using the community template | Supported |
 | A packaged evidence request | `/verification-request` | Request supported; delivery is human labor |
-| A public verified-work object | [gist](https://gist.github.com/onenoly1010/f219c8b95f554b79896d3c94a016a07b) `qpfo0:7e3a6699…` | Observable and independently verifiable; **no customer / no payment / no revenue** |
+| A public verified-work object | [gist](https://gist.github.com/onenoly1010/f219c8b95f554b79896d3c94a016a07b) `qpfo0:ebda8d38…` | Observable; **as of 2026-09-18 published `artifact.bin` is base64 and fails verify — use `/attack-kit` for VERIFY PASS**; **no customer / no payment / no revenue** |
 | A local sovereign agent setup | repo installer / Ollama path | Experimental / local |
 | Protocol mint, LP position, yield share | — | **Not authorized** |
 
@@ -155,6 +157,8 @@ A created object can be real without being valuable. Value starts when an indepe
 ---
 
 ## 6. Verify
+
+**Canonical stranger VERIFY today:** https://quantumpiforge.com/attack-kit — `python3 verify.py` → ALL CHECKS PASSED / ESTABLISHED for EXT-001. The invitation gist is not VERIFY PASS until `artifact.bin` is raw bytes.
 
 Same boundary for humans, AIs, QPF, and the creator:
 
