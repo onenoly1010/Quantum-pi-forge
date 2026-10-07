@@ -1,13 +1,16 @@
 # 🎯 GRANT OPPORTUNITY TRACKER 2026
 
-Quantum Pi Forge | Prioritized Funding Pipeline
+Quantum Pi Forge | Funding & Program Tracking
 
 ---
 
-## ✅ COMPLETED
-| Program | Status | Amount |
-|---|---|---|
-| 0G Aristotle Grant | ✅ MILESTONES COMPLETE | $235,000 CAD |
+## 📋 STATUS OF PREVIOUS SUBMISSIONS
+
+| Program | Status | Amount | Verified Date |
+|---|---|---|---|
+| 0G Aristotle Grant (Guild #789) | **No award found.** The 0G Guild portal shows applications closed, as of 2026-09-25. | $0 received | 2026-09-25 |
+
+*Note: Application submitted 2026-04-17; milestones M1–M3 are self-attested. No grant allocation has been awarded or received.*
 
 ---
 
@@ -22,10 +25,10 @@ Quantum Pi Forge | Prioritized Funding Pipeline
 | **Focus:** | Decentralized AI, Agents, Infrastructure |
 | **Alignment Score:** | 98% |
 | **Deadline:** | Rolling |
-| **Status:** | ✅ ELIGIBLE |
+| **Status:** | ⏸️ APPLICATIONS CLOSED (Checked 2026-09-25) |
 | **Application Link:** | guild.0gfoundation.ai |
 
-✅ **Perfect Alignment Factors:**
+✅ **Alignment Factors:**
 - On-chain verification pipeline
 - Immutable economic invariants
 - Hardened state architecture
@@ -47,6 +50,7 @@ Quantum Pi Forge | Prioritized Funding Pipeline
 | **Status:** | 📋 PREPARE |
 
 ---
+
 
 ## 🎯 PRIORITY 2: L1 ECOSYSTEM GRANTS (Q3 2026)
 

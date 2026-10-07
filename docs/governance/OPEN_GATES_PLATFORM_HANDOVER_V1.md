@@ -6,6 +6,8 @@
 **Public door:** `/open.html`  
 **Machine-readable twin:** `deploy/open-gates-v1.json`
 
+> **⚠️ DEPLOY BRANCH LOCK (until PR #887 merges):** Deploy only from `feat/ext001-llms-faq` until PR #887 merges; `main` still carries the withdrawn $2/$5 copy. GitHub Actions is billing-locked, so every deploy is a manual upload from a local checkout — confirm the checkout branch before building.
+
 ```text
 CLASSIFICATION
   This file is operating doctrine plus current-baseline statements.
@@ -261,7 +263,7 @@ chain ID: 16661
 hex: 0x4115
 ```
 
-Current commercial direction:
+Current commercial direction (superseded 2026-09-25 — kept for the record, not the offer):
 
 ```text
 STANDARD: $2
@@ -271,9 +273,16 @@ FAILED = $0
 PAYMENT ≠ VERDICT
 ```
 
+This outcome-linked price — paid only when a check passed — was a fee for good
+verdicts, the exact thing the project forbids. It is withdrawn. The current
+offer is one flat fee, identical for ESTABLISHED, FAILED and UNKNOWN: CAD $250
+per claim plus optional CAD $100 priority scheduling, committed to the public
+registry before work begins.
+
 These are existing project facts and must not be inflated into claims of adoption or revenue.
 
-Self-serve inspection remains free. Payment, if it happens, is for packaged review labor after a result is ESTABLISHED. It is not a fee to exist, and it is not a fee to make a verdict true.
+Self-serve inspection remains free. Payment covers the work of testing,
+reproducing, and documenting a public claim — never the verdict.
 
 ---
 

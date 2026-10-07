@@ -26,9 +26,9 @@ Blockchain explorers **DO NOT INDEX** label prefixes like "SHA256 Hash: ". They 
 | Item | Status | Details |
 |---|---|---|
 | On-chain Submission | ✅ CONFIRMED | Transaction recorded successfully on 0G Storage Mainnet |
-| Grant Application | ⏳ PENDING REVIEW | Submitted 2026-04-17 |
-| Review Window | 1-14 days | Expected response by **May 1, 2026** |
-| Official Status Portal | 🔗 hall.0g.ai | Explorer will NOT show "Approved" status - only transaction success |
+| Grant Application | **No award found.** The 0G Guild portal shows applications closed, as of 2026-09-25. | Submitted 2026-04-17 |
+| Review Window | Closed without a decision reaching the applicant | Original expectation was response by **May 1, 2026** |
+| Official Status Portal | 🔗 guild.0gfoundation.ai (the hall.0g.ai post now returns 404) | Explorer will NOT show "Approved" status - only transaction success |
 
 ---
 

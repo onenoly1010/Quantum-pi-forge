@@ -198,14 +198,9 @@ Runs automatically every 30 minutes:
 
 ---
 
-## Pricing
+## Offline Dev Guardian (Paused)
 
-| Tier | Price | What's Included |
-|------|-------|-----------------|
-| Core | $29 | Installer + Configs + Guardian |
-| Pro | $49 | Everything + 5 practical workflows + lifetime minor updates |
-
-👉 **Get Offline Dev Guardian**: https://gumroad.com/l/offline-dev-guardian
+*Note: The previous dev kit distribution is currently paused pending clean-room re-verification.*
 
 ---
 

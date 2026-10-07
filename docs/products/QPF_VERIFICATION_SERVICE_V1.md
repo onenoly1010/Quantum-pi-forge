@@ -90,30 +90,51 @@ Verified AND not verified — always both.
 
 ---
 
-## Price (founder launch)
+## Price (outcome-independent flat fee, 2026-09-25)
 
-| Certificates | Price |
+| Item | Price |
 | --- | --- |
-| **First external (#001)** optional free founder cert | **$0** in exchange for **feedback** (5 criteria below) |
-| **#001–#003** paid founder validation | **$250–500 CAD** |
-| Early adopter | **$500 CAD** |
-| Standard | **$1,500 CAD** |
-| Continuous monitoring | **$500–1,000 CAD/month** |
+| **One claim · evidence package** | **CAD $250 flat** |
+| Priority scheduling (next available start slot only) | **+ CAD $100** |
 
-First goal: **prove exchange of value** (use · recommend · pay), not max revenue.  
-A free #001 that yields honest feedback is still a win. Payment is the stronger win.
+One currency, one fee, one offer. The fee is **identical** whether the verdict is
+`ESTABLISHED`, `FAILED`, or `UNKNOWN`: it pays for the work of testing,
+reproducing, and documenting one public claim. Payment never buys a verdict, a
+label, a delay, or a removal.
 
-Payment: off-chain invoice. Not mint/LP/token purchase.
+- **Withdrawn 2026-09-25:** the $2 / $5 USD offer ("pay after ESTABLISHED,
+  FAILED = $0"), which made revenue depend on the verdict — a fee for good
+  verdicts.
+- **Withdrawn 2026-09-25:** the $500 CAD founder certificate (`#001–#003`) and
+  the $1,500 CAD standard certificate. `/verification-certificate` now records
+  the withdrawal rather than deleting it.
+- **Not verified, not priced:** continuous monitoring and deeper protocol
+  review. No published price, and no demand evidence at any price.
+
+**Flow:** submit → intake (testable? if not, declined at no cost) → invoice →
+claim and scope committed to the public registry → review → public receipt.
+
+**Refunds:** none based on the outcome. If QPF does not deliver the receipt
+within 10 business days of public registration, the fee is refunded in full and
+the claim stays on the public record, marked `ABANDONED_OR_OVERDUE_BY_QPF`.
+
+Payment: manual off-chain invoice. Not mint/LP/token purchase. No card or crypto
+checkout exists yet.
+
+First goal is still **exchange of value** (use · recommend · pay), not max
+revenue. No sale has been established at any price.
 
 ---
 
 ## Request
 
-1. Email: `onenoly11@proton.me` · subject `QPF Verification Certificate`  
-2. Or form body on `/verification` (after deploy)  
-3. Human confirms fit + price  
-4. Delivery of certificate + evidence  
-5. Feedback: “This helped me because ______.”  
+1. Email: `onenoly11@proton.me` · subject `QPF verification review request`  
+2. Or use the prefilled form on `/verification-request`  
+3. Intake confirms the claim is testable against public artifacts; if it is not,
+   it is declined at no cost  
+4. Flat fee invoiced, then the claim and its scope are committed to the public
+   registry before any work begins  
+5. Evidence receipt published, stating what is verified and what is not  
 
 **AI prepares. Human authorizes** customer commitments and payments.
 
@@ -121,22 +142,22 @@ Payment: off-chain invoice. Not mint/LP/token purchase.
 
 ## Invite (5–10 targeted · not broadcast)
 
-**Easier first yes (recommended for #001):**
-
 ```text
-We built an open verification workflow that produces public evidence reports
-for deployed systems. We are looking for the first external project to verify.
+We built an open verification workflow that produces public evidence reports for
+deployed systems, and we are looking for the first external project to review.
 
-Would you like a free founder certificate in exchange for feedback?
+One claim, one flat fee of CAD $250, and the same fee whatever the finding is:
+ESTABLISHED, FAILED, or UNKNOWN. The claim and its scope go on the public record
+before any work starts, so nothing can be quietly dropped, and you can re-run the
+receipt yourself.
+
 We state what is verified AND what is not (roadmap, token value, adoption).
 No wallet required to engage.
 ```
 
-**Paid founder validation (also fine):**
-
-```text
-Same offer with founder pricing $250–500 CAD if you prefer a paid engagement.
-```
+Do not offer a free certificate, a discount for a favourable result, or a price
+that depends on the outcome. If a claim is untestable, decline it at intake at no
+cost rather than discounting it.
 
 ---
 

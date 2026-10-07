@@ -4,7 +4,7 @@
   "deploymentReference": "deploy/live-rpc-correspondence-v1.json",
   "compilerReference": "contracts/foundry.toml",
   "artifactDirectory": "contracts/out",
-  "artifactDirectoryPresent": false,
+  "artifactDirectoryPresent": true,
   "entries": [
     {
       "id": "0x75995ec0fdf881189850aed864cb3f43c0dfcb58",
@@ -15,7 +15,7 @@
       "artifactReference": "UNKNOWN",
       "compilerReference": "contracts/foundry.toml",
       "comparisonMethod": "Versioned Foundry compiler configuration is present; no versioned contracts/out artifact is available for normalized runtime-bytecode comparison.",
-      "gap": "The versioned contracts/out artifact directory is absent; recover declared deployment-era artifacts and compiler metadata."
+      "gap": "A versioned artifact mapping is required before bytecode identity can be compared."
     },
     {
       "id": "0x67ad7169184581f23d1e10b39d4eb4e98293e87a",
@@ -26,7 +26,7 @@
       "artifactReference": "UNKNOWN",
       "compilerReference": "contracts/foundry.toml",
       "comparisonMethod": "Versioned Foundry compiler configuration is present; no versioned contracts/out artifact is available for normalized runtime-bytecode comparison.",
-      "gap": "The versioned contracts/out artifact directory is absent; recover declared deployment-era artifacts and compiler metadata."
+      "gap": "A versioned artifact mapping is required before bytecode identity can be compared."
     },
     {
       "id": "0x5e50b92e57e854659f7d98c733088aabd551c49f",
@@ -37,7 +37,7 @@
       "artifactReference": "UNKNOWN",
       "compilerReference": "contracts/foundry.toml",
       "comparisonMethod": "Versioned Foundry compiler configuration is present; no versioned contracts/out artifact is available for normalized runtime-bytecode comparison.",
-      "gap": "The versioned contracts/out artifact directory is absent; recover declared deployment-era artifacts and compiler metadata."
+      "gap": "A versioned artifact mapping is required before bytecode identity can be compared."
     },
     {
       "id": "0x6011c341a01c80f489a5c3ab751987a55142f04e",
@@ -48,7 +48,7 @@
       "artifactReference": "UNKNOWN",
       "compilerReference": "contracts/foundry.toml",
       "comparisonMethod": "Versioned Foundry compiler configuration is present; no versioned contracts/out artifact is available for normalized runtime-bytecode comparison.",
-      "gap": "The versioned contracts/out artifact directory is absent; recover declared deployment-era artifacts and compiler metadata."
+      "gap": "A versioned artifact mapping is required before bytecode identity can be compared."
     },
     {
       "id": "0x215e28f94f68c70ea5b79d9fc062def4f7b7d3f8",
@@ -59,7 +59,7 @@
       "artifactReference": "UNKNOWN",
       "compilerReference": "contracts/foundry.toml",
       "comparisonMethod": "Versioned Foundry compiler configuration is present; no versioned contracts/out artifact is available for normalized runtime-bytecode comparison.",
-      "gap": "The versioned contracts/out artifact directory is absent; recover declared deployment-era artifacts and compiler metadata."
+      "gap": "A versioned artifact mapping is required before bytecode identity can be compared."
     },
     {
       "id": "0x2c70129e50bf88ecd59b89d63af2e8920acf3951",
@@ -70,7 +70,7 @@
       "artifactReference": "UNKNOWN",
       "compilerReference": "contracts/foundry.toml",
       "comparisonMethod": "Versioned Foundry compiler configuration is present; no versioned contracts/out artifact is available for normalized runtime-bytecode comparison.",
-      "gap": "The versioned contracts/out artifact directory is absent; recover declared deployment-era artifacts and compiler metadata."
+      "gap": "A versioned artifact mapping is required before bytecode identity can be compared."
     },
     {
       "id": "0x2067319dc61ccdcdcdc13abe0c72ea3d7318aaee",
@@ -81,7 +81,7 @@
       "artifactReference": "UNKNOWN",
       "compilerReference": "contracts/foundry.toml",
       "comparisonMethod": "Versioned Foundry compiler configuration is present; no versioned contracts/out artifact is available for normalized runtime-bytecode comparison.",
-      "gap": "The versioned contracts/out artifact directory is absent; recover declared deployment-era artifacts and compiler metadata."
+      "gap": "A versioned artifact mapping is required before bytecode identity can be compared."
     },
     {
       "id": "0x8d088b88219d072ab035502065ee2410c2cb4389",
@@ -92,7 +92,7 @@
       "artifactReference": "UNKNOWN",
       "compilerReference": "contracts/foundry.toml",
       "comparisonMethod": "Versioned Foundry compiler configuration is present; no versioned contracts/out artifact is available for normalized runtime-bytecode comparison.",
-      "gap": "The versioned contracts/out artifact directory is absent; recover declared deployment-era artifacts and compiler metadata."
+      "gap": "A versioned artifact mapping is required before bytecode identity can be compared."
     },
     {
       "id": "0x709f23c7a7172e137427576abb5eb8959e2a57c1",

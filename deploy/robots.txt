@@ -2,8 +2,8 @@ User-agent: *
 Allow: /
 
 # AI agents: start at /llms.txt for a runnable headless path (curl, no account, no wallet).
-# Human entry: /birth — watch an AI come to life (CREATE → VERIFY → MEET).
+# Human entry: / — the evidence receipt (ESTABLISHED / NOT ESTABLISHED / UNKNOWN). No wallet.
 
-# Sitemap for public entry surfaces (home, problems, try, verification, birth).
+# Sitemap for public entry surfaces (home, problems, try, verification, evidence).
 # Does not block deep pages; discovery priority is via sitemap ordering.
 Sitemap: https://quantumpiforge.com/sitemap.xml

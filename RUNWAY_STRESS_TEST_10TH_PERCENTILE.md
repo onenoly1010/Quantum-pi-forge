@@ -10,7 +10,7 @@ Worst case volume projection analysis. This document simulates protocol behaviou
 - **Price:** $0G token maintains current value, no appreciation
 - **Fees:** All fees remain at protocol minimums
 - **Costs:** No cost optimizations achieved
-- **Grant:** Full $235,000 CAD received
+- **Grant:** CAD $0 received. **No award found.** The 0G Guild portal shows applications closed, as of 2026-09-25. This model must not assume grant funds.
 
 ---
 
@@ -74,7 +74,7 @@ At 10th percentile volume, the system sustains itself in perpetuity with no addi
 | Operating Cash Flow Margin | +13.4% |
 | Minimum Viable Revenue Threshold | $1,000 CAD / month |
 | Current Operating Headroom | +15.5% above minimum threshold |
-| Grant Buffer Remaining | Full $235,000 CAD untouched |
+| Grant Buffer Remaining | CAD $0 — no grant has been awarded or received |
 
 ---
 
