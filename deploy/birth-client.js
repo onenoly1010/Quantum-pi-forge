@@ -86,13 +86,43 @@
     return btoa(bin).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/g, "");
   }
 
+  // In-flight guard: prevents concurrent WebAuthn ceremonies
+  let isAuthorizing = false;
+
   async function authorizeAndCreate() {
-    show("AUTH_REQUIRED");
+    // Feature detection: fail clearly if this browser/context cannot do WebAuthn.
+    // Checked before any lock/network work so unsupported browsers never flip UI state.
+    if (!window.PublicKeyCredential || !navigator.credentials || !navigator.credentials.create) {
+      show("AUTH_FAILED");
+      err.hidden = false;
+      err.textContent = "This browser cannot create a passkey (WebAuthn unavailable). Use a current Chrome, Firefox, Safari, or Edge over HTTPS on a device with a screen lock.";
+      return;
+    }
+
+    // Guard: prevent concurrent WebAuthn ceremonies
+    if (isAuthorizing) {
+      show("AUTH_FAILED");
+      err.hidden = false;
+      err.textContent = "Authorization already in progress. Please wait or try again.";
+      return;
+    }
+
+    const beginBtn = document.getElementById("begin");
+    if (beginBtn) {
+      isAuthorizing = true;
+      beginBtn.disabled = true;
+      beginBtn.textContent = "Confirming…";
+    }
+
+    // Show device confirmation status
+    show("AUTH_REQUIRED", "Confirm on your device…");
+
     const ch = await post("/birth/authorize", {});
     if (!ch.challenge) {
       show("AUTH_FAILED");
       err.hidden = false;
       err.textContent = ch.error || "authorize failed";
+      resetAuthorizing();
       return;
     }
     let cred;
@@ -118,7 +148,17 @@
     } catch (e) {
       show("AUTH_FAILED");
       err.hidden = false;
-      err.textContent = "Passkey authorization did not complete. " + (e.message || e);
+      // Distinguish error types for better user feedback
+      if (e.name === "InvalidStateError" || e.message?.includes("already pending")) {
+        err.textContent = "Authorization cancelled — a request was already pending. Please try again.";
+      } else if (e.name === "NotAllowedError") {
+        err.textContent = "Authorization denied. Please try again.";
+      } else if (e.name === "TimeoutError" || e.message?.includes("timeout")) {
+        err.textContent = "Authorization timed out. Please try again.";
+      } else {
+        err.textContent = "Passkey authorization did not complete. " + (e.message || e);
+      }
+      resetAuthorizing();
       return;
     }
     show("AUTHORIZED");
@@ -135,11 +175,23 @@
       show(created.state || "CREATION_FAILED");
       err.hidden = false;
       err.textContent = created.error || "create failed — HTTP success is not existence";
+      resetAuthorizing();
       return;
     }
     save(created.record);
     show("IDENTITY_CREATED");
+    resetAuthorizing();
     await attest();
+  }
+
+  // Reset UI state after authorization completes or fails
+  function resetAuthorizing() {
+    isAuthorizing = false;
+    const beginBtn = document.getElementById("begin");
+    if (beginBtn) {
+      beginBtn.disabled = false;
+      beginBtn.textContent = "BEGIN";
+    }
   }
 
   async function attest() {
@@ -156,7 +208,11 @@
     }
     if (out.message) {
       err.hidden = false;
-      err.textContent = out.message;
+      const reason = out.record && out.record.attestation && out.record.attestation.reason;
+      err.textContent =
+        out.message +
+        (reason ? "\nReason recorded by the verification service: " + reason : "") +
+        "\nNothing was fabricated, and you were never asked to fund a wallet. Open \u201cSEE WHAT HAPPENED\u201d for the full record.";
     }
   }
 
@@ -185,8 +241,10 @@
       birth_id: p.birth_id,
       state: p.state,
       identity_id: p.identity_id,
+      chain_id: p.chain_id,
       tx_hash: p.tx_hash,
       fabricated_tx: p.fabricated_tx,
+      verification_reason: (p.record && p.record.attestation && p.record.attestation.reason) || null,
       onchain: p.onchain,
       offchain: p.offchain,
       boundaries: p.boundaries,

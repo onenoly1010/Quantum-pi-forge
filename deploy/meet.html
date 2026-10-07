@@ -110,7 +110,30 @@ document.getElementById("cancel").onclick = () => {
 };
 document.getElementById("auth").onclick = async () => {
   const rec = await QpfFrontDoor.runAuthorized(constitution, pending.text, pending.p.proposal);
-  show("result", JSON.stringify(rec, null, 2));
+  const ev = rec.evidence || {};
+
+  const observed = [];
+  if (ev.eth_chainId) observed.push("chain id reported by the network: " + ev.eth_chainId + " (expected " + ev.expect + ")");
+  if (ev.http !== undefined) observed.push("the page answered with HTTP " + ev.http + (ev.title ? " — \u201c" + ev.title + "\u201d" : ""));
+  if (ev.object_id) observed.push("public object id: " + ev.object_id);
+  if (ev.name) observed.push("identity I read from my own constitution: " + ev.name + " (" + ev.role + ")");
+
+  let headline;
+  if (rec.executed && rec.verdict === "ESTABLISHED") {
+    headline = "Yes. I ran that check myself, using only the authority you just gave me, and it passed.";
+  } else if (rec.executed) {
+    headline = "I ran the check and it did NOT pass. I will not tell you it passed.";
+  } else {
+    headline = "I did not run anything. The constitution stopped the action.";
+  }
+
+  show("result",
+    headline + "\n\n" +
+    (observed.length ? "WHAT I ACTUALLY OBSERVED\n" + observed.map((o) => "\u00b7 " + o).join("\n") + "\n\n" : "") +
+    "WHAT I DID NOT DO\n\u00b7 no token was minted\n\u00b7 no wallet was touched, no payment was taken\n\u00b7 I did not store your message\n\n" +
+    "VERDICT\n" + rec.verdict + "\n\n" +
+    "TECHNICAL RECEIPT\n" + JSON.stringify(rec, null, 2)
+  );
   document.getElementById("actions").hidden = true;
 };
 </script>
