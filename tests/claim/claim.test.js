@@ -244,7 +244,7 @@ describe('PUT /api/claim (operator)', () => {
           unknown: ['Who deployed it.'],
           method: 'Three eth_* reads against a public RPC.',
           limits: 'Single RPC channel; point-in-time observation.',
-          receiptUrl: reg,
+          receiptUrl: `https://github.com/onenoly1010/qpf-verification-registry/blob/${'a'.repeat(40)}/receipts/${created.ref}.md`,
         },
       },
       { env },
@@ -255,7 +255,7 @@ describe('PUT /api/claim (operator)', () => {
     const data = await (await get(token, env)).json();
     assert.equal(data.claim.status, 'complete');
     assert.equal(data.claim.result.verified.length, 1);
-    assert.equal(data.claim.result.receiptUrl, reg);
+    assert.ok(data.claim.result.receiptUrl.endsWith(`/receipts/${created.ref}.md`));
     assert.equal(data.claim.registryUrl, reg);
   });
 
