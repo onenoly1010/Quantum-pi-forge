@@ -44,7 +44,13 @@ verifier producing a result, or an operator saying so, is not enough.
   `compare/main...<sha>` to report `identical` or `behind`, so a commit that
   exists only in a fork is rejected.
 - `registryUrl` is permanent once set; a registered claim cannot be `declined`.
-- `complete` is refused unless `receiptUrl` passes the same check.
+- `complete` is refused unless `receiptUrl` points to `receipts/<ref>.md`
+  and passes the same check. The registration row in `receipts/INDEX.md` is
+  not a receipt and is refused as one.
+- A `result` is accepted only together with `status: complete`; a result sent
+  with any other status is refused (409). GET returns a result only for a
+  `complete` claim, so nothing is shown privately before the public receipt
+  exists.
 - If the registry, the file, or the GitHub API cannot be reached or verified,
   including unauthenticated rate limits (60 requests/hour per IP), the PUT is
   refused. Retry later; never work around it.
@@ -62,7 +68,7 @@ Payment: the button on the page is **intentionally inert**
 | Private status page (noindex) | `deploy/claim-status.html` |
 | Build wiring | `scripts/build.js` (staticFiles + function copy) |
 | KV binding | `wrangler.pages.toml` → `QPF_CLAIMS` (id `f12af0792499477b8fa23b9d24c79d78`) |
-| Tests | `tests/claim/` (`node --test tests/claim/`; there is no `npm run test:claim` script) |
+| Tests | `tests/claim/` (`npm run test:claim`, i.e. `node --test tests/claim/`) |
 
 ## Activation checklist (human go required)
 
@@ -132,6 +138,8 @@ curl -X PUT https://quantumpiforge.com/api/claim \
 ### 2. Inspect, 3. Verify
 
 Run the review. The method and criteria do not change with the outcome.
+Do not send the result to the site yet: the code refuses a `result` until the
+claim is completed with its public receipt.
 
 ### 4. Public receipt
 
@@ -212,7 +220,7 @@ cannot run means the claim does not advance.
 
 ## Test evidence
 
-- `node --test tests/claim/` → 24/24 pass (validation, honeypot, rate limit,
+- `npm run test:claim` → 26/26 pass (validation, honeypot, rate limit,
   capability-link auth, admin auth, result round-trip, missing-config 503,
   closed-intake gate, v2 contract gates in `contract.test.js`)
 - Full local build (`node scripts/build.js`) green; `verify-entry-surfaces`
