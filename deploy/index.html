@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quantum Pi Forge — Know what is real before you trust a digital system</title>
-    <meta name="description" content="Know what is real before you trust a digital system. Bring one bounded claim and the public evidence behind it: QPF reports what the evidence establishes, what it does not establish, and what remains unknown. Free self-serve checks. Protocol mint, liquidity and yield not authorized.">
+    <title>Quantum Pi Forge — Check a claim. Get a receipt. No wallet.</title>
+    <meta name="description" content="The evidence receipt: one claim plus public evidence evaluated into ESTABLISHED, NOT ESTABLISHED, or UNKNOWN — inspectable and re-runnable. Everyday submission is not currently open. No account, no wallet, no payment. Protocol mint, liquidity and yield not authorized.">
     <link rel="canonical" href="https://quantumpiforge.com/">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://quantumpiforge.com/">
@@ -45,170 +45,124 @@
         <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-4 flex-wrap">
             <a href="/" class="text-white font-mono text-sm tracking-widest">QPF<span class="text-orange-500">://</span>QUANTUM-PI-FORGE</a>
             <nav class="flex items-center gap-3 flex-wrap" aria-label="Primary">
-                <a href="#verify" class="text-zinc-400 hover:text-white text-xs transition-all">Verification</a>
+                <a href="#results" class="text-zinc-400 hover:text-white text-xs transition-all">The receipt</a>
                 <a href="#method" class="text-zinc-400 hover:text-white text-xs transition-all">Method</a>
                 <a href="#checks" class="text-zinc-400 hover:text-white text-xs transition-all">What QPF verifies</a>
-                <a href="#try" class="text-zinc-400 hover:text-white text-xs transition-all">Try free</a>
+                <a href="#try" class="text-zinc-400 hover:text-white text-xs transition-all">How a receipt works</a>
                 <a href="#boundary" class="text-zinc-400 hover:text-white text-xs transition-all">Boundary</a>
                 <a href="/open.html" class="text-zinc-400 hover:text-white text-xs transition-all">Open gates</a>
                 <a href="/verification-request.html" class="btn-volcanic text-xs font-semibold transition-all px-3 py-1.5 rounded">Request Verification</a>
             </nav>
         </div>
     </header>
-    <!-- 1. HERO: know what is real before you trust it -->
+        <!-- 1. HERO: evidence receipt with three outcomes -->
     <section id="top" class="relative overflow-hidden border-b border-white/5">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,69,0,0.15),transparent_50%),radial-gradient(circle_at_70%_80%,rgba(139,92,246,0.12),transparent_50%)]"></div>
         <div class="relative max-w-5xl mx-auto px-6 pt-20 pb-20 text-center">
-            <p class="font-mono text-[0.7rem] tracking-[0.25em] text-orange-400 mb-6">QUANTUM PI FORGE · PUBLIC VERIFICATION</p>
+            <p class="font-mono text-[0.7rem] tracking-[0.25em] text-orange-400 mb-6">QUANTUM PI FORGE · EVIDENCE RECEIPT</p>
             <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6">
-                Know what is real<br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">before you trust it.</span>
+                Check a claim. Get a receipt. No wallet.
             </h1>
             <p class="text-lg md:text-xl text-zinc-400 max-w-3xl mx-auto mb-4">
-                Give QPF one bounded claim and the public evidence behind it — a repository, a deployment,
-                a contract, an AI-system claim, a launch.
+                The evidence receipt model: one claim plus public evidence — a repository, a deployment, a contract, an AI-system claim — evaluated into one of three outcomes: <strong>ESTABLISHED</strong>, <strong>NOT ESTABLISHED</strong>, or <strong>UNKNOWN</strong>. No account, no wallet, no payment.
             </p>
-            <p class="text-base text-zinc-300 max-w-3xl mx-auto mb-10 font-mono leading-relaxed">
-                Three answers, kept apart:<br>
-                <span class="text-emerald-400">what the evidence establishes</span> ·
-                <span class="text-amber-400">what it does not establish</span> ·
-                <span class="text-zinc-300">what remains unknown</span>
+            <p class="text-sm text-amber-300/90 border border-amber-500/40 bg-amber-500/10 rounded-xl px-4 py-3 max-w-3xl mx-auto mb-6">
+                <strong>Not currently open:</strong> everyday/private claims cannot be submitted today. No homeowner, buyer, seller, or other everyday user can file a claim on this site right now. This page explains the receipt model and shows a sample; everyday submission may come later.
+            </p>
+            <p class="text-xl text-zinc-300 max-w-3xl mx-auto mb-10 font-mono leading-relaxed">
+                NOT A GUESS. A RECEIPT.<br>
+                <span class="text-emerald-400">ESTABLISHED</span> · <span class="text-amber-400">NOT ESTABLISHED</span> · <span class="text-zinc-300">UNKNOWN</span>
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <a href="/try.html" class="btn-volcanic text-lg md:text-xl px-12 py-5 rounded-full">TRY A VERIFICATION</a>
-                <a href="/verification-artifact.html" class="btn-ghost px-12 py-5 rounded-full text-white text-lg">SEE THE PROOF</a>
+                <a href="#sample-receipt" class="btn-volcanic text-lg md:text-xl px-12 py-5 rounded-full">See a sample receipt</a>
+                <a href="#method" class="btn-ghost px-12 py-5 rounded-full text-white text-lg">SEE HOW IT WORKS</a>
             </div>
             <p class="font-mono text-xs text-zinc-500">
                 No wallet · no payment · no private keys · no trust required in the operator
             </p>
             <p class="text-sm text-zinc-500 mt-8">
-                <a href="#verify" class="text-orange-400 hover:underline">One worked example</a>
+                <a href="#try" class="text-orange-400 hover:underline">How a receipt works</a>
+                · <a href="#results" class="text-orange-400 hover:underline">The three outcomes</a>
                 · <a href="#method" class="text-orange-400 hover:underline">A claim is not evidence</a>
-                · <a href="#checks" class="text-orange-400 hover:underline">What QPF verifies</a>
                 · <a href="#boundary" class="text-orange-400 hover:underline">Where verification stops</a>
             </p>
         </div>
     </section>
-    <!-- 2. ONE CONCRETE VERIFICATION, END TO END -->
-    <section id="verify" class="py-20 border-b border-white/5 px-6 bg-black/20">
+
+    <!-- 2. HOW A RECEIPT WORKS (concept; everyday submission not currently open) -->
+    <section id="try" class="py-20 border-b border-white/5 px-6">
         <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-3 text-center">One claim, start to finish</h2>
-            <p class="text-zinc-400 text-center max-w-2xl mx-auto mb-10">
-                Not a promise — a published check you can re-run in about a minute from your own browser or from
-                <code class="font-mono text-orange-300 text-xs">curl</code>. Same claim, same evidence, same method, every time.
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-3 text-center">How a receipt works</h2>
+            <p class="text-zinc-400 text-center max-w-2xl mx-auto mb-4">
+                A receipt pairs one claim with the public evidence behind it. QPF checks what is actually inspectable and returns a receipt you can audit — not a verdict about you.
+            </p>
+            <p class="text-sm text-zinc-500 text-center max-w-2xl mx-auto mb-10">
+                This section describes the model. Everyday claim submission is not currently open — see the notice at the top of this page.
             </p>
 
-            <div class="grid md:grid-cols-4 gap-3 mb-8 text-sm">
-                <div class="border border-white/10 bg-white/5 rounded-xl p-5">
-                    <p class="font-mono text-[0.65rem] tracking-widest text-zinc-500 mb-2">CLAIM</p>
-                    <p class="text-zinc-300">On chain 16661, code exists at the address QPF publishes as its OINIO token.</p>
+            <div class="grid md:grid-cols-4 gap-4 mb-10 text-sm">
+                <div class="border border-white/10 bg-white/5 rounded-xl p-5 text-center">
+                    <p class="font-mono text-[0.65rem] tracking-widest text-orange-400 mb-2">1 · A CLAIM</p>
+                    <p class="text-zinc-300">One bounded claim plus its public evidence — a link, an address, a file.</p>
                 </div>
-                <div class="border border-white/10 bg-white/5 rounded-xl p-5">
-                    <p class="font-mono text-[0.65rem] tracking-widest text-zinc-500 mb-2">EVIDENCE</p>
-                    <p class="text-zinc-300">Public RPC responses: <code class="font-mono text-xs">eth_chainId</code>, <code class="font-mono text-xs">eth_getCode</code>, <code class="font-mono text-xs">eth_call</code> on the published pair.</p>
+                <div class="border border-white/10 bg-white/5 rounded-xl p-5 text-center">
+                    <p class="font-mono text-[0.65rem] tracking-widest text-orange-400 mb-2">2 · THE CHECK</p>
+                    <p class="text-zinc-300">QPF checks the evidence — not your character.</p>
                 </div>
-                <div class="border border-white/10 bg-white/5 rounded-xl p-5">
-                    <p class="font-mono text-[0.65rem] tracking-widest text-zinc-500 mb-2">VERIFICATION</p>
-                    <p class="text-zinc-300">Responses are read against stated expectations. Nothing is inferred from the claim itself.</p>
+                <div class="border border-white/10 bg-white/5 rounded-xl p-5 text-center">
+                    <p class="font-mono text-[0.65rem] tracking-widest text-orange-400 mb-2">3 · THE RECEIPT</p>
+                    <p class="text-zinc-300">One of three outcomes: ESTABLISHED, NOT ESTABLISHED, UNKNOWN.</p>
                 </div>
-                <div class="border border-orange-500/40 bg-white/5 rounded-xl p-5">
-                    <p class="font-mono text-[0.65rem] tracking-widest text-zinc-500 mb-2">AUTHORIZATION</p>
-                    <p class="text-zinc-300">Not produced here. A pass authorizes no action — see <a href="#boundary" class="text-orange-400 hover:underline">the boundary</a>.</p>
+                <div class="border border-white/10 bg-white/5 rounded-xl p-5 text-center">
+                    <p class="font-mono text-[0.65rem] tracking-widest text-orange-400 mb-2">NO WALLET</p>
+                    <p class="text-zinc-300">Free to inspect. Nothing is signed, nothing to install.</p>
                 </div>
             </div>
 
-            <div class="border border-emerald-500/30 bg-emerald-500/5 rounded-2xl p-6 md:p-8 mb-8">
-                <div class="flex flex-wrap items-center gap-3 mb-4">
-                    <span class="font-mono text-xs px-3 py-1 rounded-full border border-emerald-500/40 text-emerald-300">published record: pass</span>
-                    <span class="font-mono text-xs text-zinc-500">live_rpc observed at block 42346114 · chain 16661 · <a href="/verification-artifact.json" class="text-orange-400 hover:underline">machine copy</a></span>
-                </div>
-                <p class="text-sm text-zinc-400 mb-6">This is the published record with its stamp — not a reading taken from your screen. The button below re-runs the same three checks now, and the sealed first-pair state beneath it is the record that run is compared against.</p>
-                <p class="text-emerald-300 font-semibold mb-3">What the evidence establishes</p>
-                <ul class="text-zinc-300 space-y-2 text-sm mb-6 list-disc pl-5">
-                    <li>The RPC endpoint answers on chain id <code class="font-mono text-xs">0x4115</code> (16661) — the network QPF names.</li>
-                    <li>Bytecode is present at <code class="font-mono text-xs break-all">0x75995EC0fdf881189850aeD864cB3f43c0DFCb58</code> — a contract is deployed there, not an empty address.</li>
-                    <li>The published W0G/USDC.e pair reports reserves <code class="font-mono text-xs">0/0</code> — a pair exists with no liquidity seeded.</li>
-                </ul>
-                <p class="text-amber-300 font-semibold mb-3">What it does not establish</p>
-                <ul class="text-zinc-400 space-y-2 text-sm mb-6 list-disc pl-5">
-                    <li>That the deployed code matches any repository, or behaves the way any document describes.</li>
-                    <li>That the token has value, that liquidity is intended, or that mint, LP, yield or staking is authorized.</li>
-                    <li>That QPF's own product claims, customers, or revenue are established — those are separately reported as not established.</li>
-                </ul>
-                <p class="text-zinc-300 font-semibold mb-3">What remains unknown</p>
-                <p class="text-zinc-400 text-sm">Who deployed it, what the bytecode does beyond being present, and whether your check at your block height still passes. Unknown stays unknown — it is not filled in.</p>
-            </div>
-            <div class="border border-white/10 bg-black/40 rounded-2xl p-6 md:p-8 mb-8">
-                <h3 class="text-xl font-bold text-white mb-2">Run this check yourself</h3>
-                <p class="text-zinc-400 text-sm mb-6">Your browser calls the public RPC directly — three claim-bearing reads, plus block height and address balance for context. Nothing is sent to QPF, nothing is signed, no account is involved.</p>
-                <div class="flex flex-col sm:flex-row gap-3 items-stretch mb-4">
-                    <label class="flex-1">
-                        <span class="block font-mono text-[0.65rem] tracking-widest text-zinc-500 mb-1">ADDRESS TO CHECK</span>
-                        <input id="qpf-addr" type="text" spellcheck="false" autocomplete="off"
-                               value="0x75995EC0fdf881189850aeD864cB3f43c0DFCb58"
-                               class="w-full bg-white/5 border border-white/15 rounded-lg px-4 py-3 font-mono text-xs text-zinc-200">
-                    </label>
-                    <div class="flex items-end">
-                        <button id="qpf-run" type="button" class="btn-volcanic px-8 py-3 rounded-lg text-sm">RUN IT IN MY BROWSER</button>
+            <div id="sample-receipt" class="border border-white/10 bg-black/40 rounded-2xl p-6 md:p-8 mb-8">
+                <h3 class="text-xl font-bold text-white mb-2">Sample receipt: a worked example</h3>
+                <div class="grid md:grid-cols-4 gap-3 mb-6 text-sm">
+                    <div class="border border-white/10 bg-white/5 rounded-xl p-4">
+                        <p class="font-mono text-[0.65rem] tracking-widest text-zinc-500 mb-2">CLAIM</p>
+                        <p class="text-zinc-300">“On chain 16661, code exists at the address QPF publishes as its OINIO token.”</p>
+                    </div>
+                    <div class="border border-white/10 bg-white/5 rounded-xl p-4">
+                        <p class="font-mono text-[0.65rem] tracking-widest text-zinc-500 mb-2">EVIDENCE</p>
+                        <p class="text-zinc-300">Public RPC responses: <code class="font-mono text-xs">eth_chainId</code>, <code class="font-mono text-xs">eth_getCode</code>, <code class="font-mono text-xs">eth_call</code> on the published pair.</p>
+                    </div>
+                    <div class="border border-white/10 bg-white/5 rounded-xl p-4">
+                        <p class="font-mono text-[0.65rem] tracking-widest text-zinc-500 mb-2">CHECK</p>
+                        <p class="text-zinc-300">Responses are read against stated expectations. Nothing is inferred from the claim itself.</p>
+                    </div>
+                    <div class="border border-emerald-500/40 bg-white/5 rounded-xl p-4">
+                        <p class="font-mono text-[0.65rem] tracking-widest text-emerald-400 mb-2">RESULT</p>
+                        <p class="text-zinc-300"><span class="text-emerald-400 font-semibold">ESTABLISHED</span> — with stated limits: bytecode presence only, no value, no authorization.</p>
                     </div>
                 </div>
-                <p class="font-mono text-[0.7rem] text-zinc-500 mb-5">RPC <code>https://evmrpc.0g.ai</code> · expected chain <code>0x4115</code> (16661) · reserves are read from the published pair <code>0x2067319D…18AaeE</code></p>
-                <div id="qpf-out" class="font-mono text-xs text-zinc-300 leading-relaxed" aria-live="polite">Not run yet. The page makes no claim about the current state until you run it — what is printed above is the published record, not a live reading.</div>
-
-                <details class="mt-6">
-                    <summary class="cursor-pointer text-sm text-zinc-400 hover:text-zinc-200">Or run it with curl</summary>
-<pre class="code mt-4 text-zinc-400"># 1 — which network is this?
-curl -s -X POST https://evmrpc.0g.ai -H 'content-type: application/json' \
-  -d '{"jsonrpc":"2.0","id":1,"method":"eth_chainId","params":[]}'
-# expect 0x4115
-
-# 2 — is there code at the claimed address?
-curl -s -X POST https://evmrpc.0g.ai -H 'content-type: application/json' \
-  -d '{"jsonrpc":"2.0","id":1,"method":"eth_getCode","params":["0x75995EC0fdf881189850aeD864cB3f43c0DFCb58","latest"]}'
-# longer than "0x" → code present · "0x" → nothing deployed there
-
-# 3 — has liquidity been added to the published pair?
-curl -s -X POST https://evmrpc.0g.ai -H 'content-type: application/json' \
-  -d '{"jsonrpc":"2.0","id":1,"method":"eth_call","params":[{"to":"0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE","data":"0x0902f1ac"},"latest"]}'
-# all-zero words → reserves 0/0, liquidity not added</pre>
-                </details>
+                <p class="text-zinc-500 text-xs">Same claim, same evidence, same method, every time — re-runnable from your own browser or with <code class="font-mono text-xs">curl</code>. The published record, the machine copy, and the replay commands are linked from <a href="/verification-artifact.html" class="text-orange-400 hover:underline">the verification artifact</a>.</p>
             </div>
 
-                <div id="sealed-first-dex-pair-proof" data-status="FIRST_PAIR_FINAL_STATE_SEALED" data-factory="0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8" data-pair="0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE" data-tx="0x4f887876313a5085337ce22eac9418725558a91225096191057dd6d7d2e2f6a2" data-txblock="36238884" data-observed="36239555" class="border border-white/10 rounded-xl p-5 bg-black/30 font-mono text-[0.7rem] text-zinc-400 leading-relaxed break-all mb-3">
-                    <p class="text-zinc-500 tracking-widest mb-2">SEALED RECORD — HISTORICAL STATE, NOT A CURRENT READING</p>
-                    <p class="text-zinc-500 mb-3">stamped 2026-06-16T02:14:13.587Z · observed at block 36239555 · the baseline this run is compared against</p>
-                    status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FIRST_PAIR_FINAL_STATE_SEALED (PAIR_EXISTS_ZERO_RESERVES)<br>
-                    factory&nbsp;&nbsp;&nbsp;0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8<br>
-                    router&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x2c70129E50BF88eCD59b89d63af2e8920aCF3951<br>
-                    pair&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE (W0G/USDC.e) — reserves 0 / 0<br>
-                    tx&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x4f887876313a5085337ce22eac9418725558a91225096191057dd6d7d2e2f6a2 @ block 36238884<br>
-                    observed&nbsp;block 36239555 · 0G Aristotle Mainnet · chainId 16661 · 2026-06-16T02:14:13.587Z<br>
-                    bounds&nbsp;&nbsp;&nbsp;&nbsp;liquidityAdded false · broadcast false · approvals false · transfers false · createPairCalled false<br>
-                    note&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x709f23C7A7172E137427576abB5Eb8959E2A57c1 was once mislabeled as the pair; it is the ERC20 OINIO Token
-                </div>
-                <p class="text-xs text-zinc-500 mb-8">Two different things sit on this page and are never merged into one "current status" number: the <span class="text-zinc-300">sealed record</span> above (historical, stamped 2026-06-16) and the <span class="text-zinc-300">live observation</span> you produce below (current, one endpoint, one moment). A difference between them is a finding to publish, not a detail to edit away. The sealed record and its receipt are linked from <a href="/verification-artifact.html" class="text-orange-400 hover:underline">the verification artifact</a>.</p>
-
-            <div class="grid md:grid-cols-2 gap-4 text-sm">
-                <div class="border border-white/10 rounded-xl p-5">
-                    <p class="font-mono text-[0.65rem] tracking-widest text-zinc-500 mb-3">PUBLISHED IDENTITIES — live_rpc BLOCK OF THE ARTIFACT</p>
-                    <p class="font-mono text-[0.68rem] text-zinc-400 break-all mb-2">result&nbsp;&nbsp;qpfv0:ed6743e31e634732313a952d35b47d3d312f98b3d3551d41b999edce208665c4</p>
-                    <p class="font-mono text-[0.68rem] text-zinc-400 break-all">package qpfpkg0:e341b75ef3e2c05850df7670b2340f608fa67159e000b27b9c29011020bf4735</p>
-                    <p class="font-mono text-[0.68rem] text-zinc-500 break-all mt-2">artifact qpfv0:bedcd4e2abc96a0433fee195ffe5237d452c690f9c7b76285ee2a3b8a008988d</p>
-                </div>
-                <div class="border border-white/10 rounded-xl p-5">
-                    <p class="font-mono text-[0.65rem] tracking-widest text-zinc-500 mb-3">REPRODUCE IT, DON'T QUOTE IT</p>
-                    <p class="text-zinc-400 mb-3">The artifact, receipts, and replay commands are published. If the published evidence reproduces, you have evidence. If it does not, you have a break — and that is useful too.</p>
-                    <p class="text-sm">
-                        <a href="/verification-artifact.html" class="text-orange-400 hover:underline">Verification artifact</a> ·
-                        <a href="/verification-artifact.json" class="text-orange-400 hover:underline">machine copy</a> ·
-                        <a href="/attack-kit.html" class="text-orange-400 hover:underline">reproduce or break EXT-001</a>
-                    </p>
-                </div>
+            <div class="border border-white/10 bg-black/40 rounded-2xl p-6 md:p-8 mb-8">
+                <p class="font-mono text-[0.65rem] tracking-widest text-zinc-500 mb-3">RUN IT FROM A CLONE — NO ACCOUNT, NO WALLET, NO PERMISSION</p>
+<pre class="code text-zinc-400 mb-4">git clone https://github.com/onenoly1010/Quantum-pi-forge
+cd Quantum-pi-forge &amp;&amp; npm install
+npm run verify:independent</pre>
+                <p class="text-zinc-400 text-sm leading-relaxed">
+                    If the published evidence reproduces, you have evidence.
+                    If it does not, you have a break. Either result is useful, and either one gets filed —
+                    <a href="https://github.com/onenoly1010/Quantum-pi-forge/issues/new" class="text-orange-400 hover:underline">breaks are published, not buried</a>.
+                </p>
             </div>
 
+            <p class="text-center text-sm text-zinc-600">
+                <a href="/try.html" class="text-orange-400 hover:underline">Try a free check</a>
+                <span class="text-zinc-600"> · </span>
+                <a href="/attack-kit.html" class="text-orange-400 hover:underline">Reproduce or break EXT-001</a>
+                <span class="text-zinc-600"> · </span>
+                <a href="/verification-artifact.html" class="text-orange-400 hover:underline">Verification artifact</a>
+            </p>
         </div>
     </section>
-
     <!-- 3. A CLAIM IS NOT EVIDENCE -->
     <section id="method" class="py-20 border-b border-white/5 px-6">
         <div class="max-w-5xl mx-auto">
@@ -237,11 +191,13 @@ curl -s -X POST https://evmrpc.0g.ai -H 'content-type: application/json' \
                 <span class="text-orange-500 self-center">→</span>
                 <span class="chain-step rounded-lg px-5 py-4 text-white">VERIFICATION</span>
                 <span class="text-orange-500 self-center">→</span>
+                <span class="chain-step rounded-lg px-5 py-4 text-white">VERDICT</span>
+                <span class="text-orange-500 self-center">→</span>
                 <span class="chain-step rounded-lg px-5 py-4 border-orange-500/40 text-orange-200">AUTHORIZATION</span>
             </div>
 
             <div class="max-w-3xl mx-auto border-l-2 border-orange-500/60 pl-6 space-y-4 text-zinc-300">
-                <p>A verification receipt records <span class="text-emerald-300">what the evidence establishes</span>.</p>
+                <p>A verification receipt records <span class="text-emerald-300">what the evidence establishes</span> and returns exactly one of three outcomes: ESTABLISHED, NOT ESTABLISHED, UNKNOWN.</p>
                 <p>It does not promote that result into a wider claim.</p>
                 <p>It does not authorize an action.</p>
                 <p class="text-zinc-500 text-sm">The arrow stops where the evidence stops. Everything after it is a separate decision, made by a named human, in the open.</p>
@@ -347,74 +303,40 @@ npm run verify:independent</pre>
             </p>
         </div>
     </section>
-    <!-- 6. START WITH ONE CLAIM -->
-    <section id="try" class="py-20 border-b border-white/5 px-6 bg-black/20">
+    <!-- 7. THE EVIDENCE RECEIPT — THREE OUTCOMES -->
+    <section id="results" class="py-20 border-b border-white/5 px-6">
         <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 text-center">Start with one claim.</h2>
-            <p class="text-zinc-400 text-center max-w-2xl mx-auto mb-12">
-                You do not need to understand QPF first. You do not need a wallet, a token, or a relationship with the
-                operator. Bring one public claim and the evidence needed to inspect it.
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-3 text-center">The receipt has three outcomes</h2>
+            <p class="text-zinc-400 text-center max-w-2xl mx-auto mb-10">
+                What the evidence establishes. What it does not establish. What remains unknown. No fourth outcome, no silent default.
             </p>
 
-            <div class="grid md:grid-cols-2 gap-6 mb-10">
-                <a href="/try.html" class="p-6 border border-orange-500/30 rounded-xl volcanic-glow block bg-zinc-900/30">
-                    <p class="font-mono text-[0.65rem] tracking-widest text-orange-400 mb-3">FREE · ~5 MINUTES</p>
-                    <p class="text-white font-semibold text-lg mb-2">Try a verification</p>
-                    <p class="text-zinc-500 text-sm">Run the network and code-presence check on any address, in this browser or with curl. No account, nothing installed.</p>
-                </a>
-                <a href="/attack-kit.html" class="p-6 border border-white/10 rounded-xl glow-card block bg-zinc-900/30">
-                    <p class="font-mono text-[0.65rem] tracking-widest text-emerald-400 mb-3">FREE · REPRODUCIBLE</p>
-                    <p class="text-white font-semibold text-lg mb-2">Open the proof</p>
-                    <p class="text-zinc-500 text-sm">Re-run the frozen EXT-001 package and compare against the published expected identities.</p>
-                </a>
-                <a href="/birth.html" class="p-6 border border-white/10 rounded-xl glow-card block bg-zinc-900/30">
-                    <p class="font-mono text-[0.65rem] tracking-widest text-violet-400 mb-3">FREE · IN-BROWSER</p>
-                    <p class="text-white font-semibold text-lg mb-2">Watch an AI identity get formed and recorded</p>
-                    <p class="text-zinc-500 text-sm">A passkey signs the authorization; the returned record carries explicit limits — no economic authority, no autonomous execution, no network authority. If attestation cannot complete, it says so rather than inventing a transaction.</p>
-                </a>
-                <a href="/mint-ai.html" class="p-6 border border-white/10 rounded-xl glow-card block bg-zinc-900/30">
-                    <p class="font-mono text-[0.65rem] tracking-widest text-zinc-500 mb-3">A DIFFERENT DOOR</p>
-                    <p class="text-white font-semibold text-lg mb-2">Create a counterpart</p>
-                    <p class="text-zinc-500 text-sm">Creation is not verification. This is the door for building on the baseline, not for checking a claim.</p>
-                </a>
+            <div class="grid md:grid-cols-3 gap-6 mb-10">
+                <div class="border border-emerald-500/30 bg-emerald-500/5 rounded-2xl p-6 text-center">
+                    <p class="font-mono text-[0.65rem] tracking-widest text-emerald-400 mb-3">OUTCOME 1 · ESTABLISHED</p>
+                    <p class="text-xl font-bold text-white mb-2">The evidence supports the claim.</p>
+                    <p class="text-zinc-400 text-sm">The checks ran against public evidence and matched the stated expectations — with the limits of those checks written on the receipt.</p>
+                </div>
+                <div class="border border-amber-500/30 bg-amber-500/5 rounded-2xl p-6 text-center">
+                    <p class="font-mono text-[0.65rem] tracking-widest text-amber-400 mb-3">OUTCOME 2 · NOT ESTABLISHED</p>
+                    <p class="text-xl font-bold text-white mb-2">The evidence does not support the claim.</p>
+                    <p class="text-zinc-400 text-sm">The checks ran and the claim failed them — or the published record contradicts it. This is about the claim, never about the person who made it.</p>
+                </div>
+                <div class="border border-white/10 bg-white/5 rounded-2xl p-6 text-center">
+                    <p class="font-mono text-[0.65rem] tracking-widest text-zinc-300 mb-3">OUTCOME 3 · UNKNOWN</p>
+                    <p class="text-xl font-bold text-white mb-2">The evidence cannot say.</p>
+                    <p class="text-zinc-400 text-sm">UNKNOWN is a legitimate result, not a failure and not a gap to be filled with a guess. A receipt that says UNKNOWN keeps its boundary; one that invents certainty does not.</p>
+                </div>
             </div>
 
-            <p class="text-center text-sm text-zinc-500">
-                <a href="/open.html" class="text-orange-400 hover:underline">Open gates — what is open, what is not</a> ·
-                <a href="/meet.html" class="text-orange-400 hover:underline">Meet a co-creator</a> ·
-                <a href="/for-builders.html" class="text-orange-400 hover:underline">For builders</a> ·
-                <a href="/human-onboarding.html" class="text-orange-400 hover:underline">New here</a>
-            </p>
-        </div>
-    </section>
-
-    <!-- 7. FORMAL EVIDENCE PACKAGE -->
-    <section id="package" class="py-20 border-b border-white/5 px-6">
-        <div class="max-w-4xl mx-auto">
-            <div class="border border-orange-500/30 rounded-2xl p-8 md:p-12 volcanic-glow bg-white/5">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 text-center">Need a formal evidence package?</h2>
-                <p class="text-zinc-400 text-center mb-8">
-                    Request a bounded verification review. You receive the claim, the evidence, the checks run, the
-                    findings, and the limits — in one inspectable package, published either way.
+            <div class="border border-white/10 bg-black/40 rounded-2xl p-6 md:p-8 text-sm text-zinc-400">
+                <p class="mb-3"><span class="text-white font-semibold">Claimed ≠ evidence ≠ verified ≠ authorized.</span> The receipt records what the evidence establishes — nothing more, and it never authorizes an action.</p>
+                <p><span class="text-white font-semibold">Free to check yourself:</span>
+                    <a href="/try.html" class="text-orange-400 hover:underline">self-serve check</a> ·
+                    <a href="/verification-artifact.html" class="text-orange-400 hover:underline">machine copy of a published receipt</a> ·
+                    <a href="/attack-kit.html" class="text-orange-400 hover:underline">reproduce or break EXT-001</a> ·
+                    <a href="/open.html" class="text-orange-400 hover:underline">open gates</a>
                 </p>
-                <ul class="max-w-xl mx-auto space-y-2 text-sm text-zinc-300 mb-8">
-                    <li><span class="text-orange-400 font-mono text-xs">01</span> One claim, stated so it could be wrong.</li>
-                    <li><span class="text-orange-400 font-mono text-xs">02</span> Named evidence channels, including the weakest one.</li>
-                    <li><span class="text-orange-400 font-mono text-xs">03</span> Checks and result: ESTABLISHED, FAILED, or UNKNOWN.</li>
-                    <li><span class="text-orange-400 font-mono text-xs">04</span> What it does not establish, and what needs separate authorization.</li>
-                </ul>
-                <div class="text-center">
-                    <a href="/verification-request.html" class="btn-volcanic text-lg px-12 py-4 rounded-full inline-block mb-4">REQUEST VERIFICATION</a>
-                    <p class="font-mono text-xs text-zinc-500 max-w-2xl mx-auto">
-                        Self-serve inspection and the review result are free. The evidence package is one flat fee
-                        per claim —
-                        <span class="text-zinc-300">CAD $250</span>, priority scheduling CAD $100 —
-                        and it is the same for ESTABLISHED, FAILED and UNKNOWN. Current terms, receipt template and
-                        refund condition on <a href="/open.html" class="text-orange-400 hover:underline">the open offer</a>
-                        (<a href="/open-gates-v1.json" class="text-orange-400 hover:underline">machine copy</a>).
-                        It is an offer, not a sale: no sale has been established at any price.
-                    </p>
-                </div>
             </div>
         </div>
     </section>
@@ -424,7 +346,7 @@ npm run verify:independent</pre>
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 text-center">Verification is not authorization.</h2>
             <p class="text-zinc-400 text-center max-w-2xl mx-auto mb-12">
                 QPF can establish what the evidence supports. It does not decide that the next irreversible action
-                should happen. That boundary stays explicit, on every page and in every package.
+                should happen. That boundary stays explicit, on every page and in every receipt.
             </p>
 
             <div class="grid sm:grid-cols-3 gap-4 mb-12 text-center font-mono text-sm">
@@ -464,13 +386,6 @@ npm run verify:independent</pre>
                         Deployment places code on-chain; activation requires a separate authorization.
                         Published status record: <a href="/verification-status-v1.json" class="text-orange-400 hover:underline">verification-status-v1.json</a>.
                     </p>
-                    <p class="text-xs text-zinc-500 mt-2">
-                        As published 2026-09-28: Phase 8.5 Round 1 is <span class="text-amber-300 font-mono">WINDOW_EXPIRED</span>
-                        — 0/3 eligible reports, hard close 2026-08-29 passed without quorum, so no "externally settled" claim is made
-                        for that round — while public mint, liquidity and yield/staking remain
-                        <span class="text-amber-300 font-mono">NOT_AUTHORIZED</span>.
-                    </p>
-                    <div id="qpf-status-record" class="font-mono text-[0.68rem] text-zinc-600 mt-2" aria-live="polite"></div>
                 </div>
             </div>
         </div>
@@ -496,7 +411,6 @@ npm run verify:independent</pre>
                     <p class="font-mono text-[0.65rem] tracking-widest text-zinc-500 mb-3">BUILD</p>
                     <ul class="space-y-2">
                         <li><a href="/for-builders.html" class="text-zinc-400 hover:text-white">For builders</a></li>
-                        <li><a href="/birth.html" class="text-zinc-400 hover:text-white">Birth an identity</a></li>
                         <li><a href="/mint-ai.html" class="text-zinc-400 hover:text-white">Create a counterpart</a></li>
                         <li><a href="/meet.html" class="text-zinc-400 hover:text-white">Meet a co-creator</a></li>
                     </ul>
@@ -543,178 +457,6 @@ npm run verify:independent</pre>
         window.FORGE_DEX_FACTORY_ADDRESS = "0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8";
         window.FORGE_DEX_ROUTER_ADDRESS = "0x2c70129E50BF88eCD59b89d63af2e8920aCF3951";
         window.FORGE_LIQUIDITY_PAIR_ADDRESS = "0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE";
-        var btn = document.getElementById("qpf-run");
-        var out = document.getElementById("qpf-out");
-        var input = document.getElementById("qpf-addr");
-        if (!btn || !out || !input) return;
-        var PASS = "text-emerald-400", FAIL = "text-rose-400", WARN = "text-amber-400", UNK = "text-zinc-400";
-        var SEAL = window.FORGE_FIRST_PAIR_FINAL_STATE_SEAL;
-        var PAIR = window.FORGE_LIQUIDITY_PAIR_ADDRESS;
-
-        // The visible sealed block and the receipt-derived object above must agree.
-        // If the receipt is updated and the page text is not, say so on the page
-        // rather than letting the two drift apart quietly.
-        (function checkSealText() {
-            var el = document.getElementById("sealed-first-dex-pair-proof");
-            if (!el) return;
-            var fields = [
-                ["data-status", SEAL.status], ["data-factory", SEAL.factory], ["data-pair", SEAL.pairAddress],
-                ["data-tx", SEAL.txHash], ["data-txblock", String(SEAL.txBlockNumber)], ["data-observed", String(SEAL.observedBlockNumber)]
-            ];
-            var drift = fields.filter(function (f) { return el.getAttribute(f[0]) !== f[1]; });
-            if (!drift.length) return;
-            var note = document.createElement("p");
-            note.className = "text-amber-400 mt-3";
-            note.textContent = "SEAL TEXT DRIFT — this block disagrees with window.FORGE_FIRST_PAIR_FINAL_STATE_SEAL on " +
-                drift.length + " field(s). Re-run node scripts/update-v2-public-first-pair-status-v1.cjs and verify again.";
-            el.appendChild(note);
-        })();
-
-        // The published status record is read from the file itself, so this page cannot
-        // keep presenting a round state that the machine-readable record no longer supports.
-        (function statusRecord() {
-            var el = document.getElementById("qpf-status-record");
-            if (!el) return;
-            fetch("/verification-status-v1.json", { cache: "no-store" })
-                .then(function (r) {
-                    if (!r.ok) throw new Error("HTTP " + r.status);
-                    return r.json();
-                })
-                .then(function (s) {
-                    var p = s.phase || {};
-                    var econ = s.economic || {};
-                    var src = s.source || {};
-                    var round = p["8_5_status"] || "unknown";
-                    var hardMs = Date.parse(p["8_5_hard_sla_utc"] || "");
-                    el.textContent = "record stamped " + (s.updated_at_utc || "unknown") +
-                        " · source tip " + (src.main_commit_short || "unknown") + "\n" +
-                        "Phase 8.5 Round 1: " + round + " · " + (p["8_5_eligible_reports_n"] || 0) + "/" +
-                        (p["8_5_quorum_m"] || "?") + " eligible reports · hard close " +
-                        (p["8_5_hard_sla_utc"] || "unknown") + "\n" +
-                        "mint " + (econ.public_mint || "unknown") + " · liquidity " + (econ.liquidity || "unknown") +
-                        " · yield/staking " + (econ.yield_staking_bridge || "unknown");
-                    el.style.whiteSpace = "pre-line";
-                    if (round === "OPEN" && Number.isFinite(hardMs) && Date.now() > hardMs) {
-                        var flag = document.createElement("div");
-                        flag.className = "text-rose-400 mt-2";
-                        flag.textContent = "STALE STATUS RECORD — the published file still says OPEN after its own hard close of " +
-                            p["8_5_hard_sla_utc"] + ". Treat the round as expired until a newer record is published.";
-                        el.parentNode.insertBefore(flag, el.nextSibling);
-                    }
-                })
-                .catch(function (err) {
-                    el.textContent = "status record not readable from this browser (" + err.message +
-                        ") — the published line above stands as the record.";
-                });
-        })();
-
-        function esc(s) {
-            return String(s).replace(/[&<>"]/g, function (c) {
-                return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
-            });
-        }
-        function post(method, params) {
-            return fetch(RPC, {
-                method: "POST",
-                headers: { "content-type": "application/json" },
-                body: JSON.stringify({ jsonrpc: "2.0", id: 1, method: method, params: params })
-            }).then(function (r) {
-                if (!r.ok) throw new Error("HTTP " + r.status);
-                return r.json();
-            }).then(function (j) {
-                if (j.error) throw new Error(j.error.message || "RPC error");
-                if (typeof j.result === "undefined") throw new Error("empty result");
-                return j.result;
-            });
-        }
-        function byteLen(hex) {
-            var h = String(hex).replace(/^0x/i, "");
-            if (!/^([0-9a-fA-F]{2})*$/.test(h)) return null;
-            return h.length / 2;
-        }
-        function word(result, index) {
-            var data = String(result).replace(/^0x/i, "");
-            var w = data.slice(index * 64, index * 64 + 64);
-            if (w.length !== 64) return null;
-            try { return BigInt("0x" + w).toString(); } catch (e) { return null; }
-        }
-        function ether(wei) {
-            var w;
-            try { w = BigInt(wei); } catch (e) { return null; }
-            var whole = w / 1000000000000000000n;
-            var frac = (w % 1000000000000000000n) / 1000000000000n;
-            return whole.toString() + "." + frac.toString().padStart(6, "0");
-        }
-        function rows(list) {
-            return list.map(function (r) {
-                return '<div class="mb-2"><span class="text-zinc-500">' + esc(r[0]) + '</span> ' +
-                       '<span class="' + (r[2] || "text-zinc-200") + '">' + esc(r[1]) + '</span></div>';
-            }).join("");
-        }
-        function finish(started, list) {
-            list.push(["read path", "one public RPC endpoint, one moment, no consensus check", WARN]);
-            list.push(["elapsed", started.toFixed(0) + " ms", UNK]);
-            out.innerHTML = '<div class="text-zinc-300 mb-1">LIVE OBSERVATION — this browser, now</div>' +
-                '<div class="text-zinc-500 mb-3">read at ' + esc(new Date().toISOString()) + ' · one endpoint ' + esc(RPC) +
-                ' · compared against the sealed historical record below</div>' + rows(list) +
-                '<div class="mt-3 text-zinc-500">Establishes: what these reads returned from one RPC endpoint at one moment. ' +
-                'Does not establish: liquidity, authorization, asset backing, or value. A live reading never overrides the ' +
-                'published record — see <a href="/verification-artifact.html" class="text-orange-400 hover:underline">the artifact</a> ' +
-                'and <a href="/deployed-addresses.html" class="text-orange-400 hover:underline">the address report</a>.</div>';
-            btn.disabled = false;
-            btn.textContent = "RUN IT IN MY BROWSER";
-        }
-        btn.addEventListener("click", function () {
-            var addr = String(input.value || "").trim();
-            var t0 = performance.now();
-            var list = [];
-            function elapsed() { return performance.now() - t0; }
-            function unknown(label) {
-                return function (err) {
-                    list.push([label, "UNKNOWN — transport error: " + (err && err.message ? err.message : String(err)), UNK]);
-                };
-            }
-            btn.disabled = true;
-            btn.textContent = "RUNNING…";
-            out.innerHTML = '<span class="text-zinc-500">contacting ' + esc(RPC) + ' …</span>';
-            if (!/^0x[0-9a-fA-F]{40}$/.test(addr)) {
-                finish(elapsed(), [
-                    ["address rejected", "expected 0x followed by 40 hex characters", FAIL],
-                    ["note", "no request was sent; the value in the box was not used", UNK]
-                ]);
-                return;
-            }
-            post("eth_chainId", []).then(function (chain) {
-                var ok = String(chain).toLowerCase() === EXPECTED_CHAIN;
-                list.push(["eth_chainId", chain + " (" + parseInt(chain, 16) + ") " +
-                    (ok ? "= published record 0x4115" : "does not match published record 0x4115"), ok ? PASS : FAIL]);
-            }).catch(unknown("eth_chainId")).then(function () {
-                return post("eth_getCode", [addr, "latest"]).then(function (code) {
-                    var n = byteLen(code);
-                    if (n === null) list.push(["eth_getCode", "malformed response", UNK]);
-                    else if (n === 0) list.push(["eth_getCode", "0x — no code at this address (FAIL)", FAIL]);
-                    else list.push(["eth_getCode", "code present — " + n + " bytes (PASS)", PASS]);
-                }).catch(unknown("eth_getCode"));
-            }).then(function () {
-                return post("eth_getBalance", [addr, "latest"]).then(function (bal) {
-                    var e = ether(bal);
-                    list.push(["eth_getBalance", (e === null ? String(bal) : e) +
-                        " chain-native units at this address (a value, not asset backing)", UNK]);
-                }).catch(unknown("eth_getBalance"));
-            }).then(function () {
-                return post("eth_blockNumber", []).then(function (bn) {
-                    list.push(["eth_blockNumber", bn + " (" + parseInt(bn, 16) + ") — sealed record observed at " +
-                        SEAL.observedBlockNumber, UNK]);
-                }).catch(unknown("eth_blockNumber"));
-            }).then(function () {
-                return post("eth_call", [{ to: PAIR, data: "0x0902f1ac" }, "latest"]).then(function (res) {
-                    var r0 = word(res, 0), r1 = word(res, 1);
-                    if (r0 === null || r1 === null) list.push(["getReserves(pair)", "malformed response", UNK]);
-                    else if (r0 === "0" && r1 === "0") list.push(["getReserves(pair)", "0 / 0 — matches the published seal (liquidity not added)", PASS]);
-                    else list.push(["getReserves(pair)", r0 + " / " + r1 + " — differs from the published seal, which records 0 / 0 at block " + SEAL.observedBlockNumber, FAIL]);
-                }).catch(unknown("getReserves"));
-            }).then(function () { finish(elapsed(), list); });
-        });
     })();
     </script>
 </body>
