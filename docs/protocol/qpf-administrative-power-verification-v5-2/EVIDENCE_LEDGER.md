@@ -1,5 +1,9 @@
 # Evidence Ledger
 
+## Related
+
+- [Verification & Auditability Evidence Scorecard V1](../../governance/VERIFICATION_AUDITABILITY_SCORECARD_V1.md) — minimum defensible bar for any maturity or auditability assessment of QPF.
+
 ## Status
 
 Append-only raw-artifact ledger for the QPF Administrative Power Verification Protocol v5.2.
