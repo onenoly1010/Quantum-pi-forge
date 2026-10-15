@@ -1,4 +1,4 @@
-name = "quantum-pi-forge-fixed"
+name = "quantum-pi-forge"
 pages_build_output_dir = "./out"
 compatibility_date = "2026-04-04"
 
@@ -12,4 +12,3 @@ ENVIRONMENT = "production"
 [[kv_namespaces]]
 binding = "SOUL_METADATA"
 id = "c2ee9447ec994c5d9ef09020c24ff887"
-
