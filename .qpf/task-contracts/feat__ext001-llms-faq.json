@@ -9,6 +9,7 @@
   ],
   "allowedPaths": [
     ".qpf/task-contracts/feat__ext001-llms-faq.json",
+    ".buildkite/pipeline.yml",
     "0G_BLOCKCHAIN_VERIFICATION_FIX_GUIDE.md",
     "0G_GRANT_STATUS_TRACKING.md",
     "0G_HALL_POST_FINAL.md",
@@ -98,5 +99,5 @@
     "deploying to Cloudflare Pages",
     "removing the deploy branch lock"
   ],
-  "notes": "wrangler.pages.toml and scripts/deploy-cloudflare-pages.sh are allowed only because #887 already changes them (QPF_CLAIMS KV binding; refuse-main deploy lock). Contract written 2026-10-17 after the fact; it lists exactly origin/main...feat/ext001-llms-faq at 6f1e113 plus itself. Residual stale $2/$5 USD and $500 CAD references on deploy/open.html, verification-request.html and verification.html are removed by the stacked PR #904, not here."
+  "notes": "wrangler.pages.toml and scripts/deploy-cloudflare-pages.sh are allowed only because #887 already changes them (QPF_CLAIMS KV binding; refuse-main deploy lock). Contract written 2026-10-17 after the fact; it lists exactly origin/main...feat/ext001-llms-faq at 6f1e113 plus itself. Residual stale $2/$5 USD and $500 CAD references on deploy/open.html, verification-request.html and verification.html are removed by the stacked PR #904, not here. .buildkite/pipeline.yml added 2026-10-17 (Kris-approved): Buildkite mirror of the Operating Model workflow (Verify All / Publication Scope) while GitHub Actions is billing-locked."
 }
