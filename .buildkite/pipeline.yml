@@ -1,0 +1,63 @@
+# Buildkite mirror of .github/workflows/operating-model.yml ("Operating Model"),
+# used while GitHub Actions is billing-locked. Each step posts a GitHub commit
+# status whose context matches main's required checks exactly.
+#
+# Pipeline settings (Buildkite UI) that must accompany this file:
+#   - Repository provider: GitHub (full-access GitHub App), so hosted agents can clone.
+#   - GitHub settings: "Build when pull request is opened or updated" ON,
+#     "Build branches" limited to main, "Update commit statuses" OFF
+#     (statuses come only from the notify blocks below).
+#
+# $$ defers variable expansion to job runtime (not pipeline upload time).
+
+agents:
+  queue: "linux-small"   # Buildkite hosted Linux queue key; Free plan = Small (LINUX_AMD64_2X4). Confirm key after queue creation.
+
+# actions/setup-node node-version "22" (repo .nvmrc / .node-version = 22).
+image: "node:22-bookworm"
+
+steps:
+  # GHA job verify-all: runs on pull_request -> main and on push -> main.
+  - label: "Verify All"
+    key: "verify-all"
+    if: build.branch == "main" || build.pull_request.base_branch == "main"
+    timeout_in_minutes: 15
+    command: |
+      set -euo pipefail
+      node --version
+      npm --version
+      npm ci
+      npm run verify:all
+    notify:
+      - github_commit_status:
+          context: "Verify All"
+
+  # GHA job publication-scope: pull_request events only, base = PR base branch.
+  - label: "Publication Scope"
+    key: "publication-scope"
+    if: build.pull_request.id != null && build.pull_request.base_branch == "main"
+    timeout_in_minutes: 5
+    command: |
+      set -euo pipefail
+      HEAD_REF="$${BUILDKITE_BRANCH}"
+      BASE_REF="$${BUILDKITE_PULL_REQUEST_BASE_BRANCH}"
+      # actions/checkout fetch-depth: 0 equivalent: make sure full history and origin/<base> exist.
+      git fetch --no-tags --prune origin "+refs/heads/$${BASE_REF}:refs/remotes/origin/$${BASE_REF}"
+      if [ "$$(git rev-parse --is-shallow-repository)" = "true" ]; then git fetch --unshallow --no-tags origin; fi
+      npm ci
+      # Resolve task contract (same rule as the GHA "Resolve task contract" step).
+      contract=".qpf/task-contracts/$${HEAD_REF//\//__}.json"
+      if [[ "$${HEAD_REF}" == dependabot/* && ! -f "$${contract}" ]]; then
+        contract=""
+      elif [[ ! -f "$${contract}" ]]; then
+        echo "Missing task contract: $${contract}" >&2
+        exit 1
+      fi
+      args=(--branch "$${HEAD_REF}" --base "origin/$${BASE_REF}")
+      if [[ -n "$${contract}" ]]; then
+        args+=(--contract "$${contract}")
+      fi
+      npm run verify:publication-scope -- "$${args[@]}"
+    notify:
+      - github_commit_status:
+          context: "Publication Scope"
