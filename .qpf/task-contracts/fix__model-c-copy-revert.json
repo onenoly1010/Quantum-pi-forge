@@ -8,6 +8,7 @@
   ],
   "allowedPaths": [
     ".qpf/task-contracts/fix__model-c-copy-revert.json",
+    ".buildkite/pipeline.yml",
     "deploy/claim-client.js",
     "deploy/claim-status.html",
     "deploy/open-gates-v1.json",
@@ -55,5 +56,6 @@
   "authorizationRequired": [
     "deploying to Cloudflare Pages",
     "merging to main"
-  ]
+  ],
+  "notes": ".buildkite/pipeline.yml added 2026-10-17 (Kris-approved): Buildkite mirror of the Operating Model workflow (Verify All / Publication Scope) while GitHub Actions is billing-locked."
 }
