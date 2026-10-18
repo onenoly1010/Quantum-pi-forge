@@ -176,19 +176,31 @@ Reviewer SSOT: [`docs/review/VERIFICATION_STATUS_TABLE_V1.md`](../review/VERIFIC
 
 Self-serve inspection is free. QPF does not charge a fee to exist as an inspectable fact.
 
-Current public commercial direction for a packaged review (labor around the protocol, not payment for truth):
+Current public commercial direction for a packaged review (labor, never the verdict):
+
+```text
+ONE CLAIM · ONE FLAT FEE
+CAD $250 flat per claim
+CAD $100 priority scheduling (next available start slot only)
+SAME FEE FOR ESTABLISHED / FAILED / UNKNOWN
+ALWAYS PUBLISHED · NO OPT-OUT
+PAYMENT ≠ VERDICT
+```
+
+Earlier direction (superseded 2026-09-25 — kept for the record, not the offer):
 
 ```text
 STANDARD: $2
 EXPEDITED: $5
 PAY AFTER ESTABLISHED
 FAILED = $0
-PAYMENT ≠ VERDICT
 ```
 
-This is an **offer**. It is not evidence of a customer, a sale, or a market.
+That price depended on the verdict, which is a fee for good verdicts, so it was
+withdrawn. This is an **offer**. It is not evidence of a customer, a sale, or a market.
 
-Older certificate pages may still mention founder $500 CAD. Treat that as historical product copy until those pages are updated. Do not treat either price as revenue.
+The $500 CAD founder certificate is likewise withdrawn; `/verification-certificate`
+now records the withdrawal. Do not treat any withdrawn price as revenue.
 
 Optional CAD $1+ support of demonstrated work lives at [/support.html](https://quantumpiforge.com/support.html). That is support, not protocol mint, and not market validation.
 

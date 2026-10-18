@@ -3,873 +3,461 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quantum Pi Forge — Know what is real before you trust a digital system</title>
-    <meta name="description" content="Know what is real before you trust a digital system. Free self-serve verification checks, problem guides, and evidence packages. Protocol mint/staking not authorized.">
+    <title>Quantum Pi Forge — Check a claim. Get a receipt. No wallet.</title>
+    <meta name="description" content="The evidence receipt: one claim plus public evidence evaluated into ESTABLISHED, NOT ESTABLISHED, or UNKNOWN — inspectable and re-runnable. Everyday submission is not currently open. No account, no wallet, no payment. Protocol mint, liquidity and yield not authorized.">
     <link rel="canonical" href="https://quantumpiforge.com/">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://quantumpiforge.com/">
-    <meta property="og:title" content="Quantum Pi Forge — Know what is real before you trust a digital system">
-    <meta property="og:description" content="Free self-serve verification checks and evidence packages. What is live, what is locked, what we did not verify.">
+    <meta property="og:title" content="Quantum Pi Forge — Know what is real before you trust it">
+    <meta property="og:description" content="Claim, evidence, verification and authorization kept separate. Free self-serve checks, public evidence trail, explicit boundaries.">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Quantum Pi Forge — verify before you trust">
-    <meta name="twitter:description" content="Free self-serve deployment checks. Protocol mint/LP not authorized.">
+    <meta name="twitter:title" content="Quantum Pi Forge — Know what is real before you trust it">
+    <meta name="twitter:description" content="What the evidence establishes. What it does not. What remains unknown. No wallet, no payment, no trust in the operator.">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;800&display=swap');
         body { background-color: #050505; color: #d4d4d8; font-family: 'Inter', sans-serif; }
         .font-mono { font-family: 'Fira Code', monospace; }
-        .glow-card:hover { border-color: rgba(59, 130, 246, 0.5); box-shadow: 0 0 20px rgba(59, 130, 246, 0.1); transform: translateY(-2px); }
-
-        /* 🌋 Volcanic Epoch v0.0.4 Proposal Forge Styles */
-        .resonance-stats { 
-          background: rgba(255, 69, 0, 0.1); 
-          padding: 12px; 
-          border-radius: 6px; 
-          margin-bottom: 16px; 
-          font-size: 0.95rem;
-        }
-        .highlight { color: #ff4500; font-weight: bold; }
-        .forge-input, .forge-select, .forge-textarea {
-          width: 100%;
-          margin-bottom: 12px;
-          padding: 12px;
-          background: #1a1a1f;
-          border: 1px solid #ff4500;
-          color: #ddd;
-          border-radius: 4px;
-          box-sizing: border-box;
-        }
+        .glow-card:hover { border-color: rgba(255, 138, 0, 0.45); box-shadow: 0 0 20px rgba(255, 69, 0, 0.12); transform: translateY(-2px); }
         .btn-volcanic {
-          background: linear-gradient(90deg, #ff4500, #ff8c00);
-          color: white;
-          font-weight: bold;
-          padding: 12px 24px;
-          border: none;
-          border-radius: 4px;
-          cursor: pointer;
-          transition: all 0.2s;
+            background: linear-gradient(90deg, #ff4500, #ff8c00);
+            color: #fff; font-weight: 700; display: inline-block;
+            transition: all 0.2s; text-align: center;
         }
-        .btn-volcanic:hover {
-          transform: translateY(-1px);
-          box-shadow: 0 4px 12px rgba(255, 69, 0, 0.3);
-        }
-        .btn-cancel {
-          background: transparent;
-          color: #888;
-          border: 1px solid #333;
-          padding: 12px 24px;
-          border-radius: 4px;
-          cursor: pointer;
-        }
-        .forge-modal {
-          position: fixed;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          background: #0a0a0f;
-          border: 2px solid #ff4500;
-          border-radius: 8px;
-          padding: 24px;
-          max-width: 520px;
-          width: 90%;
-          box-shadow: 0 0 60px rgba(255, 69, 0, 0.2);
-        }
-        .volcanic-glow {
-          animation: forgePulse 2s infinite alternate;
-        }
+        .btn-volcanic:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(255, 69, 0, 0.35); }
+        .btn-ghost { display: inline-block; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.05); transition: all 0.2s; text-align: center; }
+        .btn-ghost:hover { background: rgba(255,255,255,0.1); }
+        .chain-step { border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.05); }
+        .volcanic-glow { animation: forgePulse 2s infinite alternate; }
         @keyframes forgePulse {
-          0% { box-shadow: 0 0 30px rgba(255, 69, 0, 0.15); }
-          100% { box-shadow: 0 0 60px rgba(255, 69, 0, 0.35); }
+            0% { box-shadow: 0 0 30px rgba(255, 69, 0, 0.12); }
+            100% { box-shadow: 0 0 45px rgba(255, 69, 0, 0.28); }
         }
-        .modal-actions {
-          display: flex;
-          gap: 12px;
-          margin-top: 20px;
-          justify-content: flex-end;
-        }
-        .forge-textarea {
-          min-height: 120px;
-          resize: vertical;
-        }
-
-        .question-card {
-          transition: all 0.3s ease;
-        }
-        .question-card:hover {
-          background: rgba(255,255,255,0.03);
-          transform: translateY(-3px);
-        }
+        pre.code { background: #0a0a0f; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 14px; font-size: 0.72rem; overflow-x: auto; white-space: pre; }
+        a { text-decoration: none; }
+        :target { scroll-margin-top: 96px; }
     </style>
 </head>
-<body class="antialiased selection:bg-blue-500/30">
-    <nav class="border-b border-white/5 bg-black/50 backdrop-blur-md fixed w-full z-50">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center text-sm font-mono text-zinc-400">
-            <div class="flex items-center gap-2">
-                <span class="text-blue-500">π</span>
-                <span class="font-bold text-zinc-200 tracking-tight">Quantum Pi Forge</span>
-            </div>
-            <div class="flex items-center gap-3">
-                <a href="/problems/" class="text-zinc-400 hover:text-white text-xs transition-all">Problems</a>
-                <a href="/open.html" class="text-zinc-400 hover:text-white text-xs transition-all">Open</a>
-                <a href="/mint-ai.html" class="text-zinc-400 hover:text-white text-xs transition-all">Mint AI</a>
-                <a href="/meet.html" class="text-zinc-400 hover:text-white text-xs transition-all">Meet</a>
-                <a href="/try.html" class="text-zinc-400 hover:text-white text-xs transition-all">Try free</a>
-                <a href="/for-builders.html" class="text-zinc-400 hover:text-white text-xs transition-all">For Builders</a>
-                <a href="/deployed-addresses.html" class="text-zinc-400 hover:text-white text-xs transition-all">Contracts</a>
-                <a href="/support.html" class="text-zinc-400 hover:text-white text-xs transition-all">Support</a>
-                <a href="/verification-artifact.html" class="text-zinc-400 hover:text-white text-xs transition-all">Inspect</a>
-                <a href="/verification-request.html" class="text-orange-400 hover:text-orange-300 text-xs transition-all font-semibold">Request Verification</a>
-                <a href="https://github.com/onenoly1010/Quantum-pi-forge" target="_blank" rel="noopener" class="text-zinc-400 hover:text-white text-xs transition-all">GitHub</a>
-                <span class="flex items-center gap-2 text-emerald-400 ml-2">
-                    <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span></span>
-                    LIVE ON 0G ARISTOTLE
-                </span>
-            </div>
-        </div>
-    </nav>
+<body class="antialiased">
 
-    <!-- REAL-TIME TRUST BAR -->
-    <div class="fixed top-16 left-0 right-0 z-40 bg-black/70 backdrop-blur-md border-b border-white/5 overflow-hidden">
-        <div class="animate-marquee whitespace-nowrap py-2">
-            <span class="inline-block mx-8 font-mono text-sm">
-                <span class="text-purple-400">●</span> SYSTEM STATUS: <span class="text-emerald-400">VERIFY BEFORE TRUST</span>
-            </span>
-            <span class="inline-block mx-8 font-mono text-sm">
-                <span class="text-orange-400">●</span> NETWORK: 0G ARISTOTLE MAINNET (16661)
-            </span>
-        </div>
-    </div>
-
-    <style>
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        .animate-marquee {
-            animation: marquee 30s linear infinite;
-            width: 200%;
-        }
-    </style>
-
-    <!-- HERO: what · proof · one action (commercial CTA; not protocol economics) -->
-    <header class="pt-52 pb-20 px-6 max-w-7xl mx-auto text-center relative">
-        <div class="absolute inset-0 bg-gradient-to-b from-blue-900/5 via-transparent to-transparent pointer-events-none"></div>
-
-        <div class="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-10 md:p-14 shadow-2xl shadow-blue-900/10 max-w-4xl mx-auto">
-            <div class="inline-block px-4 py-1 text-xs font-mono text-emerald-400 border border-emerald-500/20 bg-emerald-500/10 rounded mb-6 uppercase tracking-wider">
-                0G Aristotle · Chain 16661 · Technical layer live
-            </div>
-
-            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight">
-                Watch your AI come to life.
-            </h1>
-
-            <p class="text-xl md:text-2xl text-zinc-300 mb-4 max-w-3xl mx-auto leading-relaxed">
-                Create an AI with its own identity, history, and boundaries. Witness its creation. Verify it. Meet it.
-            </p>
-            <p class="text-zinc-500 font-mono text-sm mb-10">
-                No upfront cost · No wallet · No API keys for you to manage
-                · Protocol token mint / LP / yield not authorized
-
-            </p>
-
-            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a href="/birth.html" class="btn-volcanic text-lg md:text-xl px-12 py-5 rounded-full inline-block">
-                    Begin
-                </a>
-                <a href="/mint-ai.html" class="px-12 py-5 rounded-full bg-white/5 border border-white/10 text-white text-lg hover:bg-white/10 transition-all">
-                    Device mint
-                </a>
-                <a href="/meet.html" class="px-12 py-5 rounded-full bg-white/5 border border-white/10 text-white text-lg hover:bg-white/10 transition-all">
-                    Meet the QPF AI
-                </a>
-            </div>
-            <p class="mt-8 text-sm text-zinc-500 max-w-2xl mx-auto">
-                Know what is real before you trust a digital system.
-                After birth, you can inspect proof and meet the QPF AI. No fabricated hashes.
-                <a href="/try.html" class="text-orange-400 hover:underline">Self-serve verify</a>
-                · <a href="/open.html" class="text-orange-400 hover:underline">Open gates</a>
-                · <a href="/problems/" class="text-orange-400 hover:underline">I have a specific problem</a>
-            </p>
+    <!-- NAV: every route here already exists on this domain -->
+    <header class="sticky top-0 z-50 backdrop-blur-xl bg-black/80 border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-4 flex-wrap">
+            <a href="/" class="text-white font-mono text-sm tracking-widest">QPF<span class="text-orange-500">://</span>QUANTUM-PI-FORGE</a>
+            <nav class="flex items-center gap-3 flex-wrap" aria-label="Primary">
+                <a href="#results" class="text-zinc-400 hover:text-white text-xs transition-all">The receipt</a>
+                <a href="#method" class="text-zinc-400 hover:text-white text-xs transition-all">Method</a>
+                <a href="#checks" class="text-zinc-400 hover:text-white text-xs transition-all">What QPF verifies</a>
+                <a href="#try" class="text-zinc-400 hover:text-white text-xs transition-all">How a receipt works</a>
+                <a href="#boundary" class="text-zinc-400 hover:text-white text-xs transition-all">Boundary</a>
+                <a href="/open.html" class="text-zinc-400 hover:text-white text-xs transition-all">Open gates</a>
+                <a href="/verification-request.html" class="btn-volcanic text-xs font-semibold transition-all px-3 py-1.5 rounded">Request Verification</a>
+            </nav>
         </div>
     </header>
-
-    <!-- START: proof + work-with + roadmap (single commercial CTA; mint/stake demoted) -->
-    <section id="activation" class="py-20 border-t border-white/5 px-6 bg-black/20">
-        <div class="max-w-5xl mx-auto space-y-16">
-
-            <!-- 1) Proof it works -->
-            <div id="proof-strip" class="scroll-mt-28">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6 text-center">Proof it works</h2>
-                <ul class="space-y-3 text-zinc-300 max-w-3xl mx-auto text-lg">
-                    <li class="flex gap-3"><span class="text-emerald-400 shrink-0">✓</span><span>Contracts live on <strong class="text-white">0G Aristotle</strong> (chain ID <strong class="text-white">16661</strong>)</span></li>
-                    <li class="flex gap-3"><span class="text-emerald-400 shrink-0">✓</span><span>Public inventory: <a href="/deployed-addresses.html" class="text-orange-400 hover:text-orange-300 underline">deployed addresses</a> — claim → evidence → verification</span></li>
-                    <li class="flex gap-3"><span class="text-emerald-400 shrink-0">✓</span><span>Independent verification Round 1 open (read-only; no wallet required)</span></li>
-                    <li class="flex gap-3"><span class="text-emerald-400 shrink-0">✓</span><span>DEX pair published with <strong class="text-white">empty reserves by design</strong> until separate authorization</span></li>
-                    <li class="flex gap-3"><span class="text-emerald-400 shrink-0">✓</span><span>Source: <a href="https://github.com/onenoly1010/Quantum-pi-forge" class="text-orange-400 hover:text-orange-300 underline" target="_blank" rel="noopener">onenoly1010/Quantum-pi-forge</a></span></li>
-                </ul>
-                <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 font-mono text-sm max-w-3xl mx-auto">
-                    <div class="bg-white/5 border border-white/10 rounded-lg p-3">Technical layer: <span class="text-emerald-400">live</span></div>
-                    <div class="bg-white/5 border border-white/10 rounded-lg p-3">Protocol economics: <span class="text-amber-400">not authorized</span></div>
-                    <div class="bg-white/5 border border-white/10 rounded-lg p-3">Mint / staking / LP: <span class="text-amber-400">roadmap only</span></div>
-                    <div class="bg-white/5 border border-white/10 rounded-lg p-3">Self-serve verify: <span class="text-emerald-400"><a href="/try.html" class="text-emerald-400 underline">/try</a></span></div>
-                </div>
-                <div class="mt-10 max-w-3xl mx-auto">
-                    <h3 class="text-lg font-semibold text-white mb-3 text-center">Common problems</h3>
-                    <ul class="grid sm:grid-cols-2 gap-2 text-sm text-zinc-400">
-                        <li><a class="text-orange-400 hover:underline" href="/problems/verify-github-repo.html">Verify a GitHub repo before using it</a></li>
-                        <li><a class="text-orange-400 hover:underline" href="/problems/prove-deployment-matches-source.html">Prove a deployment matches source</a></li>
-                        <li><a class="text-orange-400 hover:underline" href="/problems/audit-smart-contract-release.html">Check a smart contract release</a></li>
-                        <li><a class="text-orange-400 hover:underline" href="/problems/evidence-package-ai-result.html">Evidence for AI-system claims</a></li>
-                    </ul>
-                    <p class="text-center mt-4"><a href="/problems/" class="text-xs font-mono text-zinc-500 hover:text-zinc-300">All problem guides →</a></p>
-                </div>
+        <!-- 1. HERO: evidence receipt with three outcomes -->
+    <section id="top" class="relative overflow-hidden border-b border-white/5">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,69,0,0.15),transparent_50%),radial-gradient(circle_at_70%_80%,rgba(139,92,246,0.12),transparent_50%)]"></div>
+        <div class="relative max-w-5xl mx-auto px-6 pt-20 pb-20 text-center">
+            <p class="font-mono text-[0.7rem] tracking-[0.25em] text-orange-400 mb-6">QUANTUM PI FORGE · EVIDENCE RECEIPT</p>
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6">
+                Check a claim. Get a receipt. No wallet.
+            </h1>
+            <p class="text-lg md:text-xl text-zinc-400 max-w-3xl mx-auto mb-4">
+                The evidence receipt model: one claim plus public evidence — a repository, a deployment, a contract, an AI-system claim — evaluated into one of three outcomes: <strong>ESTABLISHED</strong>, <strong>NOT ESTABLISHED</strong>, or <strong>UNKNOWN</strong>. No account, no wallet, no payment.
+            </p>
+            <p class="text-sm text-amber-300/90 border border-amber-500/40 bg-amber-500/10 rounded-xl px-4 py-3 max-w-3xl mx-auto mb-6">
+                <strong>Not currently open:</strong> everyday/private claims cannot be submitted today. No homeowner, buyer, seller, or other everyday user can file a claim on this site right now. This page explains the receipt model and shows a sample; everyday submission may come later.
+            </p>
+            <p class="text-xl text-zinc-300 max-w-3xl mx-auto mb-10 font-mono leading-relaxed">
+                NOT A GUESS. A RECEIPT.<br>
+                <span class="text-emerald-400">ESTABLISHED</span> · <span class="text-amber-400">NOT ESTABLISHED</span> · <span class="text-zinc-300">UNKNOWN</span>
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+                <a href="#sample-receipt" class="btn-volcanic text-lg md:text-xl px-12 py-5 rounded-full">See a sample receipt</a>
+                <a href="#method" class="btn-ghost px-12 py-5 rounded-full text-white text-lg">SEE HOW IT WORKS</a>
             </div>
-
-            <!-- 2) One commercial action -->
-            <div id="work-with" class="bg-white/5 border border-orange-500/30 rounded-2xl p-8 md:p-12 volcanic-glow">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 text-center">Need a formal evidence package?</h2>
-                <p class="text-zinc-400 text-center mb-8 max-w-2xl mx-auto">
-                    Free self-serve checks first. When you need a dated report with labels for what is verified and what is not — request a review.
-                    Protocol mint/LP stay locked.
-                </p>
-                <ul class="grid sm:grid-cols-2 gap-3 text-zinc-300 max-w-2xl mx-auto mb-10">
-                    <li class="bg-black/40 rounded-lg px-4 py-3 border border-white/5">Pre-activation verification certificate</li>
-                    <li class="bg-black/40 rounded-lg px-4 py-3 border border-white/5">Claim → evidence → risk labels</li>
-                    <li class="bg-black/40 rounded-lg px-4 py-3 border border-white/5">Independent re-check methods</li>
-                    <li class="bg-black/40 rounded-lg px-4 py-3 border border-white/5">No wallet required to request</li>
-                </ul>
-                <div class="text-center flex flex-col sm:flex-row gap-3 justify-center items-center">
-                    <a href="/try.html" class="px-10 py-4 rounded-full bg-white/5 border border-white/10 text-white text-lg hover:bg-white/10 transition-all">Try free first</a>
-                    <a href="/verification-request.html" class="btn-volcanic text-lg px-12 py-4 rounded-full inline-block">Request a verification review</a>
-                </div>
-                <p class="mt-4 text-xs font-mono text-zinc-500 text-center">Submit one public claim and the references needed to inspect it.</p>
-            </div>
-
-            <!-- 3) Protocol economics demoted to roadmap -->
-            <div id="protocol-roadmap" class="border border-white/10 rounded-2xl p-8 bg-black/30">
-                <h2 class="text-2xl font-bold text-white mb-4 text-center">Protocol economics (roadmap — not live)</h2>
-                <p class="text-zinc-400 text-center mb-6 max-w-2xl mx-auto">
-                    Public mint, staking, liquidity seeding, and yield are
-                    <strong class="text-zinc-200">intentionally not authorized</strong>
-                    until independent verification milestones and a separate governance GO are complete.
-                </p>
-                <ul class="max-w-md mx-auto space-y-2 text-zinc-400 font-mono text-sm">
-                    <li>• Mint — not open</li>
-                    <li>• Staking — execution disabled</li>
-                    <li>• Liquidity — pair exists; reserves 0/0</li>
-                    <li>• Yield — gated on live evidence + GO</li>
-                </ul>
-                <p class="text-center mt-6 text-sm text-zinc-500">
-                    See <a href="/deployed-addresses.html" class="text-orange-400 hover:underline">deployed addresses</a>
-                    and <a href="/for-builders.html" class="text-orange-400 hover:underline">for builders</a>
-                    for the verification path.
-                </p>
-            </div>
-
-            <!-- Optional: local agent (not a payment CTA) -->
-            <div class="bg-white/5 border border-white/10 rounded-2xl p-8">
-                <h3 class="text-xl font-bold text-white mb-3 text-center">Optional: run a local sovereign agent</h3>
-                <p class="text-zinc-500 text-center text-sm mb-4">Free / self-hosted — not a protocol yield product.</p>
-                <div class="font-mono bg-black/50 p-4 rounded text-sm space-y-1 max-w-xl mx-auto text-zinc-400">
-                    <div class="text-green-400">curl -fsSL https://ollama.com/install.sh | sh</div>
-                    <div class="text-green-400">ollama pull qwen2.5-coder</div>
-                </div>
-            </div>
-
-            <!-- Footer boundary -->
-            <div class="border border-white/10 rounded-xl p-6 text-center text-sm text-zinc-500 max-w-3xl mx-auto">
-                <strong class="text-zinc-300">Not economic activation.</strong>
-                This site describes technical and operational readiness.
-                Working with QPF (services / support) can generate project revenue
-                before protocol economic features are activated.
-                No wallet signing, mint, liquidity, or staking is required to verify or contact us.
-            </div>
-
+            <p class="font-mono text-xs text-zinc-500">
+                No wallet · no payment · no private keys · no trust required in the operator
+            </p>
+            <p class="text-sm text-zinc-500 mt-8">
+                <a href="#try" class="text-orange-400 hover:underline">How a receipt works</a>
+                · <a href="#results" class="text-orange-400 hover:underline">The three outcomes</a>
+                · <a href="#method" class="text-orange-400 hover:underline">A claim is not evidence</a>
+                · <a href="#boundary" class="text-orange-400 hover:underline">Where verification stops</a>
+            </p>
         </div>
     </section>
 
-    <!-- VERIFIED ON-CHAIN INFRASTRUCTURE -->
-    <section id="verification" class="py-24 border-t border-white/5 px-6">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold text-white mb-4 text-center">Verified On-chain Infrastructure</h2>
-            <p class="text-zinc-400 text-center mb-12">Published 0G Aristotle contracts and sealed DEX evidence</p>
-
-            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <div class="p-6 border border-emerald-500/30 rounded-xl bg-emerald-500/5">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="text-emerald-400 text-2xl">◆</div>
-                        <div class="font-mono text-sm text-emerald-400">DEX PAIR: W0G/USDC.e (EMPTY)</div>
-                    </div>
-                    <div class="font-mono text-white mb-2">0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE</div>
-                    <div class="text-zinc-400 text-sm mb-4">Canonical UniswapV2 pair • Reserves 0/0 • Not a token contract</div>
-                    <div class="text-xs font-mono text-zinc-500">FACTORY 0x215E…D3F8 • 0G ARISTOTLE 16661</div>
-                </div>
-
-                <div class="p-6 border border-blue-500/30 rounded-xl bg-blue-500/5">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="text-blue-400 text-2xl">◆</div>
-                        <div class="font-mono text-sm text-blue-400">LIQUIDITY: NOT ADDED</div>
-                    </div>
-                    <div class="font-mono text-white mb-2">0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE</div>
-                    <div class="text-zinc-400 text-sm mb-4">Router 0x2c70…3951 • Seed gated until multi-sig + funding</div>
-                    <div class="text-xs font-mono text-zinc-500">Prior mislabel 0x709f… was ERC20 OINIO Token, not a pair</div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- PROOF STRIP - LIVE ON-CHAIN -->
-    <div id="proof-strip" style="display:flex; gap:24px; justify-content:center; flex-wrap:wrap; font-size:1.1rem; margin:40px 0; scroll-margin-top:120px;">
-      <div><strong>Liquidity:</strong> <span id="liquidity">Pending Activation</span> <span id="liquidity-change" style="color:#ffaa00">(treasury not seeded)</span></div>
-      <div><strong>LP Pair (W0G/USDC.e):</strong> <span id="lp-pair">0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE</span></div>
-      <div id="sealed-first-dex-pair-proof" class="text-xs font-mono text-zinc-400 break-all">PAIR_EXISTS_ZERO_RESERVES<br>Factory: 0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8<br>Router: 0x2c70129E50BF88eCD59b89d63af2e8920aCF3951<br>Pair: 0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE (W0G/USDC.e)<br>Liquidity: not added<br>Note: 0x709f23… is ERC20 OINIO Token, not a V2 pair</div>
-      <div><strong>Wallets connected:</strong> <span id="wallets">0</span> <span id="connected-wallet" style="font-size:0.8rem;opacity:0.6"></span></div>
-      <div><strong>Governance Weight:</strong> <span id="governance-weight">Pending Wallet</span></div>
-      <div><strong>iNFT minting:</strong> <span id="infts">Not publicly open</span></div>
-      <div><strong>0G Block Height:</strong> <span id="block">—</span></div>
-    </div>
-    <p style="font-size:0.8rem; opacity:0.6; margin-top:8px; text-align:center;">
-      Read-only 0G Aristotle status • No public minting or liquidity onboarding claimed
-    </p>
-
-    <!-- CALL TO ACTION -->
-    <section id="enter" class="py-28 border-t border-white/5 px-6">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">The evidence is public.</h2>
-            <h2 class="text-4xl md:text-5xl font-bold text-orange-400 mb-12">Come try to break it.</h2>
-            
-            <p class="text-xl text-zinc-400 mb-10 max-w-2xl mx-auto">
-                Every claim on this page points to bytes you can inspect yourself: contracts, addresses, and digests on 0G Aristotle (chain 16661).
+    <!-- 2. HOW A RECEIPT WORKS (concept; everyday submission not currently open) -->
+    <section id="try" class="py-20 border-b border-white/5 px-6">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-3 text-center">How a receipt works</h2>
+            <p class="text-zinc-400 text-center max-w-2xl mx-auto mb-4">
+                A receipt pairs one claim with the public evidence behind it. QPF checks what is actually inspectable and returns a receipt you can audit — not a verdict about you.
+            </p>
+            <p class="text-sm text-zinc-500 text-center max-w-2xl mx-auto mb-10">
+                This section describes the model. Everyday claim submission is not currently open — see the notice at the top of this page.
             </p>
 
-            <div class="mb-16">
-                <a href="/attack-kit.html" class="inline-block px-10 py-4 rounded-xl bg-emerald-500/20 border border-emerald-500/40 hover:bg-emerald-500/30 transition-all text-white text-lg font-bold">
-                    Open the attack kit — break EXT-001 yourself
-                </a>
-                <p class="text-zinc-500 text-sm mt-3">Two commands. No wallet, no clone. Mismatch = break, and breaks are published.</p>
+            <div class="grid md:grid-cols-4 gap-4 mb-10 text-sm">
+                <div class="border border-white/10 bg-white/5 rounded-xl p-5 text-center">
+                    <p class="font-mono text-[0.65rem] tracking-widest text-orange-400 mb-2">1 · A CLAIM</p>
+                    <p class="text-zinc-300">One bounded claim plus its public evidence — a link, an address, a file.</p>
+                </div>
+                <div class="border border-white/10 bg-white/5 rounded-xl p-5 text-center">
+                    <p class="font-mono text-[0.65rem] tracking-widest text-orange-400 mb-2">2 · THE CHECK</p>
+                    <p class="text-zinc-300">QPF checks the evidence — not your character.</p>
+                </div>
+                <div class="border border-white/10 bg-white/5 rounded-xl p-5 text-center">
+                    <p class="font-mono text-[0.65rem] tracking-widest text-orange-400 mb-2">3 · THE RECEIPT</p>
+                    <p class="text-zinc-300">One of three outcomes: ESTABLISHED, NOT ESTABLISHED, UNKNOWN.</p>
+                </div>
+                <div class="border border-white/10 bg-white/5 rounded-xl p-5 text-center">
+                    <p class="font-mono text-[0.65rem] tracking-widest text-orange-400 mb-2">NO WALLET</p>
+                    <p class="text-zinc-300">Free to inspect. Nothing is signed, nothing to install.</p>
+                </div>
             </div>
 
-            <div class="grid sm:grid-cols-4 gap-6 max-w-4xl mx-auto mb-16">
-                <a href="/deployed-addresses.html" class="p-6 border border-white/5 rounded-xl glow-card transition-all block bg-zinc-900/30">
-                    <h3 class="text-white font-bold mb-2 text-lg">📋 Contracts</h3>
-                    <p class="text-zinc-500 text-sm">Deployed addresses, network info, and feature status.</p>
-                </a>
-                
-                <a href="/for-builders.html" class="p-6 border border-white/5 rounded-xl glow-card transition-all block bg-zinc-900/30">
-                    <h3 class="text-white font-bold mb-2 text-lg">🔧 For Builders</h3>
-                    <p class="text-zinc-500 text-sm">Integration docs, repo links, verification path.</p>
-                </a>
-                
-                <a href="/what-it-does.html" class="p-6 border border-white/5 rounded-xl glow-card transition-all block bg-zinc-900/30">
-                    <h3 class="text-white font-bold mb-2 text-lg">🧬 What It Does</h3>
-                    <p class="text-zinc-500 text-sm">Plain-English explanation of QPF / OINIO.</p>
-                </a>
-
-                <a href="/human-cockpit.html" class="p-6 border border-blue-500/30 rounded-xl glow-card transition-all block bg-blue-500/5">
-                    <h3 class="text-white font-bold mb-2 text-lg">🪟 Cockpit</h3>
-                    <p class="text-zinc-500 text-sm">Pipeline-refreshed read-only system snapshot.</p>
-                </a>
+            <div id="sample-receipt" class="border border-white/10 bg-black/40 rounded-2xl p-6 md:p-8 mb-8">
+                <h3 class="text-xl font-bold text-white mb-2">Sample receipt: a worked example</h3>
+                <div class="grid md:grid-cols-4 gap-3 mb-6 text-sm">
+                    <div class="border border-white/10 bg-white/5 rounded-xl p-4">
+                        <p class="font-mono text-[0.65rem] tracking-widest text-zinc-500 mb-2">CLAIM</p>
+                        <p class="text-zinc-300">“On chain 16661, code exists at the address QPF publishes as its OINIO token.”</p>
+                    </div>
+                    <div class="border border-white/10 bg-white/5 rounded-xl p-4">
+                        <p class="font-mono text-[0.65rem] tracking-widest text-zinc-500 mb-2">EVIDENCE</p>
+                        <p class="text-zinc-300">Public RPC responses: <code class="font-mono text-xs">eth_chainId</code>, <code class="font-mono text-xs">eth_getCode</code>, <code class="font-mono text-xs">eth_call</code> on the published pair.</p>
+                    </div>
+                    <div class="border border-white/10 bg-white/5 rounded-xl p-4">
+                        <p class="font-mono text-[0.65rem] tracking-widest text-zinc-500 mb-2">CHECK</p>
+                        <p class="text-zinc-300">Responses are read against stated expectations. Nothing is inferred from the claim itself.</p>
+                    </div>
+                    <div class="border border-emerald-500/40 bg-white/5 rounded-xl p-4">
+                        <p class="font-mono text-[0.65rem] tracking-widest text-emerald-400 mb-2">RESULT</p>
+                        <p class="text-zinc-300"><span class="text-emerald-400 font-semibold">ESTABLISHED</span> — with stated limits: bytecode presence only, no value, no authorization.</p>
+                    </div>
+                </div>
+                <p class="text-zinc-500 text-xs">Same claim, same evidence, same method, every time — re-runnable from your own browser or with <code class="font-mono text-xs">curl</code>. The published record, the machine copy, and the replay commands are linked from <a href="/verification-artifact.html" class="text-orange-400 hover:underline">the verification artifact</a>.</p>
             </div>
 
-            <div class="inline-block px-6 py-3 border border-white/10 rounded-full text-zinc-500 text-sm font-mono">
-                <a href="https://github.com/onenoly1010/Quantum-pi-forge" class="text-white hover:text-blue-400">GitHub</a>
-                <span class="mx-3">·</span>
-                <a href="https://chainscan.0g.ai" class="text-white hover:text-blue-400">0G Explorer</a>
-                <span class="mx-3">·</span>
-                <a href="https://x.com/onenoly11" class="text-white hover:text-blue-400">X</a>
-                <span class="mx-3">·</span>
-                <a href="https://www.facebook.com/profile.php?id=61593734185688" class="text-white hover:text-blue-400" rel="noopener" target="_blank">Facebook</a>
+            <div class="border border-white/10 bg-black/40 rounded-2xl p-6 md:p-8 mb-8">
+                <p class="font-mono text-[0.65rem] tracking-widest text-zinc-500 mb-3">RUN IT FROM A CLONE — NO ACCOUNT, NO WALLET, NO PERMISSION</p>
+<pre class="code text-zinc-400 mb-4">git clone https://github.com/onenoly1010/Quantum-pi-forge
+cd Quantum-pi-forge &amp;&amp; npm install
+npm run verify:independent</pre>
+                <p class="text-zinc-400 text-sm leading-relaxed">
+                    If the published evidence reproduces, you have evidence.
+                    If it does not, you have a break. Either result is useful, and either one gets filed —
+                    <a href="https://github.com/onenoly1010/Quantum-pi-forge/issues/new" class="text-orange-400 hover:underline">breaks are published, not buried</a>.
+                </p>
+            </div>
+
+            <p class="text-center text-sm text-zinc-600">
+                <a href="/try.html" class="text-orange-400 hover:underline">Try a free check</a>
+                <span class="text-zinc-600"> · </span>
+                <a href="/attack-kit.html" class="text-orange-400 hover:underline">Reproduce or break EXT-001</a>
+                <span class="text-zinc-600"> · </span>
+                <a href="/verification-artifact.html" class="text-orange-400 hover:underline">Verification artifact</a>
+            </p>
+        </div>
+    </section>
+    <!-- 3. A CLAIM IS NOT EVIDENCE -->
+    <section id="method" class="py-20 border-b border-white/5 px-6">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 text-center">A claim is not evidence.</h2>
+            <p class="text-zinc-400 text-center max-w-2xl mx-auto mb-12">Most trust failures happen because three different things get collapsed into one.</p>
+
+            <div class="grid md:grid-cols-3 gap-4 mb-12 text-sm">
+                <div class="border border-white/10 rounded-xl p-6 bg-white/5">
+                    <p class="text-white font-semibold mb-2">A deployment existing</p>
+                    <p class="text-zinc-400">does not prove what its documentation says it does.</p>
+                </div>
+                <div class="border border-white/10 rounded-xl p-6 bg-white/5">
+                    <p class="text-white font-semibold mb-2">A repository existing</p>
+                    <p class="text-zinc-400">does not prove the published system matches it.</p>
+                </div>
+                <div class="border border-white/10 rounded-xl p-6 bg-white/5">
+                    <p class="text-white font-semibold mb-2">A model producing an answer</p>
+                    <p class="text-zinc-400">does not prove the claim being made about that system.</p>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap items-stretch justify-center gap-2 mb-8 font-mono text-xs">
+                <span class="chain-step rounded-lg px-5 py-4 text-white">CLAIM</span>
+                <span class="text-orange-500 self-center">→</span>
+                <span class="chain-step rounded-lg px-5 py-4 text-white">EVIDENCE</span>
+                <span class="text-orange-500 self-center">→</span>
+                <span class="chain-step rounded-lg px-5 py-4 text-white">VERIFICATION</span>
+                <span class="text-orange-500 self-center">→</span>
+                <span class="chain-step rounded-lg px-5 py-4 text-white">VERDICT</span>
+                <span class="text-orange-500 self-center">→</span>
+                <span class="chain-step rounded-lg px-5 py-4 border-orange-500/40 text-orange-200">AUTHORIZATION</span>
+            </div>
+
+            <div class="max-w-3xl mx-auto border-l-2 border-orange-500/60 pl-6 space-y-4 text-zinc-300">
+                <p>A verification receipt records <span class="text-emerald-300">what the evidence establishes</span> and returns exactly one of three outcomes: ESTABLISHED, NOT ESTABLISHED, UNKNOWN.</p>
+                <p>It does not promote that result into a wider claim.</p>
+                <p>It does not authorize an action.</p>
+                <p class="text-zinc-500 text-sm">The arrow stops where the evidence stops. Everything after it is a separate decision, made by a named human, in the open.</p>
             </div>
         </div>
     </section>
+    <!-- 4. WHAT QPF VERIFIES -->
+    <section id="checks" class="py-20 border-b border-white/5 px-6 bg-black/20">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 text-center">What QPF verifies</h2>
+            <p class="text-zinc-400 text-center max-w-2xl mx-auto mb-12">Five claim types, each with a bounded question and a stated evidence requirement. Outside the stated scope the answer stays UNKNOWN.</p>
 
-    <footer class="py-12 border-t border-white/5 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-zinc-600 text-sm">
-            <div>Quantum Pi Forge / OINIO — Public Onboarding Readiness v1</div>
-            <div class="flex gap-6 mt-4 md:mt-0">
-                <a href="https://github.com/onenoly1010/Quantum-pi-forge" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-all">GitHub</a>
-                <a href="https://x.com/onenoly11" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-all">X</a>
-                <a href="https://www.facebook.com/profile.php?id=61593734185688" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-all">Facebook</a>
-                <a href="https://chainscan.0g.ai" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-all">0G Explorer</a>
-                <a href="https://hall.0g.ai" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-all">Guild Hall</a>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <a href="/problems/verify-github-repo.html" class="p-6 border border-white/10 rounded-xl glow-card transition-all block bg-zinc-900/30">
+                    <p class="font-mono text-[0.65rem] tracking-widest text-orange-400 mb-3">REPOSITORY CLAIMS</p>
+                    <p class="text-white font-semibold mb-2">Does the published source contain what is being claimed?</p>
+                    <p class="text-zinc-500 text-sm">Commit, file, and hash level checks — not a readme quote.</p>
+                </a>
+                <a href="/problems/prove-deployment-matches-source.html" class="p-6 border border-white/10 rounded-xl glow-card transition-all block bg-zinc-900/30">
+                    <p class="font-mono text-[0.65rem] tracking-widest text-orange-400 mb-3">DEPLOYMENT CLAIMS</p>
+                    <p class="text-white font-semibold mb-2">Does the deployed system correspond to the stated release or artifact?</p>
+                    <p class="text-zinc-500 text-sm">Bytecode and artifact correspondence against a pinned build, e.g. <span class="font-mono text-xs">live-rpc-correspondence-v1.json</span>.</p>
+                </a>
+                <a href="/deployed-addresses.html" class="p-6 border border-white/10 rounded-xl glow-card transition-all block bg-zinc-900/30">
+                    <p class="font-mono text-[0.65rem] tracking-widest text-orange-400 mb-3">CONTRACT CLAIMS</p>
+                    <p class="text-white font-semibold mb-2">What is actually deployed on-chain?</p>
+                    <p class="text-zinc-500 text-sm">Published address inventory plus its own verification report — presence, chain, state.</p>
+                </a>
+                <a href="/problems/evidence-package-ai-result.html" class="p-6 border border-white/10 rounded-xl glow-card transition-all block bg-zinc-900/30">
+                    <p class="font-mono text-[0.65rem] tracking-widest text-orange-400 mb-3">AI-SYSTEM CLAIMS</p>
+                    <p class="text-white font-semibold mb-2">What can the available evidence establish about the system?</p>
+                    <p class="text-zinc-500 text-sm">Behaviour, identity, and output claims — with the channel each verdict depends on named.</p>
+                </a>
+                <a href="/evidence-completeness.html" class="p-6 border border-white/10 rounded-xl glow-card transition-all block bg-zinc-900/30">
+                    <p class="font-mono text-[0.65rem] tracking-widest text-orange-400 mb-3">LAUNCH READINESS</p>
+                    <p class="text-white font-semibold mb-2">What has been checked, what is blocked, what still needs authorization?</p>
+                    <p class="text-zinc-500 text-sm">A completeness pass, not a launch cheerleader.</p>
+                </a>
+                <div class="p-6 border border-white/10 rounded-xl bg-zinc-900/30">
+                    <p class="font-mono text-[0.65rem] tracking-widest text-zinc-500 mb-3">NOT OFFERED</p>
+                    <p class="text-white font-semibold mb-2">Assurance, ratings, or a badge.</p>
+                    <p class="text-zinc-500 text-sm mb-3">No security guarantee, no investment view, no verdict on things the evidence cannot reach.</p>
+                    <p class="text-sm"><a href="/capabilities.html" class="text-orange-400 hover:underline">Registered capability registry</a></p>
+                </div>
+            </div>
+
+            <p class="text-center mt-10 text-sm">
+                <a href="/problems/" class="text-orange-400 hover:underline">All problem guides →</a>
+                <span class="text-zinc-600"> · </span>
+                <a href="/what-it-does.html" class="text-orange-400 hover:underline">What it does, plainly</a>
+            </p>
+        </div>
+    </section>
+    <!-- 5. THE EVIDENCE TRAIL IS PUBLIC -->
+    <section id="proof" class="py-20 border-b border-white/5 px-6">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 text-center">The evidence trail is public.</h2>
+            <p class="text-zinc-400 text-center max-w-2xl mx-auto mb-10">
+                QPF publishes source, evidence, and the verification path — including its own. Inspect it, re-run it,
+                or try to break it. QPF is held to the same standard as every claim it checks.
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-4 mb-10">
+                <a href="https://github.com/onenoly1010/Quantum-pi-forge" class="p-6 border border-white/10 rounded-xl glow-card transition-all block bg-zinc-900/30">
+                    <p class="font-mono text-[0.65rem] tracking-widest text-orange-400 mb-3">GITHUB</p>
+                    <p class="text-white font-semibold mb-2">Public source</p>
+                    <p class="text-zinc-500 text-sm">Verification code, frozen packages, decision records, and the issue tracker where breaks land.</p>
+                </a>
+                <a href="/deployed-addresses.html" class="p-6 border border-white/10 rounded-xl glow-card transition-all block bg-zinc-900/30">
+                    <p class="font-mono text-[0.65rem] tracking-widest text-orange-400 mb-3">DEPLOYED ADDRESSES</p>
+                    <p class="text-white font-semibold mb-2">Public inventory</p>
+                    <p class="text-zinc-500 text-sm">Every published address with its own verification report and stated limits.</p>
+                </a>
+                <a href="/attack-kit.html" class="p-6 border border-emerald-500/30 rounded-xl glow-card transition-all block bg-emerald-500/5">
+                    <p class="font-mono text-[0.65rem] tracking-widest text-emerald-400 mb-3">ATTACK KIT</p>
+                    <p class="text-white font-semibold mb-2">Try to break EXT-001</p>
+                    <p class="text-zinc-500 text-sm">Frozen package, published expected result, one command. A pass and a mismatch are both publishable outcomes.</p>
+                </a>
+            </div>
+
+            <div class="border border-white/10 bg-black/40 rounded-2xl p-6 md:p-8 mb-8">
+                <p class="font-mono text-[0.65rem] tracking-widest text-zinc-500 mb-3">RUN IT FROM A CLONE — NO ACCOUNT, NO WALLET, NO PERMISSION</p>
+<pre class="code text-zinc-400 mb-4">git clone https://github.com/onenoly1010/Quantum-pi-forge
+cd Quantum-pi-forge &amp;&amp; npm install
+npm run verify:independent</pre>
+                <p class="text-zinc-400 text-sm leading-relaxed">
+                    If the published evidence reproduces, you have evidence.
+                    If it does not, you have a break. Either result is useful, and either one gets filed —
+                    <a href="https://github.com/onenoly1010/Quantum-pi-forge/issues/new" class="text-orange-400 hover:underline">breaks are published, not buried</a>.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-5 gap-2 font-mono text-[0.7rem] text-center text-zinc-400">
+                <div class="border border-white/10 rounded-lg px-3 py-4">PUBLIC SOURCE</div>
+                <div class="border border-white/10 rounded-lg px-3 py-4">PUBLIC EVIDENCE</div>
+                <div class="border border-white/10 rounded-lg px-3 py-4">PUBLIC VERIFICATION PATH</div>
+                <div class="border border-white/10 rounded-lg px-3 py-4">EXPLICIT GATES</div>
+                <div class="border border-orange-500/40 rounded-lg px-3 py-4 text-orange-200">NO HIDDEN AUTHORIZATION</div>
+            </div>
+            <p class="text-center text-sm text-zinc-500 mt-6">
+                Superseded offers and withdrawn prices stay published and verifiable rather than being rewritten —
+                see <a href="/open.html" class="text-orange-400 hover:underline">the open gates record</a>.
+            </p>
+        </div>
+    </section>
+    <!-- 7. THE EVIDENCE RECEIPT — THREE OUTCOMES -->
+    <section id="results" class="py-20 border-b border-white/5 px-6">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-3 text-center">The receipt has three outcomes</h2>
+            <p class="text-zinc-400 text-center max-w-2xl mx-auto mb-10">
+                What the evidence establishes. What it does not establish. What remains unknown. No fourth outcome, no silent default.
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-6 mb-10">
+                <div class="border border-emerald-500/30 bg-emerald-500/5 rounded-2xl p-6 text-center">
+                    <p class="font-mono text-[0.65rem] tracking-widest text-emerald-400 mb-3">OUTCOME 1 · ESTABLISHED</p>
+                    <p class="text-xl font-bold text-white mb-2">The evidence supports the claim.</p>
+                    <p class="text-zinc-400 text-sm">The checks ran against public evidence and matched the stated expectations — with the limits of those checks written on the receipt.</p>
+                </div>
+                <div class="border border-amber-500/30 bg-amber-500/5 rounded-2xl p-6 text-center">
+                    <p class="font-mono text-[0.65rem] tracking-widest text-amber-400 mb-3">OUTCOME 2 · NOT ESTABLISHED</p>
+                    <p class="text-xl font-bold text-white mb-2">The evidence does not support the claim.</p>
+                    <p class="text-zinc-400 text-sm">The checks ran and the claim failed them — or the published record contradicts it. This is about the claim, never about the person who made it.</p>
+                </div>
+                <div class="border border-white/10 bg-white/5 rounded-2xl p-6 text-center">
+                    <p class="font-mono text-[0.65rem] tracking-widest text-zinc-300 mb-3">OUTCOME 3 · UNKNOWN</p>
+                    <p class="text-xl font-bold text-white mb-2">The evidence cannot say.</p>
+                    <p class="text-zinc-400 text-sm">UNKNOWN is a legitimate result, not a failure and not a gap to be filled with a guess. A receipt that says UNKNOWN keeps its boundary; one that invents certainty does not.</p>
+                </div>
+            </div>
+
+            <div class="border border-white/10 bg-black/40 rounded-2xl p-6 md:p-8 text-sm text-zinc-400">
+                <p class="mb-3"><span class="text-white font-semibold">Claimed ≠ evidence ≠ verified ≠ authorized.</span> The receipt records what the evidence establishes — nothing more, and it never authorizes an action.</p>
+                <p><span class="text-white font-semibold">Free to check yourself:</span>
+                    <a href="/try.html" class="text-orange-400 hover:underline">self-serve check</a> ·
+                    <a href="/verification-artifact.html" class="text-orange-400 hover:underline">machine copy of a published receipt</a> ·
+                    <a href="/attack-kit.html" class="text-orange-400 hover:underline">reproduce or break EXT-001</a> ·
+                    <a href="/open.html" class="text-orange-400 hover:underline">open gates</a>
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- 8. THE IMPORTANT DISTINCTION -->
+    <section id="boundary" class="py-20 border-b border-white/5 px-6 bg-black/20">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 text-center">Verification is not authorization.</h2>
+            <p class="text-zinc-400 text-center max-w-2xl mx-auto mb-12">
+                QPF can establish what the evidence supports. It does not decide that the next irreversible action
+                should happen. That boundary stays explicit, on every page and in every receipt.
+            </p>
+
+            <div class="grid sm:grid-cols-3 gap-4 mb-12 text-center font-mono text-sm">
+                <div class="border border-orange-500/40 rounded-xl px-4 py-8 text-orange-200">OBSERVATION <span class="text-zinc-500">≠</span> AUTHORIZATION</div>
+                <div class="border border-orange-500/40 rounded-xl px-4 py-8 text-orange-200">EVIDENCE <span class="text-zinc-500">≠</span> VERDICT</div>
+                <div class="border border-orange-500/40 rounded-xl px-4 py-8 text-orange-200">VERIFICATION <span class="text-zinc-500">≠</span> PERMISSION</div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-4 mb-12 text-sm">
+                <p class="border border-white/10 rounded-xl p-6 bg-white/5 text-zinc-300"><span class="text-white font-semibold">Liveness does not imply authority.</span> A running endpoint, a live contract, or a passing build proves operation, not permission.</p>
+                <p class="border border-white/10 rounded-xl p-6 bg-white/5 text-zinc-300"><span class="text-white font-semibold">Verification does not imply authorization.</span> A receipt is a record of what was checked, never a green light.</p>
+                <p class="border border-white/10 rounded-xl p-6 bg-white/5 text-zinc-300"><span class="text-white font-semibold">Unknown remains unknown.</span> A gap is data, not a licence to fill it with a guess that reads like a finding.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="border border-white/10 rounded-2xl p-6 bg-black/40">
+                    <p class="font-mono text-[0.65rem] tracking-widest text-zinc-500 mb-4">QPF'S OWN STATE, AS PUBLISHED</p>
+                    <table class="w-full text-sm">
+                        <tbody>
+                            <tr class="border-b border-white/5"><td class="py-2 text-zinc-400">Technical capability</td><td class="py-2 text-right font-mono text-emerald-400 text-xs">ESTABLISHED</td></tr>
+                            <tr class="border-b border-white/5"><td class="py-2 text-zinc-400">External adoption</td><td class="py-2 text-right font-mono text-amber-400 text-xs">NOT ESTABLISHED</td></tr>
+                            <tr class="border-b border-white/5"><td class="py-2 text-zinc-400">Customer</td><td class="py-2 text-right font-mono text-amber-400 text-xs">NOT ESTABLISHED</td></tr>
+                            <tr><td class="py-2 text-zinc-400">Real revenue</td><td class="py-2 text-right font-mono text-amber-400 text-xs">NOT ESTABLISHED</td></tr>
+                        </tbody>
+                    </table>
+                    <p class="text-xs text-zinc-500 mt-4">Source: <a href="/open-gates-v1.json" class="text-orange-400 hover:underline">open-gates-v1.json</a>. Reporting a state is not a claim of market, customers, or revenue.</p>
+                </div>
+                <div class="border border-white/10 rounded-2xl p-6 bg-black/40">
+                    <p class="font-mono text-[0.65rem] tracking-widest text-zinc-500 mb-4">STILL NOT AUTHORIZED</p>
+                    <ul class="text-sm space-y-2 text-zinc-400 font-mono">
+                        <li>• public mint — <span class="text-amber-400">NOT_AUTHORIZED</span></li>
+                        <li>• liquidity — <span class="text-amber-400">NOT_AUTHORIZED</span></li>
+                        <li>• yield / staking — <span class="text-amber-400">NOT_AUTHORIZED</span></li>
+                        <li>• site-side signing &amp; broadcast — <span class="text-zinc-300">DISABLED</span></li>
+                    </ul>
+                    <p class="text-xs text-zinc-500 mt-4">
+                        Deployment places code on-chain; activation requires a separate authorization.
+                        Published status record: <a href="/verification-status-v1.json" class="text-orange-400 hover:underline">verification-status-v1.json</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FOOTER -->
+    <footer class="py-16 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <p class="text-white text-xl md:text-2xl font-bold mb-3">Reality doesn't need a referee. Claims about reality need receipts.</p>
+                <p class="font-mono text-xs tracking-[0.2em] text-orange-400">KNOW WHAT IS REAL BEFORE YOU TRUST IT</p>
+            </div>
+            <div class="grid sm:grid-cols-3 gap-8 text-sm mb-12">
+                <div>
+                    <p class="font-mono text-[0.65rem] tracking-widest text-zinc-500 mb-3">VERIFY</p>
+                    <ul class="space-y-2">
+                        <li><a href="/try.html" class="text-zinc-400 hover:text-white">Try free</a></li>
+                        <li><a href="/attack-kit.html" class="text-zinc-400 hover:text-white">Attack kit</a></li>
+                        <li><a href="/verification-artifact.html" class="text-zinc-400 hover:text-white">Verification artifact</a></li>
+                        <li><a href="/deployed-addresses.html" class="text-zinc-400 hover:text-white">Deployed addresses</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="font-mono text-[0.65rem] tracking-widest text-zinc-500 mb-3">BUILD</p>
+                    <ul class="space-y-2">
+                        <li><a href="/for-builders.html" class="text-zinc-400 hover:text-white">For builders</a></li>
+                        <li><a href="/mint-ai.html" class="text-zinc-400 hover:text-white">Create a counterpart</a></li>
+                        <li><a href="/meet.html" class="text-zinc-400 hover:text-white">Meet a co-creator</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="font-mono text-[0.65rem] tracking-widest text-zinc-500 mb-3">TALK TO A HUMAN</p>
+                    <ul class="space-y-2">
+                        <li><a href="/verification-request.html" class="text-zinc-400 hover:text-white">Request verification</a></li>
+                        <li><a href="/support.html" class="text-zinc-400 hover:text-white">Support / build with QPF</a></li>
+                        <li><a href="/open.html" class="text-zinc-400 hover:text-white">Open gates</a></li>
+                        <li><a href="https://github.com/onenoly1010/Quantum-pi-forge" class="text-zinc-400 hover:text-white">GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/5 pt-6 flex flex-wrap items-center justify-between gap-4 text-xs text-zinc-600">
+                <p>Quantum Pi Forge · public verification of bounded claims · <a href="/" class="text-zinc-500 hover:text-zinc-300">quantumpiforge.com</a></p>
+                <p>
+                    <a href="https://github.com/onenoly1010/Quantum-pi-forge" class="text-zinc-500 hover:text-zinc-300">Source</a> ·
+                    <a href="https://chainscan.0g.ai" class="text-zinc-500 hover:text-zinc-300">0G explorer</a> ·
+                    <a href="/verification-artifact.html" class="text-zinc-500 hover:text-zinc-300">Verification artifact</a>
+                </p>
             </div>
         </div>
     </footer>
-
-<script>
-    /* 🌋 Volcanic Epoch v0.0.4 – Hardened Proposal Forge (Generative Engine) */
-
-    let currentBalance = 1000;
-    let currentHoldBlocks = 432;
-
-    function calculateDynamicVotingPower(balance, blocks) {
-        return balance * (1 + Math.sqrt(blocks) / 1000);
-    }
-
-    function triggerHarmonicPulse(frequency, intensity) {
-        document.body.style.transition = `background ${1000/frequency}s`;
-        setTimeout(() => document.body.style.background = '#0a0500', 50);
-        setTimeout(() => document.body.style.background = '#050505', 1000/frequency * intensity);
-    }
-
-    function showCooldownToast(message) {
-        const toast = document.createElement('div');
-        toast.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1a1a1f;border:1px solid #ff4500;padding:12px 24px;border-radius:6px;z-index:100;';
-        toast.innerHTML = message;
-        document.body.appendChild(toast);
-        setTimeout(() => toast.remove(), 3000);
-    }
-
-    function showEruptionToast(message) {
-        const toast = document.createElement('div');
-        toast.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1a1a1f;border:2px solid #ff8c00;padding:16px 32px;border-radius:8px;z-index:100;font-weight:bold;';
-        toast.innerHTML = message;
-        document.body.appendChild(toast);
-        setTimeout(() => toast.remove(), 5000);
-    }
-
-    async function signProposalCreationMessage(title, description, frequency) {
-        return `sig_${Date.now()}_${Math.random().toString(36).substring(7)}`;
-    }
-
-    async function broadcastNewProposalToAristotle(title, description, frequency, signature) {
-        console.log("Broadcasting proposal to Aristotle:", {title, description, frequency, signature});
-        return Math.floor(Math.random() * 1000);
-    }
-
-    function refreshProposalHall() {
-        console.log("Refreshing proposal hall");
-    }
-
-    async function openProposalForge() {
-        const userVP = calculateDynamicVotingPower(currentBalance, currentHoldBlocks);
-        const holdBlocks = currentHoldBlocks || 0;
-        const resonanceMultiplier = (1.0 + (Math.sqrt(holdBlocks) / 432)).toFixed(3);
-
-        if (userVP < 100) {
-            showCooldownToast(`Resonance Insufficient. Steward’s Filter: 100 VP minimum.<br>Your VP: ${userVP.toFixed(2)}`);
-            return;
-        }
-
-        const modal = document.createElement('div');
-        modal.id = 'proposal-forge-modal';
-        modal.className = 'forge-modal volcanic-glow';
-        modal.style.zIndex = '60';
-        modal.innerHTML = `
-            <h2 style="color:white;margin-top:0;">🌋 FORGE SOVEREIGN INITIATIVE</h2>
-            
-            <div class="resonance-stats">
-                Your Resonance Multiplier: <span class="highlight">${resonanceMultiplier}x</span><br>
-                Projected Initial Weight: <span class="highlight">${userVP.toFixed(2)} VP</span>
-            </div>
-
-            <input type="text" id="vdp-title" class="forge-input" 
-                   placeholder="VDP-0002: Brief sovereign title" maxlength="100" />
-
-            <select id="vdp-frequency" class="forge-select">
-                <option value="396">396Hz — Foundation & Stability</option>
-                <option value="432" selected>432Hz — Coordination & Harmony</option>
-                <option value="528">528Hz — Manifestation & Will</option>
-            </select>
-
-            <textarea id="vdp-description" class="forge-textarea" 
-                      placeholder="Define the intent within the Canon of Autonomy..."></textarea>
-
-            <div class="modal-actions">
-                <button onclick="submitNewVDP()" class="btn-volcanic">IGNITE PROPOSAL ON ARISTOTLE</button>
-                <button onclick="closeForgeModal()" class="btn-cancel">ABORT FORGE</button>
-            </div>
-        `;
-
-        document.body.appendChild(modal);
-        triggerHarmonicPulse(432, 1);
-    }
-
-    async function submitNewVDP() {
-        const title = document.getElementById('vdp-title').value.trim();
-        const description = document.getElementById('vdp-description').value.trim();
-        const frequency = document.getElementById('vdp-frequency').value;
-
-        if (!title || title.length < 10) {
-            showCooldownToast("Title must be at least 10 characters.");
-            return;
-        }
-        if (!description || description.length < 50) {
-            showCooldownToast("Description must be at least 50 characters to carry sovereign intent.");
-            return;
-        }
-
-        triggerHarmonicPulse(432, 2);
-
-        try {
-            const signature = await signProposalCreationMessage(title, description, frequency);
-            const newProposalId = await broadcastNewProposalToAristotle(title, description, frequency, signature);
-
-            showEruptionToast(`🌋 VDP-${newProposalId} ignited and broadcast.<br>Frequency: ${frequency}Hz — The Forge grows.`);
-
-            closeForgeModal();
-            refreshProposalHall();
-        } catch (error) {
-            console.error("Forge failed:", error);
-            showCooldownToast("Aristotle rejected the forging signature. Check connection or nonce.");
-        }
-    }
-
-    function closeForgeModal() {
-        const modal = document.getElementById('proposal-forge-modal');
-        if (modal) modal.remove();
-    }
-
-    /* 🌋 Signal Ledger v0.0.5 - 0G Aristotle Data Bridge */
-    const CONTRACT_ADDRESS = "";
-    let signalLedgerCache = [];
-    let signalProvider;
-    let iface;
-
-    const signalLedgerAbi = [
-        "event VoteCast(address indexed voter, uint256 proposalId, uint256 weight, uint256 freq)",
-        "event ProposalForged(uint256 indexed proposalId, address indexed steward, uint256 frequency)"
-    ];
-
-    async function initializeAristotleBridge() {
-    // Load cached ledger first for cold start / dead zone scenarios
-    try {
-        const cached = localStorage.getItem('signalLedgerCache');
-        if (cached) {
-            signalLedgerCache = JSON.parse(cached);
-            signalLedgerCache.forEach(s => seenSignalHashes.add(getSignalHash(s)));
-            renderSignalLedger();
-        }
-    } catch(e) {}
-
-    if (typeof ethers === 'undefined' || !window.ethereum || !ethers.providers || !CONTRACT_ADDRESS) return;
-    
-    signalProvider = new ethers.providers.Web3Provider(window.ethereum);
-    iface = new ethers.utils.Interface(signalLedgerAbi);
-    
-    syncLedgerWithAristotle();
-}
-
-    async function syncLedgerWithAristotle() {
-        if (!signalProvider) return;
-
-        const currentBlock = await signalProvider.getBlockNumber();
-        
-        const filter = {
-            address: CONTRACT_ADDRESS,
-            topics: [ethers.utils.id("VoteCast(address,uint256,uint256,uint256)")] 
+    <script>
+    (function () {
+        "use strict";
+        var RPC = "https://evmrpc.0g.ai";
+        var EXPECTED_CHAIN = "0x4115";
+        window.FORGE_FIRST_PAIR_FINAL_STATE_SEAL = {
+            status: "FIRST_PAIR_FINAL_STATE_SEALED",
+            pairState: "PAIR_EXISTS_ZERO_RESERVES",
+            factory: "0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8",
+            router: "0x2c70129E50BF88eCD59b89d63af2e8920aCF3951",
+            pairAddress: "0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE",
+            pairTokens: "W0G/USDC.e",
+            txHash: "0x4f887876313a5085337ce22eac9418725558a91225096191057dd6d7d2e2f6a2",
+            txBlockNumber: 36238884,
+            observedBlockNumber: 36239555,
+            pairConfirmed: true,
+            liquidityAdded: false,
+            source: "receipts/execution/v2-first-pair-final-state-seal-v1.json"
         };
-
-        // Backfill historical pulses
-        const logs = await signalProvider.getLogs({
-            ...filter,
-            fromBlock: currentBlock - 500,
-            toBlock: "latest"
-        });
-
-        logs.reverse().forEach(log => {
-            const parsed = iface.parseLog(log);
-            const signal = {
-                address: parsed.args.voter,
-                vp: parseFloat(ethers.utils.formatUnits(parsed.args.weight, 18)),
-                frequency: parsed.args.freq.toString(),
-                timestamp: Date.now(),
-                proposalId: `VDP-${parsed.args.proposalId}`
-            };
-            signalLedgerCache.push(signal);
-        });
-
-        renderSignalLedger();
-
-        // Live heartbeat listener
-        signalProvider.on(filter, (log) => {
-            const parsed = iface.parseLog(log);
-            addNewSignalToLedger({
-                address: parsed.args.voter,
-                vp: parseFloat(ethers.utils.formatUnits(parsed.args.weight, 18)),
-                frequency: parsed.args.freq.toString(),
-                timestamp: Date.now(),
-                proposalId: `VDP-${parsed.args.proposalId}`
-            });
-        });
-    }
-
-let seenSignalHashes = new Set();
-
-function getSignalHash(signal) {
-    return `${signal.address}-${signal.proposalId}-${signal.vp}-${signal.timestamp.toString().slice(0, -3)}`;
-}
-
-function addNewSignalToLedger(signal) {
-    const hash = getSignalHash(signal);
-    
-    // Idempotency check: prevent duplicate entries on reconnection
-    if (seenSignalHashes.has(hash)) {
-        console.log("Duplicate signal filtered:", hash);
-        return;
-    }
-    
-    seenSignalHashes.add(hash);
-    signalLedgerCache.unshift(signal);
-    
-    // Prune ledger to maintain 50 entry hard limit for mobile memory
-    if (signalLedgerCache.length > 50) {
-        signalLedgerCache = signalLedgerCache.slice(0, 50);
-        // Also prune hash set to prevent memory leak
-        if (seenSignalHashes.size > 150) {
-            seenSignalHashes.clear();
-            signalLedgerCache.forEach(s => seenSignalHashes.add(getSignalHash(s)));
-        }
-    }
-    
-    // Persist to localStorage for cold start / dead zone scenarios
-    try {
-        localStorage.setItem('signalLedgerCache', JSON.stringify(signalLedgerCache));
-    } catch(e) {}
-    
-    // 432ms harmonic stagger implementation
-    setTimeout(() => {
-        triggerHarmonicPulse(signal.frequency, 1);
-        renderSignalLedger();
-    }, 432);
-}
-
-    function renderSignalLedger() {
-        const ledger = document.getElementById('signal-ledger');
-        if (!ledger) return;
-        
-        ledger.innerHTML = '';
-        
-        signalLedgerCache.slice(0, 24).forEach((signal, index) => {
-            const pulse = document.createElement('div');
-            pulse.className = 'signal-pulse';
-            pulse.style.animationDelay = `${index * 80}ms`;
-            pulse.innerHTML = `
-                <div class="pulse-dot freq-${signal.frequency}"></div>
-                <div class="pulse-meta">
-                    <span class="pulse-vp">${signal.vp.toFixed(1)} VP</span>
-                    <span class="pulse-proposal">${signal.proposalId}</span>
-                </div>
-            `;
-            ledger.appendChild(pulse);
-        });
-    }
-
-    // Manifest status fetch
-    fetch('./manifest.json')
-        .then(response => response.json())
-        .then(data => {
-            const gatewayStatus = document.querySelector('#gateway-status');
-            if(gatewayStatus && data.constellation.revelation_2017) {
-                gatewayStatus.innerText = data.constellation.revelation_2017.status.toUpperCase();
-            }
-        })
-        .catch(err => console.log("Manifest offline: local-only mode."));
-
-    // Initialize bridge on load
-    window.addEventListener('load', initializeAristotleBridge);
-</script>
-
-<!-- Forge Activation Button -->
-<div style="position:fixed;bottom:30px;right:30px;z-index:50;">
-    <button onclick="openProposalForge()" class="btn-volcanic" style="border-radius:50px;padding:16px 28px;font-size:15px;">
-        🌋 OPEN FORGE
-    </button>
-</div>
-
-<!-- FIXED LIVE ON-CHAIN PROOF STRIP v2 -->
-<script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
-<script>
-  const RPC = "https://evmrpc.0g.ai";
-  const ARISTOTLE_CHAIN_ID = "0x4115";
-  const ARISTOTLE_NETWORK = {
-    chainId: ARISTOTLE_CHAIN_ID,
-    chainName: "0G Aristotle Mainnet",
-    nativeCurrency: { name: "0G", symbol: "0G", decimals: 18 },
-    rpcUrls: [RPC],
-    blockExplorerUrls: ["https://chainscan.0g.ai"]
-  };
-  const readProvider = new ethers.providers.JsonRpcProvider(RPC);
-  const TOKEN = "0x75995EC0fdf881189850aeD864cB3f43c0DFCb58";
-  // Canonical empty V2 pool (factory.getPair(W0G, USDC.e)). Not ERC20 0x709f23… (OINIO Token).
-  const PAIR  = "0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE";
-  window.FORGE_FIRST_PAIR_FINAL_STATE_SEAL = {
-    status: "PAIR_EXISTS_ZERO_RESERVES",
-    factory: "0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8",
-    router: "0x2c70129E50BF88eCD59b89d63af2e8920aCF3951",
-    pairAddress: "0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE",
-    pairTokens: "W0G/USDC.e",
-    pairConfirmed: true,
-    liquidityAdded: false,
-    correctedFrom: "0x709f23C7A7172E137427576abB5Eb8959E2A57c1 was mislabeled as pair; it is ERC20 OINIO Token"
-  };
-  window.FORGE_DEX_FACTORY_ADDRESS = "0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8";
-  window.FORGE_DEX_ROUTER_ADDRESS = "0x2c70129E50BF88eCD59b89d63af2e8920aCF3951";
-  window.FORGE_LIQUIDITY_PAIR_ADDRESS = "0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE";
-
-  function setWalletStatus(message, tone = "muted") {
-    const status = document.getElementById("wallet-status");
-    if (!status) return;
-
-    const tones = {
-      muted: "text-zinc-500",
-      ok: "text-emerald-400",
-      warn: "text-orange-400",
-      error: "text-red-400"
-    };
-
-    status.className = `mt-6 text-sm font-mono ${tones[tone] || tones.muted}`;
-    status.textContent = message;
-  }
-
-
-
-  const FORGE_EXPECTED_CHAIN_ID = (
-    window.FORGE_ARISTOTLE_CHAIN_ID ||
-    (typeof ARISTOTLE_CHAIN_ID !== "undefined" ? ARISTOTLE_CHAIN_ID : "")
-  ).toLowerCase();
-
-  function resetForgeWalletState() {
-    window.FORGE_CONNECTED_WALLETS_COUNT = 0;
-    const walletsEl = document.getElementById("wallets");
-    if (walletsEl) walletsEl.innerText = "0";
-
-    const connectedWalletEl = document.getElementById("connected-wallet");
-    if (connectedWalletEl) connectedWalletEl.textContent = "";
-
-    const governanceWeightEl = document.getElementById("governance-weight");
-    if (governanceWeightEl) governanceWeightEl.textContent = "Pending Wallet";
-  }
-
-  async function getForgeChainId() {
-    if (!window.ethereum) return "";
-    const chainId = await window.ethereum.request({ method: "eth_chainId" });
-    return String(chainId || "").toLowerCase();
-  }
-
-  async function setConnectedWallet(address) {
-    const shortAddress = `${address.slice(0, 6)}...${address.slice(-4)}`;
-    window.FORGE_CONNECTED_WALLETS_COUNT = 1;
-
-    const walletsEl = document.getElementById("wallets");
-    if (walletsEl) walletsEl.innerText = "1";
-
-    const connectedWalletEl = document.getElementById("connected-wallet");
-    if (connectedWalletEl) connectedWalletEl.textContent = `Connected: ${shortAddress}`;
-
-    const governanceWeightEl = document.getElementById("governance-weight");
-    if (!governanceWeightEl) return;
-
-    try {
-      const chainId = await getForgeChainId();
-      const chainMatches = FORGE_EXPECTED_CHAIN_ID && chainId === FORGE_EXPECTED_CHAIN_ID;
-
-      governanceWeightEl.textContent = chainMatches
-        ? "Connected / Pending Verification"
-        : "Wrong Network — Please Switch to 0G Aristotle";
-    } catch (error) {
-      governanceWeightEl.textContent = "Network Verification Failed";
-    }
-  }
-
-  async function connectForgeWallet() {
-    if (!window.ethereum) {
-      alert("No EIP-1193 wallet detected. Install or unlock a browser wallet.");
-      return;
-    }
-
-    const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
-    if (accounts && accounts[0]) await setConnectedWallet(accounts[0]);
-  }
-
-  function bindForgeWalletEvents() {
-    if (!window.ethereum || !window.ethereum.on || window.FORGE_WALLET_EVENTS_BOUND) return;
-    window.FORGE_WALLET_EVENTS_BOUND = true;
-
-    window.ethereum.on("accountsChanged", async (accounts) => {
-      if (accounts && accounts[0]) {
-        await setConnectedWallet(accounts[0]);
-      } else {
-        resetForgeWalletState();
-      }
-    });
-
-    window.ethereum.on("chainChanged", async () => {
-      const address = window.ethereum.selectedAddress;
-      if (address) await setConnectedWallet(address);
-    });
-  }
-
-  window.connectForgeWallet = connectForgeWallet;
-  bindForgeWalletEvents();
-
-
-  async function updateLiveData() {
-    try {
-      const block = await readProvider.getBlockNumber();
-      document.getElementById("block").innerText = block.toLocaleString();
-
-      // Total supply as fallback
-      const supplyHex = await readProvider.call({ to: TOKEN, data: "0x18160ddd" });
-      const supply = ethers.BigNumber.from(supplyHex).div("1000000000000000000").toString();
-
-      // Reserves (if pair has liquidity)
-      let totalDepth = "0";
-      try {
-        const reservesHex = await readProvider.call({ to: PAIR, data: "0x0902f1ac" });
-        const reserve0 = ethers.BigNumber.from("0x" + reservesHex.slice(2, 66)).div("1000000000000000000");
-        const reserve1 = ethers.BigNumber.from("0x" + reservesHex.slice(66, 130)).div("1000000000000000000");
-        totalDepth = (reserve0.add(reserve1)).toString();
-      } catch(e) { /* pair not standard or empty — expected at launch */ }
-
-      const liquiditySource = window.FORGE_LIQUIDITY_SOURCE || "";
-      const liquidityPairAddress = window.FORGE_LIQUIDITY_PAIR_ADDRESS || "";
-      const displayLiquidity = totalDepth !== "0"
-        ? `$${totalDepth}`
-        : (!liquiditySource && !liquidityPairAddress ? "Pending Activation" : "Live");
-      document.getElementById("liquidity").innerHTML = displayLiquidity;
-      const lpPairEl = document.getElementById("lp-pair");
-      if (lpPairEl) {
-        lpPairEl.textContent = liquidityPairAddress
-          ? `${liquidityPairAddress.slice(0, 6)}...${liquidityPairAddress.slice(-4)}`
-          : "Not Deployed";
-      }
-      const liquidityChangeEl = document.getElementById("liquidity-change");
-      if (liquidityChangeEl && totalDepth === "0") {
-        liquidityChangeEl.textContent = liquiditySource || liquidityPairAddress
-          ? "(configured)"
-          : "(treasury not seeded)";
-      }
-      const connectedWalletsCount = window.FORGE_CONNECTED_WALLETS_COUNT || 0;
-      const walletsEl = document.getElementById("wallets");
-      if (walletsEl) walletsEl.innerText = String(connectedWalletsCount);
-
-      console.log("✅ Quantum Pi Forge — live data pulled from 0G Aristotle");
-    } catch (e) {
-      console.log("⏳ Chain sync in progress...", e);
-    }
-  }
-
-   updateLiveData();
-   setInterval(updateLiveData, 60000);
-
-   // Optional: manual refresh button (add anywhere)
-   window.refreshForge = updateLiveData;
-</script>
-
-
-<section style="max-width: 980px; margin: 32px auto; padding: 24px; border-radius: 20px; background: rgba(15,23,42,0.88); color: #f8fafc; font-family: system-ui, sans-serif;">
-  <h2 style="margin-top: 0;">New here?</h2>
-  <p style="color: #cbd5e1; line-height: 1.6;">
-    Start at the open gates if you want to participate. Use the plain-English explanation if you want the story before the proof trail.
-  </p>
-  <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:16px;"><a href="/open.html" style="padding:10px 14px;border-radius:999px;background:#f8fafc;color:#020617;font-weight:800;text-decoration:none;">Open gates</a><a href="/for-builders.html" style="padding:10px 14px;border-radius:999px;background:#111827;color:#fff;text-decoration:none;">For Builders</a><a href="/deployed-addresses.html" style="padding:10px 14px;border-radius:999px;background:#111827;color:#fff;text-decoration:none;">Deployed Addresses</a><a href="/onboarding-status.html" style="padding:10px 14px;border-radius:999px;background:#111827;color:#fff;text-decoration:none;">Onboarding Status</a></div>
-  <a href="/what-it-does.html" style="display: inline-block; padding: 12px 16px; border-radius: 999px; background: #f8fafc; color: #020617; font-weight: 800; text-decoration: none;">
-    What does Quantum Pi Forge do?
-  </a>
-</section>
-
+        window.FORGE_DEX_FACTORY_ADDRESS = "0x215E28f94F68c70ea5B79D9Fc062deF4F7B7D3F8";
+        window.FORGE_DEX_ROUTER_ADDRESS = "0x2c70129E50BF88eCD59b89d63af2e8920aCF3951";
+        window.FORGE_LIQUIDITY_PAIR_ADDRESS = "0x2067319DC61CCdCdCDc13ABe0c72Ea3D7318AaeE";
+    })();
+    </script>
 </body>
 </html>

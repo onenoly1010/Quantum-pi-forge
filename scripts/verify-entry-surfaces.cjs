@@ -165,9 +165,6 @@ if (index) {
   if (!index.includes('/mint-ai.html')) {
     errors.push('index.html missing link to /mint-ai.html');
   }
-  if (!index.includes('/birth.html')) {
-    errors.push('index.html missing link to /birth.html');
-  }
   if (!/Know what is real/i.test(index)) {
     errors.push('index.html missing Know what is real');
   }
