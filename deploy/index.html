@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quantum Pi Forge — Check a claim. Get a receipt. No wallet.</title>
+    <title>Quantum Pi Forge — Check a technical claim. Get evidence you can reproduce.</title>
     <meta name="description" content="The evidence receipt: one claim plus public evidence evaluated into ESTABLISHED, NOT ESTABLISHED, or UNKNOWN — inspectable and re-runnable. Everyday submission is not currently open. No account, no wallet, no payment. Protocol mint, liquidity and yield not authorized.">
     <link rel="canonical" href="https://quantumpiforge.com/">
     <meta property="og:type" content="website">
@@ -51,40 +51,55 @@
                 <a href="#try" class="text-zinc-400 hover:text-white text-xs transition-all">How a receipt works</a>
                 <a href="#boundary" class="text-zinc-400 hover:text-white text-xs transition-all">Boundary</a>
                 <a href="/open.html" class="text-zinc-400 hover:text-white text-xs transition-all">Open gates</a>
-                <a href="/verification-request.html" class="btn-volcanic text-xs font-semibold transition-all px-3 py-1.5 rounded">Request Verification</a>
+                <a href="/verification-request.html" class="text-zinc-400 hover:text-white text-xs transition-all">Paid review (coming later)</a>
+                <a href="/try.html" class="btn-volcanic text-xs font-semibold transition-all px-3 py-1.5 rounded">Run a free check</a>
             </nav>
         </div>
     </header>
-        <!-- 1. HERO: evidence receipt with three outcomes -->
+        <!-- 1. HERO: one audience, one first action -->
     <section id="top" class="relative overflow-hidden border-b border-white/5">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,69,0,0.15),transparent_50%),radial-gradient(circle_at_70%_80%,rgba(139,92,246,0.12),transparent_50%)]"></div>
         <div class="relative max-w-5xl mx-auto px-6 pt-20 pb-20 text-center">
-            <p class="font-mono text-[0.7rem] tracking-[0.25em] text-orange-400 mb-6">QUANTUM PI FORGE · EVIDENCE RECEIPT</p>
+            <p class="font-mono text-[0.7rem] tracking-[0.25em] text-orange-400 mb-6">QUANTUM PI FORGE · FOR DEVELOPERS, MAINTAINERS &amp; TECHNICAL REVIEWERS</p>
             <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6">
-                Check a claim. Get a receipt. No wallet.
+                Check a technical claim. Get evidence you can reproduce.
             </h1>
             <p class="text-lg md:text-xl text-zinc-400 max-w-3xl mx-auto mb-4">
-                The evidence receipt model: one claim plus public evidence — a repository, a deployment, a contract, an AI-system claim — evaluated into one of three outcomes: <strong>ESTABLISHED</strong>, <strong>NOT ESTABLISHED</strong>, or <strong>UNKNOWN</strong>. No account, no wallet, no payment.
+                Quantum Pi Forge checks what public evidence actually establishes about a repository, deployment, or smart contract.
             </p>
-            <p class="text-sm text-amber-300/90 border border-amber-500/40 bg-amber-500/10 rounded-xl px-4 py-3 max-w-3xl mx-auto mb-6">
-                <strong>Not currently open:</strong> everyday/private claims cannot be submitted today. No homeowner, buyer, seller, or other everyday user can file a claim on this site right now. This page explains the receipt model and shows a sample; everyday submission may come later.
+            <p class="text-lg md:text-xl text-zinc-300 max-w-3xl mx-auto mb-8">
+                Get a result. Inspect the evidence. Repeat the check yourself.
             </p>
-            <p class="text-xl text-zinc-300 max-w-3xl mx-auto mb-10 font-mono leading-relaxed">
-                NOT A GUESS. A RECEIPT.<br>
-                <span class="text-emerald-400">ESTABLISHED</span> · <span class="text-amber-400">NOT ESTABLISHED</span> · <span class="text-zinc-300">UNKNOWN</span>
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <a href="#sample-receipt" class="btn-volcanic text-lg md:text-xl px-12 py-5 rounded-full">See a sample receipt</a>
-                <a href="#method" class="btn-ghost px-12 py-5 rounded-full text-white text-lg">SEE HOW IT WORKS</a>
+            <div class="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto mb-8 text-sm text-left">
+                <div class="border border-emerald-500/40 bg-white/5 rounded-xl p-5">
+                    <p class="font-mono text-xs tracking-widest text-emerald-400 mb-2">ESTABLISHED</p>
+                    <p class="text-zinc-300">The available evidence supports the specific claim.</p>
+                </div>
+                <div class="border border-amber-500/40 bg-white/5 rounded-xl p-5">
+                    <p class="font-mono text-xs tracking-widest text-amber-400 mb-2">NOT ESTABLISHED</p>
+                    <p class="text-zinc-300">The evidence does not support the claim.</p>
+                </div>
+                <div class="border border-white/20 bg-white/5 rounded-xl p-5">
+                    <p class="font-mono text-xs tracking-widest text-zinc-300 mb-2">UNKNOWN</p>
+                    <p class="text-zinc-300">The available evidence cannot settle it.</p>
+                </div>
             </div>
-            <p class="font-mono text-xs text-zinc-500">
-                No wallet · no payment · no private keys · no trust required in the operator
+            <p class="font-mono text-sm text-zinc-400 mb-12">
+                No wallet. No token. No trust required in the operator.
             </p>
-            <p class="text-sm text-zinc-500 mt-8">
-                <a href="#try" class="text-orange-400 hover:underline">How a receipt works</a>
-                · <a href="#results" class="text-orange-400 hover:underline">The three outcomes</a>
-                · <a href="#method" class="text-orange-400 hover:underline">A claim is not evidence</a>
-                · <a href="#boundary" class="text-orange-400 hover:underline">Where verification stops</a>
+            <div id="free-check" class="border border-white/10 bg-black/40 rounded-2xl p-6 md:p-8 max-w-3xl mx-auto mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-white mb-3">Start with a free check</h2>
+                <p class="text-zinc-400 mb-6">Verify a public contract&rsquo;s network and code presence. Inspect the evidence and the limits of the result.</p>
+                <a href="/try.html" class="btn-volcanic inline-block text-lg md:text-xl px-12 py-5 rounded-full">Run a free check</a>
+            </div>
+            <p class="text-zinc-400 max-w-3xl mx-auto mb-4">
+                Want to go further? Clone the public repository and independently reproduce or challenge the published verification.
+            </p>
+<pre class="code text-zinc-400 text-left max-w-xl mx-auto mb-8">git clone https://github.com/onenoly1010/Quantum-pi-forge
+cd Quantum-pi-forge &amp;&amp; npm install
+npm run verify:independent</pre>
+            <p class="text-xs text-zinc-500 max-w-3xl mx-auto">
+                The paid evidence package is a future offer and is not available yet. Everyday/private claims cannot be submitted today.
             </p>
         </div>
     </section>
@@ -426,6 +441,7 @@ npm run verify:independent</pre>
                 </div>
             </div>
             <div class="border-t border-white/5 pt-6 flex flex-wrap items-center justify-between gap-4 text-xs text-zinc-600">
+                <p class="w-full text-zinc-500">QPF records what the evidence establishes. It does not turn a verification result into authorization, a security guarantee, or an investment recommendation.</p>
                 <p>Quantum Pi Forge · public verification of bounded claims · <a href="/" class="text-zinc-500 hover:text-zinc-300">quantumpiforge.com</a></p>
                 <p>
                     <a href="https://github.com/onenoly1010/Quantum-pi-forge" class="text-zinc-500 hover:text-zinc-300">Source</a> ·
