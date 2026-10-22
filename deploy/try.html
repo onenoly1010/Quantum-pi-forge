@@ -101,9 +101,9 @@
 
   <div class="card">
     <h2>If that helped</h2>
-    <p>You just did the core of a QPF-style check. For a published evidence package on <em>your</em> project (one claim, one flat fee, always published):</p>
+    <p>You just did the core of a QPF-style check. A published evidence package for <em>your</em> project is a future offer — submissions are not open and nothing can be purchased today.</p>
     <p>
-      <a class="cta primary" href="/verification-request.html">Request a verification review</a>
+      <a class="cta secondary" href="/verification-request.html">Paid review — coming later, not available yet</a>
       <a class="cta secondary" href="/problems/">More problem guides</a>
     </p>
   </div>
@@ -133,6 +133,12 @@
     return /^0x[0-9a-fA-F]{40}$/.test(a);
   }
 
+  function esc(v) {
+    return String(v).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
   function setResult(html) {
     el('result').innerHTML = html;
   }
@@ -143,6 +149,11 @@
     btn.disabled = true;
     setResult('<p class="muted">Checking chain and code…</p>');
 
+    if (!addr) {
+      setResult('<p class="bad">Enter a contract address to check.</p>');
+      btn.disabled = false;
+      return;
+    }
     if (!isAddress(addr)) {
       setResult('<p class="bad">Enter a valid 0x address (40 hex chars).</p>');
       btn.disabled = false;
@@ -157,14 +168,14 @@
       }).catch(function () { return null; })
     ]).then(function (parts) {
       var chainId = parts[0];
-      var code = parts[1] || '0x';
+      var code = typeof parts[1] === 'string' ? parts[1] : '0x';
       var status = parts[2];
       var chainOk = String(chainId).toLowerCase() === EXPECTED_CHAIN;
       var codePresent = code !== '0x' && code !== '0X' && code.length > 2;
       var lines = [];
 
       lines.push('<ul>');
-      lines.push('<li>Chain ID: <code>' + chainId + '</code> ' +
+      lines.push('<li>Chain ID: <code>' + esc(chainId) + '</code> ' +
         (chainOk
           ? '<span class="ok">matches 0G Aristotle (16661)</span>'
           : '<span class="bad">unexpected (wanted 0x4115 / 16661)</span>') +
@@ -196,7 +207,7 @@
 
       setResult(lines.join(''));
     }).catch(function (err) {
-      setResult('<p class="bad">Check failed: ' + (err && err.message ? err.message : String(err)) +
+      setResult('<p class="bad"><strong>UNKNOWN — check could not complete:</strong> ' + esc(err && err.message ? err.message : String(err)) +
         '</p><p class="muted">Try curl steps below, or open the <a href="/deployed-addresses.html#verify-now">portal</a>.</p>');
     }).then(function () {
       btn.disabled = false;
