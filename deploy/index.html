@@ -85,12 +85,12 @@
             </p>
             <div id="independent-verify" class="border border-emerald-500/40 bg-emerald-500/5 rounded-2xl p-6 md:p-8 max-w-3xl mx-auto mb-8 text-left">
                 <p class="font-mono text-[0.65rem] tracking-widest text-emerald-400 mb-3">PRIMARY PATH · INDEPENDENT INSPECTION (FREE)</p>
-                <p class="text-zinc-300 text-sm mb-4">Clone the public repository and run the read-only independent verify. No account, no wallet, no payment, no permission from the operator.</p>
+                <p class="text-zinc-300 text-sm mb-4">Clone the public repository, install dependencies, then run the independent verify. No account, no wallet, no payment, and no permission from the operator are required for that check. Note: <code class="font-mono text-xs">npm install</code> is not strictly read-only — it may download packages and run dependency lifecycle scripts.</p>
 <pre class="code text-zinc-400 mb-4">git clone https://github.com/onenoly1010/Quantum-pi-forge
 cd Quantum-pi-forge &amp;&amp; npm install
 npm run verify:independent</pre>
-                <p class="text-zinc-400 text-sm mb-2"><strong class="text-white">Expected result:</strong> console prints <code class="font-mono text-xs text-emerald-300">OK independent verification inputs available: 3.</code> and writes <code class="font-mono text-xs">deploy/independent-verification-v1.json</code> with <code class="font-mono text-xs">"result": "PASS"</code> when the three committed evidence inputs are present and well-formed.</p>
-                <p class="text-zinc-500 text-xs">This command does not sign, deploy, mutate contracts, or authorize mint/LP/yield. A PASS here is evidence about published inputs — not authorization and not a customer claim.</p>
+                <p class="text-zinc-400 text-sm mb-2"><strong class="text-white">Expected result:</strong> console prints <code class="font-mono text-xs text-emerald-300">OK independent verification inputs available: 3.</code> and writes <code class="font-mono text-xs">deploy/independent-verification-v1.json</code> with <code class="font-mono text-xs">"result": "PASS"</code> when the three committed evidence inputs are present and match their expected <code class="font-mono text-xs">schemaVersion</code> values.</p>
+                <p class="text-zinc-500 text-xs"><strong class="text-zinc-400">PASS means only that:</strong> those three committed evidence inputs were found and passed the implemented schema checks. It is <em>not</em> proof that the whole protocol, deployed contracts, or AI system is safe or correct. <code class="font-mono text-xs">verify:independent</code> does not sign, deploy, or mutate on-chain contracts; it may overwrite the local receipt JSON under <code class="font-mono text-xs">deploy/</code>. It does not authorize mint/LP/yield or any paid path.</p>
             </div>
             <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
                 <a href="#independent-verify" class="btn-volcanic text-lg md:text-xl px-12 py-5 rounded-full">Run independent verify</a>
@@ -441,6 +441,7 @@ npm run verify:independent</pre>
                 <div>
                     <p class="font-mono text-[0.65rem] tracking-widest text-zinc-500 mb-3">TALK TO A HUMAN</p>
                     <ul class="space-y-2">
+                        <li><a href="/historical-offers.html" class="text-zinc-400 hover:text-white">Historical offers <span class="text-zinc-600">(withdrawn)</span></a></li>
                         <li><a href="/verification-request.html" class="text-zinc-400 hover:text-white">Request verification <span class="text-zinc-600">(intake closed · historical)</span></a></li>
                         <li><a href="/support.html" class="text-zinc-400 hover:text-white">Support / build with QPF <span class="text-zinc-600">(offer withdrawn)</span></a></li>
                         <li><a href="/open.html" class="text-zinc-400 hover:text-white">Open gates</a></li>

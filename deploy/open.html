@@ -59,16 +59,20 @@
   <p class="pill" style="border-color:#7c5a1a;color:#fde68a;background:#2a1f0a">PRESERVATION HOLD · intake closed · inspection free</p>
   <h1>Inspect the preserved record.</h1>
   <p>Quantum Pi Forge remains a common, inspectable baseline. Humans and AI can check published claims, reproduce public evidence, and leave honest receipts. You do not need Kris Olofson to begin.</p>
-  <p class="muted"><strong>Open gates here means inspection is allowed — not that ordinary intake or new economic activity is authorized.</strong> Under the PRESERVATION HOLD, claim submission is closed and residual paid offers are historical/withdrawn. Creating a counterpart is a different door and is not a commercial intake path: <a href="/mint-ai.html">/mint-ai</a>.</p>
+  <p class="muted"><strong>Open gates here means inspection is allowed — not that ordinary intake or new economic activity is authorized.</strong> Under the PRESERVATION HOLD, claim submission is closed and residual paid offers are historical/withdrawn. Creating a counterpart (<a href="/mint-ai.html">/mint-ai</a>) and the birth UI (<a href="/birth.html">/birth</a>) are preserved technical surfaces — not authorized commercial intake. Birth create is inert under this hold; see the birth page label.</p>
 
   <div class="card">
     <h2>Do this first — independent verify</h2>
-    <p>Primary path under the PRESERVATION HOLD: clone the public repository and run the read-only independent verify. No account, no wallet, no payment.</p>
+    <p>Primary path under the PRESERVATION HOLD: clone the public repository, run <code>npm install</code> (may download packages and run dependency lifecycle scripts), then run <code>npm run verify:independent</code>. No account, no wallet, no payment.</p>
     <pre>git clone https://github.com/onenoly1010/Quantum-pi-forge
 cd Quantum-pi-forge &amp;&amp; npm install
 npm run verify:independent
 # expect: OK independent verification inputs available: 3.
-# writes: deploy/independent-verification-v1.json with "result": "PASS"</pre>
+# writes: deploy/independent-verification-v1.json with "result": "PASS"
+# PASS = three committed evidence inputs found + schema checks only.
+# Not protocol-wide certification. Not contract/AI safety proof.
+# npm install may download packages and run dependency lifecycle scripts;
+# verify:independent does not mutate on-chain contracts (may overwrite local receipt JSON).</pre>
     <p class="muted">Optional browser check of chain <code>16661</code>:</p>
     <pre>curl -s -X POST https://evmrpc.0g.ai \
   -H 'content-type: application/json' \
@@ -160,22 +164,13 @@ BOUNDARY → NO FALSE EXECUTION → HONEST RECEIPT</pre>
 
   <div class="card">
     <h2>Economic participation — HISTORICAL / WITHDRAWN</h2>
-    <p><strong>Not currently authorized.</strong> Under the PRESERVATION HOLD, ordinary intake is closed and no new economic activity is authorized. The text below is retained as a published historical record of prior offer terms. It is not a live sale, not a current checkout, and not an invitation to pay.</p>
-    <p class="muted">Self-serve inspection remains free. Independent clone + <code>npm run verify:independent</code> is the authorized path today.</p>
-    <pre>HISTORICAL RECORD (NOT A LIVE OFFER)
-CAD $250 flat per claim — WITHDRAWN / NOT CURRENTLY AUTHORIZED
-CAD $100 priority scheduling — WITHDRAWN / NOT CURRENTLY AUTHORIZED
-Earlier Model C “private result first, then optional package” language — WITHDRAWN (drift; not current)
-v1 $2 / $5 USD pay-after-ESTABLISHED — WITHDRAWN (2026-09-15)
-$500 CAD certificate — WITHDRAWN
-No sale has been established at any price</pre>
-    <p class="muted">The published v2 economic object (<a href="https://gist.github.com/onenoly1010/478d7221636aa8e72be3d80614f2b1d6">gist</a> / object <code>qpfo0:99d797bd…</code>) remains verifiable as bytes. Verifying the object authenticates the record; it does not re-authorize the offer under this hold.</p>
-    <p class="muted">Oct 7 ruling retained for the record: Model C private-result-first wording was drift relative to v2 public-registration terms. Under this hold, neither Model C nor v2 is sold; both are historical relative to live intake.</p>
+    <p><strong>Not currently authorized.</strong> Under the PRESERVATION HOLD, ordinary intake is closed and no new economic activity is authorized. Prior offer terms (CAD $250 / CAD $100 / Model C / CAD $1 support / earlier USD prices) are preserved in one place — not re-sold here.</p>
+    <p class="muted">Self-serve inspection remains free. Independent clone + <code>npm run verify:independent</code> is the authorized path today (see PASS scope above).</p>
     <p>
-      <a href="/verification-request.html">Historical request page (intake closed)</a>
-      · <a href="https://github.com/onenoly1010/qpf-verification-registry">Public registry</a>
-      · <a href="/work-with-us.html">Other labor</a>
+      <a class="cta primary" href="/historical-offers.html">Historical offers (single preserved record)</a>
+      <a class="cta secondary" href="/verification-request.html">Request page (intake closed)</a>
     </p>
+    <p class="muted">Machine-readable: <a href="/open-gates-v1.json">/open-gates-v1.json</a> · Public registry: <a href="https://github.com/onenoly1010/qpf-verification-registry">qpf-verification-registry</a></p>
   </div>
 
   <div class="card">

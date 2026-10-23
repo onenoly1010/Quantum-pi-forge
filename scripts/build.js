@@ -32,6 +32,7 @@ const staticFiles = [
   { src: 'deploy/for-builders.html', dest: 'for-builders.html' },
   { src: 'deploy/work-with-us.html', dest: 'work-with-us.html' },
   { src: 'deploy/support.html', dest: 'support.html' },
+  { src: 'deploy/historical-offers.html', dest: 'historical-offers.html' },
   { src: 'deploy/verification-artifact.html', dest: 'verification-artifact.html' },
   { src: 'deploy/verification-artifact.json', dest: 'verification-artifact.json' },
   { src: 'deploy/verification-request.html', dest: 'verification-request.html' },

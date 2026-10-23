@@ -19,15 +19,25 @@ curl -s -X POST https://evmrpc.0g.ai -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"eth_getCode","params":["0x75995EC0fdf881189850aeD864cB3f43c0DFCb58","latest"]}'
 # longer than "0x" → code present (ESTABLISHED for that bounded claim) · "0x" → NOT ESTABLISHED
 
-# Same check from a full clone — no account, no wallet, no permission:
+# Independent evidence-input check from a full clone — no account, no wallet, no permission:
 git clone https://github.com/onenoly1010/Quantum-pi-forge
 cd Quantum-pi-forge && npm install && npm run verify:independent
+# Note: npm install may download packages and run dependency lifecycle scripts.
+# verify:independent checks three committed evidence JSON inputs + schemaVersion only;
+# PASS is not protocol-wide certification and not contract/AI safety proof.
 ```
 
-**What you get back:** one of three outcomes — ESTABLISHED, NOT ESTABLISHED,
-or UNKNOWN — with the checks, the evidence used, and the limits written on
-the receipt. UNKNOWN is a legitimate result, not a failure. A receipt records
-what the evidence establishes; it never authorizes an action.
+**What `verify:independent` PASS means:** the three committed evidence inputs were
+found and passed the implemented schema checks; a local receipt JSON may be written
+under `deploy/`. It does **not** mean ESTABLISHED for the whole protocol.
+
+**What a broader evidence receipt may say:** ESTABLISHED, NOT ESTABLISHED, or UNKNOWN
+for a *bounded claim*, with checks, evidence used, and limits written on that receipt.
+UNKNOWN is a legitimate result, not a failure. A receipt records what the evidence
+establishes; it never authorizes an action.
+
+**Withdrawn offers:** prior CAD $250 / CAD $100 / CAD $1 / Model C terms are historical —
+see https://quantumpiforge.com/historical-offers.html (not a live sale).
 
 **Public evidence:** the claim, the evidence, the checks, and the result stay inspectable — start at https://quantumpiforge.com/verification-artifact.json (machine copy) or /problems/ (bounded claim guides). The arrow stops where the evidence stops: ESTABLISHED ≠ AUTHORIZATION.
 

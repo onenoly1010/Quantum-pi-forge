@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Watch your AI come to life — Quantum Pi Forge</title>
-  <meta name="description" content="Create an AI with its own identity, history, and boundaries. Authorize, witness its creation, verify what actually happened, then meet it.">
+  <title>Birth demo (preserved) — Quantum Pi Forge</title>
+  <meta name="description" content="Preserved historical demonstration of the QPF birth UI. Not an authorized live creation service under the PRESERVATION HOLD.">
   <link rel="canonical" href="https://quantumpiforge.com/birth.html">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://quantumpiforge.com/birth.html">
-  <meta property="og:title" content="Watch your AI come to life — no wallet, no tokens, no crypto knowledge needed">
-  <meta property="og:description" content="Authorize the creation of an AI with its own identity. Watch it form. See proof of what actually happened. Then meet it.">
+  <meta property="og:title" content="Birth UI — preserved historical demonstration (not a live service)">
+  <meta property="og:description" content="Preserved birth UI record. Creation is not presented as an authorized public service under the PRESERVATION HOLD.">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Watch your AI come to life">
-  <meta name="twitter:description" content="Create an AI with its own identity. No wallet. No tokens. Just witness it happen — then meet it.">
+  <meta name="twitter:title" content="Birth demo (preserved)">
+  <meta name="twitter:description" content="Preserved historical demonstration of the birth UI. Not a live creation offer.">
   <style>
     body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.65;margin:0;background:#070b10;color:#eef4ff}
     main{max-width:44rem;margin:0 auto;padding:2.5rem 1.25rem 5rem}
@@ -53,33 +53,33 @@
     <a href="/open.html">How it works</a>
   </nav>
 
-  <p class="eyebrow">CREATE · VERIFY · MEET · PRESERVED EXPERIMENT</p>
-  <h1>WATCH YOUR AI COME TO LIFE.</h1>
-  <p>Create an AI with its own identity, history, and boundaries.</p>
-  <p class="muted">You don't need a wallet, tokens, or blockchain knowledge. You authorize the creation. The system records what actually happens.</p>
-  <p class="muted" style="color:#fde68a"><strong>PRESERVATION HOLD note:</strong> this page is a preserved technical experiment, not ordinary commercial intake and not a paid offer. No new economic activity is authorized here. Independent inspection of the wider protocol remains free via <a href="/open.html">/open</a> and <code>npm run verify:independent</code>.</p>
+  <p class="eyebrow">PRESERVED UI · HISTORICAL DEMONSTRATION · NOT A LIVE SERVICE</p>
+  <h1>BIRTH UI — PRESERVED RECORD.</h1>
+  <p>This page retains the historical birth demonstration interface so the technical record stays inspectable.</p>
+  <p class="muted">It is <strong>not</strong> an authorized live creation service under the PRESERVATION HOLD. Ordinary product use and new economic activity are closed. Independent inspection of published evidence remains free via <a href="/open.html">/open</a> and <code>npm run verify:independent</code>.</p>
+  <p class="muted" style="color:#fde68a"><strong>Status:</strong> create flow is intentionally inert on this page (button disabled; client does not start authorization/creation). Whether residual server endpoints still answer is a separate operational fact and is <strong>not</strong> claimed here as an available public service. Behavior not independently re-verified in this change set is recorded as UNKNOWN in the consistency report — not PASS.</p>
 
-  <div class="steps" aria-label="Three steps">
-    <div class="step"><strong>01 · CREATE</strong>You authorize a new AI identity.</div>
-    <div class="step"><strong>02 · VERIFY</strong>The system proves what really happened.</div>
-    <div class="step"><strong>03 · MEET</strong>Then you can interact with it.</div>
+  <div class="steps" aria-label="Historical three-step UI (not a live offer)">
+    <div class="step"><strong>01 · CREATE</strong>Historical UI step — not authorized now.</div>
+    <div class="step"><strong>02 · VERIFY</strong>Historical UI step — retained for the record.</div>
+    <div class="step"><strong>03 · MEET</strong>Historical UI step — not a live intake path.</div>
   </div>
 
   <div class="stage" id="viz" aria-live="polite">◌</div>
-  <p id="milestone" class="muted">IDLE</p>
+  <p id="milestone" class="muted">PRESERVED DEMO · CREATE INERT</p>
 
   <div class="card">
     <div class="actions">
-      <button id="begin">BEGIN</button>
-      <button class="secondary" id="retry" hidden>TRY AGAIN</button>
-      <button class="secondary" id="meet" hidden>MEET YOUR AI</button>
-      <button class="secondary" id="proof" hidden>SEE WHAT HAPPENED</button>
+      <button id="begin" type="button" disabled aria-disabled="true" style="opacity:.45;cursor:not-allowed" title="Create flow disabled under PRESERVATION HOLD">BEGIN — DISABLED (preserved demo)</button>
+      <button class="secondary" id="retry" type="button" disabled aria-disabled="true" hidden>TRY AGAIN</button>
+      <button class="secondary" id="meet" type="button" disabled aria-disabled="true" hidden>MEET YOUR AI</button>
+      <button class="secondary" id="proof" type="button" disabled aria-disabled="true" hidden>SEE WHAT HAPPENED</button>
     </div>
-    <p class="fail" id="err" hidden></p>
+    <p class="fail" id="err" style="color:#fde68a">Create is not available as a public service on this page. This is a preserved demonstration UI under the PRESERVATION HOLD.</p>
   </div>
 
   <div class="card" id="hello" hidden>
-    <h2>Your AI is ready to meet you.</h2>
+    <h2>Historical meet panel (inactive under HOLD).</h2>
     <p id="hellotxt"></p>
     <p class="muted quiet">The identity and its boundaries remain separate from you. Optional external identity linking comes later; it is never required for birth.</p>
     <p class="quiet"><a href="/meet.html">Continue to the AI session</a></p>

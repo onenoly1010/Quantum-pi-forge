@@ -1,5 +1,10 @@
 /* Client #1 for qpf-birth. UI follows server state only. */
+/* PRESERVATION HOLD (2026-10-23 r2): create/meet/proof flows are inert on this page.
+ * The historical UI and this script are retained as an inspectable record.
+ * This flag does not claim server endpoints are closed; it only disables client-started creation.
+ */
 (function () {
+  const PRESERVATION_HOLD_INERT = true;
   const STORE = "qpf.birth.v1";
   const viz = document.getElementById("viz");
   const milestone = document.getElementById("milestone");
@@ -194,10 +199,41 @@
     }, null, 2);
   }
 
-  document.getElementById("begin").onclick = authorizeAndCreate;
-  retry.onclick = attest;
-  meet.onclick = doMeet;
-  proofBtn.onclick = doProof;
+  const beginBtn = document.getElementById("begin");
+  if (PRESERVATION_HOLD_INERT) {
+    // Keep handlers from starting creation/attestation/meet under HOLD.
+    if (beginBtn) {
+      beginBtn.disabled = true;
+      beginBtn.setAttribute("aria-disabled", "true");
+      beginBtn.onclick = function (e) {
+        if (e && e.preventDefault) e.preventDefault();
+        err.hidden = false;
+        err.textContent = "Create is disabled under the PRESERVATION HOLD. This page is a preserved demonstration UI, not an authorized live service.";
+        show("IDLE", "PRESERVED DEMO · CREATE INERT");
+      };
+    }
+    retry.onclick = function (e) { if (e && e.preventDefault) e.preventDefault(); };
+    meet.onclick = function (e) { if (e && e.preventDefault) e.preventDefault(); };
+    proofBtn.onclick = function (e) { if (e && e.preventDefault) e.preventDefault(); };
+    // Do not call /birth/* on load; do not resume prior local records into a live flow.
+    show("IDLE", "PRESERVED DEMO · CREATE INERT");
+    err.hidden = false;
+    err.textContent = "Create is not available as a public service on this page. Preserved demonstration UI only.";
+  } else {
+    beginBtn.onclick = authorizeAndCreate;
+    retry.onclick = attest;
+    meet.onclick = doMeet;
+    proofBtn.onclick = doProof;
+
+    const existing = load();
+    if (existing && existing.birth_id) {
+      post("/birth/status", { record: existing }).then((s) => {
+        show(s.state || existing.state);
+      });
+    } else {
+      show("IDLE");
+    }
+  }
 
   // Share affordance: participant copies the birth link themselves.
   // No auto-posting, no prefilled message, no outbound contact by the system.
@@ -216,9 +252,7 @@
         await navigator.clipboard.writeText(url);
         reveal();
       } catch {
-        // Clipboard API unavailable (permissions, insecure context):
-        // fall back to selecting via prompt so the human still gets the link.
-        try { window.prompt("Copy this link and send it to one curious person:", url); } catch {}
+        try { window.prompt("Copy this link (preserved birth demo page):", url); } catch {}
         reveal();
       }
     }
@@ -226,18 +260,8 @@
       shareBtn.hidden = false;
       shareBtn.onclick = copy;
     } else {
-      // No clipboard API: show the button anyway, prompt() fallback handles it.
       shareBtn.hidden = false;
       shareBtn.onclick = copy;
     }
   })();
-
-  const existing = load();
-  if (existing && existing.birth_id) {
-    post("/birth/status", { record: existing }).then((s) => {
-      show(s.state || existing.state);
-    });
-  } else {
-    show("IDLE");
-  }
 })();

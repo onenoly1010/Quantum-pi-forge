@@ -2,7 +2,7 @@
   "schema": "qpf-open-gates-v1",
   "schema_version": "1.0",
   "updated_at_utc": "2026-10-23T12:00:00Z",
-  "title": "Quantum Pi Forge \u2014 Preservation Hold",
+  "title": "Quantum Pi Forge — Preservation Hold",
   "decision": "PRESERVATION_HOLD",
   "public_url": "https://quantumpiforge.com/open.html",
   "canon": {
@@ -71,13 +71,13 @@
     "priority_scheduling_cad": 100,
     "priority_effect": "Next available start slot only. Same method, same criteria.",
     "verdict_independence": "Identical fee for ESTABLISHED, FAILED and UNKNOWN.",
-    "payment_timing": "HISTORICAL ONLY \u2014 prior draft timing mentioned a private result before package purchase. That Model C private-result-first path is withdrawn. No live payment timing applies under PRESERVATION HOLD.",
-    "payment_method": "Hosted card checkout (activation pending). No email invoice; no crypto checkout.",
+    "payment_timing": "HISTORICAL ONLY — prior draft timing mentioned a private result before package purchase. That Model C private-result-first path is withdrawn. No live payment timing applies under PRESERVATION HOLD.",
+    "payment_method": "HISTORICAL ONLY — prior draft mentioned hosted card checkout (activation pending). No checkout is authorized under PRESERVATION HOLD.",
     "standard_deliverable": "Evidence package: execution record, procedure and environment, available evidence, result, and verification receipt for the submitted claim.",
-    "claim_registration": "Claim and scope committed to the public registry repository when the evidence package is purchased.",
-    "refund": "No refund on verdict. 100% refund if QPF does not deliver the evidence receipt within 10 business days of public registration; the claim stays on the record.",
+    "claim_registration": "HISTORICAL ONLY — prior terms described public-registry commitment when a package was purchased. Intake is CLOSED under PRESERVATION HOLD; no purchase path is authorized.",
+    "refund": "HISTORICAL ONLY — prior refund language applied to a live package sale. No live sale is authorized under PRESERVATION HOLD.",
     "registry": "https://github.com/onenoly1010/qpf-verification-registry",
-    "intake": "CLOSED under PRESERVATION HOLD \u2014 https://quantumpiforge.com/verification-request (form disabled)",
+    "intake": "CLOSED under PRESERVATION HOLD — https://quantumpiforge.com/verification-request (form disabled)",
     "withdrawn_2026-09-25": {
       "old_v1_terms": "standard_usd 2, expedited_usd 5, pay_after ESTABLISHED, failed_usd 0 (made revenue depend on the verdict)",
       "founder_certificate_cad_500": "withdrawn"
@@ -91,7 +91,8 @@
       "priority_scheduling_cad_100": "withdrawn / not currently authorized",
       "model_c_private_result_first": "withdrawn (drift relative to v2 public-registration terms; not resurrected)",
       "cad_1_support_path": "withdrawn / not currently authorized"
-    }
+    },
+    "historical_offers_page": "https://quantumpiforge.com/historical-offers.html"
   },
   "forbidden_without_separate_human_go": [
     "mint",

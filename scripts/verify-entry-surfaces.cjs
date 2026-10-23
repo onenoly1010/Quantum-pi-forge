@@ -28,6 +28,7 @@ const requiredFiles = [
   'verification-certificate.html',
   'verification-request.html',
   'support.html',
+  'historical-offers.html',
   'verification-artifact.html',
   'verification-artifact.json',
   'verification-status-v1.json',
@@ -48,10 +49,11 @@ const titleMustInclude = {
   'open.html': 'Open Gates',
   'meet.html': 'Meet a co-creator',
   'mint-ai.html': 'Mint your AI',
-  'birth.html': 'Watch your AI come to life',
+  'birth.html': 'Birth demo (preserved)',
   'problems/index.html': 'Problems QPF',
   'verification.html': 'Verification',
   'support.html': 'Support / Build With QPF',
+  'historical-offers.html': 'Historical offers',
   'verification-artifact.html': 'Verification Artifact',
   'robots.txt': null, // not HTML
   'sitemap.xml': null,
@@ -107,6 +109,9 @@ for (const rel of requiredFiles) {
     }
     if (!/quantumpiforge\.com\/birth\.html/.test(body)) {
       errors.push('sitemap.xml missing birth.html URL');
+    }
+    if (!/quantumpiforge\.com\/historical-offers\.html/.test(body)) {
+      errors.push('sitemap.xml missing historical-offers.html URL');
     }
     if (!/quantumpiforge\.com\/support\.html/.test(body)) {
       errors.push('sitemap.xml missing support.html URL');
