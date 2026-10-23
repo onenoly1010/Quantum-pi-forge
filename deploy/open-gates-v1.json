@@ -1,15 +1,15 @@
 {
   "schema": "qpf-open-gates-v1",
   "schema_version": "1.0",
-  "updated_at_utc": "2026-10-01T00:50:20Z",
-  "title": "Quantum Pi Forge Open Gates",
-  "decision": "OPEN",
+  "updated_at_utc": "2026-10-23T12:00:00Z",
+  "title": "Quantum Pi Forge \u2014 Preservation Hold",
+  "decision": "PRESERVATION_HOLD",
   "public_url": "https://quantumpiforge.com/open.html",
   "canon": {
     "handover": "docs/governance/OPEN_GATES_PLATFORM_HANDOVER_V1.md",
     "participant_map": "docs/public/OPEN_GATES_V1.md"
   },
-  "note": "Operating doctrine plus current-baseline statements. Not proof of market, customers, or revenue. Does not authorize mint, LP, yield, wallet spend, or live compute deposit.",
+  "note": "PRESERVATION HOLD: preserved technical record; ordinary intake closed; no new economic activity authorized; independent inspection free. Not proof of market, customers, or revenue. Does not authorize mint, LP, yield, wallet spend, live compute deposit, or paid packaged review.",
   "creator_not_middleware": true,
   "belief_required": false,
   "network": {
@@ -38,6 +38,12 @@
   },
   "entry_without_creator": [
     {
+      "id": "independent_verify",
+      "command": "npm run verify:independent",
+      "action": "Primary path under PRESERVATION HOLD: local independent verification from a clone",
+      "expected": "OK independent verification inputs available: 3. Writes deploy/independent-verification-v1.json with result PASS."
+    },
+    {
       "id": "try",
       "url": "/try.html",
       "action": "Confirm chain id and code at a claimed address"
@@ -53,11 +59,6 @@
       "action": "Inspect published contract inventory"
     },
     {
-      "id": "independent_verify",
-      "command": "npm run verify:independent",
-      "action": "Local independent verification from a clone"
-    },
-    {
       "id": "report",
       "url": "https://github.com/onenoly1010/Quantum-pi-forge/issues/new",
       "action": "Submit an independent verification report"
@@ -70,18 +71,27 @@
     "priority_scheduling_cad": 100,
     "priority_effect": "Next available start slot only. Same method, same criteria.",
     "verdict_independence": "Identical fee for ESTABLISHED, FAILED and UNKNOWN.",
-    "payment_timing": "After the private result is delivered; before evidence-package purchase and public registration.",
+    "payment_timing": "HISTORICAL ONLY \u2014 prior draft timing mentioned a private result before package purchase. That Model C private-result-first path is withdrawn. No live payment timing applies under PRESERVATION HOLD.",
     "payment_method": "Hosted card checkout (activation pending). No email invoice; no crypto checkout.",
     "standard_deliverable": "Evidence package: execution record, procedure and environment, available evidence, result, and verification receipt for the submitted claim.",
     "claim_registration": "Claim and scope committed to the public registry repository when the evidence package is purchased.",
     "refund": "No refund on verdict. 100% refund if QPF does not deliver the evidence receipt within 10 business days of public registration; the claim stays on the record.",
     "registry": "https://github.com/onenoly1010/qpf-verification-registry",
-    "intake": "https://quantumpiforge.com/verification-request",
+    "intake": "CLOSED under PRESERVATION HOLD \u2014 https://quantumpiforge.com/verification-request (form disabled)",
     "withdrawn_2026-09-25": {
       "old_v1_terms": "standard_usd 2, expedited_usd 5, pay_after ESTABLISHED, failed_usd 0 (made revenue depend on the verdict)",
       "founder_certificate_cad_500": "withdrawn"
     },
-    "is_offer_not_revenue": true
+    "is_offer_not_revenue": true,
+    "status": "HISTORICAL_WITHDRAWN_NOT_CURRENTLY_AUTHORIZED",
+    "preservation_hold": true,
+    "live_sale_authorized": false,
+    "withdrawn_under_preservation_hold_2026-10-23": {
+      "standard_cad_250": "withdrawn / not currently authorized",
+      "priority_scheduling_cad_100": "withdrawn / not currently authorized",
+      "model_c_private_result_first": "withdrawn (drift relative to v2 public-registration terms; not resurrected)",
+      "cad_1_support_path": "withdrawn / not currently authorized"
+    }
   },
   "forbidden_without_separate_human_go": [
     "mint",
@@ -90,7 +100,11 @@
     "wallet_sign_or_broadcast",
     "live_compute_deposit",
     "synthetic_customers",
-    "unknown_as_healthy"
+    "unknown_as_healthy",
+    "ordinary_intake_submission",
+    "paid_evidence_package_sale",
+    "cad_1_support_solicitation",
+    "representing_historical_offer_as_live"
   ],
   "source": {
     "repository": "https://github.com/onenoly1010/Quantum-pi-forge",

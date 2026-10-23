@@ -39,17 +39,25 @@
   </style>
 </head>
 <body>
+
+  <!-- QPF site-wide preservation hold -->
+  <div id="qpf-preservation-hold" role="status" aria-live="polite"
+       style="border-bottom:1px solid #7c5a1a;background:#2a1f0a;color:#fde68a;padding:12px 22px;font-size:.92rem;line-height:1.5">
+    <strong style="letter-spacing:.06em">PRESERVATION HOLD</strong>
+    — Preserved technical record. Ordinary intake is closed. No new economic activity is authorized. Independent inspection is free.
+  </div>
+
 <main>
   <nav class="nav">
     <a href="/">Home</a>
     <a href="/open.html">Open gates</a>
     <a href="/problems/">Problem pages</a>
     <a href="/deployed-addresses.html#verify-now">Portal</a>
-    <a href="/verification-request.html">Paid evidence package</a>
+    <a href="/verification-request.html">Evidence package (historical · closed)</a>
   </nav>
 
   <h1>Try: verify a public deployment yourself</h1>
-  <p class="muted">One useful thing. No account. No wallet. No architecture tour. About 5 minutes — run in this page or with <code>curl</code>.</p>
+  <p class="muted">One useful thing. No account. No wallet. No architecture tour. About 5 minutes — run in this page or with <code>curl</code>. Independent clone path: <code>npm run verify:independent</code> (expected: <code>OK independent verification inputs available: 3.</code>).</p>
 
   <div class="card">
     <h2>What you will accomplish</h2>
@@ -107,6 +115,11 @@
       <a class="cta secondary" href="/problems/">More problem guides</a>
     </p>
   </div>
+
+  <p class="muted" style="margin-top:2rem;font-size:.85rem;color:#fde68a">
+    PRESERVATION HOLD — preserved technical record · ordinary intake closed · no new economic activity authorized · independent inspection free
+  </p>
+
 </main>
 <script>
 (function () {

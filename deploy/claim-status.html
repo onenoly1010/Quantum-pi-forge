@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your claim status | Quantum Pi Forge</title>
-  <meta name="description" content="Private status page for a submitted QPF verification review request. Open it with your private status link.">
+  <meta name="description" content="Private status view for a historical QPF verification request. Ordinary intake is closed under PRESERVATION HOLD. Not an authoritative receipt.">
   <meta name="robots" content="noindex">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
@@ -13,6 +13,16 @@
   </style>
 </head>
 <body class="antialiased">
+
+    <!-- QPF site-wide preservation hold -->
+    <div id="qpf-preservation-hold" role="status" aria-live="polite"
+         class="border-b border-amber-500/40 bg-amber-500/10 text-amber-100">
+      <div class="max-w-5xl mx-auto px-6 py-3 text-sm leading-relaxed">
+        <strong class="font-mono tracking-wider text-amber-200">PRESERVATION HOLD</strong>
+        — Preserved technical record. Ordinary intake is closed. No new economic activity is authorized. Independent inspection is free.
+      </div>
+    </div>
+
   <nav class="border-b border-white/5 bg-black/70">
     <div class="max-w-3xl mx-auto px-6 py-4 flex justify-between items-center text-sm font-mono text-zinc-400">
       <a href="/" class="font-bold text-zinc-200">← Quantum Pi Forge</a>
@@ -21,8 +31,9 @@
   </nav>
 
   <main id="claimStatusRoot" class="max-w-3xl mx-auto px-6 py-16">
-    <p class="text-xs font-mono text-orange-400 uppercase tracking-wider mb-4">Private status</p>
+    <p class="text-xs font-mono text-orange-400 uppercase tracking-wider mb-4">Private status view · not the public receipt</p>
     <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-6">Your claim, start to finish.</h1>
+    <p class="border border-amber-500/40 rounded-xl p-5 bg-amber-500/10 mb-8 text-amber-200 text-sm" role="note"><strong>PRESERVATION HOLD:</strong> ordinary intake is closed and no new economic activity is authorized. If you already hold a status link from an earlier submission, this page is only a private convenience view. The public registry/receipt is authoritative when one exists. CAD $250 package language below is historical/withdrawn.</p>
 
     <p id="csState" class="border border-white/10 rounded-xl p-5 bg-white/5 mb-8 text-zinc-300" role="status" aria-live="polite" hidden></p>
 
@@ -30,7 +41,7 @@
       <section class="mb-8" aria-label="Progress">
         <h2 class="text-xl font-bold text-white mb-4">What is happening</h2>
         <ol id="csTimeline" class="space-y-3 text-sm text-zinc-300"></ol>
-        <p class="mt-4 text-sm font-mono text-zinc-500">Payment: your result arrives here first, free. CAD $250 later buys the complete evidence package — execution record, procedure and environment, available evidence, result, and receipt — published on the record. Card checkout is not live yet; nothing is owed by submitting, and payment never buys a favorable verdict. This page never asks for money, an account, or an email.</p>
+        <p class="mt-4 text-sm font-mono text-zinc-500">Historical payment copy (WITHDRAWN / NOT CURRENTLY AUTHORIZED): CAD $250 evidence package / private-result-first language is not a live offer under the PRESERVATION HOLD. This page never asks for money, an account, or an email. Independent inspection stays free.</p>
       </section>
 
       <section class="mb-8 border border-white/10 rounded-xl p-6 bg-white/5" aria-label="Your submission">
