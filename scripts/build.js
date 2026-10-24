@@ -35,6 +35,9 @@ const staticFiles = [
   { src: 'deploy/verification-artifact.html', dest: 'verification-artifact.html' },
   { src: 'deploy/verification-artifact.json', dest: 'verification-artifact.json' },
   { src: 'deploy/verification-request.html', dest: 'verification-request.html' },
+  // Claim intake loop (no email): submission form client + private status page
+  { src: 'deploy/claim-client.js', dest: 'claim-client.js' },
+  { src: 'deploy/claim-status.html', dest: 'claim-status.html' },
   // Phase A public entry (discoverability / self-serve / certificate)
   { src: 'deploy/try.html', dest: 'try.html' },
   { src: 'deploy/open.html', dest: 'open.html' },
@@ -381,4 +384,15 @@ for (const dir of ["functions/_lib", "functions/birth", "functions/ai"]) {
     fs.cpSync(dir, path.join(outputDir, dir), { recursive: true });
     console.log("OK copied " + dir + " -> out/" + dir);
   }
+}
+
+// Claim intake endpoint (/api/claim) — the email-free customer loop. Lives at
+// out/functions/api/claim.js so Pages serves POST/GET/PUT /api/claim.
+if (fs.existsSync('functions/api/claim.js')) {
+  fs.mkdirSync(path.join(outputDir, 'functions/api'), { recursive: true });
+  fs.copyFileSync(
+    path.join(rootDir, 'functions/api/claim.js'),
+    path.join(outputDir, 'functions/api/claim.js'),
+  );
+  console.log("OK copied functions/api/claim.js -> out/functions/api/claim.js");
 }

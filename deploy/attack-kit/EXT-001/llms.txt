@@ -1,0 +1,30 @@
+# Quantum Pi Forge (QPF)
+Domain: quantumpiforge.com
+Topic: Level-0 artifact verification, deterministic JCS-RFC8785 canonicalization, sha256 manifest reconciliation.
+
+## EXT-001: Frozen Verification Triple
+- Description: Standalone Python (stdlib only, 3.8+) reproducer for qpfv0 and qpfpkg0 without cloning QPF monorepo.
+- Status: FROZEN. Content change invalidates identities below.
+- Scope: Content identity only. Not a statement about OpenZeppelin security, correctness, or audit status.
+- Docs: https://quantumpiforge.com/attack-kit/EXT-001/
+- License: QPF files MIT (Pi Forge Collective - Quantum Genesis Initiative, Lead: Kris Olofson). artifact.bin: OpenZeppelin MIT, SPDX-MIT, v5.0.0.
+
+### Reproduce
+curl -fsSO https://quantumpiforge.com/attack-kit/EXT-001/verify.py
+curl -fsSO https://quantumpiforge.com/attack-kit/EXT-001/manifest.json
+curl -fsSO https://quantumpiforge.com/attack-kit/EXT-001/pin.json
+curl -fsSO https://quantumpiforge.com/attack-kit/EXT-001/artifact.bin
+curl -fsSO https://quantumpiforge.com/attack-kit/EXT-001/receipt.json
+curl -fsSO https://quantumpiforge.com/attack-kit/EXT-001/expected-result.json
+python3 verify.py
+
+### Expected
+- qpfv0: qpfv0:44a9b8cfbcd6eb3dfc83e93b1312f4511a4d42de77cd24afcea198bb424f9db8
+- qpfpkg0: qpfpkg0:54f7af2c1ab97709f0813815036bcde62bfb3165107426a0f6a952d9c97cb1c2
+- Note: qpfv0 is timestamp-stable. qpfpkg0 hashes the frozen expected-result.json bytes; re-running with fresh timestamp legitimately yields different qpfpkg0.
+
+### Files
+- verify.py: JCS-RFC8785 + sha256 derivation (result-id.js, package.js, canonical.js port)
+- manifest.json: frozen file hashes + derivation rules
+- pin.json: OpenZeppelin/openzeppelin-contracts @932fddf69a699a9a80fd2396fd1a2ab91cdda123 tag v5.0.0 path contracts/access/Ownable.sol
+- artifact.bin / receipt.json / expected-result.json: frozen triple

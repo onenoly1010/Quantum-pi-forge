@@ -1,14 +1,53 @@
 {
   "schema": "qpf-verification-status-v1",
-  "schema_version": "1.1",
-  "updated_at_utc": "2026-08-04T20:30:00Z",
+  "schema_version": "1.2",
+  "updated_at_utc": "2026-09-28T00:00:00Z",
+  "record_kind": "STATUS_UPDATE_WITH_PRESERVED_HISTORY",
+  "status_update_note": "Status-freshness update only. This file previously presented Phase 8.5 Round 1 as OPEN with a hard close of 2026-08-29; that window is now past. The round is labelled WINDOW_EXPIRED on the evidence of the published notice of 2026-09-05. No verification evidence, receipt, ledger entry, or contract state was rewritten; the superseded publication is preserved verbatim in as_published_history.",
+  "update_scope": {
+    "changed": [
+      "phase.8_5_status: OPEN -> WINDOW_EXPIRED",
+      "phase.8_5_soft_sla_status: OPEN -> ELAPSED",
+      "phase.8_5_display: restated with the hard-close date",
+      "updated_at_utc and source.main_commit pin"
+    ],
+    "unchanged": [
+      "economic.* (mint, liquidity, yield/staking, site-side signing: still not authorized)",
+      "operational_panel.* (mint, liquidity, financial execution: LOCKED)",
+      "core_contracts (addresses untouched)",
+      "address_verification_report (historical; not re-run by this update)"
+    ],
+    "asserts_no_new_chain_observation": true,
+    "executes_nothing": true
+  },
+  "as_published_history": [
+    {
+      "updated_at_utc": "2026-08-04T20:30:00Z",
+      "superseded_at_utc": "2026-09-28T00:00:00Z",
+      "superseded_reason": "hard close 2026-08-29T15:02:00Z elapsed without quorum, so the record was being presented as OPEN past its own close date",
+      "source_main_commit_short": "22f3028",
+      "phase": {
+        "8_5_multi_report_round": 1,
+        "8_5_status": "OPEN",
+        "8_5_quorum_m": 3,
+        "8_5_eligible_reports_n": 0,
+        "8_5_consensus": "NOT_STARTED",
+        "8_5_soft_sla_utc": "2026-08-13T15:02:00Z",
+        "8_5_hard_sla_utc": "2026-08-29T15:02:00Z",
+        "8_5_soft_sla_status": "OPEN",
+        "8_5_display": "OPEN · 0/3 eligible reports"
+      }
+    }
+  ],
   "portal_url": "https://quantumpiforge.com/deployed-addresses",
   "source": {
     "repository": "https://github.com/onenoly1010/Quantum-pi-forge",
-    "main_commit": "22f30281518ba4a477e500ae425e47be323f6a9a",
-    "main_commit_short": "22f3028",
+    "main_commit": "79a0aefc08c97019a52efe0f5ce793232af65a56",
+    "main_commit_short": "79a0aef",
+    "pinned_at_utc": "2026-09-28T00:00:00Z",
+    "previous_main_commit_short": "22f3028",
     "related_prs": ["#713", "#714", "#715"],
-    "note": "Status freshness / public documentation metadata only. Does not authorize economics, mint, liquidity, wallet, or chain execution. Pin aligned to verified main tip after #715."
+    "note": "Status freshness / public documentation metadata only. Does not authorize economics, mint, liquidity, wallet, or chain execution. Pin is the main tip at the time of this status update; the earlier status-only pin 22f3028 is preserved in as_published_history."
   },
   "network": {
     "name": "0G Aristotle mainnet",
@@ -20,15 +59,28 @@
   "phase": {
     "8_4_public_verification_portal": "COMPLETE",
     "8_5_multi_report_round": 1,
-    "8_5_status": "OPEN",
+    "8_5_status": "WINDOW_EXPIRED",
+    "8_5_status_as_opened": "OPEN",
+    "8_5_round_opened_utc": "2026-07-30T15:02:00Z",
     "8_5_quorum_m": 3,
     "8_5_eligible_reports_n": 0,
     "8_5_consensus": "NOT_STARTED",
     "8_5_soft_sla_utc": "2026-08-13T15:02:00Z",
     "8_5_hard_sla_utc": "2026-08-29T15:02:00Z",
-    "8_5_soft_sla_status": "OPEN",
-    "8_5_display": "OPEN · 0/3 eligible reports",
-    "invitation_issue": "https://github.com/onenoly1010/Quantum-pi-forge/issues/636"
+    "8_5_soft_sla_status": "ELAPSED",
+    "8_5_hard_sla_elapsed": true,
+    "8_5_display": "WINDOW_EXPIRED · 0/3 eligible reports · hard close 2026-08-29 passed without quorum",
+    "invitation_issue": "https://github.com/onenoly1010/Quantum-pi-forge/issues/636",
+    "8_5_close": {
+      "closed_as": "WINDOW_EXPIRED",
+      "rule": "SLA elapsed without m agreements (m = 3) -> fail closed for that round's 'externally settled' claim.",
+      "consequence": "Round 1 supports no 'externally settled' claim. Fail-closed; nothing unlocked.",
+      "evidence": "docs/community/ROUND1_SHARE_LOG_V1.md — public notice sent 2026-09-05T17:51Z",
+      "public_notice": "https://github.com/onenoly1010/Quantum-pi-forge/issues/636#issuecomment-5553660172",
+      "ledger": "docs/community/verification-reports/INDEX_V1.md — n accepted eligible = 0",
+      "reports_still_accepted": "Yes, as a rolling check. A rolling report is not a settled quorum claim and does not reopen Round 1.",
+      "successor_round": "NOT_AUTHORIZED — a Round 2 requires a separate GO; this file does not authorize one"
+    }
   },
   "economic": {
     "public_mint": "NOT_AUTHORIZED",
@@ -88,7 +140,9 @@
     "issue_tracker": "https://github.com/onenoly1010/Quantum-pi-forge/issues/673",
     "verdict": "PASS_WITH_WARNINGS",
     "verified_at_utc": "2026-08-01T19:03:00Z",
-    "audit_boundary": "NO_WALLET_TOUCH=true"
+    "audit_boundary": "NO_WALLET_TOUCH=true",
+    "is_historical": true,
+    "as_of_note": "Historical record: verified 2026-08-01. Not re-run by this status update, and the verdict applies to that date only."
   },
   "how_to_verify": {
     "builder_quickstart": "https://github.com/onenoly1010/Quantum-pi-forge/blob/main/docs/BUILDER_QUICKSTART.md",
@@ -101,6 +155,9 @@
   "boundaries": {
     "this_file_authorizes_economics": false,
     "auto_mint_on_quorum": false,
-    "this_update_is_status_freshness_only": true
+    "this_update_is_status_freshness_only": true,
+    "this_update_rewrites_historical_evidence": false,
+    "round_1_close_is_fail_closed": true,
+    "quorum_failure_does_not_unlock_anything": true
   }
 }

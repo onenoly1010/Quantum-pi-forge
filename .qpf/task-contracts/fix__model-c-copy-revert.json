@@ -1,0 +1,61 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "fix/model-c-copy-revert",
+  "outcome": "Revert Model C copy drift on live intake surfaces to the v2 offer terms (qpfo0:99d797bd); enforce the v2 contract on the operator PUT in /api/claim (no private result before the public receipt; receipt must be receipts/<ref>.md); drop stale $2/$5 USD and $500 CAD certificate references from live offer copy. No price, wallet, contract, or infrastructure change. Stacked on feat/ext001-llms-faq (PR #887).",
+  "canonicalSources": [
+    "deploy/open-gates-v1.json",
+    "docs/CLAIM_INTAKE_RUNBOOK_V1.md"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/fix__model-c-copy-revert.json",
+    ".buildkite/pipeline.yml",
+    "deploy/claim-client.js",
+    "deploy/claim-status.html",
+    "deploy/open-gates-v1.json",
+    "deploy/open.html",
+    "deploy/verification-request.html",
+    "deploy/verification.html",
+    "docs/CLAIM_INTAKE_RUNBOOK_V1.md",
+    "functions/api/claim.js",
+    "package.json",
+    "tests/claim/claim.test.js",
+    "tests/claim/contract.test.js"
+  ],
+  "forbiddenPaths": [
+    "contracts/**",
+    "wallets/**",
+    "src/**",
+    "guardian/**",
+    "receipts/**",
+    "package-lock.json",
+    "wrangler.pages.toml",
+    "scripts/deploy-cloudflare-pages.sh"
+  ],
+  "forbiddenActions": [
+    "deploy (npm run deploy:cf or any Cloudflare change)",
+    "price or fee change",
+    "public mint",
+    "liquidity",
+    "staking/yield",
+    "bridge",
+    "wallet transfer",
+    "outbound outreach",
+    "merge over failing required checks"
+  ],
+  "verification": [
+    "npm run test:claim",
+    "npm run test:verification",
+    "npm run verify:all",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/fix__model-c-copy-revert.json --base origin/feat/ext001-llms-faq"
+  ],
+  "definitionOfDone": [
+    "Live intake copy matches v2 terms in deploy/open-gates-v1.json",
+    "Operator PUT refuses complete without a receipts/<ref>.md receipt URL pinned to a registry commit",
+    "No $2/$5 USD or $500 CAD certificate references remain in the changed live offer pages"
+  ],
+  "authorizationRequired": [
+    "deploying to Cloudflare Pages",
+    "merging to main"
+  ],
+  "notes": ".buildkite/pipeline.yml added 2026-10-17 (Kris-approved): Buildkite mirror of the Operating Model workflow (Verify All / Publication Scope) while GitHub Actions is billing-locked."
+}
