@@ -1,0 +1,66 @@
+{
+  "receipt": "open-gates-decision-closed-2026-10-24",
+  "schema": "qpf.receipt.open-gates-decision.v1",
+  "created_at_utc": "2026-10-24T19:15:00Z",
+  "title": "Open Gates decision: OPEN → CLOSED (preserved record, no submissions)",
+  "status": "CLOSED",
+  "mode": "PRESERVED_RECORD_NO_SUBMISSIONS",
+  "authorization": {
+    "grantor": "Kris Olofson",
+    "date": "2026-10-24",
+    "time_cst": "2026-10-24 1:15 PM CST",
+    "text": "AUTHORIZED: QPF site corrections package — homepage restrained statement (/open retitled Status, gates closed), decision CLOSED on /open and open-gates-v1.json with OPEN preserved in history, withdrawn-offer labeling across /open /problems /try /deployed-addresses /mint-ai /meet /for-builders /claim-status /support, /docs links corrected to GitHub, no 0G support path on /support. Implementation only: no deploy, push to main, merge, Cloudflare changes, new submissions, or checkout."
+  },
+  "superseded_for_current_status": [
+    {
+      "record": "receipts/governance/open-gates-live-v1.json",
+      "decision_at_time": "OPEN",
+      "note": "Remains a valid record of the OPEN state as of 2026-09-15. Superseded for current status by this receipt — not invalidated (it is still true of what it records for then)."
+    },
+    {
+      "record": "docs/governance/OPEN_GATES_LIVE_RECEIPT_V1.md",
+      "decision_at_time": "OPEN",
+      "note": "Historical record of the live OPEN gates state. Superseded for current status — not invalidated."
+    },
+    {
+      "record": "docs/governance/OPEN_GATES_PLATFORM_HANDOVER_V1.md",
+      "decision_at_time": "OPEN",
+      "note": "Handover doc written while the decision was OPEN. Superseded for current status — not invalidated."
+    },
+    {
+      "record": ".qpf/task-contracts/docs__open-gates-v1.json",
+      "decision_at_time": "OPEN",
+      "note": "Historical task contract whose acceptance checks the OPEN decision. Not edited and not invalidated — it remains a valid record of what was true then. Its original acceptance check will fail if re-run after this change; that is expected."
+    }
+  ],
+  "new_evidence": [
+    "deploy/open-gates-v1.json: decision CLOSED (updated_at_utc 2026-10-24T19:15:00Z); OPEN preserved under history",
+    "deploy/open.html: Status: preserved record (gates closed to new service); dated 2026-10-24 no-submissions notice; request a packaged review and Request a review links removed; CAD $250 / $100 offers labeled WITHDRAWN / NOT AVAILABLE",
+    "deploy/index.html: title Quantum Pi Forge — Preserved Technical Record; footer nav Open gates renamed Status",
+    "deploy/problems/index.html, audit-smart-contract-release.html, evidence-package-ai-result.html, prove-deployment-matches-source.html, verify-github-repo.html: withdrawn banner on all 5 pages; certificate CTAs removed; meta descriptions changed to self-serve steps; Certificate #000 labeled historical internal example",
+    "deploy/try.html: Limited technical demonstration; disclaimer added; Paid evidence package and Paid review links removed",
+    "deploy/deployed-addresses.html: Submit verification report link removed; Round 1 record #636 relabeled closed/expired 2026-08-29 0/3 negative evidence preserved; No round is open added",
+    "deploy/mint-ai.html: MINT YOUR AI and Link Pi identity buttons disabled (Not available — preserved record); banner Not open. No new AI identities are being created.",
+    "deploy/meet.html: The arena was not built. One participant exists. No build is in progress.",
+    "deploy/for-builders.html: /docs/ and /docs/ECOSYSTEM_OVERVIEW.md repointed to GitHub tree/blob URLs (both HTTP 200 verified)",
+    "deploy/claim-status.html: top notice; CAD $250 purchase text and Request a review link removed",
+    "deploy/support.html: email/Interac/CAD $1/native 0G payment sections removed; QPF does not accept payments or support at this time; no replacement payment route",
+    "deploy/verification-request.html: Closed. Not accepting submissions. No checkout. banner added; disabled buttons kept"
+  ],
+  "not_authorized_by_this_receipt": [
+    "deploy, push to main, merge, Cloudflare changes",
+    "reopening submissions, checkout, certificates, reviews, rounds, mint, LP, yield",
+    "new claim-checking service, form, or inbound channel other than GitHub issues",
+    "editing or deleting historical receipts, task contracts, /verification-artifact, /attack-kit, /onboarding-status, governance records"
+  ],
+  "open_questions": [
+    "CI risk: verify:publication-scope does NOT re-run docs__open-gates-v1.json's OPEN check — the script only enforces allowedPaths/forbiddenPaths against changed files and never executes the contract's verification array. This changeset touches paths outside that contract's allowedPaths, so a scope run against this contract would fail on path scope; flagged for the deployment review and not edited here.",
+    "Whether recovery of lost /claim-status links is currently staffed: UNKNOWN",
+    "Whether a build is in progress for the /meet arena: UNKNOWN — Kris to confirm"
+  ],
+  "source": {
+    "repository": "https://github.com/onenoly1010/Quantum-pi-forge",
+    "branch": "fix/site-corrections-2026-10-24",
+    "base_commit": "b88267b design/homepage-restrained-statement-2026-10-23"
+  }
+}
