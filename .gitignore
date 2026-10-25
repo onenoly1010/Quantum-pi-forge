@@ -243,3 +243,6 @@ sccb/config/*.local.json
 
 # EXT-001 frozen artifact (published byte-exact exception to *.bin)
 !docs/outreach/EXT-001/artifact.bin
+
+# local verifier run records
+.qpf-runs/

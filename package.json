@@ -327,7 +327,8 @@
     "bootstrap-rehearsal:sccb": "node sccb/scripts/bootstrap-rehearsal.mjs",
     "sccb": "node sccb/src/cli.js",
     "sccb:status": "node sccb/src/cli.js status",
-    "sccb:capabilities": "node sccb/src/cli.js capabilities"
+    "sccb:capabilities": "node sccb/src/cli.js capabilities",
+    "test:verify-independent": "node --test tests/independent-verification/verify-independent.test.cjs"
   },
   "dependencies": {
     "@0gfoundation/0g-compute-ts-sdk": "^0.9.0",
