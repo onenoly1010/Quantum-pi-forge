@@ -1,15 +1,18 @@
 {
   "schema": "qpf-open-gates-v1",
   "schema_version": "1.0",
-  "updated_at_utc": "2026-10-01T00:50:20Z",
-  "title": "Quantum Pi Forge Open Gates",
-  "decision": "OPEN",
+  "updated_at_utc": "2026-10-24T19:15:00Z",
+  "title": "Quantum Pi Forge Open Gates — status: preserved record (gates closed to new service)",
+  "decision": "CLOSED",
+  "history": [
+    {"decision": "OPEN", "from": "2026-09-15", "to": "2026-10-24"}
+  ],
   "public_url": "https://quantumpiforge.com/open.html",
   "canon": {
     "handover": "docs/governance/OPEN_GATES_PLATFORM_HANDOVER_V1.md",
     "participant_map": "docs/public/OPEN_GATES_V1.md"
   },
-  "note": "Operating doctrine plus current-baseline statements. Not proof of market, customers, or revenue. Does not authorize mint, LP, yield, wallet spend, or live compute deposit.",
+  "note": "As of 2026-10-24, QPF accepts no submissions and sells nothing. Self-inspection of the public record (RPC checks, documented local verify commands, the repo) remains possible. Issues and PRs that don't move capital may be opened on GitHub. The decision OPEN (2026-09-15 → 2026-10-24) is historical, not current status. No public submission intake, checkout, or certificate offer is active.",
   "creator_not_middleware": true,
   "belief_required": false,
   "network": {
@@ -64,21 +67,23 @@
     }
   ],
   "commercial_offer": {
+    "status": "WITHDRAWN",
+    "not_available": "The CAD $250 flat-per-claim offer and CAD $100 priority scheduling are WITHDRAWN / NOT AVAILABLE as of 2026-10-24. Historical terms only; QPF accepts no payments and has no checkout.",
     "policy": "v2",
     "self_serve_inspection": "FREE",
     "standard_cad": 250,
     "priority_scheduling_cad": 100,
-    "priority_effect": "Next available start slot only. Same method, same criteria.",
-    "verdict_independence": "Identical fee for ESTABLISHED, FAILED and UNKNOWN.",
-    "payment_timing": "After intake acceptance, before public registration.",
-    "payment_method": "Hosted card checkout (activation pending). No email invoice; no crypto checkout.",
-    "standard_deliverable": "Evidence package: execution record, procedure and environment, available evidence, result, and verification receipt for the submitted claim.",
-    "claim_registration": "Claim and scope committed to the public registry repository before work begins.",
-    "refund": "No refund on verdict. 100% refund if QPF does not deliver the evidence receipt within 10 business days of public registration; the claim stays on the record.",
+    "priority_effect": "HISTORICAL ONLY — next available start slot only. Not available.",
+    "verdict_independence": "HISTORICAL ONLY — identical fee for ESTABLISHED, FAILED and UNKNOWN. Not available.",
+    "payment_timing": "HISTORICAL ONLY — after intake acceptance, before public registration. No intake active.",
+    "payment_method": "NONE — no checkout active. No email invoice; no crypto checkout.",
+    "standard_deliverable": "HISTORICAL ONLY — evidence package: execution record, procedure and environment, available evidence, result, and verification receipt for the submitted claim. Offer withdrawn.",
+    "claim_registration": "HISTORICAL ONLY — claim and scope committed to the public registry repository before work begins. No intake active.",
+    "refund": "HISTORICAL ONLY — no refund on verdict. 100% refund if QPF does not deliver the evidence receipt within 10 business days of public registration; the claim stays on the record. No intake active.",
     "registry": "https://github.com/onenoly1010/qpf-verification-registry",
-    "intake": "https://quantumpiforge.com/verification-request",
+    "intake": "https://quantumpiforge.com/verification-request — CLOSED, not accepting submissions",
     "withdrawn_2026-09-25": {
-      "old_v1_terms": "standard_usd 2, expedited_usd 5, pay_after ESTABLISHED, failed_usd 0 (made revenue depend on the verdict)",
+      "old_v1_terms": "standard_usd 2, expedited_usd 5, pay_after ESTABLISHED, failed_usd 0 (made revenue depend on the verdict) — withdrawn",
       "founder_certificate_cad_500": "withdrawn"
     },
     "is_offer_not_revenue": true
