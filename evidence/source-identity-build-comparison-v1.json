@@ -1,0 +1,219 @@
+{
+  "schemaVersion": "qpf-source-identity-build-comparison-v1",
+  "note": "New evidence. Does not modify deploy/source-identity-correspondence-v1.json or any other existing evidence/receipt.",
+  "provenance": {
+    "generatedAtUtc": "2026-10-25T18:47:32.858Z",
+    "repoCommit": "427aea900e49b1623bf5731fece88e783bd38d0e",
+    "branch": "feat/substantive-verifier-2026-10-25",
+    "submodules": [
+      "620536fa5277db4e3fd46772d5cbc1ea0696fb43 contracts/lib/forge-std (v1.16.1)",
+      "dbb6104ce834628e473d2173bbc9d47f81a9eec3 contracts/lib/openzeppelin-contracts (v5.0.0-12-gdbb6104c)",
+      "-b336c86c0f28bfb07c5ee221f6fdbe429e4776f3 pi-forge-quantum-genesis",
+      "-31832ae7773e018c537aa807105368d31d1cbaa4 quantum-pi-forge-ignited/quantum-pi-forge-ignited",
+      "-5a57f03964bf6a533845f88153db57e4f8529edd server/pi-forge-quantum-genesis"
+    ],
+    "forge": "forge Version: 1.8.6",
+    "node": "v22.23.4",
+    "chainId": "0x4115",
+    "rpcUrl": "https://evmrpc.0g.ai",
+    "rpcMethods": [
+      "eth_getCode (read-only)"
+    ],
+    "operator": "Grok Bot (agent) on behalf of OINIO; operator identity is self-reported"
+  },
+  "method": {
+    "comparison": "runtime bytecode (deployedBytecode) vs eth_getCode at blockTag; equal length required",
+    "masked": [
+      "32-byte Solidity metadata hash payload after every bzzr0/bzzr1/ipfs CBOR marker (both sides, including metadata of embedded creation code)",
+      "byte ranges in the built artifact's deployedBytecode.immutableReferences"
+    ],
+    "notMasked": [
+      "CBOR structure, solc version bytes, metadata length suffix",
+      "every other byte"
+    ],
+    "implementation": "scripts/compare-build-bytecode.cjs"
+  },
+  "summary": {
+    "MISMATCH": 3,
+    "MATCH": 4,
+    "UNKNOWN": 2
+  },
+  "entries": [
+    {
+      "address": "0x75995ec0fdf881189850aed864cb3f43c0dfcb58",
+      "blockTag": "0x26b3ec8",
+      "contract": "OINIOToken (primary)",
+      "liveBytes": 2281,
+      "liveCodeSha256": "dd6c1d967c51052cb6b38c9e5e4faec80ffffa000d4d2f1956fba8bac4902c8b",
+      "result": "MISMATCH",
+      "builtBytes": 2280,
+      "basis": "Live metadata says solc 0.8.24. Closest build (current source and 0ab02a3; evm paris/shanghai/cancun; runs 200/1000/off; with and without via-ir) is 1 byte shorter. Not produced by any repo revision tried; deployed source differs from repo source or settings are unknown.",
+      "verifierChecked": false
+    },
+    {
+      "address": "0x67ad7169184581f23d1e10b39d4eb4e98293e87a",
+      "blockTag": "0x26b3ec8",
+      "contract": "OINIOModelRegistry",
+      "liveBytes": 9850,
+      "liveCodeSha256": "cd1a676da5aef0a764c67929b26bf2aff9d005445f516da22b6cf2da33080db8",
+      "result": "MISMATCH",
+      "builtBytes": 9710,
+      "basis": "Live metadata says solc 0.8.24. Revisions 134f0fa(current), 15e1cd4 built; 4d5175d and 0ab02a3 do not compile standalone. Same settings sweep as the token. Closest is 61 bytes off. Not reproduced.",
+      "verifierChecked": false
+    },
+    {
+      "address": "0x5e50b92e57e854659f7d98c733088aabd551c49f",
+      "blockTag": "0x26b3ec8",
+      "contract": "HeartbeatMonitor",
+      "liveBytes": 2571,
+      "liveCodeSha256": "a9e8eec5f2d5efa8504a1aae0485340cb4af5373ee54440307450c40f54de53f",
+      "result": "MATCH",
+      "build": "contracts/ forge build (foundry.toml: solc 0.8.24, optimizer 200)",
+      "artifact": "contracts/out/HeartbeatMonitor.sol/HeartbeatMonitor.json",
+      "builtBytes": 2571,
+      "exactIncludingMetadata": false,
+      "masked": {
+        "metadataHashRanges": [
+          {
+            "start": 2528,
+            "length": 32
+          }
+        ],
+        "immutableRanges": [
+          {
+            "start": 389,
+            "length": 32
+          },
+          {
+            "start": 585,
+            "length": 32
+          },
+          {
+            "start": 1047,
+            "length": 32
+          },
+          {
+            "start": 1512,
+            "length": 32
+          }
+        ]
+      },
+      "builtMaskedSha256": "fc20af224a2ab868e4962b6321260dd994dc4a97df8434c8675b02354a10f973",
+      "liveMaskedSha256": "fc20af224a2ab868e4962b6321260dd994dc4a97df8434c8675b02354a10f973",
+      "expectedMaskedSha256": "fc20af224a2ab868e4962b6321260dd994dc4a97df8434c8675b02354a10f973",
+      "verifierChecked": true
+    },
+    {
+      "address": "0x6011c341a01c80f489a5c3ab751987a55142f04e",
+      "blockTag": "0x26b3ec8",
+      "contract": "ForgeRegistry",
+      "liveBytes": 4132,
+      "liveCodeSha256": "e50727e108691c2e835e3a35f83bff06f2023c9026122635c65bc0a36c7dfbd2",
+      "result": "MISMATCH",
+      "basis": "Live metadata says solc 0.8.27 (repo pins 0.8.24). Root ForgeRegistry.sol, both revisions a3d61a0 and e1ac127, built with 0.8.27 is ~620 bytes vs live 4132. Deployed source is not in the repo.",
+      "verifierChecked": false
+    },
+    {
+      "address": "0x215e28f94f68c70ea5b79d9fc062def4f7b7d3f8",
+      "blockTag": "0x26b3ec8",
+      "contract": "UniswapV2Factory",
+      "liveBytes": 18951,
+      "liveCodeSha256": "e86acfd8b68a5fa55719387ad3856a92fefc1fd7fe16d7c3b22e951658bb543a",
+      "result": "MATCH",
+      "build": "contracts/0g-dex/*.sol (0.5.16 files only), solc 0.5.16, optimizer OFF, evmVersion istanbul",
+      "artifact": null,
+      "builtBytes": 18951,
+      "exactIncludingMetadata": false,
+      "masked": {
+        "metadataHashRanges": [
+          {
+            "start": 18774,
+            "length": 32
+          },
+          {
+            "start": 18908,
+            "length": 32
+          }
+        ],
+        "immutableRanges": []
+      },
+      "builtMaskedSha256": "bb5e5ad31ab1d05b3ee32adf5ff1454777e8eec5bdc571b2015dd2ccba1935d1",
+      "liveMaskedSha256": "bb5e5ad31ab1d05b3ee32adf5ff1454777e8eec5bdc571b2015dd2ccba1935d1",
+      "verifierChecked": false
+    },
+    {
+      "address": "0x2c70129e50bf88ecd59b89d63af2e8920acf3951",
+      "blockTag": "0x26b3ec8",
+      "contract": "UniswapV2Router02",
+      "liveBytes": 18953,
+      "liveCodeSha256": "b5123996cff2578788ac9072e3ec815c60cc42fc3d1f1c97df8540de0b9559a1",
+      "result": "UNKNOWN",
+      "basis": "Live metadata says solc 0.6.6. Router imports @uniswap/lib and @uniswap/v2-core which are not vendored in the repo; built with npm @uniswap/lib@4.0.1-alpha + @uniswap/v2-core@1.0.1, optimizer off is 62 bytes off (optimizer 999999 is 3453 off). Dependency versions are not pinned in the repo, so not decidable.",
+      "verifierChecked": false
+    },
+    {
+      "address": "0x2067319dc61ccdcdcdc13abe0c72ea3d7318aaee",
+      "blockTag": "0x26b3ec8",
+      "contract": "UniswapV2Pair",
+      "liveBytes": 14954,
+      "liveCodeSha256": "04b519e6f70efe1db6411973d335ed4f52a2f10092e10c87f2efe769cd080328",
+      "result": "MATCH",
+      "build": "contracts/0g-dex/*.sol (0.5.16 files only), solc 0.5.16, optimizer OFF, evmVersion istanbul",
+      "artifact": null,
+      "builtBytes": 14954,
+      "exactIncludingMetadata": false,
+      "masked": {
+        "metadataHashRanges": [
+          {
+            "start": 14911,
+            "length": 32
+          }
+        ],
+        "immutableRanges": []
+      },
+      "builtMaskedSha256": "3c0bc6dd9ed6ef2a377d2f795ab9d62d536bd6a709b63e4acd57777aac0690cb",
+      "liveMaskedSha256": "3c0bc6dd9ed6ef2a377d2f795ab9d62d536bd6a709b63e4acd57777aac0690cb",
+      "verifierChecked": false
+    },
+    {
+      "address": "0x8d088b88219d072ab035502065ee2410c2cb4389",
+      "blockTag": "0x26b3ec8",
+      "contract": "Safe Guardian",
+      "liveBytes": 171,
+      "liveCodeSha256": "c7404fa90f9417f24a7f3e1ee736d3f7843f419188a98921fa385dac0e8a693b",
+      "result": "UNKNOWN",
+      "basis": "171-byte runtime (proxy-like). No corresponding source in the repo.",
+      "verifierChecked": false
+    },
+    {
+      "address": "0x709f23c7a7172e137427576abb5eb8959e2a57c1",
+      "blockTag": "0x26b3ec8",
+      "contract": "OINIOToken (secondary)",
+      "liveBytes": 2280,
+      "liveCodeSha256": "31394bbb3e75a9de2b10c92a43ce23aaf8898d43305926308e85a6bc4638ac1f",
+      "result": "MATCH",
+      "build": "contracts/ forge build (foundry.toml: solc 0.8.24, optimizer 200)",
+      "artifact": "contracts/out/OINIOToken.sol/OINIOToken.json",
+      "builtBytes": 2280,
+      "exactIncludingMetadata": false,
+      "masked": {
+        "metadataHashRanges": [
+          {
+            "start": 2237,
+            "length": 32
+          }
+        ],
+        "immutableRanges": []
+      },
+      "builtMaskedSha256": "a26b179a11a0fc2530f0cdf99a49ecea96e3b5cfbb66281fea06f023b8168477",
+      "liveMaskedSha256": "a26b179a11a0fc2530f0cdf99a49ecea96e3b5cfbb66281fea06f023b8168477",
+      "expectedMaskedSha256": "a26b179a11a0fc2530f0cdf99a49ecea96e3b5cfbb66281fea06f023b8168477",
+      "verifierChecked": true
+    }
+  ],
+  "limitations": [
+    "MATCH means the repo source compiles to the deployed runtime modulo metadata hashes and immutables; it does not establish who deployed it or that metadata (source text hash) is identical.",
+    "Factory/Pair were built from a temporary copy of contracts/0g-dex excluding the 0.6.6 router files; the verifier --build check covers only contracts/out entries (verifierChecked:true).",
+    "MISMATCH means no repo revision/setting tried reproduces the code; it is not proof the deployment is malicious."
+  ]
+}

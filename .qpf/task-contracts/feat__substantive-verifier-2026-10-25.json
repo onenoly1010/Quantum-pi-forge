@@ -9,7 +9,9 @@
     "scripts/verify-independent.cjs",
     "tests/independent-verification/verify-independent.test.cjs",
     "tests/independent-verification/fixtures/tampered-live-rpc-correspondence-v1.json",
-    "docs/evidence/INDEPENDENT_VERIFICATION_V1.md"
+    "docs/evidence/INDEPENDENT_VERIFICATION_V1.md",
+    "scripts/compare-build-bytecode.cjs",
+    "evidence/source-identity-build-comparison-v1.json"
   ],
   "forbiddenPaths": [
     "deploy/independent-verification-v1.json",
@@ -17,7 +19,14 @@
     "evidence/build-artifact-manifest-v1.json",
     "deploy/source-identity-correspondence-v1.json"
   ],
-  "forbiddenActions": ["deploy", "merge", "push to main", "signing", "transactions", "editing evidence to pass"],
+  "forbiddenActions": [
+    "deploy",
+    "merge",
+    "push to main",
+    "signing",
+    "transactions",
+    "editing evidence to pass"
+  ],
   "verification": [
     "npm run test:verify-independent",
     "npm run verify:independent",

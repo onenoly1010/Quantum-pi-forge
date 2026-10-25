@@ -32,3 +32,21 @@ Tests, including deliberately tampered inputs that must FAIL: `npm run test:veri
 - Who ran a verification, or when. Digests prove integrity only.
 - Anything about adoption, demand, or value.
 - Running this grants no authority (`externalVerifierAuthority: false`).
+
+## Build-bytecode comparison (`--build`)
+
+`node scripts/verify-independent.cjs --live --build` (after `cd contracts && git submodule update --init && forge build`)
+adds `sid-build-bytecode-match`: runtime bytecode in `contracts/out` vs read-only `eth_getCode` for entries marked
+`verifierChecked` in `evidence/source-identity-build-comparison-v1.json`. Masked on both sides, and nothing else:
+the 32-byte metadata hash after each bzzr0/bzzr1/ipfs CBOR marker (including embedded creation code), and the
+artifact's `immutableReferences` ranges. UNKNOWN when Foundry, artifacts or live code are unavailable; FAIL on any
+other differing byte or length.
+
+Result at block 0x26b3ec8 (see the evidence file): MATCH 4 (HeartbeatMonitor, secondary OINIOToken, UniswapV2Factory,
+UniswapV2Pair), MISMATCH 3 (primary OINIOToken, OINIOModelRegistry, ForgeRegistry, built with solc 0.8.27 from source
+not in the repo), UNKNOWN 2 (UniswapV2Router02, whose dependencies are not vendored; Safe Guardian, which has no source).
+
+Notes on a built tree:
+- `sid-artifact-directory-claim` checks the versioned tree (`git ls-files contracts/out`), so a local, gitignored build does not flip it.
+- `manifest-artifact-hashes` FAILs in a fresh build at the current submodule pins: 32 of 66 recorded hashes differ (five
+  test contracts also differ in length). The manifest is left unchanged; regenerating it is a decision for the owner.

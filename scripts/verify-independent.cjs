@@ -8,6 +8,8 @@
  *
  * Offline by default. `--live` adds read-only JSON-RPC calls (eth_chainId,
  * eth_getCode) to QPF_RPC_URL (default https://evmrpc.0g.ai). Nothing is signed or sent.
+ * `--build` (with --live) adds sid-build-bytecode-match: contracts/out artifacts from a
+ * local `forge build` vs live code (see scripts/compare-build-bytecode.cjs). UNKNOWN without Foundry.
  *
  * It never writes deploy/independent-verification-v1.json (a historical receipt).
  * The only file it writes is the run record (default .qpf-runs/, which git ignores).
@@ -180,10 +182,14 @@ function offlineChecks(root) {
     const obs = { onlyInSourceIdentity: [...a].filter((x) => !b.has(x)), onlyInRpc: [...b].filter((x) => !a.has(x)), idAddressMismatch: ids };
     return obs.onlyInSourceIdentity.length || obs.onlyInRpc.length || ids.length ? FAIL(obs) : PASS(obs);
   }));
-  out.push(check(SOURCE_ID, "sid-artifact-directory-claim", "artifactDirectoryPresent agrees with whether contracts/out exists", () => {
+  out.push(check(SOURCE_ID, "sid-artifact-directory-claim", "artifactDirectoryPresent agrees with whether contracts/out is versioned (git ls-files; filesystem if no git)", () => {
     if (!S) return UNKNOWN(null, "input unavailable");
-    const actual = fs.existsSync(path.join(root, S.artifactDirectory || "contracts/out"));
-    const obs = { claimed: S.artifactDirectoryPresent, actual };
+    const dir = S.artifactDirectory || "contracts/out";
+    // The claim is about the versioned tree: a local `forge build` output is gitignored and does not count.
+    let actual, basis;
+    if (gitAvailable(root)) { actual = execFileSync("git", ["-C", root, "ls-files", "--", dir], { encoding: "utf8" }).trim().length > 0; basis = "git ls-files"; }
+    else { actual = fs.existsSync(path.join(root, dir)); basis = "filesystem (no git)"; }
+    const obs = { claimed: S.artifactDirectoryPresent, actual, basis };
     return S.artifactDirectoryPresent === actual ? PASS(obs) : FAIL(obs);
   }));
   out.push(check(SOURCE_ID, "sid-states-justified", "no MATCHED state without a real artifactReference; references exist; UNKNOWN-for-unverified entries agree with derived correspondence", () => {
@@ -234,18 +240,69 @@ async function liveCheck(root, network) {
   }
 }
 
+const BUILD_EVIDENCE = "evidence/source-identity-build-comparison-v1.json";
+function forgeVersion() {
+  try { return execFileSync("forge", ["--version"], { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] }).trim().split("\n")[0]; } catch { return null; }
+}
+
+// --build: compare locally built runtime bytecode (contracts/out, from `forge build`) with live code.
+// UNKNOWN when Foundry is absent, the artifacts are absent, or live code cannot be read. FAIL on any MISMATCH.
+async function buildCheck(root, { getCode, forge = forgeVersion } = {}) {
+  const id = "sid-build-bytecode-match", input = BUILD_EVIDENCE;
+  const description = "runtime bytecode built locally from repo source equals live code after masking metadata hashes and immutables";
+  const r = (result, observed, detail = null) => ({ input, id, description, result, observed, detail });
+  const B = loadJson(root, BUILD_EVIDENCE).json;
+  if (!B) return r("UNKNOWN", null, "build-comparison evidence unavailable");
+  const fv = forge();
+  if (!fv) return r("UNKNOWN", null, "Foundry (forge) not found on PATH; run with Foundry installed after `forge build` in contracts/");
+  const { compareRuntime } = require("./compare-build-bytecode.cjs");
+  const targets = (B.entries || []).filter((e) => e.verifierChecked);
+  if (!targets.length) return r("UNKNOWN", { forge: fv }, "no entries marked verifierChecked");
+  const results = [], unknown = [], mismatched = [];
+  for (const e of targets) {
+    const ap = path.join(root, e.artifact);
+    if (!fs.existsSync(ap)) { unknown.push(e.address); results.push({ address: e.address, result: "UNKNOWN", detail: `missing ${e.artifact}; run forge build` }); continue; }
+    const art = JSON.parse(fs.readFileSync(ap, "utf8"));
+    let live;
+    try { live = await getCode(e.address, e.blockTag); } catch (err) { unknown.push(e.address); results.push({ address: e.address, result: "UNKNOWN", detail: `live code unavailable: ${err.message}` }); continue; }
+    const c = compareRuntime(art.deployedBytecode?.object || "", live, art.deployedBytecode?.immutableReferences);
+    const res = { address: e.address, artifact: e.artifact, ...c };
+    if (c.result === "MATCH" && e.expectedMaskedSha256 && c.builtMaskedSha256 !== e.expectedMaskedSha256) { res.result = "MISMATCH"; res.detail = "masked hash differs from evidence"; }
+    if (res.result === "MISMATCH") mismatched.push(e.address); else if (res.result !== "MATCH") unknown.push(e.address);
+    results.push(res);
+  }
+  const obs = { forge: fv, results, mismatched, unknown };
+  return mismatched.length ? r("FAIL", obs) : unknown.length ? r("UNKNOWN", obs, "some targets could not be compared") : r("PASS", obs);
+}
+
 function overall(checks) {
   if (checks.some((c) => c.result === "FAIL")) return "FAIL";
   if (checks.some((c) => c.result === "UNKNOWN")) return "UNKNOWN";
   return "PASS";
 }
 
-async function verify(root, { live = false } = {}) {
+function rpcGetCode(root, network) {
+  const R = loadJson(root, RPC_EVIDENCE).json || {};
+  const url = process.env.QPF_RPC_URL || R.rpcUrl;
+  return async (address, blockTag) => {
+    network.push({ url, method: "eth_getCode", params: [address, blockTag] });
+    const res = await fetch(url, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ jsonrpc: "2.0", id: 1, method: "eth_getCode", params: [address, blockTag] }), signal: AbortSignal.timeout(15000) });
+    const body = await res.json();
+    if (body.error || typeof body.result !== "string") throw new Error(JSON.stringify(body.error || "no result"));
+    return body.result;
+  };
+}
+
+async function verify(root, { live = false, build = false, getCode, forge } = {}) {
   const network = [];
   const { checks, inputs } = offlineChecks(root);
   if (live) {
     const i = checks.findIndex((c) => c.id === "rpc-live-code-match");
     checks[i] = await liveCheck(root, network);
+  }
+  if (build) {
+    const gc = getCode || (live ? rpcGetCode(root, network) : async () => { throw new Error("needs --live for read-only eth_getCode"); });
+    checks.push(await buildCheck(root, { getCode: gc, forge }));
   }
   return { checks, inputs, network, overall: overall(checks) };
 }
@@ -256,10 +313,11 @@ async function main() {
   const startedAt = new Date().toISOString();
   const root = path.resolve(arg("--root") || process.cwd());
   const live = process.argv.includes("--live");
+  const build = process.argv.includes("--build");
   let commit = null;
   if (gitAvailable(root)) commit = execFileSync("git", ["-C", root, "rev-parse", "HEAD"], { encoding: "utf8" }).trim();
   const dirty = commit ? execFileSync("git", ["-C", root, "status", "--porcelain"], { encoding: "utf8" }).trim().length > 0 : null;
-  const res = await verify(root, { live });
+  const res = await verify(root, { live, build });
   const finishedAt = new Date().toISOString();
   const outRel = arg("--out") || path.join(".qpf-runs", `independent-verification-run-${startedAt.replace(/[:.]/g, "-")}.json`);
   const outPath = path.resolve(root, outRel);
@@ -271,7 +329,7 @@ async function main() {
     commit, workingTreeDirty: dirty,
     environment: { node: process.version, platform: `${os.type()} ${os.release()} ${os.arch()}` },
     command: ["node", path.relative(process.cwd(), __filename), ...process.argv.slice(2)].join(" "),
-    mode: live ? "offline+live-readonly-rpc" : "offline",
+    mode: (live ? "offline+live-readonly-rpc" : "offline") + (build ? "+build-bytecode" : ""),
     inputsSha256: res.inputs,
     checks: res.checks,
     counts: res.checks.reduce((c, x) => ((c[x.result] = (c[x.result] || 0) + 1), c), {}),
@@ -295,5 +353,5 @@ async function main() {
   process.exitCode = exitCode;
 }
 
-module.exports = { verify, overall, EMPTY_CODE_SHA };
+module.exports = { verify, overall, buildCheck, EMPTY_CODE_SHA };
 if (require.main === module) main().catch((e) => { console.error(`ERROR verifier: ${e.stack || e.message}`); process.exitCode = 3; });

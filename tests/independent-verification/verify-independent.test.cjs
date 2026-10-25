@@ -108,3 +108,54 @@ test("verifier never rewrites the historical receipt", async () => {
   await verify(repo);
   assert.deepEqual(fs.readFileSync(p), before);
 });
+
+// ---- --build: sid-build-bytecode-match ----
+const { buildCheck } = require("../../scripts/verify-independent.cjs");
+const { compareRuntime } = require("../../scripts/compare-build-bytecode.cjs");
+const META = "a2646970667358221220" + "11".repeat(32) + "64736f6c63430008180033";
+const BODY = "6080604052" + "7f" + "00".repeat(32) + "5b00";
+const IMM = { "7": [{ start: 6, length: 32 }] };
+function buildRoot(builtHex) {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), "qpf-build-"));
+  fs.mkdirSync(path.join(root, "evidence"), { recursive: true });
+  fs.mkdirSync(path.join(root, "contracts/out/X.sol"), { recursive: true });
+  fs.writeFileSync(path.join(root, "contracts/out/X.sol/X.json"), JSON.stringify({ deployedBytecode: { object: "0x" + builtHex, immutableReferences: IMM } }));
+  fs.writeFileSync(path.join(root, "evidence/source-identity-build-comparison-v1.json"), JSON.stringify({ entries: [{ address: "0x" + "ab".repeat(20), blockTag: "0x1", artifact: "contracts/out/X.sol/X.json", verifierChecked: true }] }));
+  return root;
+}
+const liveHex = BODY.replace("00".repeat(32), "cd".repeat(32)) + META.replace("11".repeat(32), "22".repeat(32));
+const getCode = async () => "0x" + liveHex;
+const forge = () => "forge 1.8.6 (test)";
+
+test("build: PASS when only metadata hash and immutables differ", async () => {
+  const r = await buildCheck(buildRoot(BODY + META), { getCode, forge });
+  assert.equal(r.result, "PASS", JSON.stringify(r.observed));
+});
+test("build: FAIL when a non-masked byte differs", async () => {
+  const r = await buildCheck(buildRoot(BODY.replace("6080", "6081") + META), { getCode, forge });
+  assert.equal(r.result, "FAIL");
+});
+test("build: FAIL when solc version bytes in metadata differ (not masked)", async () => {
+  const r = await buildCheck(buildRoot(BODY + META.replace("0818", "0819")), { getCode, forge });
+  assert.equal(r.result, "FAIL");
+});
+test("build: FAIL on length difference", async () => {
+  const r = await buildCheck(buildRoot(BODY + "00" + META), { getCode, forge });
+  assert.equal(r.result, "FAIL");
+});
+test("build: UNKNOWN when Foundry is absent", async () => {
+  const r = await buildCheck(buildRoot(BODY + META), { getCode, forge: () => null });
+  assert.equal(r.result, "UNKNOWN");
+});
+test("build: UNKNOWN when artifacts are absent", async () => {
+  const root = buildRoot(BODY + META);
+  fs.rmSync(path.join(root, "contracts/out"), { recursive: true });
+  assert.equal((await buildCheck(root, { getCode, forge })).result, "UNKNOWN");
+});
+test("build: UNKNOWN when live code cannot be read", async () => {
+  const r = await buildCheck(buildRoot(BODY + META), { getCode: async () => { throw new Error("offline"); }, forge });
+  assert.equal(r.result, "UNKNOWN");
+});
+test("compareRuntime: immutables outside declared ranges are not masked", () => {
+  assert.equal(compareRuntime(BODY + META, liveHex, {}).result, "MISMATCH");
+});
