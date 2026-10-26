@@ -1,0 +1,39 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "fix/entry-surface-check-2026-10-25",
+  "outcome": "Align scripts/verify-entry-surfaces.cjs with the pages corrected in PR #906 so the post-build check passes on main without weakening it.",
+  "canonicalSources": [
+    "scripts/verify-entry-surfaces.cjs",
+    "deploy/index.html",
+    "deploy/try.html",
+    "deploy/open.html"
+  ],
+  "allowedPaths": [
+    "scripts/verify-entry-surfaces.cjs",
+    ".qpf/task-contracts/fix__entry-surface-check-2026-10-25.json"
+  ],
+  "forbiddenPaths": [
+    "contracts/**",
+    "wallets/**",
+    "src/**",
+    "deploy/**"
+  ],
+  "forbiddenActions": [
+    "deploying the site",
+    "merging to main",
+    "automated outbound outreach",
+    "spending money or Guardian 0G"
+  ],
+  "verification": [
+    "npm run build && node scripts/verify-entry-surfaces.cjs",
+    "npm run verify:publication-scope"
+  ],
+  "definitionOfDone": [
+    "Check exits 0 on a Node 22 build of this branch.",
+    "Check still fails when a corrected title is reverted."
+  ],
+  "authorizationRequired": [
+    "merge to main",
+    "deploy"
+  ]
+}

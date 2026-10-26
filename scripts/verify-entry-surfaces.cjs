@@ -44,8 +44,10 @@ const requiredFiles = [
 
 /** title substring that must appear in the dedicated page (case-sensitive) */
 const titleMustInclude = {
-  'try.html': 'Try QPF',
-  'open.html': 'Open Gates',
+  // PR #906: /try was retitled to say plainly it is a limited demo, not a service.
+  'try.html': 'Limited technical demonstration',
+  // PR #906: /open now states gates are closed and the page is a preserved record.
+  'open.html': 'preserved record (gates closed to new service)',
   'meet.html': 'Meet a co-creator',
   'mint-ai.html': 'Mint your AI',
   'birth.html': 'Watch your AI come to life',
@@ -159,17 +161,17 @@ if (index) {
   if (!index.includes('/open.html') && !index.includes('href="/open"')) {
     errors.push('index.html missing link to /open.html');
   }
-  if (!index.includes('/meet.html') && !index.includes('href="/meet"')) {
-    errors.push('index.html missing link to /meet.html');
+  // PR #906 removed home links to /meet.html, /mint-ai.html and /problems/
+  // (those pages still exist and are still required in out/ above). The home
+  // page now routes strangers to the verifiable record instead; assert those.
+  if (!index.includes('/deployed-addresses.html')) {
+    errors.push('index.html missing link to /deployed-addresses.html');
   }
-  if (!index.includes('/mint-ai.html')) {
-    errors.push('index.html missing link to /mint-ai.html');
+  if (!index.includes('/what-it-does.html')) {
+    errors.push('index.html missing link to /what-it-does.html');
   }
-  if (!/Know what is real/i.test(index)) {
-    errors.push('index.html missing Know what is real');
-  }
-  if (!index.includes('/problems/')) {
-    errors.push('index.html missing link to /problems/');
+  if (!index.includes('/verification-request.html')) {
+    errors.push('index.html missing link to /verification-request.html');
   }
   if (!index.includes('/support.html')) {
     errors.push('index.html missing link to /support.html');
@@ -177,8 +179,13 @@ if (index) {
   if (!index.includes('/verification-artifact.html')) {
     errors.push('index.html missing link to /verification-artifact.html');
   }
-  if (!/Know what is real/i.test(index)) {
-    errors.push('index.html missing discoverability hero phrase "Know what is real"');
+  // PR #906 replaced the hero "Know what is real" with the current h1 wording.
+  if (!/It needs verifiable boundaries/i.test(index)) {
+    errors.push('index.html missing hero phrase "It needs verifiable boundaries"');
+  }
+  // Home page title must identify it as the preserved technical record.
+  if (!/<title>[^<]*Preserved Technical Record/i.test(index)) {
+    errors.push('index.html title missing "Preserved Technical Record"');
   }
 }
 
