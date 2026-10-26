@@ -22,6 +22,7 @@
     "verify:external:v1": "node external-verification/v1/run.mjs",
     "test:external-verification:v1": "node --test tests/external-verification/v1.test.js",
     "test:claim": "node --test tests/claim/",
+    "test:birth": "node --test tests/birth/",
     "activation:preflight": "node scripts/activation-preflight.mjs",
     "build:cf": "node scripts/build.js",
     "verify:production-funnel": "bash scripts/verify-production-funnel.sh",
