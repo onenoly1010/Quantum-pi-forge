@@ -1,15 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 630" width="1200" height="630">
   <title>Quantum Pi Forge — A claim is not proof. Proof is not permission.</title>
   <rect width="1200" height="630" fill="#0a0a0c"/>
   <rect x="0" y="0" width="1200" height="8" fill="#e8a04a"/>
-  <!-- mark (same geometry as qpf-mark.svg, scaled 1.5x) -->
-  <g transform="translate(88 84) scale(1.5)">
-    <rect x="1" y="1" width="62" height="62" rx="14" fill="#121218" stroke="#e8a04a" stroke-opacity=".35" stroke-width="2"/>
-    <rect x="13" y="17" width="38" height="7" rx="2" fill="#e8a04a"/>
-    <rect x="21" y="22" width="7" height="27" rx="1.5" fill="#e8a04a"/>
-    <path d="M36 22h7v18.5c0 2 1 3 3 3h3v6h-4c-6 0-9-3-9-9z" fill="#e8a04a"/>
-  </g>
-  <text x="208" y="160" font-family="Inter" font-weight="700" font-size="60" letter-spacing="-0.5" fill="#f0f0f3">Quantum Pi Forge</text>
+  <!-- QF logo: deploy/brand/qf-logo.png (cropped from the original artwork, shape and colors unchanged) -->
+  <image href="qf-logo.png" x="88" y="78" width="152" height="105" preserveAspectRatio="xMidYMid meet"/>
+  <text x="268" y="152" font-family="Inter" font-weight="700" font-size="60" letter-spacing="-0.5" fill="#f0f0f3">Quantum Pi Forge</text>
   <rect x="88" y="262" width="1024" height="200" fill="#ffffff" fill-opacity="0.03"/>
   <rect x="88" y="262" width="8" height="200" fill="#e8a04a"/>
   <text font-family="Inter" font-weight="600" font-size="62" letter-spacing="-1" fill="#f0f0f3">
