@@ -1,0 +1,54 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "copilot/fix-failing-github-actions-job-again",
+  "outcome": "Preserve the inherited canonical public-state documentation artifact and restore the Evidence and Dependency Audit gate by replacing the vulnerable fast-uri override identified in GitHub Actions job 101095720640.",
+  "canonicalSources": [
+    ".github/workflows/evidence-and-audit.yml",
+    "package.json",
+    "package-lock.json",
+    "docs/review/VERIFICATION_STATUS_TABLE_V1.md",
+    "evidence/INDEX.md",
+    "docs/ai/AI_POLICY.md",
+    "docs/ai/AUTHORIZATION_WORKFLOW.md",
+    "contracts/DEPLOYED_ADDRESSES.md",
+    "AUDIT.md",
+    "STATUS.md"
+  ],
+  "allowedPaths": [
+    ".qpf/task-contracts/copilot__fix-failing-github-actions-job-again.json",
+    "package.json",
+    "package-lock.json",
+    ".qpf/task-contracts/docs__what-qpf-is-today-v1.json",
+    "docs/review/WHAT_QPF_IS_TODAY_V1.md",
+    "README.md"
+  ],
+  "forbiddenPaths": [
+    "contracts/**",
+    "wallets/**",
+    "src/**",
+    "functions/**"
+  ],
+  "forbiddenActions": [
+    "public mint",
+    "liquidity",
+    "staking/yield",
+    "bridge",
+    "wallet transfer",
+    "agent signing"
+  ],
+  "verification": [
+    "npm ci",
+    "npm audit --audit-level=high",
+    "npm run verify:all",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/copilot__fix-failing-github-actions-job-again.json --base origin/main"
+  ],
+  "definitionOfDone": [
+    "The lockfile resolves fast-uri to a version outside the advisory range.",
+    "The high-severity npm audit gate passes.",
+    "The inherited public-state page and README pointer remain within their existing allowlisted artifact scope.",
+    "No protocol activation occurs."
+  ],
+  "authorizationRequired": [
+    "activating mint, staking, liquidity, bridge, wallet, or signing functions"
+  ]
+}
