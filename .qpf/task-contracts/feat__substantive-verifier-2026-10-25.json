@@ -1,0 +1,35 @@
+{
+  "schema": "qpf.task_contract.v1",
+  "branch": "feat/substantive-verifier-2026-10-25",
+  "outcome": "Replace format-only verify-independent with substantive PASS/FAIL/UNKNOWN checks, run records outside tracked receipts, and tamper tests. No evidence or historical receipt edits.",
+  "allowedPaths": [
+    ".qpf/task-contracts/feat__substantive-verifier-2026-10-25.json",
+    ".gitignore",
+    "package.json",
+    "scripts/verify-independent.cjs",
+    "tests/independent-verification/verify-independent.test.cjs",
+    "tests/independent-verification/fixtures/tampered-live-rpc-correspondence-v1.json",
+    "docs/evidence/INDEPENDENT_VERIFICATION_V1.md",
+    "scripts/compare-build-bytecode.cjs",
+    "evidence/source-identity-build-comparison-v1.json"
+  ],
+  "forbiddenPaths": [
+    "deploy/independent-verification-v1.json",
+    "evidence/live-rpc-correspondence-v1.json",
+    "evidence/build-artifact-manifest-v1.json",
+    "deploy/source-identity-correspondence-v1.json"
+  ],
+  "forbiddenActions": [
+    "deploy",
+    "merge",
+    "push to main",
+    "signing",
+    "transactions",
+    "editing evidence to pass"
+  ],
+  "verification": [
+    "npm run test:verify-independent",
+    "npm run verify:independent",
+    "npm run verify:publication-scope -- --contract .qpf/task-contracts/feat__substantive-verifier-2026-10-25.json --base origin/main"
+  ]
+}
