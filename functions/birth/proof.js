@@ -15,22 +15,39 @@ export async function onRequest(context) {
   }
   const pub = publicRecord({ ...record, record_mac: undefined, ai_secret_jwk: undefined });
   const mac_ok = record.record_mac === await hmacHex(secret(env), canonical(pub));
+  // Never re-sign (or upgrade) a record this service did not issue.
+  if (!mac_ok) {
+    return json({ state: "VERIFICATION_FAILED", mac_ok: false, error: "record MAC invalid", fabricated_tx: false }, 401);
+  }
 
-  let receipt = null;
-  const tx = record.attestation?.tx_hash;
-  if (tx) {
+  async function rpc(method, params) {
     const r = await fetch(RPC, {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ jsonrpc: "2.0", id: 1, method: "eth_getTransactionReceipt", params: [tx] }),
+      body: JSON.stringify({ jsonrpc: "2.0", id: 1, method, params }),
     });
-    const j = await r.json();
-    receipt = j.result;
+    return (await r.json()).result ?? null;
   }
 
+  let receipt = null;
+  let reason = null;
+  const tx = record.attestation?.tx_hash;
+  if (tx) receipt = await rpc("eth_getTransactionReceipt", [tx]);
+
   let state = record.state;
-  if (tx && receipt && receipt.status === "0x1") state = "VERIFIED";
-  else if (tx && receipt === null) state = "MAINNET_PENDING";
+  if (tx && receipt && receipt.status === "0x1") {
+    // A confirmed receipt alone is not enough: the tx must be this birth's attestation.
+    const chain = await rpc("eth_chainId", []);
+    const txo = await rpc("eth_getTransactionByHash", [tx]);
+    const want = ("0x" + (record.attestation?.payload_hash || "")).toLowerCase();
+    if (chain !== "0x4115") { state = "VERIFICATION_FAILED"; reason = "RPC chain id is not 16661"; }
+    else if (!txo || String(txo.input || "").toLowerCase() !== want
+      || String(txo.to || "").toLowerCase() !== "0x000000000000000000000000000000000000dead") {
+      state = "VERIFICATION_FAILED"; reason = "transaction does not carry this birth_manifest_hash";
+    } else state = "VERIFIED";
+  } else if (tx && receipt && receipt.status !== "0x1") {
+    state = "MAINNET_FAILED"; reason = "attestation transaction reverted (receipt status " + receipt.status + ")";
+  } else if (tx && receipt === null) state = "MAINNET_PENDING";
   else if (record.state === "MAINNET_FAILED") state = "MAINNET_FAILED";
 
   const out = {
@@ -50,6 +67,7 @@ export async function onRequest(context) {
     tx_status: receipt ? receipt.status : null,
     block_number: receipt ? receipt.blockNumber : null,
     fabricated_tx: false,
+    reason,
     offchain: {
       manifest: true,
       identity: true,
