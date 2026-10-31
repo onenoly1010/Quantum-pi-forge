@@ -63,6 +63,7 @@ Use this paragraph for website heroes, grant abstracts, partner one-pagers, and 
 | Staged path toward Pi Network interoperability | Bridge to 47M Pi Network users |
 | Post-quantum posture discussed in design/docs | First fully sealed post-quantum-secure deployment |
 | Owner/admin controls constrained by design intent | No owner key, no admin backdoors, immutable forever |
+| Level 0 verifies artifact↔receipt binding deterministically | Level 0 verifies attestations, chain state, or another network's self-reported metrics |
 
 ---
 
@@ -79,6 +80,7 @@ Use this paragraph for website heroes, grant abstracts, partner one-pagers, and 
 | V-05 | Economic activation boundaries are documented as blocked/disabled | `STATUS.md`, `docs/governance/PUBLIC_VALIDATION_STATUS_V1.md`, claim matrix staking/liquidity rows | Disabled is a safety boundary, not a failure |
 | V-06 | Contract source and tests exist in-repo | `contracts/`, Foundry/OZ setup, deployment scripts as present | Source existence ≠ every claimed chain deployment |
 | V-07 | Local-first Ollama / Guardian-style agent paths fit architecture | Agent/runtime docs, local inference scripts, compute policy docs | Local capability; not “global autonomous network” |
+| V-08 | Level 0 verification is deterministic, network-neutral, and independently reproducible | `docs/public/QPF_LEVEL0_HARNESS_SCOPE_V1.md`, `external-verification/v1/`, `npm run verify:external:v1` (T2-B), `npm run verify:qpf:level0`, `npm run test:verification` | Scope is artifact↔receipt binding, canonical form, and identifier re-derivation **only**. Not attestation validity, chain state, consensus, provenance, or metric truthfulness — those are Level 1 and remain **not started** (`src/verification/README.md`). `BLOCKED` ≠ `FAIL` |
 
 ### Implemented but gated
 
@@ -128,6 +130,7 @@ Do **not** use these in website copy, grants, partner decks, or Discord/press wi
 5. “Yield is live / staking is live / public mint is open” without current on-chain + gate-clear evidence
 6. Exact block numbers, trust scores, repo/commit counts, or “currently on the public site” without a dated independent check
 7. “Fully autonomous governance is live”
+8. “Our verifier proves a third-party testnet, dashboard, or self-reported metric is wrong” — Level 0 cannot support this; it requires Level 1 (attestation/trust/policy), which is **not started**
 
 ---
 
