@@ -1,6 +1,6 @@
 # Saskatchewan AI Infrastructure Evidence Map v1
 
-**Status:** RESEARCH ARTIFACT (2026-09-16)  
+**Status:** RESEARCH ARTIFACT (2026-09-16; v3 source update 2026-09-25)  
 **Not:** a customer list, a sales deck, or proof of QPF demand.  
 **Hunt, not pitch.**
 
@@ -27,7 +27,7 @@ Interview question (not a sale):
 | “32 Saskatchewan and prairie-region firms on the project team” | **CLAIM** (Bell). **Full roster NOT ESTABLISHED** | [Bell community page](https://businessmarkets.bell.ca/regina-info) |
 | 80% labour from Saskatchewan; majority of steel/materials SK-produced | **CLAIM** (Bell) | same |
 | Expansion MOU: path to 1.2 GW, “more than $50B” total capital including tenant compute + power gen | **CLAIM**; expansion is **non-binding MOU** | SK 14 Sep 2026; Globe/Logic 14 Sep 2026 |
-| Data Centre Framework (Aug 2026): 6 principles including Canadian HQ, sovereignty, local jobs, BYOP, CIC intake | **ESTABLISHED as provincial policy text** | SK 27 Aug 2026 |
+| Data Centre Framework (Aug 2026): 6 principles including Canadian HQ, sovereignty, local jobs, BYOP, CIC intake | **ESTABLISHED as provincial policy text** | SK 27 Aug 2026; [Framework PDF 26-5990](https://www.saskatchewan.ca/-/media/news-release-backgrounders/2026/aug/26-5990-data-centre-framework.pdf) (primary; intake `invest.sask@gov.sk.ca`) |
 | >30 other data-centre applications in provincial queue | **CLAIM** (province) | SK 27 Aug 2026 |
 | Closed-loop cooling; no municipal/groundwater for cooling | **CLAIM** (Bell) | Bell community page |
 | Waste-heat reuse to U of R / Sask Polytech / GGFN housing | **CLAIM / under study** | Bell Mar 2026; community page |
@@ -69,7 +69,7 @@ Full list of 32 is **not published**. Do not invent it. Named so far:
 | Org | Role | Source |
 | --- | --- | --- |
 | **George Gordon First Nation** (Chief Shawn Longman at Mar 2026 announcement) | Agreement on Indigenous procurement, workforce, possible waste-heat/housing | SK 16 Mar 2026; Bell 14 May 2026 |
-| RM of Sherwood | Municipal development approval (reported 20 Apr 2026) | Brandon Sun 10 Aug 2026 |
+| RM of Sherwood | Development agreement for DP 26-005 approved, Resolution 2026/0111 (20 Apr 2026); Bylaw 01/26 rezoning AG to I1, NW 33-16-19 W2M | Primary: [RM minutes 20 Apr 2026](https://rmofsherwood.ca/app/uploads/2026/06/Regular-Council-Meeting-Minutes-April-20-2026.pdf); [DP 26-005 advance notification](https://rmofsherwood.ca/advanced-notification-of-development-agreement-for-dp-26-005-proposed-data-centre-at-nw-33-16-19-w2m/) |
 | University of Regina / Saskatchewan Polytechnic | Possible waste-heat offtakers (**not a signed delivery**) | Bell Mar 2026 claim |
 
 ### Crowns / government (proof-demanders, not just vendors)
@@ -121,7 +121,7 @@ Contractors prove things **up**, not to the public first:
 
 1. **Bird / Bell project controls** — daily commercial proof (invoices, quantities, labour).
 2. **Province (CIC + Trade)** — Framework: Canadian HQ, sovereignty, local jobs, BYOP, experience. Intake is centralized. Contact: CIC media; Trade and Export Development 306-526-6302.
-3. **RM of Sherwood** — permits, bylaws, possible EIA.
+3. **RM of Sherwood** — permits, bylaws, possible EIA. Per the RM (reported 15 Sep 2026), any expansion needs new rezoning, a new development permit, a public hearing, GGFN consultation, and a provincial environmental assessment ([SaskToday](https://www.sasktoday.ca/regina-today/regina-news/bell-requires-new-development-permit-for-ai-data-centre-expansion-rm-of-sherwood-says-12782843)). **REPORTED (secondary); no new permit filing found as of 2026-09-25.**
 4. **First Nation / community** — GGFN agreement; SUMA/SARM asked for municipal seat (framework release).
 5. **Tenants’ customers** — if anyone buys “sovereign AI,” they currently have Bell/tenant attestation.
 
@@ -162,7 +162,10 @@ If they name a painful claim, **then** QPF enters. Price is unknown ($5K / $25K 
 
 - Bell community: https://businessmarkets.bell.ca/regina-info (32 firms; 80% labour; closed-loop water; BYOP)
 - SK 14 Sep 2026: https://www.saskatchewan.ca/government/news-and-media/2026/september/14/single-largest-private-sector-capital-investment-in-history-of-canada-through-bell-ais-saskatchewan
-- SK Data Centre Framework: https://www.saskatchewan.ca/government/news-and-media/2026/august/27/waiting-on-news-release (+ PDF 26-5990)
+- RM of Sherwood minutes 20 Apr 2026 (Res. 2026/0111): https://rmofsherwood.ca/app/uploads/2026/06/Regular-Council-Meeting-Minutes-April-20-2026.pdf
+- RM of Sherwood DP 26-005 notification: https://rmofsherwood.ca/advanced-notification-of-development-agreement-for-dp-26-005-proposed-data-centre-at-nw-33-16-19-w2m/
+- SaskToday, RM on expansion permitting (15 Sep 2026): https://www.sasktoday.ca/regina-today/regina-news/bell-requires-new-development-permit-for-ai-data-centre-expansion-rm-of-sherwood-says-12782843
+- SK Data Centre Framework: https://www.saskatchewan.ca/government/news-and-media/2026/august/27/waiting-on-news-release (+ [PDF 26-5990](https://www.saskatchewan.ca/-/media/news-release-backgrounders/2026/aug/26-5990-data-centre-framework.pdf))
 - Bell 14 May 2026 partners: https://www.prnewswire.com/news-releases/bell-names-construction-partners-for-300-mw-saskatchewan-ai-fabric-facility-and-announces-long-term-partnership-with-bird-construction-302771697.html
 - Early contractors (4 May 2026): https://ilrtoday.ca/bell-engages-saskatchewan-contractors-for-early-phases-of-300mw-ai-data-centre-build/
 - Behlen: https://www.brandonsun.com/local/2026/08/10/behlen-plays-key-role-in-building-largest-ai-data-centre-in-canada
@@ -188,14 +191,14 @@ New-source verification this pass: [Bell CNW expansion](https://www.newswire.ca/
 | # | Target | Role | CLAIM at stake | Who needs proof | Existing evidence | Evidence gap | Bounded QPF posture |
 |---|---|---|---|---|---|---|---|
 | 1 | **Unnamed BYOP power partner** | Future gas gen for +900 MW | Off-grid power under Framework | SK energy sector, regulators, public | Not identified | Entire package UNKNOWN | **Watch list #1** |
-| 2 | **SK gov / CIC intake** | Proof-rule owner (Framework) | Criteria evidenced per applicant; $52B framing | Public, municipalities, proponents | Framework text; approval narrative | Intake transparency | Map public claims to public evidence — not legal advice |
+| 2 | **SK gov / CIC intake** | Proof-rule owner ([Framework PDF](https://www.saskatchewan.ca/-/media/news-release-backgrounders/2026/aug/26-5990-data-centre-framework.pdf); intake `invest.sask@gov.sk.ca`) | Criteria evidenced per applicant; $52B framing | Public, municipalities, proponents | Framework text; approval narrative | Intake transparency | Map public claims to public evidence — not legal advice |
 | 3 | **Bell AI Fabric** | Anchor developer | 1.2 GW path; >$50B stack; sovereignty; closed-loop cooling; HQ | Investors, gov, tenants, public | Releases; MOU; MD&A cautions; photos | Verifiable-today vs forward-looking; stack not itemized | Public-claim package: established vs UNKNOWN — not an audit |
 | 4 | **Cerebras / CoreWeave** | Tenants | Sovereign SK compute offerings | Sovereign-compute buyers | Named in releases only | Live vs planned; residency guarantees | Bounded verify of **published** SK claims when sold |
 | 5 | **SaskPower / SaskEnergy / SaskTel** | Crown infra | Interconnect by end-2026; HP pipeline + meter; diverse fibre | Ratepayers, boards, gov | SK Mar 16; backgrounder | Milestone status; gen partner unnamed | Published-statements package only |
 | 6 | **Bird Construction** | Lead construction | Sherwood delivery; national partnership; warrants | Investors, Bell, markets | May 14 CNW | Progress vs schedule over time | Public-milestone receipts (not safety audit) |
 | 7 | **GGFN / GGDL** | Indigenous partner | Participation, workforce, heat-reuse | Membership, Bell, province | Agreements; Steering Committee | Outcome metrics thin | Public outcome receipts when they publish |
 | 8 | **U of R / Sask Polytech** | Post-secondary | Internships, apprenticeships | Students, funders | Named in releases | "Explore" vs measurable | Verify **published** program claims |
-| 9 | **RM of Sherwood** | Permitting | Dev agreement Apr 20 2026 (per Bell) | Residents, council | Bell May 4 statement | Conditions / monitoring | Municipal claim to document index |
+| 9 | **RM of Sherwood** | Permitting | DP 26-005 agreement, Res. 2026/0111 (Apr 20 2026); expansion needs new rezoning, permit, hearing, GGFN consultation, provincial EA (reported) | Residents, council | Primary minutes + notification; Bell May 4 statement | Agreement conditions text; expansion filings (none found yet) | Municipal claim to document index |
 | 10 | **Early trades** (Maxie's, Behlen, Soletanche, Ardel/Amrize, Red Pelican, WaterMark) | Delivery | Trade-specific delivery | Bell, primes | Named May 4 | Thin public claims | Low fit unless compliance claims made |
 | 11 | **ATAL** | Architect of Record | Design responsibility | Bell, Bird, municipality | Named May 14 | Permit artifacts | Permit/drawing sets if public |
 
@@ -204,10 +207,19 @@ New-source verification this pass: [Bell CNW expansion](https://www.newswire.ca/
 ## 10. Next research steps (v2)
 
 1. Primary source for "32 companies" (Bell deck, speech, FOI, RM filings).
-2. RM of Sherwood public dev agreement / permit files.
+2. RM of Sherwood public dev agreement / permit files. **PARTIALLY CLOSED (2026-09-25):** minutes, Res. 2026/0111, DP 26-005 notification, Bylaw 01/26 found. Still open: signed agreement text / conditions, and any expansion permit filing.
 3. BYOP power-partner RFP/announcement watch (list #1).
-4. Full Framework PDF (ref 26-5990) beyond the news release.
+4. Full Framework PDF (ref 26-5990) beyond the news release. **PARTIALLY CLOSED (2026-09-25):** [PDF located](https://www.saskatchewan.ca/-/media/news-release-backgrounders/2026/aug/26-5990-data-centre-framework.pdf), intake `invest.sask@gov.sk.ca`. Still open: published scoring or evidence criteria per principle.
 5. UNKNOWN contact desks (SaskPower/SaskEnergy/SaskTel media; Bird IR; GGDL; UofR/Sask Poly).
 6. Draft (not send) one Framework-aligned evidence-offer one-pager for CIC/Trade — human authorization before any contact.
 
 **Not:** pipeline, outreach script, endorsement, or demand proof. Price unknown, not invented. Contact with any named firm needs Kris's authorization.
+
+## 11. v3 source update (2026-09-25)
+
+Research only. No customers, no revenue, no outreach, no economics. Scoreboard unchanged: 0 outside conversations, 0 customers, $0 revenue.
+
+- **Closed or upgraded:** Framework PDF (primary) and intake address; RM of Sherwood primary filings (minutes, Res. 2026/0111, DP 26-005, Bylaw 01/26).
+- **Added (REPORTED, secondary):** RM statement that expansion requires new rezoning, permit, public hearing, GGFN consultation, and a provincial EA.
+- **Still NOT ESTABLISHED:** BYOP power partner (unnamed); the "32 firms" roster (unpublished); SaskTel up-to-10 MW offer (backgrounder 26-6039 only).
+- The public page `deploy/research/saskatchewan-evidence-map.html` is not changed in this PR; syncing it is a separate, reviewed step.
