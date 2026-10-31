@@ -14,6 +14,7 @@ The index is not a runtime system. It does not grant wallet, deployment, posting
 | QPF-HERMES-RETENTION-POLICY-v1 | Receipt retention and commit eligibility policy | Active | `docs/evidence/HERMES_RECEIPT_RETENTION_POLICY.md` | Documentation review |
 | QPF-LOCAL-CI-SURROGATE-v1 | Local build and verification substitute while hosted checks are unavailable | Active | `scripts/local-ci-surrogate.sh` | `bash scripts/local-ci-surrogate.sh` |
 | QPF-OINIO-CUSTODY-POLICY-v1 | OINIO owner custody decision: temporary freeze; hardened custody design path | Active | `evidence/contract-authority/OINIO_CUSTODY_POLICY_FRAMEWORK.md`, `evidence/custody-target/README.md` | Documentation review |
+| QPF-PHYSICAL-COMPUTE-STATE-v1 | Local-only physical-compute evidence boundary and reproducible calculation verifier | Active | `docs/evidence/PHYSICAL_COMPUTE_STATE_BOUNDARY_V1.md`, `src/verification/physical-compute.js`, `tests/verification/physical-compute.test.js` | `npm run test:physical-compute` |
 
 ## Deferred Evidence Lanes
 
@@ -199,4 +200,3 @@ Verification:
 Documentation review.
 
 Authority boundary: read-only custody policy documentation only; no wallet signing, ownership transfer, renounceOwnership, token minting, staking, or chain mutation.
-
