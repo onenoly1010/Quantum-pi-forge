@@ -25,6 +25,12 @@ const staticFiles = [
   // deploy/404.html (NOT repo-root 404.html, which is a different page).
   { src: 'deploy/404.html', dest: '404.html' },
   { src: 'deploy/index.html', dest: 'index.html' },
+  // Link-preview image + favicons. Sources: deploy/brand/ (og-image.svg, qf-logo.png); rendered files
+  // are committed (see scripts/render-brand-assets.mjs, not run by the build).
+  { src: 'deploy/og-image.png', dest: 'og-image.png' },
+  { src: 'deploy/favicon-32.png', dest: 'favicon-32.png' },
+  { src: 'deploy/favicon.ico', dest: 'favicon.ico' },
+  { src: 'deploy/apple-touch-icon.png', dest: 'apple-touch-icon.png' },
   { src: 'deploy/dao.html', dest: 'dao.html' },
   { src: 'deploy/resonate.html', dest: 'resonate.html' },
   { src: 'deploy/staking.html', dest: 'staking.html' },
