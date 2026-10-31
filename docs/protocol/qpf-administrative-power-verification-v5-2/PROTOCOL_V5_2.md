@@ -1,5 +1,9 @@
 # QPF Administrative Power Verification Protocol v5.2
 
+## Related
+
+- [Verification & Auditability Evidence Scorecard V1](../../governance/VERIFICATION_AUDITABILITY_SCORECARD_V1.md) — minimum defensible bar for any maturity or auditability assessment of QPF.
+
 ## Status
 
 **Normative specification.** This package records methodology only. It does not manufacture a real audit and does not adjudicate any real government artifact in this session.
